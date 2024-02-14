@@ -1,0 +1,27 @@
+@charset "utf-8";
+/*
+ * W3002.css
+ * 
+ * Carry out Header画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+.shipper_of_cargoes {
+    width: 56px;
+}
+
+.group_legend {
+    font-weight: bold;
+    color: #000000;
+    position: relative;
+    top: -10px;
+}
+
+.group_text {
+    font-style: normal;
+    font-size: 10px;
+}
+
+.back_main {
+    width: 220px;
+}

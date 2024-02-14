@@ -1,0 +1,66 @@
+@CHARSET "windows-31j";
+/*
+ * WT001.css
+ * 
+ * Company Select子画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+/*------------ Search button position ------------*/ 
+/*------------ searchボタン位置 ------------*/ 
+table.gscm_search_button {
+    width:618px;
+}
+
+/*------------ Select button position ------------*/ 
+/*------------ selectボタン位置 ------------*/ 
+table.gscm_select_button {
+    width:10px;
+}
+
+/*------------ Page control position ------------*/ 
+/*------------ ページコントロール位置 ------------*/ 
+table.gscm_page_control {
+    width:650px;
+}
+
+/*------------ Search result total area------------*/ 
+/*------------ 検索結果エリア(全体) ------------*/ 
+table.gscm_resultlist {
+    width:610px;
+}
+
+/*------------ Search condition individual area ------------*/ 
+/*------------ 検索条件エリア(個別) ------------*/ 
+.gscm_search .search_shipper_cd {
+    width: 125px;
+}
+.gscm_search .search_customer_cd {
+    width: 855px;
+}
+.gscm_search .search_ship_to_nm_abb {
+    width: 154px;
+}
+.gscm_search .search_ship_to_nm {
+    width: 709px;
+}
+/*------------ Search result individual area ------------*/ 
+/*------------ 検索結果エリア(個別) ------------*/ 
+.gscm_resultlist .resultlist_ck {
+    width: 26px;
+}
+.gscm_resultlist .resultlist_customer_cd {
+    width: 74px;
+}
+.gscm_resultlist .resultlist_lgcy_ship_to {
+    width: 40px;
+}
+.gscm_resultlist .resultlist_ship_to_nm_abb {
+    width: 115px;
+}
+.gscm_resultlist .resultlist_comp_nm {
+    width: 280px;
+}
+.gscm_resultlist .resultlist_ship_to_nm {
+    width: 280px;
+}

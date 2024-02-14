@@ -1,0 +1,4 @@
+"ID","SCREEN_ID","SCREEN_NM","PAR_SCREEN_ID","ACTION_PATH","PERMITTED"
+1101,"WB001","Order Entry","WB000","/WB001Init.do","true"
+1104,"WB004","Order Inquiry","WB000","/WB004Init.do","true"
+1106,"WB006","Last Digit Change (for EDI)","WB000","/WB006Init.do","true"

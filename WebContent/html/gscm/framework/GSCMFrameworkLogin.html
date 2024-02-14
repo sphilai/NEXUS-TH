@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<!--
+ * Project : GSCM共通フレームワーク
+ * GSCM サンプルログイン画面
+ * Copyright (c) 2013 DENSO IT SOLUTIONS,INC. All rights reserved.
+-->
+<!-- SiteMinder Encoding=UTF-8; -->
+<!-- @username=%USER% -->
+<!-- @smretries=5 -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="cache-control" content="no-cache"/>
+        <script type="text/javascript" src="js/lib/jquery.js">
+        </script>
+        <title>
+            GSCM サンプルログイン
+        </title>
+        <style type="text/css">  
+            *{
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 10pt;
+                font-family: "Verdana",sans-serif;
+            }
+            .system {
+                font-size: 28pt;
+                text-align: center;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                letter-spacing: 1px;
+            }
+            div.input {
+                width: 350px;
+                height: 50px;
+                background-color: #336699;
+                padding: 30px;
+                color: #FFFFFF;
+                border: ridge 3px;
+            }
+            div.section{
+                width: 650px;
+            }
+            div.section h4{
+                margin: 0px;
+            }
+            .bookmark{
+                vertical-align: top;
+                float:right;
+                margin-right: 10px;
+            }
+            font#errorMessage{
+                font-family: "Courier New, MS Gothic, monospace";
+                font-size:10pt;
+                font-weight:bold;
+                COLOR:#FF0000;
+            }
+        </style>
+    <script language="JavaScript"> 
+    <!--//
+    uri=":8080/GSCMFramework/LoginStub.html";
+    title="GSCM サンプルログイン";
+    function bookmark(){
+        if(document != null) {
+            window.external.AddFavorite("http://" +location.hostname + uri,title);
+        }
+    }
+    function getCookie(item) {
+        var i, index, arr;
+        arr = document.cookie.split(";");
+        for(i = 0; i < arr.length; i++) {
+            index = arr[i].indexOf("=");
+            if(arr[i].substring(0, index) == item || arr[i].substring(0, index) == " " + item){
+                  return arr[i].substring(index + 1);
+            }
+        }
+        return "";  
+    }
+
+    /* ログイン分岐 */
+    function loginChk(){
+        var work = "0";
+        // json読み込み
+        var xmlHttpReq = new XMLHttpRequest();
+        xmlHttpReq.open("GET", "loginFlg.txt" ,true) 
+        xmlHttpReq.onreadystatechange = function() { 
+            if (xmlHttpReq.readyState==4) { 
+                var jsonData = xmlHttpReq.responseText; 
+                var data = eval("(" +jsonData + ")"); 
+
+                // 稼働中フラグ
+                work = data.workFlg[0].working;
+                // ログイン判定
+                if(work != "1"){
+                    // システム管理者か
+                    for(i = 0; i < data.dscId.length; i ++){
+                      if($('#user').val() == data.dscId[i].sysId){
+                          //メインメニュー表示
+                          return;
+                      }
+                    }
+                    //Sorryページ表示
+                    $("form").attr("action","Sorry.html");
+                    $("form").submit();
+                }
+            } 
+        } 
+        xmlHttpReq.send(null);
+    }
+
+    //-->
+    </script>
+    </head>
+    <body style="background-color: #E8E8E0;">
+        <h1 class="system">
+            GSCM サンプルログイン
+            <!-- ブックマーク -->
+            <button class="bookmark" onClick="JavaScript:bookmark();">
+                Bookmark
+            </button>
+        </h1>
+        <hr/>
+        <form method="post" action="GSCMRedirect.html">
+        <div class="input">
+            <table>
+                <tr>
+                    <td>
+                        DSC-ID
+                    </td>
+                    <td>
+                        <input type="text" id="user" name="USER" maxlength="20" autocomplete="off"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        PASSWORD
+                    </td>
+                    <td>
+                        <input type="password" name="PASSWORD" maxlength="20" autocomplete="off"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <input TYPE=hidden name="SMENC" value="UTF-8">
+        <input type=hidden name="SMLOCALE" value="JP-jp">
+        <input type=hidden name=target value="$$target$$">
+        <input type=hidden name=smauthreason value="$$smauthreason$$">
+        <input type=hidden name=postpreservationdata value="$$postpreservationdata$$">
+        <input type=hidden name=smagentname value="$$smagentname$$">
+
+        <div style="text-align:center;">
+            <button type="submit" onClick="loginChk()" style="margin-top: 10px; width: 80px;" >
+                Login
+            </button>
+            <br/>
+            <font id="errorMessage">
+            <script language="JavaScript">
+            var count;
+            count = getCookie("SMTRYNO");
+            if(count > 0) {
+                document.write("ログインエラー：DSC-ID または パスワード が正しくありません。<br>Log in error: Your DSC-ID or password is wrong.");
+            }else{
+                document.write("&nbsp;");
+            }
+            </script>
+            </font>
+        </div>
+        </form>
+        <hr/>
+        <div class="section">
+            &lt; English &gt;
+            <h4>
+                [How to login]
+            </h4>
+            Please input DSC-ID & Password issued by DSC. 
+            <br/>
+            Lost password, Rocked ID Click 
+            <a href="" >
+                here.
+            </a> 
+            <h4>
+                [Help Desk]
+            </h4>
+            DSC-ID Registration
+            :
+            <a href="mailto:dir_support@denso.co.jp ">
+                dir_support@denso.co.jp
+            </a>
+            (DENSO SECURITY CENTER)
+            <br/>
+            Other system related issue
+            :
+            <a href="mailto:mbom_support@denso.co.jp ">
+                mbom_support@denso.co.jp
+            </a>
+             (DNJP MBOM TEAM)
+            <hr/>
+
+            &lt; Japanese for DNJP user &gt;
+            <h4>
+                [ログイン方法]
+            </h4>
+            <ul style="margin: 0; padding-left: 20px;">
+                <li>
+                    DNJP社員の方は「10001＋職番」、パスワードを使用
+                </li>
+                <li>
+                    DNJP社員以外の方はDSC（デンソーセキュリティセンター）から通知されたID、パスワードを使用
+                </li>
+            </ul>
+            （社員以外の方が初めてご利用される場合には別途登録が必要です。 
+            <br/>
+            ﾉｰﾂﾏﾆｭｱﾙ"XXXXX/NDJ" "xxxx¥xxx.nsf"の"99－999－99"をご覧下さい） 
+            <br/>
+            パスワードを忘れた、ロックされた場合は 
+            <a href="https://pwdreset.dir.globaldenso.com/pwdreset_dscid/requestTop.do" >
+                            こちら
+            </a>
+            <h4>
+                [お問い合せ先]
+            </h4>
+            DSC-IDについて：デンソーＩＴソリューションズ
+            Ext:123-45678 &nbsp / &nbsp E-mail
+            <a href="mailto:abc@xx.yy.zz">
+                abc@xx.yy.zz
+            </a>
+            システムについて：Xxx部
+            Ext:123-45678 &nbsp / &nbsp E-mail
+            <a href="mailto:abc@xx.yy.zz">
+                abc@xx.yy.zz
+            </a>
+            <hr/>
+            <h4>
+                [Software recommended]
+            </h4>
+            <ul style="margin: 0; padding-left: 20px;">
+                <li>
+                    WindowsXP + IE8
+                </li>
+                <li>
+                    Windows7 + IE8
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

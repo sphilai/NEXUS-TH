@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+/*
+ * W7005.css
+ * 
+ * BL UPLOAD画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+/*------------ Search condition area ------------*/ 
+/*------------ 検索条件エリア ------------*/ 
+.prompt {
+    font-weight: bold;
+}
+.gscm_search .search_odr_upload_prompt_label {
+    width: 120px;
+}
+.gscm_search .search_upload_file {
+    width: 480px;
+}
+.file_data {
+    width: 380px;
+}
+.gscm_search .search_blank_download_button {
+    width: 250px;
+}
+
+/*------------ Search result area ------------*/ 
+/*------------ 検索結果エリア ------------*/ 
+.gscm_resultlist .resultlist_request_dt {
+    width: 120px;
+}
+.gscm_resultlist .resultlist_upload_file_nm {
+    width: 380px;
+}
+.gscm_resultlist .resultlist_upload_file_line_cnt {
+    width: 70px;
+}
+.gscm_resultlist .resultlist_status {
+    width: 150px;
+}
+.gscm_resultlist .resultlist_rcv_odr_comp_nm {
+    width: 70px;
+}
+.gscm_resultlist .resultlist_request_id {
+    width: 180px;
+}
+.wb020_upload_file_nm {
+    width: 370px;
+}

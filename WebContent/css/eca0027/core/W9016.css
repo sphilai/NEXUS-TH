@@ -1,0 +1,139 @@
+@CHARSET "utf-8";
+/*
+ * W9016.css
+ * 
+ * Export Shipping Item Special Information MA Inquiry画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+/*------------ 検索条件エリア ------------*/ 
+.gscm_search .search_company {
+    width:88px;
+}
+
+.gscm_search .search_item_no {
+    width:196px;
+}
+
+.gscm_search .search_pkg_cd {
+    width:67px;
+}
+
+.gscm_search .search_cust_no {
+    width:118px;
+}
+
+.gscm_search .search_ship_to {
+    width:67px;
+}
+
+.gscm_search .search_cont_sort_key {
+    width:120px;
+}
+
+.gscm_search .search_stg_instr_flg {
+    width:108px;
+}
+
+.gscm_search .search_cc_type {
+    width:78px;
+}
+
+.gscm_search .search_inv_set_key {
+    width:794px;
+}
+
+table.gscm_resultlist_button .gscm_resultlist_button_add {
+    width:490px;
+}
+
+table.gscm_resultlist_button .gscm_resultlist_button_search {
+    width:490px;
+}
+
+/*------------ 検索結果エリア ------------*/ 
+table.gscm_resultlist {
+    width:960px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 38px;
+}
+
+.gscm_resultlist .resultlist_company {
+    width: 77px;
+}
+
+.gscm_resultlist .resultlist_item_no {
+    width: 192px;
+}
+
+.gscm_resultlist .resultlist_pkg_cd {
+    width: 58px;
+}
+
+.gscm_resultlist .resultlist_cust_no {
+    width: 106px;
+}
+
+.gscm_resultlist .resultlist_ship_to {
+    width: 58px;
+}
+
+.gscm_resultlist .resultlist_apply_start_date {
+    width: 77px;
+}
+
+.gscm_resultlist .resultlist_ship_lot {
+    width: 86px;
+}
+
+.gscm_resultlist .resultlist_cont_sort_key {
+    width: 96px;
+}
+
+.gscm_resultlist .resultlist_stg_instr_flg {
+    width: 58px;
+}
+
+.gscm_resultlist .resultlist_cc_type {
+    width: 58px;
+}
+
+.gscm_resultlist .resultlist_inv_set_key {
+    width: 56px;
+}
+
+.w9016_comp_cd {
+    width: 65px;
+    text-transform: uppercase; /* UT305 ADD */
+}
+.w9016_item_no {
+    width: 170px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+.w9016_pkg_cd {
+    width: 36px;
+    text-transform: uppercase; /* UT305 ADD */
+}
+.w9016_customer_cd {
+    width: 94px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+.w9016_invoice_key {
+    width: 36px;
+    text-transform: uppercase; /* UT305 ADD */
+}
+/* UT305 ADD */
+.w9016_container_sorting_key {
+    width: 90px;
+    text-transform: uppercase; /* UT305 ADD */
+}
+
+.gscm_resultlist .w9016_resulst_item_no {
+    width: 150px;
+}
+.gscm_resultlist .w9016_resulst_customer_cd {
+    width: 80px;
+}

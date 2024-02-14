@@ -1,0 +1,63 @@
+@CHARSET "utf-8";
+/*
+ * W9023.css
+ * 
+ * Export Invoice Template MA Edit画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+table.grid {
+    width: 800px;
+}
+
+.grid .grid_title {
+    width:200px;
+}
+
+.grid .grid_primary_key {
+    width:40px;
+}
+
+.grid .grid_data1 {
+    width:610px;
+}
+
+.grid .grid_data2 {
+    width:260px;
+}
+
+.grid .grid_data3 {
+    width:330px;
+}
+
+table.button {
+    width:800px;
+}
+
+.W9023_invoice_ctgry {
+    width: 200px;
+}
+
+.W9023_master {
+    width: 460px;
+}
+
+.w9023_fileName { 
+    width: 225px; 
+    overflow:hidden;
+    font-size:10pt;
+    text-decoration: underline;
+    border-style: none;
+}
+
+#gscm_wrapper {
+    overflow-y: auto;
+}
+
+.w9023_break_all {
+    word-break: break-all;
+}
+.left {
+    text-align: left;
+}

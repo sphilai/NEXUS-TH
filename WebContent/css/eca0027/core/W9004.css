@@ -1,0 +1,74 @@
+@CHARSET "utf-8";
+/*
+ * W9002.css
+ * 
+ * User ID MA Inquiry画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+/*------------ 検索条件エリア ------------*/ 
+.gscm_search {
+    width:980px;
+}
+
+.gscm_search .search_comp_cd {
+    width:78px;
+    left: auto;
+}
+
+.gscm_search .search_dsc_id {
+    width:245px;
+    left: auto;
+}
+
+.gscm_search .search_usr_nm_en {
+    width:657px;
+    left: auto;
+}
+
+.gscm_search .search_add {
+    width:490px;
+}
+
+.gscm_search .search_search {
+    width:490px;
+}
+
+/*------------ 検索結果エリア ------------*/
+table.gscm_resultlist {
+    width:960px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 40px;
+}
+
+.gscm_resultlist .resultlist_dsc_id {
+    width: 240px;
+}
+
+.gscm_resultlist .resultlist_usr_nm_en {
+    width: 210px;
+}
+
+.gscm_resultlist .resultlist_company_abbr {
+    width: 270px;
+}
+
+.gscm_resultlist .resultlist_mail_add1 {
+    width: 190px;
+}
+
+
+.gscm_resultlist .w9004_dsc_id {
+    width: 236px;
+}
+
+.gscm_resultlist .w9004_usr_nm_en {
+    width: 200px;
+}
+
+.gscm_resultlist .w9004_mail_add1 {
+    width: 180px;
+}

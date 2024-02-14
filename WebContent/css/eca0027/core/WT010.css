@@ -1,0 +1,61 @@
+@CHARSET "windows-31j";
+/*
+ * WT010.css
+ * 
+ * W/H Select子画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+/*------------ Search button position ------------*/ 
+/*------------ searchボタン位置 ------------*/ 
+table.gscm_search_button {
+    width:618px;
+}
+
+/*------------ Select button position ------------*/ 
+/*------------ selectボタン位置 ------------*/ 
+table.gscm_select_button {
+    width:10px;
+}
+
+/*------------ Page control position ------------*/ 
+/*------------ ページコントロール位置 ------------*/ 
+table.gscm_page_control {
+    width:660px;
+}
+ 
+/*------------ Search result total area------------*/ 
+/*------------ 検索結果エリア(全体) ------------*/ 
+table.gscm_resultlist {
+    width:598px;
+}
+
+/*------------ Search condition individual area ------------*/ 
+/*------------ 検索条件エリア(個別) ------------*/ 
+.gscm_search .search_comp_cd {
+    width: 110px;
+}
+.gscm_search .search_wh_cd {
+    width: 100px;
+}
+.gscm_search .search_wh_nm {
+    width: 770px;
+}
+
+/*------------ Search result individual area ------------*/ 
+/*------------ 検索結果エリア(個別) ------------*/ 
+.gscm_resultlist .resultlist_ck {
+    width: 35px;
+}
+.gscm_resultlist .resultlist_comp_cd {
+    width: 107px;
+}
+.gscm_resultlist .resultlist_wh_cd {
+    width: 70px;
+}
+.gscm_resultlist .resultlist_wh_nm {
+    width: 386px;
+}
+.wh_nm {
+    width: 375px;
+}

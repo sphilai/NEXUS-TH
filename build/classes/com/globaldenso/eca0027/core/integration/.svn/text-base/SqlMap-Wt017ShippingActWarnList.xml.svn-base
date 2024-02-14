@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-Wt017ShippingActWarnList.xml
+ *
+ * SqlMap file of Wt017ShippingActWarnListDao.
+ * Wt017ShippingActWarnListDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Wt017ShippingActWarnList">
+
+    <!-- Domain -->
+    <typeAlias alias="Wt017ShippingActWarnListDomain"
+        type="com.globaldenso.eca0027.core.business.domain.Wt017ShippingActWarnListDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="Wt017ShippingActWarnListCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.Wt017ShippingActWarnListCriteriaDomain" />
+
+    <resultMap id="ShipperTimeZoneListResult" class="Wt017ShippingActWarnListDomain">
+        <result property="shipperCd" column="COMP_CD" />
+        <result property="timezoneId" column="TIMEZONE_ID" />
+
+    </resultMap>
+
+    <!-- 汎用 項目 -->
+    <sql id="Cols1">
+        COMP_CD
+        , TIMEZONE_ID
+    </sql>
+
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeys1">
+        order by
+            COMP_CD asc
+            , TIMEZONE_ID asc
+    </sql>
+
+    <!-- FROM句   -->
+    <sql id="From1">
+        from
+            TM_NXS_COMP
+    </sql>
+
+    <!-- 汎用 Where句（基本項目） -->
+    <sql id="WhereCondition1">
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="userAuthList">
+                COMP_CD in (
+                <iterate property="userAuthList" conjunction=",">
+                        (#userAuthList[].authMgtComp#)
+                </iterate>
+                )
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+
+    <!-- 検索 SQL文（任意条件） -->
+    <select id="SearchByConditionTmNxsComp" resultMap="ShipperTimeZoneListResult"
+        parameterClass="Wt017ShippingActWarnListCriteriaDomain">
+        select
+        /* SqlMap-Wt017ShippingActWarnList.SearchByConditionTmNxsComp */
+        <include refid="Cols1" />
+        <include refid="From1" />
+        <include refid="WhereCondition1" />
+        <include refid="SortKeys1" />
+    </select>
+
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCountTmNxsComp" resultClass="java.lang.Integer"
+        parameterClass="Wt017ShippingActWarnListCriteriaDomain">
+        select count(ROWNUM)
+        /* SqlMap-hippingActualityWarningList.SearchCountTmNxsComp */
+        <include refid="From1" />
+        <include refid="WhereCondition1" />
+    </select>
+
+
+    <resultMap id="Wt017ShippingActWarnListResult" class="Wt017ShippingActWarnListDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="etd" column="ETD" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="cmlTyp" column="CML_TYP" />
+        <result property="consigneeCd" column="CONSIGNEE_CD" />
+        <result property="shipToCd" column="SHIP_TO_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+
+    </resultMap>
+
+    <!-- 汎用 項目 -->
+    <sql id="TableCols2">
+        SHIPPER_CD
+        , ETD
+        , TRNS_CD
+        , INVOICE_NO
+        , CML_TYP
+        , CONSIGNEE_CD
+        , SHIP_TO_CD
+        , CUSTOMER_CD
+        , LGCY_SHIP_TO
+
+    </sql>
+
+    <!-- 汎用 項目 -->
+    <sql id="Cols2">
+        TEMP.SHIPPER_CD
+        , TEMP.ETD
+        , TEMP.TRNS_CD
+        , TEMP.INVOICE_NO
+        , TEMP.CML_TYP
+        , TEMP.CONSIGNEE_CD
+        , TEMP.SHIP_TO_CD
+        , TEMP.CUSTOMER_CD
+        , TEMP.LGCY_SHIP_TO
+
+    </sql>
+
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeys2">
+        order by
+            SHIPPER_CD asc
+            , ETD asc
+            , TRNS_CD asc
+            , INVOICE_NO asc
+    </sql>
+
+    <!-- FROM句   -->
+    <sql id="From2">
+        from
+            TT_INVOICE
+
+    </sql>
+
+    <!-- 汎用 Where句（基本項目） -->
+    <sql id="WhereCondition2">
+        where
+            <iterate property="etdBorderDateList" open="(" close=")" conjunction="or">
+                ( SHIPPER_CD = #etdBorderDateList[].shipperCd#
+                and ETD <![CDATA[ < ]]> #etdBorderDateList[].etdBorderDate# )
+            </iterate>
+            and INVOICE_CLASS != 'F'
+            and CANCEL_TYP = 'N'
+            and CANCEL_FLG = 'N'
+            and SHIPPING_ACT_NO is null
+            and (MANUAL_TYP != '1' or MANUAL_TYP is null)
+            and DELETE_FLG = 'N'
+            and MANUAL_FLG = 'N'
+
+    </sql>
+
+    <!-- 検索 SQL文（任意条件、ページング用） -->
+    <select id="SearchByConditionForPagingTtInvoice" resultMap="Wt017ShippingActWarnListResult"
+        parameterClass="Wt017ShippingActWarnListCriteriaDomain">
+        select
+        /* SqlMap-Wt017ShippingActWarnList.SearchByConditionForPagingTtInvoice */
+        <include refid="Cols2" />
+        from (
+            select 
+            <include refid="TableCols2" />
+            ,row_number() over (<include refid="SortKeys2" />) ROW_NUM
+            <include refid="From2" />
+            <include refid="WhereCondition2" />
+            <include refid="SortKeys2" />
+        ) TEMP
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCountTtInvoice" resultClass="java.lang.Integer"
+        parameterClass="Wt017ShippingActWarnListCriteriaDomain">
+        select count(ROWNUM)
+        /* SqlMap-Wt017ShippingActWarnList.SearchCountTtInvoice */
+        <include refid="From2" />
+        <include refid="WhereCondition2" />
+    </select>
+</sqlMap>

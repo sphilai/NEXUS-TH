@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * SqlMap-WC001Ert.xml
+ *
+ * WC001ErtDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="WC001Ert">
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="WC001ErtDomain"
+        type="com.globaldenso.eca0027.core.business.domain.WC001ErtDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="WC001ErtCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.WC001ErtCriteriaDomain" />
+
+    <!-- 検索結果をMapで受け取る -->
+    <!-- 返却推奨荷姿作成・再印刷・キャンセル画面 -->
+    <resultMap id="WC001ErtDomain_SearchTtPltzByAuth" class="WC001ErtDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="pltzStatus" column="PLTZ_STATUS" />
+        <result property="cmlTyp" column="CML_TYP" />
+        <result property="auth" column="AUTH" />
+    </resultMap>
+
+    <resultMap id="WC001ErtDomain_SearchTmExpShipToShippingByKey" class="WC001ErtDomain">
+        <result property="compCd" column="COMP_CD" />
+        <result property="shipToCd" column="SHIP_TO_CD" />
+        <result property="aplyStrtDt" column="APLY_STRT_DT" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="labelPrintNum" column="LABEL_PRINT_NUM" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+    </resultMap>
+    
+    <resultMap id="WC001ErtDomain_SearchTmPkgMtrlByKey" class="WC001ErtDomain">
+        <result property="pkgItemNo" column="PKG_ITEM_NO" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="pkgWeight" column="PKG_WEIGHT" />
+        <result property="rtTyp" column="RT_TYP" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="currCd" column="CURR_CD" />
+        <result property="pkgMtrlNm" column="PKG_MTRL_NM" />
+    </resultMap>
+
+    <!-- =================================================================================================== -->
+    <!-- 実行SQL                                                                                             -->
+    <!-- =================================================================================================== -->
+
+    <!-- select句（権限） -->
+    <sql id="TtPltz_Auth">
+        select
+            min(
+            <isNotEmpty property="userAuthList">
+                case
+                    <iterate property="userAuthList">
+                        when A.SHIPPER_CD = #userAuthList[].authMgtComp# and B.PLNT_CD = #userAuthList[].procMfgDivCd# then #userAuthList[].authority#
+                    </iterate>
+                        else '0'
+                end
+            </isNotEmpty>
+            <isEmpty property="userAuthList">
+                0
+            </isEmpty>
+                )
+        from
+            TT_PLTZ_ITEM B
+        where
+            A.MAIN_MARK = B.MAIN_MARK
+    </sql>
+
+    <!-- Where句（権限チェック） -->
+    <sql id="WhereCondition_Auth">
+        A.SHIPPER_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+    </sql>
+
+    <!-- 検索 SQL文 () -->
+    <select id="SearchTtPltzByAuth" resultMap="WC001ErtDomain_SearchTtPltzByAuth"
+        parameterClass="WC001ErtCriteriaDomain">
+        select /* SqlMap-WC001Ert.SearchTtPltzByAuth */
+             A.MAIN_MARK MAIN_MARK
+            ,A.PLTZ_STATUS PLTZ_STATUS
+            ,A.CML_TYP CML_TYP 
+            ,(<include refid="TtPltz_Auth" />) AUTH
+        from
+            TT_PLTZ A
+        where
+        <dynamic>
+            <isNotEmpty property="fromMainMark">
+                #fromMainMark# <![CDATA[<]]> = A.MAIN_MARK
+            </isNotEmpty>
+            <isNotEmpty prepend="and"  property="toMainMark">
+                A.MAIN_MARK <![CDATA[<]]> = #toMainMark#
+            </isNotEmpty>
+        </dynamic>
+        and <include refid="WhereCondition_Auth" />
+     </select>
+
+
+    <!-- 検索 SQL文 () -->
+    <select id="SearchTmExpShipToShippingByKey" resultMap="WC001ErtDomain_SearchTmExpShipToShippingByKey"
+        parameterClass="WC001ErtCriteriaDomain">
+		SELECT /* SqlMap-WC001Ert.SearchTmExpShipToShippingByKey */
+		    A.COMP_CD
+		    ,A.SHIP_TO_CD
+		    ,A.APLY_STRT_DT
+		    ,A.CONTAINER_SORTING_KEY
+		    ,A.LOADING_CD
+		    ,A.LABEL_PRINT_NUM
+		    ,A.CONTAINER_LOOSE_TYP
+		    ,A.CUSTOM_TIMING_TYP
+		FROM
+		    TM_EXP_SHIP_TO_SHIPPING A
+		    , (
+		        SELECT 
+		            COMP_CD
+		            ,SHIP_TO_CD
+		            ,max(APLY_STRT_DT) APLY_STRT_DT
+		        FROM
+		            TM_EXP_SHIP_TO_SHIPPING
+		        WHERE
+		            COMP_CD = #compCd#
+		            AND SHIP_TO_CD = #shipToCd# 
+		            AND APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+		        GROUP BY
+		            COMP_CD
+		            ,SHIP_TO_CD
+		    ) B
+		WHERE 
+		    A.COMP_CD = B.COMP_CD
+		    AND A.SHIP_TO_CD = B.SHIP_TO_CD
+		    AND A.APLY_STRT_DT = B.APLY_STRT_DT
+
+     </select>
+
+    <!-- 検索 SQL文 () -->
+    <select id="SearchTmPkgMtrlByKey" resultMap="WC001ErtDomain_SearchTmPkgMtrlByKey"
+        parameterClass="WC001ErtCriteriaDomain">
+        SELECT /* SqlMap-WC001Ert.SearchTmPkgMtrlByKey */
+            A.PKG_ITEM_NO
+            ,A.MODEL_CD
+            ,A.WEIGHT_UNIT
+            ,A.PKG_WEIGHT
+            ,A.RT_TYP
+            ,A.ORIGIN_CNTRY_CD
+            ,A.CURR_CD
+            ,A.PKG_MTRL_NM
+        FROM
+            TM_PKG_MTRL A
+        WHERE 
+            A.OWNER_COMP = #ownerComp#
+            AND (A.PKG_ITEM_NO = #pkgItemNo#
+                 OR A.PKG_ITEM_NO = '  ' || REPLACE(#pkgItemNo#, '-', ''))
+
+     </select>
+
+</sqlMap>

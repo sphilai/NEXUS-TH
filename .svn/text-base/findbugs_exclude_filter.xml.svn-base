@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+    <Match classregex="com\.globaldenso\.eca0027\.core\.auto\..*" />
+    <Match classregex="com\.globaldenso\.gscm\.framework\..*" />
+    <Match>
+        <Or>
+            <Class name="~com\.globaldenso\.eca0027\.core\.business\.domain\..*" />
+            <Class name="~com\.globaldenso\.eca0027\.core\.business\.domain\.criteria\..*" />
+        </Or>
+        <Bug pattern="NM_CONFUSING" />
+    </Match>
+</FindBugsFilter>

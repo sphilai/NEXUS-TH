@@ -1,0 +1,275 @@
+@CHARSET "utf-8";
+/*
+ * W6001.css
+ * 
+ * Invoice Main Screen画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/* --- W6001用CSSクラス ----------------------- */
+.gscm_search .shipper_cd {
+    width:70px;
+}
+
+.gscm_search .consignee_cd {
+    width:70px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .ship_to_cd {
+    width:100px;
+}
+
+.gscm_search .w6001_trns_cd {
+    width:70px;
+}
+
+.gscm_search .w6001_cancel_typ {
+    width:90px;
+}
+
+.gscm_search .w6001_cancel_flg {
+    width:45px;
+}
+
+.gscm_search .cml_typ {
+    width:95px;
+}
+
+.gscm_search .w6001_by {
+    width:50px;
+}
+
+.gscm_search .w6001_invoice_no {
+    width:110px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .stg_instr_no {
+    width:130px;
+}
+
+.gscm_search .stg_act_no {
+    width:130px;
+}
+
+.gscm_search .shipping_firm_no {
+    width:130px;
+}
+
+.gscm_resultlist .w6001_invoice_no {
+    overflow:hidden;
+    color:#0000ff;
+    font-size:10pt;
+    text-decoration: underline;
+    border-style: none;
+    background-color: transparent;
+    width: 110px;
+}
+
+.gscm_resultlist .w6001_invoice_no:hover {
+    cursor:pointer;
+}
+
+.w6001_cancel_ref_no {
+    width:110px;
+}
+
+.w6001_relate_invoice_no {
+    width:80px;
+}
+
+.w6001_forwarder_comp_cd {
+    width:75px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.w6001_carrier_comp_cd {
+    width:40px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.invoice_issuer_nm {
+    width:105px;
+}
+
+/*------------ 検索条件エリア１ ------------*/ 
+.gscm_search .search_shipper_cd {
+    width:85px;
+}
+
+.gscm_search .search_consignee_cd {
+    width:85px;
+}
+
+.gscm_search .search_ship_to_cd {
+    width:115px;
+}
+
+.gscm_search .search_trns_cd {
+    width:80px;
+}
+
+.gscm_search .search_cancel_typ {
+    width:110px;
+}
+
+.gscm_search .search_cancel_flg {
+    width:95px;
+}
+
+.gscm_search .search_cml_typ {
+    width:100px;
+}
+
+.gscm_search .search_by {
+    width:60px;
+}
+
+.gscm_search .search_fm_date {
+    width:110px;
+}
+
+.gscm_search .search_to_date {
+    width:110x;
+}
+
+/*------------ 検索条件エリア２ ------------*/ 
+.gscm_search .search_invoice_no {
+    width:120px;
+}
+
+.gscm_search .search_carrier_comp_cd { 
+    width:120px;
+}
+
+.gscm_search .search_forwarder_comp_cd { 
+    width:160px;
+}
+
+.gscm_search .search_issuer { 
+    width:100px;
+}
+
+.gscm_search .search_stg_instr_no { 
+    width:140px;
+}
+
+.gscm_search .search_stg_act_no { 
+    width:140px;
+}
+
+.gscm_search .search_shipping_firm_no { 
+    width:140px;
+}
+
+/* --- 検索条件部の表示枠 --------------------- */
+/* 左上 */
+.table_border_top_left {
+    border-top:1px solid #828282 !important;
+    border-left:1px solid #828282 !important;
+}
+
+/* 真ん中上 */
+.table_border_top {
+    border-top:1px solid #828282 !important;
+}
+
+/* 右上 */
+.table_border_top_right {
+    border-top:1px solid #828282 !important;
+    border-right:1px solid #828282 !important;
+}
+
+/* 左下 */
+.table_border_bottom_left {
+    border-bottom:1px solid #828282 !important;
+    border-left:1px solid #828282 !important;
+}
+
+/* 真ん中下 */
+.table_border_bottom {
+    border-bottom:1px solid #828282 !important;
+}
+
+/* 右下 */
+.table_border_bottom_right {
+    border-bottom:1px solid #828282 !important;
+    border-right:1px solid #828282 !important;
+}
+
+/*---- 検索条件ボタンエリア --------------------*/
+.gscm_search_button .search_button_create_new {
+    width:294px;
+}
+
+.gscm_search_button .search_button_upload_main_inv {
+    width:294px;
+}
+
+.gscm_search_button .search_button_select {
+    width:392px;    
+}
+
+/*------------ 検索結果リストテーブル ------------*/ 
+table.gscm_resultlist {
+    width:980px;
+}
+
+/*------------ 検索結果エリア ------------*/ 
+.gscm_resultlist .resultlist_checked_key { 
+    width:30px; 
+}
+
+.gscm_resultlist .resultlist_shipper_cd { 
+    width:60px; 
+}
+
+.gscm_resultlist .resultlist_consignee_cd { 
+    width:100px; 
+}
+
+.gscm_resultlist .resultlist_trns_cd { 
+    width:50px; 
+}
+
+.gscm_resultlist .resultlist_cancel_typ { 
+    width:65px; 
+}
+
+.gscm_resultlist .resultlist_cancel_flg { 
+    width:65px; 
+}
+
+.gscm_resultlist .resultlist_etd { 
+    width:70px; 
+}
+
+.gscm_resultlist .resultlist_re_inv_flg { 
+    width:55px; 
+}
+
+.gscm_resultlist .resultlist_invoice_no { 
+    width:110px; 
+}
+
+.gscm_resultlist .resultlist_frt_contain_flg { 
+    width:55px; 
+}
+
+.gscm_resultlist .resultlist_relate_invoice_shipper_cd { 
+    width:60px; 
+}
+
+.gscm_resultlist .resultlist_relate_invoice_no { 
+    width:80px; 
+}
+
+.gscm_resultlist .resultlist_invoice_issue_dt { 
+    width:105px; 
+}
+
+.gscm_resultlist tr {
+    height: 26px !important;
+}

@@ -1,0 +1,49 @@
+@charset "utf-8";
+/*
+ * WB001.css
+ * 
+ * 受注登録ヘッダー画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+
+table.grid {
+    width: 850px;
+}
+
+.grid .grid_header {
+    width: 200px;
+}
+
+.grid .grid_contents {
+    width: 650px;
+}
+
+table.gscm_resultlist_button {
+    width: 750px;
+}
+
+/*------------ 表示幅 ------------*/
+
+.wb001_comp_nm {
+    width: 400px;
+}
+
+.wb001_ship_to_nm {
+    width: 400px;
+}
+
+.wb001_item_no {
+    width: 210px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.wb001_item_description {
+    width: 400px;
+}
+
+.wb001_trns_cd {
+    width: 210px;
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config_eca0027_form_wb.xml
+ * 
+ * AI-J2(Struts) の form設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <display-name></display-name>
+    <description></description>
+
+    <!-- Application Form Bean Definitions ================================= -->
+    <form-beans>
+
+        <!-- WB001: Order Entry Header画面 -->
+        <form-bean name="WB001Form"
+            type="com.globaldenso.eca0027.core.presentation.WB001ActionForm">
+        </form-bean>
+
+        <!-- WB002: Order Entry Register画面 -->
+        <form-bean name="WB002Form"
+            type="com.globaldenso.eca0027.core.presentation.WB002ActionForm">
+        </form-bean>
+
+        <!-- WB003: Order Entry Multi PO Register画面 -->
+        <form-bean name="WB003Form"
+            type="com.globaldenso.eca0027.core.presentation.WB003ActionForm">
+        </form-bean>
+
+        <!-- WB004: Order Inquiry Main Screen画面 -->
+        <form-bean name="WB004Form"
+            type="com.globaldenso.eca0027.core.presentation.WB004ActionForm">
+        </form-bean>
+
+        <!-- WB005: Order Inquiry Detail画面 -->
+        <form-bean name="WB005Form"
+            type="com.globaldenso.eca0027.core.presentation.WB005ActionForm">
+        </form-bean>
+
+        <!-- WB006: Last Digit Change Main Screen画面 -->
+        <form-bean name="WB006Form"
+            type="com.globaldenso.eca0027.core.presentation.WB006ActionForm">
+        </form-bean>
+
+        <!-- WB007: Last Digit Change Register画面 -->
+        <form-bean name="WB007Form"
+            type="com.globaldenso.eca0027.core.presentation.WB007ActionForm">
+        </form-bean>
+
+        <!-- WB008: Order Upload画面 -->
+        <form-bean name="WB020Form"
+            type="com.globaldenso.eca0027.core.presentation.WB020ActionForm">
+        </form-bean>
+
+    </form-beans>
+</struts-config>

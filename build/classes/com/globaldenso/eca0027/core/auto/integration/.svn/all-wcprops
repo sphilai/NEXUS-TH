@@ -1,0 +1,2189 @@
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/E008_ECA0027/!svn/ver/15255/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration
+END
+TtExpRequestDtlKitDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtExpRequestDtlKitDaoImpl.java
+END
+VtRpStgInstrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpStgInstrDaoImpl.java
+END
+SqlMap-TtPltzInstrOdr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzInstrOdr.xml
+END
+TtExpRcvOdrUpdDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtExpRcvOdrUpdDaoImpl.java
+END
+SqlMap-TmCurrency.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCurrency.xml
+END
+TwExpRequestPalletizeRtDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwExpRequestPalletizeRtDaoImpl.java
+END
+TtBhtWorkPltzDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtBhtWorkPltzDaoImpl.java
+END
+TmInvTplShipToDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmInvTplShipToDaoImpl.java
+END
+SqlMap-TtBhtWorkErr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtBhtWorkErr.xml
+END
+SqlMap-TtPltz.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltz.xml
+END
+SqlMap-TtPackAtchItemNo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPackAtchItemNo.xml
+END
+SqlMap-TmUomCnvFrc.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmUomCnvFrc.xml
+END
+TmCancelInvSeqTypDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmCancelInvSeqTypDaoImpl.java
+END
+VtShippingFirmDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtShippingFirmDaoImpl.java
+END
+SqlMap-TtCmlErrorHeader.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtCmlErrorHeader.xml
+END
+VtRpTransferPltzDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpTransferPltzDaoImpl.java
+END
+SqlMap-TtMixtagRt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtMixtagRt.xml
+END
+SqlMap-TtTransferKanban.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtTransferKanban.xml
+END
+TtTmpStockDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtTmpStockDaoImpl.java
+END
+SqlMap-VtRpSlsCntrctAtchedMain.xml
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpSlsCntrctAtchedMain.xml
+END
+SqlMap-TmCancelInvSeqTyp.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCancelInvSeqTyp.xml
+END
+TtInvoiceHeaderDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtInvoiceHeaderDaoImpl.java
+END
+TmPkgMtrlDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmPkgMtrlDaoImpl.java
+END
+TtOdrUploadReqMgtDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtOdrUploadReqMgtDaoImpl.java
+END
+SqlMap-VtRpXtag.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpXtag.xml
+END
+TmPortDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmPortDaoImpl.java
+END
+SqlMap-TtOdrUploadReqMgt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtOdrUploadReqMgt.xml
+END
+TmCmlInvPatternDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmCmlInvPatternDaoImpl.java
+END
+SqlMap-TmExpShipToShipping.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/15255/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmExpShipToShipping.xml
+END
+TwCarryOutListItemNoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwCarryOutListItemNoDaoImpl.java
+END
+SqlMap-TtPltzItemKit.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzItemKit.xml
+END
+SqlMap-VtCompMeasureUnit.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtCompMeasureUnit.xml
+END
+TmNxsShipToDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmNxsShipToDaoImpl.java
+END
+TwStgActDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwStgActDaoImpl.java
+END
+SqlMap-TmFncUseAuthCnf.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmFncUseAuthCnf.xml
+END
+VtRpStgActDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpStgActDaoImpl.java
+END
+TtBhtWorkMixTagDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtBhtWorkMixTagDaoImpl.java
+END
+TwInvoiceDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwInvoiceDaoImpl.java
+END
+SqlMap-VtRpPackHdrForMain.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpPackHdrForMain.xml
+END
+SqlMap-TtTransferItemMm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtTransferItemMm.xml
+END
+VtRpInvHdrForNonCmrclDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpInvHdrForNonCmrclDaoImpl.java
+END
+SqlMap-VtRpShippingFirm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpShippingFirm.xml
+END
+TtExpRequestDtlDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtExpRequestDtlDaoImpl.java
+END
+TtExpRcvOdrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtExpRcvOdrDaoImpl.java
+END
+SqlMap-VmRpInvTplScHeader.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VmRpInvTplScHeader.xml
+END
+SqlMap-TtDownloadLog.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtDownloadLog.xml
+END
+TtStgInstrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtStgInstrDaoImpl.java
+END
+TmCdDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmCdDaoImpl.java
+END
+SqlMap-TmExpRegulateTyp.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmExpRegulateTyp.xml
+END
+TtShippingDocumentDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtShippingDocumentDaoImpl.java
+END
+SqlMap-VtRpSlsCntrctHdrNonCmrcl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpSlsCntrctHdrNonCmrcl.xml
+END
+SqlMap-VtRpPltzInstr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpPltzInstr.xml
+END
+SqlMap-TwPltzItemPkg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwPltzItemPkg.xml
+END
+TmStdQrPatternHdrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmStdQrPatternHdrDaoImpl.java
+END
+SqlMap-TtScHeader.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtScHeader.xml
+END
+SqlMap-TtShippingActOdr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtShippingActOdr.xml
+END
+TwTransferItemItemNoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwTransferItemItemNoDaoImpl.java
+END
+TmPkgSetHdrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmPkgSetHdrDaoImpl.java
+END
+SqlMap-TwTransferItemPltz.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwTransferItemPltz.xml
+END
+SqlMap-TwCarryOutListItemNo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwCarryOutListItemNo.xml
+END
+VtRpInvHdrForCmrclIntangDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpInvHdrForCmrclIntangDaoImpl.java
+END
+TmStdQrPatternDtlDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmStdQrPatternDtlDaoImpl.java
+END
+SqlMap-VmRpInvTplPkgHeader.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VmRpInvTplPkgHeader.xml
+END
+SqlMap-TwXpltz.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwXpltz.xml
+END
+TmPkgSetDtlDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmPkgSetDtlDaoImpl.java
+END
+TtSysInfoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtSysInfoDaoImpl.java
+END
+TmUomCnvFrcDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmUomCnvFrcDaoImpl.java
+END
+SqlMap-TmMeasureUnit.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmMeasureUnit.xml
+END
+SqlMap-TtSysInfo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtSysInfo.xml
+END
+TwInvDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwInvDaoImpl.java
+END
+SqlMap-VtRpMixtag.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpMixtag.xml
+END
+TtExpRequestDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtExpRequestDaoImpl.java
+END
+TwCaseMarkDtlIfDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwCaseMarkDtlIfDaoImpl.java
+END
+SqlMap-VmRpInvTpl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VmRpInvTpl.xml
+END
+VmServerInfoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VmServerInfoDaoImpl.java
+END
+TmExpShipToShippingDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/15255/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmExpShipToShippingDaoImpl.java
+END
+SqlMap-VmGetQrCheck.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VmGetQrCheck.xml
+END
+SqlMap-TmUomCnvDec.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmUomCnvDec.xml
+END
+SqlMap-TmBhtResourceFile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmBhtResourceFile.xml
+END
+SqlMap-TmCd.xml
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCd.xml
+END
+SqlMap-VtRpInvHdrForFrt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/15097/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpInvHdrForFrt.xml
+END
+SqlMap-TmSeq.xml
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmSeq.xml
+END
+VtRpInvAtchedForMainDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpInvAtchedForMainDaoImpl.java
+END
+TtPackAtchItemNoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtPackAtchItemNoDaoImpl.java
+END
+SqlMap-TmOtherSysLink.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmOtherSysLink.xml
+END
+SqlMap-TmCntry.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCntry.xml
+END
+SqlMap-TmActualItemWeight.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmActualItemWeight.xml
+END
+TtCmlErrorHeaderDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtCmlErrorHeaderDaoImpl.java
+END
+SqlMap-TtBhtWorkMixTag.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtBhtWorkMixTag.xml
+END
+VmRpPrinterPurposeDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VmRpPrinterPurposeDaoImpl.java
+END
+TmServerLangDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmServerLangDaoImpl.java
+END
+VtRpXtagDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpXtagDaoImpl.java
+END
+TwInvPltzDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwInvPltzDaoImpl.java
+END
+TtPltzItemOdrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtPltzItemOdrDaoImpl.java
+END
+SqlMap-VtRpPackAtchedForFrt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpPackAtchedForFrt.xml
+END
+VmRpInvTplPkgHeaderDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VmRpInvTplPkgHeaderDaoImpl.java
+END
+TmCigmaShipToXrefDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmCigmaShipToXrefDaoImpl.java
+END
+SqlMap-TmCigmaEnv.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCigmaEnv.xml
+END
+TmOtherSysLinkDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmOtherSysLinkDaoImpl.java
+END
+TwPltzItemItemNoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwPltzItemItemNoDaoImpl.java
+END
+TtCmlErrorDtlDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtCmlErrorDtlDaoImpl.java
+END
+TmCustomerQrPatternHdrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmCustomerQrPatternHdrDaoImpl.java
+END
+SqlMap-VtRpInvAtchedForMain.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpInvAtchedForMain.xml
+END
+SqlMap-TmCigmaShipToXref.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCigmaShipToXref.xml
+END
+VtXpltzStgActDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtXpltzStgActDaoImpl.java
+END
+SqlMap-TtSearchCriteria.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtSearchCriteria.xml
+END
+SqlMap-VtRpStgAct.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpStgAct.xml
+END
+SqlMap-VtPltzStgInstr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtPltzStgInstr.xml
+END
+TmCustomerQrPatternDtlDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmCustomerQrPatternDtlDaoImpl.java
+END
+SqlMap-VtTrnsTypStgAct.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtTrnsTypStgAct.xml
+END
+SqlMap-TwMixtag.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwMixtag.xml
+END
+SqlMap-TwMixtagRt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwMixtagRt.xml
+END
+TmItemTypXrefDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmItemTypXrefDaoImpl.java
+END
+SqlMap-TmInvTpl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmInvTpl.xml
+END
+SqlMap-VtRpOdrRcvErrReportHdr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpOdrRcvErrReportHdr.xml
+END
+SqlMap-TtPltzItem.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzItem.xml
+END
+SqlMap-TtPltzKanbanExtra.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzKanbanExtra.xml
+END
+TtEdiRcvOdrReportDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtEdiRcvOdrReportDaoImpl.java
+END
+VtRpSlsCntrctHdrNonCmrclDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpSlsCntrctHdrNonCmrclDaoImpl.java
+END
+TtShippingActOdrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtShippingActOdrDaoImpl.java
+END
+SqlMap-TwCaseMarkDtlIf.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwCaseMarkDtlIf.xml
+END
+TtPltzItemKitDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtPltzItemKitDaoImpl.java
+END
+SqlMap-TtEdiRcvOdrReport.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtEdiRcvOdrReport.xml
+END
+SqlMap-TtStgInstr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtStgInstr.xml
+END
+TtXpltzDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtXpltzDaoImpl.java
+END
+SqlMap-TtShippingDocument.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtShippingDocument.xml
+END
+SqlMap-TtEdiRcvOdr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtEdiRcvOdr.xml
+END
+SqlMap-TmPkgSpecHdr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPkgSpecHdr.xml
+END
+VtPltzStgInstrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtPltzStgInstrDaoImpl.java
+END
+SqlMap-TmPkgSpecDtl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPkgSpecDtl.xml
+END
+TmNxsWhDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmNxsWhDaoImpl.java
+END
+SqlMap-TwOdrUpload.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwOdrUpload.xml
+END
+TwCarryOutListMmDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwCarryOutListMmDaoImpl.java
+END
+TmPkgSpecRevDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmPkgSpecRevDaoImpl.java
+END
+SqlMap-VmTimeDiffInfo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VmTimeDiffInfo.xml
+END
+SqlMap-TmInvAmountChk.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmInvAmountChk.xml
+END
+TtPltzKanbanDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtPltzKanbanDaoImpl.java
+END
+VtRpOdrRcvErrReportHdrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpOdrRcvErrReportHdrDaoImpl.java
+END
+TmExpFormalitiItemNoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmExpFormalitiItemNoDaoImpl.java
+END
+VtRpCmlMixtagErrRepDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpCmlMixtagErrRepDaoImpl.java
+END
+TmTrnsTypDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmTrnsTypDaoImpl.java
+END
+SqlMap-TtUserAuthMgt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtUserAuthMgt.xml
+END
+TtExpRequestDtlRtDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtExpRequestDtlRtDaoImpl.java
+END
+SqlMap-TmTrnsTyp.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmTrnsTyp.xml
+END
+SqlMap-TtTransferItemPltz.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtTransferItemPltz.xml
+END
+SqlMap-TmStdQrUseFunc.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmStdQrUseFunc.xml
+END
+SqlMap-TtExpRequestDtlRt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtExpRequestDtlRt.xml
+END
+SqlMap-TmSupplierWhXref.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmSupplierWhXref.xml
+END
+VmUserInfoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VmUserInfoDaoImpl.java
+END
+TmDelDataDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmDelDataDaoImpl.java
+END
+TmMeasureUnitDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmMeasureUnitDaoImpl.java
+END
+TtInvoiceAttachedDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtInvoiceAttachedDaoImpl.java
+END
+TtSysInfoLngDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtSysInfoLngDaoImpl.java
+END
+SqlMap-TwStgAct.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwStgAct.xml
+END
+SqlMap-TtMixtag.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtMixtag.xml
+END
+TmInvSeqDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmInvSeqDaoImpl.java
+END
+TmBhtLockMsgMgtDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmBhtLockMsgMgtDaoImpl.java
+END
+TtMixtagOdrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtMixtagOdrDaoImpl.java
+END
+VtRpPackingSummaryDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/15255/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpPackingSummaryDaoImpl.java
+END
+TmInvAmountChkDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmInvAmountChkDaoImpl.java
+END
+SqlMap-TmSailingSchedule.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmSailingSchedule.xml
+END
+SqlMap-VmRpPrinterPurpose.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VmRpPrinterPurpose.xml
+END
+SqlMap-TmPkgSpecRev.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPkgSpecRev.xml
+END
+TtPackingAttachedCmlDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtPackingAttachedCmlDaoImpl.java
+END
+TwCaseMarkHdrIfDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwCaseMarkHdrIfDaoImpl.java
+END
+SqlMap-TtPltzKanban.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzKanban.xml
+END
+TmPrinterDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmPrinterDaoImpl.java
+END
+TtScHeaderDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtScHeaderDaoImpl.java
+END
+TmStdQrUseFuncDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmStdQrUseFuncDaoImpl.java
+END
+TmExpItemNoSpInfoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmExpItemNoSpInfoDaoImpl.java
+END
+SqlMap-TmPrinter.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPrinter.xml
+END
+TtEdiRcvOdrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtEdiRcvOdrDaoImpl.java
+END
+TmSeqDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmSeqDaoImpl.java
+END
+TmFncUseAuthCnfDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmFncUseAuthCnfDaoImpl.java
+END
+SqlMap-TtXpltz.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtXpltz.xml
+END
+SqlMap-TwCarryOutListPltz.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwCarryOutListPltz.xml
+END
+VtRpInvAtchedForRtDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpInvAtchedForRtDaoImpl.java
+END
+TtSearchCriteriaDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtSearchCriteriaDaoImpl.java
+END
+TtBhtWorkErrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtBhtWorkErrDaoImpl.java
+END
+SqlMap-TtExpRequestPltzRt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtExpRequestPltzRt.xml
+END
+SqlMap-TwPltzInstrItemNo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwPltzInstrItemNo.xml
+END
+SqlMap-TmNxsShipTo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmNxsShipTo.xml
+END
+SqlMap-TmOtherSysLinkLang.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmOtherSysLinkLang.xml
+END
+SqlMap-TmInvTplShipTo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmInvTplShipTo.xml
+END
+VtRpSlsCntrctHdrCmrclDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpSlsCntrctHdrCmrclDaoImpl.java
+END
+SqlMap-TwTransferItemMm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwTransferItemMm.xml
+END
+VtRpTransferItemNoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpTransferItemNoDaoImpl.java
+END
+TmInvTplDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmInvTplDaoImpl.java
+END
+SqlMap-TtScAttached.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtScAttached.xml
+END
+TtShippingActDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtShippingActDaoImpl.java
+END
+SqlMap-TmInvFreeItem.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmInvFreeItem.xml
+END
+TmBhtModuleDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmBhtModuleDaoImpl.java
+END
+SqlMap-TtOnlineReqJobParam.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtOnlineReqJobParam.xml
+END
+TtTransferItemItemNoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtTransferItemItemNoDaoImpl.java
+END
+SqlMap-TtExpRcvOdr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtExpRcvOdr.xml
+END
+SqlMap-TmPort.xml
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPort.xml
+END
+SqlMap-TtPltzItemOdr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzItemOdr.xml
+END
+TwXpltzDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwXpltzDaoImpl.java
+END
+SqlMap-TmPkgSetHdr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPkgSetHdr.xml
+END
+SqlMap-TtTransfer.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtTransfer.xml
+END
+TmActualItemWeightDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmActualItemWeightDaoImpl.java
+END
+SqlMap-TtStgAct.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtStgAct.xml
+END
+TwShippingActInvoiceDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwShippingActInvoiceDaoImpl.java
+END
+TtInvoiceDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtInvoiceDaoImpl.java
+END
+TmCigmaWhXrefDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmCigmaWhXrefDaoImpl.java
+END
+SqlMap-VtXpltzStgAct.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtXpltzStgAct.xml
+END
+SqlMap-TtCmlErrorDtl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtCmlErrorDtl.xml
+END
+SqlMap-TmPrinterPurpose.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPrinterPurpose.xml
+END
+SqlMap-TmPkgSetDtl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPkgSetDtl.xml
+END
+SqlMap-TtInvoice.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtInvoice.xml
+END
+TtEdiRcvOdrRtryDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtEdiRcvOdrRtryDaoImpl.java
+END
+SqlMap-TmBhtLockMsgMgt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmBhtLockMsgMgt.xml
+END
+SqlMap-TmServer.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmServer.xml
+END
+TmPkgSpecRevHisDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmPkgSpecRevHisDaoImpl.java
+END
+TtMixKanbanDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtMixKanbanDaoImpl.java
+END
+TmExpRequestItemNoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmExpRequestItemNoDaoImpl.java
+END
+SqlMap-TwCaseMarkHdrIf.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwCaseMarkHdrIf.xml
+END
+SqlMap-TmPkgMtrl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPkgMtrl.xml
+END
+SqlMap-TmItemTypXref.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmItemTypXref.xml
+END
+TtPltzInstrOdrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtPltzInstrOdrDaoImpl.java
+END
+TmSupplierWhXrefDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmSupplierWhXrefDaoImpl.java
+END
+TmCigmaEnvDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmCigmaEnvDaoImpl.java
+END
+VtCompMeasureUnitDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtCompMeasureUnitDaoImpl.java
+END
+SqlMap-TtTransferItemItemNo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtTransferItemItemNo.xml
+END
+SqlMap-TwStgInstr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwStgInstr.xml
+END
+SqlMap-VtRpStgInstr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpStgInstr.xml
+END
+TmCntryDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmCntryDaoImpl.java
+END
+SqlMap-VmUserInfo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VmUserInfo.xml
+END
+TtMixtagDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtMixtagDaoImpl.java
+END
+TtPltzDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtPltzDaoImpl.java
+END
+SqlMap-TwPltzItemItemNo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwPltzItemItemNo.xml
+END
+SqlMap-TwShippingActInvoice.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwShippingActInvoice.xml
+END
+SqlMap-VtRpPackingSummary.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/15255/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpPackingSummary.xml
+END
+TwMixtagRtDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwMixtagRtDaoImpl.java
+END
+SqlMap-TwInvoice.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwInvoice.xml
+END
+TtOnlineReqJobParamDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtOnlineReqJobParamDaoImpl.java
+END
+TtPltzItemDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtPltzItemDaoImpl.java
+END
+TtUserAuthMgtDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtUserAuthMgtDaoImpl.java
+END
+VmGetQrCheckDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VmGetQrCheckDaoImpl.java
+END
+SqlMap-TtPltzInstr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzInstr.xml
+END
+SqlMap-TmStdQrPatternHdr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmStdQrPatternHdr.xml
+END
+VtBhtLockuserDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtBhtLockuserDaoImpl.java
+END
+SqlMap-VtRpInvAtchedForRt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpInvAtchedForRt.xml
+END
+VtTrnsTypStgActDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtTrnsTypStgActDaoImpl.java
+END
+SqlMap-TmStdQrPatternDtl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmStdQrPatternDtl.xml
+END
+SqlMap-TwExpRequestPalletizeRt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwExpRequestPalletizeRt.xml
+END
+VtSysInfoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtSysInfoDaoImpl.java
+END
+TtBhtWorkTimeDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtBhtWorkTimeDaoImpl.java
+END
+SqlMap-VtSysInfo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtSysInfo.xml
+END
+TwTransferItemMmDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwTransferItemMmDaoImpl.java
+END
+SqlMap-TtPackingHead.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPackingHead.xml
+END
+VtRpSlsCntrctAtchedRtDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpSlsCntrctAtchedRtDaoImpl.java
+END
+SqlMap-TwCarryOutListMm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwCarryOutListMm.xml
+END
+SqlMap-TtEdiRcvOdrRtry.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtEdiRcvOdrRtry.xml
+END
+SqlMap-VtRpTransferItemNo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13688/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpTransferItemNo.xml
+END
+SqlMap-TtInvoiceHeader.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtInvoiceHeader.xml
+END
+SqlMap-TtMixtagItemNo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtMixtagItemNo.xml
+END
+TtBatchReqParamDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtBatchReqParamDaoImpl.java
+END
+SqlMap-TmPkgSpecRevHis.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPkgSpecRevHis.xml
+END
+VtRpSalesCntrctHdrForFrtDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpSalesCntrctHdrForFrtDaoImpl.java
+END
+TtTransferItemPltzDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtTransferItemPltzDaoImpl.java
+END
+TmBhtResourceFileDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmBhtResourceFileDaoImpl.java
+END
+TwInvItemDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwInvItemDaoImpl.java
+END
+VtRpPackAtchedForFrtDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpPackAtchedForFrtDaoImpl.java
+END
+SqlMap-TwInvItem.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwInvItem.xml
+END
+SqlMap-TmCmlInvPattern.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCmlInvPattern.xml
+END
+SqlMap-TtExpRequestDtlKit.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13688/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtExpRequestDtlKit.xml
+END
+TtStgActDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtStgActDaoImpl.java
+END
+SqlMap-TwTransferItemItemNo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwTransferItemItemNo.xml
+END
+TmPrinterPurposeDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmPrinterPurposeDaoImpl.java
+END
+SqlMap-TmCustomerQrPatternHdr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCustomerQrPatternHdr.xml
+END
+TmServerDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmServerDaoImpl.java
+END
+TtTransferKanbanDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtTransferKanbanDaoImpl.java
+END
+SqlMap-TmInvSeq.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmInvSeq.xml
+END
+SqlMap-TmCustomerQrPatternDtl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCustomerQrPatternDtl.xml
+END
+VtRpPackHdrForFrtDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpPackHdrForFrtDaoImpl.java
+END
+TtMixtagItemNoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtMixtagItemNoDaoImpl.java
+END
+TmInvFreeItemDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmInvFreeItemDaoImpl.java
+END
+SqlMap-VtRpSlsCntrctHdrCmrcl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpSlsCntrctHdrCmrcl.xml
+END
+SqlMap-VtRpPackHdrForFrt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpPackHdrForFrt.xml
+END
+SqlMap-TtTmpStock.xml
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtTmpStock.xml
+END
+SqlMap-TtExpRequest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtExpRequest.xml
+END
+TtPltzInstrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtPltzInstrDaoImpl.java
+END
+SqlMap-VtRpCmlMixtagErrRep.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpCmlMixtagErrRep.xml
+END
+SqlMap-TtExpRequestDtl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtExpRequestDtl.xml
+END
+SqlMap-TtShippingAct.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtShippingAct.xml
+END
+SqlMap-TwInvPltz.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwInvPltz.xml
+END
+SqlMap-TmExpRequestItemNo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmExpRequestItemNo.xml
+END
+SqlMap-VmServerInfo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VmServerInfo.xml
+END
+TwCarryOutListPltzDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwCarryOutListPltzDaoImpl.java
+END
+SqlMap-VtRpCmlHdrMixedPltz.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13688/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpCmlHdrMixedPltz.xml
+END
+TmPkgSpecHdrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmPkgSpecHdrDaoImpl.java
+END
+TtExpRequestPltzRtDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtExpRequestPltzRtDaoImpl.java
+END
+TmPkgSpecDtlDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmPkgSpecDtlDaoImpl.java
+END
+TmOtherSysLinkLangDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmOtherSysLinkLangDaoImpl.java
+END
+TtTransferItemMmDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtTransferItemMmDaoImpl.java
+END
+SqlMap-TtBhtWorkPltz.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtBhtWorkPltz.xml
+END
+SqlMap-TmCigmaWhXref.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCigmaWhXref.xml
+END
+SqlMap-TtMixtagOdr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtMixtagOdr.xml
+END
+VtRpShippingFirmDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpShippingFirmDaoImpl.java
+END
+TmTrnsTypVolumeDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmTrnsTypVolumeDaoImpl.java
+END
+SqlMap-TmServerLang.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmServerLang.xml
+END
+TtPltzKanbanExtraDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtPltzKanbanExtraDaoImpl.java
+END
+SqlMap-TwOdrUploadUpd.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwOdrUploadUpd.xml
+END
+TmExpRegulateTypDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmExpRegulateTypDaoImpl.java
+END
+TmUomCnvDecDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmUomCnvDecDaoImpl.java
+END
+VtRpPackAtchedForErtDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpPackAtchedForErtDaoImpl.java
+END
+SqlMap-TtBatchReqParam.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtBatchReqParam.xml
+END
+TmNxsCompDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmNxsCompDaoImpl.java
+END
+TmCurrencyDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmCurrencyDaoImpl.java
+END
+SqlMap-TmNxsComp.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmNxsComp.xml
+END
+SqlMap-TwCaseMarkUnship.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwCaseMarkUnship.xml
+END
+TtTransferDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtTransferDaoImpl.java
+END
+TmAgentDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmAgentDaoImpl.java
+END
+TtMixtagRtDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtMixtagRtDaoImpl.java
+END
+SqlMap-TtShippingFirm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtShippingFirm.xml
+END
+SqlMap-VtRpInvHdrForNonCmrcl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpInvHdrForNonCmrcl.xml
+END
+TwOdrUploadUpdDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwOdrUploadUpdDaoImpl.java
+END
+SqlMap-VtRpTransferPltz.xml
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13688/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpTransferPltz.xml
+END
+TtDownloadLogDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtDownloadLogDaoImpl.java
+END
+TwPltzItemPkgDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwPltzItemPkgDaoImpl.java
+END
+VtRpPltzInstrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpPltzInstrDaoImpl.java
+END
+VtRpCmlHdrMixedPltzDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpCmlHdrMixedPltzDaoImpl.java
+END
+SqlMap-TmBhtModule.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmBhtModule.xml
+END
+TwStgInstrDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwStgInstrDaoImpl.java
+END
+SqlMap-VtRpPackAtchedForErt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpPackAtchedForErt.xml
+END
+VtRpInvHdrForFrtDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/15097/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpInvHdrForFrtDaoImpl.java
+END
+SqlMap-TmCigmaCustomerXref.xml
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCigmaCustomerXref.xml
+END
+TtPltzInstrItemNoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtPltzInstrItemNoDaoImpl.java
+END
+SqlMap-TtPltzInstrItemNo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzInstrItemNo.xml
+END
+SqlMap-VtBhtLockuser.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtBhtLockuser.xml
+END
+SqlMap-TmDelData.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmDelData.xml
+END
+TmSailingScheduleDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmSailingScheduleDaoImpl.java
+END
+VtRpPackHdrForMainDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpPackHdrForMainDaoImpl.java
+END
+SqlMap-TtInvoiceAttached.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtInvoiceAttached.xml
+END
+TtPackingHeadDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtPackingHeadDaoImpl.java
+END
+VmTimeDiffInfoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VmTimeDiffInfoDaoImpl.java
+END
+TtShippingFirmDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtShippingFirmDaoImpl.java
+END
+VtRpSlsCntrctAtchedMainDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpSlsCntrctAtchedMainDaoImpl.java
+END
+SqlMap-TtBhtWorkTime.xml
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtBhtWorkTime.xml
+END
+SqlMap-TwInv.xml
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TwInv.xml
+END
+TtScAttachedDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TtScAttachedDaoImpl.java
+END
+SqlMap-VtRpSlsCntrctAtchedRt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpSlsCntrctAtchedRt.xml
+END
+SqlMap-TmTrnsTypVolume.xml
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmTrnsTypVolume.xml
+END
+VmRpInvTplScHeaderDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VmRpInvTplScHeaderDaoImpl.java
+END
+SqlMap-TmExpFormalitiItemNo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmExpFormalitiItemNo.xml
+END
+SqlMap-TtMixKanban.xml
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtMixKanban.xml
+END
+TwTransferItemPltzDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwTransferItemPltzDaoImpl.java
+END
+SqlMap-TmExpItemNoSpInfo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmExpItemNoSpInfo.xml
+END
+TwPltzInstrItemNoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwPltzInstrItemNoDaoImpl.java
+END
+SqlMap-TtExpRcvOdrUpd.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtExpRcvOdrUpd.xml
+END
+SqlMap-VtRpInvHdrForCmrclIntang.xml
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpInvHdrForCmrclIntang.xml
+END
+SqlMap-TmAgent.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmAgent.xml
+END
+TwMixtagDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwMixtagDaoImpl.java
+END
+TwOdrUploadDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwOdrUploadDaoImpl.java
+END
+VtRpMixtagDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VtRpMixtagDaoImpl.java
+END
+SqlMap-TtSysInfoLng.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtSysInfoLng.xml
+END
+SqlMap-TmNxsWh.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TmNxsWh.xml
+END
+SqlMap-VtShippingFirm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtShippingFirm.xml
+END
+VmRpInvTplDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/VmRpInvTplDaoImpl.java
+END
+SqlMap-TtPackingAttachedCml.xml
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPackingAttachedCml.xml
+END
+SqlMap-VtRpSalesCntrctHdrForFrt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpSalesCntrctHdrForFrt.xml
+END
+TmCigmaCustomerXrefDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TmCigmaCustomerXrefDaoImpl.java
+END
+TwCaseMarkUnshipDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/sact/com/globaldenso/eca0027/core/auto/integration/TwCaseMarkUnshipDaoImpl.java
+END

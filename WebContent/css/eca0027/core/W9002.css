@@ -1,0 +1,72 @@
+@CHARSET "utf-8";
+/*
+ * W9002.css
+ * 
+ * Agent MA Inquiry画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+
+ /*------------ 検索条件エリアテーブル ------------*/ 
+table.gscm_search {
+    width: 560px;
+}
+
+/* --- W9002用CSSクラス ----------------------- */
+.gscm_search .w9002_org_comp_cd {
+    width: 67px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+.gscm_search .w9002_agent_comp_cd {
+    width: 67px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+.gscm_search .w9002_function {
+    width: 180px;
+}
+.w9002_org_comp_cd {
+    width: 80px;
+}
+.w9002_agent_comp_cd {
+    width: 80px;
+}
+
+/*------------ 検索条件エリア ------------*/ 
+/* search condition 1 */
+.gscm_search .search_org_comp_cd {
+    width:108px;
+}
+
+.gscm_search .search_agent_comp_cd {
+    width:108px;
+}
+
+.gscm_search .search_function {
+    width:147px;
+}
+
+.gscm_search .search_button_add{
+    width:490px;
+}
+
+.gscm_search .search_button_search{
+    width:490px;
+}
+
+/*------------ 検索結果エリア ------------*/
+table.gscm_resultlist {
+    width:300px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 36px;
+}
+
+.gscm_resultlist .resultlist_org_comp_cd {
+    width: 136px;
+}
+
+.gscm_resultlist .resultlist_agent_comp_cd {
+    width: 128px;
+}

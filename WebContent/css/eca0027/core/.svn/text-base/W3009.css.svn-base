@@ -1,0 +1,134 @@
+@charset "utf-8";
+/*
+ * W3009.css
+ * 
+ * 梱包指示Main画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ Search condition area 1 ------------*/ 
+
+.gscm_search .search_carry_out_comp_cd {
+    width: 150px;
+}
+
+.gscm_search .search_carry_out_wh_cd {
+    width: 100px;
+}
+
+.gscm_search .search_carry_in_comp_cd {
+    width: 80px;
+}
+
+.gscm_search .search_carry_in_wh_cd {
+    width: 100px;
+}
+
+.gscm_search .search_shipper_cd {
+    width: 100px;
+}
+
+.gscm_search .search_trnsfer_status {
+    width: 90px;
+}
+
+.gscm_search .search_transfer_no {
+    width: 150px;
+}
+
+.gscm_search .search_tr_kind {
+    width: 90px;
+}
+
+/*------------ Search condition area 2 ------------*/ 
+.gscm_search .search_editflg {
+    width: 55px;
+}
+.gscm_search .search_cml {
+    width: 2px;
+    background-color:#cccccc;
+}
+.gscm_search .search_part_number {
+    width: 20px;
+    background-color:#cccccc;
+}
+.gscm_search .search_pkgCd {
+    width: 20px;
+    background-color:#cccccc;
+}
+.gscm_search .search_tr_issue_dt {
+    width: 100px;
+}
+.gscm_search .search_tr_Act_dt {
+    width: 100px;
+}
+
+.gscm_search .search_to_tr_issuer {
+    width: 100px;
+}
+
+/*------------ Result search ------------*/ 
+
+table.gscm_resultlist {
+    width:967px;
+}
+
+.gscm_resultlist .resultlist_checked_key {
+    width: 35px;
+}
+
+.gscm_resultlist .resultlist_status_cd {
+    width: 45px;
+}
+
+.gscm_resultlist .resultlist_to_com_cd {
+    width: 50px;
+}
+
+.gscm_resultlist .resultlist_to_wh_cd {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_from_com_cd {
+    width: 50px;
+}
+
+.gscm_resultlist .resultlist_from_wh_cd {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_shipper_cd{
+    width: 65px;
+}
+
+.gscm_resultlist .resultlist_tr_no {
+    width: 110px;
+}
+
+.gscm_resultlist .resultlist_edt_flg {
+    width: 35px;
+}
+
+.gscm_resultlist .resultlist_tr_kind {
+    width: 35px;
+}
+
+.gscm_resultlist .resultlist_tr_tag_qty {
+    width: 67px;
+}
+
+.gscm_resultlist .resultlist_tr_issuer {
+    width: 100px;
+}
+
+.gscm_resultlist .resultlist_tr_issue_dt {
+    width: 100px;
+}
+
+.gscm_resultlist .resultlist_tr_active_dt {
+    width: 100px;
+}
+
+.gscm_resultlist .resultlist_tr_active_method {
+    width: 80px;
+}
+

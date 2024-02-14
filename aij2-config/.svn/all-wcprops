@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/E008_ECA0027/!svn/ver/15254/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aij2-config
+END
+log4j-aij2-pro.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/E008_ECA0027/!svn/ver/15098/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aij2-config/log4j-aij2-pro.xml
+END
+jdbc-aij2.properties
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aij2-config/jdbc-aij2.properties
+END
+jdbc-aij2-prelive.properties
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aij2-config/jdbc-aij2-prelive.properties
+END
+log4j-aij2-pro-ins02.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aij2-config/log4j-aij2-pro-ins02.xml
+END
+jdbc-aij2-dev.properties
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aij2-config/jdbc-aij2-dev.properties
+END
+Aij2Constants.properties
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aij2-config/Aij2Constants.properties
+END
+log4j-aij2-dev.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/E008_ECA0027/!svn/ver/15097/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aij2-config/log4j-aij2-dev.xml
+END
+jdbc-aij2-pro.properties
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/E008_ECA0027/!svn/ver/15254/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aij2-config/jdbc-aij2-pro.properties
+END

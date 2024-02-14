@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config.xml
+ * 
+ * [JP] AI-J2(Struts) の 設定ファイルです。
+ * [EN] This is the configuration file of AI-J2(Struts).
+ * 
+ * $ struts-config.xml 4294 2013-05-15 12:30:57Z HIDETOSHI_NAKATANI@denso.co.jp $
+ *
+ * Copyright (c) 2011 DENSO IT SOLUTIONS. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <display-name></display-name>
+    <description></description>
+
+    <!-- Application Form Bean Definitions ================================= -->
+    <form-beans>
+    
+        <!-- 空のフォーム（ダミー用） -->
+        <form-bean name="emptyForm"
+            type="com.globaldenso.gscm.framework.presentation.EmptyActionForm">
+        </form-bean>
+        <form-bean name="GSCMWindowOpenTopToAplForm"
+            type="com.globaldenso.gscm.framework.presentation.EmptyActionForm">
+        </form-bean>
+        <form-bean name="GSCMScreenJumpForm"
+            type="com.globaldenso.gscm.framework.presentation.EmptyActionForm">
+        </form-bean>
+        <form-bean name="GSCMWindowOpenForm"
+            type="com.globaldenso.gscm.framework.presentation.EmptyActionForm">
+        </form-bean>
+        <!-- 問合せ先表示部品 -->
+        <form-bean name="contactInfoForm"
+            type="org.apache.struts.validator.DynaValidatorActionForm">
+            <form-property name="contactInfoId" type="java.lang.String"></form-property>
+            <form-property name="locale" type="java.lang.String"></form-property>
+        </form-bean>
+    </form-beans>
+
+    <!-- Global Exception Definitions ====================================== -->
+    <!-- [JP] 共通例外処理を記入する場合は以下に記述してください -->
+    <!-- [EN] Please describe below if you want to fill in the common exception handling -->
+    <global-exceptions>
+        <exception
+            key="GSCM-E0-0000"
+            type="com.globaldenso.gscm.framework.exception.GscmBusinessException"
+            handler="com.globaldenso.gscm.framework.exception.GscmBusinessExceptionHandler"
+            path="/WEB-INF/jsp/gscm/framework/BusinessError.jsp">
+        </exception>
+        <!-- [JP] アプリケーション例外 -->
+        <!-- [EN] Application Exception -->
+        <exception
+            key="AIJ2-E0-0000"
+            type="com.globaldenso.ai.common.core.exception.ApplicationException"
+            handler="com.globaldenso.ai.aij2.core.exception.ApplicationExceptionHandler" />
+
+        <!-- [JP] システム例外  -->
+        <!-- [EN] System exceptions  -->
+        <exception
+            key="AIJ2-90-0000"
+            type="java.lang.Throwable"
+            handler="com.globaldenso.ai.aij2.core.exception.SystemExceptionHandler"
+            path="/WEB-INF/jsp/eca0027/core/error.jsp">
+            <set-property
+                key="com.globaldenso.ai.aij2.SYSTEM_EXCEPTION_HANDLER_LOGGING"
+                value="false" />
+        </exception>
+    </global-exceptions>
+
+    <!-- Global Forward Definitions ======================================== -->
+    <global-forwards>
+        <forward name="error" path="/WEB-INF/jsp/gscm/framework/BusinessError.jsp" />
+    </global-forwards>
+
+    <!-- Application Action Mapping Definitions ============================ -->
+    <action-mappings>
+        <action path="/NonSessionTimeout"
+            type="com.globaldenso.gscm.framework.presentation.NonSessionTimeoutAction"
+            name="emptyForm"
+            scope="request">
+        </action>
+        
+        <action path="/WindowOpenTopToAplAction" name="GSCMWindowOpenTopToAplForm" scope="request" forward="/WEB-INF/jsp/gscm/framework/window_open.jsp"/>
+        <action path="/ScreenJumpAction" name="GSCMScreenJumpForm" scope="request" forward="/WEB-INF/jsp/gscm/framework/screen_jump.jsp"/>
+        <action path="/GSCMWindowOpenAction" name="GSCMWindowOpenForm" scope="request"/>
+        <action path="/BusinessError" type="com.globaldenso.gscm.framework.presentation.BusinessErrorAction" name="emptyForm" scope="request"/>
+
+        <!-- 問合せ先表示部品 -->
+        <action path="/callContactInfoDisplay"
+                type="com.globaldenso.ai.library.contactinfodisplay.presentation.ShowContactInfoDisplayAction"
+                name="contactInfoForm"
+                scope="request"
+                input="/WEB-INF/jsp/gscm/framework/contactInfoDisplayError.jsp">
+            <forward name="success" path="/WEB-INF/jsp/gscm/framework/contactInfoDisplay.jsp" />
+        </action>
+    </action-mappings>
+
+    <!-- Controller Configuration ========================================== -->
+    <controller>
+        <set-property property="processorClass"
+            value="com.globaldenso.gscm.framework.presentation.ScreenInfoStackRequestProcessor" />
+        <set-property property="multipartClass"
+            value="com.globaldenso.ai.aij2.core.struts.upload.MultipartRequestCheckHandler" />
+        <set-property property="maxFileSize"
+            value="1G" />
+    </controller>
+
+    <!-- Message Resources Definitions ===================================== -->
+    <!-- TM_RESOURCESを有効にする場合は1行目の設定をコメントアウトにして2行目以降の設定を有効にしてください -->
+    <!-- 
+    <message-resources parameter="MessageResources" />
+    -->
+    <message-resources 
+     factory="com.globaldenso.gscm.framework.util.ResourcesFactory"
+     parameter="MessageResources, ValidationResources, ValidateResources">
+        <set-property property="escape" value="false" />
+    </message-resources>
+    <!-- 問合せ先表示部品 -->
+    <message-resources 
+        parameter="library-config/ai-contactinfodisplay_pl/contactInfoDisplayLabel" 
+        key="contactInfoDisplayLabel" />
+
+    <!-- Plug Ins Configuration ============================================ -->
+
+    <!-- Validator plugin -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validator-rules-aij2.xml,
+               /WEB-INF/validation.xml" />
+    </plug-in>
+
+    <!-- Tiles plugin -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config"
+            value="/WEB-INF/tiles-defs.xml,
+                   /WEB-INF/conf/eca0027/core/struts/tiles-defs_eca0027_w0.xml,
+                   /WEB-INF/conf/eca0027/core/struts/tiles-defs_eca0027_w1.xml,
+                   /WEB-INF/conf/eca0027/core/struts/tiles-defs_eca0027_w2.xml,
+                   /WEB-INF/conf/eca0027/core/struts/tiles-defs_eca0027_w3.xml,
+                   /WEB-INF/conf/eca0027/core/struts/tiles-defs_eca0027_w4.xml,
+                   /WEB-INF/conf/eca0027/core/struts/tiles-defs_eca0027_w5.xml,
+                   /WEB-INF/conf/eca0027/core/struts/tiles-defs_eca0027_w6.xml,
+                   /WEB-INF/conf/eca0027/core/struts/tiles-defs_eca0027_w7.xml,
+                   /WEB-INF/conf/eca0027/core/struts/tiles-defs_eca0027_w8.xml,
+                   /WEB-INF/conf/eca0027/core/struts/tiles-defs_eca0027_w9.xml,
+                   /WEB-INF/conf/eca0027/core/struts/tiles-defs_eca0027_wb.xml,
+                   /WEB-INF/conf/eca0027/core/struts/tiles-defs_eca0027_wc.xml,
+                   /WEB-INF/conf/eca0027/core/struts/tiles-defs_eca0027_wt.xml,
+                   /WEB-INF/conf/eca0027/core/struts/tiles-defs_eca0027_x9.xml" />
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+
+</struts-config>

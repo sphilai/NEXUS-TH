@@ -1,0 +1,1251 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-JbOdrUpload.xml
+ *
+ * JbOdrUploadDaoのSqlMapファイル。
+ *
+ * MGT575 ADD
+ *
+ * Copyright (c) 2017 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="JbOdrUpload">
+
+    <typeAlias alias="B0200OdrUploadReqDomain"
+        type="com.globaldenso.eca0027.core.business.domain.B0200OdrUploadReqDomain" />
+    <typeAlias alias="B0200OdrUploadOdrDomain"
+        type="com.globaldenso.eca0027.core.business.domain.B0200OdrUploadOdrDomain" />
+    <typeAlias alias="B0200OdrUploadUpdDomain"
+        type="com.globaldenso.eca0027.core.business.domain.B0200OdrUploadUpdDomain" />
+
+    <!--
+    ==================================================================
+    == ResultMap for Uniqueness check in file.
+    == ファイル内ユニーク性チェック結果のResultMap。
+    ==================================================================
+    -->
+    <resultMap id="B0200OdrUploadOdrDomain_SearchCheckUniquenessInsideFile" class="B0200OdrUploadOdrDomain">
+        <result property="requestId" column="REQUEST_ID" />
+        <result property="uploadFileLine" column="UPLOAD_FILE_LINE" />
+        <result property="lvl1ErrCdList" column="LVL1_ERR_CD_LIST" />
+        <result property="errorTyp" column="ERROR_TYP" />
+    </resultMap>
+
+    <!--
+    ==================================================================
+    == ResultMap for Data retrieval to pass to CIGMA side check processing.
+    == CIGMA側チェック処理に渡すデータ検索結果のResultMap。
+    ==================================================================
+    -->
+    <resultMap id="B0200OdrUploadOdrDomain_SearchCheckRelationCigmaSide" class="B0200OdrUploadOdrDomain">
+        <result property="requestId" column="REQUEST_ID" />
+        <result property="uploadFileLine" column="UPLOAD_FILE_LINE" />
+        <result property="processTyp" column="PROCESS_TYP" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="etdDueDtString" column="ETD_DUE_DT" />
+        <result property="odrFirmFlg" column="ODR_FIRM_FLG" />
+        <result property="lvl1ErrCdList" column="LVL1_ERR_CD_LIST" />
+        <result property="lvl2ErrCdList" column="LVL2_ERR_CD_LIST" />
+        <result property="lvl3ErrCdList" column="LVL3_ERR_CD_LIST" />
+        <result property="lvl3WarnCdList" column="LVL3_WARN_CD_LIST" />
+    </resultMap>
+
+    <!--
+    ==================================================================
+    == ResultMap for result of NEXUS side check.
+    == NEXUS側チェック結果のResultMap。
+    ==================================================================
+    -->
+    <resultMap id="B0200OdrUploadOdrDomain_SearchCheckRelationNexusSide" class="B0200OdrUploadOdrDomain">
+        <result property="requestId" column="REQUEST_ID" />
+        <result property="uploadFileLine" column="UPLOAD_FILE_LINE" />
+        <result property="fcstReplaceFlg" column="FCST_REPLACE_FLG" />
+        <result property="processTyp" column="PROCESS_TYP" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="etdDueDt" column="ETD_DUE_DT" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="newTrnsCd" column="NEW_TRNS_CD" />
+        <result property="newEtdDueDt" column="NEW_ETD_DUE_DT" />
+        <result property="newCustomerPoNo" column="NEW_CUSTOMER_PO_NO" />
+        <result property="odrQty" column="ODR_QTY" />
+        <result property="customerDueDt" column="CUSTOMER_DUE_DT" />
+        <result property="odrFirmFlg" column="ODR_FIRM_FLG" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="lvl1ErrCdList" column="LVL1_ERR_CD_LIST" />
+        <result property="lvl2ErrCdList" column="LVL2_ERR_CD_LIST" />
+        <result property="lvl3ErrCdList" column="LVL3_ERR_CD_LIST" />
+        <result property="lvl3WarnCdList" column="LVL3_WARN_CD_LIST" />
+        <result property="errorTyp" column="ERROR_TYP" />
+        <result property="pltzAllocQty" column="PLTZ_ALLOC_QTY" />
+        <result property="shippedQty" column="SHIPPED_QTY" />
+        <result property="oldOdrQty" column="OLD_ODR_QTY" />
+        <result property="oldCustomerDueDt" column="OLD_CUSTOMER_DUE_DT" />
+        <result property="oldOdrFirmFlg" column="OLD_ODR_FIRM_FLG" />
+        <result property="existOldExpRcvOdrFlg" column="EXIST_OLD_EXP_RCV_ODR_FLG" />
+        <result property="existNewExpRcvOdrFlg" column="EXIST_NEW_EXP_RCV_ODR_FLG" />
+        <result property="existItemSpInfoFlg" column="EXIST_ITEM_SP_INFO_FLG" />
+        <result property="existFormalitiItemFlg" column="EXIST_FORMALITI_ITEM_FLG" />
+        <result property="existNewTrnsFlg" column="EXIST_NEW_TRNS_FLG" />
+        <result property="shippingLot" column="SHIPPING_LOT" />
+    </resultMap>
+
+    <!--
+    ==================================================================
+    == Order upload work registration general purpose.
+    == 受注アップロードワーク登録汎用。
+    ==================================================================
+    -->
+    <insert id="CreateOdrUploadWork" parameterClass="B0200OdrUploadOdrDomain">
+        insert
+        /* SqlMap-JbOdrUpload.CreateOdrUploadWork */
+        into TW_ODR_UPLOAD (
+            REQUEST_ID
+        ,   UPLOAD_FILE_LINE
+        ,   FCST_REPLACE_FLG
+        ,   PROCESS_TYP
+        ,   RCV_ODR_COMP_CD
+        ,   CUSTOMER_CD
+        ,   LGCY_SHIP_TO
+        ,   CUSTOMER_ITEM_NO
+        ,   TRNS_CD
+        ,   ETD_DUE_DT
+        ,   CUSTOMER_PO_NO
+        ,   NEW_TRNS_CD
+        ,   NEW_ETD_DUE_DT
+        ,   NEW_CUSTOMER_PO_NO
+        ,   ODR_QTY
+        ,   CUSTOMER_DUE_DT
+        ,   ODR_FIRM_FLG
+        ,   SALES_COMP_PO_NO
+        ,   ITEM_NO
+        ,   PKG_CD
+        ,   ITEM_DESCRIPTION
+        ,   PLNT_CD
+        ,   SHIPPING_DT
+        ,   SUPPLIER_CD
+        ,   LVL1_ERR_CD_LIST
+        ,   LVL2_ERR_CD_LIST
+        ,   LVL3_ERR_CD_LIST
+        ,   LVL3_WARN_CD_LIST
+        ,   ERROR_TYP
+        ,   COM_UPDATE_FUNC_ID
+        ,   COM_UPDATE_USER_ID
+        ,   COM_UPDATE_TIMESTAMP
+        ,   COM_CREATE_FUNC_ID
+        ,   COM_CREATE_USER_ID
+        ,   COM_CREATE_TIMESTAMP
+        )
+        values (
+            #requestId#
+        ,   #uploadFileLine#
+        ,   #fcstReplaceFlg#
+        ,   #processTyp#
+        ,   #rcvOdrCompCd#
+        ,   #customerCd#
+        ,   #lgcyShipTo#
+        ,   #customerItemNo#
+        ,   #trnsCd#
+        ,   #etdDueDt#
+        ,   #customerPoNo#
+        ,   #newTrnsCd#
+        ,   #newEtdDueDt#
+        ,   #newCustomerPoNo#
+        ,   #odrQty#
+        ,   #customerDueDt#
+        ,   #odrFirmFlg#
+        ,   #salesCompPoNo#
+        ,   #itemNo#
+        ,   #pkgCd#
+        ,   #itemDescription#
+        ,   #plntCd#
+        ,   #shippingDt#
+        ,   #supplierCd#
+        ,   #lvl1ErrCdList#
+        ,   #lvl2ErrCdList#
+        ,   #lvl3ErrCdList#
+        ,   #lvl3WarnCdList#
+        ,   #errorTyp#
+        ,   'B0200'
+        ,   '0'
+        ,   sysdate
+        ,   'B0200'
+        ,   '0'
+        ,   sysdate
+        )
+    </insert>
+
+    <!--
+    ==================================================================
+    ==
+    == Uniqueness check in file.
+    == ファイル内ユニーク性チェック。
+    ==
+    == Requests that do not depend on processing order or results that differ in processing order are not accepted as errors.
+    == Although both are rare, it is necessary to control so as not to cause a unique constraint violation.
+    ==
+    == union below 3.
+    == Detects other records with NEW = NEW
+    ==  additional NEW = additional NEW
+    ==  NEW of change = NEW of change
+    ==  NEW of change = additional NEW
+    == Detects other records with OLD = OLD
+    ==  OLD of change = OLD of change
+    == Detects other records with OLD = NEW
+    ==  OLD of change = NEW of change
+    ==  OLD of change = additional NEW
+    == *Refer to the file specification for the key to be checked.
+    == *The additional key is copied to the NEW item programmatically and only NEW is referenced.
+    == 
+    == 処理順に依存したり、処理順で結果が異なるようなリクエストはエラーとして受け付けない。
+    == いずれもレアではあるが、一意制約違反を発生させないよう制御が必要。
+    ==
+    == 以下3つをunionする。
+    == NEW=NEWとなっている他のレコードを検出
+    ==  追加のNEW=追加のNEW
+    ==  変更のNEW=変更のNEW
+    ==  変更のNEW=追加のNEW
+    == OLD=OLDとなっている他のレコードを検出
+    ==  変更のOLD=変更のOLD
+    == OLD=NEWとなっている他のレコードを検出
+    ==  変更のOLD=変更のNEW
+    ==  変更のOLD=追加のNEW
+    == ※チェック対象のキーについてはファイル仕様参照。
+    == ※追加のキーはプログラムでNEW項目にコピーしNEWだけを参照する。
+    ==
+    ==================================================================
+    -->
+    <select id="SearchCheckUniquenessInsideFile"
+        resultMap="B0200OdrUploadOdrDomain_SearchCheckUniquenessInsideFile" parameterClass="B0200OdrUploadReqDomain">
+
+        select
+            /* SqlMap-JbOdrUpload.SearchCheckUniquenessInsideFile */
+            REQUEST_ID
+        ,   UPLOAD_FILE_LINE
+        ,   '31' LVL1_ERR_CD_LIST
+        ,   '2' ERROR_TYP
+        from
+        (
+            select
+                T1.REQUEST_ID
+            ,   T1.UPLOAD_FILE_LINE
+            from
+                TW_ODR_UPLOAD T1
+            where
+                T1.REQUEST_ID = #requestId#
+            and
+                exists (
+                    select 'X'
+                    from
+                        TW_ODR_UPLOAD T2
+                    where
+                        T2.REQUEST_ID = #requestId#
+                    and T1.RCV_ODR_COMP_CD      = T2.RCV_ODR_COMP_CD
+                    and T1.CUSTOMER_CD          = T2.CUSTOMER_CD
+                    and T1.LGCY_SHIP_TO         = T2.LGCY_SHIP_TO
+                    and T1.CUSTOMER_ITEM_NO     = T2.CUSTOMER_ITEM_NO
+                    and T1.NEW_TRNS_CD          = T2.NEW_TRNS_CD
+                    and T1.NEW_ETD_DUE_DT       = T2.NEW_ETD_DUE_DT
+                    and T1.NEW_CUSTOMER_PO_NO   = T2.NEW_CUSTOMER_PO_NO
+                    and
+                        not (
+                            T1.REQUEST_ID           = T2.REQUEST_ID
+                        and T1.UPLOAD_FILE_LINE     = T2.UPLOAD_FILE_LINE
+                        )
+                )
+            union
+            select
+                T1.REQUEST_ID
+            ,   T1.UPLOAD_FILE_LINE
+            from
+                TW_ODR_UPLOAD T1
+            where
+                T1.REQUEST_ID = #requestId#
+            and T1.PROCESS_TYP = '2'
+            and
+                exists (
+                    select 'X'
+                    from
+                        TW_ODR_UPLOAD T2
+                    where
+                        T2.REQUEST_ID = #requestId#
+                    and T2.PROCESS_TYP = '2'
+                    and T1.RCV_ODR_COMP_CD      = T2.RCV_ODR_COMP_CD
+                    and T1.CUSTOMER_CD          = T2.CUSTOMER_CD
+                    and T1.LGCY_SHIP_TO         = T2.LGCY_SHIP_TO
+                    and T1.CUSTOMER_ITEM_NO     = T2.CUSTOMER_ITEM_NO
+                    and T1.TRNS_CD              = T2.TRNS_CD
+                    and T1.ETD_DUE_DT           = T2.ETD_DUE_DT
+                    and T1.CUSTOMER_PO_NO       = T2.CUSTOMER_PO_NO
+                    and
+                        not (
+                            T1.REQUEST_ID           = T2.REQUEST_ID
+                        and T1.UPLOAD_FILE_LINE     = T2.UPLOAD_FILE_LINE
+                        )
+                )
+            union
+            select
+                T1.REQUEST_ID
+            ,   T1.UPLOAD_FILE_LINE
+            from
+                TW_ODR_UPLOAD T1
+            where
+                T1.REQUEST_ID = #requestId#
+            and T1.PROCESS_TYP = '2'
+            and
+                exists (
+                    select 'X'
+                    from
+                        TW_ODR_UPLOAD T2
+                    where
+                        T2.REQUEST_ID = #requestId#
+                    and T1.RCV_ODR_COMP_CD      = T2.RCV_ODR_COMP_CD
+                    and T1.CUSTOMER_CD          = T2.CUSTOMER_CD
+                    and T1.LGCY_SHIP_TO         = T2.LGCY_SHIP_TO
+                    and T1.CUSTOMER_ITEM_NO     = T2.CUSTOMER_ITEM_NO
+                    and T1.TRNS_CD              = T2.NEW_TRNS_CD
+                    and T1.ETD_DUE_DT           = T2.NEW_ETD_DUE_DT
+                    and T1.CUSTOMER_PO_NO       = T2.NEW_CUSTOMER_PO_NO
+                    and
+                        not (
+                            T1.REQUEST_ID           = T2.REQUEST_ID
+                        and T1.UPLOAD_FILE_LINE     = T2.UPLOAD_FILE_LINE
+                        )
+                )
+        )
+        order by
+            UPLOAD_FILE_LINE
+    </select>
+
+    <!--
+    ==================================================================
+    == Reflect the uniqueness check result on the order upload work.
+    == ユニーク性チェック結果を受注アップロードワークに反映。
+    ==================================================================
+    -->
+    <update id="UpdateOdrUploadWorkByUniquenessInsideFileCheckResults" parameterClass="B0200OdrUploadOdrDomain">
+        update
+        /* SqlMap-JbOdrUpload.UpdateOdrUploadWorkByUniquenessInsideFileCheckResults */
+            TW_ODR_UPLOAD
+        set
+            LVL1_ERR_CD_LIST = #lvl1ErrCdList#
+        ,   ERROR_TYP = #errorTyp#
+        ,   COM_UPDATE_FUNC_ID = 'B0200'
+        ,   COM_UPDATE_USER_ID = '0'
+        ,   COM_UPDATE_TIMESTAMP = sysdate
+        where
+            REQUEST_ID = #requestId#
+        and UPLOAD_FILE_LINE = #uploadFileLine#
+    </update>
+
+    <!--
+    ==================================================================
+    == Data retrieval to pass to CIGMA side check processing.
+    == CIGMA側チェック処理に渡すデータ検索。
+    ==================================================================
+    -->
+    <select id="SearchCheckRelationCigmaSide" resultMap="B0200OdrUploadOdrDomain_SearchCheckRelationCigmaSide"
+        parameterClass="B0200OdrUploadReqDomain">
+
+        select
+        /* SqlMap-JbOdrUpload.SearchCheckRelationCigmaSide */
+            REQUEST_ID
+        ,   UPLOAD_FILE_LINE
+        ,   PROCESS_TYP
+        ,   CUSTOMER_CD
+        ,   LGCY_SHIP_TO
+        ,   CUSTOMER_ITEM_NO
+        ,   to_char(NEW_ETD_DUE_DT, 'YYYYMMDD') ETD_DUE_DT
+        ,   ODR_FIRM_FLG
+        ,   LVL1_ERR_CD_LIST
+        ,   LVL2_ERR_CD_LIST
+        ,   LVL3_ERR_CD_LIST
+        ,   LVL3_WARN_CD_LIST
+        from
+            TW_ODR_UPLOAD
+        where
+            REQUEST_ID = #requestId#
+        order by
+            UPLOAD_FILE_LINE
+    </select>
+
+    <!--
+    ==================================================================
+    == Reflect the check result of CIGMA side to TW_ODR_UPLOAD.
+    == CIGMA側チェック結果を受注アップロードワークに反映。
+    ==================================================================
+    -->
+    <update id="UpdateOdrUploadWorkByCigmaSideCheckResults" parameterClass="B0200OdrUploadOdrDomain">
+        update
+        /* SqlMap-JbOdrUpload.UpdateOdrUploadWorkByCigmaSideCheckResults */
+            TW_ODR_UPLOAD
+        set
+            ITEM_NO = #itemNo#
+        ,   ITEM_DESCRIPTION = #itemDescription#
+        ,   PLNT_CD = #plntCd#
+        ,   SHIPPING_DT = to_date(#shippingDtString#, 'YYYYMMDD')
+        ,   SUPPLIER_CD = #supplierCd#
+        ,   LVL1_ERR_CD_LIST = #lvl1ErrCdList#
+        ,   LVL2_ERR_CD_LIST = #lvl2ErrCdList#
+        ,   LVL3_ERR_CD_LIST = #lvl3ErrCdList#
+        ,   LVL3_WARN_CD_LIST = #lvl3WarnCdList#
+        ,   COM_UPDATE_FUNC_ID = 'B0200'
+        ,   COM_UPDATE_USER_ID = '0'
+        ,   COM_UPDATE_TIMESTAMP = sysdate
+        where
+            REQUEST_ID = #requestId#
+        and UPLOAD_FILE_LINE = #uploadFileLine#
+    </update>
+
+    <!--
+    ==================================================================
+    == Check for NEXUS side.
+    == Consider the order of locks to make sure just in case.
+    == NEXUS側チェック。
+    == ロック順を考慮し念のためorder by。
+    ==================================================================
+    -->
+    <select id="SearchCheckRelationNexusSide" resultMap="B0200OdrUploadOdrDomain_SearchCheckRelationNexusSide"
+        parameterClass="B0200OdrUploadReqDomain">
+
+        select
+        /* SqlMap-JbOdrUpload.SearchCheckRelationNexusSide */
+            T1.REQUEST_ID
+        ,   T1.UPLOAD_FILE_LINE
+        ,   T1.FCST_REPLACE_FLG
+        ,   T1.PROCESS_TYP
+        ,   T1.TRNS_CD
+        ,   T1.ETD_DUE_DT
+        ,   T1.CUSTOMER_PO_NO
+        ,   T1.NEW_TRNS_CD
+        ,   T1.NEW_ETD_DUE_DT
+        ,   T1.NEW_CUSTOMER_PO_NO
+        ,   T1.ODR_QTY
+        ,   T1.CUSTOMER_DUE_DT
+        ,   T1.ODR_FIRM_FLG
+        ,   nvl(T1.ITEM_NO, T2.ITEM_NO) ITEM_NO
+        ,   nvl(T1.PKG_CD, T2.PKG_CD) PKG_CD
+        ,   nvl(T1.PLNT_CD, T2.PLNT_CD) PLNT_CD
+        ,   T1.LVL1_ERR_CD_LIST
+        ,   T1.LVL2_ERR_CD_LIST
+        ,   T1.LVL3_ERR_CD_LIST
+        ,   T1.LVL3_WARN_CD_LIST
+        ,   T1.ERROR_TYP
+        ,   T2.PLTZ_ALLOC_QTY
+        ,   T2.SHIPPED_QTY
+        ,   T2.ODR_QTY          OLD_ODR_QTY
+        ,   T2.CUSTOMER_DUE_DT  OLD_CUSTOMER_DUE_DT
+        ,   T2.ODR_FIRM_FLG     OLD_ODR_FIRM_FLG
+        ,   decode(T2.RCV_ODR_COMP_CD, NULL, 'N', 'Y')  EXIST_OLD_EXP_RCV_ODR_FLG
+        ,   (
+                case
+                    when exists (
+                        select 'X'
+                        from
+                            TT_EXP_RCV_ODR T2
+                        where
+                            T1.RCV_ODR_COMP_CD      = T2.RCV_ODR_COMP_CD
+                        and T1.CUSTOMER_CD          = T2.CUSTOMER_CD
+                        and T1.LGCY_SHIP_TO         = T2.LGCY_SHIP_TO
+                        and T1.ITEM_NO              = T2.ITEM_NO
+                        and T1.PKG_CD               = T2.PKG_CD
+                        and T1.NEW_TRNS_CD          = T2.TRNS_CD
+                        and T1.NEW_ETD_DUE_DT       = T2.ETD_DUE_DT
+                        and T1.NEW_CUSTOMER_PO_NO   = T2.CUSTOMER_PO_NO
+                        and T1.CUSTOMER_ITEM_NO     = T2.CUSTOMER_ITEM_NO
+                        and T1.CUSTOMER_ITEM_NO     = T2.CUSTOMER_ITEM_NO_ORG
+                        and T2.ODR_CTRL_NO          = 0
+                        and not (
+                                T1.PROCESS_TYP          = '2'
+                            and T1.NEW_TRNS_CD          = T1.TRNS_CD
+                            and T1.NEW_ETD_DUE_DT       = T1.ETD_DUE_DT
+                            and T1.NEW_CUSTOMER_PO_NO   = T1.CUSTOMER_PO_NO
+                        )
+                        and not (
+                                T1.FCST_REPLACE_FLG     = 'Y'
+                            and T2.ODR_FIRM_FLG         = 'N'
+                        )
+                    ) then 'Y' else 'N'
+                end
+            )
+            EXIST_NEW_EXP_RCV_ODR_FLG
+        ,   decode(M1.REQUEST_ID, NULL, 'N', 'Y')       EXIST_ITEM_SP_INFO_FLG
+        ,   decode(M2.REQUEST_ID, NULL, 'N', 'Y')       EXIST_FORMALITI_ITEM_FLG
+        ,   decode(M3.CD_TYP, NULL, 'N', 'Y')           EXIST_NEW_TRNS_FLG
+        ,   M1.SHIPPING_LOT
+        from
+            TW_ODR_UPLOAD T1
+        ,   TT_EXP_RCV_ODR T2
+        ,   (
+                select
+                /*+ use_hash(T1 T2) */
+                    T1.REQUEST_ID
+                ,   T1.UPLOAD_FILE_LINE
+                ,   T2.SHIPPING_LOT
+                from
+                    TW_ODR_UPLOAD T1
+                ,   TM_EXP_ITEM_NO_SP_INFO T2
+                where
+                    T1.REQUEST_ID       = #requestId#
+                and T1.RCV_ODR_COMP_CD  = T2.COMP_CD
+                and T1.ITEM_NO          = T2.ITEM_NO
+                and T2.PKG_CD           = ' '
+                and T1.CUSTOMER_CD      = T2.CUSTOMER_CD
+                and T1.LGCY_SHIP_TO     = T2.LGCY_SHIP_TO
+                and T2.APLY_STRT_DT = (
+                    select
+                        max(T2MAX.APLY_STRT_DT)
+                    from
+                        TM_EXP_ITEM_NO_SP_INFO T2MAX
+                    where
+                        T2MAX.COMP_CD       = T2.COMP_CD
+                    and T2MAX.ITEM_NO       = T2.ITEM_NO
+                    and T2MAX.PKG_CD        = T2.PKG_CD
+                    and T2MAX.CUSTOMER_CD   = T2.CUSTOMER_CD
+                    and T2MAX.LGCY_SHIP_TO  = T2.LGCY_SHIP_TO
+                    and T2MAX.APLY_STRT_DT <![CDATA[ <= ]]> T1.ETD_DUE_DT
+                )
+            ) M1
+        ,   (
+                select
+                /*+ use_hash(T1 T2) */
+                    T1.REQUEST_ID
+                ,   T1.UPLOAD_FILE_LINE
+                from
+                    TW_ODR_UPLOAD T1
+                ,   TM_EXP_FORMALITI_ITEM_NO T2
+                where
+                    T1.REQUEST_ID       = #requestId#
+                and T1.RCV_ODR_COMP_CD  = T2.COMP_CD
+                and T1.ITEM_NO          = T2.ITEM_NO
+                and T2.APLY_STRT_DT = (
+                    select
+                        max(T2MAX.APLY_STRT_DT)
+                    from
+                        TM_EXP_FORMALITI_ITEM_NO T2MAX
+                    where
+                        T2MAX.COMP_CD       = T2.COMP_CD
+                    and T2MAX.ITEM_NO       = T2.ITEM_NO
+                    and T2MAX.APLY_STRT_DT <![CDATA[ <= ]]> T1.ETD_DUE_DT
+                )
+            ) M2
+        ,   TM_CD M3
+        where
+            T1.REQUEST_ID           = #requestId#
+        and T1.RCV_ODR_COMP_CD      = T2.RCV_ODR_COMP_CD(+)
+        and T1.CUSTOMER_CD          = T2.CUSTOMER_CD(+)
+        and T1.LGCY_SHIP_TO         = T2.LGCY_SHIP_TO(+)
+        and T1.ITEM_NO              = T2.ITEM_NO(+)
+        and T1.PKG_CD               = T2.PKG_CD(+)
+        and T1.TRNS_CD              = T2.TRNS_CD(+)
+        and T1.ETD_DUE_DT           = T2.ETD_DUE_DT(+)
+        and T1.CUSTOMER_PO_NO       = T2.CUSTOMER_PO_NO(+)
+        and T1.CUSTOMER_ITEM_NO     = T2.CUSTOMER_ITEM_NO(+)
+        and T1.CUSTOMER_ITEM_NO     = T2.CUSTOMER_ITEM_NO_ORG(+)
+        and T2.ODR_CTRL_NO(+)       = 0
+        and T1.REQUEST_ID           = M1.REQUEST_ID(+)
+        and T1.UPLOAD_FILE_LINE     = M1.UPLOAD_FILE_LINE(+)
+        and T1.REQUEST_ID           = M2.REQUEST_ID(+)
+        and T1.UPLOAD_FILE_LINE     = M2.UPLOAD_FILE_LINE(+)
+        and M3.CD_TYP(+)            = '12'
+        and M3.LNG_CD(+)            = 'en'
+        and T1.NEW_TRNS_CD          = M3.CD(+)
+        order by
+            T2.RCV_ODR_COMP_CD
+        ,   T2.CUSTOMER_CD
+        ,   T2.LGCY_SHIP_TO
+        ,   T2.ITEM_NO
+        ,   T2.PKG_CD
+        ,   T2.TRNS_CD
+        ,   T2.ETD_DUE_DT
+        ,   T2.CUSTOMER_PO_NO
+        ,   T2.CUSTOMER_ITEM_NO
+        ,   T2.CUSTOMER_ITEM_NO
+        ,   T2.ODR_CTRL_NO
+        for update of T2.RCV_ODR_COMP_CD
+    </select>
+
+    <!--
+    ==================================================================
+    == Reflect the check result of NEXUS side to TW_ODR_UPLOAD.
+    == NEXUS側チェック結果を受注アップロードワークに反映。
+    ==================================================================
+    -->
+    <update id="UpdateOdrUploadWorkByNexusSideCheckResults" parameterClass="B0200OdrUploadOdrDomain">
+        update
+        /* SqlMap-JbOdrUpload.UpdateOdrUploadWorkByNexusSideCheckResults */
+            TW_ODR_UPLOAD
+        set
+            ITEM_NO = #itemNo#
+        ,   PKG_CD = #pkgCd#
+        ,   PLNT_CD = #plntCd#
+        ,   LVL1_ERR_CD_LIST = #lvl1ErrCdList#
+        ,   LVL2_ERR_CD_LIST = #lvl2ErrCdList#
+        ,   LVL3_ERR_CD_LIST = #lvl3ErrCdList#
+        ,   LVL3_WARN_CD_LIST = #lvl3WarnCdList#
+        ,   ERROR_TYP = #errorTyp#
+        ,   COM_UPDATE_FUNC_ID = 'B0200'
+        ,   COM_UPDATE_USER_ID = '0'
+        ,   COM_UPDATE_TIMESTAMP = sysdate
+        where
+            REQUEST_ID = #requestId#
+        and UPLOAD_FILE_LINE = #uploadFileLine#
+    </update>
+
+    <!--
+    ==================================================================
+    ==
+    == Check error group of all rows and determine the status of the whole file.
+    == 全行のエラー区分を調査し、ファイル全体のステータスを判定する。
+    ==
+    == NULL:data 0 -> 2:Complete
+    == 0:Normal only -> 2:Complate
+    == 1:Normal/Warning only -> 3:Complete (Warning)
+    == 2:With error -> 9:Error
+    == NULL:0件→Complete
+    == 0:正常のみ→2:Complate
+    == 1:正常・警告のみ→3:Complete (Warning)
+    == 2:エラーあり→9:Error
+    ==
+    ==================================================================
+    -->
+    <select id="SearchStatusSummary" resultClass="java.lang.String" parameterClass="B0200OdrUploadReqDomain">
+
+        select
+        /* SqlMap-JbOdrUpload.SearchStatusSummary */
+            decode(max(ERROR_TYP),
+                NULL, '2',
+                '0', '2',
+                '1', '3',
+                '2', '9'
+            ) STATUS
+        from
+            TW_ODR_UPLOAD
+        where
+            REQUEST_ID = #requestId#
+    </select>
+
+    <!--
+    ==================================================================
+    == Register the deletion target forecast order record to the order upload update work.
+    == 内示削除対象レコードを輸出受注更新ワークへ登録。
+    ==================================================================
+    -->
+    <insert id="CreateOdrUploadUpdForFcstReplace" parameterClass="B0200OdrUploadReqDomain">
+        insert
+        /* SqlMap-JbOdrUpload.CreateOdrUploadUpdForFcstReplace */
+        into TW_ODR_UPLOAD_UPD (
+            REQUEST_ID
+        ,   BRCH
+        ,   RCV_ODR_COMP_CD
+        ,   CUSTOMER_CD
+        ,   LGCY_SHIP_TO
+        ,   CUSTOMER_ITEM_NO
+        ,   ITEM_NO
+        ,   SHIPPING_DT
+        ,   PLTZ_ALLOC_QTY
+        ,   SHIPPED_QTY
+        ,   PARTIAL_DELIV_CNT
+        ,   ODR_QTY_ORG
+        ,   SALES_COMP_PO_NO
+        ,   UPDATE_TYP
+        ,   OLD_CUSTOMER_DUE_DT
+        ,   OLD_ETD_DUE_DT
+        ,   OLD_ODR_QTY
+        ,   OLD_TRNS_CD
+        ,   OLD_CUSTOMER_PO_NO
+        ,   OLD_ODR_FIRM_FLG
+        ,   NEW_CUSTOMER_DUE_DT
+        ,   NEW_ETD_DUE_DT
+        ,   NEW_ODR_QTY
+        ,   NEW_TRNS_CD
+        ,   NEW_CUSTOMER_PO_NO
+        ,   NEW_ODR_FIRM_FLG
+        ,   COM_UPDATE_FUNC_ID
+        ,   COM_UPDATE_USER_ID
+        ,   COM_UPDATE_TIMESTAMP
+        ,   COM_CREATE_FUNC_ID
+        ,   COM_CREATE_USER_ID
+        ,   COM_CREATE_TIMESTAMP
+        )
+        select
+            #requestId#
+        ,
+        (
+            select
+                nvl(max(BRCH), 0)
+            from
+                TW_ODR_UPLOAD_UPD
+            where
+                REQUEST_ID = #requestId#
+        )
+        + row_number()
+            over (order by
+                T1.CUSTOMER_CD
+            ,   T1.LGCY_SHIP_TO
+            ,   T1.CUSTOMER_ITEM_NO
+            ,   T1.ITEM_NO
+            ,   T1.ETD_DUE_DT
+            ,   T1.TRNS_CD
+            ,   T1.CUSTOMER_PO_NO
+            )
+        ,   T1.RCV_ODR_COMP_CD
+        ,   T1.CUSTOMER_CD
+        ,   T1.LGCY_SHIP_TO
+        ,   T1.CUSTOMER_ITEM_NO
+        ,   T1.ITEM_NO
+        ,   NULL SHIPPING_DT
+        ,   T1.PLTZ_ALLOC_QTY
+        ,   T1.SHIPPED_QTY
+        ,   T1.PARTIAL_DELIV_CNT
+        ,   T1.ODR_QTY_ORG
+        ,   NULL SALES_COMP_PO_NO
+        ,   '3' UPDATE_TYP
+        ,   T1.CUSTOMER_DUE_DT  OLD_CUSTOMER_DUE_DT
+        ,   T1.ETD_DUE_DT       OLD_ETD_DUE_DT
+        ,   T1.ODR_QTY          OLD_ODR_QTY
+        ,   T1.TRNS_CD          OLD_TRNS_CD
+        ,   T1.CUSTOMER_PO_NO   OLD_CUSTOMER_PO_NO
+        ,   T1.ODR_FIRM_FLG     OLD_ODR_FIRM_FLG
+        ,   NULL                NEW_CUSTOMER_DUE_DT
+        ,   NULL                NEW_ETD_DUE_DT
+        ,   NULL                NEW_ODR_QTY
+        ,   NULL                NEW_TRNS_CD
+        ,   NULL                NEW_CUSTOMER_PO_NO
+        ,   NULL                NEW_ODR_FIRM_FLG
+        ,   'B0200'
+        ,   '0'
+        ,   sysdate
+        ,   'B0200'
+        ,   '0'
+        ,   sysdate
+        from
+            TT_EXP_RCV_ODR T1
+        where
+            T1.ODR_FIRM_FLG = 'N'
+        and exists (
+            select 'X'
+            from
+                TW_ODR_UPLOAD T2
+            where
+                T2.REQUEST_ID = #requestId#
+            and T2.FCST_REPLACE_FLG = 'Y'
+            and T2.RCV_ODR_COMP_CD = T1.RCV_ODR_COMP_CD
+            and T2.CUSTOMER_CD = T1.CUSTOMER_CD
+            and T2.LGCY_SHIP_TO = T1.LGCY_SHIP_TO
+        )
+        order by
+            T1.CUSTOMER_CD
+        ,   T1.LGCY_SHIP_TO
+        ,   T1.CUSTOMER_ITEM_NO
+        ,   T1.TRNS_CD
+        ,   T1.ETD_DUE_DT
+        ,   T1.CUSTOMER_PO_NO
+    </insert>
+
+    <!--
+    ==================================================================
+    == Delete forecast orders from export orders.
+    == 輸出受注から内示削除。
+    ==================================================================
+    -->
+    <delete id="DeleteExpOdrForFcstReplace" parameterClass="B0200OdrUploadReqDomain">
+        delete
+        /* SqlMap-JbOdrUpload.DeleteExpOdrForFcstReplace */
+        from
+            TT_EXP_RCV_ODR T1
+        where
+            T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+        and T1.ODR_FIRM_FLG = 'N'
+        and exists (
+            select 'X'
+            from
+                TW_ODR_UPLOAD T2
+            where
+                T2.REQUEST_ID = #requestId#
+            and T2.FCST_REPLACE_FLG = 'Y'
+            and T2.RCV_ODR_COMP_CD = T1.RCV_ODR_COMP_CD
+            and T2.CUSTOMER_CD = T1.CUSTOMER_CD
+            and T2.LGCY_SHIP_TO = T1.LGCY_SHIP_TO
+        )
+    </delete>
+
+    <!--
+    ==================================================================
+    == Register the record to be registered to the order upload update work.
+    == 登録対象レコードを受注アップロード更新ワークへ登録。
+    ==================================================================
+    -->
+    <insert id="CreateExpOdrUpdForAdd" parameterClass="B0200OdrUploadReqDomain">
+        insert
+        /* SqlMap-JbOdrUpload.CreateExpOdrUpdForAdd */
+        into TW_ODR_UPLOAD_UPD (
+            REQUEST_ID
+        ,   BRCH
+        ,   RCV_ODR_COMP_CD
+        ,   CUSTOMER_CD
+        ,   LGCY_SHIP_TO
+        ,   CUSTOMER_ITEM_NO
+        ,   ITEM_NO
+        ,   SHIPPING_DT
+        ,   PLTZ_ALLOC_QTY
+        ,   SHIPPED_QTY
+        ,   PARTIAL_DELIV_CNT
+        ,   ODR_QTY_ORG
+        ,   SALES_COMP_PO_NO
+        ,   UPDATE_TYP
+        ,   OLD_CUSTOMER_DUE_DT
+        ,   OLD_ETD_DUE_DT
+        ,   OLD_ODR_QTY
+        ,   OLD_TRNS_CD
+        ,   OLD_CUSTOMER_PO_NO
+        ,   OLD_ODR_FIRM_FLG
+        ,   NEW_CUSTOMER_DUE_DT
+        ,   NEW_ETD_DUE_DT
+        ,   NEW_ODR_QTY
+        ,   NEW_TRNS_CD
+        ,   NEW_CUSTOMER_PO_NO
+        ,   NEW_ODR_FIRM_FLG
+        ,   COM_UPDATE_FUNC_ID
+        ,   COM_UPDATE_USER_ID
+        ,   COM_UPDATE_TIMESTAMP
+        ,   COM_CREATE_FUNC_ID
+        ,   COM_CREATE_USER_ID
+        ,   COM_CREATE_TIMESTAMP
+        )
+        select
+            #requestId#
+        ,
+        (
+            select
+                nvl(max(BRCH), 0)
+            from
+                TW_ODR_UPLOAD_UPD
+            where
+                REQUEST_ID = #requestId#
+        )
+        + row_number()
+            over (order by
+                T1.REQUEST_ID
+            ,   T1.UPLOAD_FILE_LINE
+            )
+        ,   T1.RCV_ODR_COMP_CD
+        ,   T1.CUSTOMER_CD
+        ,   T1.LGCY_SHIP_TO
+        ,   T1.CUSTOMER_ITEM_NO
+        ,   T1.ITEM_NO
+        ,   T1.SHIPPING_DT
+        ,   0 PLTZ_ALLOC_QTY
+        ,   0 SHIPPED_QTY
+        ,   0 PARTIAL_DELIV_CNT
+        ,   T1.ODR_QTY
+        ,   T1.SALES_COMP_PO_NO
+        ,   '1' UPDATE_TYP
+        ,   NULL                    OLD_CUSTOMER_DUE_DT
+        ,   NULL                    OLD_ETD_DUE_DT
+        ,   NULL                    OLD_ODR_QTY
+        ,   NULL                    OLD_TRNS_CD
+        ,   NULL                    OLD_CUSTOMER_PO_NO
+        ,   NULL                    OLD_ODR_FIRM_FLG
+        ,   T1.CUSTOMER_DUE_DT      NEW_CUSTOMER_DUE_DT
+        ,   T1.NEW_ETD_DUE_DT       NEW_ETD_DUE_DT
+        ,   T1.ODR_QTY              NEW_ODR_QTY
+        ,   T1.NEW_TRNS_CD          NEW_TRNS_CD
+        ,   T1.NEW_CUSTOMER_PO_NO   NEW_CUSTOMER_PO_NO
+        ,   T1.ODR_FIRM_FLG         NEW_ODR_FIRM_FLG
+        ,   'B0200'
+        ,   '0'
+        ,   sysdate
+        ,   'B0200'
+        ,   '0'
+        ,   sysdate
+        from
+            TW_ODR_UPLOAD T1
+        where
+            T1.REQUEST_ID = #requestId#
+        and T1.ERROR_TYP in('0', '1')
+        and T1.PROCESS_TYP = '1'
+    </insert>
+
+    <!--
+    ==================================================================
+    == Register to export order.
+    == 輸出受注へ登録する。
+    ==================================================================
+    -->
+    <insert id="CreateExpOdrForAdd" parameterClass="B0200OdrUploadReqDomain">
+        insert
+        /* SqlMap-JbOdrUpload.CreateExpOdrForAdd */
+        into TT_EXP_RCV_ODR (
+            RCV_ODR_COMP_CD
+        ,   CUSTOMER_CD
+        ,   LGCY_SHIP_TO
+        ,   ITEM_NO
+        ,   PKG_CD
+        ,   TRNS_CD
+        ,   ETD_DUE_DT
+        ,   CUSTOMER_PO_NO
+        ,   CUSTOMER_ITEM_NO
+        ,   CUSTOMER_ITEM_NO_ORG
+        ,   ODR_CTRL_NO
+        ,   REVISION_NO
+        ,   REVISION_NO_EIS
+        ,   PLNT_CD
+        ,   CUSTOMER_DUE_DT
+        ,   ITEM_NO_ORG
+        ,   ODR_QTY_ORG
+        ,   ODR_QTY
+        ,   PLTZ_ALLOC_QTY
+        ,   SHIPPED_QTY
+        ,   SHIPPING_DT
+        ,   PARTIAL_DELIV_CNT
+        ,   ODR_FIRM_FLG
+        ,   SALES_COMP_PO_NO
+        ,   LAST_FIGURE_CHG_FLG
+        ,   SUPPLIER_CD
+        ,   SHIPPED_TYP
+        ,   COM_UPDATE_FUNC_ID
+        ,   COM_UPDATE_USER_ID
+        ,   COM_UPDATE_TIMESTAMP
+        ,   COM_CREATE_FUNC_ID
+        ,   COM_CREATE_USER_ID
+        ,   COM_CREATE_TIMESTAMP
+        )
+        select
+            T1.RCV_ODR_COMP_CD
+        ,   T1.CUSTOMER_CD
+        ,   T1.LGCY_SHIP_TO
+        ,   T1.ITEM_NO
+        ,   T1.PKG_CD
+        ,   T1.NEW_TRNS_CD
+        ,   T1.NEW_ETD_DUE_DT
+        ,   T1.NEW_CUSTOMER_PO_NO
+        ,   T1.CUSTOMER_ITEM_NO
+        ,   T1.CUSTOMER_ITEM_NO
+        ,   0 ODR_CTRL_NO
+        ,   0 REVISION_NO
+        ,   0 REVISION_NO_EIS
+        ,   T1.PLNT_CD
+        ,   T1.CUSTOMER_DUE_DT
+        ,   T1.ITEM_NO
+        ,   T1.ODR_QTY
+        ,   T1.ODR_QTY
+        ,   0
+        ,   0
+        ,   T1.SHIPPING_DT
+        ,   0
+        ,   T1.ODR_FIRM_FLG
+        ,   T1.SALES_COMP_PO_NO
+        ,   'N'
+        ,   T1.SUPPLIER_CD
+        ,   '1'
+        ,   'B0200'
+        ,   '0'
+        ,   sysdate
+        ,   'B0200'
+        ,   '0'
+        ,   sysdate
+        from
+            TW_ODR_UPLOAD T1
+        where
+            T1.REQUEST_ID = #requestId#
+        and T1.PROCESS_TYP = '1'
+        and T1.ERROR_TYP in('0', '1')
+        order by
+            T1.UPLOAD_FILE_LINE
+    </insert>
+
+    <!--
+    ==================================================================
+    == Update the item name of TM_EXP_FORMALITI_ITEM_NO.
+    == 輸出手続品目番号原単位の品目名称を最新化。
+    ==================================================================
+    -->
+    <update id="UpdateMaItemName" parameterClass="B0200OdrUploadReqDomain">
+        merge
+        /* SqlMap-JbOdrUpload.UpdateMaItemName */
+        into
+            TM_EXP_FORMALITI_ITEM_NO DST
+        using (
+            select
+                T1.RCV_ODR_COMP_CD
+            ,   T1.ITEM_NO
+            ,   min(T1.ITEM_DESCRIPTION) ITEM_DESCRIPTION
+            from
+                TW_ODR_UPLOAD T1
+            ,   TM_EXP_FORMALITI_ITEM_NO M1
+            where
+                T1.REQUEST_ID       = #requestId#
+            and T1.PROCESS_TYP      = '1'
+            and T1.ERROR_TYP        in('0', '1')
+            and M1.APLY_STRT_DT     = (
+                select
+                    max(M2.APLY_STRT_DT)
+                from
+                    TM_EXP_FORMALITI_ITEM_NO M2
+                where
+                    M2.COMP_CD = M1.COMP_CD
+                and M2.ITEM_NO = M1.ITEM_NO
+                and M2.APLY_STRT_DT <![CDATA[ <= ]]> #requestLocalDt#
+            )
+            and T1.ITEM_DESCRIPTION is not NULL
+            and T1.ITEM_DESCRIPTION != M1.ITEM_DESCRIPTION
+            group by
+                T1.RCV_ODR_COMP_CD
+            ,   T1.ITEM_NO
+        ) SRC
+        on (
+                DST.COMP_CD = SRC.RCV_ODR_COMP_CD
+            and DST.ITEM_NO = SRC.ITEM_NO
+        )
+        when matched then
+            update set 
+                DST.ITEM_DESCRIPTION        = SRC.ITEM_DESCRIPTION
+            ,   DST.COM_UPDATE_FUNC_ID      = 'B0200'
+            ,   DST.COM_UPDATE_USER_ID      = '0'
+            ,   DST.COM_UPDATE_TIMESTAMP    = sysdate
+    </update>
+
+    <!--
+    ==================================================================
+    == Register the changing target record in the order upload update work.
+    == 更新対象レコードを受注アップロード更新ワークへ登録。
+    ==================================================================
+    -->
+    <insert id="CreateOdrUploadUpdForChg" parameterClass="B0200OdrUploadReqDomain">
+        insert
+        /* SqlMap-JbOdrUpload.CreateOdrUploadUpdForChg */
+        into TW_ODR_UPLOAD_UPD (
+            REQUEST_ID
+        ,   BRCH
+        ,   RCV_ODR_COMP_CD
+        ,   CUSTOMER_CD
+        ,   LGCY_SHIP_TO
+        ,   CUSTOMER_ITEM_NO
+        ,   ITEM_NO
+        ,   SHIPPING_DT
+        ,   PLTZ_ALLOC_QTY
+        ,   SHIPPED_QTY
+        ,   PARTIAL_DELIV_CNT
+        ,   ODR_QTY_ORG
+        ,   SALES_COMP_PO_NO
+        ,   UPDATE_TYP
+        ,   OLD_CUSTOMER_DUE_DT
+        ,   OLD_ETD_DUE_DT
+        ,   OLD_ODR_QTY
+        ,   OLD_TRNS_CD
+        ,   OLD_CUSTOMER_PO_NO
+        ,   OLD_ODR_FIRM_FLG
+        ,   NEW_CUSTOMER_DUE_DT
+        ,   NEW_ETD_DUE_DT
+        ,   NEW_ODR_QTY
+        ,   NEW_TRNS_CD
+        ,   NEW_CUSTOMER_PO_NO
+        ,   NEW_ODR_FIRM_FLG
+        ,   COM_UPDATE_FUNC_ID
+        ,   COM_UPDATE_USER_ID
+        ,   COM_UPDATE_TIMESTAMP
+        ,   COM_CREATE_FUNC_ID
+        ,   COM_CREATE_USER_ID
+        ,   COM_CREATE_TIMESTAMP
+        )
+        select
+            #requestId#
+        ,
+        (
+            select
+                nvl(max(BRCH), 0)
+            from
+                TW_ODR_UPLOAD_UPD
+            where
+                REQUEST_ID = #requestId#
+        )
+        + row_number()
+            over (order by
+                T1.REQUEST_ID
+            ,   T1.UPLOAD_FILE_LINE
+            )
+        ,   T1.RCV_ODR_COMP_CD
+        ,   T1.CUSTOMER_CD
+        ,   T1.LGCY_SHIP_TO
+        ,   T1.CUSTOMER_ITEM_NO
+        ,   T2.ITEM_NO
+        ,   T1.SHIPPING_DT
+        ,   T2.PLTZ_ALLOC_QTY
+        ,   T2.SHIPPED_QTY
+        ,   T2.PARTIAL_DELIV_CNT
+        ,   T2.ODR_QTY_ORG
+        ,   T1.SALES_COMP_PO_NO
+        ,   decode(T1.ODR_QTY, 0, '3', '2') UPDATE_TYP
+        ,   T2.CUSTOMER_DUE_DT  OLD_CUSTOMER_DUE_DT
+        ,   T2.ETD_DUE_DT       OLD_ETD_DUE_DT
+        ,   T2.ODR_QTY          OLD_ODR_QTY
+        ,   T2.TRNS_CD          OLD_TRNS_CD
+        ,   T2.CUSTOMER_PO_NO   OLD_CUSTOMER_PO_NO
+        ,   T2.ODR_FIRM_FLG     OLD_ODR_FIRM_FLG
+        ,   decode(T1.ODR_QTY, 0, NULL, T1.CUSTOMER_DUE_DT)     NEW_CUSTOMER_DUE_DT
+        ,   decode(T1.ODR_QTY, 0, NULL, T1.NEW_ETD_DUE_DT)      NEW_ETD_DUE_DT
+        ,   decode(T1.ODR_QTY, 0, NULL, T1.ODR_QTY)             NEW_ODR_QTY
+        ,   decode(T1.ODR_QTY, 0, NULL, T1.NEW_TRNS_CD)         NEW_TRNS_CD
+        ,   decode(T1.ODR_QTY, 0, NULL, T1.NEW_CUSTOMER_PO_NO)  NEW_CUSTOMER_PO_NO
+        ,   decode(T1.ODR_QTY, 0, NULL, T1.ODR_FIRM_FLG)        NEW_ODR_FIRM_FLG
+        ,   'B0200'
+        ,   '0'
+        ,   sysdate
+        ,   'B0200'
+        ,   '0'
+        ,   sysdate
+        from
+            TW_ODR_UPLOAD T1
+        ,   TT_EXP_RCV_ODR T2
+        where
+            T1.REQUEST_ID = #requestId#
+        and T1.ERROR_TYP in('0', '1')
+        and T1.PROCESS_TYP = '2'
+        and T1.RCV_ODR_COMP_CD = T2.RCV_ODR_COMP_CD(+)
+        and T1.CUSTOMER_CD = T2.CUSTOMER_CD(+)
+        and T1.LGCY_SHIP_TO = T2.LGCY_SHIP_TO(+)
+        and T1.ITEM_NO = T2.ITEM_NO(+)
+        and T1.PKG_CD = T2.PKG_CD(+)
+        and T1.TRNS_CD = T2.TRNS_CD(+)
+        and T1.ETD_DUE_DT = T2.ETD_DUE_DT(+)
+        and T1.CUSTOMER_PO_NO = T2.CUSTOMER_PO_NO(+)
+        and T1.CUSTOMER_ITEM_NO = T2.CUSTOMER_ITEM_NO(+)
+        and T1.CUSTOMER_ITEM_NO = T2.CUSTOMER_ITEM_NO_ORG(+)
+        and T2.ODR_CTRL_NO(+) = 0
+        order by
+            T1.UPLOAD_FILE_LINE
+    </insert>
+
+    <!--
+    ==================================================================
+    == Update to export order.
+    == 輸出受注へ更新する。
+    ==================================================================
+    -->
+    <update id="UpdateExpOdrForChg" parameterClass="B0200OdrUploadReqDomain">
+        update
+        /* SqlMap-JbOdrUpload.UpdateExpOdrForChg */
+            TT_EXP_RCV_ODR T1
+        set (
+            T1.TRNS_CD
+        ,   T1.ETD_DUE_DT
+        ,   T1.CUSTOMER_PO_NO
+        ,   T1.ODR_QTY
+        ,   T1.CUSTOMER_DUE_DT
+        ,   T1.ODR_FIRM_FLG
+        ,   T1.SALES_COMP_PO_NO
+        ,   T1.SHIPPING_DT
+        ,   T1.SHIPPED_TYP
+        ,   T1.COM_UPDATE_FUNC_ID
+        ,   T1.COM_UPDATE_USER_ID
+        ,   T1.COM_UPDATE_TIMESTAMP
+        ) =
+        (
+            select
+                T2.NEW_TRNS_CD
+            ,   T2.NEW_ETD_DUE_DT
+            ,   T2.NEW_CUSTOMER_PO_NO
+            ,   T2.ODR_QTY
+            ,   T2.CUSTOMER_DUE_DT
+            ,   T2.ODR_FIRM_FLG
+            ,   T2.SALES_COMP_PO_NO
+            ,   T2.SHIPPING_DT
+            ,
+            (
+                case
+                    when T2.ODR_QTY <![CDATA[ <= ]]> T1.SHIPPED_QTY then '3'
+                    else
+                        case
+                            when T2.ODR_QTY <![CDATA[ <= ]]> T1.PLTZ_ALLOC_QTY then '2'
+                            else '1'
+                        end
+                end
+            )
+            ,   'B0200'
+            ,   '0'
+            ,   sysdate
+            from
+                TW_ODR_UPLOAD T2
+            where
+                T2.REQUEST_ID = #requestId#
+            and T2.PROCESS_TYP = '2'
+            and T2.ERROR_TYP in('0', '1')
+            and T1.RCV_ODR_COMP_CD          = T2.RCV_ODR_COMP_CD
+            and T1.CUSTOMER_CD              = T2.CUSTOMER_CD
+            and T1.LGCY_SHIP_TO             = T2.LGCY_SHIP_TO
+            and T1.ITEM_NO                  = T2.ITEM_NO
+            and T1.PKG_CD                   = T2.PKG_CD
+            and T1.TRNS_CD                  = T2.TRNS_CD
+            and T1.ETD_DUE_DT               = T2.ETD_DUE_DT
+            and T1.CUSTOMER_PO_NO           = T2.CUSTOMER_PO_NO
+            and T1.CUSTOMER_ITEM_NO         = T2.CUSTOMER_ITEM_NO
+            and T1.CUSTOMER_ITEM_NO_ORG     = T2.CUSTOMER_ITEM_NO
+            and T1.ODR_CTRL_NO              = 0
+        )
+        where
+            exists (
+                select 'X'
+                from
+                    TW_ODR_UPLOAD T2
+                where
+                    T2.REQUEST_ID = #requestId#
+                and T2.PROCESS_TYP = '2'
+                and T2.ERROR_TYP in('0', '1')
+                and T1.RCV_ODR_COMP_CD          = T2.RCV_ODR_COMP_CD
+                and T1.CUSTOMER_CD              = T2.CUSTOMER_CD
+                and T1.LGCY_SHIP_TO             = T2.LGCY_SHIP_TO
+                and T1.ITEM_NO                  = T2.ITEM_NO
+                and T1.PKG_CD                   = T2.PKG_CD
+                and T1.TRNS_CD                  = T2.TRNS_CD
+                and T1.ETD_DUE_DT               = T2.ETD_DUE_DT
+                and T1.CUSTOMER_PO_NO           = T2.CUSTOMER_PO_NO
+                and T1.CUSTOMER_ITEM_NO         = T2.CUSTOMER_ITEM_NO
+                and T1.CUSTOMER_ITEM_NO_ORG     = T2.CUSTOMER_ITEM_NO
+                and T1.ODR_CTRL_NO              = 0
+            )
+    </update>
+
+    <!--
+    ==================================================================
+    ==
+    == Delete records when quantity 0 is reached.
+    == 数量0となった場合レコード削除。
+    ==
+    == Including the case of addition but 0 designation.
+    == 追加なのに0指定の場合を含む。
+    ==
+    ==================================================================
+    -->
+    <delete id="DeleteExpOdrZeroQty" parameterClass="B0200OdrUploadReqDomain">
+        delete
+        /* SqlMap-JbOdrUpload.DeleteExpOdrZeroQty */
+        from
+            TT_EXP_RCV_ODR T1
+        where
+            T1.ODR_QTY = 0
+        and exists (
+            select 'X'
+            from
+                TW_ODR_UPLOAD T2
+            where
+                T2.REQUEST_ID = #requestId#
+            and T2.ERROR_TYP in('0', '1')
+            and T1.RCV_ODR_COMP_CD          = T2.RCV_ODR_COMP_CD
+            and T1.CUSTOMER_CD              = T2.CUSTOMER_CD
+            and T1.LGCY_SHIP_TO             = T2.LGCY_SHIP_TO
+            and T1.ITEM_NO                  = T2.ITEM_NO
+            and T1.PKG_CD                   = T2.PKG_CD
+            and T1.TRNS_CD                  = T2.NEW_TRNS_CD
+            and T1.ETD_DUE_DT               = T2.NEW_ETD_DUE_DT
+            and T1.CUSTOMER_PO_NO           = T2.NEW_CUSTOMER_PO_NO
+            and T1.CUSTOMER_ITEM_NO         = T2.CUSTOMER_ITEM_NO
+            and T1.CUSTOMER_ITEM_NO_ORG     = T2.CUSTOMER_ITEM_NO
+            and T1.ODR_CTRL_NO              = 0
+        )
+    </delete>
+</sqlMap>

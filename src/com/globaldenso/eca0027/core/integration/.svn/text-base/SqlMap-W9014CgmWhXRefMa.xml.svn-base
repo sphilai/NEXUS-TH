@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-W9014CgmWhXRefMa.xml
+ *
+ * SqlMap file of W9014CgmWhXRefMaDao.
+ * W9014CgmWhXRefMaDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="W9014CgmWhXRefMa">
+
+    <!-- Domain -->
+    <typeAlias alias="W9014CgmWhXRefMaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W9014CgmWhXRefMaDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W9014CgmWhXRefMaCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W9014CgmWhXRefMaCriteriaDomain" />
+
+    <resultMap id="W9014CgmWhXRefMaResult" class="W9014CgmWhXRefMaDomain">
+        <result property="lgcyLibCompCd" column="LGCY_LIB_COMP_CD" />
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="compCd" column="COMP_CD" />
+        <result property="whCd" column="WH_CD" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+    </resultMap>
+
+    <!-- 汎用 項目 -->
+    <sql id="TableCols">
+        T1.LGCY_LIB_COMP_CD
+        , T1.LGCY_WH_CD
+        , T1.PLNT_CD
+        , T1.COMP_CD
+        , T1.WH_CD
+        , T1.COM_UPDATE_TIMESTAMP
+    </sql>
+
+    <!-- 汎用 項目 -->
+    <sql id="Cols">
+        TEMP.LGCY_LIB_COMP_CD
+        , TEMP.LGCY_WH_CD
+        , TEMP.PLNT_CD
+        , TEMP.COMP_CD
+        , TEMP.WH_CD
+        , TEMP.COM_UPDATE_TIMESTAMP
+    </sql>
+
+    <!-- FROM句   -->
+    <sql id="From">
+        from
+            TM_CIGMA_WH_XREF T1
+    </sql>
+    
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeys">
+        order by
+            T1.LGCY_LIB_COMP_CD asc
+            , T1.LGCY_WH_CD asc
+            , T1.PLNT_CD asc
+    </sql>
+
+    <!-- 汎用 Where句（基本項目） -->
+    <sql id="WhereCondition">
+        <isNotEmpty  prepend="and" property="lgcyLibCompCd">
+            T1.LGCY_LIB_COMP_CD like #lgcyLibCompCd# || '%'
+        </isNotEmpty>
+        <isNotEmpty  prepend="and" property="lgcyWhCd">
+            T1.LGCY_WH_CD = #lgcyWhCd#
+        </isNotEmpty>
+        <isNotEmpty  prepend="and" property="plntCd">
+            T1.PLNT_CD = #plntCd#
+        </isNotEmpty>
+        <isNotEmpty  prepend="and" property="compCd">
+            T1.COMP_CD like #compCd# || '%'
+        </isNotEmpty>
+        <isNotEmpty  prepend="and" property="whCd">
+            T1.WH_CD = #whCd#
+        </isNotEmpty>
+    </sql>
+
+    <!-- Where句（アクセス権） -->
+    <sql id="WhereCondition_W9014CgmWhXRefMa_Auth">
+        T1.LGCY_LIB_COMP_CD in (select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+        <isNotEmpty prepend="and" property="userAuthList">
+            (T1.LGCY_LIB_COMP_CD) in (
+                <iterate property="userAuthList" conjunction=",">
+                    (#userAuthList[].authMgtComp#)
+                </iterate>
+            )
+        </isNotEmpty>
+    </sql>
+
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCount" resultClass="java.lang.Integer"
+        parameterClass="W9014CgmWhXRefMaCriteriaDomain">
+        select /* SqlMap-W9014CgmWhXRefMa.SearchCount */
+        count(ROWNUM)
+        <include refid="From" />
+        
+        where
+        <include refid="WhereCondition_W9014CgmWhXRefMa_Auth" />
+        <include refid="WhereCondition" />
+    </select>
+    
+    <!-- 検索 SQL文（任意条件、ページング用） -->
+    <select id="SearchByConditionForPaging" resultMap="W9014CgmWhXRefMaResult"
+        parameterClass="W9014CgmWhXRefMaCriteriaDomain">
+        select
+        /* SqlMap-W9014CgmWhXRefMa.SearchByConditionForPaging */
+        <include refid="Cols" />
+        from (
+            select 
+            <include refid="TableCols" />
+            ,row_number() over (<include refid="SortKeys" />) ROW_NUM
+            <include refid="From" />
+            where
+            <include refid="WhereCondition_W9014CgmWhXRefMa_Auth" />
+            <include refid="WhereCondition" />
+            <include refid="SortKeys" />
+        ) TEMP
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+    
+    <!-- FROM句   -->
+    <sql id="From2">
+        from
+            TM_CIGMA_WH_XREF T1
+    </sql>
+
+    <!-- 汎用 Where句（基本項目） -->
+    <sql id="WhereCondition2">
+        T1.LGCY_LIB_COMP_CD = #lgcyLibCompCd#
+        and T1.LGCY_WH_CD != #lgcyWhCd#
+        and T1.COMP_CD = #compCd#
+        and T1.WH_CD = #whCd#
+    </sql>
+
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCountTmCigmaWhXref" resultClass="java.lang.Integer"
+        parameterClass="W9014CgmWhXRefMaCriteriaDomain">
+        select /* SqlMap-W9014CgmWhXRefMa.SearchCountTmCigmaWhXref */
+        count(ROWNUM)
+        <include refid="From2" />
+        where
+        <include refid="WhereCondition2" />
+    </select>
+    
+</sqlMap>

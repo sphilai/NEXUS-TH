@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config_eca0027_form_w2.xml
+ * 
+ * AI-J2(Struts) の form設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <display-name></display-name>
+    <description></description>
+
+    <!-- Application Form Bean Definitions ================================= -->
+    <form-beans>
+        <!-- W5001: Shipping Confirmation Main Screen -->
+        <!-- W5001: 出荷確認Main画面 -->
+        <form-bean name="W5001Form"
+            type="com.globaldenso.eca0027.core.presentation.W5001ActionForm">
+        </form-bean>
+
+        <!-- W5002: Shipping Confirmation Header -->
+        <!-- W5002: 出荷確認Header画面 -->
+        <form-bean name="W5002Form"
+            type="com.globaldenso.eca0027.core.presentation.W5002ActionForm">
+        </form-bean>
+
+        <!-- W5003: Shipping Confirmation Create -->
+        <!-- W5003: 出荷確認Create画面 -->
+        <form-bean name="W5003Form"
+            type="com.globaldenso.eca0027.core.presentation.W5003ActionForm">
+        </form-bean>
+
+        <!-- W5004: Shipping Confirmation Register -->
+        <!-- W5004: 出荷確認Register画面 -->
+        <form-bean name="W5004Form"
+            type="com.globaldenso.eca0027.core.presentation.W5004ActionForm">
+        </form-bean>
+
+    </form-beans>
+</struts-config>

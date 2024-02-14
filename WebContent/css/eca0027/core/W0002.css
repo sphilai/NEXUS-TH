@@ -1,0 +1,317 @@
+@charset "utf-8";
+/*
+ * W0002.css
+ * 
+ * W0002で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*========================= メニュー =========================*/
+div.sidetreecontrol {
+    width: 100%;
+    margin: 0px; 
+    padding: 0px;
+    word-break: break-all;
+    background-color: #a8b4ff;
+    vertical-align: middle;
+}
+
+div.treemain {
+    margin: 0px; 
+    padding: 0px;
+    /*overflow: auto;*/
+    /*height: 100%;*/
+    width: 280px;
+    word-break: break-all;
+}
+
+/*========================= メイン画面全体 =========================*/
+div.main {
+    height: 645px;
+}
+
+/*========================= メイン画面左メニュー =========================*/
+div.left_box {
+    position: relative;
+    float: left;
+    width: 180px;
+}
+
+/*========================= メイン画面右メニュー =========================*/
+div.right_box {
+    margin-left: 175px;
+    width: 810px;
+}
+.right_box h3 {
+    margin-top: 0px;
+}
+.right_box div {
+    background-color: #ffffff;
+}
+h3.info {
+    padding: 3px 10px;
+}
+li.info div {
+    margin: 5px 0px 15px 75px;
+}
+
+/*========================= タスクリストボックス =========================*/
+.task_list {
+    border: 1px solid #000;
+    margin-bottom: 10px;
+    height: 400px;
+}
+.task_list div.list_title {
+    background-color: #3a67a0;
+}
+.taskContent {
+    margin-left: 6px;
+}
+
+#nightBatch table {
+    width: 450px;
+}
+
+#nightBatch .shipper {
+    width: 80px;
+}
+
+#nightBatch .time_zone {
+    width: 280px;
+}
+
+#nightBatch .start_time {
+    width: 90px;
+}
+
+.w0002_time_zone_disptext {
+    width: 270px;
+}
+
+/*========================= お知らせボックス =========================*/
+.sys_info_list {
+    border: 1px solid #000;
+    margin-bottom: 10px;
+    width: 400px;
+    float: left;
+}
+.sys_info_list div.list_title {
+    background-color: #3a67a0;
+}
+.biz_info_list {
+    border: 1px solid #000;
+    margin-bottom: 10px;
+    width: 400px;
+    margin-left: 406px;
+}
+
+.biz_info_list div.list_title {
+    background-color: #3a67a0;
+}
+
+/*========================= メインメニュードロップダウン =========================*/
+ul.menu * {
+    margin: 0;
+    padding: 0;
+}
+ul.menu {
+    margin: auto; 
+    padding: 0;
+}
+ul.menu li {
+    width: 170px; 
+    height: 24px; 
+    background-color: #2b76cc;
+    list-style: none; 
+    border-bottom: 1px solid #fff; 
+/*    position: relative;*/
+}
+/* メニュー 1階層目 */
+ul.menu ul li.disable_menu {
+    height: 19px; 
+    background-color: #aaa;
+    list-style: none; 
+    border-bottom: 1px solid #fff; 
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+ul.menu li a {
+    display: block; 
+    width: 167px; 
+    line-height: 24px;
+    color: #fff; 
+    text-decoration: none; 
+    border: 1px solid #fff;
+    border-top: none;
+    padding-left: 2px;
+}
+ul.menu li ul {
+    position: absolute; 
+    left: 170px; 
+    top: 0;
+    overflow: visible;
+}
+/* メニュー 2階層目 */
+ul.sub_menu li {
+    width: 290px; 
+    height: 24px; 
+    background-color: #2b76cc;
+    list-style: none; 
+    border-bottom: 1px solid #fff; 
+}
+ul.sub_menu li.disable_menu {
+    width: 287px; 
+    height: 19px; 
+    background-color: #aaa;
+    list-style: none; 
+    border-bottom: 1px solid #fff; 
+    padding-left: 2px;
+    padding-top: 5px;
+}
+/* メニュー 3階層目 */
+ul.sub_menu li a {
+    display: block; 
+    width: 287px; 
+    line-height: 24px;
+    color: #fff; 
+    text-decoration: none; 
+    border: 1px solid #fff;
+    border-top: none;
+    padding-left: 2px;
+}
+ul.sub_menu li ul {
+    position: absolute; 
+    left: 290px; 
+    top: 0;
+    overflow: visible;
+}
+ul.sub_menu_2 li {
+    width: 360px; 
+    height: 24px; 
+    background-color: #2b76cc;
+    list-style: none; 
+    border-bottom: 1px solid #fff; 
+}
+ul.sub_menu_2 li.disable_menu {
+    width: 357px;
+    height: 19px;
+    background-color: #aaa;
+    list-style: none; 
+    border-bottom: 1px solid #fff; 
+    padding-left: 2px;
+}
+ul.sub_menu_2 li a {
+    display: block; 
+    width: 357px; 
+    line-height: 24px;
+    color: #fff; 
+    text-decoration: none; 
+    border: 1px solid #fff;
+    border-top: none;
+    padding-left: 2px;
+}
+ul.sub_menu_2 li ul {
+    position: absolute; 
+    left: 360px; 
+    top: 0;
+    overflow: visible;
+}
+ul.sub_last > li {
+    width: 310px;
+    background-color: #2298ee;
+}
+ul.sub_last > li > a {
+    width: 309px;
+}
+ol.sub {
+    z-index: 5;
+}
+/* 他システムメニュ表示位置 */
+.other_menu {
+    position: absolute;
+    top: 412px;
+}
+
+/*========================= 画面遷移リスト開閉 =========================*/
+ul.sub_menu {
+    display: none;
+}
+ul.sub_menu_2 {
+    display: none;
+}
+/*
+ul.menu li:hover > ul {
+    display: block;
+}*/
+ul.mainmenu li:hover > ul {
+    display: block;
+}
+
+/*========================= 個人設定 =========================*/
+table.single {
+    table-layout: fixed;
+    width: 760px;
+    border-collapse: collapse;
+    margin: 5px; 
+    border: 1px #808080 solid;
+}
+#back_layer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    zoom: 1;
+    background: #CCC;
+    filter: alpha(opacity = 70);
+    z-index: 100;
+}
+* html #back_layer {
+    position: absolute;
+}
+#front_layer {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 20%;
+    z-index: 100;
+    padding: 20px;
+    -moz-box-shadow: 0 2px 4px #999;
+    -webkit-box-shadow: 0 2px 4px #999;
+    -o-box-shadow: 0 2px 4px #999;
+    -ms-box-shadow: 0 2px 4px #999;
+    box-shadow: 0 2px 4px #999;
+}
+* html #front_layer {
+    position: absolute;
+}
+#front_layer span {
+    font-size: 100%;
+}
+#personal_setup {
+    padding: 10px 5px 10px 10px;
+    background-color: #f0f0ff;
+    width: 520px;
+    border: 1px #808080 solid;
+}
+#personal_setup table {
+    width: 500px;
+}
+#personal_setup div {
+    width: 500px;
+    text-align: right;
+}
+
+.w0002_userLngCd {
+    width: 350px;
+}
+
+.w0002_timezoneId {
+    width: 350px;
+}
+
+.w0002_charCd {
+    width: 350px;
+}

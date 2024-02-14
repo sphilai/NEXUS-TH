@@ -1,0 +1,128 @@
+@CHARSET "UTF-8";
+/*
+ * W7003.css
+ * 
+ * 船積み実績Create画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+ /*------------ 検索条件エリア ------------*/ 
+.gscm_search .search_shipper_cd {
+    width: 90px;
+}
+.gscm_search .search_consignee_cd {
+    width: 90px;
+}
+
+.gscm_search .search_ship_to_comp_cd {
+    width: 150px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 50px;
+}
+
+.gscm_search .search_freight_responsible_cd {
+    width: 50px;
+}
+
+.gscm_search .search_auto_invoice_resister {
+    width: 550px;
+}
+
+.gscm_search .search_fm_etd {
+    width: 118px;
+}
+
+.gscm_search .search_to_etd {
+    width: 118px;
+}
+
+.gscm_search .search_carrier_comp_cd {
+    width: 165px;
+}
+
+.gscm_search .search_vessel {
+    width: 180px;
+}
+
+.gscm_search .search_invoice_no {
+    width: 160px;
+}
+
+.gscm_search .search_container_loose_typ {
+    width: 60px;
+}
+
+.gscm_search .search_container_no {
+    width: 130px;
+}
+
+.w7003_view_trns_cd {
+    width: 50px;
+}
+
+.w7003_view_freight_responsible_cd {
+    width: 50px;
+}
+.w7003_pkg_qty {
+    width: 75px;
+}
+.w7003_invoice_no {
+    width: 200px;
+}
+.gscm_search .w7003_carrier_comp_cd {
+    width: 40px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .vessel {
+    width: 164px;
+}
+
+.gscm_search .invoice_no {
+    width: 155px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 960px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 39px;
+}
+
+.gscm_resultlist .resultlist_etd {
+    width: 86px;
+}
+
+.gscm_resultlist .resultlist_carrier_comp_cd {
+    width: 86px;
+}
+
+.gscm_resultlist .resultlist_vessel {
+    width: 374px;
+}
+
+.gscm_resultlist .resultlist_invoice_no {
+    width: 221px;
+}
+
+.gscm_resultlist .resultlist_pkg_qty {
+    width: 86px;
+}
+
+.gscm_resultlist .resultlist_container_loose_typ {
+    width: 68px;
+}
+
+.gscm_resultlist .resultlist_invoice_no {
+    width: 221px;
+}
+.gscm_resultlist .vessel {
+    width: 360px;
+}

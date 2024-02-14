@@ -1,0 +1,113 @@
+@charset "utf-8";
+/*
+ * W4001.css
+ * 
+ * Style sheet used in staging instruction main screen.
+ * 荷揃え指示Main画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ Search condition area ------------*/ 
+/*------------ 検索条件エリア ------------*/ 
+
+.gscm_search .search_wh_comp_cd {
+    width: 104px;
+}
+.gscm_search .search_wh_cd {
+    width: 102px;
+}
+.gscm_search .search_trns_cd {
+    width: 195px;
+}
+.gscm_search .search_container_sorting_key {
+    width: 125px;
+}
+.gscm_search .search_container_loose_typ {
+    width: 51px;
+}
+.gscm_search .search_custom_timing_typ {
+    width: 80px;
+}
+.gscm_search .search_shipper_cd {
+    width: 95px;
+}
+.gscm_search .search_stg_instr_no {
+}
+
+.gscm_search .search_stg_instr_status {
+    width: 152px;
+}
+.gscm_search .search_stg_instr_dt_from {
+    width: 130px;
+}
+.gscm_search .search_stg_instr_dt_to {
+    width: 130px;
+}
+.gscm_search .search_stg_instr_issuer_id {
+    width: 90px;
+}
+.gscm_search .search_worked_id {
+    width: 95px;
+}
+.gscm_search .search_exp_request_no {
+    width: 148px;
+}
+.gscm_search .search_main_mark {
+}
+
+/*------------ Search result area ------------*/ 
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 960px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 38px;
+}
+.gscm_resultlist .resultlist_wh_comp_cd {
+    width: 57px;
+}
+.gscm_resultlist .resultlist_wh_cd {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_trns_cd {
+    width: 48px;
+}
+.gscm_resultlist .resultlist_container_sorting_key {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_container_loose_typ {
+    width: 29px;
+}
+.gscm_resultlist .resultlist_custom_timing_typ {
+    width: 38px;
+}
+.gscm_resultlist .resultlist_shipper_cd {
+    width: 57px;
+}
+.gscm_resultlist .resultlist_stg_instr_no {
+    width: 125px;
+}
+.gscm_resultlist .resultlist_stg_instr_status {
+    width: 46px;
+}
+.gscm_resultlist .resultlist_etd {
+    width: 67px;
+}
+.gscm_resultlist .resultlist_stg_instr_dt {
+    width: 67px;
+}
+.gscm_resultlist .resultlist_stg_instr_issuer_nm {
+    width: 125px;
+}
+.gscm_resultlist .resultlist_worked_dt {
+    width: 67px;
+}
+.gscm_resultlist .resultlist_worked_meth_value {
+}
+
+.gscm_resultlist .stg_instr_issuer_nm {
+    width: 115px;
+}

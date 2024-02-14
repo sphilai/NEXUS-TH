@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+/*
+ * W7002.css
+ * 
+ * 船積み実績Header画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+ /*------------ 検索条件エリア ------------*/ 
+table.grid {
+    width: 400px;
+}
+
+.grid .grid_header {
+    width: 180px;
+}
+
+.grid .grid_contents {
+    width: 220px;
+}
+
+.grid .w7002_shipper_cd {
+    width: 75px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.grid .w7002_consignee_cd {
+    width: 75px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.grid .w7002_ship_to_comp_cd {
+    width: 75px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.grid .w7002_freight_responsible_cd {
+    width:90px;
+}
+ 

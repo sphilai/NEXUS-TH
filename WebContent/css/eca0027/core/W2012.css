@@ -1,0 +1,173 @@
+@charset "utf-8";
+/*
+ * W2012.css
+ * 
+ * CML Register 画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+.gscm_search .search_shipper_cd {
+    width: 69px;
+}
+.gscm_search .search_customer_cd {
+    width: 98px;
+}
+.gscm_search .search_lgcy_ship_to {
+    width: 59px;
+}
+.gscm_search .search_trns_cd {
+    width: 59px;
+}
+.gscm_search .search_plnt_cd {
+    width: 78px;
+}
+.gscm_search .search_lgcy_wh_cd {
+    width: 49px;
+}
+.gscm_search .search_pltz_instr_no {
+    width: 147px;
+}
+.gscm_search .search_packing_wh_comp_cd {
+    width: 88px;
+}
+.gscm_search .search_packing_wh_cd {
+    width: 98px;
+}
+.gscm_search .search_exp_packing_dt {
+    width: 88px;
+}
+.gscm_search .search_exp_packing_issuer_nm {
+    width: 147px;
+}
+.gscm_search .search_container_sorting_key {
+    width: 108px;
+}
+.gscm_search .search_loading_cd {
+    width: 59px;
+}
+.gscm_search .search_pkg_form_typ {
+    width: 127px;
+}
+.gscm_search .search_invoice_key {
+    width: 98px;
+}
+.gscm_search .search_stg_instr_item_flg {
+    width: 108px;
+}
+.gscm_search .search_custom_timing_typ {
+    width: 78px;
+}
+.gscm_search .search_rt_use_flg {
+    width: 59px;
+}
+.gscm_search .search_pallet_no {
+    width: 78px;
+}
+.gscm_search .search_main_mark {
+    width: 265px;
+}
+.gscm_search .search_outer_pkg_cd {
+    width: 140px;
+}
+.gscm_search .search_packaging_confirmed_flg {
+    /*width: 180px;*/
+    width: 120px; /* UT420 MOD */
+}
+.gscm_search .search_volume {
+    width: 185px;
+}
+.gscm_search .search_net_weight {
+    width: 140px;
+}
+.gscm_search .search_gross_weight {
+    /*width: 292px;*/
+    width: 140px; /* UT420 MOD */
+}
+/* UT110 TRIAL SHIPMENT/号試品対応 ADD START */
+.gscm_search .search_manual_length {
+    width: 90px;
+}
+.gscm_search .search_manual_width {
+    width: 90px;
+}
+.gscm_search .search_manual_height {
+    width: 90px;
+}
+.gscm_search .search_manual_volume {
+    width: 145px;
+}
+.gscm_search .search_manual_net_weight {
+    width: 110px;
+}
+.gscm_search .search_manual_gross_weight {
+    width: 110px; /* UT420 ADD */
+}
+/* UT420 MOD */
+.gscm_search .thin {
+    height: 18px;
+}
+.gscm_search .thin td { /* UT420 MOD */
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 12px;
+}
+/* UT110 TRIAL SHIPMENT/号試品対応 ADD END */
+
+/* UT420 ADD */
+.gscm_search .search_pallet_carton {
+}
+
+/*------------ 検索結果エリア ------------*/ 
+
+
+table.gscm_resultlist {
+    width: 960px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 38px;
+}
+.gscm_resultlist .resultlist_no {
+    width: 38px;
+}
+.gscm_resultlist .resultlist_pltz_item_no {
+    width: 182px;
+}
+.gscm_resultlist .resultlist_pkg_cd {
+    width: 67px;
+}
+.gscm_resultlist .resultlist_item_description {
+    width: 212px;
+}
+.gscm_resultlist .resultlist_shipping_lot {
+    width: 77px;
+}
+.gscm_resultlist .resultlist_instr_qty {
+    width: 96px;
+}
+.gscm_resultlist .resultlist_qty {
+    width: 125px;
+}
+.gscm_resultlist .resultlist_tag_qty {
+    width: 125px;
+}
+
+/*------------ 検索結果エリア 表示用テキスト ------------*/ 
+
+.w2012_no_disptext {
+    width: 35px;
+}
+
+.w2012_pltz_item_no_disptext {
+    width: 180px;
+}
+
+.w2012_item_description_disptext {
+    width: 200px;
+}
+
+.w2012_qty_disptext {
+    width: 120px;
+}

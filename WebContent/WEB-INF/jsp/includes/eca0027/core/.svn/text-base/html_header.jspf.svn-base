@@ -1,0 +1,30 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<%-- NEXUSではGSCM共通CSSの英語版のみを使用 (日本語版にすると画面イメージが変わるため) --%>
+<link rel="stylesheet" type="text/css" media="screen, print"
+    href="<%= request.getContextPath() %>/css/gscm/framework/common_en.css?version=${initParam['version']}" />
+<link rel="stylesheet" type="text/css" media="screen, print"
+    href="<%= request.getContextPath() %>/css/eca0027/core/ECA0027_common_${sessionScope[locale_key].language}.css?version=${initParam['version']}" />
+<link rel="stylesheet" type="text/css" media="screen, print"
+    href="<%= request.getContextPath() %>/css/eca0027/core/env.css?version=${initParam['version']}" />
+<script type="text/javascript" src="js/lib/jquery.js?version=${initParam['version']}"></script>
+<script type="text/javascript"
+    src="<%= request.getContextPath() %>/js/gscm/framework/common.js?version=${initParam['version']}"></script>
+<script type="text/javascript"
+    src="<%= request.getContextPath() %>/js/gscm/library/calendar.js?version=${initParam['version']}"></script>
+<script type="text/javascript"
+    src="<%= request.getContextPath() %>/js/eca0027/core/eca0027_common.js?version=${initParam['version']}"></script>
+<script type="text/javascript"
+    src="<%= request.getContextPath() %>/js/eca0027/core/jquery.tablefix_1.0.0.js?version=${initParam['version']}"></script>
+<script type="text/javascript"
+    src="<%= request.getContextPath() %>/js/eca0027/core/jquery.ie-select-width.js?version=${initParam['version']}"></script>
+
+<%-- 問合せ先表示部品 --%>
+<%-- [JP] 部品で利用するjsの設定 --%>
+<%-- [EN] Locale setting of js for library --%>
+<script type="text/javascript" src="<%= request.getContextPath() %>/js/gscm/library/ai-contactinfodisplay.js?version=${initParam['version']}"></script>
+<%-- [JP] アプリで個別に利用するjsの設定 --%>
+<%-- [EN] Locale setting of js for application --%>
+<script type="text/javascript" src="<%= request.getContextPath() %>/js/gscm/library/ai-contactinfodisplay_option.js?version=${initParam['version']}"></script>

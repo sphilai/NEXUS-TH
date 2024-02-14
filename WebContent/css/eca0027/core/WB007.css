@@ -1,0 +1,104 @@
+@charset "utf-8";
+/*
+ * WB007.css
+ * 
+ * Last Digit Change Register画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+
+.gscm_search .search_rcv_odr_comp_cd {
+    width: 78px;
+}
+
+.gscm_search .search_comp_nm {
+    width: 902px;
+}
+
+.gscm_search .search_customer_cd {
+    width: 157px;
+}
+
+.gscm_search .search_ship_to_nm {
+    width: 323px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 206px;
+}
+
+.gscm_search .search_shipping_dt {
+    width: 294px;
+}
+
+.gscm_search .search_item_no_org {
+    width: 186px;
+}
+
+.gscm_search .search_pkg_cd {
+    width: 69px;
+}
+
+.gscm_search .search_item_description {
+    width: 323px;
+}
+
+.gscm_search .search_customer_po_no {
+    width: 212px;
+}
+
+.gscm_search .search_odr_qty {
+    width: 186px;
+}
+
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 480px;
+}
+
+.gscm_resultlist .resultlist_item_no {
+    width: 192px;
+}
+
+.gscm_resultlist .resultlist_shipping_lot {
+    width: 96px;
+}
+
+.gscm_resultlist .resultlist_pltz_alloc_qty {
+    width: 96px;
+}
+
+.gscm_resultlist .resultlist_odr_qty {
+    width: 96px;
+}
+
+/*------------ 検索結果エリア 表示用テキスト ------------*/ 
+
+.wb007_item_no_disptext {
+    width: 182px;
+}
+
+/*------------ 表示幅 ------------*/
+
+.wb007_comp_nm {
+    width: 400px;
+}
+
+.wb007_ship_to_nm {
+    width: 400px;
+}
+
+.wb007_item_no_org {
+    width: 200px;
+}
+
+.wb007_item_description {
+    width: 400px;
+}
+
+.wb007_customer_po_no {
+    width: 206px;
+}

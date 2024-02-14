@@ -1,0 +1,76 @@
+@charset "utf-8";
+/*
+ * W2016.css
+ * 
+ * X-Tag Create画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+
+.gscm_search .search_cur_wh_comp_cd {
+    width: 88px;
+}
+
+.gscm_search .search_cur_wh_cd {
+    width: 105px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 59px;
+}
+
+.gscm_search .search_container_sorting_key {
+    width: 118px;
+}
+
+.gscm_search .search_loading_cd {
+    width: 59px;
+}
+
+.gscm_search .search_ship_to_comp_cd {
+    width: 551px;
+}
+
+.gscm_search .search_shipper_cd {
+    width: 78px;
+}
+
+.gscm_search .search_main_mark {
+    width: 902px;
+}
+
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 430px;
+}
+
+.gscm_resultlist .resultlist_checked_key {
+    width: 34px;
+}
+
+.gscm_resultlist .resultlist_shipper_cd {
+    width: 73px;
+}
+
+.gscm_resultlist .resultlist_main_mark {
+    width: 211px;
+}
+
+.gscm_resultlist .resultlist_gross_weight {
+    width: 112px;
+}
+
+/*------------ 検索結果エリア 表示用テキスト ------------*/ 
+
+.w2016_main_mark_disptext {
+    width: 201px;
+}
+
+/*------------ 表示幅 ------------*/ 
+
+.w2016_trns_cd {
+    width: 26px;
+}

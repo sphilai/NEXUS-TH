@@ -1,0 +1,172 @@
+@charset "utf-8";
+/*
+ * W2011.css
+ * 
+ * CML Create 画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+.gscm_search .search_shipper_cd {
+    width: 69px;
+}
+
+.gscm_search .search_customer_cd {
+    width: 98px;
+}
+
+.gscm_search .search_lgcy_ship_to {
+    width: 59px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 59px;
+}
+
+.gscm_search .search_plnt_cd {
+    width: 78px;
+}
+
+.gscm_search .search_lgcy_wh_cd {
+    width: 49px;
+}
+
+.gscm_search .search_pltz_instr_no {
+    width: 147px;
+}
+
+.gscm_search .search_packing_wh_comp_cd {
+    width: 88px;
+}
+
+.gscm_search .search_packing_wh_cd {
+    width: 98px;
+}
+
+.gscm_search .search_container_sorting_key {
+    width: 108px;
+}
+
+.gscm_search .search_loading_cd {
+    width: 127px;
+}
+
+.gscm_search .search_mix_tag_no {
+    width: 216px;
+}
+
+.gscm_search .search_pltz_itm_no {
+    width: 196px;
+}
+
+.gscm_search .search_pkg_cd {
+    width: 69px;
+}
+
+.gscm_search .search_pkg_form_typ {
+    width: 118px;
+}
+
+.gscm_search .search_invoice_key {
+    width: 98px;
+}
+
+.gscm_search .search_stg_instr_item_flg {
+    width: 108px;
+}
+
+.gscm_search .search_custom_timing_typ {
+    width: 80px; /* UT420 MOD */
+}
+
+/* UT420 ADD */
+.gscm_search .search_pallet_carton_typ {
+}
+
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 960px;
+}
+
+.gscm_resultlist .resultlist_checked_key {
+    width: 29px;
+}
+
+.gscm_resultlist .resultlist_container_sorting_key {
+    width: 77px;
+}
+
+.gscm_resultlist .resultlist_loading_cd {
+    width: 29px;
+}
+
+.gscm_resultlist .resultlist_pkg_cd {
+    width: 48px;
+}
+
+.gscm_resultlist .resultlist_co_flg {
+    width: 39px;
+}
+
+.gscm_resultlist .resultlist_container_loose_typ {
+    width: 39px;
+}
+
+.gscm_resultlist .resultlist_shipping_lot {
+    width: 67px;
+}
+
+.gscm_resultlist .resultlist_pkg_form_typ {
+    width: 38px;
+}
+
+.gscm_resultlist .resultlist_qty {
+    width: 81px;
+}
+
+.gscm_resultlist .resultlist_tag_qty {
+    width: 48px;
+}
+
+.gscm_resultlist .resultlist_order_qty {
+    width: 66px;
+}
+
+.gscm_resultlist .resultlist_on_hand_qty {
+    width: 67px;
+}
+
+.gscm_resultlist .resultlist_instr_pkgaged_qty {
+    width: 66px;
+}
+
+.gscm_resultlist .resultlist_instr_qty {
+    width: 66px;
+}
+
+.gscm_resultlist .resultlist_bo_qty {
+    width: 66px;
+}
+
+.gscm_resultlist .resultlist_invoice_key {
+    width: 38px;
+}
+
+.gscm_resultlist .resultlist_stg_instr_item_flg {
+    width: 48px;
+}
+
+.gscm_resultlist .resultlist_custom_timing_typ {
+    width: 48px;
+}
+
+/*------------ 画面固有幅指定 ------------*/ 
+.w2011_qty {
+    width: 65px;
+}
+
+.w2011_tag_qty {
+    width: 35px;
+}

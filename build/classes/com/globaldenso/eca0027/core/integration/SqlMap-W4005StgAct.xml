@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-W4005StgAct.xml
+ *
+ * SqlMap file of W4005StgActDao.
+ * W4005StgActDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="W4005StgAct">
+
+    <!-- Alias definition of the Domain -->
+    <!-- Domainの別名定義 -->
+    <typeAlias alias="W4005StgActDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W4005StgActDomain" />
+    <typeAlias alias="W4005PltzDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W4005PltzDomain" />
+    <typeAlias alias="W4005StgActCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W4005StgActCriteriaDomain" />
+    <typeAlias alias="W4005PltzCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W4005PltzCriteriaDomain" />
+
+    <!-- Staging actuality Main / Search ResultMap -->
+    <!-- 山作り実績Main / Search ResultMap -->
+    <resultMap id="W4005StgActDomain_SearchForPagingOnMainSearch" class="W4005StgActDomain">
+        <result property="stgActNo" column="STG_ACT_NO" />
+        <result property="whCompCd" column="WH_COMP_CD" />
+        <result property="whCd" column="WH_CD" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="etd" column="ETD" />
+        <result property="carrierCompCd" column="CARRIER_COMP_CD" />
+        <result property="stgActDt" column="STG_ACT_DT" />
+        <result property="stgActIssuerNm" column="STG_ACT_ISSUER_NM" />
+    </resultMap>
+
+    <!-- Staging actuality Create / Search ResultMap -->
+    <!-- 山作り実績Create / Search ResultMap -->
+    <resultMap id="W4005PltzDomain_SearchForPagingOnCreateSearch" class="W4005PltzDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="shipToCd" column="SHIP_TO_CD" />
+        <result property="stgInstrNo" column="STG_INSTR_NO" />
+        <result property="mainMarkOrXmainMark" column="MAIN_MARK_OR_XMAIN_MARK" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="volume" column="VOLUME" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="lastTrRcvDt" column="LAST_TR_RCV_DT" />
+        <result property="disabledFlg" column="DISABLED_FLG" />
+        <result property="mainMarkTyp" column="MAIN_MARK_TYP" />
+    </resultMap>
+
+    <!-- Staging actuality Register / Search(detail) ResultMap -->
+    <!-- 山作り実績Register / Search(明細) ResultMap -->
+    <resultMap id="W4005PltzDomain_SearchOnRegisterInit" class="W4005PltzDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="shipToCd" column="SHIP_TO_CD" />
+        <result property="stgInstrNo" column="STG_INSTR_NO" />
+        <result property="mainMarkOrXmainMark" column="MAIN_MARK_OR_XMAIN_MARK" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="etd" column="INVOICE_ETD" />
+        <result property="carrierCompCd" column="INVOICE_CARRIER_COMP_CD" />
+        <result property="grossWeight" column="PLTZ_GROSS_WEIGHT" />
+        <result property="weightUnit" column="PLTZ_WEIGHT_UNIT" />
+        <result property="volume" column="PLTZ_VOLUME" />
+        <result property="volumeUnit" column="PLTZ_VOLUME_UNIT" />
+        <result property="lastTrRcvDt" column="LAST_TR_RCV_DT" />
+        <result property="mainMarkTyp" column="MAIN_MARK_TYP" />
+        <result property="auth" column="AUTH" />
+    </resultMap>
+
+    <!-- Staging actuality Register / Search - from Main ResultMap -->
+    <!-- 山作り実績Register / Search - from Main ResultMap -->
+    <resultMap id="W4005StgActDomain_SearchOnRegisterInit" class="W4005StgActDomain" groupBy="stgActNo">
+        <result property="whCompCd" column="WH_COMP_CD" />
+        <result property="whCd" column="WH_CD" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="trnsTypCd" column="TRNS_TYP_CD" /> <!-- UT446 ADD -->
+        <result property="trnsTypNm" column="TRNS_TYP_NM" />
+        <result property="pkgQty" column="PKG_QTY" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="volume" column="VOLUME" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="loadingRatio" column="LOADING_RATIO" />
+        <result property="stgActDt" column="STG_ACT_DT" />
+        <result property="stgActIssuerNm" column="STG_ACT_ISSUER_NM" />
+        <result property="etd" column="ETD" />
+        <result property="carrierCompCd" column="CARRIER_COMP_CD" />
+        <result property="stgActNo" column="STG_ACT_NO" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+        <result property="pltzDomainList" resultMap="W4005StgAct.W4005PltzDomain_SearchOnRegisterInit" javaType="java.util.ArrayList" />
+    </resultMap>
+
+    <!-- Staging actuality Register / Init - from Create Weight summary acquisition of weight per unit ResultMap -->
+    <!-- 山作り実績Register / Init - from Create 重量単位ごとの重量サマリ取得 ResultMap -->
+    <resultMap id="W4005PltzDomain_SearchOnRegisterInitByWeightSummary" class="W4005PltzDomain">
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+    </resultMap>
+
+    <!-- Staging actuality Register / Init - from Create Summary volume acquisition of volume per unit ResultMap -->
+    <!-- 山作り実績Register / Init - from Create 容積単位ごとの容積サマリ取得 ResultMap -->
+    <resultMap id="W4005PltzDomain_SearchOnRegisterInitByVolumeSummary" class="W4005PltzDomain">
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="volume" column="VOLUME" />
+    </resultMap>
+
+    <!-- Staging actuality Register - Palletize lock & check ResultMap -->
+    <!-- 山作り実績Register - パレタイズロック&チェック用 ResultMap -->
+    <resultMap id="W4005PltzDomain_LockTtPltzNoWait" class="W4005PltzDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="stgInstrItemFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="pltzStatus" column="PLTZ_STATUS" />
+        <result property="lastTrStatus" column="LAST_TR_STATUS" />
+    </resultMap>
+
+    <!-- Staging actuality Register - Palletize lock & check ResultMap -->
+    <!-- 山作り実績Register - パレタイズロック&チェック用 ResultMap -->
+    <resultMap id="W4005PltzDomain_LockTtPltzMainNoWait" class="W4005PltzDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="stgInstrItemFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="pltzStatus" column="PLTZ_STATUS" />
+        <result property="lastTrStatus" column="LAST_TR_STATUS" />
+        <result property="pltzInstrStatus" column="PLTZ_INSTR_STATUS" />
+    </resultMap>
+
+    <!-- for paging -->
+    <!-- ページング -->
+    <sql id="Paging_Begin">
+        select * from (select XX.*, ROWNUM ROWNUM1 from (
+    </sql>
+    <sql id="Paging_End">
+        ) XX ) where ROWNUM1  between #rowNumFrom# and #rowNumTo#
+    </sql>
+
+    <!-- ====================================================================== -->
+    <!-- Staging actuality Main / Search                                      -->
+    <!-- 山作り実績Main / Search                                                -->
+    <!-- ====================================================================== -->
+
+    <sql id="Select_Count_MainSearch">
+        select /* SqlMap-W4005StgAct.SearchCountForPagingOnMainSearch */
+            count(ROWNUM)
+    </sql>
+
+    <sql id="Select_MainSearch">
+        select /* SqlMap-W4005StgAct.SearchForPagingOnMainSearch */
+                T1.STG_ACT_NO
+            ,   T1.WH_COMP_CD
+            ,   T1.WH_CD
+            ,   T1.TRNS_CD
+            ,   T1.CONTAINER_SORTING_KEY
+            ,   T1.ETD
+            ,   T1.CARRIER_COMP_CD
+            ,   T1.STG_ACT_DT
+            ,   T1.STG_ACT_ISSUER_NM
+    </sql>
+    <sql id="From_MainSearch">
+        from
+            (
+                select distinct
+                        T1.STG_ACT_NO
+                    ,   T1.WH_COMP_CD
+                    ,   T1.WH_CD
+                    ,   T1.TRNS_CD
+                    ,   T1.CONTAINER_SORTING_KEY
+                    ,   T1.ETD
+                    ,   T1.CARRIER_COMP_CD
+                    ,   T1.STG_ACT_DT
+                    ,   T1.STG_ACT_ISSUER_NM
+                from
+                        TT_STG_ACT T1
+                    ,   TT_PLTZ T2
+                where
+                        T1.STG_ACT_NO = T2.STG_ACT_NO
+                    <isNotEmpty prepend="and" property="whCompCd">
+                        T1.WH_COMP_CD = #whCompCd#
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="whCd">
+                        T1.WH_CD = #whCd#
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="trnsCd">
+                        T1.TRNS_CD = #trnsCd#
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="containerSortingKey">
+                        T1.CONTAINER_SORTING_KEY like concat(#containerSortingKey#, '%')
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="stgActNo">
+                        T1.STG_ACT_NO like concat(#stgActNo#, '%')
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="stgActDtFrom">
+                        T1.STG_ACT_DT <![CDATA[ >= ]]> #stgActDtFrom#
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="stgActDtTo">
+                        T1.STG_ACT_DT <![CDATA[ < ]]> #stgActDtTo# + 1
+                    </isNotEmpty>
+                    <isEqual prepend="and" property="stgActIssuerId" compareValue="1">
+                        T1.STG_ACT_ISSUER_ID = #loginUserDscId#
+                    </isEqual>
+                    <isNotEmpty prepend="and" property="stgInstrNo">
+                        T2.STG_INSTR_NO like concat(#stgInstrNo#, '%')
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="shipperCd">
+                        T2.SHIPPER_CD = #shipperCd#
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="xmainMark">
+                        T2.XMAIN_MARK like concat(#xmainMark#, '%')
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="mainMark">
+                        T2.MAIN_MARK like concat(#mainMark#, '%')
+                    </isNotEmpty>
+            ) T1
+        <!-- If no RegisterAll, no BrowseAll -->
+        <!-- RegisterAllなし、BrowseAllなしの場合 -->
+        <isNotEmpty property="userAuthList" prepend=",">
+            (
+                select
+                        A1.STG_ACT_NO
+                    ,   max(
+                            case
+                                <iterate property="userAuthList">
+                                    when A1.SHIPPER_CD = #userAuthList[].authMgtComp# and A2.PLNT_CD = #userAuthList[].procMfgDivCd#
+                                        then #userAuthList[].authority#
+                                </iterate>
+                                else '0'
+                            end
+                        ) AUTH_PLNT
+                from
+                        TT_PLTZ A1
+                    ,   TT_PLTZ_ITEM A2
+                where 
+                        A1.MAIN_MARK = A2.MAIN_MARK
+                    and A2.PLNT_CD is not NULL
+                group by
+                    A1.STG_ACT_NO
+            ) A1
+        </isNotEmpty>
+    </sql>
+    <sql id="Where_MainSearch">
+        where
+            exists (
+                select 'x'
+                from
+                    TT_PLTZ A1,
+                    (
+                        select COMP_CD
+                        from TM_NXS_COMP
+                        where SERVER_ID = #serverId#
+                    ) A2
+                where
+                        T1.STG_ACT_NO = A1.STG_ACT_NO
+                    and A1.SHIPPER_CD = A2.COMP_CD(+)
+                having
+                    min(decode(A2.COMP_CD, NULL, 0, 1)) = 1
+            )
+        <!-- If no RegisterAll, no BrowseAll -->
+        <!-- RegisterAllなし、BrowseAllなしの場合 -->
+        <isNotEmpty property="userAuthList" prepend="and">
+                T1.STG_ACT_NO = A1.STG_ACT_NO
+            and A1.AUTH_PLNT <![CDATA[ >= ]]> '1'
+        </isNotEmpty>
+    </sql>
+    <sql id="Orderby_MainSearch">
+        order by
+                T1.TRNS_CD asc
+            ,   T1.CONTAINER_SORTING_KEY asc
+            ,   T1.STG_ACT_NO desc
+    </sql>
+
+    <!-- Search SQL statement (Main / Search - Count of staging actuality) -->
+    <!-- 検索 SQL文 (Main / Search - 山作り実績件数) -->
+    <select id="SearchCountForPagingOnMainSearch" parameterClass="W4005StgActCriteriaDomain" resultClass="java.lang.Integer">
+        <include refid="Select_Count_MainSearch" />
+        <include refid="From_MainSearch" />
+        <include refid="Where_MainSearch" />
+    </select>
+
+    <!-- Search SQL statement (Main / Search - Staging actuality search) -->
+    <!-- 検索 SQL文 (Main / Search - 山作り実績検索) -->
+    <select id="SearchForPagingOnMainSearch" parameterClass="W4005StgActCriteriaDomain" resultMap="W4005StgActDomain_SearchForPagingOnMainSearch">
+        <include refid="Paging_Begin" />
+        <include refid="Select_MainSearch" />
+        <include refid="From_MainSearch" />
+        <include refid="Where_MainSearch" />
+        <include refid="Orderby_MainSearch" />
+        <include refid="Paging_End" />
+    </select>
+
+    <!-- ====================================================================== -->
+    <!-- Staging actuality Create / Search                                    -->
+    <!-- 山作り実績Create / Search                                              -->
+    <!-- ====================================================================== -->
+
+    <sql id="Select_Count_CreateSearch">
+        select /* SqlMap-W4005StgAct.SearchCountForPagingOnCreateSearch */
+            count(ROWNUM)
+    </sql>
+
+    <sql id="Select_CreateSearch">
+        select /* SqlMap-W4005StgAct.SearchForPagingOnCreateSearch */
+                T1.SHIPPER_CD
+            ,   T1.SHIP_TO_CD
+            ,   T1.STG_INSTR_NO
+            ,   T1.MAIN_MARK_OR_XMAIN_MARK
+            ,   T1.LOADING_CD
+            ,   T1.GROSS_WEIGHT
+            ,   T1.WEIGHT_UNIT
+            ,   T1.VOLUME
+            ,   T1.VOLUME_UNIT
+            ,   T1.LAST_TR_RCV_DT
+            ,   T1.DISABLED_FLG
+            ,   T1.MAIN_MARK_TYP
+    </sql>
+    <sql id="From_CreateSearch">
+        from
+            (
+                select T1.*
+                from
+                    (
+                        select distinct
+                                NULL SHIPPER_CD
+                            ,   NULL SHIP_TO_CD
+                            ,   NULL STG_INSTR_NO
+                            ,   T2.XMAIN_MARK MAIN_MARK_OR_XMAIN_MARK
+                            ,   T1.LOADING_CD
+                            ,   T2.GROSS_WEIGHT
+                            ,   T2.WEIGHT_UNIT
+                            ,   T2.VOLUME
+                            ,   T2.VOLUME_UNIT
+                            ,   NULL LAST_TR_RCV_DT
+                            ,   decode(W1.MAIN_MARK, NULL, 'N', 'Y') DISABLED_FLG
+                            ,   '2' MAIN_MARK_TYP
+                        from
+                                TT_PLTZ T1
+                            ,   TW_STG_ACT W1
+                            ,   TT_XPLTZ T2
+                        where
+                                T1.XMAIN_MARK = W1.MAIN_MARK(+)
+                            and T1.XMAIN_MARK = T2.XMAIN_MARK
+                            <isNotEmpty prepend="and" property="whCompCd">
+                                T1.CUR_WH_COMP_CD = #whCompCd#
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="whCd">
+                                T1.CUR_WH_CD = #whCd#
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="trnsCd">
+                                T1.TRNS_CD = #trnsCd#
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="containerSortingKey">
+                                T1.CONTAINER_SORTING_KEY = #containerSortingKey#
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="shipperCd">
+                                T1.SHIPPER_CD = #shipperCd#
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="shipToCd">
+                                T1.SHIP_TO_CD like concat(#shipToCd#, '%')
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="stgInstrItemFlg">
+                                T1.STG_INSTR_ITEM_FLG = #stgInstrItemFlg#
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="stgInstrNo">
+                                T1.STG_INSTR_NO like concat(#stgInstrNo#, '%')
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="xmainMark">
+                                T1.XMAIN_MARK like concat(#xmainMark#, '%')
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="mainMark">
+                                T1.MAIN_MARK like concat(#mainMark#, '%')
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="loadingCd">
+                                T1.LOADING_CD = #loadingCd#
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="lastTrRcvDtFrom">
+                                T1.LAST_TR_RCV_DT <![CDATA[ >= ]]> #lastTrRcvDtFrom#
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="lastTrRcvDtTo">
+                                T1.LAST_TR_RCV_DT <![CDATA[ < ]]> #lastTrRcvDtTo# + 1
+                            </isNotEmpty>
+                            and T1.CONTAINER_LOOSE_TYP = 'C'
+                            and T1.PLTZ_STATUS = '10'
+                            and W1.DSC_ID(+) = #loginUserDscId#
+                            and W1.MAIN_MARK_TYP(+) = '2'
+                    ) T1
+                    <!-- If no RegisterAll -->
+                    <!-- RegisterAllなしの場合 -->
+                    <isNotEmpty property="userAuthList" prepend=",">
+                        (
+                            select
+                                    A1.XMAIN_MARK
+                                ,   min(
+                                        case
+                                            <iterate property="userAuthList">
+                                                when A1.SHIPPER_CD = #userAuthList[].authMgtComp# and A2.PLNT_CD = #userAuthList[].procMfgDivCd#
+                                                    then #userAuthList[].authority#
+                                            </iterate>
+                                            else '0'
+                                        end
+                                    ) AUTH_PLNT
+                            from
+                                    TT_PLTZ A1
+                                ,   TT_PLTZ_ITEM A2
+                            where 
+                                    A1.MAIN_MARK = A2.MAIN_MARK
+                                and A2.PLNT_CD is not NULL
+                            group by
+                                A1.XMAIN_MARK
+                        ) A1
+                    </isNotEmpty>
+                where
+                        exists (
+                            select 'x'
+                            from
+                                TT_PLTZ A1,
+                                (
+                                    select COMP_CD
+                                    from TM_NXS_COMP
+                                    where SERVER_ID = #serverId#
+                                ) A2
+                            where
+                                    T1.MAIN_MARK_OR_XMAIN_MARK = A1.XMAIN_MARK
+                                and A1.SHIPPER_CD = A2.COMP_CD(+)
+                            having
+                                min(decode(A2.COMP_CD, NULL, 0, 1)) = 1
+                        )
+                    <!-- If no RegisterAll -->
+                    <!-- RegisterAllなしの場合 -->
+                    <isNotEmpty property="userAuthList" prepend="and">
+                            T1.MAIN_MARK_OR_XMAIN_MARK = A1.XMAIN_MARK
+                        and A1.AUTH_PLNT <![CDATA[ >= ]]> '2'
+                    </isNotEmpty>
+                union all
+                select
+                        T1.SHIPPER_CD
+                    ,   T1.SHIP_TO_CD
+                    ,   T1.STG_INSTR_NO
+                    ,   T1.MAIN_MARK MAIN_MARK_OR_XMAIN_MARK
+                    ,   T1.LOADING_CD
+                    ,   T1.GROSS_WEIGHT
+                    ,   T1.WEIGHT_UNIT
+                    ,   T1.VOLUME
+                    ,   T1.VOLUME_UNIT
+                    ,   T1.LAST_TR_RCV_DT
+                    ,   decode(W1.MAIN_MARK, NULL, 'N', 'Y') DISABLED_FLG
+                    ,   '1' MAIN_MARK_TYP
+                from
+                        TT_PLTZ T1
+                    ,   TW_STG_ACT W1
+                where
+                        T1.MAIN_MARK = W1.MAIN_MARK(+)
+                    <isNotEmpty prepend="and" property="whCompCd">
+                        T1.CUR_WH_COMP_CD = #whCompCd#
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="whCd">
+                        T1.CUR_WH_CD = #whCd#
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="trnsCd">
+                        T1.TRNS_CD = #trnsCd#
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="containerSortingKey">
+                        T1.CONTAINER_SORTING_KEY = #containerSortingKey#
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="shipperCd">
+                        T1.SHIPPER_CD = #shipperCd#
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="shipToCd">
+                        T1.SHIP_TO_CD like concat(#shipToCd#, '%')
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="stgInstrItemFlg">
+                        T1.STG_INSTR_ITEM_FLG = #stgInstrItemFlg#
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="stgInstrNo">
+                        T1.STG_INSTR_NO like concat(#stgInstrNo#, '%')
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="xmainMark">
+                        T1.XMAIN_MARK like concat(#xmainMark#, '%')
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="mainMark">
+                        T1.MAIN_MARK like concat(#mainMark#, '%')
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="loadingCd">
+                        T1.LOADING_CD = #loadingCd#
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="lastTrRcvDtFrom">
+                        T1.LAST_TR_RCV_DT <![CDATA[ >= ]]> #lastTrRcvDtFrom#
+                    </isNotEmpty>
+                    <isNotEmpty prepend="and" property="lastTrRcvDtTo">
+                        T1.LAST_TR_RCV_DT <![CDATA[ < ]]> #lastTrRcvDtTo# + 1
+                    </isNotEmpty>
+                    and T1.LAST_TR_STATUS in('10', '40')
+                    and T1.CONTAINER_LOOSE_TYP = 'C'
+                    and W1.DSC_ID(+) = #loginUserDscId#
+                    and W1.MAIN_MARK_TYP(+) = '1'
+                    and T1.PLTZ_STATUS =
+                        case
+                            when T1.STG_INSTR_ITEM_FLG = 'Y' then
+                                case
+                                    when T1.CUSTOM_TIMING_TYP = 'A' or T1.CUSTOM_TIMING_TYP = 'B' then '30'
+                                    when T1.CUSTOM_TIMING_TYP = 'Z' then '40'
+                                end
+                            when T1.STG_INSTR_ITEM_FLG = 'N' then '10'
+                        end
+                    and T1.XMAIN_MARK is NULL
+                    and T1.SHIPPER_CD
+                        in (
+                            select COMP_CD
+                            from TM_NXS_COMP
+                            where SERVER_ID = #serverId#
+                        )
+                    <!-- If no RegisterAll -->
+                    <!-- RegisterAllなしの場合 -->
+                    <isNotEmpty property="userAuthList" prepend="and">
+                        exists (
+                            select 'x'
+                            from
+                                TT_PLTZ_ITEM A1
+                            where 
+                                    T1.MAIN_MARK = A1.MAIN_MARK
+                                and A1.PLNT_CD is not NULL
+                            having
+                                min(
+                                    case
+                                        <iterate property="userAuthList">
+                                            when T1.SHIPPER_CD = #userAuthList[].authMgtComp# and A1.PLNT_CD = #userAuthList[].procMfgDivCd#
+                                                then #userAuthList[].authority#
+                                        </iterate>
+                                        else '0'
+                                    end
+                                ) <![CDATA[ >= ]]> '2'
+                        )
+                    </isNotEmpty>
+            ) T1
+    </sql>
+    <sql id="Orderby_CreateSearch">
+        order by
+                T1.SHIPPER_CD asc nulls first
+            ,   T1.SHIP_TO_CD asc nulls first
+            ,   T1.STG_INSTR_NO asc
+            ,   T1.MAIN_MARK_OR_XMAIN_MARK desc
+    </sql>
+
+    <!-- Search SQL statement (Main / Search - Count of staging actuality) -->
+    <!-- 検索 SQL文 (Create / パレタイズ件数) -->
+    <select id="SearchCountForPagingOnCreateSearch" parameterClass="W4005PltzCriteriaDomain" resultClass="java.lang.Integer">
+        <include refid="Select_Count_CreateSearch" />
+        <include refid="From_CreateSearch" />
+    </select>
+
+    <!-- Search SQL statement (Main / Search - Palletize search) -->
+    <!-- 検索 SQL文 (Create / パレタイズ検索) -->
+    <select id="SearchForPagingOnCreateSearch" parameterClass="W4005PltzCriteriaDomain" resultMap="W4005PltzDomain_SearchForPagingOnCreateSearch">
+        <include refid="Paging_Begin" />
+        <include refid="Select_CreateSearch" />
+        <include refid="From_CreateSearch" />
+        <include refid="Orderby_CreateSearch" />
+        <include refid="Paging_End" />
+    </select>
+
+    <!-- ====================================================================== -->
+    <!-- Staging actuality Register / Search - from Main                      -->
+    <!-- 山作り実績Register / Search - from Main                                -->
+    <!-- ====================================================================== -->
+
+    <sql id="Select_Count_RegisterFromMainSearch">
+        select /* SqlMap-W4005StgAct.SearchCountOnRegisterInitByFromMain */
+            count(ROWNUM)
+    </sql>
+
+    <sql id="Select_RegisterFromMainSearch">
+        select /* SqlMap-W4005StgAct.SearchOnRegisterInitByFromMain */
+                T1.WH_COMP_CD
+            ,   T1.WH_CD
+            ,   T1.TRNS_CD
+            ,   T1.CONTAINER_SORTING_KEY
+            ,   T1.TRNS_TYP_CD <!-- UT446 ADD -->
+            ,   T1.TRNS_TYP_NM
+            ,   T1.PKG_QTY
+            ,   T1.GROSS_WEIGHT
+            ,   T1.WEIGHT_UNIT
+            ,   T1.VOLUME
+            ,   T1.VOLUME_UNIT
+            ,   T1.LOADING_RATIO
+            ,   T1.STG_ACT_DT
+            ,   T1.STG_ACT_ISSUER_NM
+            ,   T1.ETD
+            ,   T1.CARRIER_COMP_CD
+            ,   T1.STG_ACT_NO
+            ,   T1.COM_UPDATE_TIMESTAMP
+            ,   T1.SHIPPER_CD
+            ,   T1.SHIP_TO_CD
+            ,   T1.STG_INSTR_NO
+            ,   T1.MAIN_MARK_OR_XMAIN_MARK
+            ,   T1.LOADING_CD
+            ,   T1.INVOICE_ETD
+            ,   T1.INVOICE_CARRIER_COMP_CD
+            ,   T1.PLTZ_GROSS_WEIGHT
+            ,   T1.PLTZ_WEIGHT_UNIT
+            ,   T1.PLTZ_VOLUME
+            ,   T1.PLTZ_VOLUME_UNIT
+            ,   T1.LAST_TR_RCV_DT
+            ,   T1.MAIN_MARK_TYP
+            ,   T1.AUTH
+    </sql>
+    <sql id="From_RegisterFromMainSearch">
+        from
+            (
+                select T1.*
+                    <!-- Have an authority other than of RegiterAll, BrowseAll -->
+                    <!-- RegiterAll、BrowseAll以外の権限を保持している場合 -->
+                    <isNotEmpty property="userAuthList" prepend=",">
+                        (
+                            select
+                                min(
+                                    case
+                                        <iterate property="userAuthList">
+                                            when A1.SHIPPER_CD = #userAuthList[].authMgtComp# and A2.PLNT_CD = #userAuthList[].procMfgDivCd#
+                                                then #userAuthList[].authority#
+                                        </iterate>
+                                        else '0'
+                                    end
+                                )
+                            from
+                                    TT_PLTZ A1
+                                ,   TT_PLTZ_ITEM A2
+                            where
+                                    T1.MAIN_MARK_OR_XMAIN_MARK = A1.XMAIN_MARK
+                                and A2.MAIN_MARK = A1.MAIN_MARK
+                                and A2.PLNT_CD is not NULL
+                        ) AUTH
+                    </isNotEmpty>
+                    <!-- If only RegiterAll, BrowseAll -->
+                    <!-- RegiterAll、BrowseAllのみの場合 -->
+                    <isEmpty property="userAuthList" prepend=",">
+                        NULL AUTH
+                    </isEmpty>
+                from
+                    (
+                        select distinct
+                                T1.WH_COMP_CD
+                            ,   T1.WH_CD
+                            ,   T1.TRNS_CD
+                            ,   T1.CONTAINER_SORTING_KEY
+                            ,   T1.TRNS_TYP_CD <!-- UT446 ADD -->
+                            ,   M1.TRNS_TYP_NM
+                            ,   T1.PKG_QTY
+                            ,   T1.GROSS_WEIGHT
+                            ,   T1.WEIGHT_UNIT
+                            ,   T1.VOLUME
+                            ,   T1.VOLUME_UNIT
+                            ,   T1.LOADING_RATIO
+                            ,   T1.STG_ACT_DT
+                            ,   T1.STG_ACT_ISSUER_NM
+                            ,   T1.ETD
+                            ,   T1.CARRIER_COMP_CD
+                            ,   T1.STG_ACT_NO
+                            ,   T1.COM_UPDATE_TIMESTAMP
+                            ,   NULL SHIPPER_CD
+                            ,   NULL SHIP_TO_CD
+                            ,   NULL STG_INSTR_NO
+                            ,   T3.XMAIN_MARK MAIN_MARK_OR_XMAIN_MARK
+                            ,   T2.LOADING_CD
+                            ,   NULL INVOICE_ETD
+                            ,   NULL INVOICE_CARRIER_COMP_CD
+                            ,   T3.GROSS_WEIGHT PLTZ_GROSS_WEIGHT
+                            ,   T3.WEIGHT_UNIT PLTZ_WEIGHT_UNIT
+                            ,   T3.VOLUME PLTZ_VOLUME
+                            ,   T3.VOLUME_UNIT PLTZ_VOLUME_UNIT
+                            ,   NULL LAST_TR_RCV_DT
+                            ,   '2' MAIN_MARK_TYP
+                        from
+                                TT_STG_ACT T1
+                            ,   TT_PLTZ T2
+                            ,   TT_XPLTZ T3
+                            ,   TM_TRNS_TYP M1
+                        where
+                                T1.STG_ACT_NO = T2.STG_ACT_NO
+                            and T2.XMAIN_MARK = T3.XMAIN_MARK
+                            and T1.TRNS_CD = M1.TRNS_CD
+                            and T1.TRNS_TYP_CD = M1.TRNS_TYP_CD
+                            and T1.STG_ACT_NO = #stgActNo#
+                    ) T1
+                where
+                    exists (
+                        select 'x'
+                        from
+                            TT_PLTZ A1,
+                            (
+                                select COMP_CD
+                                from TM_NXS_COMP
+                                where SERVER_ID = #serverId#
+                            ) A2
+                        where
+                                T1.MAIN_MARK_OR_XMAIN_MARK = A1.XMAIN_MARK
+                            and A1.SHIPPER_CD = A2.COMP_CD(+)
+                        having
+                            min(decode(A2.COMP_CD, NULL, 0, 1)) = 1
+                    )
+                union all
+                select
+                        T1.WH_COMP_CD
+                    ,   T1.WH_CD
+                    ,   T1.TRNS_CD
+                    ,   T1.CONTAINER_SORTING_KEY
+                    ,   T1.TRNS_TYP_CD <!-- UT446 ADD -->
+                    ,   M1.TRNS_TYP_NM
+                    ,   T1.PKG_QTY
+                    ,   T1.GROSS_WEIGHT
+                    ,   T1.WEIGHT_UNIT
+                    ,   T1.VOLUME
+                    ,   T1.VOLUME_UNIT
+                    ,   T1.LOADING_RATIO
+                    ,   T1.STG_ACT_DT
+                    ,   T1.STG_ACT_ISSUER_NM
+                    ,   T1.ETD
+                    ,   T1.CARRIER_COMP_CD
+                    ,   T1.STG_ACT_NO
+                    ,   T1.COM_UPDATE_TIMESTAMP
+                    ,   T2.SHIPPER_CD
+                    ,   T2.SHIP_TO_CD
+                    ,   T2.STG_INSTR_NO
+                    ,   T2.MAIN_MARK MAIN_MARK_OR_XMAIN_MARK
+                    ,   T2.LOADING_CD
+                    ,   T3.ETD INVOICE_ETD
+                    ,   T3.CARRIER_COMP_CD INVOICE_CARRIER_COMP_CD
+                    ,   T2.GROSS_WEIGHT PLTZ_GROSS_WEIGHT
+                    ,   T2.WEIGHT_UNIT PLTZ_WEIGHT_UNIT
+                    ,   T2.VOLUME PLTZ_VOLUME
+                    ,   T2.VOLUME_UNIT PLTZ_VOLUME_UNIT
+                    ,   T2.LAST_TR_RCV_DT
+                    ,   '1' MAIN_MARK_TYP
+                    <!-- Have an authority other than of RegiterAll, BrowseAll -->
+                    <!-- RegiterAll、BrowseAll以外の権限を保持している場合 -->
+                    <isNotEmpty property="userAuthList" prepend=",">
+                        (
+                            select
+                                min(
+                                    case
+                                        <iterate property="userAuthList">
+                                            when T2.SHIPPER_CD = #userAuthList[].authMgtComp# and A1.PLNT_CD = #userAuthList[].procMfgDivCd#
+                                                then #userAuthList[].authority#
+                                        </iterate>
+                                        else '0'
+                                    end
+                                )
+                            from
+                                TT_PLTZ_ITEM A1
+                            where
+                                    T2.MAIN_MARK = A1.MAIN_MARK
+                                and A1.PLNT_CD is not NULL
+                        ) AUTH
+                    </isNotEmpty>
+                    <!-- If only RegiterAll, BrowseAll -->
+                    <!-- RegiterAll、BrowseAllのみの場合 -->
+                    <isEmpty property="userAuthList" prepend=",">
+                        NULL AUTH
+                    </isEmpty>
+                from
+                        TT_STG_ACT T1
+                    ,   TT_PLTZ T2
+                    ,   TT_INVOICE T3
+                    ,   TM_TRNS_TYP M1
+                where
+                        T1.STG_ACT_NO = T2.STG_ACT_NO
+                    and T2.SHIPPER_CD = T3.SHIPPER_CD(+)
+                    and T2.INVOICE_NO = T3.INVOICE_NO(+)
+                    and T2.INVOICE_ISSUE_DT = T3.INVOICE_ISSUE_DT(+)
+                    and T1.TRNS_CD = M1.TRNS_CD
+                    and T1.TRNS_TYP_CD = M1.TRNS_TYP_CD
+                    and T1.STG_ACT_NO = #stgActNo#
+                    and T2.XMAIN_MARK is NULL
+                    and T2.SHIPPER_CD
+                        in (
+                            select COMP_CD
+                            from TM_NXS_COMP
+                            where SERVER_ID = #serverId#
+                        )
+            ) T1
+    </sql>
+    <sql id="Orderby_RegisterFromMainSearch">
+        order by
+                T1.SHIPPER_CD asc nulls first
+            ,   T1.SHIP_TO_CD asc nulls first
+            ,   T1.STG_INSTR_NO asc
+            ,   T1.MAIN_MARK_OR_XMAIN_MARK desc
+    </sql>
+
+    <!-- Search SQL statement (Register / Init - from Main Count of palletize) -->
+    <!-- 検索 SQL文 (Register / Init - from Main パレタイズ件数) -->
+    <select id="SearchCountOnRegisterInitByFromMain" parameterClass="W4005StgActCriteriaDomain" resultClass="java.lang.Integer">
+        <include refid="Select_Count_RegisterFromMainSearch" />
+        <include refid="From_RegisterFromMainSearch" />
+    </select>
+
+    <!-- Search SQL statement (Register / Init - from Main Search palletize) -->
+    <!-- 検索 SQL文 (Register / Init - from Main パレタイズ検索) -->
+    <select id="SearchOnRegisterInitByFromMain" parameterClass="W4005StgActCriteriaDomain" resultMap="W4005StgActDomain_SearchOnRegisterInit">
+        <include refid="Select_RegisterFromMainSearch" />
+        <include refid="From_RegisterFromMainSearch" />
+        <include refid="Orderby_RegisterFromMainSearch" />
+    </select>
+
+    <!-- ====================================================================== -->
+    <!-- Staging actuality Register / Search - from Create                    -->
+    <!-- 山作り実績Register / Search - from Create                              -->
+    <!-- ====================================================================== -->
+
+    <!-- Search SQL statement (Register / Search - from Create Search palletize) -->
+    <!-- 検索 SQL文 (Register / Search - from Create パレタイズ検索) -->
+    <select id="SearchOnRegisterInitByFromCreate" parameterClass="W4005StgActCriteriaDomain" resultMap="W4005PltzDomain_SearchOnRegisterInit">
+        select /* SqlMap-W4005StgInstr.SearchOnRegisterInitByFromCreate */
+                T1.SHIPPER_CD
+            ,   T1.SHIP_TO_CD
+            ,   T1.STG_INSTR_NO
+            ,   T1.MAIN_MARK_OR_XMAIN_MARK
+            ,   T1.LOADING_CD
+            ,   T1.INVOICE_ETD
+            ,   T1.INVOICE_CARRIER_COMP_CD
+            ,   T1.PLTZ_GROSS_WEIGHT
+            ,   T1.PLTZ_WEIGHT_UNIT
+            ,   T1.PLTZ_VOLUME
+            ,   T1.PLTZ_VOLUME_UNIT
+            ,   T1.LAST_TR_RCV_DT
+            ,   T1.MAIN_MARK_TYP
+            ,   NULL AUTH
+        from
+            (
+                select distinct
+                        NULL SHIPPER_CD
+                    ,   NULL SHIP_TO_CD
+                    ,   NULL STG_INSTR_NO
+                    ,   T1.XMAIN_MARK MAIN_MARK_OR_XMAIN_MARK
+                    ,   T2.LOADING_CD
+                    ,   NULL INVOICE_ETD
+                    ,   NULL INVOICE_CARRIER_COMP_CD
+                    ,   T1.GROSS_WEIGHT PLTZ_GROSS_WEIGHT
+                    ,   T1.WEIGHT_UNIT PLTZ_WEIGHT_UNIT
+                    ,   T1.VOLUME PLTZ_VOLUME
+                    ,   T1.VOLUME_UNIT PLTZ_VOLUME_UNIT
+                    ,   NULL LAST_TR_RCV_DT
+                    ,   W1.MAIN_MARK_TYP
+                from
+                        TW_STG_ACT W1
+                    ,   TT_XPLTZ T1
+                    ,   TT_PLTZ T2
+                where
+                        W1.MAIN_MARK = T1.XMAIN_MARK
+                    and T1.XMAIN_MARK = T2.XMAIN_MARK
+                    and W1.DSC_ID = #loginUserDscId#
+                    and W1.MAIN_MARK_TYP = '2'
+                union all
+                select
+                        T1.SHIPPER_CD
+                    ,   T1.SHIP_TO_CD
+                    ,   T1.STG_INSTR_NO
+                    ,   T1.MAIN_MARK MAIN_MARK_OR_XMAIN_MARK
+                    ,   T1.LOADING_CD
+                    ,   T2.ETD INVOICE_ETD
+                    ,   T2.CARRIER_COMP_CD INVOICE_CARRIER_COMP_CD
+                    ,   T1.GROSS_WEIGHT PLTZ_GROSS_WEIGHT
+                    ,   T1.WEIGHT_UNIT PLTZ_WEIGHT_UNIT
+                    ,   T1.VOLUME PLTZ_VOLUME
+                    ,   T1.VOLUME_UNIT PLTZ_VOLUME_UNIT
+                    ,   T1.LAST_TR_RCV_DT
+                    ,   W1.MAIN_MARK_TYP
+                from
+                        TW_STG_ACT W1
+                    ,   TT_PLTZ T1
+                    ,   TT_INVOICE T2
+                where
+                        W1.MAIN_MARK = T1.MAIN_MARK
+                    and T1.SHIPPER_CD = T2.SHIPPER_CD(+)
+                    and T1.INVOICE_NO = T2.INVOICE_NO(+)
+                    and T1.INVOICE_ISSUE_DT = T2.INVOICE_ISSUE_DT(+)
+                    and W1.DSC_ID = #loginUserDscId#
+                    and W1.MAIN_MARK_TYP = '1'
+            ) T1
+        order by
+                T1.SHIPPER_CD asc nulls first
+            ,   T1.SHIP_TO_CD asc nulls first
+            ,   T1.STG_INSTR_NO asc
+            ,   T1.MAIN_MARK_OR_XMAIN_MARK desc
+    </select>
+
+    <!-- ====================================================================== -->
+    <!-- Staging actuality Register / Init - from Create Weight summary of weight per unit -->
+    <!-- 山作り実績Register / Init - from Create 重量単位ごとの重量サマリ取得   -->
+    <!-- ====================================================================== -->
+
+    <!-- Search SQL statement (Register / Init - from Create Weight summary of weight per unit) -->
+    <!-- 検索 SQL文 (Register / Init - from Create 重量単位ごとの重量サマリ取得) -->
+    <select id="SearchOnRegisterInitByWeightSummary" resultMap="W4005PltzDomain_SearchOnRegisterInitByWeightSummary">
+        select /* SqlMap-W4005StgAct.SearchOnRegisterInitByWeightSummary */
+            T1.WEIGHT_UNIT
+            ,sum(T1.GROSS_WEIGHT) GROSS_WEIGHT
+        from
+            (
+                select
+                        T1.WEIGHT_UNIT
+                    ,   T1.GROSS_WEIGHT
+                from
+                        TW_STG_ACT W1
+                    ,   TT_XPLTZ T1
+                where
+                        W1.MAIN_MARK = T1.XMAIN_MARK
+                    and W1.MAIN_MARK_TYP = '2'
+                    and W1.DSC_ID = #value#
+                union all
+                select
+                        T1.WEIGHT_UNIT
+                    ,   T1.GROSS_WEIGHT
+                from
+                        TW_STG_ACT W1
+                    ,   TT_PLTZ T1
+                where
+                        W1.MAIN_MARK = T1.MAIN_MARK
+                    and W1.MAIN_MARK_TYP = '1'
+                    and W1.DSC_ID = #value#
+            ) T1
+        group by
+            T1.WEIGHT_UNIT
+    </select>
+
+    <!-- ====================================================================== -->
+    <!-- Staging actuality Register / Init - from Create Summary volume of volume per unit -->
+    <!-- 山作り実績Register / Init - from Create 容積単位ごとの容積サマリ取得   -->
+    <!-- ====================================================================== -->
+
+    <!-- Search SQL statement (Register / Init - from Create Summary volume of volume per unit) -->
+    <!-- 検索 SQL文 (Register / Init - from Create 容積単位ごとの容積サマリ取得) -->
+    <select id="SearchOnRegisterInitByVolumeSummary" resultMap="W4005PltzDomain_SearchOnRegisterInitByVolumeSummary">
+        select /* SqlMap-W4005StgAct.SearchOnRegisterInitByVolumeSummary */
+            T1.VOLUME_UNIT
+            ,sum(T1.VOLUME) VOLUME
+        from
+            (
+                select
+                        T1.VOLUME_UNIT
+                    ,   T1.VOLUME
+                from
+                        TW_STG_ACT W1
+                    ,   TT_XPLTZ T1
+                where
+                        W1.MAIN_MARK = T1.XMAIN_MARK
+                    and W1.MAIN_MARK_TYP = '2'
+                    and W1.DSC_ID = #value#
+                union all
+                select
+                        T1.VOLUME_UNIT
+                    ,   T1.VOLUME
+                from
+                        TW_STG_ACT W1
+                    ,   TT_PLTZ T1
+                where
+                        W1.MAIN_MARK = T1.MAIN_MARK
+                    and W1.MAIN_MARK_TYP = '1'
+                    and W1.DSC_ID = #value#
+            ) T1
+        group by
+            T1.VOLUME_UNIT
+    </select>
+
+    <!-- ====================================================================== -->
+    <!-- Staging actuality Register / Register - Palletize lock & check before register -->
+    <!-- 山作り実績Register / Register - 登録前前パレタイズロック&チェック用    -->
+    <!-- ====================================================================== -->
+
+    <!-- Search SQL statement (Register / Register - Palletize lock & check before register) -->
+    <!-- 検索 SQL文 (Register / Register - 登録前パレタイズロック&チェック用) -->
+    <select id="LockTtPltzByMainMarkListNoWait" parameterClass="java.util.Map" resultMap="W4005PltzDomain_LockTtPltzMainNoWait">
+        select /* SqlMap-W4005StgAct.LockTtPltzByMainMarkListNoWait */
+                T1.MAIN_MARK
+            ,   T1.STG_INSTR_ITEM_FLG
+            ,   T1.CUSTOM_TIMING_TYP
+            ,   T1.PLTZ_STATUS
+            ,   T1.LAST_TR_STATUS
+            ,   T2.PLTZ_INSTR_STATUS
+        from
+            TT_PLTZ T1
+            ,   TT_PLTZ_INSTR T2
+        <dynamic prepend="where">
+            (
+                 <isNotEmpty property="xmainMarkList" prepend="or">
+                    T1.XMAIN_MARK
+                        in (
+                            <iterate property="xmainMarkList" conjunction=",">
+                                #xmainMarkList[]#
+                            </iterate>
+                        )
+                </isNotEmpty>
+                <isNotEmpty property="mainMarkList" prepend="or">
+                    T1.MAIN_MARK
+                        in (
+                            <iterate property="mainMarkList" conjunction=",">
+                                #mainMarkList[]#
+                            </iterate>
+                        )
+                </isNotEmpty>
+            )
+            and T1.PLTZ_INSTR_NO = T2.PLTZ_INSTR_NO(+)
+        </dynamic>
+        order by
+                decode(T1.XMAIN_MARK, NULL, 2, 1) asc
+            ,   decode(T1.XMAIN_MARK, NULL, NULL, T1.SHIPPER_CD) asc
+            ,   T1.SHIP_TO_CD asc
+            ,   T1.STG_INSTR_NO asc
+            ,   T1.XMAIN_MARK desc
+            ,   T1.MAIN_MARK desc
+        for update nowait
+    </select>
+
+    <!-- ====================================================================== -->
+    <!-- Staging actuality Register / Register - Selection palletize expanded inline view -->
+    <!-- 山作り実績Register / Register - 選択パレタイズ展開inline view          -->
+    <!-- ====================================================================== -->
+
+    <sql id="Select_TwStgActExpand">
+        select
+                T1.*
+        from
+                TW_STG_ACT W1
+            ,   TT_PLTZ T1
+        where
+                W1.MAIN_MARK = T1.XMAIN_MARK
+            and W1.MAIN_MARK_TYP = '2'
+            and W1.DSC_ID = #value#
+        union all
+        select
+                T1.*
+        from
+                TW_STG_ACT W1
+            ,   TT_PLTZ T1
+        where
+                W1.MAIN_MARK = T1.MAIN_MARK
+            and W1.MAIN_MARK_TYP = '1'
+            and W1.DSC_ID = #value#
+    </sql>
+
+    <!-- ====================================================================== -->
+    <!-- Staging actuality Register / Register - Check for staging instruction unit -->
+    <!-- 山作り実績Register / Register - 荷揃え指示単位のチェック用             -->
+    <!-- ====================================================================== -->
+
+    <!-- Search SQL statement (Register / Register - Check for staging instruction unit) -->
+    <!-- 検索 SQL文 (Register / Register - 荷揃え指示単位のチェック用) -->
+    <select id="SearchTtPltzByStgInstr" parameterClass="java.lang.String" resultClass="java.lang.String">
+        select /* SqlMap-W4005StgAct.SearchTtPltzByStgInstr */
+            T1.MAIN_MARK
+        from
+            TT_PLTZ T1,
+            (<include refid="W4005StgAct.Select_TwStgActExpand" />) V1
+        where
+            T1.STG_INSTR_NO in (
+                select distinct
+                    V1.STG_INSTR_NO
+                from
+                    (<include refid="W4005StgAct.Select_TwStgActExpand" />) V1
+            )
+            and T1.MAIN_MARK = V1.MAIN_MARK(+)
+            and V1.MAIN_MARK is NULL
+        order by
+                decode(T1.XMAIN_MARK, NULL, 2, 1) asc
+            ,   decode(T1.XMAIN_MARK, NULL, NULL, T1.SHIPPER_CD) asc
+            ,   T1.SHIP_TO_CD asc
+            ,   T1.STG_INSTR_NO asc
+            ,   T1.XMAIN_MARK desc
+            ,   T1.MAIN_MARK desc
+    </select>
+
+    <!-- ====================================================================== -->
+    <!-- Staging actuality Register / Register - Danger item whether or not judgment -->
+    <!-- 山作り実績Register / Register - 危険品有無判断                         -->
+    <!-- ====================================================================== -->
+
+    <!-- Search SQL statement (Register / Register - Danger item whether or not judgment) -->
+    <!-- 検索 SQL文 (Register / Register - 危険品有無判断) -->
+    <select id="SearchTtPltzByDngrItem" parameterClass="java.lang.String" resultClass="java.lang.String">
+        select /* SqlMap-W4005StgAct.SearchTtPltzByDngrItem */
+            V1.MAIN_MARK
+        from
+            (<include refid="W4005StgAct.Select_TwStgActExpand" />) V1
+        where
+            V1.DNGR_ITEM_FLG = 'Y'
+    </select>
+
+    <!-- ====================================================================== -->
+    <!-- Staging actuality Register / Register - Staging instruction lock before register -->
+    <!-- 山作り実績Register / Register - 登録前荷揃え指示ロック用               -->
+    <!-- ====================================================================== -->
+
+    <!-- Search SQL statement (Register / Register - Staging instruction lock before register) -->
+    <!-- 検索 SQL文 (Register / Register - 登録前荷揃え指示ロック用) -->
+    <select id="LockTtStgInstrByStgInstrNoListNoWait" parameterClass="java.util.List" resultClass="java.lang.String">
+        select /* SqlMap-W4005StgAct.LockTtStgInstrByStgInstrNoListNoWait */
+            T1.STG_INSTR_NO
+        from
+            TT_STG_INSTR T1
+        where
+            T1.STG_INSTR_NO
+                in (
+                    <iterate conjunction=",">
+                        #[]#
+                    </iterate>
+                )
+        for update nowait
+    </select>
+
+    <!-- ====================================================================== -->
+    <!-- Staging actuality Register / Register - Palletize lock & check after register -->
+    <!-- 山作り実績Register / Register - 登録後パレタイズロック&チェック用    -->
+    <!-- ====================================================================== -->
+
+    <!-- Search SQL statement (Register / Register - Palletize lock & check after register) -->
+    <!-- 検索 SQL文 (Register / Register - 登録後パレタイズロック&チェック用) -->
+    <select id="LockTtPltzByStgActNoNoWait" parameterClass="java.lang.String" resultMap="W4005PltzDomain_LockTtPltzNoWait">
+        select /* SqlMap-W4005StgAct.LockTtPltzByStgActNoNoWait */
+                T1.MAIN_MARK
+            ,   T1.STG_INSTR_ITEM_FLG
+            ,   T1.CUSTOM_TIMING_TYP
+            ,   T1.PLTZ_STATUS
+            ,   T1.LAST_TR_STATUS
+        from
+            TT_PLTZ T1
+        where
+            T1.STG_ACT_NO = #value#
+        order by
+                decode(T1.XMAIN_MARK, NULL, 2, 1) asc
+            ,   decode(T1.XMAIN_MARK, NULL, NULL, T1.SHIPPER_CD) asc
+            ,   T1.SHIP_TO_CD asc
+            ,   T1.STG_INSTR_NO asc
+            ,   T1.XMAIN_MARK desc
+            ,   T1.MAIN_MARK desc
+        for update nowait
+    </select>
+
+    <!-- ====================================================================== -->
+    <!-- Staging actuality Register / Register - Staging instruction lock after register -->
+    <!-- 山作り実績Register / Register - 登録後荷揃え指示ロック用               -->
+    <!-- ====================================================================== -->
+
+    <!-- Search SQL statement (Register / Register - Staging instruction lock after register) -->
+    <!-- 検索 SQL文 (Register / Register - 登録後荷揃え指示ロック用) -->
+    <select id="LockTtStgInstrByStgActNoNoWait" parameterClass="java.lang.String" resultClass="java.lang.String">
+        select /* SqlMap-W4005StgAct.LockTtStgInstrByStgActNoNoWait */
+            T1.STG_INSTR_NO
+        from
+            TT_STG_INSTR T1
+        where
+            T1.STG_ACT_NO = #value#
+        for update nowait
+    </select>
+
+    <!-- ====================================================================== -->
+    <!-- Staging actuality Register / Cancel - Update palletize                 -->
+    <!-- 山作り実績Register / Cancel - パレタイズ更新                           -->
+    <!-- ====================================================================== -->
+
+    <!-- Update SQL statement (Register / Cancel - Update palletize) -->
+    <!-- 更新 SQL文 (Register / Cancel - パレタイズ更新) -->
+    <update id="UpdateTtPltzOnRegisterCancel" parameterClass="W4005PltzDomain">
+        update TT_PLTZ set /* SqlMap-W4005StgAct.UpdateTtPltzOnRegisterCancel */
+                PLTZ_STATUS = (
+                    case
+                        when STG_INSTR_ITEM_FLG = 'Y' then
+                            case 
+                                when CUSTOM_TIMING_TYP = 'A' or CUSTOM_TIMING_TYP = 'B' then '30'
+                                else '40'
+                            end
+                        else '10'
+                    end
+                )
+            ,   STG_ACT_NO = NULL
+            ,   COM_UPDATE_FUNC_ID = #comUpdateFuncId#
+            ,   COM_UPDATE_USER_ID = #comUpdateUserId#
+            ,   COM_UPDATE_TIMESTAMP = SYSDATE
+        where
+            STG_ACT_NO = #stgActNo#
+    </update>
+
+</sqlMap>

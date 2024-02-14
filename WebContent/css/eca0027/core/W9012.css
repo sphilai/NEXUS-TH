@@ -1,0 +1,35 @@
+@charset "utf-8";
+/*
+ * W9012.css
+ * 
+ * Style sheet used in CIGMA Customer No. X-Reference MA Edit screen.
+ * CIGMA Customer No. X-Reference MA Edit画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+
+.grid{
+    width:560px;
+}
+
+.blank {
+    width:560px;
+}
+
+.grid .grid_header {
+    width:150px;
+}
+
+.grid .grid_contents {
+    width:40px;
+}
+
+/*------------ 表示幅 ------------*/ 
+.customer_cd{
+    width: 95px;
+}
+.left {
+    text-align: left;
+}

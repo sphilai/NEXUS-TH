@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * struts-config_eca0027_form_w7.xml
+ * 
+ * AI-J2(Struts) の form設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <display-name></display-name>
+    <description></description>
+
+    <!-- Application Form Bean Definitions ================================= -->
+    <form-beans>
+        <!-- W7001: 船積実績Main画面 -->
+        <form-bean name="W7001Form"
+            type="com.globaldenso.eca0027.core.presentation.W7001ActionForm">
+        </form-bean>
+
+        <!-- W7002: 船積実績Header画面 -->
+        <form-bean name="W7002Form"
+            type="com.globaldenso.eca0027.core.presentation.W7002ActionForm">
+        </form-bean>
+        
+        <!-- W7003: 船積実績Create画面 -->
+        <form-bean name="W7003Form"
+            type="com.globaldenso.eca0027.core.presentation.W7003ActionForm">
+        </form-bean>
+        
+        <!-- W7004: 船積実績Register画面 -->
+        <form-bean name="W7004Form"
+            type="com.globaldenso.eca0027.core.presentation.W7004ActionForm">
+        </form-bean>
+
+        <!-- W7005: 船荷証券更新画面 -->
+        <form-bean name="W7005Form"
+            type="com.globaldenso.eca0027.core.presentation.W7005ActionForm">
+        </form-bean>
+
+        <!-- W7006: 船積書類アップロード画面 -->
+        <form-bean name="W7006Form"
+            type="com.globaldenso.eca0027.core.presentation.W7006ActionForm">
+        </form-bean>
+        
+        <!-- W7007: B/Lアップロード画面 -->
+        <form-bean name="W7007Form"
+            type="com.globaldenso.eca0027.core.presentation.W7007ActionForm">
+        </form-bean>
+        
+    </form-beans>
+</struts-config>

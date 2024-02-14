@@ -1,0 +1,10 @@
+<script language="JavaScript">
+<!--//
+var msg = {};
+msg.goMsg = '<c:catch><bean:message key="GSCM-I0-0001" locale="${locale_key}" /></c:catch>';
+msg.dirtyMsg = '<c:catch><bean:message key="GSCM-I0-0002" locale="${locale_key}" /></c:catch>';
+msg.registMsg = '<c:catch><bean:message key="GSCM-I0-0003" locale="${locale_key}" /></c:catch>';
+msg.updateMsg = '<c:catch><bean:message key="GSCM-I0-0004" locale="${locale_key}" /></c:catch>';
+msg.deleteMsg = '<c:catch><bean:message key="GSCM-I0-0005" locale="${locale_key}" /></c:catch>';
+//-->
+</script>

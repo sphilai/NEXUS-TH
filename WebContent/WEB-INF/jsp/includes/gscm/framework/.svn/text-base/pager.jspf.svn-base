@@ -1,0 +1,118 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
+<%@ taglib uri="http://struts.apache.org/tags-html-el" prefix="html" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"        prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions"   prefix="fn" %>
+<c:set var="searchPath">
+    <c:choose>
+        <c:when test="${fn:startsWith(searchPath, pageContext.request.contextPath) }">
+            ${searchPath}
+        </c:when>
+        <c:otherwise>
+            <c:catch var="ex"><html:rewrite action="${searchPath}" /></c:catch>
+            <c:if test="${!empty ex}">${searchPath}</c:if>
+        </c:otherwise>
+    </c:choose>
+</c:set>
+<div class="gscm_paging" >
+<script type="text/javascript">
+<!--
+    function submitSearchPager(url, formNm, curPage) {
+        // 名前からFORMオブジェクトを取得
+        var formSelector = "form[name='" + formNm + "']:first";
+        var formObj = $(formSelector).get(0);
+        gscm.submitSearch(url, formObj, curPage);
+    }
+    // 最初のページへ
+    function keyEvent_F1() {
+        var url ='<bean:write name="searchPath" />';
+        var formNm = '<bean:write name="formName" />';
+        var curPage = '<bean:write name="pageInfo" property="firstPage" />';
+        submitSearchPager(url, formNm, curPage);
+    }
+    // 前ページ
+    function keyEvent_F2() {
+        var url ='<bean:write name="searchPath" />';
+        var formNm = '<bean:write name="formName" />';
+        var curPage = '<bean:write name="pageInfo" property="prevPage" />';
+        submitSearchPager(url, formNm, curPage);
+    }
+    // 次ページ
+    function keyEvent_F3() {
+        var url ='<bean:write name="searchPath" />';
+        var formNm = '<bean:write name="formName" />';
+        var curPage = '<bean:write name="pageInfo" property="nextPage" />';
+        submitSearchPager(url, formNm, curPage);
+    }
+    // 最後のページへ
+    function keyEvent_F4() {
+        var url ='<bean:write name="searchPath" />';
+        var formNm = '<bean:write name="formName" />';
+        var curPage = '<bean:write name="pageInfo" property="lastPage" />';
+        submitSearchPager(url, formNm, curPage);
+    }
+// -->
+</script>
+
+    <bean:message key="label.results" />
+    <bean:write name="pageInfo" property="fromCount" />
+    -
+    <bean:write name="pageInfo" property="toCount" />
+    <bean:message key="label.of" />
+    <bean:write name="pageInfo" property="totalCount"/>&nbsp;&nbsp;
+    <bean:message key="label.pages"/>
+    <bean:write name="pageInfo" property="curPage" />
+    <bean:message key="label.of" />
+    <bean:write name="pageInfo" property="lastPage" />
+    [
+    <logic:notEqual name="pageInfo" property="curPage" value="1">
+        <a href="#" onclick="submitSearchPager('<bean:write name="searchPath" />', '<bean:write name="formName" />', '<bean:write name="pageInfo" property="firstPage" />');return false;" >
+            <bean:message key="label.first" />
+        </a>
+    </logic:notEqual>
+    <logic:equal name="pageInfo" property="curPage" value="1">
+        <bean:message key="label.first" />
+    </logic:equal>
+    |
+    <logic:notEqual name="pageInfo" property="curPage" value="1">
+        <a href="#" onclick="submitSearchPager('<bean:write name="searchPath" />', '<bean:write name="formName" />', '<bean:write name="pageInfo" property="prevPage" />');return false;" >
+            <bean:message key="label.previous" />
+        </a>
+    </logic:notEqual>
+    <logic:equal name="pageInfo" property="curPage" value="1">
+        <bean:message key="label.previous" />
+    </logic:equal>
+    |
+    <logic:notEqual name="pageInfo" property="curPage" value="${pageInfo.lastPage}" >
+        <a href="#" onclick="submitSearchPager('<bean:write name="searchPath" />', '<bean:write name="formName" />', '<bean:write name="pageInfo" property="nextPage" />');return false;" >
+            <bean:message key="label.next" />
+        </a>
+    </logic:notEqual>
+    <logic:equal name="pageInfo" property="curPage" value="${pageInfo.lastPage}" >
+        <bean:message key="label.next" />
+    </logic:equal>
+    |
+    <logic:notEqual name="pageInfo" property="curPage" value="${pageInfo.lastPage}" >
+        <a href="#" onclick="submitSearchPager('<bean:write name="searchPath" />', '<bean:write name="formName" />', '<bean:write name="pageInfo" property="lastPage" />');return false;" >
+            <bean:message key="label.last" />
+        </a>
+    </logic:notEqual>
+    <logic:equal name="pageInfo" property="curPage" value="${pageInfo.lastPage}" >
+        <bean:message key="label.last" />
+    </logic:equal>
+    ]
+    <bean:message key="label.jumpTo"/>
+    <input type="text" class="right ime-disabled" name="jumpPageNo" size="5" maxlength="5" onkeydown="gscm.jumpToPagint('<bean:write name="searchPath" />', '<bean:write name="formName" />')">
+    <input type="button"  name="pageGo" onclick="gscm.jumpToPagint('<bean:write name="searchPath" />', '<bean:write name="formName" />')" value=<bean:message key="label.menuGo" locale="${locale_key}"/> />
+ </div>
+<!-- ページング退避用 -->
+<html:hidden property="currentPageNo" />
+<html:hidden property="fromCount" />
+<html:hidden property="toCount" />
+<html:hidden property="totalCount" />
+<html:hidden property="curPage" />
+<html:hidden property="firstPage" />
+<html:hidden property="prevPage" />
+<html:hidden property="nextPage" />
+<html:hidden property="lastPage" />

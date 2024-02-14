@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/E008_ECA0027/!svn/ver/15760/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src
+END
+ValidationResources.properties
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/ValidationResources.properties
+END
+MessageResources_ja.properties
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/MessageResources_ja.properties
+END
+AiMail.properties
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/AiMail.properties
+END
+LdapConnection-dev.properties
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/LdapConnection-dev.properties
+END
+LdapConnection-pro.properties
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/LdapConnection-pro.properties
+END
+log4j.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/log4j.dtd
+END
+MessageResources.properties
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/MessageResources.properties
+END
+commons-logging.properties
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/commons-logging.properties
+END
+jasperreports_extension.properties
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/jasperreports_extension.properties
+END
+LdapConnection.properties
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/E008_ECA0027/!svn/ver/13688/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/LdapConnection.properties
+END
+MessageResources_en.properties
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/MessageResources_en.properties
+END
+jasperreports.properties
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/jasperreports.properties
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/log4j.xml
+END

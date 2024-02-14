@@ -1,0 +1,132 @@
+@charset "utf-8";
+/*
+ * W2005.css
+ * 
+ * 小箱内多品番梱包Main Screen画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+
+.gscm_search .search_shipper_cd {
+    width: 88px;
+}
+
+.gscm_search .search_customer_cd {
+    width: 127px;
+}
+
+.gscm_search .search_lgcy_ship_to {
+    width: 59px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 207px;
+}
+
+.gscm_search .search_plnt_cd {
+    width: 69px;
+}
+
+.gscm_search .search_lgcy_wh_cd {
+    width: 49px;
+}
+
+.gscm_search .search_mix_tag_status {
+    width: 157px;
+}
+
+.gscm_search .search_mix_tag_no {
+    width: 224px;
+}
+
+.gscm_search .search_mix_tag_issue_dt_from {
+    width: 118px;
+}
+
+.gscm_search .search_mix_tag_issue_dt_to {
+    width: 118px;
+}
+
+.gscm_search .search_mix_tag_issuer_id {
+    width: 98px;
+}
+
+.gscm_search .search_item_no {
+    width: 333px;
+}
+
+.gscm_search .search_pkg_cd {
+    width: 314px;
+}
+
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width:980px;
+}
+
+.gscm_resultlist .resultlist_checked_key {
+    width: 38px;
+}
+
+.gscm_resultlist .resultlist_shipper_cd {
+    width: 65px;
+}
+
+.gscm_resultlist .resultlist_customer_cd {
+    width: 86px;
+}
+
+.gscm_resultlist .resultlist_lgcy_ship_to {
+    width: 55px;
+}
+
+.gscm_resultlist .resultlist_trns_cd {
+    width: 48px;
+}
+
+.gscm_resultlist .resultlist_plnt_cd {
+    width: 55px;
+}
+
+.gscm_resultlist .resultlist_lgcy_wh_cd {
+    width: 55px;
+}
+
+.gscm_resultlist .resultlist_mix_tag_status {
+    width: 55px;
+}
+
+.gscm_resultlist .resultlist_mix_tag_no {
+    width: 192px;
+}
+
+.gscm_resultlist .resultlist_mix_tag_issue_dt {
+    width: 80px;
+}
+
+/*------------ 表示幅 ------------*/ 
+
+.w2005_customer_cd {
+    width: 107px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.w2005_lgcy_ship_to {
+    width: 50px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.w2005_plnt_cd {
+    width: 50px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.w2005_mix_tag_no_disptext {
+    width: 140px;
+}
+.w2005_mix_tag_issuer_disptext {
+    width: 236px;
+}

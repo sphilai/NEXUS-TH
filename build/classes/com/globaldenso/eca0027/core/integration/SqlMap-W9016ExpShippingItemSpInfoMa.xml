@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * SqlMap-W9016ExpShippingItemSpInfoMa.xml
+ *
+ * W9016ExpShippingItemSpInfoMaDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ 
+<sqlMap namespace="W9016ExpShippingItemSpInfoMa">
+    <!-- ================================================== -->
+    <!-- Domainの別名定義 -->
+    <!-- ================================================== -->
+    
+    <!-- Domain -->
+    <typeAlias alias="W9016ExpShippingItemSpInfoMaItemDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W9016ExpShippingItemSpInfoMaItemDomain" />
+    
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W9016ExpShippingItemSpInfoMaCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W9016ExpShippingItemSpInfoMaCriteriaDomain" />
+     
+    <!-- ================================================== -->
+    <!-- 検索結果をMapで受け取る                            -->
+    <!-- ================================================== -->
+    
+    <resultMap id="W9016ExpShippingItemSpInfoMaDomain_SearchForPagingTmExpItemNoSpInfo" class="W9016ExpShippingItemSpInfoMaItemDomain">
+        <result property="compCd" column="COMP_CD" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="aplyStrtDt" column="APLY_STRT_DT" />
+        <result property="shippingLot" column="SHIPPING_LOT" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="stgInstrItemFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+    </resultMap>
+    
+    <!-- Cols -->
+    <sql id="Col_TmExpItemNoSpInfo">
+        COMP_CD
+        , ITEM_NO
+        , PKG_CD
+        , CUSTOMER_CD
+        , LGCY_SHIP_TO
+        , APLY_STRT_DT
+        , SHIPPING_LOT
+        , INVOICE_KEY
+        , STG_INSTR_ITEM_FLG
+        , CUSTOM_TIMING_TYP
+        , CONTAINER_SORTING_KEY
+        , COM_UPDATE_TIMESTAMP
+    </sql>
+    
+    <!-- ================================================== -->
+    <!-- 実行SQL                                            -->
+    <!-- ================================================== -->
+
+    <select id="SearchCountTmExpItemNoSpInfo"
+        resultClass="java.lang.Integer" parameterClass="W9016ExpShippingItemSpInfoMaCriteriaDomain">
+        select
+            /* SqlMap-W9016ExpShippingItemSpInfoMa.SearchCountTmExpItemNoSpInfo */
+            count(COMP_CD) COUNT_COMP_CD
+        from
+            (select
+                COMP_CD
+                ,ITEM_NO
+                ,PKG_CD
+                ,CUSTOMER_CD
+                ,LGCY_SHIP_TO
+                ,row_number() over (partition by COMP_CD, ITEM_NO, PKG_CD, CUSTOMER_CD, LGCY_SHIP_TO order by APLY_STRT_DT desc) RNUM
+            from
+                TM_EXP_ITEM_NO_SP_INFO
+            where
+                COMP_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId# )
+                <isNotEmpty prepend="and" property="compCd">
+                    COMP_CD like concat(#compCd#,'%')
+                </isNotEmpty>
+                <isNotEmpty prepend="and" property="itemNo">
+                    ITEM_NO like concat(#itemNo#,'%')
+                </isNotEmpty>
+                <isNotEmpty prepend="and" property="pkgCd">
+                    PKG_CD = #pkgCd#
+                </isNotEmpty>
+                <isNotEmpty prepend="and" property="customerCd">
+                    CUSTOMER_CD = #customerCd#
+                </isNotEmpty>
+                <isNotEmpty prepend="and" property="lgcyShipTo">
+                    LGCY_SHIP_TO = #lgcyShipTo#
+                </isNotEmpty>
+                <isNotEmpty prepend="and" property="containerSortingKey">
+                    CONTAINER_SORTING_KEY like concat(#containerSortingKey#,'%')
+                </isNotEmpty>
+                <isNotEmpty prepend="and" property="stgInstrItemFlg">
+                    STG_INSTR_ITEM_FLG = #stgInstrItemFlg#
+                </isNotEmpty>
+                <isNotEmpty prepend="and" property="customTimingTyp">
+                    CUSTOM_TIMING_TYP = #customTimingTyp#
+                </isNotEmpty>
+                <isNotEmpty prepend="and" property="invoiceKey">
+                    INVOICE_KEY = #invoiceKey#
+                </isNotEmpty>
+                <isNotEmpty property="userAuthList">
+                    <iterate prepend="and" property="userAuthList" conjunction="," open=" COMP_CD in (" close=")">
+                        #userAuthList[].authMgtComp#
+                    </iterate>
+                </isNotEmpty>
+                <isEqual prepend="and" property="display" compareValue="CAD">
+                    APLY_STRT_DT <![CDATA[<=]]> #fmtAplyStrtDt#
+                </isEqual>
+                <isEqual prepend="and" property="display" compareValue="LA2">
+                    APLY_STRT_DT <![CDATA[<=]]> #fmtAplyStrtDt#
+                </isEqual>
+            )
+        <dynamic prepend="where">
+            <isEqual prepend="and" property="display" compareValue="CAD">
+                RNUM = 1
+            </isEqual>
+            <isEqual prepend="and" property="display" compareValue="LA2">
+                RNUM BETWEEN 1 AND 2
+            </isEqual>
+        </dynamic>
+    </select>
+    
+    <select id="SearchForPagingTmExpItemNoSpInfo"
+        resultMap="W9016ExpShippingItemSpInfoMaDomain_SearchForPagingTmExpItemNoSpInfo" parameterClass="W9016ExpShippingItemSpInfoMaCriteriaDomain">
+        select
+            /* SqlMap-W9016ExpShippingItemSpInfoMa.SearchForPagingTmExpItemNoSpInfo */
+            <include refid="Col_TmExpItemNoSpInfo" />
+        from
+            (
+            select
+                <include refid="Col_TmExpItemNoSpInfo" />
+                , row_number() over (order by COMP_CD, ITEM_NO, PKG_CD, CUSTOMER_CD, LGCY_SHIP_TO, APLY_STRT_DT desc) ROW_NUM
+            from
+                (
+                    select
+                        <include refid="Col_TmExpItemNoSpInfo" />
+                        , row_number() over (partition by COMP_CD, ITEM_NO, PKG_CD, CUSTOMER_CD, LGCY_SHIP_TO order by APLY_STRT_DT desc) RNUM 
+                    from
+                        TM_EXP_ITEM_NO_SP_INFO
+                    where
+                        COMP_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId# )
+                        <isNotEmpty prepend="and" property="compCd">
+                            COMP_CD like concat(#compCd#,'%')
+                        </isNotEmpty>
+                        <isNotEmpty prepend="and" property="itemNo">
+                            ITEM_NO like concat(#itemNo#,'%')
+                        </isNotEmpty>
+                        <isNotEmpty prepend="and" property="pkgCd">
+                            PKG_CD = #pkgCd#
+                        </isNotEmpty>
+                        <isNotEmpty prepend="and" property="customerCd">
+                            CUSTOMER_CD = #customerCd#
+                        </isNotEmpty>
+                        <isNotEmpty prepend="and" property="lgcyShipTo">
+                            LGCY_SHIP_TO = #lgcyShipTo#
+                        </isNotEmpty>
+                        <isNotEmpty prepend="and" property="containerSortingKey">
+                            CONTAINER_SORTING_KEY like concat(#containerSortingKey#,'%')
+                        </isNotEmpty>
+                        <isNotEmpty prepend="and" property="stgInstrItemFlg">
+                            STG_INSTR_ITEM_FLG = #stgInstrItemFlg#
+                        </isNotEmpty>
+                        <isNotEmpty prepend="and" property="customTimingTyp">
+                            CUSTOM_TIMING_TYP = #customTimingTyp#
+                        </isNotEmpty>
+                        <isNotEmpty prepend="and" property="invoiceKey">
+                            INVOICE_KEY = #invoiceKey#
+                        </isNotEmpty>
+                        <isNotEmpty prepend="and" property="userAuthList">
+                            <iterate property="userAuthList" conjunction="," open=" COMP_CD in (" close=")">
+                                #userAuthList[].authMgtComp#
+                            </iterate>
+                        </isNotEmpty>
+                        <isEqual prepend="and" property="display" compareValue="CAD">
+                            APLY_STRT_DT <![CDATA[<=]]> #fmtAplyStrtDt#
+                        </isEqual>
+                        <isEqual prepend="and" property="display" compareValue="LA2">
+                            APLY_STRT_DT <![CDATA[<=]]> #fmtAplyStrtDt#
+                        </isEqual>
+                )
+            <dynamic prepend="where">
+                <isEqual prepend="and" property="display" compareValue="CAD">
+                    RNUM = 1
+                </isEqual>
+                <isEqual prepend="and" property="display" compareValue="LA2">
+                    RNUM BETWEEN 1 AND 2
+                </isEqual>
+            </dynamic>
+            order by
+                COMP_CD
+                , ITEM_NO
+                , PKG_CD
+                , CUSTOMER_CD
+                , LGCY_SHIP_TO
+                , APLY_STRT_DT desc
+        ) 
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+    
+</sqlMap>

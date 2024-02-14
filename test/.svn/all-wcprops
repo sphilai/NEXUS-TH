@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/E008_ECA0027/!svn/ver/15116/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test
+END
+TestJunitJbOdrUploadService.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/E008_ECA0027/!svn/ver/15116/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/TestJunitJbOdrUploadService.java
+END
+TestUnitJobLauncherSweep.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/E008_ECA0027/!svn/ver/15116/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/TestUnitJobLauncherSweep.java
+END
+TestUnitJobLauncherTransferToGinvJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/E008_ECA0027/!svn/ver/15116/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/TestUnitJobLauncherTransferToGinvJob.java
+END
+TestMainRequestEdiRceiveOrderJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/E008_ECA0027/!svn/ver/15116/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/TestMainRequestEdiRceiveOrderJob.java
+END
+TestJunitJbEdiRcvOdrService.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/E008_ECA0027/!svn/ver/15116/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/TestJunitJbEdiRcvOdrService.java
+END
+TestUnitJobLauncherDeleteJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/E008_ECA0027/!svn/ver/15116/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/TestUnitJobLauncherDeleteJob.java
+END

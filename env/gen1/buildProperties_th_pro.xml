@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ===========================================================================
+
+ [JP] buildProperties.xml (Aiブランクプロジェクト用)
+ [JP]
+ [JP] 各buildファイルの設定情報を保持しています。
+
+ [EN] buildProperties.xml (For Ai blank project)
+ [EN]
+ [EN] This is the configuration information file for each build file.
+    
+    $ buildProperties.xml 2094 2012-06-08 02:28:17Z tokuhiro_nishizawa@dnitsol.com $
+
+============================================================================ -->
+
+<project>
+
+    <!-- [JP] ==================================================== 定数プロパティ -->
+    <!-- [EN] ==================================================== Constant properties -->
+
+    <!-- [JP] ***各プロジェクトで個別設定が必要なプロパティ***  -->
+    <!-- [EN] ***Property needs to be set separately for each project***  -->
+
+    <!-- [JP] プロジェクト名 -->
+    <!-- [EN] Project name -->
+    <!-- [JP] *プロジェクト個別で名前を設定してください -->
+    <!-- [EN] *Please set the name of the individual project -->
+    <property name="project.name" value="NEXUS_EXPORT" />
+
+    <!-- [JP] プロジェクトフォルダ -->
+    <!-- [EN] Project Folder -->
+    <property name="dir.project" value="../.." />
+
+    <!-- [JP] SQLの不要なスペース削除処理 -->
+    <!-- [EN] Unnecessary space deletion processing of SQL -->
+    <!-- [JP] *処理を実施する場合は、コメントを外してください -->
+    <!-- [EN] *If you want to perform the processing, please remove the comment -->
+    <!--<property name="sql.replace.flg" value="" />-->
+
+    <!-- [JP] JSPの不要なスペース削除処理 -->
+    <!-- [EN] Unnecessary space deletion processing of JSP -->
+    <!-- [JP] *処理を実施する場合は、コメントを外してください -->
+    <!-- [EN] *If you want to perform the processing, please remove the comment -->
+    <!--<property name="jsp.replace.flg" value="" />-->
+
+    <!-- [JP] ***基本的に変更不要なプロパティ***  -->
+    <!-- [EN] ***There is no need to change the following properties.***  -->
+
+    <!-- [JP] * ターゲットフォルダ/ファイル * -->
+    <!-- [EN] * Target folder / file * -->
+    <!-- [JP] ベースフォルダ -->
+    <!-- [EN] Base Folder -->
+    <property name="dir.base" value="D:/aiRelease/TH/${project.name}" />
+
+    <!-- [JP] 出力フォルダ -->
+    <!-- [EN] Output folder -->
+    <property name="dir.out" value="${dir.base}/productions" />
+
+    <!-- [EN] Output folder -->
+    <property name="dir.out.pre" value="${dir.base}/prelive" />
+
+    <!-- [JP] WAR ファイル名 -->
+    <!-- [EN] WAR file name -->
+    <property name="war.name" value="${project.name}" />
+    
+    <!-- [JP] ZIP ファイル名 -->
+    <!-- [EN] ZIP file name -->
+    <property name="zip.name" value="${project.name}" />
+    
+    <!-- [JP] JDBC プロパティファイル名(AIJ2) -->
+    <!-- [EN] JDBC properties file name(AIJ2) -->
+    <property name="jdbc-aij2.prop"     value="jdbc-aij2.properties" />
+    <property name="jdbc-aij2.prop.org" value="jdbc-aij2-org.properties" />
+    <property name="jdbc-aij2.prop.pro" value="jdbc-aij2-pro.properties" />
+    <property name="jdbc-aij2.prop.dev" value="jdbc-aij2-dev.properties" />
+	<property name="jdbc-aij2.prop.prelive" value="jdbc-aij2-prelive.properties" />	
+    <!-- [JP] JDBC プロパティファイル名(AIJB) -->
+    <!-- [EN] JDBC properties file name(AIJB) -->
+    <property name="jdbc-aijb.prop"     value="jdbc-aijb.properties" />
+    <property name="jdbc-aijb.prop.org" value="jdbc-aijb-org.properties" />
+    <property name="jdbc-aijb.prop.pro" value="jdbc-aijb-pro.properties" />
+    <property name="jdbc-aijb.prop.dev" value="jdbc-aijb-dev.properties" />
+
+    <!-- [JP] AijbConstants プロパティファイル名 -->
+    <!-- [EN] AijbConstants properties file name -->
+    <property name="aijbConstants.prop"     value="AijbConstants.properties" />
+    <property name="aijbConstants.prop.org" value="AijbConstants-org.properties" />
+    <property name="aijbConstants.prop.pro" value="AijbConstants-pro.properties" />
+    <property name="aijbConstants.prop.dev" value="AijbConstants-dev.properties" />
+
+    <!-- [JP] log4j 設定ファイル名 -->
+    <!-- [EN] log4j configuration file name -->
+    <property name="log4j.prop"              value="log4j.xml" />
+    <property name="log4j.prop.org"          value="log4j-org.xml" />
+    <property name="log4j.prop.web.pro"      value="log4j-aij2-pro.xml" />
+    <property name="log4j.prop.web.dev"      value="log4j-aij2-dev.xml" />
+
+    <!-- [JP] applicationContext-jdbc 設定ファイル名 -->
+    <!-- [EN] applicationContext-jdbc configuration file name -->
+    <property name="appCtx.jdbc.web"         value="applicationContext-aij2-jdbc.xml" />
+    <property name="appCtx.jdbc.web.org"     value="applicationContext-aij2-jdbc-org.xml" />
+    <property name="appCtx.jdbc.web.pro"     value="applicationContext-aij2-jdbc-pro.xml" />
+    <property name="appCtx.jdbc.web.dev"     value="applicationContext-aij2-jdbc-dev.xml" />
+    <property name="appCtx.jdbc.web.prelive"     value="applicationContext-aij2-jdbc-prelive.xml" />
+
+    <!-- [EN] applicationContext_th configuration file name -->
+    <property name="appCtx.web"         value="applicationContext-aij2.xml" />
+    <property name="appCtx.web.th"         value="applicationContext-aij2_th.xml" />
+
+    <!-- [JP] context.xml ファイル名 -->
+    <!-- [EN] context.xml file name -->
+    <property name="context"                 value="context.xml" />
+    <property name="context.wrk"             value="context_wrk.xml" />
+
+    <!-- [JP] env.css ファイル名 -->
+    <!-- [EN] env.css file name -->
+    <property name="env"                 value="env.css" />
+    <property name="env.org"             value="env_org.css" />
+    <property name="env.pro"             value="env_pro.css" />
+    <property name="env.dev"             value="env_dev.css" />
+    <property name="env.prelive"         value="env_prelive.css" />
+    
+    <!-- [JP] LDAP プロパティファイル名 -->
+    <!-- [EN] LDAP properties file name -->
+    <property name="ldapConnection.prop"     value="LdapConnection.properties" />
+    <property name="ldapConnection.prop.org" value="LdapConnection-org.properties" />
+    <property name="ldapConnection.prop.pro" value="LdapConnection-pro.properties" />
+    <property name="ldapConnection.prop.dev" value="LdapConnection-dev.properties" />
+
+    <!-- [JP] 作業ディレクトリ -->
+    <!-- [EN] Working directory -->
+    <property name="dir.temp" value="${dir.base}/work" />
+    <property name="dir.temp.classes" value="${dir.temp}/classes" />
+
+    <!-- [JP] ソースディレクトリ -->
+    <!-- [EN] Source directory -->
+    <property name="dir.src" value="${dir.project}/src" />
+
+    <!-- [JP] * コンパイル設定 * -->
+    <!-- [EN] * Compile settings * -->
+    <!-- [JP] コンパイラ -->
+    <!-- [EN] Compiler -->
+	<property name="compiler" value="C:/Eclipse_AIJ3/java/jdk1.5.0_15/bin/javac" />
+	<!-- <property name="compiler" value="C:/Eclipse_AIJ3/java/jdk1.8.0_20/bin/javac" /> -->
+    <!-- [JP] コンパイルオプション -->
+    <!-- [EN] Compile Options -->
+    <property name="compile.debug"             value="on" />
+    <property name="compile.optimize"          value="on" />
+    <property name="compile.nowarn"            value="on" />
+    <property name="compile.memoryInitialSize" value="512m" />
+    <property name="compile.memoryMaximumSize" value="512m" />
+    <property name="compile.source"            value="1.5" />
+    <property name="compile.encoding"          value="UTF-8" />
+    
+    <!-- [JP] * AI-JBフォルダ名 * -->
+    <!-- [EN] * AI-JB folder name * -->
+    <property name="dir.temp.zip.root" value="${dir.temp}/${project.name}" />
+    <property name="dir.temp.zip.aijb.root" value="${dir.temp.zip.root}/AIJB" />
+
+    <!-- [JP] ======================================================== アプリのjar設定 -->
+    <!-- [EN] ======================================================== Jar application settings -->
+    <property name="jar.name" value="application.jar" />
+
+    <!-- [JP] Manifest ファイル -->
+    <!-- [EN] Manifest file -->
+    <property name="mani.user"                 value="DENSO IT SOLUTIONS." />
+    <property name="mani.title"                value="${jar.name}" />
+    <property name="mani.vendor"               value="DENSO IT SOLUTIONS." />
+
+
+    <!-- [JP] ======================================================== タイムスタンプ -->
+    <!-- [EN] ======================================================== Time stamp -->
+    <!-- [JP] タイムスタンプを取得 -->
+    <!-- [EN] Gets the time stamp -->
+    <tstamp />
+    <property name="timestampFile" value="${DSTAMP}-${TSTAMP}-made" />
+    <property name="timestamp" value="${DSTAMP}${TSTAMP}" />
+    
+    <!-- [JP] ======================================================== クラスパス -->
+    <!-- [EN] ======================================================== Classpath -->
+
+    <!-- [JP] * クラスパスの設定 * -->
+    <!-- [EN] * Setting the Classpath * -->
+    <path id="Apache Tomcat v6.0 [Apache Tomcat v6.0].libraryclasspath">
+    	<!-- <fileset dir="${dir.project}/../../tomcat/apache-tomcat-6.0.37/lib"> -->
+    	<fileset dir="${dir.project}/../../tomcat/6/lib">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+    <path id="Web App ライブラリー.libraryclasspath">
+        <fileset dir="${dir.project}/WebContent/WEB-INF/lib">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+    <path id="EAR ライブラリー.libraryclasspath"/>
+
+    <path id="ai.classpath">
+        <pathelement location="build/classes"/>
+        <path refid="Apache Tomcat v6.0 [Apache Tomcat v6.0].libraryclasspath"/>
+        <path refid="Web App ライブラリー.libraryclasspath"/>
+        <path refid="EAR ライブラリー.libraryclasspath"/>
+    </path>
+
+    <!-- [JP] ======================================================== ファイル名の設定   -->
+    <!-- [EN] ======================================================== File name settings -->
+
+    <!-- [JP] WARファイル名の設定 -->
+    <!-- [EN] set WAR file name   -->
+    <property name="war.name.wrk"            value="${war.name}.war" />
+	
+    <!-- [JP] ZIPファイル名の設定 -->
+    <!-- [EN] set ZIP file name   -->
+    <property name="zip.name.wrk"            value="${zip.name}.zip" />
+
+</project>

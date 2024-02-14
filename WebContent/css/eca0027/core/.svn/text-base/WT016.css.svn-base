@@ -1,0 +1,22 @@
+@CHARSET "windows-31j";
+/*
+ * WT016.css
+ * 
+ * Unregistered HS CODE List子画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+/*------------ Search result total area------------*/ 
+/*------------ 検索結果エリア(全体) ------------*/ 
+table.gscm_resultlist {
+    width:360px;
+}
+
+/*------------ Search result individual area ------------*/ 
+/*------------ 検索結果エリア(個別) ------------*/ 
+.gscm_resultlist .resultlist_shipper_cd {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_item_no {
+    width: 280px;
+}

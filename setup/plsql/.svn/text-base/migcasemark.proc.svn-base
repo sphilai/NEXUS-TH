@@ -1,0 +1,153 @@
+create or replace PROCEDURE migcasemark(
+    ot_retcode     OUT VARCHAR2
+  , it_shipper_cd  IN  VARCHAR2
+  , it_log_count   IN  NUMBER
+)
+--
+IS
+  ln_count        NUMBER  := 0;   -- processing record count/処理件数
+  lv_str          VARCHAR2(2000);
+  expt_abend_end  EXCEPTION;     -- exception handling/例外処理
+  cv_debug        BOOLEAN := FALSE;
+  --
+  cv_func_id      TW_CASE_MARK_UNSHIP.COM_UPDATE_FUNC_ID%TYPE := 'MIGRATION';
+  cv_user_id      TW_CASE_MARK_UNSHIP.COM_UPDATE_USER_ID%TYPE := 'MIGRATION';
+--
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('**********************************');
+  DBMS_OUTPUT.PUT_LINE('Process start.');
+  DBMS_OUTPUT.PUT_LINE('処理開始');
+  DBMS_OUTPUT.PUT_LINE('**********************************');
+  --
+  -- 2.If there is information that exists only in the unshipped case mark, error.
+  -- 2.未出荷ケースマークにのみ存在する情報がある場合、エラー
+  DBMS_OUTPUT.PUT_LINE('--- 2.Check whether there is a case mark that exists only in the unshipped case mark information. ---');
+  DBMS_OUTPUT.PUT_LINE('--- 2.未出荷ケースマークにのみ存在する情報があるかチェック ---');
+  select count(*) INTO ln_count
+    from TW_CASE_MARK_UNSHIP A
+   where NOT EXISTS(select 'x' from TT_PLTZ B where A.MAIN_MARK = B.MAIN_MARK and B.SHIPPER_CD = it_shipper_cd);
+  --
+  IF ( ln_count <> 0 ) THEN
+    -- 2015/7/23 ADD START
+    DBMS_OUTPUT.PUT_LINE('Below ' || ln_count || ' case mark is not been migrated to the NEXUS.');
+    DBMS_OUTPUT.PUT_LINE('以下' || ln_count || '件はNEXUSに移行されていないケースマークです。');
+    FOR unexpectedCaseMark_rec IN (
+        select MAIN_MARK
+        from TW_CASE_MARK_UNSHIP A
+        where NOT EXISTS(select 'x' from TT_PLTZ B where A.MAIN_MARK = B.MAIN_MARK and B.SHIPPER_CD = it_shipper_cd)
+    )
+    LOOP
+      DBMS_OUTPUT.PUT_LINE(unexpectedCaseMark_rec.MAIN_MARK);
+    END LOOP;
+    -- 2015/7/23 ADD END
+    RAISE expt_abend_end;
+  END IF;
+  --
+  -- 3.Current warehouse code update.
+  -- 3.現在倉庫コード更新
+  DBMS_OUTPUT.PUT_LINE('--- 3.Current warehouse code update. -start- ---');
+  DBMS_OUTPUT.PUT_LINE('--- 3.現在倉庫コード更新 -開始- ---');
+  <<caseMark_loop>>
+  FOR caseMark_rec IN (
+    select * from TW_CASE_MARK_UNSHIP
+  ) LOOP
+    IF ( cv_debug ) THEN
+      DBMS_OUTPUT.PUT_LINE('MAIN_MARK     :[ ' || caseMark_rec.MAIN_MARK || ' ]');
+      DBMS_OUTPUT.PUT_LINE('CUR_LGCY_WH_CD:[ ' || caseMark_rec.CUR_LGCY_WH_CD || ' ]');
+      DBMS_OUTPUT.PUT_LINE('--------------');
+    END IF;
+    --
+    update TT_PLTZ
+       set   CUR_LGCY_WH_CD       = caseMark_rec.CUR_LGCY_WH_CD
+           , COM_UPDATE_FUNC_ID   = cv_func_id
+           , COM_UPDATE_USER_ID   = cv_user_id
+           , COM_UPDATE_TIMESTAMP = sysdate
+     where     MAIN_MARK      =  caseMark_rec.MAIN_MARK
+           and NVL(CUR_LGCY_WH_CD,'#') <> caseMark_rec.CUR_LGCY_WH_CD;
+    --
+    -- Increment of processing number
+    -- 処理件数のインクリメント
+    ln_count := ln_count + 1;
+    --
+    -- Log output
+    -- ログ出力
+    IF ( MOD(ln_count, it_log_count) = 0 ) THEN
+      SELECT TO_CHAR( sysdate, 'yyyy-mm-dd HH24:MM:SS' ) INTO lv_str FROM dual;
+      DBMS_OUTPUT.PUT_LINE('+++++ ' || lv_str || ' Processing count:[ ' || ln_count || ' ]');
+    END IF;
+  END LOOP caseMark_loop;
+  DBMS_OUTPUT.PUT_LINE('--- 3.Current warehouse code update. -end- ---');
+  DBMS_OUTPUT.PUT_LINE('--- 3.現在倉庫コード更新 -終了- ---');
+  DBMS_OUTPUT.PUT_LINE('---');
+  --
+  -- 4.Delete TT_PLTZ_ITEM_ODR
+  -- 4.パレタイズ対象品受注情報消し込み
+  DBMS_OUTPUT.PUT_LINE('--- 4.Delete TT_PLTZ_ITEM_ODR -start- ---');
+  DBMS_OUTPUT.PUT_LINE('--- 4.パレタイズ対象品受注情報消し込み -開始- ---');
+  delete from TT_PLTZ_ITEM_ODR A
+  where  not exists(select 'x' from TW_CASE_MARK_UNSHIP B where A.MAIN_MARK = B.MAIN_MARK)
+    and exists(
+        select 'X' from TT_PLTZ B where B.MAIN_MARK = A.MAIN_MARK and B.SHIPPER_CD = it_shipper_cd
+    );
+  DBMS_OUTPUT.PUT_LINE('--- 4.Delete TT_PLTZ_ITEM_ODR -end- ---');
+  DBMS_OUTPUT.PUT_LINE('--- 4.パレタイズ対象品受注情報消し込み -終了- ---');
+  DBMS_OUTPUT.PUT_LINE('---');
+  --
+  -- 5.Delete TT_PLTZ_ITEM
+  -- 5.パレタイズ対象品消し込み
+  DBMS_OUTPUT.PUT_LINE('--- 5.パレタイズ対象品消し込み -開始- ---');
+  DBMS_OUTPUT.PUT_LINE('--- 5.Delete TT_PLTZ_ITEM -start- ---');
+  delete from TT_PLTZ_ITEM A
+  where  not exists(select 'x' from TW_CASE_MARK_UNSHIP B where A.MAIN_MARK = B.MAIN_MARK)
+    and exists(
+        select 'X' from TT_PLTZ B where B.MAIN_MARK = A.MAIN_MARK and B.SHIPPER_CD = it_shipper_cd
+    );
+  DBMS_OUTPUT.PUT_LINE('--- 5.Delete TT_PLTZ_ITEM -end- ---');
+  DBMS_OUTPUT.PUT_LINE('--- 5.パレタイズ対象品消し込み -終了- ---');
+  DBMS_OUTPUT.PUT_LINE('---');
+  --
+  -- 6.Delete TT_PLTZ
+  -- 6.パレタイズ消し込み
+  DBMS_OUTPUT.PUT_LINE('--- 6.Delete TT_PLTZ -start- ---');
+  DBMS_OUTPUT.PUT_LINE('--- 6.パレタイズ消し込み -開始- ---');
+  delete from TT_PLTZ A
+  where  not exists(select 'x' from TW_CASE_MARK_UNSHIP B where A.MAIN_MARK = B.MAIN_MARK)
+    and A.SHIPPER_CD = it_shipper_cd;
+  DBMS_OUTPUT.PUT_LINE('--- 6.Delete TT_PLTZ -end- ---');
+  DBMS_OUTPUT.PUT_LINE('--- 6.パレタイズ消し込み -終了- ---');
+  DBMS_OUTPUT.PUT_LINE('---');
+  --
+  -- Processing completion
+  -- 処理完了
+  ot_retcode := '0';
+  DBMS_OUTPUT.PUT_LINE('**********************************');
+  DBMS_OUTPUT.PUT_LINE('Successful completion [ retcode : ' || ot_retcode || ' ]');
+  DBMS_OUTPUT.PUT_LINE('正常終了 [ retcode : ' || ot_retcode || ' ]');
+  DBMS_OUTPUT.PUT_LINE('**********************************');
+  commit;
+--
+EXCEPTION
+  --======================================
+  -- Exception abend end
+  --======================================
+  WHEN expt_abend_end THEN
+    ot_retcode := '1';
+    rollback;
+    DBMS_OUTPUT.PUT_LINE('    2.Processing stop because there is a case mark that exists only in the unshipped case mark information.');
+    DBMS_OUTPUT.PUT_LINE('    2.未出荷ケースマークにのみ存在する情報があるため処理中止');
+    DBMS_OUTPUT.PUT_LINE('**********************************');
+    DBMS_OUTPUT.PUT_LINE('Abnormal termination [ retcode : ' || ot_retcode || ' ]');
+    DBMS_OUTPUT.PUT_LINE('異常終了 [ retcode : ' || ot_retcode || ' ]');
+    DBMS_OUTPUT.PUT_LINE('**********************************');
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('SQLCODE:' || sqlcode || ', SQLERRM:' || sqlerrm(sqlcode) );
+    ot_retcode := '2';
+    rollback;
+    DBMS_OUTPUT.PUT_LINE('Processing aborted because an unexpected error has occurred.');
+    DBMS_OUTPUT.PUT_LINE('予期しないエラーが発生したため処理中止');
+    DBMS_OUTPUT.PUT_LINE('**********************************');
+    DBMS_OUTPUT.PUT_LINE('Abnormal termination [ retcode : ' || ot_retcode || ' ]');
+    DBMS_OUTPUT.PUT_LINE('異常終了 [ retcode : ' || ot_retcode || ' ]');
+    DBMS_OUTPUT.PUT_LINE('**********************************');
+--
+END migcasemark;

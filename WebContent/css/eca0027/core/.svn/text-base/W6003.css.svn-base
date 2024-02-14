@@ -1,0 +1,29 @@
+@CHARSET "utf-8";
+/*
+ * W6003.css
+ * 
+ * Documentation [Invoice Header]画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+ /*------------ ボタンエリアテーブル ------------*/ 
+table.gscm_search_button {
+    width: 980px;
+}
+
+
+ /*------------ 検索条件エリアテーブル ------------*/ 
+table.grid {
+    width: 400px;
+}
+
+.grid .grid_header {
+    width: 180px;
+}
+
+.grid .grid_contents {
+    width: 220px;
+}
+
+

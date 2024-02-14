@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * SqlMap-RpStgAct.xml
+ * 
+ * StagingAct機能用の SQL 設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="RpStgAct">
+    <!-- Domainの別名定義 -->
+    <!-- L4002 -->
+    <typeAlias alias="L4002TtPltzByPalletCartonTypDomain"
+        type="com.globaldenso.eca0027.core.business.domain.L4002TtPltzByPalletCartonTypDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="L4002TtPltzByPalletCartonTypCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.L4002TtPltzByPalletCartonTypCriteriaDomain" />
+        
+    <!-- 検索結果をMapで受け取る -->
+    <!-- L4002 -->
+    <resultMap id="L4002Domain_SearchTtPltzByPalletCartonTyp" class="L4002TtPltzByPalletCartonTypDomain">
+        <result property="palletCartonTyp" column="PALLET_CARTON_TYP" />
+    </resultMap>
+    
+    <!-- L4002 -->
+    <!-- 検索 SQL文 (パレット/カートン区分取得) -->
+    <select id="SearchTtPltzByPalletCartonTyp" resultMap="L4002Domain_SearchTtPltzByPalletCartonTyp"
+        parameterClass="L4002TtPltzByPalletCartonTypCriteriaDomain">
+        select /* SqlMap-RpEisProduct.SearchTtPltzByPalletCartonTyp */
+            C1.VALUE as PALLET_CARTON_TYP
+        from
+            TT_PLTZ T1
+            ,TM_CD C1
+        where
+            T1.STG_ACT_NO = #stgActNo#
+            and T1.PALLET_CARTON_TYP = C1.CD(+)
+            and C1.CD_TYP(+) = '77'
+            order by C1.SORT_ODR asc
+    </select>
+</sqlMap>

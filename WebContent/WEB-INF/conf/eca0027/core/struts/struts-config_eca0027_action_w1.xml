@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config_eca0027_action_w1.xml
+ * 
+ * AI-J2(Struts) の action設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+
+    <!-- Application Action Mapping Definitions ============================ -->
+    <action-mappings>
+        <!-- W1001: Init -->
+        <action path="/W1001Init"
+            type="com.globaldenso.eca0027.core.presentation.W1001InitAction"
+            name="W1001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1001" />
+        </action>
+        <!-- W1001: 梱包指示Main画面 Searchアクション -->
+        <action path="/W1001Search"
+            type="com.globaldenso.eca0027.core.presentation.W1001SearchAction"
+            name="W1001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1001" />
+            <forward name="error" path="W1001" />
+        </action>
+         <!-- W1001: 梱包指示Main画面 CreateNewアクション -->
+        <action path="/W1001CreateNew"
+            type="com.globaldenso.eca0027.core.presentation.W1001CreateNewAction"
+            name="W1001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1002Init.do" />
+            <forward name="error" path="W1001" />
+        </action>
+        <!-- W1001: 梱包指示Main画面 CreateNewアクション -->
+        <action path="/W1001Edit"
+            type="com.globaldenso.eca0027.core.presentation.W1001EditAction"
+            name="W1001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1002Init.do" />
+            <forward name="error" path="W1001" />
+        </action>
+        <action path="/W1001Duplicate"
+            type="com.globaldenso.eca0027.core.presentation.W1001DuplicateAction"
+            name="W1001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1002Init.do" />
+            <forward name="error" path="W1001" />
+        </action>
+        <action path="/W1001MoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.W1001MoveToRegisterAction"
+            name="W1001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1006Init.do" />
+            <forward name="error" path="W1001" />
+        </action>
+        <action path="/W1001MoveToPackaging"
+            type="com.globaldenso.eca0027.core.presentation.W1001MoveToPackagingAction"
+            name="W1001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1007Init.do" />
+            <forward name="error" path="W1001" />
+        </action>
+        <!-- =============================================================== -->
+        <!-- W1002: 梱包指示Header画面                                       -->
+        <!-- =============================================================== -->
+        
+        <!-- W1002: 梱包指示Header画面 Initアクション -->
+        <action path="/W1002Init"
+            type="com.globaldenso.eca0027.core.presentation.W1002InitAction"
+            name="W1002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1002" />
+        </action>
+        <action path="/W1002Register"
+            type="com.globaldenso.eca0027.core.presentation.W1002RegisterAction"
+            name="W1002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1002" />
+            <forward name="error" path="W1002" />
+        </action>
+        <action path="/W1002Cancel"
+            type="com.globaldenso.eca0027.core.presentation.W1002CancelAction"
+            name="W1002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1001Init.do?back=true" />
+            <forward name="error" path="W1001" />
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- W1003: Export Request　［Description]                             -->
+        <!-- =============================================================== -->
+        
+        <!-- W1003: Export Request　［Description] Init -->
+        <action path="/W1003Init"
+            type="com.globaldenso.eca0027.core.presentation.W1003InitAction"
+            name="W1003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1003" />
+        </action>
+        <action path="/W1003AddNewLine"
+            type="com.globaldenso.eca0027.core.presentation.W1003AddNewLineAction"
+            name="W1003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1003" />
+            <forward name="error" path="W1003" />
+        </action>
+        <action path="/W1003SaveLine"
+            type="com.globaldenso.eca0027.core.presentation.W1003SaveAction"
+            name="W1003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1003" />
+            <forward name="error" path="W1003" />
+        </action>
+        <action path="/W1003CopyLine"
+            type="com.globaldenso.eca0027.core.presentation.W1003CopyLineAction"
+            name="W1003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1003" />
+            <forward name="error" path="W1003" />
+        </action>
+        <action path="/W1003DelLine"
+            type="com.globaldenso.eca0027.core.presentation.W1003DeleteAction"
+            name="W1003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1003" />
+            <forward name="error" path="W1003" />
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- W1004: Export Request　［Kit]                             -->
+        <!-- =============================================================== -->
+        
+        <!-- W1004: Export Request　［Kit] Init -->
+        <action path="/W1004Init"
+            type="com.globaldenso.eca0027.core.presentation.W1004InitAction"
+            name="W1004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1004" />
+            <forward name="error" path="W1004" />
+        </action>
+        
+        <!-- W1004: Export Request　［Kit] Add New Line -->
+        <action path="/W1004AddNewLine"
+            type="com.globaldenso.eca0027.core.presentation.W1004AddNewLineAction"
+            name="W1004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1004" />
+            <forward name="error" path="W1004" />
+        </action>
+        
+        <!-- W1004: Export Request　［Kit] Copy Line -->
+        <action path="/W1004CopyLine"
+            type="com.globaldenso.eca0027.core.presentation.W1004CopyLineAction"
+            name="W1004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1004" />
+            <forward name="error" path="W1004" />
+        </action>
+        
+        <!-- W1004: Export Request　［Kit] Save Line -->
+        <action path="/W1004SaveLine"
+            type="com.globaldenso.eca0027.core.presentation.W1004SaveAction"
+            name="W1004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1004" />
+            <forward name="error" path="W1004" />
+        </action>
+        
+        <!-- W1004: Export Request　［Kit] Delete Line -->
+        <action path="/W1004DelLine"
+            type="com.globaldenso.eca0027.core.presentation.W1004DeleteAction"
+            name="W1004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1004" />
+            <forward name="error" path="W1004" />
+        </action>
+        
+        <!-- W1006: 梱包指示Main画面 Searchアクション -->
+         <!-- W1006: Init action-->
+        <action path="/W1006Init"
+            type="com.globaldenso.eca0027.core.presentation.W1006InitAction"
+            name="W1006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1006Search.do" />
+            <forward name="error" path="W1006" />
+        </action>
+        <!-- W1006:  Search action-->
+        <action path="/W1006Search"
+            type="com.globaldenso.eca0027.core.presentation.W1006SearchAction"
+            name="W1006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1006" />
+            <forward name="error" path="W1006" />
+        </action>
+         <!-- W1006:  Register action-->
+        <action path="/W1006Register"
+            type="com.globaldenso.eca0027.core.presentation.W1006RegisterAction"
+            name="W1006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1006" />
+            <forward name="error" path="W1006" />
+        </action>
+        <!-- W1006:  Print Approval Sheet action-->
+        <action path="/W1006PrintAppSheet"
+            type="com.globaldenso.eca0027.core.presentation.W1006PrintApprovalSheetAction"
+            name="W1006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1006" />
+            <forward name="error" path="W1006" />
+        </action>
+        <action path="/W1006PrintInspectSlip"
+            type="com.globaldenso.eca0027.core.presentation.W1006PrintInspectSlipAction"
+            name="W1006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1006" />
+            <forward name="error" path="W1006" />
+        </action>
+        <action path="/W1006PrintIdTag"
+            type="com.globaldenso.eca0027.core.presentation.W1006PrintIdTagAction"
+            name="W1006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1006" />
+            <forward name="error" path="W1006" />
+        </action>
+         <!-- W1006:  backToMainScreen action-->
+        <action path="/W3006BackToMainScreen"
+            type="com.globaldenso.eca0027.core.presentation.W1006BackToMainScreenAction"
+            name="W1006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1001Init.do" />
+            <forward name="error" path="W1006" />
+        </action>
+        <!-- W1006:  backToMainScreen action-->
+        <action path="/W1006MoveToPackaging"
+            type="com.globaldenso.eca0027.core.presentation.W1006MoveToPackagingAction"
+            name="W1006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1007Init.do" />
+            <forward name="error" path="W1006" />
+        </action>
+        <!-- W1007: 梱包指示Main画面 Searchアクション -->
+         <action path="/W1007Init"
+            type="com.globaldenso.eca0027.core.presentation.W1007InitAction"
+            name="W1007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1007Search.do" />
+        </action>
+        <!-- W1007:  Search action-->
+        <!-- W1006:  backToRegisterScreen action-->
+        <action path="/W1007MoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.W1007MoveToRegisterAction"
+            name="W1007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1006Init.do" />
+            <forward name="error" path="W1007" />
+        </action>
+        <action path="/W1007Search"
+            type="com.globaldenso.eca0027.core.presentation.W1007SearchAction"
+            name="W1007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1007" />
+            <forward name="error" path="W1007" />
+        </action>
+        <!-- W1007:  Receive action-->
+        <action path="/W1007Receive"
+            type="com.globaldenso.eca0027.core.presentation.W1007ReceiveAction"
+            name="W1007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1007Search.do"  />
+            <forward name="error" path="W1007" />
+        </action>
+         <!-- W1007:  Cancel action-->
+        <action path="/W1007Cancel"
+            type="com.globaldenso.eca0027.core.presentation.W1007CancelAction"
+            name="W1007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1007Search.do"  />
+            <forward name="error" path="W1007" />
+        </action>
+         <!-- W1007:  Receive All action-->
+         <action path="/W1007ReceiveAll"
+            type="com.globaldenso.eca0027.core.presentation.W1007ReceiveAllAction"
+            name="W1007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1007Search.do"  />
+            <forward name="error" path="W1007" />
+        </action>
+        <!-- W1007:  Update action-->
+         <action path="/W1007Update"
+            type="com.globaldenso.eca0027.core.presentation.W1007UpdateAction"
+            name="W1007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1007"  />
+            <forward name="error" path="W1007" />
+        </action>
+         <!-- W1007:  Move to CML action-->
+         <action path="/W1007MoveToCML"
+            type="com.globaldenso.eca0027.core.presentation.W1007MoveToCMLAction"
+            name="W1007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1008Init.do" />
+            <forward name="error" path="W1007" />
+        </action>
+        <!-- W1007:  Move to CML action-->
+        <action path="/W1007PrintAllCML"
+            type="com.globaldenso.eca0027.core.presentation.W1007PrintAllCmlAction"
+            name="W1007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1007" />
+            <forward name="error" path="W1007" />
+        </action>
+        <action path="/W1007PrintIdTag"
+            type="com.globaldenso.eca0027.core.presentation.W1007PrintIdTagAction"
+            name="W1007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1007" />
+            <forward name="error" path="W1007" />
+        </action>
+        <action path="/W1007PrintInspectSlip"
+            type="com.globaldenso.eca0027.core.presentation.W1007PrintInspectSlipAction"
+            name="W1007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1007" />
+            <forward name="error" path="W1007" />
+        </action>
+         <!-- W1008: Init action -->
+         <action path="/W1008Init"
+            type="com.globaldenso.eca0027.core.presentation.W1008InitAction"
+            name="W1008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1008" />
+            <forward name="back" path="/W1007Search.do?back=true" />
+            <forward name="error" path="W1008" />
+        </action>
+        <!-- W1008: Register action -->
+         <action path="/W1008Register"
+            type="com.globaldenso.eca0027.core.presentation.W1008RegisterAction"
+            name="W1008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1008" />
+            <forward name="error" path="W1008" />
+        </action>
+        <!-- W1008: Delete action -->
+         <action path="/W1008Delete"
+            type="com.globaldenso.eca0027.core.presentation.W1008DeleteAction"
+            name="W1008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1008" />
+            <forward name="back" path="/W1008Init.do" />
+            <forward name="error" path="W1008" />
+        </action>
+        <action path="/W1008CancelCML"
+            type="com.globaldenso.eca0027.core.presentation.W1008CancelCMLAction"
+            name="W1008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1008Init.do" />
+            <forward name="error" path="W1008" />
+        </action>
+        <action path="/W1008PrintCML"
+            type="com.globaldenso.eca0027.core.presentation.W1008PrintCmlAction"
+            name="W1008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1008" />
+            <forward name="error" path="W1008" />
+        </action>
+        <action path="/W1008MoveToReturnable"
+            type="com.globaldenso.eca0027.core.presentation.W1008MoveToReturnableAction"
+            name="W1008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1009Init.do" />
+            <forward name="error" path="W1008" />
+        </action>
+       <!-- =============================================================== -->
+        <!-- W1009: Export Packaging Returnable PKG Materia                             -->
+        <!-- =============================================================== -->
+        
+        <!-- W1009: Export Packaging Returnable PKG Materia Init -->
+        <action path="/W1009Init"
+            type="com.globaldenso.eca0027.core.presentation.W1009InitAction"
+            name="W1009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1009" />
+        </action>
+        <!-- W1009: Export Packaging Returnable PKG Materia Add 10 Line -->
+        <action path="/W1009AddNewLine"
+            type="com.globaldenso.eca0027.core.presentation.W1009AddNewLineAction"
+            name="W1009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1009" />
+            <forward name="error" path="W1009" />
+        </action>
+        <!-- W1009: Export Packaging Returnable PKG Materia Save -->
+        <action path="/W1009SaveLine"
+            type="com.globaldenso.eca0027.core.presentation.W1009SaveAction"
+            name="W1009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1008Init.do?back=true" />
+            <forward name="error" path="W1009" />
+        </action>
+        <!-- W1009: Export Packaging Returnable PKG Materia Delete -->
+        <action path="/W1009DeleteLine"
+            type="com.globaldenso.eca0027.core.presentation.W1009DeleteAction"
+            name="W1009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1009" />
+            <forward name="error" path="W1009" />
+        </action>
+        <!-- =============================================================== -->
+        <!-- W1010: Export Request Upload                                    -->
+        <!-- =============================================================== -->
+        <!-- W1010: Export Request Upload Init             -->
+        <action path="/W1010Init"
+            type="com.globaldenso.eca0027.core.presentation.W1010InitAction"
+            name="W1010Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1010" />
+        </action>
+        <!-- W1010: Export Request Upload Init             -->
+        <action path="/W1010Upload"
+            type="com.globaldenso.eca0027.core.presentation.W1010UploadAction"
+            name="W1010Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1010" />
+            <forward name="error" path="W1010" />
+        </action>
+        <!-- W1010: Export Request Upload Init             -->
+        <action path="/W1010Download"
+            type="com.globaldenso.eca0027.core.presentation.W1010DownloadAction"
+            name="W1010Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W1010" />
+            <forward name="error" path="W1010" />
+        </action>
+         <!-- W1010:  MoveToPackaging action-->
+        <action path="/W1010MoveToPackaging"
+            type="com.globaldenso.eca0027.core.presentation.W1010MoveToPackagingAction"
+            name="W1010Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W1007Init.do" />
+            <forward name="error" path="W1010" />
+        </action>
+        </action-mappings>
+        
+</struts-config>

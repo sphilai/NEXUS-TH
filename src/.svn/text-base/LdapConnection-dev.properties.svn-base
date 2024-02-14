@@ -1,0 +1,49 @@
+###########################################################################
+#
+# LdapConnection.properties
+# 
+# LDAP Connect configuration(PINCODE Auth API)
+#
+###########################################################################
+
+#LDAPserver IPaddress:Port (comma separated value)
+ldap.connect.server=10.5.22.225
+
+#LDAPserver DN
+ldap.connect.principal=uid=pincode-admin,ou=Special Users,dc=globaldenso,dc=com
+
+#LDAPserver Password
+ldap.connect.credentials=PINCODEtst%PWD
+
+#LDAP Connect timeout (millisecond)
+ldap.connect.timeout=3000
+
+#LDAPserver root DN
+ldap.search.rootdn=ou=People,o=denso.co.jp,dc=globaldenso,dc=com
+
+#DSC-ID attribute name
+ldap.attribute.dscid=uid
+
+#disabledflag attribute name
+ldap.attribute.disabledflag=disabledFlag
+
+#PIN code attribute name
+ldap.attribute.bhtpin=pincode
+
+#PIN code retry number attribute name
+ldap.attribute.bhtpinretrynum=pincode-retrynum
+
+#PIN code expire date attribute name
+ldap.attribute.bhtpinexpiredate=pincode-expiredate
+
+#PIN code validation(regular expression)
+ldap.pincode.regex=^[0-9]{4,6}$
+
+#New PIN code expire date
+ldap.pincode.expiredate=90
+
+#PIN code retry count max
+ldap.pincode.retrynum=5
+
+#OK disabledflag(comma separated value)
+ldap.pincode.disabledflag=0,2,8,10

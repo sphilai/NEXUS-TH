@@ -1,0 +1,101 @@
+@CHARSET "windows-31j";
+/*
+ * W9006.css
+ *
+ * Style sheet used in  NEXUS Ship to MA Inquiry screen.
+ * NEXUS Ship to MA Inquiry画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ Search result total area------------*/ 
+/*------------ 検索結果エリア(全体) ------------*/ 
+table.gscm_resultlist {
+    width:960px;
+}
+/*------------ Search condition area ------------*/ 
+/*------------ 検索条件エリア ------------*/ 
+.gscm_search .search_ship_to_cd {
+    width: 110px;
+}
+.gscm_search .search_ship_to_nm {
+    width: 235px;
+}
+.gscm_search .search_ship_to_nm_abb {
+    width: 125px;
+}
+.gscm_search .search_nxs_ship_to_comp {
+    width: 105px;
+}
+.gscm_search .search_comp_nm {
+    width: 385px;
+}
+
+.gscm_search .ship_to_cd {
+    width: 83px;
+}
+.gscm_search .ship_to_nm {
+    width: 225px;
+}
+
+.gscm_search .ship_to_nm_abb {
+    width: 115px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .nxs_ship_to_comp {
+    width: 65px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .comp_nm {
+    width: 225px;
+}
+
+/*------------ Search result individual area ------------*/ 
+/*------------ 検索結果エリア(個別) ------------*/ 
+.gscm_resultlist .resultlist_ship_to_cd {
+    width: 75px;
+}
+.gscm_resultlist .resultlist_ship_to_nm {
+    width: 153px;
+}
+.gscm_resultlist .resultlist_ship_to_nm_abb {
+    width: 105px;
+}
+.gscm_resultlist .resultlist_ship_to_addr {
+    width: 203px;
+}
+.gscm_resultlist .resultlist_ship_to_tel {
+    width: 197px;
+}
+.gscm_resultlist .resultlist_nxs_ship_to_comp {
+    width: 68px;
+}
+.gscm_resultlist .resultlist_comp_nm {
+    width: 153px;
+}
+
+.gscm_resultlist .ship_to_nm {
+    width: 151px;
+}
+
+.gscm_resultlist .ship_to_nm_abb {
+    width: 103px;
+}
+
+.gscm_resultlist .ship_to_addr {
+    width: 201px;
+}
+
+.gscm_resultlist .ship_to_tel {
+    width: 193px;
+}
+
+.gscm_resultlist .nxs_ship_to_comp {
+    width: 198px;
+}
+
+.gscm_resultlist .comp_nm {
+    width: 151px;
+}

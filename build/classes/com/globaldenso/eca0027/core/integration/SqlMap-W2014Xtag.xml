@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-W2014Xtag.xml
+ *
+ * W2014XtagDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="W2014Xtag">
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="W2014XtagDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W2014XtagDomain" />
+    <typeAlias alias="W2014PltzDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W2014PltzDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W2014XtagCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W2014XtagCriteriaDomain" />
+    <typeAlias alias="W2014PltzCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W2014PltzCriteriaDomain" />
+        
+    <!-- Result Map -->
+    <!-- まとめパレタイズMain画面 / 検索 -->
+    <resultMap id="W2014XtagDomain_SearchForPagingTtXpltz" class="W2014XtagDomain">
+        <result property="xmainMark" column="XMAIN_MARK" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="shipToCompCd" column="SHIP_TO_COMP_CD" />
+        <result property="curWhCompCd" column="CUR_WH_COMP_CD" />
+        <result property="curWhCd" column="CUR_WH_CD" />
+        <result property="xtagPackingIssuerNm" column="XTAG_PACKING_ISSUER_NM" />
+        <result property="xtagPackingDt" column="XTAG_PACKING_DT" />
+        <result property="totalShipper" column="TOTAL_SHIPPER" />
+    </resultMap>
+
+    <!-- まとめパレタイズCreate画面 / 検索 -->
+    <resultMap id="W2014XtagDomain_SearchForPagingTtpltz" class="W2014PltzDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="disabledFlg" column="DISABLED_FLG" />
+    </resultMap>
+    
+    <!-- まとめパレタイズRegister画面 / 検索(Main画面より遷移時) -->
+    <resultMap id="W2014XtagDomain_SearchTtXpltzByMain" class="W2014XtagDomain" groupBy="xmainMark">
+        <result property="xmainMark" column="XMAIN_MARK" />
+        <result property="palletNo" column="PALLET_NO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="shipToCompCd" column="SHIP_TO_COMP_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+        <result property="volume" column="VOLUME" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="curWhCompCd" column="CUR_WH_COMP_CD" />
+        <result property="curWhCd" column="CUR_WH_CD" />
+        <result property="xtagPackingIssuerNm" column="XTAG_PACKING_ISSUER_NM" />
+        <result property="xtagPackingDt" column="XTAG_PACKING_DT" />
+        <result property="totalShipper" column="TOTAL_SHIPPER" />
+        <result property="outerPkgCd" column="OUTER_PKG_CD" />
+        <result property="pltzDomainList" resultMap="W2014Xtag.W2014XtagDomain_SearchTtPltzByMain" />
+    </resultMap>
+    
+    <resultMap id="W2014XtagDomain_SearchTtPltzByMain" class="W2014PltzDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="weightUnit" column="PLTZ_WEIGHT_UNIT" />
+        <result property="grossWeight" column="PLTZ_GROSS_WEIGHT" />
+        <result property="auth" column="AUTH" />
+    </resultMap>
+    
+    <!-- まとめパレタイズRegister画面 / 検索(Create画面より遷移時) -->
+    <resultMap id="W2014XtagDomain_SearchTwXpltzByCleate" class="W2014XtagDomain" groupBy="customTimingTyp">
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="pltzDomainList" resultMap="W2014Xtag.W2014XtagDomain_SearchTtPltzByCreate" />
+    </resultMap>
+    
+    <resultMap id="W2014XtagDomain_SearchTtPltzByCreate" class="W2014PltzDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+    </resultMap>
+    
+    <resultMap id="W2014XtagDomain_SearchTtPltzByTotalShipper" class="W2014PltzDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+    </resultMap>
+    
+    <!-- まとめパレタイズRegister画面 / Register時 パレタイズの重量単位別ネット重量を取得 -->
+    <resultMap id="W2014XtagDomain_SearchTtPltzByWeight" class="W2014PltzDomain">
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+        <result property="netWeight" column="NET_WEIGHT" />
+    </resultMap>
+
+    <!-- まとめパレタイズRegister画面 / Register時 包装組合せ原単位の重量を取得 -->
+    <resultMap id="W2014XtagDomain_SearchTmPkgSetDtl" class="W2014PltzDomain">
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+    </resultMap>
+    
+    <!-- まとめパレタイズRegister画面 / Register時 包装組合せ原単位の再利用区分を取得 -->
+    <resultMap id="W2014XtagDomain_SearchTmPkgSetDtlByRtTyp" class="W2014PltzDomain">
+        <result property="rtTyp" column="RT_TYP" />
+    </resultMap>
+
+    <!-- まとめパレタイズRegister画面 / パレタイズのロック -->
+    <resultMap id="W2014XtagDomain_LockTtPltz" class="W2014PltzDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="pltzStatus" column="PLTZ_STATUS" />
+        <result property="xmainMark" column="XMAIN_MARK" />
+        <result property="lastTrStatus" column="LAST_TR_STATUS" />
+    </resultMap>
+    <!-- =================================================================================================== -->
+    <!-- 共通                                                                                                -->
+    <!-- =================================================================================================== -->
+    <!-- Lock待ち時間 -->
+    <sql id="Lock_Wait">
+        nowait
+    </sql>
+    
+    <!-- アクセス権限 ログインサーバーに紐づくShipper -->
+    <sql id="WhereCondition_ShipperAuthByServerId">
+        and X.SHIPPER_CD in (select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+    </sql>
+    
+    <!-- アクセス権限 メインSQLのテーブルのSHIPPER_CDとパレタイズ対象品のPLNT_CD -->
+    <sql id="WhereCondition_PlantAuthByTtPltzItem">
+        <isNotEmpty prepend="and exists" property="userAuthList" open="(" close=")" >
+            select 'x'
+            from
+                TT_PLTZ_ITEM Y
+            where
+                X.MAIN_MARK = Y.MAIN_MARK
+                and Y.PLNT_CD is not null <!-- 包装材を除く -->
+                <include refid="WhereCondition_AuthCheck" />
+        </isNotEmpty>
+    </sql>
+    
+    <!-- アクセス権限 パレタイズのSHIPPER_CDとパレタイズ対象品のPLNT_CD -->
+    <sql id="WhereCondition_ShipperAuthByTtPltzAndPlantAuthByTtPltzItem">
+        <isNotEmpty prepend="and exists" property="userAuthList" open="(" close=")" >
+            select 'x'
+            from
+                TT_PLTZ X
+               ,TT_PLTZ_ITEM Y
+            where
+                    A.XMAIN_MARK = X.XMAIN_MARK
+                and X.MAIN_MARK = Y.MAIN_MARK
+                and Y.PLNT_CD is not null <!-- 包装材を除く -->
+                <isNotEmpty prepend="and" property="shipperCd" >
+                    X.SHIPPER_CD = #shipperCd#
+                </isNotEmpty>
+                <isNotEmpty prepend="and" property="mainMark" >
+                    X.MAIN_MARK LIKE CONCAT(#mainMark#,'%')
+                </isNotEmpty>
+                <include refid="WhereCondition_ShipperAuthByServerId" />
+                <include refid="WhereCondition_AuthCheck" />
+        </isNotEmpty>
+    </sql>
+    
+    <!-- アクセス権限 権限チェック部分 -->    
+    <sql id="WhereCondition_AuthCheck">
+        <isNotEmpty prepend="having" property="userAuthList" >
+            min(case
+                    <iterate property="userAuthList">
+                        when X.SHIPPER_CD = #userAuthList[].authMgtComp# and Y.PLNT_CD = #userAuthList[].procMfgDivCd# 
+                            then #userAuthList[].authority#
+                    </iterate>
+                            else '0'
+                end
+            ) >= '2'
+        </isNotEmpty>
+    </sql>
+    
+    <!-- アクセス権限 パレタイズのSHIPPER_CDとパレタイズ対象品のPLNT_CD -->
+    <sql id="WhereCondition_ShipperAuthByTtPltzAndPlantAuthByTtPltzItemForMain">
+        <isNotEmpty prepend="and exists" property="userAuthList" open="(" close=")" >
+            select 'x'
+            from
+                TT_PLTZ X
+               ,TT_PLTZ_ITEM Y
+            where
+                    A.XMAIN_MARK = X.XMAIN_MARK
+                and X.MAIN_MARK = Y.MAIN_MARK
+                and Y.PLNT_CD is not null <!-- 包装材を除く -->
+                <isNotEmpty prepend="and" property="shipperCd" >
+                    X.SHIPPER_CD = #shipperCd#
+                </isNotEmpty>
+                <isNotEmpty prepend="and" property="mainMark" >
+                    X.MAIN_MARK LIKE CONCAT(#mainMark#,'%')
+                </isNotEmpty>
+                <include refid="WhereCondition_ShipperAuthByServerId" />
+                <include refid="WhereCondition_AuthCheckForMain" />
+        </isNotEmpty>
+    </sql>
+    <!-- アクセス権限 権限チェック部分 -->    
+    <sql id="WhereCondition_AuthCheckForMain">
+        <isNotEmpty prepend="having" property="userAuthList" >
+            max(case
+                    <iterate property="userAuthList">
+                        when X.SHIPPER_CD = #userAuthList[].authMgtComp# and Y.PLNT_CD = #userAuthList[].procMfgDivCd# 
+                            then #userAuthList[].authority#
+                    </iterate>
+                            else '0'
+                end
+            ) >= '1'
+        </isNotEmpty>
+    </sql>
+    
+    <!-- アクセス権限 権限フラグ -->
+    <sql id="Col_AuthFlg">
+        <isNotEmpty prepend="," property="userAuthList" open="(" close=") AUTH" >
+            select
+                min(case
+                        <iterate property="userAuthList">
+                            when X.SHIPPER_CD = #userAuthList[].authMgtComp# and Y.PLNT_CD = #userAuthList[].procMfgDivCd# 
+                                then #userAuthList[].authority#
+                        </iterate>
+                                else 
+                                    <isNotEmpty property="registerAll" >
+                                        #registerAll#
+                                    </isNotEmpty>
+                                    <isEmpty property="registerAll" >
+                                        <isNotEmpty property="browseAll" > 
+                                            #browseAll#
+                                        </isNotEmpty>
+                                        <isEmpty property="browseAll" > 
+                                            '0'
+                                         </isEmpty>
+                                    </isEmpty>
+                    end
+                )
+            from TT_PLTZ_ITEM Y
+            where
+                X.MAIN_MARK = Y.MAIN_MARK
+                and Y.PLNT_CD is not null
+        </isNotEmpty>
+        
+        <isEmpty prepend="," property="userAuthList" close=" AUTH" >
+            <isNotEmpty property="registerAll" >
+                #registerAll#
+            </isNotEmpty>
+            <isEmpty property="registerAll" >
+                <isNotEmpty property="browseAll" > 
+                    #browseAll#
+                </isNotEmpty>
+                <isEmpty property="browseAll" > 
+                    '0'
+                </isEmpty>
+            </isEmpty>
+        </isEmpty>
+    </sql>
+    
+    <!-- =================================================================================================== -->
+    <!-- まとめパレタイズMain画面 / 件数取得 及び 検索                                                       -->
+    <!-- =================================================================================================== -->
+    <sql id="Cols_SearchForPagingTtXpltz">
+         A.XMAIN_MARK
+        ,A.TRNS_CD
+        ,A.LOADING_CD
+        ,A.CONTAINER_SORTING_KEY
+        ,A.SHIP_TO_COMP_CD
+        ,A.CUR_WH_COMP_CD
+        ,A.CUR_WH_CD
+        ,A.XTAG_PACKING_ISSUER_NM
+        ,A.XTAG_PACKING_DT
+        ,A.TOTAL_SHIPPER
+    </sql>
+    
+    <!-- Where句（検索条件） -->
+    <sql id="WhereCondition_SearchForPagingTtXpltz">
+        <dynamic prepend="where" >
+            <isNotEmpty prepend="and" property="curWhCompCd">
+                A.CUR_WH_COMP_CD = #curWhCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="curWhCd">
+                A.CUR_WH_CD = #curWhCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCd">
+                A.TRNS_CD = #trnsCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="containerSortingKey">
+                A.CONTAINER_SORTING_KEY like CONCAT(#containerSortingKey#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="loadingCd">
+                A.LOADING_CD = #loadingCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shipToCompCd">
+                A.SHIP_TO_COMP_CD = #shipToCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="xmainMark">
+                A.XMAIN_MARK like CONCAT(#xmainMark#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="issueFromDate">
+                A.XTAG_PACKING_DT <![CDATA[>=]]> #issueFromDate#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="issueToDate">
+                A.XTAG_PACKING_DT <![CDATA[<=]]> #issueToDate#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="xtagPackingIssuerId">
+                A.XTAG_PACKING_ISSUER_ID = #xtagPackingIssuerId#
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+    
+    <!-- OrderBy句 -->
+    <sql id="SortKeys_SearchForPagingTtXpltz">
+        order by 
+             A.TRNS_CD
+            ,A.CONTAINER_SORTING_KEY
+            ,A.LOADING_CD
+            ,A.SHIP_TO_COMP_CD
+            ,A.XMAIN_MARK desc
+    </sql>
+    
+    <!-- パレタイズの検索 -->
+    <sql id="WhereCondition_SearchForPagingTtXpltz_TtPltz">
+        <dynamic prepend="and exists" open="(" close=")">
+            select 1
+              from TT_PLTZ B
+             where B.XMAIN_MARK = A.XMAIN_MARK
+            <isNotEmpty property="shipperCd">
+               and B.SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty property="mainMark">
+               and B.MAIN_MARK like concat(#mainMark#, '%')
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+    
+    <!-- 検索 SQL文 (Main / 件数取得) -->
+    <select id="SearchCountTtXpltz" resultClass="java.lang.Integer" parameterClass="W2014XtagCriteriaDomain">
+        select 
+            /* SqlMap-W2014Xtag.SearchCountTtXpltz */
+            count(rownum) 
+        from
+            TT_XPLTZ A
+        <include refid="WhereCondition_SearchForPagingTtXpltz" />
+        <include refid="WhereCondition_SearchForPagingTtXpltz_TtPltz" />
+        <include refid="WhereCondition_ShipperAuthByTtPltzAndPlantAuthByTtPltzItemForMain" />
+    </select>
+    
+    <!-- 検索 SQL文 (Main / 検索) -->
+    <select id="SearchForPagingTtXpltz" resultMap="W2014XtagDomain_SearchForPagingTtXpltz" parameterClass="W2014XtagCriteriaDomain">
+        select
+            /* SqlMap-W2014Xtag.SearchForPagingTtXpltz */ 
+            * 
+        from (
+              select
+                   <include refid="Cols_SearchForPagingTtXpltz" />
+                  ,row_number() over (<include refid="SortKeys_SearchForPagingTtXpltz" />) ROW_NUM
+              from
+                  TT_XPLTZ A
+              <include refid="WhereCondition_SearchForPagingTtXpltz" />
+              <include refid="WhereCondition_SearchForPagingTtXpltz_TtPltz" />
+              <include refid="WhereCondition_ShipperAuthByTtPltzAndPlantAuthByTtPltzItemForMain" />
+             ) T
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+    
+    
+    <!-- =================================================================================================== -->
+    <!-- まとめパレタイズCreate画面 / 件数取得 及び 検索                                                     -->
+    <!-- =================================================================================================== -->
+    <!-- 項目 -->
+    <sql id="Cols_SearchForPagingTtpltz">
+         X.MAIN_MARK
+        ,X.SHIPPER_CD
+        ,X.WEIGHT_UNIT
+        ,X.GROSS_WEIGHT
+        ,X.CUSTOM_TIMING_TYP
+        ,decode(B.DSC_ID, null, 'N', 'Y') DISABLED_FLG
+    </sql>
+    
+    <!-- Where句（検索条件） -->
+    <sql id="WhereCondition_SearchForPagingTtpltz">
+        <dynamic>
+            <isNotEmpty prepend="and" property="curWhCompCd">
+                X.CUR_WH_COMP_CD = #curWhCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="curWhCd">
+                X.CUR_WH_CD = #curWhCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCd">
+                X.TRNS_CD = #trnsCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="containerSortingKey">
+                X.CONTAINER_SORTING_KEY = #containerSortingKey#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="loadingCd">
+                decode(#loadingCd#
+                     , 'B', decode(X.LOADING_CD, 'B', 1, 'F', 1)
+                     , 'D', decode(X.LOADING_CD, 'D', 1, 'F', 1)
+                     , 'F', decode(X.LOADING_CD, 'F', 1)) = 1
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shipToCompCd">
+                C.COMP_CD = #shipToCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shipperCd">
+                X.SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="mainMark">
+                X.MAIN_MARK like CONCAT(#mainMark#,'%')
+            </isNotEmpty>
+                and X.CML_TYP = '1'
+                and X.STG_INSTR_ITEM_FLG = 'N'
+                and X.XMAIN_MARK is null
+                and X.PLTZ_STATUS = '10'
+                and ( X.LAST_TR_STATUS  = '10' or X.LAST_TR_STATUS  = '40' )
+                and X.MIGRATION_FLG = 'N'
+            <isNotEmpty prepend="and" property="loginUserDscId">
+                B.DSC_ID(+) = #loginUserDscId#
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+    
+    <!-- OrderBy句 -->
+    <sql id="SortKeys_SearchForPagingTtpltz">
+        order by
+             X.SHIPPER_CD
+            ,X.MAIN_MARK
+    </sql>
+    
+    <!-- 検索 SQL文 (Create / 件数取得) -->
+    <select id="SearchCountTtpltz" resultClass="java.lang.Integer" parameterClass="W2014XtagCriteriaDomain">
+        select 
+            /* SqlMap-W2014Xtag.SearchCountTtpltz */
+            count(rownum) 
+        from
+            TT_PLTZ X
+           ,TW_XPLTZ B
+           ,TM_NXS_SHIP_TO C
+        where
+                X.MAIN_MARK = B.MAIN_MARK (+)
+            and X.SHIP_TO_CD = C.SHIP_TO_CD
+            <include refid="WhereCondition_SearchForPagingTtpltz" />
+            <include refid="WhereCondition_ShipperAuthByServerId" />
+            <include refid="WhereCondition_PlantAuthByTtPltzItem" />
+    </select>
+    
+    <!-- 検索 SQL文 (Create / 検索) -->
+    <select id="SearchForPagingTtpltz" resultMap="W2014XtagDomain_SearchForPagingTtpltz" parameterClass="W2014XtagCriteriaDomain">
+        select 
+            /* SqlMap-W2014Xtag.SearchForPagingTtpltz */
+            * 
+        from (
+              select
+                   <include refid="Cols_SearchForPagingTtpltz" />
+                  ,row_number() over (<include refid="SortKeys_SearchForPagingTtpltz" />) ROW_NUM
+              from
+                   TT_PLTZ X
+                  ,TW_XPLTZ B
+                  ,TM_NXS_SHIP_TO C
+              where
+                      X.MAIN_MARK = B.MAIN_MARK (+)
+                  and X.SHIP_TO_CD = C.SHIP_TO_CD
+                  <include refid="WhereCondition_SearchForPagingTtpltz" />
+                  <include refid="WhereCondition_ShipperAuthByServerId" />
+                  <include refid="WhereCondition_PlantAuthByTtPltzItem" />
+             ) T
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+
+    <!-- =================================================================================================== -->
+    <!-- まとめパレタイズRegister画面 / 検索(Main画面より遷移時)                                             -->
+    <!-- =================================================================================================== -->
+    <!-- 項目 -->
+    <sql id="Cols_SearchTtXpltzByMain">
+         A.XMAIN_MARK
+        ,A.PALLET_NO
+        ,A.TRNS_CD
+        ,A.LOADING_CD
+        ,A.CONTAINER_SORTING_KEY
+        ,A.SHIP_TO_COMP_CD
+        ,A.WEIGHT_UNIT
+        ,A.GROSS_WEIGHT
+        ,A.VOLUME
+        ,A.VOLUME_UNIT
+        ,A.CUR_WH_COMP_CD
+        ,A.CUR_WH_CD
+        ,A.XTAG_PACKING_ISSUER_NM
+        ,A.XTAG_PACKING_DT
+        ,A.TOTAL_SHIPPER
+        ,A.OUTER_PKG_CD
+        ,X.MAIN_MARK
+        ,X.SHIPPER_CD
+        ,X.WEIGHT_UNIT PLTZ_WEIGHT_UNIT
+        ,X.GROSS_WEIGHT PLTZ_GROSS_WEIGHT
+    </sql>
+    
+    <!-- Where句（検索条件） -->
+    <sql id="WhereCondition_SearchTtXpltzByMain">
+        <dynamic>
+            <isNotEmpty prepend="and" property="xmainMark">
+                A.XMAIN_MARK = #xmainMark#
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+    
+    <!-- OrderBy句 -->
+    <sql id="SortKeys_SearchTtXpltzByMain">
+        order by
+             X.SHIPPER_CD
+            ,X.MAIN_MARK
+    </sql>
+    
+    <!-- 検索 SQL文 (Register / 検索) -->
+    <select id="SearchTtXpltzByMain" resultMap="W2014XtagDomain_SearchTtXpltzByMain" parameterClass="W2014XtagCriteriaDomain">
+        select 
+            /* SqlMap-W2014Xtag.SearchTtXpltzByMain */
+            <include refid="Cols_SearchTtXpltzByMain" />
+            <include refid="Col_AuthFlg" />
+        from
+            TT_XPLTZ A
+           ,TT_PLTZ X
+        where
+            A.XMAIN_MARK = X.XMAIN_MARK
+            <include refid="WhereCondition_SearchTtXpltzByMain" />
+            <include refid="WhereCondition_ShipperAuthByServerId" />
+        <include refid="SortKeys_SearchTtXpltzByMain" />
+    </select>
+
+    <!-- =================================================================================================== -->
+    <!-- まとめパレタイズRegister画面 / 検索(Create画面より遷移時)                                           -->
+    <!-- =================================================================================================== -->
+    <!-- 項目 -->
+    <sql id="Cols_SearchTwXpltzByCleate">
+         A.CUSTOM_TIMING_TYP
+        ,B.MAIN_MARK
+        ,B.SHIPPER_CD
+        ,B.WEIGHT_UNIT
+        ,B.GROSS_WEIGHT
+        ,B.DNGR_ITEM_FLG
+        ,B.CUSTOM_TIMING_TYP
+    </sql>
+    
+    <!-- Where句（検索条件） -->
+    <sql id="WhereCondition_SearchTwXpltzByCleate">
+        <dynamic>
+            <isNotEmpty prepend="and" property="loginUserDscId">
+                A.DSC_ID = #loginUserDscId#
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+    
+    <!-- OrderBy句 -->
+    <sql id="SortKeys_SearchTwXpltzByCleate">
+         B.SHIPPER_CD
+        ,B.MAIN_MARK
+    </sql>
+    
+    <!-- 検索 SQL文 (Register / 検索) -->
+    <select id="SearchTwXpltzByCleate" resultMap="W2014XtagDomain_SearchTwXpltzByCleate" parameterClass="W2014XtagCriteriaDomain">
+        select 
+            /* SqlMap-W2014Xtag.SearchTwXpltzByCleate */
+            <include refid="Cols_SearchTwXpltzByCleate" />
+        from
+            TW_XPLTZ A
+           ,TT_PLTZ B
+        where
+                A.MAIN_MARK = B.MAIN_MARK
+            <include refid="WhereCondition_SearchTwXpltzByCleate" />
+        order by
+            <include refid="SortKeys_SearchTwXpltzByCleate" />
+    </select>
+    
+    <!-- 検索 SQL文 (Register / Total Shipper取得) -->
+    <select id="SearchTtPltzByTotalShipper" resultMap="W2014XtagDomain_SearchTtPltzByTotalShipper" parameterClass="W2014XtagCriteriaDomain">
+        select 
+            /* SqlMap-W2014Xtag.SearchTtPltzByTotalShipper */
+            SHIPPER_CD
+        from (select
+                   B.SHIPPER_CD
+              from
+                   TW_XPLTZ A
+                  ,TT_PLTZ B
+              where
+                  A.MAIN_MARK = B.MAIN_MARK
+                  <include refid="WhereCondition_SearchTwXpltzByCleate" />
+             ) X
+        group by SHIPPER_CD
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- まとめパレタイズRegister画面 / Register時 パレタイズの重量単位別ネット重量を取得                    -->
+    <!-- =================================================================================================== -->
+    <select id="SearchTtPltzByWeight" resultMap="W2014XtagDomain_SearchTtPltzByWeight" parameterClass="W2014PltzCriteriaDomain">
+        select 
+             /* SqlMap-W2014Xtag.SearchTtPltzByWeight */
+             B.WEIGHT_UNIT
+            ,sum(B.GROSS_WEIGHT) GROSS_WEIGHT
+            ,sum(B.NET_WEIGHT) NET_WEIGHT
+        from 
+             TW_XPLTZ A
+            ,TT_PLTZ B
+        where
+                A.MAIN_MARK = B.MAIN_MARK
+            and A.DSC_ID = #loginUserDscId#
+        group by
+            B.WEIGHT_UNIT
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- まとめパレタイズRegister画面 / Register時 包装組合せ原単位の再利用区分を取得                              -->
+    <!-- =================================================================================================== -->
+    <select id="SearchTmPkgSetDtlByRtTyp" resultMap="W2014XtagDomain_SearchTmPkgSetDtlByRtTyp" parameterClass="W2014PltzCriteriaDomain">
+        select 
+             /* SqlMap-W2014Xtag.SearchTmPkgSetDtlByRtTyp */
+             RT_TYP
+        from TM_PKG_SET_DTL A
+            ,TM_PKG_MTRL B
+        where
+                A.OWNER_COMP = B.OWNER_COMP
+            and A.PKG_ITEM_NO = B.PKG_ITEM_NO
+            and A.OWNER_COMP = #outerPkgComCd#
+            and A.OUTER_PKG_CD = #outerPkgCd#
+    </select>
+        
+    <!-- =================================================================================================== -->
+    <!-- まとめパレタイズRegister画面 / Register時 包装組合せ原単位の重量を取得                              -->
+    <!-- =================================================================================================== -->
+        <select id="SearchTmPkgSetDtl" resultMap="W2014XtagDomain_SearchTmPkgSetDtl" parameterClass="W2014PltzCriteriaDomain">
+        select 
+             /* SqlMap-W2014Xtag.SearchTmPkgSetDtl */
+             WEIGHT_UNIT
+            ,sum(A.USE_QTY * B.PKG_WEIGHT) GROSS_WEIGHT
+        from TM_PKG_SET_DTL A
+            ,TM_PKG_MTRL B
+        where
+                A.OWNER_COMP = B.OWNER_COMP
+            and A.PKG_ITEM_NO = B.PKG_ITEM_NO
+            and A.OWNER_COMP = #outerPkgComCd#
+            and A.OUTER_PKG_CD = #outerPkgCd#
+        group by
+            B.WEIGHT_UNIT
+    </select>
+    <!-- =================================================================================================== -->
+    <!-- まとめパレタイズRegister画面 / パレタイズのロック                                                   -->
+    <!-- =================================================================================================== -->
+    <!-- 項目 -->
+    <sql id="Cols_LockTtPltz">
+         MAIN_MARK
+        ,TRNS_CD
+        ,PLTZ_STATUS
+        ,XMAIN_MARK
+        ,LAST_TR_STATUS
+    </sql>
+    
+    <!-- Where句（検索条件） -->
+    <sql id="WhereCondition_LockTtPltz">
+        <!-- Register画面でmainMarkが空はありえない -->
+        <iterate prepend="MAIN_MARK in " open="(" close=")" conjunction=",">
+             #[].mainMark#
+        </iterate>
+    </sql>
+    
+    <!-- 検索 SQL文 (Register画面 / パレタイズのロック) -->
+    <select id="LockTtPltz" resultMap="W2014XtagDomain_LockTtPltz" parameterClass="java.util.ArrayList">
+        select 
+            /* SqlMap-W2014Xtag.LockTtPltz */
+            <include refid="Cols_LockTtPltz" />
+        from TT_PLTZ
+        where
+            <include refid="WhereCondition_LockTtPltz" />
+        for update <include refid="Lock_Wait" />
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- まとめパレタイズRegister画面 / パレタイズのまとめメインマークを更新                                 -->
+    <!-- =================================================================================================== -->
+    <update id="UpdateTtPltzByXmainMark" parameterClass="java.util.Map">
+        update 
+            TT_PLTZ
+        set /* SqlMap-W2014Xtag.UpdateTtPltzByXmainMark */
+            XMAiN_MARK = #domain.xmainMark#
+        where
+            <iterate property="condition" prepend="MAIN_MARK in " open="(" close=")" conjunction=",">
+                #condition[].mainMark#
+            </iterate>
+    </update>
+    
+    <!-- =================================================================================================== -->
+    <!-- まとめパレタイズRegister画面 / 削除                                                                 -->
+    <!-- =================================================================================================== -->
+    <delete id="DeleteTwXpltz" parameterClass="java.util.List">
+        delete 
+        from TW_XPLTZ
+        /* SqlMap-W2014Xtag.DeleteTwXpltz */
+        where
+            <isParameterPresent>
+                DSC_ID = #[0].loginUserDscId#
+            </isParameterPresent>
+            <isParameterPresent prepend="and">
+                <iterate prepend="MAIN_MARK in " open="(" close=")" conjunction=",">
+                    #[].mainMark#
+                </iterate>
+            </isParameterPresent>
+    </delete>
+</sqlMap>

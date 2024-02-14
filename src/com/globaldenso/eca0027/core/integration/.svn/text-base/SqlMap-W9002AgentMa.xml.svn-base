@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * SqlMap-W9002AgentMa.xml
+ *
+ * W9002AgentMaDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ 
+<sqlMap namespace="W9002AgentMa">
+    <!-- ================================================== -->
+    <!-- Domainの別名定義 -->
+    <!-- ================================================== -->
+    
+    <!-- Domain -->
+    <typeAlias alias="W9002AgentMaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W9002AgentMaDomain" />
+    
+    <!-- Domain -->
+    <typeAlias alias="W9002AgentMaItemDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W9002AgentMaItemDomain" />
+    
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W9002AgentMaCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W9002AgentMaCriteriaDomain" />
+     
+    <!-- ================================================== -->
+    <!-- 検索結果をMapで受け取る                            -->
+    <!-- ================================================== -->
+    
+    <resultMap id="W9002AgentMaDomain_SearchTmAgent" class="W9002AgentMaItemDomain">
+        <result property="orgCompCd" column="ORG_COMP_CD" />
+        <result property="agentCompCd" column="AGENT_COMP_CD" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+    </resultMap>
+    
+    <resultMap id="W9002AgentMaDomain_LockByNoWaitTtUserAuthMgt" class="W9002AgentMaDomain">
+        <result property="dscId" column="DSC_ID" />
+    </resultMap>
+    
+    <!-- ================================================== -->
+    <!-- W9002 検索結果取得SQL                              -->
+    <!-- ================================================== -->
+    <select id="SearchCountTmAgent"
+        resultClass="java.lang.Integer" parameterClass="W9002AgentMaCriteriaDomain">
+        select
+            /* SqlMap-W9002AgentMa.SearchCountTmAgent */
+            count(ORG_COMP_CD) COUNT_ORG_COMP_CD
+        from
+            TM_AGENT 
+        where
+            ORG_COMP_CD in (select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+        <isNotEmpty prepend="and" property="orgCompCd">
+            ORG_COMP_CD   = #orgCompCd# 
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="agentCompCd">
+            AGENT_COMP_CD = #agentCompCd# 
+        </isNotEmpty>
+        and (
+            ORG_COMP_CD = #loginCompCd#
+            or AGENT_COMP_CD = #loginCompCd# 
+            <isNotEmpty property="userAuthList">
+                <iterate prepend="or" property="userAuthList" conjunction="," open=" ORG_COMP_CD in(" close=")">
+                    #userAuthList[].authMgtComp#
+                </iterate>
+            </isNotEmpty>
+            <isEmpty prepend="or" property="userAuthList">
+                ORG_COMP_CD in (select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+            </isEmpty>
+            )
+        <isEqual property="function" compareValue="01">
+            and BHT_UNLOCK_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="02">
+            and MA_OTHER_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="03">
+            and DOC_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="04">
+            and SHIPPING_ACT_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="05">
+            and EXP_REQUEST_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="06">
+            and EXP_REQUEST_PKG_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="07">
+            and ERT_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="08">
+            and RCV_ODR_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="09">
+            and PLTZ_INSTR_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="10">
+            and MIX_TAG_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="11">
+            and CML_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="12">
+            and XTAG_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="13">
+            and TR_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="14">
+            and STG_INSTR_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="15">
+            and STG_ACT_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="16">
+            and SHIPPING_FIRM_AUTH_FLG = 'Y'
+        </isEqual>
+        <isEqual property="function" compareValue="17">
+            and PROG_CONTROL_AUTH_FLG = 'Y'
+        </isEqual>
+
+        order by
+            ORG_COMP_CD
+            , AGENT_COMP_CD
+    </select>
+    
+    <select id="SearchTmAgent"
+        resultMap="W9002AgentMaDomain_SearchTmAgent" parameterClass="W9002AgentMaCriteriaDomain">
+        select
+            /* SqlMap-W9002AgentMa.SearchTmAgent */
+            ORG_COMP_CD
+            , AGENT_COMP_CD
+            , COM_UPDATE_TIMESTAMP
+        from
+            ( 
+            select
+                ORG_COMP_CD
+                , AGENT_COMP_CD
+                , COM_UPDATE_TIMESTAMP
+                , row_number() over (order by ORG_COMP_CD, AGENT_COMP_CD) ROW_NUM 
+            from
+                TM_AGENT 
+            where
+                ORG_COMP_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId# )
+            <isNotEmpty prepend="and" property="orgCompCd">
+                ORG_COMP_CD = #orgCompCd# 
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="agentCompCd">
+                AGENT_COMP_CD = #agentCompCd# 
+            </isNotEmpty>
+            and (ORG_COMP_CD = #loginCompCd#
+                or AGENT_COMP_CD = #loginCompCd#
+                <isNotEmpty property="userAuthList">
+                    <iterate prepend="or" property="userAuthList" conjunction="," open=" ORG_COMP_CD in (" close=")">
+                        #userAuthList[].authMgtComp#
+                    </iterate>
+                </isNotEmpty>
+                <isEmpty prepend="or" property="userAuthList">
+                    ORG_COMP_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId# )
+                </isEmpty>
+                )
+            <isEqual property="function" compareValue="01">
+                and BHT_UNLOCK_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="02">
+                and MA_OTHER_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="03">
+                and DOC_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="04">
+                and SHIPPING_ACT_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="05">
+                and EXP_REQUEST_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="06">
+                and EXP_REQUEST_PKG_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="07">
+                and ERT_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="08">
+                and RCV_ODR_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="09">
+                and PLTZ_INSTR_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="10">
+                and MIX_TAG_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="11">
+                and CML_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="12">
+                and XTAG_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="13">
+                and TR_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="14">
+                and STG_INSTR_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="15">
+                and STG_ACT_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="16">
+                and SHIPPING_FIRM_AUTH_FLG = 'Y'
+            </isEqual>
+            <isEqual property="function" compareValue="17">
+                and PROG_CONTROL_AUTH_FLG = 'Y'
+            </isEqual>
+
+            order by
+                ORG_COMP_CD
+                , AGENT_COMP_CD
+            )
+        where
+            ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+    
+    <!-- ================================================== -->
+    <!-- W9002 Lock the User Config Master                  -->
+    <!-- ================================================== -->
+    <select id="LockByNoWaitTtUserAuthMgt"
+        resultMap="W9002AgentMaDomain_LockByNoWaitTtUserAuthMgt" parameterClass="W9002AgentMaCriteriaDomain">
+        select
+            /* SqlMap-W9002AgentMa.LockByNoWaitTtUserAuthMgt */
+            DSC_ID
+        from
+            TT_USER_AUTH_MGT
+        where 
+            AUTH_MGT_COMP = #orgCompCd#
+        <isNotEmpty property="dscId" prepend="and">
+            DSC_ID = #dscId#
+        </isNotEmpty>
+        for update nowait
+    </select>
+    
+    <!-- ================================================== -->
+    <!-- W9003 Delete the User Auth Manage                  -->
+    <!-- ================================================== -->
+    <sql id="WhereCondition_DeleteTtUserAuthMgt_Role">
+        <dynamic prepend="and" open="(" close=")">
+            <isEqual prepend="or" property="bhtUnlockAuthFlg" compareValue="N">
+                ROLE = '10'
+            </isEqual>
+            <isEqual prepend="or" property="maOtherAuthFlg" compareValue="N">
+                ROLE = '3B'
+                or ROLE = '3R'
+            </isEqual>
+            <isEqual prepend="or" property="docAuthFlg" compareValue="N">
+                ROLE = '4R'
+            </isEqual>
+            <isEqual prepend="or" property="shippingActAuthFlg" compareValue="N">
+                ROLE = '5R'
+            </isEqual>
+            <isEqual prepend="or" property="expRequestAuthFlg" compareValue="N">
+                ROLE = '6B'
+                or ROLE = '6R'
+            </isEqual>
+            <isEqual prepend="or" property="expRequestPkgAuthFlg" compareValue="N">
+                ROLE = '7B'
+                or ROLE = '7R'
+            </isEqual>
+            <isEqual prepend="or" property="ertAuthFlg" compareValue="N">
+                ROLE = '8B'
+                or ROLE = '8R'
+            </isEqual>
+            <isEqual prepend="or" property="rcvOdrAuthFlg" compareValue="N">
+                ROLE = '9B'
+                or ROLE = '9R'
+            </isEqual>
+            <isEqual prepend="or" property="pltzInstrAuthFlg" compareValue="N">
+                ROLE = 'AB'
+                or ROLE = 'AR'
+            </isEqual>
+            <isEqual prepend="or" property="mixTagAuthFlg" compareValue="N">
+                ROLE = 'BB'
+                or ROLE = 'BR'
+            </isEqual>
+            <isEqual prepend="or" property="cmlAuthFlg" compareValue="N">
+                ROLE = 'CB'
+                or ROLE = 'CR'
+            </isEqual>
+            <isEqual prepend="or" property="xTagAuthFlg" compareValue="N">
+                ROLE = 'DB'
+                or ROLE = 'DR'
+            </isEqual>
+            <isEqual prepend="or" property="trAuthFlg" compareValue="N">
+                ROLE = 'EB'
+                or ROLE = 'ER'
+            </isEqual>
+            <isEqual prepend="or" property="stgInstrAuthFlg" compareValue="N">
+                ROLE = 'FB'
+                or ROLE = 'FR'
+            </isEqual>
+            <isEqual prepend="or" property="stgActAuthFlg" compareValue="N">
+                ROLE = 'GB'
+                or ROLE = 'GR'
+            </isEqual>
+            <isEqual prepend="or" property="shippingFirmAuthFlg" compareValue="N">
+                ROLE = 'HB'
+                or ROLE = 'HR'
+            </isEqual>
+            <isEqual prepend="or" property="progControlAuthFlg" compareValue="N">
+                ROLE = 'IB'
+            </isEqual>
+        </dynamic>
+    </sql>
+    
+    <delete id="DeleteTtUserAuthMgt" parameterClass="W9002AgentMaCriteriaDomain">
+        delete /* SqlMap-W9002AgentMa.DeleteTtUserAuthMgt */
+        from TT_USER_AUTH_MGT
+        where 
+            DSC_ID = #dscId#
+        and AUTH_MGT_COMP = #orgCompCd#
+        <include refid="WhereCondition_DeleteTtUserAuthMgt_Role"/>
+    </delete>
+
+    <select id="SearchCountTtUserAuthMgt"
+        resultClass="java.lang.Integer" parameterClass="W9002AgentMaCriteriaDomain">
+        select
+            /* SqlMap-W9002AgentMa.SearchCountTtUserAuthMgt */
+            count(rownum)
+        from TT_USER_AUTH_MGT
+        where 
+            DSC_ID = #dscId#
+        and AUTH_MGT_COMP = #orgCompCd#
+        <include refid="WhereCondition_DeleteTtUserAuthMgt_Role"/>
+    </select>
+</sqlMap>

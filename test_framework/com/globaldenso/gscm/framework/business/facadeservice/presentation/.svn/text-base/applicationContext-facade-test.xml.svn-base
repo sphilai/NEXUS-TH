@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * applicationContext-aij2.xml
+ * 
+ * 各システム用の Spring 設定ファイルです。
+ * 
+ * $ applicationContext-aij2.xml 2835 2012-08-29 11:26:40Z shinji_b_sugiura@dnitsol.com $
+ *
+ * Copyright (c) 2011 DENSO IT SOLUTIONS. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+
+    <!-- Service実装 ======================================================= -->
+    <!--   利用する Service はここに定義してください。                       -->
+    <!--   外部ファイルに外出しすることも可能です。                          -->
+    <!-- =================================================================== -->
+    
+    <!-- Service -->
+    <bean id="searchFacadeService" class="com.globaldenso.gscm.framework.business.facadeservice.presentation.SearchFacadeServiceImpl">
+    </bean>
+    <bean id="createFacadeServiceTest" class="com.globaldenso.gscm.framework.business.facadeservice.presentation.CreateFacadeServiceImpl">
+        <property name="testFacadeTableDao" ref="testFacadeTableDao"></property>
+    </bean>
+    <bean id="updateFacadeServiceTest" class="com.globaldenso.gscm.framework.business.facadeservice.presentation.UpdateFacadeServiceImpl">
+        <property name="testFacadeTableDao" ref="testFacadeTableDao"></property>
+    </bean>
+    <bean id="deleteFacadeServiceTest" class="com.globaldenso.gscm.framework.business.facadeservice.presentation.DeleteFacadeServiceImpl">
+        <property name="testFacadeTableDao" ref="testFacadeTableDao"></property>
+    </bean>
+    <bean id="transactFacadeServiceTest" class="com.globaldenso.gscm.framework.business.facadeservice.presentation.TransactFacadeServiceImpl">
+        <property name="testFacadeTableDao" ref="testFacadeTableDao"></property>
+    </bean>
+    <bean id="processFacadeServiceTest" class="com.globaldenso.gscm.framework.business.facadeservice.presentation.ProcessFacadeServiceImpl">
+        <property name="testFacadeTableDao" ref="testFacadeTableDao"></property>
+    </bean>
+    
+    <!-- Dao -->
+    <bean id="testFacadeTableDao" class="com.globaldenso.gscm.framework.business.facadeservice.presentation.TestFacadeTableDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+</beans>

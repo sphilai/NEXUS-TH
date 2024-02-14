@@ -1,0 +1,137 @@
+@charset "utf-8";
+/*
+ * W1009.css
+ * 
+ * 梱包指示Main画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ Search condition area 1 ------------*/ 
+table.gscm_exppackaging {
+    width: 980px;
+}
+.gscm_exppackaging .exppackaging_request_no {
+    width: 100px;
+}
+.gscm_exppackaging .exppackaging_plt_no {
+    width: 60px;
+}
+.gscm_exppackaging .exppackaging_shipper {
+    width: 60px;
+}
+.gscm_exppackaging .exppackaging_consignee {
+    width: 80px;
+}
+.gscm_exppackaging .exppackaging_ship_to {
+    width: 110px;
+}
+.gscm_exppackaging .exppackaging_nexux_wh_cocd {
+    width: 140px;
+}
+.gscm_exppackaging .exppackaging_nexus_wh_cd {
+    width: 120px;
+}
+.gscm_exppackaging .exppackaging_trans {
+    width: 60px;
+}
+.gscm_exppackaging .exppackaging_weight_unit {
+    width: 90px;
+}
+.gscm_exppackaging .exppackaging_request_no_status {
+    width: 160px;
+}
+
+/*------------ Result search ------------*/ 
+.activate {
+    width: 75px;
+}
+.cancel_activate {
+    width: 120px;
+    background: #FF6666
+}
+table.gscm_resultlist {
+    width: 980px;
+}
+.gscm_resultlist .resultlist_del {
+    width: 28px;
+}
+.gscm_resultlist .resultlist_no {
+    width: 28px;
+}
+.gscm_resultlist .resultlist_select_pkg {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_desc_country {
+    width: 70px;
+}
+.gscm_resultlist .resultlist_desc_currency {
+    width: 60px;
+}
+.gscm_resultlist .resultlist_desc_unit_price {
+    width: 90px;
+}
+.gscm_resultlist .resultlist_desc_unit_lwh {
+    width: 60px;
+}
+.gscm_resultlist .resultlist_pkg_part_no_length {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_pkg_part_no_width {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_pkg_part_no_height {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_type_nw_per_material {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_type_unit_qty {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_type_quantity {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_type_nw_per_material_unti {
+    width: 80px;
+}
+.gscm_resultlist td select {
+	width: 100%;
+}
+.description {
+	width: 98.5%;
+}
+.pkg_item_no {
+	width: 97%;
+}
+.model_cd {
+	width: 99%;
+}
+.unit_price {
+	width: 95%;
+}
+.length {
+	width: 92%;
+}
+.width {
+	width: 92%;
+}
+.height {
+	width: 92%;
+}
+.net_weight {
+	width: 95%;
+}
+.qty_unit {
+	width: 96%;
+}
+.qty {
+	width: 95%;
+}
+.right {
+    text-align: right !important;
+}
+
+#gscm_wrapper {
+    overflow-y: auto;
+}

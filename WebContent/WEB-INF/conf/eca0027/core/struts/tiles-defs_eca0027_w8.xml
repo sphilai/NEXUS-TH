@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * tiles-defs_eca0027_w8.xml
+ *
+ * AI-J2(Struts) の Tiles 設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE tiles-definitions PUBLIC
+            "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+            
+<tiles-definitions>
+
+    <!-- 個別画面 -->
+    <!-- ====================================================================-->
+
+    <!--
+        この個別画面の定義名はaction-mappingsのforwardタグと紐付き、
+        header.jspにて画面IDとして共通的に埋め込まれます。
+        このため、この個別画面の定義名には、画面IDそのものを使用してください。
+    -->
+    
+    <!-- 進度管理Main画面 -->
+    <definition name="W8001" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W8001"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W8001.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W8001"/>
+        <put name="js_filepath" value="js/eca0027/core/W8001.js"/>
+    </definition>
+
+    <!-- 進度管理Detail画面 -->
+    <definition name="W8002" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W8002"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W8002.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W8002"/>
+        <put name="js_filepath" value="js/eca0027/core/W8002.js"/>
+    </definition>
+    
+    <!-- 進度管理 ケースマーク一覧画面 -->
+    <definition name="W8003" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W8003"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W8003.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W8003"/>
+        <put name="js_filepath" value="js/eca0027/core/W8003.js"/>
+    </definition>
+    
+    <!-- 進度管理 RT材情報画面 -->
+    <definition name="W8004" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W8004"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W8004.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W8004"/>
+        <put name="js_filepath" value="js/eca0027/core/W8004.js"/>
+    </definition>
+
+</tiles-definitions>

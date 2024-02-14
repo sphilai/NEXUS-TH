@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * SqlMap-RpShippingAct.xml
+ * 
+ * RpShippingActuality機能用の SQL 設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="RpShippingAct">
+    <!-- Domainの別名定義 -->
+    
+    <!-- Domain -->
+    <typeAlias alias="L7001TtShippingActByHeaderDomain"
+        type="com.globaldenso.eca0027.core.business.domain.L7001TtShippingActByHeaderDomain" />
+    <typeAlias alias="L7001TtPltzByHeaderDomain"
+        type="com.globaldenso.eca0027.core.business.domain.L7001TtPltzByHeaderDomain" />
+    <typeAlias alias="L7001TtPltzByImporterDomain"
+        type="com.globaldenso.eca0027.core.business.domain.L7001TtPltzByImporterDomain" />
+    <typeAlias alias="L7001TtShippingFirmByHeaderDomain"
+        type="com.globaldenso.eca0027.core.business.domain.L7001TtShippingFirmByHeaderDomain" />
+    <typeAlias alias="L7002TtShippingFirmByDetailDomain"
+        type="com.globaldenso.eca0027.core.business.domain.L7002TtShippingFirmByDetailDomain" />
+    
+    <!-- CriteriaDomain -->
+    <typeAlias alias="L7001TtShippingActByHeaderCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.L7001TtShippingActByHeaderCriteriaDomain" />
+    <typeAlias alias="L7001TtPltzByHeaderCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.L7001TtPltzByHeaderCriteriaDomain" />
+    <typeAlias alias="L7001TtPltzByImporterCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.L7001TtPltzByImporterCriteriaDomain" />
+    <typeAlias alias="L7001TtPltzByNoOfInvoiceCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.L7001TtPltzByNoOfInvoiceCriteriaDomain" />
+    <typeAlias alias="L7001TtShippingFirmByHeaderCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.L7001TtShippingFirmByHeaderCriteriaDomain" />
+    <typeAlias alias="L7002TtShippingFirmByDetailCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.L7002TtShippingFirmByDetailCriteriaDomain" />
+
+    <!-- 検索結果をMapで受け取る -->
+    <resultMap id="L7001Domain_SearchTtShippingActByHeader" class="L7001TtShippingActByHeaderDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="vessel" column="VESSEL" />
+        <result property="atd" column="ATD" />
+        <result property="eta" column="ETA" />
+        <result property="noOfContainer" column="NO_OF_CONTAINER" />
+        <result property="lPortCntryCd" column="L_PORT_CNTRY_CD" />
+        <result property="loadingPortCd" column="LOADING_PORT_CD" />
+        <result property="dPortCntryCd" column="D_PORT_CNTRY_CD" />
+        <result property="dischargePortCd" column="DISCHARGE_PORT_CD" />
+        <result property="shippingFirmNo" column="SHIPPING_FIRM_NO" />
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+        <result property="shipperNmAbb" column="COMP_NM_ABB" />
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+    </resultMap>
+
+    <resultMap id="L7001Domain_SearchTtPltzByHeader" class="L7001TtPltzByHeaderDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="countShipperCd" column="COUNT_SHIPPER_CD" />
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+        <result property="shipperNmAbb" column="COMP_NM_ABB" />
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+    </resultMap>
+
+    <resultMap id="L7001Domain_SearchTtPltzByImporter" class="L7001TtPltzByImporterDomain">
+        <result property="compCd" column="COMP_CD" />
+        <result property="countCompCd" column="COUNT_COMP_CD" />
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+        <result property="shipToCompNmAbb" column="COMP_NM_ABB" />
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+    </resultMap>
+
+    <resultMap id="L7001Domain_SearchTtShippingFirmByHeader" class="L7001TtShippingFirmByHeaderDomain">
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+        <!-- 
+        <result property="shippingFirmNo" column="SHIPPING_FIRM_NO" />
+        -->
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+        <result property="containerNo" column="CONTAINER_NO" />
+        <result property="trnsTypNm" column="TRNS_TYP_NM" />
+        <result property="countMainMark" column="COUNT_MAIN_MARK" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" />
+        <result property="shipToCompCd" column="SHIP_TO_COMP_CD" />
+        <result property="invoiceClass" column="INVOICE_CLASS" />
+        <result property="countInvoiceNo" column="COUNT_INVOICE_NO" />
+        <result property="billdNo" column="BILLD_NO" />
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+        <result property="shipperNmAbb" column="SHIPPER_COMP_NM_ABB" />
+        <result property="shipToCompNmAbb" column="SHIP_TO_COMP_NM_ABB" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="volume" column="SUM_VOLUME" />
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+    </resultMap>
+
+    <resultMap id="L7002Domain_SearchTtShippingFirmByDetail" class="L7002TtShippingFirmByDetailDomain">
+        <result property="containerNo" column="CONTAINER_NO" />
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="siteTyp" column="SITE_TYP" />
+        <result property="volume" column="VOLUME" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="billdNo" column="BILLD_NO" />
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+        <!--
+        <result property="compCd" column="COMP_CD" />
+        -->
+        <result property="shipToCompCd" column="SHIP_TO_COMP_CD" />
+        <result property="shipperNmAbb" column="SHIPPER_COMP_NM_ABB" />
+        <result property="shipToCompNmAbb" column="SHIP_TO_COMP_NM_ABB" />
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+    </resultMap>
+
+    <!-- =================================================================================================== -->
+    <!-- 船積実績 / 検索                                                                                 -->
+    <!-- =================================================================================================== -->
+    
+    <!-- 検索 SQL文 (HEADER：ヘッダ情報取得) -->
+    <!-- NL010 - Add table join O, P, Q, R. -->
+    <select id="SearchTtShippingActByHeader" resultMap="L7001Domain_SearchTtShippingActByHeader"
+        parameterClass="L7001TtShippingActByHeaderCriteriaDomain">
+        select  /* SqlMap-RpShippingAct.SearchTtShippingActByHeader */
+            distinct
+            A.SHIPPER_CD
+          , A.VESSEL
+          , A.ATD
+          , A.ETA
+          , A.NO_OF_CONTAINER
+          , B.L_PORT_CNTRY_CD
+          , B.LOADING_PORT_CD
+          , B.D_PORT_CNTRY_CD
+          , B.DISCHARGE_PORT_CD
+          , R.SHIPPING_FIRM_NO
+          , R.CONTAINER_NO
+          , M.COMP_NM_ABB
+        from
+            TT_SHIPPING_ACT A
+          , TT_INVOICE B
+          , TT_PLTZ C
+          , TT_SHIPPING_FIRM D
+          , TM_NXS_COMP M
+          , TT_SHIPPING_ACT O
+          , TT_INVOICE P
+          , TT_PLTZ Q
+          , TT_SHIPPING_FIRM R
+        where
+              A.SHIPPING_ACT_NO   = B.SHIPPING_ACT_NO 
+          and B.SHIPPER_CD        = C.SHIPPER_CD 
+          and B.INVOICE_NO        = C.INVOICE_NO 
+          and B.INVOICE_ISSUE_DT  = C.INVOICE_ISSUE_DT 
+          and C.SHIPPING_FIRM_NO  = D.SHIPPING_FIRM_NO 
+          and O.SHIPPING_ACT_NO   = P.SHIPPING_ACT_NO 
+          and P.SHIPPER_CD        = Q.SHIPPER_CD 
+          and P.INVOICE_NO        = Q.INVOICE_NO 
+          and P.INVOICE_ISSUE_DT  = Q.INVOICE_ISSUE_DT 
+          and Q.SHIPPING_FIRM_NO  = R.SHIPPING_FIRM_NO 
+          and D.CONTAINER_NO      = R.CONTAINER_NO
+          and A.VESSEL            = O.VESSEL
+          and A.ATD               = O.ATD
+          and A.SHIPPING_ACT_NO   = #shippingActNo#
+          and A.SHIPPER_CD        = M.COMP_CD 
+        order by R.CONTAINER_NO
+    </select>
+    
+    <!-- 検索 SQL文 (HEADER：Export件数取得) -->
+    <select id="SearchTtPltzByHeader" resultMap="L7001Domain_SearchTtPltzByHeader"
+        parameterClass="L7001TtPltzByHeaderCriteriaDomain">
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+        <!-- 
+        select /* SqlMap-RpShippingAct.SearchTtPltzByHeader */
+            SHIPPER_CD
+          , COUNT(SHIPPER_CD) COUNT_SHIPPER_CD
+        from
+          TT_PLTZ
+        where
+          SHIPPING_FIRM_NO IN 
+            <iterate property="firmNoList" open="(" close=")" conjunction=", ">
+                #firmNoList[]#
+            </iterate>
+        group by
+          SHIPPER_CD 
+        order by
+          SHIPPER_CD
+        -->
+        select /* SqlMap-RpShippingAct.SearchTtPltzByHeader */
+            A.SHIPPER_CD
+          , COUNT(A.SHIPPER_CD) COUNT_SHIPPER_CD
+          , B.COMP_NM_ABB
+        from
+            TT_PLTZ A
+          , TM_NXS_COMP B
+        where
+            A.SHIPPING_FIRM_NO IN 
+            <iterate property="firmNoList" open="(" close=")" conjunction=", ">
+                #firmNoList[]#
+            </iterate>
+            and A.SHIPPER_CD = B.COMP_CD
+        group by
+            A.SHIPPER_CD
+          , B.COMP_NM_ABB
+        order by
+            A.SHIPPER_CD
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+    </select>
+    
+    <!-- 検索 SQL文 (HEADER：Import件数取得) -->
+    <select id="SearchTtPltzByImporter" resultMap="L7001Domain_SearchTtPltzByImporter"
+        parameterClass="L7001TtPltzByImporterCriteriaDomain">
+        select /* SqlMap-RpShippingAct.SearchTtPltzByImporter */
+            B.COMP_CD
+          , COUNT(B.COMP_CD) COUNT_COMP_CD 
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+          , C.COMP_NM_ABB
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+        from
+          TT_PLTZ A
+          , TM_NXS_SHIP_TO B 
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+          , TM_NXS_COMP C
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+        where
+              A.SHIP_TO_CD = B.SHIP_TO_CD 
+          and A.SHIPPING_FIRM_NO IN
+            <iterate property="firmNoList" open="(" close=")" conjunction=", ">
+                #firmNoList[]#
+            </iterate>
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+          and B.COMP_CD = C.COMP_CD
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+        group by
+            B.COMP_CD
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+          , C.COMP_NM_ABB          
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+        order by
+            B.COMP_CD
+    </select>
+    
+    <!-- 検索 SQL文 (HEADER：No of Invoice件数取得) -->
+    <select id="SearchTtPltzByNoOfInvoice" resultClass="java.lang.Integer"
+        parameterClass="L7001TtPltzByNoOfInvoiceCriteriaDomain">
+        select  /* SqlMap-RpShippingAct.SearchTtPltzByNoOfInvoice */
+          COUNT(*) COUNT_ROWNUM 
+        from (
+            select
+                SHIPPER_CD
+              , INVOICE_NO
+              , INVOICE_ISSUE_DT
+            from
+              TT_PLTZ
+            where
+              SHIPPING_FIRM_NO IN
+                <iterate property="firmNoList" open="(" close=")" conjunction=", ">
+                    #firmNoList[]#
+                </iterate>
+            group by
+              SHIPPER_CD
+              , INVOICE_NO
+              , INVOICE_ISSUE_DT
+        )
+    </select>
+    
+    <!-- 検索 SQL文 (HEADER：一覧部分の情報取得) -->
+    <sql id="Select_SearchTtShippingFirmByHeader_TtPltz">
+        select
+            SHIPPING_FIRM_NO
+            , SHIPPER_CD
+            , INVOICE_NO
+            , INVOICE_ISSUE_DT
+            , count(nvl(MAIN_MARK, 0)) COUNT_MAIN_MARK
+            <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+            , VOLUME_UNIT
+            , sum(VOLUME) SUM_VOLUME
+            <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+        from 
+            TT_PLTZ
+        group by 
+            SHIPPING_FIRM_NO
+            , SHIPPER_CD
+            , INVOICE_NO
+            , INVOICE_ISSUE_DT
+            <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+            , VOLUME_UNIT
+            <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+    </sql>
+    
+    <sql id="Select_SearchTtShippingFirmByHeader_TtInvoiceFrt">
+        select
+            PAR_INVOICE_SHIPPER_CD
+            , PAR_INVOICE_NO
+            , PAR_INVOICE_ISSUE_DT
+            , count(nvl(INVOICE_NO, 0)) COUNT_INVOICE_NO 
+        from
+            TT_INVOICE 
+        where
+            INVOICE_CLASS = 'F' 
+        group by
+            PAR_INVOICE_SHIPPER_CD
+            , PAR_INVOICE_NO
+            , PAR_INVOICE_ISSUE_DT
+    </sql>
+
+    <select id="SearchTtShippingFirmByHeader" resultMap="L7001Domain_SearchTtShippingFirmByHeader"
+        parameterClass="L7001TtShippingFirmByHeaderCriteriaDomain">
+        select /* SqlMap-RpShippingAct.SearchTtShippingFirmByHeader */
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+            CONTAINER_NO
+            , SUM(COUNT_MAIN_MARK) COUNT_MAIN_MARK
+            , SHIPPER_CD
+            , INVOICE_NO
+            , INVOICE_ISSUE_DT
+            , SHIP_TO_COMP_CD
+            , INVOICE_CLASS
+            , COUNT_INVOICE_NO
+            , BILLD_NO
+            , TRNS_TYP_NM
+            , SHIPPER_COMP_NM_ABB
+            , SHIP_TO_COMP_NM_ABB
+            , VOLUME_UNIT
+            , SUM(SUM_VOLUME) SUM_VOLUME
+        from (
+            select
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+                A.SHIPPING_FIRM_NO
+                , A.CONTAINER_NO
+                , B.COUNT_MAIN_MARK
+                , C.SHIPPER_CD
+                , C.INVOICE_NO
+                , C.INVOICE_ISSUE_DT
+                , C.SHIP_TO_COMP_CD
+                , C.INVOICE_CLASS
+                , D.COUNT_INVOICE_NO
+                , E.BILLD_NO
+                , G.TRNS_TYP_NM
+                <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+                , H.COMP_NM_ABB SHIPPER_COMP_NM_ABB
+                , I.COMP_NM_ABB SHIP_TO_COMP_NM_ABB
+                , B.VOLUME_UNIT
+                , B.SUM_VOLUME
+                <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+            from
+                TT_SHIPPING_FIRM A
+                , (<include refid="Select_SearchTtShippingFirmByHeader_TtPltz"/>) B
+                , TT_INVOICE C
+                , (<include refid="Select_SearchTtShippingFirmByHeader_TtInvoiceFrt"/>) D
+                , TT_SHIPPING_ACT E
+                , TT_STG_ACT F
+                , TM_TRNS_TYP G
+                <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+                , TM_NXS_COMP H
+                , TM_NXS_COMP I
+                <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+            where
+                A.SHIPPING_FIRM_NO = B.SHIPPING_FIRM_NO
+            and B.SHIPPER_CD = C.SHIPPER_CD
+            and B.INVOICE_NO = C.INVOICE_NO
+            and B.INVOICE_ISSUE_DT = C.INVOICE_ISSUE_DT
+            and C.SHIPPER_CD = D.PAR_INVOICE_SHIPPER_CD(+) 
+            and C.INVOICE_NO = D.PAR_INVOICE_NO(+)
+            and C.INVOICE_ISSUE_DT = D.PAR_INVOICE_ISSUE_DT(+)
+            and C.SHIPPING_ACT_NO = E.SHIPPING_ACT_NO(+)
+            and A.STG_ACT_NO = F.STG_ACT_NO(+)
+            and F.TRNS_CD = G.TRNS_CD(+) 
+            and F.TRNS_TYP_CD = G.TRNS_TYP_CD(+) 
+            <isNotNull property="shippingFirmNoList">
+                <iterate prepend="and" property="shippingFirmNoList" open=" A.SHIPPING_FIRM_NO in (" close=")" conjunction=", ">
+                    #shippingFirmNoList[]#
+                </iterate>
+            </isNotNull>
+            <!-- // 2015/2/24 DNJP.Kawamura 不具合対応（不要な絞り込み条件を削除） START >>>>> -->
+            <!-- 
+            <isNotNull prepend="and" property="shippingActualityNo">
+                E.SHIPPING_ACT_NO(+) = #shippingActualityNo# 
+            </isNotNull>
+            -->
+            <!-- // 2015/2/24 DNJP.Kawamura 不具合対応（不要な絞り込み条件を削除） END <<<<< -->
+            <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+            and C.SHIPPER_CD = H.COMP_CD
+            and C.SHIP_TO_COMP_CD = I.COMP_CD
+            <!-- 
+            order by 
+                A.CONTAINER_NO
+              , C.SHIPPER_CD
+              , C.SHIP_TO_COMP_CD
+              , E.BILLD_NO
+              , C.INVOICE_NO
+            -->
+            <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+        )
+        group by 
+            CONTAINER_NO
+          , SHIPPER_CD
+          , INVOICE_NO
+          , INVOICE_ISSUE_DT
+          , SHIP_TO_COMP_CD
+          , INVOICE_CLASS
+          , COUNT_INVOICE_NO
+          , BILLD_NO
+          , TRNS_TYP_NM
+          , SHIPPER_COMP_NM_ABB
+          , SHIP_TO_COMP_NM_ABB
+          , VOLUME_UNIT
+        order by 
+            CONTAINER_NO
+          , SHIPPER_CD
+          , SHIP_TO_COMP_CD
+          , BILLD_NO
+          , INVOICE_NO
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+        </select>
+    
+    <!-- 検索 SQL文 (Detail：帳票情報取得) -->
+    <select id="SearchTtShippingFirmByDetail" resultMap="L7002Domain_SearchTtShippingFirmByDetail"
+        parameterClass="L7002TtShippingFirmByDetailCriteriaDomain">
+        select /* SqlMap-RpShippingAct.SearchTtShippingFirmByDetail */
+            A.CONTAINER_NO
+          , B.MAIN_MARK
+          , B.SHIPPER_CD
+          , B.INVOICE_NO
+          , B.SITE_TYP
+          , B.VOLUME
+          , B.VOLUME_UNIT
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+          <!--
+          , D.COMP_CD
+          -->
+          , C.SHIP_TO_COMP_CD
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+          , E.BILLD_NO
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+          , F.COMP_NM_ABB SHIPPER_COMP_NM_ABB
+          , G.COMP_NM_ABB SHIP_TO_COMP_NM_ABB
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+        from
+            TT_SHIPPING_FIRM A
+          , TT_PLTZ B
+          , TT_INVOICE C
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+          <!--
+          , TM_NXS_SHIP_TO D
+          -->
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+          , TT_SHIPPING_ACT E
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+          , TM_NXS_COMP F
+          , TM_NXS_COMP G
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+        where
+              A.SHIPPING_FIRM_NO = B.SHIPPING_FIRM_NO 
+          and B.SHIPPER_CD       = C.SHIPPER_CD 
+          and B.INVOICE_NO       = C.INVOICE_NO 
+          and B.INVOICE_ISSUE_DT = C.INVOICE_ISSUE_DT 
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+          <!--
+          and B.SHIP_TO_CD       = D.SHIP_TO_CD
+          -->
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+          and C.SHIPPING_ACT_NO  = E.SHIPPING_ACT_NO (+)
+          and A.SHIPPING_FIRM_NO IN
+        <iterate property="firmNoList" open="(" close=")" conjunction=", ">
+            #firmNoList[]#
+        </iterate>
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+          and C.SHIPPER_CD = F.COMP_CD
+          and C.SHIP_TO_COMP_CD = G.COMP_CD
+        <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+        order by
+            A.CONTAINER_NO
+          , B.SHIPPER_CD
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 START >>>>> -->
+          <!--
+          , D.COMP_CD
+          -->
+          , C.SHIP_TO_COMP_CD
+          <!-- // 2015/2/24 DNJP.Kawamura UT112対応 END <<<<< -->
+          , E.BILLD_NO
+          , B.INVOICE_NO
+          , B.MAIN_MARK
+    </select>
+</sqlMap>

@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config_eca0027_action_w0.xml
+ * 
+ * Action configuration file of AI-J2(Struts)
+ * AI-J2(Struts) の action設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+
+    <!-- Application Action Mapping Definitions ============================ -->
+    <action-mappings>
+        <!-- =============================================================== -->
+        <!-- W4001: Staging instruction main screen                          -->
+        <!-- W4001: 荷揃え指示Main画面                                       -->
+        <!-- =============================================================== -->
+
+        <!-- W4001: Staging instruction main screen Init action -->
+        <!-- W4001: 荷揃え指示Main画面 Initアクション -->
+        <action path="/W4001Init"
+            type="com.globaldenso.eca0027.core.presentation.W4001InitAction"
+            name="W4001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W4001" />
+        </action>
+
+        <!-- W4001: Staging instruction main screen Search action -->
+        <!-- W4001: 荷揃え指示Main画面 Searchアクション -->
+        <action path="/W4001Search"
+            type="com.globaldenso.eca0027.core.presentation.W4001SearchAction"
+            name="W4001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W4001" />
+            <forward name="error" path="W4001" />
+        </action>
+
+        <!-- W4001: Staging instruction main screen CreateNew action -->
+        <!-- W4001: 荷揃え指示Main画面 CreateNewアクション -->
+        <action path="/W4001CreateNew"
+            type="com.globaldenso.eca0027.core.presentation.W4001CreateNewAction"
+            name="W4001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4002Init.do" />
+        </action>
+
+        <!-- W4001: Staging instruction main screen ConfirmDetail action -->
+        <!-- W4001: 荷揃え指示Main画面 ConfirmDetailアクション -->
+        <action path="/W4001ConfirmDetail"
+            type="com.globaldenso.eca0027.core.presentation.W4001ConfirmDetailAction"
+            name="W4001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4004Init.do" />
+            <forward name="error" path="W4001" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W4002: Staging instruction header screen                        -->
+        <!-- W4002: 荷揃え指示Header画面                                     -->
+        <!-- =============================================================== -->
+
+        <!-- W4002: Staging instruction header screen Init action -->
+        <!-- W4002: 荷揃え指示Header画面 Initアクション -->
+        <action path="/W4002Init"
+            type="com.globaldenso.eca0027.core.presentation.W4002InitAction"
+            name="W4002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W4002" />
+        </action>
+
+        <!-- W4002: Staging instruction header screen MoveToCreate action -->
+        <!-- W4002: 荷揃え指示Header画面 MoveToCreateアクション -->
+        <action path="/W4002MoveToCreate"
+            type="com.globaldenso.eca0027.core.presentation.W4002MoveToCreateAction"
+            name="W4002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4003Init.do" />
+            <forward name="error" path="W4002" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W4003: Staging instruction create screen                        -->
+        <!-- W4003: 荷揃え指示Create画面                                     -->
+        <!-- =============================================================== -->
+
+        <!-- W4003: Staging instruction create screen Init action -->
+        <!-- W4003: 荷揃え指示Create画面 Initアクション -->
+        <action path="/W4003Init"
+            type="com.globaldenso.eca0027.core.presentation.W4003InitAction"
+            name="W4003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W4003" />
+        </action>
+
+        <!-- W4003: Staging instruction create screen MoveToRegister action -->
+        <!-- W4003: 荷揃え指示Create画面 MoveToRegisterアクション -->
+        <action path="/W4003MoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.W4003MoveToRegisterAction"
+            name="W4003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4004Init.do" />
+            <forward name="error" path="W4003" />
+        </action>
+
+        <!-- W4003: Staging instruction create screen Search action -->
+        <!-- W4003: 荷揃え指示Create画面 Searchアクション -->
+        <action path="/W4003Search"
+            type="com.globaldenso.eca0027.core.presentation.W4003SearchAction"
+            name="W4003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W4003" />
+            <forward name="error" path="W4003" />
+        </action>
+
+        <!-- W4003: Staging instruction create screen Update action -->
+        <!-- W4003: 荷揃え指示Create画面 Updateアクション -->
+        <action path="/W4003Update"
+            type="com.globaldenso.eca0027.core.presentation.W4003UpdateAction"
+            name="W4003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W4003" />
+            <forward name="error" path="W4003" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W4004: Staging instruction register screen                      -->
+        <!-- W4004: 荷揃え指示Register画面                                   -->
+        <!-- =============================================================== -->
+
+        <!-- W4004: Staging instruction register screen Init action -->
+        <!-- W4004: 荷揃え指示Register画面 Initアクション -->
+        <action path="/W4004Init"
+            type="com.globaldenso.eca0027.core.presentation.W4004InitAction"
+            name="W4004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W4004" />
+            <forward name="errorW4001" path="/W4001Init.do?back=true" />
+            <forward name="errorW4003" path="/W4003Init.do?back=true" />
+        </action>
+
+        <!-- W4004: Staging instruction register screen Register action -->
+        <!-- W4004: 荷揃え指示Register画面 Registerアクション -->
+        <action path="/W4004Register"
+            type="com.globaldenso.eca0027.core.presentation.W4004RegisterAction"
+            name="W4004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4004Init.do" />
+            <forward name="error" path="W4004" />
+        </action>
+
+        <!-- W4004: Staging instruction register screen Delete action -->
+        <!-- W4004: 荷揃え指示Register画面 Deleteアクション -->
+        <action path="/W4004Delete"
+            type="com.globaldenso.eca0027.core.presentation.W4004DeleteAction"
+            name="W4004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4004Init.do" />
+            <forward name="successW4003" path="/W4003Init.do?back=true" />
+            <forward name="error" path="W4004" />
+        </action>
+
+        <!-- W4004: Staging instruction register screen PrintInstr action -->
+        <!-- W4004: 荷揃え指示Register画面 PrintInstrアクション -->
+        <action path="/W4004PrintInstr"
+            type="com.globaldenso.eca0027.core.presentation.W4004PrintInstrAction"
+            name="W4004Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="W4004" />
+        </action>
+
+        <!-- W4004: Staging instruction register screen RegisterWorking action -->
+        <!-- W4004: 荷揃え指示Register画面 Register Workingアクション -->
+        <action path="/W4004RegisterWorking"
+            type="com.globaldenso.eca0027.core.presentation.W4004RegisterWorkingAction"
+            name="W4004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4004Init.do" />
+            <forward name="error" path="W4004" />
+        </action>
+
+        <!-- W4004: Staging instruction register screen Cancel action -->
+        <!-- W4004: 荷揃え指示Register画面 Cancelアクション -->
+        <action path="/W4004Cancel"
+            type="com.globaldenso.eca0027.core.presentation.W4004CancelAction"
+            name="W4004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4001Init.do?back=true" />
+            <forward name="error" path="W4004" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W4005: Staging actuality main screen                          -->
+        <!-- W4005: 山作り実績Main画面                                       -->
+        <!-- =============================================================== -->
+
+        <!-- W4005: Staging actuality main screen Init action -->
+        <!-- W4005: 山作り実績Main画面 Initアクション -->
+        <action path="/W4005Init"
+            type="com.globaldenso.eca0027.core.presentation.W4005InitAction"
+            name="W4005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W4005" />
+        </action>
+
+        <!-- W4005: Staging actuality main screen Search action -->
+        <!-- W4005: 山作り実績Main画面 Searchアクション -->
+        <action path="/W4005Search"
+            type="com.globaldenso.eca0027.core.presentation.W4005SearchAction"
+            name="W4005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W4005" />
+            <forward name="error" path="W4005" />
+        </action>
+
+        <!-- W4005: Staging actuality main screen CreateNew action -->
+        <!-- W4005: 山作り実績Main画面 CreateNewアクション -->
+        <action path="/W4005CreateNew"
+            type="com.globaldenso.eca0027.core.presentation.W4005CreateNewAction"
+            name="W4005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4006Init.do" />
+        </action>
+
+        <!-- W4005: Staging actuality main screen ConfirmDetail action -->
+        <!-- W4005: 山作り実績Main画面 ConfirmDetailアクション -->
+        <action path="/W4005ConfirmDetail"
+            type="com.globaldenso.eca0027.core.presentation.W4005ConfirmDetailAction"
+            name="W4005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4008Init.do" />
+            <forward name="error" path="W4005" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W4006: Staging actuality header screen                        -->
+        <!-- W4006: 山作り実績Header画面                                     -->
+        <!-- =============================================================== -->
+
+        <!-- W4006: Staging actuality header screen Init action -->
+        <!-- W4006: 山作り実績Header画面 Initアクション -->
+        <action path="/W4006Init"
+            type="com.globaldenso.eca0027.core.presentation.W4006InitAction"
+            name="W4006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W4006" />
+        </action>
+
+        <!-- W4006: Staging actuality header screen MoveToCreate action -->
+        <!-- W4006: 山作り実績Header画面 MoveToCreateアクション -->
+        <action path="/W4006MoveToCreate"
+            type="com.globaldenso.eca0027.core.presentation.W4006MoveToCreateAction"
+            name="W4006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4007Init.do" />
+            <forward name="error" path="W4006" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W4007: Staging actuality create screen                        -->
+        <!-- W4007: 山作り実績Create画面                                     -->
+        <!-- =============================================================== -->
+
+        <!-- W4007: Staging actuality create screen Init action -->
+        <!-- W4007: 山作り実績Create画面 Initアクション -->
+        <action path="/W4007Init"
+            type="com.globaldenso.eca0027.core.presentation.W4007InitAction"
+            name="W4007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W4007" />
+        </action>
+
+        <!-- W4007: Staging actuality create screen MoveToRegister action -->
+        <!-- W4007: 山作り実績Create画面 MoveToRegisterアクション -->
+        <action path="/W4007MoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.W4007MoveToRegisterAction"
+            name="W4007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4008Init.do" />
+            <forward name="error" path="W4007" />
+        </action>
+
+        <!-- W4007: Staging actuality create screen Search action -->
+        <!-- W4007: 山作り実績Create画面 Searchアクション -->
+        <action path="/W4007Search"
+            type="com.globaldenso.eca0027.core.presentation.W4007SearchAction"
+            name="W4007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W4007" />
+            <forward name="error" path="W4007" />
+        </action>
+
+        <!-- W4007: Staging actuality create screen Update action -->
+        <!-- W4007: 山作り実績Create画面 Updateアクション -->
+        <action path="/W4007Update"
+            type="com.globaldenso.eca0027.core.presentation.W4007UpdateAction"
+            name="W4007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W4007" />
+            <forward name="error" path="W4007" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W4008: Staging actuality register screen                      -->
+        <!-- W4008: 山作り実績Register画面                                   -->
+        <!-- =============================================================== -->
+
+        <!-- W4008: Staging actuality register screen Init action -->
+        <!-- W4008: 山作り実績Register画面 Initアクション -->
+        <action path="/W4008Init"
+            type="com.globaldenso.eca0027.core.presentation.W4008InitAction"
+            name="W4008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W4008" />
+            <forward name="errorW4005" path="/W4005Init.do?back=true" />
+            <forward name="errorW4007" path="/W4007Init.do?back=true" />
+        </action>
+
+        <!-- W4008: Staging actuality register screen Register action -->
+        <!-- W4008: 山作り実績Register画面 Registerアクション -->
+        <action path="/W4008Register"
+            type="com.globaldenso.eca0027.core.presentation.W4008RegisterAction"
+            name="W4008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4008Init.do" />
+            <forward name="error" path="W4008" />
+        </action>
+
+        <!-- W4008: Staging actuality register screen Delete action -->
+        <!-- W4008: 山作り実績Register画面 Deleteアクション -->
+        <action path="/W4008Delete"
+            type="com.globaldenso.eca0027.core.presentation.W4008DeleteAction"
+            name="W4008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4008Init.do" />
+            <forward name="successW4007" path="/W4007Init.do?back=true" />
+            <forward name="error" path="W4008" />
+        </action>
+
+        <!-- W4008: Staging actuality register screen PrintStgAct action -->
+        <!-- W4008: 山作り実績Register画面 PrintStgActアクション -->
+        <action path="/W4008PrintStgAct"
+            type="com.globaldenso.eca0027.core.presentation.W4008PrintStgActAction"
+            name="W4008Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="W4008" />
+        </action>
+
+        <!-- W4008: Staging actuality register screen UpdateEtdCarrier action -->
+        <!-- W4008: 山作り実績Register画面 Update ETD Carrierアクション -->
+        <action path="/W4008UpdateEtdCarrier"
+            type="com.globaldenso.eca0027.core.presentation.W4008UpdateEtdCarrierAction"
+            name="W4008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4008Init.do" />
+            <forward name="error" path="W4008" />
+        </action>
+
+        <!-- W4008: Staging actuality register screen Cancel action -->
+        <!-- W4008: 山作り実績Register画面 Cancelアクション -->
+        <action path="/W4008Cancel"
+            type="com.globaldenso.eca0027.core.presentation.W4008CancelAction"
+            name="W4008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W4005Init.do?back=true" />
+            <forward name="error" path="W4008" />
+        </action>
+
+    </action-mappings>
+</struts-config>

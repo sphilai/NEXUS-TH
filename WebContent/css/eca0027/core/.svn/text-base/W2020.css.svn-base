@@ -1,0 +1,50 @@
+@charset "utf-8";
+/*
+ * W2020.css
+ * 
+ * Style sheet used in Multi Label Register Screen.
+ * Multi Label Register画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2016 DENSO CORPORATION. All rights reserved.
+ */
+
+table.grid {
+    width: 960px;
+}
+.grid .last_col {
+}
+/* 2列構成 */
+.grid .col2_header {
+    width: 170px;
+}
+.grid .col2_contents {
+    width: 240px;
+}
+/* 3列構成 */
+.grid .col3_header {
+    width: 130px;
+}
+.grid .col3_contents {
+    width: 165px;
+}
+/* 4列構成 */
+.grid .col4_header {
+    width: 120px;
+}
+.grid .col4_contents {
+    width: 100px;
+}
+.gscm_search_button .col_button1 {
+}
+.gscm_search_button .col_button2 {
+    width: 180px;
+}
+.shipping_lot {
+    width: 65px;
+}
+.gross_weight {
+    width: 110px;
+}
+.exp_packing_issuer_nm {
+    width: 300px;
+}

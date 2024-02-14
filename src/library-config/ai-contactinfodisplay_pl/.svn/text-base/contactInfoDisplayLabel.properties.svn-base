@@ -1,0 +1,13 @@
+###########################################################################
+#
+# contactInfoDisplayLabel_jp.properties
+# [JP] \u554f\u5408\u305b\u5148\u8868\u793a\u753b\u9762\u7528\u306e\u30e9\u30d9\u30eb\u30d7\u30ed\u30d1\u30c6\u30a3(\u65e5\u672c\u8a9e)
+# [EN] Label properties for contact information display (Japanese)
+#
+###########################################################################
+
+contactinfodisplay.titleError=error&nbsp;page:&nbsp;\u554f\u5408\u305b\u5148\u8868\u793a\u90e8\u54c1
+contactinfodisplay.titleShowContactInfo=\u304a\u554f\u5408\u305b\u5148
+contactinfodisplay.systemName=\u25a0&nbsp;\u30b7\u30b9\u30c6\u30e0\u540d&nbsp;&ensp;:&nbsp;
+contactinfodisplay.systemId=&nbsp;&nbsp;-&nbsp;\u30b7\u30b9\u30c6\u30e0ID:&nbsp;
+contactinfodisplay.closeButton=\u9589\u3058\u308b

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * tiles-defs_eca0027_w5.xml
+ *
+ * Tiles configuration file of AI-J2(Struts)
+ * AI-J2(Struts) の Tiles 設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE tiles-definitions PUBLIC
+            "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+
+    <!-- 個別画面 -->
+    <!-- individual screen -->
+    <!-- ====================================================================-->
+
+    <!--
+        この個別画面の定義名はaction-mappingsのforwardタグと紐付き、
+        header.jspにて画面IDとして共通的に埋め込まれます。
+        このため、この個別画面の定義名には、画面IDそのものを使用してください。
+    This individual screen's definition is related with each action-mapping's forward tag and
+    is commonly embedded in header.jsp as screen ID.
+    Therefore use screen ID itself as this individual screen definition name   
+    -->
+
+    <!-- W5001: Shipping Confirmation Main Screen -->
+    <!-- W5001: 出荷確認Main画面 -->
+    <definition name="W5001" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W5001"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W5001.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W5001"/>
+        <put name="js_filepath" value="js/eca0027/core/W5001.js"/>
+    </definition>
+
+    <!-- W5002: Shipping Confirmation Header -->
+    <!-- W5002: 出荷確認Header画面 -->
+    <definition name="W5002" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W5002"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W5002.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W5002"/>
+    </definition>
+
+    <!-- W5003: Shipping Confirmation Create -->
+    <!-- W5003: 出荷確認Create画面 -->
+    <definition name="W5003" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W5003"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W5003.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W5003"/>
+        <put name="js_filepath" value="js/eca0027/core/W5003.js"/>
+    </definition>
+
+    <!-- W5004: Shipping Confirmation Register -->
+    <!-- W5004: 出荷確認Register画面 -->
+    <definition name="W5004" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W5004"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W5004.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W5004"/>
+        <put name="js_filepath" value="js/eca0027/core/W5004.js"/>
+    </definition>
+
+</tiles-definitions>

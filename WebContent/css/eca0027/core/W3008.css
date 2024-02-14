@@ -1,0 +1,162 @@
+@charset "utf-8";
+/*
+ * W3008.css
+ * 
+ * Register Parts Transfer Report画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+/*------------ Search condition area 1 ------------*/ 
+.gscm_search .search_wh_comp_cd {
+    width: 130px;
+}
+.gscm_search .search_wh_cd {
+    width: 100px;
+}
+.gscm_search .search_shipper_cd {
+    width: 90px;
+}
+.gscm_search .search_total_tag {
+    width: 70px;
+}
+.gscm_search .search_issuer {
+    width: 160px;
+}
+.gscm_search .search_issue_dt {
+    width: 180px;
+}
+/*------------ Search condition area 2 ------------*/ 
+.gscm_search .search_transfer_no {
+    width: 210px;
+}
+.gscm_search .search_editflg {
+    width: 75px;
+}
+.gscm_search .search_trnsfer_status {
+    width: 75px;
+}
+.gscm_search .search_tr_kind {
+    width: 80px;
+}
+.gscm_search .search_act_method {
+    width: 150px;
+}
+.gscm_search .search_act_dt {
+    width: 140px;
+}
+
+/*------------ Result search ------------*/ 
+/*------------ Search result area ------------*/ 
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    
+}
+
+table.gscm_resultlist2 {
+    width: 425px;
+}
+
+table.gscm_resultlist2 tr {
+    height: 36px;
+}
+table.gscm_resultlist2 th {
+    font-weight: bold;
+}
+table.gscm_resultlist2 td {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+.gscm_resultlist .resultlist_del {
+    width: 55px;
+}
+.gscm_resultlist .resultlist_pno {
+    width: 180px;
+}
+.gscm_resultlist .resultlist_pkg_cd {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_act_qty {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_act_tag_no {
+    width: 60px;
+}
+.gscm_resultlist .resultlist_soh {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_ship_lot {
+    width: 60px;
+}
+.gscm_resultlist .resultlist_trans_qty {
+    width: 120px;
+}
+.gscm_resultlist .resultlist_edit_trans_qty {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_edit_tag_qty {
+    width: 60px;
+}
+
+.gscm_resultlist2 .resultlist_pno {
+    width: 180px;
+}
+.gscm_resultlist2 .resultlist_pkg_cd {
+    width: 50px;
+}
+.gscm_resultlist2 .resultlist_act_qty {
+    width: 80px;
+}
+.gscm_resultlist2 .resultlist_act_tag_no {
+    width: 60px;
+}
+.gscm_resultlist2 .resultlist_del {
+    width: 55px;
+}
+.edit_register {
+    width: 105px;
+}
+.cancel_tr {
+    width: 105px;
+    background: #FF6666
+}
+
+.trans_qty {
+    width: 90px;
+}
+.tag_qty {
+    width: 50px;
+}
+
+/*--- 検索結果一覧 ---*/
+/*--- Search result list ---*/
+table.gscm_resultlist2 {
+    margin:0px; 
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+/* --- ヘッダ部 ---*/
+/* --- Header part ---*/
+table.gscm_resultlist2 th{
+    align: center;
+    valign: middle;
+    background-color: #b2d3f2;
+    color : #000000;
+    border: 1px #808080 solid;
+    height: 22px; 
+    margin: 0px;
+    padding: 0px 2px;
+}
+
+/* --- 一覧部 ---*/
+/* --- List part ---*/
+table.gscm_resultlist2 td{
+    margin: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border:1px #808080 solid;
+}

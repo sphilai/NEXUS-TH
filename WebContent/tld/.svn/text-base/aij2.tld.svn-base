@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib
+        PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+        "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+    
+    <tlib-version>1.3</tlib-version>
+    <jsp-version>1.2</jsp-version>
+    <short-name>aij2_core</short-name>
+    <uri>http://aij2_core.globaldenso.com/customTag</uri>
+    <description>aij2_coreカスタムタグライブラリ群</description>
+    
+    <tag>
+        <name>aij2ErrorTag</name>
+        <tag-class>com.globaldenso.ai.aij2.core.customtag.Aij2ErrorTag</tag-class>
+        <body-content>empty</body-content>
+        <description>error.jspの内容を出力する</description>
+    </tag>
+</taglib>

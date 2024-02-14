@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/conf/gscm/framework
+END
+disabledKey.xml
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/conf/gscm/framework/disabledKey.xml
+END
+applicationContext-dao_auto.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/conf/gscm/framework/applicationContext-dao_auto.xml
+END
+applicationContext-dao_gscm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/conf/gscm/framework/applicationContext-dao_gscm.xml
+END
+applicationContext-gscm-aop.xml
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/conf/gscm/framework/applicationContext-gscm-aop.xml
+END
+applicationContext-service_auto.xml
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/conf/gscm/framework/applicationContext-service_auto.xml
+END

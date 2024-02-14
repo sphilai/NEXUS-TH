@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * applicationContext-dao_eca0027.xml
+ * 
+ * DAO の Spring 設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+    <!-- DAO実装 =========================================================== -->
+    <!--   利用する DAO はここに定義してください。                           -->
+    <!--   外部ファイルに外出しすることも可能です。                          -->
+    <!-- =================================================================== -->
+
+    <!-- =================================================================== -->
+    <!-- システム共通                                                        -->
+    <!-- =================================================================== -->
+    
+    <!-- ユーザ機能利用権限のDAO -->
+    <bean id="userAuthDao" class="com.globaldenso.eca0027.core.integration.UserAuthDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- =================================================================== -->
+    <!-- 業務個別                                                            -->
+    <!-- =================================================================== -->
+        
+    <!-- Migration Cml Print DAO -->
+    <bean id="migCmlDao" class="com.globaldenso.eca0027.core.integration.MigCmlDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- L2000番台の帳票作成用DAO -->
+    <bean id="rpEisProductDao" class="com.globaldenso.eca0027.core.integration.RpEisProductDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- L4000番台の帳票作成用DAO --> <!-- UT429 ADD -->
+    <bean id="rpStgActDao" class="com.globaldenso.eca0027.core.integration.RpStgActDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- UT429 ADD START -->
+    <!-- L5000番台の帳票作成用DAO -->
+    <bean id="rpShippingFirmDao" class="com.globaldenso.eca0027.core.integration.RpShippingFirmDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <!-- UT429 ADD END -->
+    
+    <!-- L6000番台の帳票作成用DAO -->
+    <bean id="rpDocDao" class="com.globaldenso.eca0027.core.integration.RpDocDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <!-- L6000DAO add by DCS 08022017-->
+    <bean id="rpDocAsiaDao" class="com.globaldenso.eca0027.asia.integration.RpDocAsiaDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <!-- LB001の帳票作成用DAO -->
+    <bean id="rpOdrRcvDao" class="com.globaldenso.eca0027.core.integration.RpOdrRcvDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- LC001の帳票作成用DAO -->
+    <bean id="rpErtDao" class="com.globaldenso.eca0027.core.integration.RpErtDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- L7000番台の帳票作成用DAO -->
+    <bean id="rpShippingActDao" class="com.globaldenso.eca0027.core.integration.RpShippingActDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- メニューDAO -->
+     <bean id="tmCdDao" class="com.globaldenso.eca0027.core.auto.integration.TmCdDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="w0002MenuDao" class="com.globaldenso.eca0027.core.integration.W0002MenuDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="w1006ExpRequestDao" class="com.globaldenso.eca0027.core.integration.W1006ExpRequestDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+   <bean id="w1006ExpRequestDtlDao" class="com.globaldenso.eca0027.core.integration.W1006ExpRequestDtlDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    <bean id="w1006ExpRequestDtlKitDao" class="com.globaldenso.eca0027.core.integration.W1006ExpRequestDtlKitDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    <bean id="w1007ExpRequestDao" class="com.globaldenso.eca0027.core.integration.W1007ExpRequestDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    <bean id="w1007ExpRequestDtlDao" class="com.globaldenso.eca0027.core.integration.W1007ExpRequestDtlDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    <bean id="w1007ExpRequestDtlKitDao" class="com.globaldenso.eca0027.core.integration.W1007ExpRequestDtlKitDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    <bean id="w1007PltzWkDao" class="com.globaldenso.eca0027.core.integration.W1007PltzWkDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    <bean id="w1008PltzDao" class="com.globaldenso.eca0027.core.integration.W1008PltzDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    <bean id="w1008PltzItemDao" class="com.globaldenso.eca0027.core.integration.W1008PltzItemDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    <!-- Transfer DAO -->
+    <bean id="w3TransferDao" class="com.globaldenso.eca0027.core.integration.W3TransferDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- ExportRequestDAO -->
+    <bean id="w1001ExpRequestDao" class="com.globaldenso.eca0027.core.integration.W1001ExpRequestDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- 梱包指示DAO -->
+    <bean id="w2001PltzInstrDao" class="com.globaldenso.eca0027.core.integration.W2001PltzInstrDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- MixTagDAO -->
+    <bean id="w2005MixTagDao" class="com.globaldenso.eca0027.core.integration.W2005MixTagDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- CMLDAO -->
+    <bean id="w2009CmlDao" class="com.globaldenso.eca0027.core.integration.W2009CmlDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- まとめパレタイズDAO -->
+    <bean id="w2014XtagDao" class="com.globaldenso.eca0027.core.integration.W2014XtagDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- Staging instruction DAO -->
+    <!-- 荷揃え指示DAO -->
+    <bean id="w4001StgInstrDao" class="com.globaldenso.eca0027.core.integration.W4001StgInstrDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- Staging actuality DAO -->
+    <!-- 山作り実績DAO -->
+    <bean id="w4005StgActDao" class="com.globaldenso.eca0027.core.integration.W4005StgActDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- 出荷確認DAO -->
+    <bean id="w5001ShippingFirmDao" class="com.globaldenso.eca0027.core.integration.W5001ShippingFirmDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- DocumentationDAO -->
+    <bean id="w6001DocDao" class="com.globaldenso.eca0027.core.integration.W6001DocDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- 11/02/2015 A.Chonthicha: to support setting total packing as Pltz_Item_Qty -->
+    <!-- DocumentationDAO -->
+    <bean id="w6001DocAsiaDao" class="com.globaldenso.eca0027.asia.integration.W6001DocAsiaDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- 船積実績DAO -->
+    <bean id="w7001ShippingActDao" class="com.globaldenso.eca0027.core.integration.W7001ShippingActDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- 進度管理DAO -->
+    <bean id="w8001ProgCtrlDao" class="com.globaldenso.eca0027.core.integration.W8001ProgCtrlDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- WEB AgentMa DAO -->
+    <bean id="w9002AgentMaDao" class="com.globaldenso.eca0027.core.integration.W9002AgentMaDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- WEB User ID MA -->
+    <bean id="w9004UserIdMaDao" class="com.globaldenso.eca0027.core.integration.W9004UserIdMaDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- NEXUS Ship to MA Inquiry -->
+    <bean id="w9006NxsShipToMaDao" class="com.globaldenso.eca0027.core.integration.W9006NxsShipToMaDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- WEB Export Ship to Shipping MA -->
+    <bean id="w9007ExpShipToShippingMaDao" class="com.globaldenso.eca0027.core.integration.W9007ExpShipToShippingMaDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- CIGMA Ship to X-Reference MA DAO-->
+    <bean id="w9009CgmShipToXRefMaDao" class="com.globaldenso.eca0027.core.integration.W9009CgmShipToXRefMaDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- CIGMA Customer No. X-Reference MA DAO-->
+    <bean id="w9011CgmCusNoXRefMaDao" class="com.globaldenso.eca0027.core.integration.W9011CgmCusNoXRefMaDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- NEXUS W/H MA Inquiry NL040 ADD -->
+    <bean id="w9013NxsWhMaDao" class="com.globaldenso.eca0027.core.integration.W9013NxsWhMaDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- CIGMA W/H X-Reference MA DAO -->
+    <bean id="w9014CgmWhXRefMaDao" class="com.globaldenso.eca0027.core.integration.W9014CgmWhXRefMaDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- WEB Export Shipping Item Special Information MA -->
+    <bean id="w9016ExpShippingItemSpInfoMaDao" class="com.globaldenso.eca0027.core.integration.W9016ExpShippingItemSpInfoMaDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- WEB Export Formalities by Item MA -->
+    <bean id="w9018ExpFmlByItemMaDao" class="com.globaldenso.eca0027.core.integration.W9018ExpFmlByItemMaDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- インボイステンプレートマスタ -->
+    <bean id="w9022InvTplMaDao" class="com.globaldenso.eca0027.core.integration.W9022InvTplMaDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- Item No. Apply Start Date Refer & Register DAO -->
+    <bean id="w9024ItemNoAplyStrtDtDao" class="com.globaldenso.eca0027.core.integration.W9024ItemNoAplyStrtDtDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- 受注業務DAO -->
+    <bean id="wb001OdrRcvDao" class="com.globaldenso.eca0027.core.integration.WB001OdrRcvDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="wb020OdrUploadDao" class="com.globaldenso.eca0027.core.integration.WB020OdrUploadDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- CMLDAO -->
+    <bean id="wc001ErtDao" class="com.globaldenso.eca0027.core.integration.WC001ErtDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- Company Select -->
+    <bean id="wt001CompSelectDao" class="com.globaldenso.eca0027.core.integration.Wt001CompSelectDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- Customer No. Select -->
+    <bean id="wt002CigmaCusNoSelectDao" class="com.globaldenso.eca0027.core.integration.Wt002CigmaCusNoSelectDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- Package Select -->
+    <bean id="wt004PkgSelectDao" class="com.globaldenso.eca0027.core.integration.Wt004PkgSelectDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!--  Item No Information --> 
+    <bean id="wt007ItemNoInfoDao" class="com.globaldenso.eca0027.core.integration.Wt007ItemNoInfoDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" /> 
+    </bean>
+    
+    <!-- Outer Package Select -->
+    <bean id="wt006OuterPkgSelectDao" class="com.globaldenso.eca0027.core.integration.Wt006OuterPkgSelectDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- Port Select NL040 ADD -->
+    <bean id="wt008PortSelectDao" class="com.globaldenso.eca0027.core.integration.Wt008PortSelectDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- WH Select NL040 ADD -->
+    <bean id="wt010WhSelectDao" class="com.globaldenso.eca0027.core.integration.Wt010WhSelectDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- W/H Select NL040 ADD -->
+    <bean id="wt014ShipToSelectDao" class="com.globaldenso.eca0027.core.integration.Wt014ShipToSelectDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- Unit Price Error List -->
+    <bean id="wt015UnitPriceErrListDao" class="com.globaldenso.eca0027.core.integration.Wt015UnitPriceErrListDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- Unregistered HS CODE List -->
+    <bean id="wt016UnregHsCdListDao" class="com.globaldenso.eca0027.core.integration.Wt016UnregHsCdListDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- Shipping Actuality Warning List -->
+    <bean id="wt017ShippingActWarnListDao" class="com.globaldenso.eca0027.core.integration.Wt017ShippingActWarnListDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!--  Container Information --> 
+    <bean id="wt018ContainerInfoDao" class="com.globaldenso.eca0027.core.integration.Wt018ContainerInfoDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" /> 
+    </bean>
+    
+    <!-- Webサービス(BHT) DAO -->
+    <bean id="wsBhtEisProductDao" class="com.globaldenso.eca0027.core.integration.WsBhtEisProductDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- Webサービス(Cigma) DAO -->
+    <bean id="wsCigmaComnAuxDao" class="com.globaldenso.eca0027.core.integration.WsCigmaComnAuxDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- SI追加分 -->
+    <!-- 荷揃え指示DAO -->
+     <bean id="wsBhtStgDao" class="com.globaldenso.eca0027.core.integration.WsBhtStgDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />     
+     </bean>
+    <!-- 出荷確認DAO -->
+    <bean id="wsBhtShippingFirmDao" class="com.globaldenso.eca0027.core.integration.WsBhtShippingFirmDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- Carry Out In BHT -->
+    <bean id="wsBhtTransferDao" class="com.globaldenso.eca0027.core.integration.WsBhtTransferDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- Report : Carry Out List -->
+    <bean id="w3TransferCarryOutListDao" class="com.globaldenso.eca0027.core.integration.W3TransferCarryOutListDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- REQUEST_ID_SEQ DAO L005 Add -->
+    <bean id="requestIdSeqDao" class="com.globaldenso.eca0027.core.integration.RequestIdSeqDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+</beans>

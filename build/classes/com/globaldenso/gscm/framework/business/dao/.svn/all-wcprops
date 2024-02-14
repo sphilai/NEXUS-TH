@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/dao
+END
+TmResourcesDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/dao/TmResourcesDao.java
+END
+TmUserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/dao/TmUserDao.java
+END
+TmUserConfDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/dao/TmUserConfDao.java
+END
+TtWorkDateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/dao/TtWorkDateDao.java
+END
+MainMenuDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/dao/MainMenuDao.java
+END
+TmColumnSizeDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/dao/TmColumnSizeDao.java
+END

@@ -1,0 +1,75 @@
+/*
+ * Project : NEXUS_EXPORT
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+package com.globaldenso.eca0027.core.business.service;
+
+import java.io.File;
+import java.util.Date;
+
+import com.globaldenso.ai.common.core.exception.ApplicationException;
+import com.globaldenso.eca0027.core.auto.business.domain.criteria.TmInvTplCriteriaDomain;
+import com.globaldenso.eca0027.core.auto.business.domain.criteria.VtRpPackHdrForMainCriteriaDomain;
+import com.globaldenso.eca0027.core.auto.business.service.TmInvTplService;
+import com.globaldenso.eca0027.core.auto.business.service.VtRpPackHdrForMainService;
+import com.globaldenso.eca0027.core.business.dao.RpDocDao;
+import com.globaldenso.eca0027.core.business.domain.criteria.L6003TtInvoiceAttachedBySumQtyCriteriaDomain;
+
+
+/**
+ * Interface of the service that provides the output function form [Packing Header(Main)].
+ * <br/>帳票【 Packing Header(Main)  】出力機能を提供するサービスのインターフェースです。
+ * <pre>
+ * bean id:L6016ReportService
+ * </pre>
+ * 
+ * @author $Author: 810833613 $
+ * @version $Revision: 7682 $
+ */
+public interface L6016ReportService {
+
+    /**
+     * Get the form output information to generate a form [Packing List Summary].
+     * <br/>帳票出力情報を取得し、帳票【 Packing List Summary】を生成します。
+     * <pre>
+     * - The acquisition of fixed image
+     *   Call the TmInvTplService.searchByKey (TmInvTplCriteriaDomain) as an argument criteriaDomain.
+     * 
+     * - Get Invoice Attached data that is set in the grand total column
+     *   Call the RpDocDao.searchTtInvoiceAttachedBySumQty (L6003TtInvoiceAttachedBySumQtyCriteriaDomain) as an argument criteriaDomain.
+     * 
+     * - Get Packing Header data to be printed
+     *   Call the VtRpPackHdrForMainService.searchByCondition (VtRpPackHdrForMainCriteriaDomain) as an argument criteriaDomain.
+     *   Get the number is 0, an error will occur.
+     * 
+     * - Generation of the form
+     *   Call form generation method in argument specification List, header HashMap, template path string, string password, the pdfStream.
+     * </pre>
+     * <pre>
+     * - 固定イメージの取得
+     *       criteriaDomainを引数に{@link TmInvTplService#searchByKey(TmInvTplCriteriaDomain)}を呼び出します。
+     *       
+     * - 総合計欄にセットするインボイスアタッチデータの取得
+     *       criteriaDomainを引数に{@link RpDocDao#searchTtInvoiceAttachedBySumQty(L6003TtInvoiceAttachedBySumQtyCriteriaDomain)}を呼び出します。
+     *       
+     * - 印刷対象のパッキングヘッダデータの取得
+     *       criteriaDomainを引数に{@link VtRpPackHdrForMainService#searchByCondition(VtRpPackHdrForMainCriteriaDomain)}を呼び出します。
+     *       取得件数が0であれば、エラーとします。
+     *       
+     * - 帳票の生成
+     *       明細List, ヘッダHashMap, テンプレートパス文字列, パスワード文字列, pdfStreamを引数に帳票生成メソッドを呼び出します。
+     * </pre>
+     * 
+     * @param shipper search condition
+     * @param invoiceNo search condition
+     * @param invoiceIssueDt search condition
+     * @param invoiceTemplateNo search condition
+     * @param formatDate formatDate
+     * @throws ApplicationException application exception
+     * @return File file
+     */
+    public File searchPackingSummary(String shipper, String invoiceNo, Date invoiceIssueDt, String invoiceTemplateNo, String formatDate) 
+        throws ApplicationException;
+    
+}

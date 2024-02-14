@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * applicationContext-ECA0027T0100.xml
+ * 
+ * バッチジョブ「ECA0027T0100 不要データ削除」のspring設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:aop="http://www.springframework.org/schema/aop"
+ xmlns:tx="http://www.springframework.org/schema/tx"
+ xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <import resource="classpath:applicationContext-aijb-jdbc.xml" />
+
+    <!-- SACT -->
+    <import resource="classpath:applicationContext-service_auto.xml" />
+    <import resource="classpath:applicationContext-dao_auto.xml" />
+
+    <bean id="comnAuxService" class="com.globaldenso.eca0027.core.business.service.ComnAuxServiceImpl">
+        <property name="ttScAttachedService"         ref="ttScAttachedService" />
+        <property name="ttScHeaderService"           ref="ttScHeaderService" />
+        <property name="ttPackAtchItemNoService"     ref="ttPackAtchItemNoService" />
+        <property name="ttPackingAttachedCmlService" ref="ttPackingAttachedCmlService" />
+        <property name="ttPackingHeadService"        ref="ttPackingHeadService" />
+        <property name="ttInvoiceAttachedService"    ref="ttInvoiceAttachedService" />
+        <property name="ttInvoiceHeaderService"      ref="ttInvoiceHeaderService" />
+        <property name="ttShippingDocumentService"   ref="ttShippingDocumentService" />
+        <property name="ttInvoiceService"            ref="ttInvoiceService" />
+        <property name="ttShippingActOdrService"     ref="ttShippingActOdrService" />
+        <property name="ttShippingActService"        ref="ttShippingActService" />
+        <property name="twShippingActInvoiceService" ref="twShippingActInvoiceService" />
+        <property name="comnAuxDao"                  ref="comnAuxDao" />
+    </bean>
+
+    <bean id="comnAuxDao" class="com.globaldenso.eca0027.core.integration.ComnAuxDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+</beans>

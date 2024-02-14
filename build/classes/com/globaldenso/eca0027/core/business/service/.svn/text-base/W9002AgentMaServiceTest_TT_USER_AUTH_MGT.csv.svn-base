@@ -1,0 +1,6 @@
+﻿"DSC_ID","ROLE","AUTH_MGT_COMP","AUTH_MGT_PROC","COM_CREATE_TIMESTAMP","COM_CREATE_USER_ID","COM_CREATE_FUNC_ID","COM_UPDATE_TIMESTAMP","COM_UPDATE_USER_ID","COM_UPDATE_FUNC_ID"
+"test-dsc1","1","delAgentCompCd1","1",1899/12/30 1:00:00,"1","1",1899/12/30 1:00:00,"1","1"
+"test-dsc1","10","delAgentCompCd1","1",1899/12/30 1:00:00,"1","1",1899/12/30 1:00:00,"1","1"
+"test-dsc1","3B","delAgentCompCd1","1",1899/12/30 1:00:00,"1","1",1899/12/30 1:00:00,"1","1"
+"test-dsc2","1","delOrgCompCd1","1",1899/12/30 1:00:00,"1","1",1899/12/30 1:00:00,"1","1"
+"test-dsc3","1","updAgentCompCd1","1",1899/12/30 1:00:00,"1","1",1899/12/30 1:00:00,"1","1"

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-WB020OdrUpload.xml
+ *
+ * WB020OdrUploadDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2017 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="WB020OdrUpload">
+    <typeAlias alias="WB020OdrUploadReqDomain"
+        type="com.globaldenso.eca0027.core.business.domain.WB020OdrUploadReqDomain" />
+    <typeAlias alias="WB020OdrUploadReqDomain"
+        type="com.globaldenso.eca0027.core.business.domain.WB020OdrUploadReqDomain" />
+
+    <resultMap id="WB020OdrUploadReqDomain_SearchOdrUploadReqMgt" class="WB020OdrUploadReqDomain">
+        <result property="requestId" column="REQUEST_ID" />
+        <result property="dtRequestDtUtc" column="REQUEST_DT" />
+        <result property="uploadFileId" column="UPLOAD_FILE_ID" />
+        <result property="uploadFileNm" column="UPLOAD_FILE_NM" />
+        <result property="uploadFileLineCnt" column="UPLOAD_FILE_LINE_CNT" />
+        <result property="uploadUserId" column="UPLOAD_USER_ID" />
+        <result property="statusCd" column="STATUS" />
+        <result property="statusNm" column="VALUE" />
+        <result property="errFileId" column="ERR_FILE_ID" />
+        <result property="errFileNm" column="ERR_FILE_NM" />
+        <result property="fcstReplaceFlg" column="FCST_REPLACE_FLG" />
+        <result property="rcvOdrCompCd" column="RCV_ODR_COMP_CD" />
+        <result property="rcvOdrCompNm" column="COMP_NM_ABB" />
+    </resultMap>
+
+    <select id="SearchOdrUploadReqMgt"
+        resultMap="WB020OdrUploadReqDomain_SearchOdrUploadReqMgt" parameterClass="WB020OdrUploadReqDomain">
+
+        select
+        /* SqlMap-WB020OdrUpload.SearchOdrUploadReqMgt */
+            *
+        from (
+            select 
+                T1.REQUEST_ID
+            ,   T1.REQUEST_DT
+            ,   T1.UPLOAD_FILE_ID
+            ,   T1.UPLOAD_FILE_NM
+            ,   T1.UPLOAD_FILE_LINE_CNT
+            ,   T1.UPLOAD_USER_ID
+            ,   T1.STATUS
+            ,   T1.ERR_FILE_ID
+            ,   T1.ERR_FILE_NM
+            ,   T1.FCST_REPLACE_FLG
+            ,   T1.RCV_ODR_COMP_CD
+            ,   M1.VALUE
+            ,   M2.COMP_NM_ABB
+            ,   row_number() over (order by T1.REQUEST_DT desc, T1.REQUEST_ID desc) ROW_NUM
+            from
+                TT_ODR_UPLOAD_REQ_MGT T1
+            ,   TM_CD M1
+            ,   TM_NXS_COMP M2
+            where
+                T1.RCV_ODR_COMP_CD = #ownerCompCd#
+            and T1.REQUEST_DT <![CDATA[>=]]> sysdate - 14
+            and M1.CD_TYP = '78'
+            and M1.LNG_CD = #languageCd#
+            and T1.STATUS = M1.CD
+            and T1.RCV_ODR_COMP_CD = M2.COMP_CD
+            order by
+                T1.REQUEST_DT desc
+            ,   T1.REQUEST_ID desc
+        )
+        where ROW_NUM between 1 and 50
+        
+    </select>
+</sqlMap>

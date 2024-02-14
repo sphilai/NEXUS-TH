@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config_eca0027_action_wT.xml
+ * 
+ * AI-J2(Struts) の action設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+
+    <!-- Application Action Mapping Definitions ============================ -->
+    <action-mappings>
+        <!-- =============================================================== -->
+        <!-- WT001: 会社選択子画面                                                                                           -->
+        <!-- =============================================================== -->
+        
+        <action path="/Wt001Init"
+            type="com.globaldenso.eca0027.core.presentation.Wt001InitAction"
+            name="WT001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT001" />
+            <forward name="error" path="WT001" />
+        </action>
+        <action path="/Wt001Search"
+            type="com.globaldenso.eca0027.core.presentation.Wt001SearchAction"
+            name="WT001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT001" />
+            <forward name="error" path="WT001" />
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- WT002: 会社選択子画面                                                                                           -->
+        <!-- =============================================================== -->
+        
+        <action path="/Wt002Init"
+            type="com.globaldenso.eca0027.core.presentation.Wt002InitAction"
+            name="WT002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT002" />
+            <forward name="error" path="WT002" />
+        </action>
+        <action path="/Wt002Search"
+            type="com.globaldenso.eca0027.core.presentation.Wt002SearchAction"
+            name="WT002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT002" />
+            <forward name="error" path="WT002" />
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- WT004: 包装材選択子画面                                                                                        -->
+        <!-- =============================================================== -->
+        
+        <action path="/Wt004Init"
+            type="com.globaldenso.eca0027.core.presentation.Wt004InitAction"
+            name="WT004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT004" />
+            <forward name="error" path="WT004" />
+        </action>
+        <action path="/Wt004Search"
+            type="com.globaldenso.eca0027.core.presentation.Wt004SearchAction"
+            name="WT004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT004" />
+            <forward name="error" path="WT004" />
+        </action>
+        
+        <!-- =============================================================== --> 
+        <!-- WT005: メインマーク表示子画面                                                                                  --> 
+        <!-- =============================================================== --> 
+        <action path="/Wt005Init" 
+            type="com.globaldenso.eca0027.core.presentation.Wt005InitAction" 
+            name="WT005Form" 
+            scope="request" 
+            validate="false">
+            <forward name="success" path="WT005" /> 
+            <forward name="error" path="WT005" /> 
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- WT006: 外装選択子画面                                                                                           -->
+        <!-- =============================================================== -->
+        
+        <action path="/Wt006Init"
+            type="com.globaldenso.eca0027.core.presentation.Wt006InitAction"
+            name="WT006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT006" />
+            <forward name="error" path="WT006" />
+        </action>
+        <action path="/Wt006Search"
+            type="com.globaldenso.eca0027.core.presentation.Wt006SearchAction"
+            name="WT006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT006" />
+            <forward name="error" path="WT006" />
+        </action>
+        
+        <!-- =============================================================== --> 
+        <!-- WT007: 品番表示子画面                                                                                           --> 
+        <!-- =============================================================== --> 
+        
+        <action path="/Wt007Init" 
+            type="com.globaldenso.eca0027.core.presentation.Wt007InitAction" 
+            name="WT007Form" 
+            scope="request" 
+            validate="false">
+            <forward name="success" path="WT007" /> 
+            <forward name="error" path="WT007" /> 
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- WT008: 港選択子画面                                                                                              -->
+        <!-- =============================================================== -->
+        
+        <action path="/Wt008Init"
+            type="com.globaldenso.eca0027.core.presentation.Wt008InitAction"
+            name="WT008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT008" />
+            <forward name="error" path="WT008" />
+        </action>
+        <action path="/Wt008Search"
+            type="com.globaldenso.eca0027.core.presentation.Wt008SearchAction"
+            name="WT008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT008" />
+            <forward name="error" path="WT008" />
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- WT010: 倉庫選択子画面                                                                                           -->
+        <!-- =============================================================== -->
+        
+        <action path="/Wt010Init"
+            type="com.globaldenso.eca0027.core.presentation.Wt010InitAction"
+            name="WT010Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT010" />
+            <forward name="error" path="WT010" />
+        </action>
+        <action path="/Wt010Search"
+            type="com.globaldenso.eca0027.core.presentation.Wt010SearchAction"
+            name="WT010Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT010" />
+            <forward name="error" path="WT010" />
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- WT011: 国選択子画面                                                                                              -->
+        <!-- =============================================================== -->
+        
+        <action path="/Wt011Init"
+            type="com.globaldenso.eca0027.core.presentation.Wt011InitAction"
+            name="WT011Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT011" />
+            <forward name="error" path="WT011" />
+        </action>
+        <action path="/Wt011Search"
+            type="com.globaldenso.eca0027.core.presentation.Wt011SearchAction"
+            name="WT011Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT011" />
+            <forward name="error" path="WT011" />
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- WT014: 送荷先選択子画面                                                                                        -->
+        <!-- =============================================================== -->
+        
+        <action path="/Wt014Init"
+            type="com.globaldenso.eca0027.core.presentation.Wt014InitAction"
+            name="WT014Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT014" />
+            <forward name="error" path="WT014" />
+        </action>
+        <action path="/Wt014Search"
+            type="com.globaldenso.eca0027.core.presentation.Wt014SearchAction"
+            name="WT014Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT014" />
+            <forward name="error" path="WT014" />
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- WT015: 売価登録なし品番表示子画面                                                                         -->
+        <!-- =============================================================== -->
+        
+        <action path="/Wt015Init"
+            type="com.globaldenso.eca0027.core.presentation.Wt015InitAction"
+            name="WT015Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT015" />
+            <forward name="error" path="WT015" />
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- WT016: HS CODE登録なし品番表示子画面                                                                 -->
+        <!-- =============================================================== -->
+        
+        <action path="/Wt016Init"
+            type="com.globaldenso.eca0027.core.presentation.Wt016InitAction"
+            name="WT016Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT016" />
+            <forward name="error" path="WT016" />
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- WT017: 船積実績ワーニングリスト子画面                                                                     -->
+        <!-- =============================================================== -->
+        
+        <action path="/Wt017Init"
+            type="com.globaldenso.eca0027.core.presentation.Wt017InitAction"
+            name="WT017Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WT017" />
+            <forward name="error" path="WT017" />
+        </action>
+        
+        <!-- =============================================================== --> 
+        <!-- WT018: コンテナNo表示子画面                                                                                  --> 
+        <!-- =============================================================== --> 
+        <action path="/Wt018Init" 
+            type="com.globaldenso.eca0027.core.presentation.Wt018InitAction" 
+            name="WT018Form" 
+            scope="request" 
+            validate="false">
+            <forward name="success" path="WT018" /> 
+            <forward name="error" path="WT018" /> 
+        </action>
+        
+    </action-mappings>
+</struts-config>

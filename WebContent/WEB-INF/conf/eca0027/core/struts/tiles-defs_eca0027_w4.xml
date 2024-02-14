@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * tiles-defs_eca0027_w4.xml
+ *
+ * Tiles configuration file of AI-J2(Struts)
+ * AI-J2(Struts) の Tiles 設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE tiles-definitions PUBLIC
+            "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+
+    <!-- Individual screen -->
+    <!-- 個別画面 -->
+    <!-- ====================================================================-->
+
+    <!-- Staging instruction main screen -->
+    <!-- 荷揃え指示Main画面 -->
+    <definition name="W4001" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WX001"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W4001.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W4001"/>
+        <put name="js_filepath" value="js/eca0027/core/W4001.js"/>
+    </definition>
+
+    <!-- Staging instruction header screen -->
+    <!-- 荷揃え指示Header画面 -->
+    <definition name="W4002" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W4002"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W4002.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W4002"/>
+        <put name="js_filepath" value="js/eca0027/core/W4002.js"/>
+    </definition>
+
+    <!-- Staging instruction create screen -->
+    <!-- 荷揃え指示Create画面 -->
+    <definition name="W4003" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W4003"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W4003.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W4003"/>
+        <put name="js_filepath" value="js/eca0027/core/W4003.js"/>
+    </definition>
+
+    <!-- Staging instruction register screen -->
+    <!-- 荷揃え指示Register画面 -->
+    <definition name="W4004" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W4004"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W4004.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W4004"/>
+        <put name="js_filepath" value="js/eca0027/core/W4004.js"/>
+    </definition>
+
+    <!-- Staging actuality main screen -->
+    <!-- 山作り実績Main画面 -->
+    <definition name="W4005" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W4005"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W4005.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W4005"/>
+        <put name="js_filepath" value="js/eca0027/core/W4005.js"/>
+    </definition>
+
+    <!-- Staging actuality header screen -->
+    <!-- 山作り実績Header画面 -->
+    <definition name="W4006" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W4006"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W4006.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W4006"/>
+        <put name="js_filepath" value="js/eca0027/core/W4006.js"/>
+    </definition>
+
+    <!-- Staging actuality create screen -->
+    <!-- 山作り実績Create画面 -->
+    <definition name="W4007" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W4007"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W4007.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W4007"/>
+        <put name="js_filepath" value="js/eca0027/core/W4007.js"/>
+    </definition>
+
+    <!-- Staging actuality register screen -->
+    <!-- 山作り実績Register画面 -->
+    <definition name="W4008" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W4008"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W4008.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W4008"/>
+        <put name="js_filepath" value="js/eca0027/core/W4008.js"/>
+    </definition>
+
+</tiles-definitions>

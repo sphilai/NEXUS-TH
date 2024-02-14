@@ -1,0 +1,230 @@
+@charset "utf-8";
+/*
+ * W1001.css
+ * 
+ * CML Main画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+TABLE.gscm_search{
+	width: auto;
+}
+
+.gscm_search .search_shipper_cd {
+    width: auto;
+}
+
+.gscm_search .search_status_cd {
+    width: auto;
+}
+
+.gscm_search .search_consignee_cd {
+    width: auto;
+}
+
+.gscm_search .search_nexus_ship_to {
+    width: auto;
+}
+
+.gscm_search .search_request_no {
+    width: auto;
+}
+
+.gscm_search .search_issuer_cd {
+    width: auto;
+}
+
+.request_Status {
+	width: 170px;
+}
+
+.nexus_ship_to {
+	width: 90px;
+}
+
+.request_no {
+	width: 120px;
+}
+
+/*-------- condition 2 ---------*/
+.gscm_search .search_trns_cd {
+    width: auto;
+}
+
+.gscm_search .search_lst_update_dt_from {
+    width: auto;
+}
+
+.gscm_search .search_lst_update_dt_to {
+    width: auto;
+}
+
+.gscm_search .search_item_no {
+    width: auto;
+}
+
+.gscm_search .search_item_des {
+    width: auto;
+}
+
+.gscm_search .search_cml_no {
+    width: auto;
+}
+
+.gscm_search .search_inv_cat {
+    width: auto;
+}
+.trns_cd{
+	width: 100px;
+}
+.lst_update_dt_from{
+	width: 80px;
+}
+.lst_update_dt_to{
+	width: 80px;
+}
+.item_no{
+	width: 130px;
+}
+.item_des{
+	width: 200px;
+}
+.cml_no{
+	width: 120px;
+}
+.invoice_ctgry{
+	width: 140px;
+}
+
+/*------------- conditon 3 -----------*/
+.gscm_search .search_wh_com_cd {
+    width: 100px;
+}
+
+.gscm_search .search_nexus_wh_cd {
+    width: 100px;
+}
+
+.gscm_search .search_customer_no {
+    width: 100px;
+}
+
+.gscm_search .search_ship_to {
+    width: 100px;
+}
+
+.gscm_search .search_split_prohibit {
+    width: auto;
+}
+
+.wh_cd {
+	width: 50px;
+}
+
+.nexus_wh_cd {
+	width: 40px;
+}
+
+.customer_no {
+	width: 80px;
+}
+
+.ship_to {
+	width: 40px;
+}
+table.gscm_resultlist {
+    width:960px;
+}
+/*------------ 検索結果エリア ------------*/ 
+.gscm_resultlist_button .resultlist_button_duplicate {
+    width: 50px;
+}
+.gscm_resultlist_button .resultlist_button_detail {
+    width: 50px;
+}
+.gscm_resultlist_button .resultlist_button_move_to_register {
+    width: 50px;
+}
+.gscm_resultlist_button .resultlist_button_move_to_pkg {
+    width: 500px;
+}
+
+
+/*------------ 検索結果エリア ------------*/ 
+
+.gscm_resultlist .resultlist_ck {
+    width: 27px;
+}
+
+.gscm_resultlist .resultlist_status {
+    width: 47px;
+}
+
+.gscm_resultlist .resultlist_shipper_cd {
+    width: 56px;
+}
+
+.gscm_resultlist .resultlist_consignee_cd {
+    width: 77px;
+}
+
+.gscm_resultlist .resultlist_nexus_ship_to {
+    width: 70px;
+}
+
+.gscm_resultlist .resultlist_trns_cd {
+    width: 46px;
+}
+
+.gscm_resultlist .resultlist_inv_cat {
+    width: 55px;
+}
+
+.gscm_resultlist .resultlist_request_no {
+    width: 85px;
+}
+
+.gscm_resultlist .resultlist_issuer_name {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_expRequestNo {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_shipperCd {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_consigneeCd {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_shipToCd {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_update_name {
+    width: 100px;
+}
+
+.gscm_resultlist .resultlist_lst_update_dt {
+    width: 105px;
+}
+
+.gscm_resultlist .resultlist_wh_com {
+    width: 85px;
+}
+
+.gscm_resultlist .resultlist_wh_cd {
+    width: 85px;
+}
+
+.gscm_resultlist .resultlist_split_prohibit {
+    width: 58px;
+}
+
+.right {
+    text-align: right !important;
+}
+
+#gscm_wrapper {
+    overflow-y: auto;
+}

@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="L2003" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.1269722013523724"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" mode="Opaque" backcolor="#999999" fill="Solid" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<style name="String" hAlign="Left" vAlign="Middle" pattern="" isBlankWhenNull="true" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<style name="Integer" hAlign="Right" vAlign="Middle" pattern="#,##0" isBlankWhenNull="true" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<style name="Date" hAlign="Left" vAlign="Middle" pattern="yyyy/MM/dd" isBlankWhenNull="true" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<style name="Time" hAlign="Left" vAlign="Middle" pattern="hh:mm:ss" isBlankWhenNull="true" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<style name="F16_左_中央" hAlign="Left" vAlign="Middle" fontName="IPAゴシック" fontSize="16" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<pen lineWidth="1.0"/>
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+	</style>
+	<style name="枠線" fill="Solid" isBlankWhenNull="false" fontName="IPAゴシック" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false">
+		<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<subDataset name="L2003ReportDetailDataSet">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="cmlNo" class="java.lang.String">
+			<fieldDescription><![CDATA[cmlNo]]></fieldDescription>
+		</field>
+		<field name="custItemNoOrModItemNo" class="java.lang.String">
+			<fieldDescription><![CDATA[custItemNoOrModItemNo]]></fieldDescription>
+		</field>
+		<field name="description" class="java.lang.String">
+			<fieldDescription><![CDATA[description]]></fieldDescription>
+		</field>
+		<field name="itemNo" class="java.lang.String">
+			<fieldDescription><![CDATA[itemNo]]></fieldDescription>
+		</field>
+		<field name="rtOrMixTag" class="java.lang.String">
+			<fieldDescription><![CDATA[rtOrMixTag]]></fieldDescription>
+		</field>
+		<field name="pkg" class="java.lang.String">
+			<fieldDescription><![CDATA[pkg]]></fieldDescription>
+		</field>
+		<field name="qty" class="java.lang.String">
+			<fieldDescription><![CDATA[qty]]></fieldDescription>
+		</field>
+		<field name="shippingLot" class="java.lang.String"/>
+		<field name="noOfBox" class="java.lang.String"/>
+		<field name="remarks1" class="java.lang.String">
+			<fieldDescription><![CDATA[remarks1]]></fieldDescription>
+		</field>
+		<field name="remarks2" class="java.lang.String">
+			<fieldDescription><![CDATA[remarks2]]></fieldDescription>
+		</field>
+		<field name="sumNoOfBox" class="java.lang.String">
+			<fieldDescription><![CDATA[sumNoOfBox]]></fieldDescription>
+		</field>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="airFlg" class="java.lang.Boolean"/>
+	<field name="brokenFlg" class="java.lang.Boolean"/>
+	<field name="class" class="java.lang.Class"/>
+	<field name="cmlType" class="java.lang.String"/>
+	<field name="contSortKey" class="java.lang.String"/>
+	<field name="customerItemNo" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="detailList" class="java.util.List"/>
+	<field name="dueDate" class="java.lang.String"/>
+	<field name="gw" class="java.lang.String"/>
+	<field name="instr" class="java.lang.Boolean"/>
+	<field name="issuer" class="java.lang.String"/>
+	<field name="itemNo" class="java.lang.String"/>
+	<field name="ldCd" class="java.lang.String"/>
+	<field name="cmlNo" class="java.lang.String"/>
+	<field name="palletNo" class="java.lang.String"/>
+	<field name="printedDate" class="java.lang.String"/>
+	<field name="qrCdEls" class="java.io.InputStream"/>
+	<field name="qrCdNexus" class="java.io.InputStream"/>
+	<field name="qty" class="java.lang.String"/>
+	<field name="remarks" class="java.lang.String"/>
+	<field name="shipToAbbr" class="java.lang.String"/>
+	<field name="shipTo" class="java.lang.String"/>
+	<field name="shipper" class="java.lang.String"/>
+	<field name="singleFlg" class="java.lang.Boolean"/>
+	<field name="measureUnit" class="java.lang.String"/>
+	<field name="migrationFlg" class="java.lang.String"/>
+	<field name="sumNoOfBox" class="java.lang.String"/>
+	<background>
+		<band height="800" splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="391" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="4" width="300" height="52"/>
+				<textElement>
+					<font fontName="IPAゴシック" size="52" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{contSortKey}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="337" y="8" width="37" height="35"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="24" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ldCd}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="407" y="2" width="64" height="22" forecolor="#FFFFFF" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{instr}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Instr.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="408" y="26" width="53" height="22" forecolor="#FFFFFF" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{airFlg}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[AIR]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="477" y="4" width="75" height="33"/>
+				<textElement>
+					<font fontName="IPAゴシック" size="24" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{palletNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="352" y="50" width="202" height="40"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="36" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{shipToAbbr}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="358" y="90" width="194" height="40"/>
+				<textElement>
+					<font fontName="IPAゴシック" size="10" isBold="true" pdfFontName="IPA Pゴシック" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{shipTo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="111" width="139" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="11" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Customer Item No.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="4" y="130" width="438" height="40"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="38" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{customerItemNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="231" y="190" width="31" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="11" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[QTY]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="274" y="185" width="138" height="31"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="28" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{qty}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="265" y="190" width="9" height="20">
+					<printWhenExpression><![CDATA[$F{brokenFlg}]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[*]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="414" y="192" width="30" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="12" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{measureUnit}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="486" y="35" width="39" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="8" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[CML TYPE]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="528" y="35" width="20" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="8" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cmlType}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="326" y="273" width="65" height="19"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[G/W]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="309" y="281" width="244" height="85"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="40" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{gw}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="176" width="100" height="16"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="IPAゴシック" size="11" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="4" y="193" width="193" height="34"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="IPAゴシック" size="15" isBold="true" pdfFontName="IPA Pゴシック" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="223" y="220" width="100" height="18"/>
+				<textElement>
+					<font fontName="IPAゴシック" size="11" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Item No.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="219" y="238" width="334" height="32"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="IPAゴシック" size="30" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{itemNo}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RealSize" hAlign="Center" vAlign="Middle">
+				<reportElement x="449" y="135" width="105" height="103"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$F{qrCdNexus}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="4" y="226" width="119" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Inspected Date]]></text>
+			</staticText>
+			<line>
+				<reportElement x="6" y="268" width="177" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="107" y="354" width="59" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="8" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Due Date : ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="170" y="354" width="61" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="8" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dueDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="269" width="79" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[<Remarks>]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="4" y="287" width="215" height="73"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="IPAゴシック" size="22" isBold="true" pdfFontName="IPA Pゴシック" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{remarks}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="170" y="275" width="52" height="20">
+					<printWhenExpression><![CDATA[$F{migrationFlg}.equals( "Y" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="8" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[EIS QR]]></text>
+			</staticText>
+			<image scaleImage="RealSize" hAlign="Center" vAlign="Middle">
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="222" y="281" width="86" height="73" backcolor="#FFFFFF"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$F{qrCdEls}]]></imageExpression>
+			</image>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="49" y="367" width="58" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{printedDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="368" width="46" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Printed: ]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="101" y="366" width="402" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="12" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{shipper}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="493" y="366" width="64" height="22"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="IPAゴシック" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{issuer}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="389" width="555" height="1"/>
+			</line>
+			<rectangle>
+				<reportElement x="2" y="57" width="350" height="57"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="6" y="54" width="240" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="11" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Case Mark Label No.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="3" y="72" width="388" height="40"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="38" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cmlNo}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="302" y="216" width="109" height="1"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="66">
+			<textField isBlankWhenNull="true">
+				<reportElement x="445" y="2" width="75" height="10"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page : "+$V{PAGE_NUMBER}+"/"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" isBlankWhenNull="true">
+				<reportElement x="520" y="2" width="29" height="10"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="377" y="37" width="41" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="12" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[-QTY-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="491" y="35" width="58" height="27"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[-Remarks-]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="153" y="8" width="308" height="29"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="15" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<CML No.:" + $F{cmlNo} + ">"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="464" y="35" width="28" height="29"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[-#
+Box-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="8" width="188" height="29"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="20" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Contents List]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="37" width="23" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="9" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[-RT/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="49" width="30" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="9" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ Mix-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="42" width="87" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="11" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[-Description-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="144" y="37" width="125" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="11" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[-Customer Item No.
+ or Model-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="269" y="42" width="105" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="11" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[-Item No.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="35" width="48" height="29"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[-Ship
+ Lot-]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="409" y="8" width="144" height="29"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="15" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Total Box:" + $F{sumNoOfBox}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="3" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<componentElement>
+				<reportElement x="2" y="-5" width="555" height="23"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="L2003ReportDetailDataSet">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{detailList})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="23" width="555">
+						<textField isBlankWhenNull="true">
+							<reportElement x="1" y="3" width="32" height="15"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="IPAゴシック" size="9" isBold="true" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{rtOrMixTag}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="33" y="8" width="113" height="11" backcolor="#FFFFFF"/>
+							<textElement verticalAlignment="Top">
+								<font fontName="IPAゴシック" size="8" isBold="true" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{description}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="144" y="4" width="123" height="15"/>
+							<textElement textAlignment="Left" verticalAlignment="Middle">
+								<font fontName="IPAゴシック" size="11" isBold="true" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{custItemNoOrModItemNo}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="370" y="4" width="40" height="15"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="IPAゴシック" size="10" isBold="true" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{qty}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="267" y="3" width="95" height="16"/>
+							<textElement textAlignment="Left" verticalAlignment="Middle">
+								<font fontName="IPAゴシック" size="11" isBold="true" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{itemNo}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="412" y="4" width="41" height="15"/>
+							<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+								<pen lineWidth="0.0" lineColor="#FFFFFF"/>
+								<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+								<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+								<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+								<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle" lineSpacing="Single">
+								<font fontName="IPAゴシック" size="10" isBold="true" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{shippingLot}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="461" y="4" width="25" height="17"/>
+							<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+								<pen lineWidth="0.0" lineColor="#FFFFFF"/>
+								<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+								<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+								<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+								<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle" lineSpacing="Single">
+								<font fontName="IPAゴシック" size="10" isBold="true" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{noOfBox}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="489" y="1" width="66" height="18" backcolor="#FFFFFF"/>
+							<textElement verticalAlignment="Middle" lineSpacing="Single">
+								<font fontName="IPAゴシック" size="8" isBold="true" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{remarks1}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

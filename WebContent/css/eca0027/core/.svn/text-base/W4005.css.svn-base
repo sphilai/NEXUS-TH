@@ -1,0 +1,96 @@
+@charset "utf-8";
+/*
+ * W4005.css
+ * 
+ * Style sheet used in staging actuality main screen.
+ * 山作り実績Main画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ Search condition area ------------*/ 
+/*------------ 検索条件エリア ------------*/ 
+
+.gscm_search .search_wh_comp_cd {
+    width: 95px;
+}
+.gscm_search .search_wh_cd {
+    width: 97px;
+}
+.gscm_search .search_trns_cd {
+    width: 200px;
+}
+.gscm_search .search_container_sorting_key {
+    width: 115px;
+}
+.gscm_search .search_stg_act_no {
+    width: 225px;
+}
+.gscm_search .search_stg_instr_no {
+}
+
+.gscm_search .search_stg_act_dt_from {
+    width: 120px;
+}
+.gscm_search .search_stg_act_dt_to {
+    width: 125px;
+}
+.gscm_search .search_stg_act_issuer_id {
+    width: 98px;
+}
+.gscm_search .search_shipper_cd {
+    width: 95px;
+}
+.gscm_search .search_xmain_mark {
+    width: 200px;
+}
+.gscm_search .search_main_mark {
+}
+
+.xmain_mark {
+    width: 178px;
+}
+.main_mark {
+    width: 178px;
+}
+
+/*------------ Search result area ------------*/ 
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 960px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 37px;
+}
+.gscm_resultlist .resultlist_wh_comp_cd {
+    width: 76px;
+}
+.gscm_resultlist .resultlist_wh_cd {
+    width: 59px;
+}
+.gscm_resultlist .resultlist_trns_cd {
+    width: 60px;
+}
+.gscm_resultlist .resultlist_container_sorting_key {
+    width: 95px;
+}
+.gscm_resultlist .resultlist_stg_act_no {
+    width: 195px;
+}
+.gscm_resultlist .resultlist_stg_act_dt {
+    width: 75px;
+}
+.gscm_resultlist .resultlist_stg_act_issuer_nm {
+    width: 225px;
+}
+.gscm_resultlist .resultlist_etd {
+    width: 75px;
+}
+.gscm_resultlist .resultlist_carrier_comp_cd {
+}
+
+.gscm_resultlist .stg_act_issuer_nm {
+    width: 215px;
+}

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * applicationContext-ECA0027T0100.xml
+ * 
+ * バッチジョブ「ECA0027T0100 不要データ削除」のspring設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:aop="http://www.springframework.org/schema/aop"
+ xmlns:tx="http://www.springframework.org/schema/tx"
+ xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!-- 必ず記載して下さい。AI-JBの設定です。 -->
+    <import resource="classpath:applicationContext-aijb-job.xml" />
+    
+    <!-- SACT -->
+    <import resource="classpath:applicationContext-service_auto.xml" />
+    <import resource="classpath:applicationContext-dao_auto.xml" />
+
+    <import resource="classpath:applicationContext-aijb-service_auto.xml" />
+    <import resource="classpath:applicationContext-aijb-dao_auto.xml" />
+
+    <!-- 親JOBの定義です。各業務毎に記載し必須です。JobBase.javaをextendsしたクラスです。 -->
+    <bean id="parentJob"
+	class="com.globaldenso.ai.aijb.core.job.jobbase.SimpleParentJob">
+    </bean>
+
+    <!-- 子JOBの定義です。 各業務毎に記載し必須です。ChildBase.javaをextendsしたクラスです。必ず1個の子JOBが必要です。-->
+    <bean id="childJobBase1"
+        class="com.globaldenso.eca0027.core.job.ECA0027T0100ChildJob01">
+
+        <!-- 子JOBのIDです。実行順です。必ず1から1加算で順番に付与して下さい。欠番は不可です。 -->
+        <property name="childJobId">
+            <value>1</value>
+        </property>
+
+        <!-- 子JOBの名称です。子JOBの名称を半角英数で付与して下さい。JOB内で実行する子JOBで一意としてください。 -->
+        <property name="childJobName">
+            <value>"ECA0027T0100ChildJob01"</value>
+        </property>
+
+        <!-- 不要データ削除用サービス -->
+        <property name="comnAuxService" ref="comnAuxService" />
+    </bean>
+
+    <!-- ジョブ制御クラスです。必ず記載して下さい。 -->
+    <bean id="parentExtend" parent="parent">
+        <!-- 実行するジョブクラスへの参照です。 -->
+        <property name="parentJob" ref="parentJob" />
+        <!-- 実行する子ジョブクラスへの参照です。実行順に記載して下さい。 -->
+        <property name="listChild">
+            <list>
+                <ref bean="childJobBase1" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="comnAuxService" class="com.globaldenso.eca0027.core.business.service.ComnAuxServiceImpl">
+        <property name="ttScAttachedService"         ref="ttScAttachedService" />
+        <property name="ttScHeaderService"           ref="ttScHeaderService" />
+        <property name="ttPackAtchItemNoService"     ref="ttPackAtchItemNoService" />
+        <property name="ttPackingAttachedCmlService" ref="ttPackingAttachedCmlService" />
+        <property name="ttPackingHeadService"        ref="ttPackingHeadService" />
+        <property name="ttInvoiceAttachedService"    ref="ttInvoiceAttachedService" />
+        <property name="ttInvoiceHeaderService"      ref="ttInvoiceHeaderService" />
+        <property name="ttShippingDocumentService"   ref="ttShippingDocumentService" />
+        <property name="ttInvoiceService"            ref="ttInvoiceService" />
+        <property name="ttShippingActOdrService"     ref="ttShippingActOdrService" />
+        <property name="ttShippingActService"        ref="ttShippingActService" />
+        <property name="twShippingActInvoiceService" ref="twShippingActInvoiceService" />
+        <property name="comnAuxDao"                  ref="comnAuxDao" />
+    </bean>
+
+    <bean id="comnAuxDao" class="com.globaldenso.eca0027.core.integration.ComnAuxDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+</beans>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ *    log4jServer.xml
+ *    
+ * [JP]    Log4j Socket Server 設定ファイルです。(バッチの複数プロセス対応)
+ * [JP]
+ * [JP]    本番/開発環境用の log4j 設定ファイルです。
+ * [JP]
+ * [JP]    AI-JB は複数のプロセスが同時に実行されるため、この Socket Server を経由して
+ * [JP]    すべてのログを出力します。
+ * [JP]    出力ファイルサイズ軽減のため、標準出力はしていないので注意してください。
+ * [JP]
+ * [JP]    システムログ( aijbSys.log )は JP1 監視対象のため、ログローテーションを行わ
+ * [JP]    ない設定になっています。(変更不可)
+ * [JP]    その他のログはローテーションを行う設定です。
+ * [JP]    ローテーションのサイズ等はアプリごとで適切な値を設定してください。
+ *    
+ * [EN]    This is a configuration file for Log4j Socket Server. (For multiple processes of the batch)
+ * [EN]
+ * [EN]    It is a log4j configuration file for the production environment / development machine.
+ * [EN]
+ * [EN]    Because multiple processes are executed at the same time, 
+ * [EN]    AI-JB prints a log of all this through the Socket Server.
+ * [EN]    Please note that in order to reduce output file size, does not have the standard output.
+ * [EN]
+ * [EN]    In order to JP1 monitor, system logging (aijbSys.log) is configured to not perform log rotation.
+ * [EN]    (Do not change)
+ * [EN]    Other logs are set to perform the rotation.
+ * [EN]    Please set the appropriate value in each app, such as the size of the rotation.
+ *    
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE log4j:configuration SYSTEM "./log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!-- Appender ========================================================== -->
+    <!-- [JP] AI-JB ジョブ アプリケーションログ (サイズローテーション) -->
+    <!-- [EN] AI-JB job application log (size rotation) -->
+    <appender name="app_file_roll"
+        class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="/data/AIJB/logs/aijbApp.log" />
+        <param name="MaxFileSize" value="30MB" />
+        <param name="MaxBackupIndex" value="10" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[APP] [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="DEBUG" />
+            <param name="LevelMax" value="INFO" />
+        </filter>
+    </appender>
+
+    <!-- [JP] AI-JB ジョブ システムログ (固定出力) -->
+    <!-- [EN] AI-JB job system log (fixed output) -->
+    <appender name="sys_file_fix" class="org.apache.log4j.FileAppender">
+        <param name="File" value="/data/AIJB/logs/aijbSys.log" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[SYS] [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] [%C{1}.%M] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="WARN" />
+            <param name="LevelMax" value="FATAL" />
+        </filter>
+    </appender>
+    
+    <!-- [JP] AI-JB ジョブ プロセスIDログ (固定出力) -->
+    <!-- [EN] AI-JB job log process ID (fixed output) -->
+    <appender name="pid_file_fix" class="org.apache.log4j.FileAppender">
+        <param name="File" value="/data/AIJB/logs/aijbPid.log" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[SYS] [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="INFO" />
+            <param name="LevelMax" value="INFO" />
+        </filter>
+    </appender>
+
+    <!-- [JP] AI-JB Log Server ログ (固定出力) -->
+    <!-- [EN] AI-JB Log Server Log (fixed output) -->
+    <appender name="logserver_file_fix" class="org.apache.log4j.FileAppender">
+        <param name="File" value="/data/AIJB/logs/aijbLogServer.log" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[SYS] [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="INFO" />
+            <param name="LevelMax" value="FATAL" />
+        </filter>
+    </appender>
+
+    <!-- ============================================================ Logger -->
+    <!-- [JP] アプリ基盤 -->
+    <!-- [EN] Application Development Infrastructure -->
+     <logger name="com.globaldenso.ai" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_fix" />
+     </logger>
+
+    <!-- [JP] AI-JB プロセスID出力  -->
+    <!-- [EN] AI-JB output process ID  -->
+    <logger name="com.globaldenso.ai.aijb.core.util.ProcessId" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="pid_file_fix" />
+    </logger>
+
+    <!-- [JP] AI-JB ログサーバ  -->
+    <!-- [EN] AI-JB log server  -->
+    <logger name="com.globaldenso.ai.aijb.core.util.AijbLogServer" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="logserver_file_fix" />
+    </logger>
+
+    <!-- [JP] Spring Framework トランザクション情報出力 -->
+    <!-- [EN] Spring Framework transaction information output -->
+    <logger name="org.springframework.transaction" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_fix" />
+    </logger>
+
+    <!-- [JP] iBATIS SQL情報出力  -->
+    <!-- [EN] information output iBATIS SQL -->
+    <logger name="java.sql.Connection" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_fix" />
+    </logger>
+
+    <logger name="java.sql.PreparedStatement" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_fix" />
+    </logger>
+
+    <logger name="java.sql.Statement" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_fix" />
+    </logger>
+
+    <!-- [JP] 経過情報出力 -->
+    <!-- [EN] Progress infomation log output -->
+    <logger name="com.globaldenso.eca0027.core.business.service.JbEdiRcvOdrServiceImpl" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_fix" />
+    </logger>
+    <logger name="com.globaldenso.eca0027.core.business.service.JbOdrUploadServiceImpl" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_fix" />
+    </logger>
+
+    <!-- ============================================================== Root -->
+    <root>
+        <level value="ERROR" />
+        <appender-ref ref="sys_file_fix" />
+    </root>
+
+</log4j:configuration>

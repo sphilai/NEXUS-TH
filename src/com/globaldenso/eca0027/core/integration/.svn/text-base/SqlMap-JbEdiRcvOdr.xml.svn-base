@@ -1,0 +1,1713 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-JbEdiRcvOdr.xml
+ *
+ * JbEdiRcvOdrDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="JbEdiRcvOdr">
+
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="B0100EdiRcvOdrDomain"
+        type="com.globaldenso.eca0027.core.business.domain.B0100EdiRcvOdrDomain" />
+    <typeAlias alias="TtEdiRcvOdrReportDomain"
+        type="com.globaldenso.eca0027.core.auto.business.domain.TtEdiRcvOdrReportDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="TtEdiRcvOdrReportCriteriaDomain"
+        type="com.globaldenso.eca0027.core.auto.business.domain.criteria.TtEdiRcvOdrReportCriteriaDomain" />
+
+    <!-- 検索結果をMapで受け取る -->
+    <!-- 情報送信日、追加/変更区分 -->
+    <resultMap id="Map_SearchEdiOdrTransmissionDt" class="java.util.HashMap">
+        <result property="transmissionDt" column="TRANSMISSION_DT" javaType="java.util.Date" />
+        <result property="addOrChgTyp" column="ADD_OR_CHG_TYP" javaType="java.lang.String" />
+    </resultMap>
+    <!-- CIGMA側受信チェックデータ検索用 -->
+    <resultMap id="B0100EdiRcvOdrDomain_SearchCheckEdiOdrCigmaSide" class="B0100EdiRcvOdrDomain">
+        <result property="rcvOdrCompCd" column="RCV_ODR_COMP_CD" />
+        <result property="customerSubsidiaryCd" column="CUSTOMER_SUBSIDIARY_CD" />
+        <result property="transmissionDt" column="TRANSMISSION_DT" />
+        <result property="odrTyp" column="ODR_TYP" />
+        <result property="serialNo" column="SERIAL_NO" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="customerItemNoOrg" column="CUSTOMER_ITEM_NO_ORG" />
+        <result property="odrCtrlNo" column="ODR_CTRL_NO" />
+        <result property="revisionNo" column="REVISION_NO" />
+        <result property="revisionNoEis" column="REVISION_NO_EIS" />
+        <result property="odrChgTyp" column="ODR_CHG_TYP" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="customerDueDt" column="CUSTOMER_DUE_DT" />
+        <result property="etdDueDt" column="ETD_DUE_DT" />
+        <result property="odrFirmFlg" column="ODR_FIRM_FLG" />
+        <result property="odrQty" column="ODR_QTY" />
+        <result property="supplierCd" column="SUPPLIER_CD" />
+        <result property="customerPlntCd" column="CUSTOMER_PLNT_CD" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="shippingDt" column="SHIPPING_DT" />
+        <result property="lvl1ErrCdList" column="LVL1_ERR_CD_LIST" />
+        <result property="lvl2ErrCdList" column="LVL2_ERR_CD_LIST" />
+        <result property="lvl3ErrCdList" column="LVL3_ERR_CD_LIST" />
+        <result property="lvl3WarnCdList" column="LVL3_WARN_CD_LIST" />
+        <result property="errorTyp" column="ERROR_TYP" />
+    </resultMap>
+    <!-- NEXUS側受信チェック検索用 -->
+    <resultMap id="B0100EdiRcvOdrDomain_SearchCheckEdiOdrNxsSide" class="B0100EdiRcvOdrDomain">
+        <result property="rcvOdrCompCd" column="RCV_ODR_COMP_CD" />
+        <result property="customerSubsidiaryCd" column="CUSTOMER_SUBSIDIARY_CD" />
+        <result property="transmissionDt" column="TRANSMISSION_DT" />
+        <result property="odrTyp" column="ODR_TYP" />
+        <result property="serialNo" column="SERIAL_NO" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="customerItemNoOrg" column="CUSTOMER_ITEM_NO_ORG" />
+        <result property="odrCtrlNo" column="ODR_CTRL_NO" />
+        <result property="revisionNo" column="REVISION_NO" />
+        <result property="revisionNoEis" column="REVISION_NO_EIS" />
+        <result property="odrChgTyp" column="ODR_CHG_TYP" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="customerDueDt" column="CUSTOMER_DUE_DT" />
+        <result property="etdDueDt" column="ETD_DUE_DT" />
+        <result property="odrFirmFlg" column="ODR_FIRM_FLG" />
+        <result property="odrQty" column="ODR_QTY" />
+        <result property="supplierCd" column="SUPPLIER_CD" />
+        <result property="customerPlntCd" column="CUSTOMER_PLNT_CD" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="shippingDt" column="SHIPPING_DT" />
+        <result property="lvl1ErrCdList" column="LVL1_ERR_CD_LIST" />
+        <result property="lvl2ErrCdList" column="LVL2_ERR_CD_LIST" />
+        <result property="lvl3ErrCdList" column="LVL3_ERR_CD_LIST" />
+        <result property="lvl3WarnCdList" column="LVL3_WARN_CD_LIST" />
+        <result property="errorTyp" column="ERROR_TYP" />
+        <result property="pltzAllocQty" column="PLTZ_ALLOC_QTY" />
+        <result property="shippedQty" column="SHIPPED_QTY" />
+        <result property="oldOdrQty" column="OLD_ODR_QTY" />
+        <result property="oldCustomerPoNo" column="OLD_CUSTOMER_PO_NO" />
+        <result property="oldTrnsCd" column="OLD_TRNS_CD" />
+        <result property="oldEtdDueDt" column="OLD_ETD_DUE_DT" />
+        <result property="oldOdrFirmFlg" column="OLD_ODR_FIRM_FLG" />
+        <result property="oldCustomerDueDt" column="OLD_CUSTOMER_DUE_DT" />
+        <result property="existExpRcvOdrFlg" column="EXIST_EXP_RCV_ODR_FLG" />
+        <result property="existItemSpInfoFlg" column="EXIST_ITEM_SP_INFO_FLG" />
+        <result property="existFormalitiItemFlg" column="EXIST_FORMALITI_ITEM_FLG" />
+        <result property="lastDigitChgFlg" column="LAST_DIGIT_CHG_FLG" />
+        <result property="shippingLot" column="SHIPPING_LOT" />
+    </resultMap>
+    <!-- EDI受注エラーレポートのヘッダ情報 -->
+    <resultMap id="TtEdiRcvOdrReport_SearchEdiRcvOdrReportHeader" class="TtEdiRcvOdrReportDomain">
+        <result property="customerSubsidiaryCd" column="CUSTOMER_SUBSIDIARY_CD" />
+        <result property="transmissionDt" column="TRANSMISSION_DT" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="plntCd" column="PLNT_CD" />
+    </resultMap>
+
+    <!--
+    ==================================================================
+    == Information transmission date,
+    ==  get the information for controlling the processing order in the Add / Modify piecewise
+    == 情報送信日、追加/変更区分単位で処理順を制御するための情報を取得
+    ==================================================================
+    -->
+    <select id="SearchEdiOdrTransmissionDt" resultMap="Map_SearchEdiOdrTransmissionDt"
+        parameterClass="java.util.Map">
+
+        select
+        /* SqlMap-JbEdiRcvOdr.SearchEdiOdrTransmissionDt */
+        distinct
+            TRANSMISSION_DT,
+            decode(ODR_CHG_TYP, '1', 'ADD', 'CHG') ADD_OR_CHG_TYP
+        from
+        <isEqual property="rtryFlg" compareValue="N">
+            TT_EDI_RCV_ODR
+        </isEqual>
+        <isEqual property="rtryFlg" compareValue="Y">
+            TT_EDI_RCV_ODR_RTRY
+        </isEqual>
+        where
+            RCV_ODR_COMP_CD = #rcvOdrCompCd#
+        order by
+            TRANSMISSION_DT,
+            ADD_OR_CHG_TYP
+    </select>
+
+    <!--
+    ==================================================================
+    == Clear error code
+    == エラーコードのクリア
+    ==================================================================
+    -->
+    <update id="UpdateClearErrorEdiOdr" parameterClass="java.util.Map">
+        update
+        /* SqlMap-JbEdiRcvOdr.UpdateClearErrorEdiOdr */
+        <isEqual property="rtryFlg" compareValue="N">
+            TT_EDI_RCV_ODR
+        </isEqual>
+        <isEqual property="rtryFlg" compareValue="Y">
+            TT_EDI_RCV_ODR_RTRY
+        </isEqual>
+        set
+                LVL1_ERR_CD_LIST = NULL
+            ,   LVL2_ERR_CD_LIST = NULL
+            ,   LVL3_ERR_CD_LIST = NULL
+            ,   LVL3_WARN_CD_LIST = NULL
+            ,   ERROR_TYP = '0'
+            ,   COM_UPDATE_FUNC_ID = 'B0100'
+            ,   COM_UPDATE_USER_ID = '0'
+            ,   COM_UPDATE_TIMESTAMP = SYSDATE
+        where
+            RCV_ODR_COMP_CD = #rcvOdrCompCd#
+    </update>
+
+    <!--
+    ==================================================================
+    == Forecast order Register the deleted record to export orders update
+    == 内示削除対象レコードを輸出受注更新へ登録
+    ==================================================================
+    -->
+    <insert id="CreateExpOdrUpdByForecastEdi" parameterClass="java.util.Map">
+        insert
+        /* SqlMap-JbEdiRcvOdr.CreateExpOdrUpdByForecastEdi */
+        into TT_EXP_RCV_ODR_UPD (
+                RCV_ODR_COMP_CD
+            ,   CUSTOMER_SUBSIDIARY_CD
+            ,   TRANSMISSION_DT
+            ,   ODR_TYP
+            ,   SERIAL_NO
+            ,   CUSTOMER_CD
+            ,   LGCY_SHIP_TO
+            ,   CUSTOMER_ITEM_NO_ORG
+            ,   ODR_CTRL_NO
+            ,   REVISION_NO
+            ,   REVISION_NO_EIS
+            ,   ITEM_NO
+            ,   PKG_CD
+            ,   SHIPPING_DT
+            ,   PLTZ_ALLOC_QTY
+            ,   SHIPPED_QTY
+            ,   PARTIAL_DELIV_CNT
+            ,   ODR_QTY_ORG
+            ,   SALES_COMP_PO_NO
+            ,   UPDATE_TYP
+            ,   OLD_CUSTOMER_DUE_DT
+            ,   OLD_ETD_DUE_DT
+            ,   OLD_ODR_QTY
+            ,   OLD_TRNS_CD
+            ,   OLD_CUSTOMER_PO_NO
+            ,   OLD_ODR_FIRM_FLG
+            ,   OLD_CUSTOMER_ITEM_NO
+            ,   NEW_CUSTOMER_DUE_DT
+            ,   NEW_ETD_DUE_DT
+            ,   NEW_ODR_QTY
+            ,   NEW_TRNS_CD
+            ,   NEW_CUSTOMER_PO_NO
+            ,   NEW_ODR_FIRM_FLG
+            ,   NEW_CUSTOMER_ITEM_NO
+            ,   COM_UPDATE_FUNC_ID
+            ,   COM_UPDATE_USER_ID
+            ,   COM_UPDATE_TIMESTAMP
+            ,   COM_CREATE_FUNC_ID
+            ,   COM_CREATE_USER_ID
+            ,   COM_CREATE_TIMESTAMP
+        )
+        select
+                T1.RCV_ODR_COMP_CD
+            ,   NULL CUSTOMER_SUBSIDIARY_CD
+            ,   #transmissionDt# TRANSMISSION_DT
+            ,   '1' ODR_TYP
+            ,   0
+            ,   T1.CUSTOMER_CD
+            ,   T1.LGCY_SHIP_TO
+            ,   T1.CUSTOMER_ITEM_NO_ORG
+            ,   T1.ODR_CTRL_NO
+            ,   T1.REVISION_NO
+            ,   T1.REVISION_NO_EIS
+            ,   T1.ITEM_NO
+            ,   T1.PKG_CD
+            ,   NULL SHIPPING_DT
+            ,   T1.PLTZ_ALLOC_QTY
+            ,   T1.SHIPPED_QTY
+            ,   T1.PARTIAL_DELIV_CNT
+            ,   T1.ODR_QTY_ORG
+            ,   NULL SALES_COMP_PO_NO
+            ,   '3' UPDATE_TYP
+            ,   T1.CUSTOMER_DUE_DT  OLD_CUSTOMER_DUE_DT
+            ,   T1.ETD_DUE_DT       OLD_ETD_DUE_DT
+            ,   T1.ODR_QTY          OLD_ODR_QTY
+            ,   T1.TRNS_CD          OLD_TRNS_CD
+            ,   T1.CUSTOMER_PO_NO   OLD_CUSTOMER_PO_NO
+            ,   T1.ODR_FIRM_FLG     OLD_ODR_FIRM_FLG
+            ,   T1.CUSTOMER_ITEM_NO OLD_CUSTOMER_ITEM_NO
+            ,   NULL                NEW_CUSTOMER_DUE_DT
+            ,   NULL                NEW_ETD_DUE_DT
+            ,   NULL                NEW_ODR_QTY
+            ,   NULL                NEW_TRNS_CD
+            ,   NULL                NEW_CUSTOMER_PO_NO
+            ,   NULL                NEW_ODR_FIRM_FLG
+            ,   NULL                NEW_CUSTOMER_ITEM_NO
+            ,   'B0100'
+            ,   '0'
+            ,   SYSDATE
+            ,   'B0100'
+            ,   '0'
+            ,   SYSDATE
+        from
+            TT_EXP_RCV_ODR T1
+        where
+                T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and T1.ODR_FIRM_FLG = 'N'
+            and exists (
+                select 'X'
+                from TT_EDI_RCV_ODR T2
+                where
+                        T2.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    and T2.TRANSMISSION_DT = #transmissionDt#
+                    and T2.ODR_TYP = '1'
+                    and T2.RCV_ODR_COMP_CD = T1.RCV_ODR_COMP_CD
+                    and T2.CUSTOMER_CD = T1.CUSTOMER_CD
+                    and T2.LGCY_SHIP_TO = T1.LGCY_SHIP_TO
+            )
+        order by
+                T1.CUSTOMER_CD
+            ,   T1.LGCY_SHIP_TO
+            ,   T1.CUSTOMER_ITEM_NO_ORG
+            ,   T1.ODR_CTRL_NO
+    </insert>
+
+    <!--
+    ==================================================================
+    == To remove the forecast order from export orders for laundering
+    == 洗い替えのため輸出受注から内示を削除
+    ==================================================================
+    -->
+    <delete id="DeleteExpOdrForecastByOrgEdi" parameterClass="java.util.Map">
+        delete
+        /* SqlMap-JbEdiRcvOdr.DeleteExpOdrForecastByOrgEdi */
+        from
+            TT_EXP_RCV_ODR T1
+        where
+                T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and T1.ODR_FIRM_FLG = 'N'
+            and exists (
+                select 'X'
+                from TT_EDI_RCV_ODR T2
+                where
+                        T2.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    and T2.TRANSMISSION_DT = #transmissionDt#
+                    and T2.ODR_TYP = '1'
+                    and T2.RCV_ODR_COMP_CD = T1.RCV_ODR_COMP_CD
+                    and T2.CUSTOMER_CD = T1.CUSTOMER_CD
+                    and T2.LGCY_SHIP_TO = T1.LGCY_SHIP_TO
+            )
+    </delete>
+
+    <!--
+    ==================================================================
+    == To remove the forecast order from retry for laundering
+    == 洗い替えのため持ち回りから内示を削除。
+    ==================================================================
+    -->
+    <delete id="DeleteEdiOdrRtryForecastByOrgEdi" parameterClass="java.util.Map">
+        delete
+        /* SqlMap-JbEdiRcvOdr.DeleteEdiOdrRtryForecastByOrgEdi */
+        from
+            TT_EDI_RCV_ODR_RTRY T1
+        where
+                T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and T1.ODR_FIRM_FLG = 'N'
+            and exists (
+                select 'X'
+                from TT_EDI_RCV_ODR T2
+                where
+                        T2.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    and T2.TRANSMISSION_DT = #transmissionDt#
+                    and T2.ODR_TYP = '1'
+                    and T2.RCV_ODR_COMP_CD = T1.RCV_ODR_COMP_CD
+                    and T2.CUSTOMER_SUBSIDIARY_CD = T1.CUSTOMER_SUBSIDIARY_CD
+                    and T2.SUPPLIER_CD = T1.SUPPLIER_CD
+                    and T2.CUSTOMER_PLNT_CD = T1.CUSTOMER_PLNT_CD
+            )
+    </delete>
+
+    <!--
+    ==================================================================
+    == Data retrieval to pass to CIGMA side check processing
+    == CIGMA側チェック処理に渡すデータ検索
+    ==================================================================
+    -->
+    <select id="SearchCheckEdiOdrCigmaSide" resultMap="B0100EdiRcvOdrDomain_SearchCheckEdiOdrCigmaSide"
+        parameterClass="java.util.Map">
+
+        select
+        /* SqlMap-JbEdiRcvOdr.SearchCheckEdiOdrCigmaSide */
+                T1.RCV_ODR_COMP_CD
+            ,   T1.CUSTOMER_SUBSIDIARY_CD
+            ,   T1.TRANSMISSION_DT
+            ,   T1.ODR_TYP
+            ,   T1.SERIAL_NO
+            ,   T1.CUSTOMER_CD
+            ,   T1.LGCY_SHIP_TO
+            ,   T1.CUSTOMER_ITEM_NO_ORG
+            ,   T1.ODR_CTRL_NO
+            ,   T1.REVISION_NO
+            ,   T1.REVISION_NO_EIS
+            ,   T1.ODR_CHG_TYP
+            ,   T1.CUSTOMER_PO_NO
+            ,   T1.TRNS_CD
+            ,   T1.CUSTOMER_DUE_DT
+            ,   T1.ETD_DUE_DT
+            ,   T1.ODR_FIRM_FLG
+            ,   T1.ODR_QTY
+            ,   T1.SUPPLIER_CD
+            ,   T1.CUSTOMER_PLNT_CD
+            ,   T1.ITEM_NO
+            ,   T1.PKG_CD
+            ,   T1.ITEM_DESCRIPTION
+            ,   T1.PLNT_CD
+            ,   T1.SHIPPING_DT
+            ,   T1.LVL1_ERR_CD_LIST
+            ,   T1.LVL2_ERR_CD_LIST
+            ,   T1.LVL3_ERR_CD_LIST
+            ,   T1.LVL3_WARN_CD_LIST
+            ,   T1.ERROR_TYP
+        from
+            <isEqual property="rtryFlg" compareValue="N">
+                TT_EDI_RCV_ODR T1
+            </isEqual>
+            <isEqual property="rtryFlg" compareValue="Y">
+                TT_EDI_RCV_ODR_RTRY T1
+            </isEqual>
+        where
+                T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and T1.TRANSMISSION_DT = #transmissionDt#
+            <isEqual property="addOrChgTyp" compareValue="ADD">
+            and T1.ODR_CHG_TYP = '1'
+            </isEqual>
+            <isEqual property="addOrChgTyp" compareValue="CHG">
+            and T1.ODR_CHG_TYP != '1'
+            </isEqual>
+        order by
+                T1.CUSTOMER_SUBSIDIARY_CD
+            ,   T1.ODR_TYP
+            ,   T1.SERIAL_NO
+    </select>
+
+    <!--
+    ==================================================================
+    == NEXUS side org or add check processing
+    - NEXUS側org or addチェック処理
+    ==================================================================
+    -->
+    <select id="SearchCheckEdiOdrAddTypNxsSide" resultMap="B0100EdiRcvOdrDomain_SearchCheckEdiOdrNxsSide"
+        parameterClass="java.util.Map">
+
+        select
+        /* SqlMap-JbEdiRcvOdr.SearchCheckEdiOdrAddTypNxsSide */
+                T1.RCV_ODR_COMP_CD
+            ,   T1.CUSTOMER_SUBSIDIARY_CD
+            ,   T1.TRANSMISSION_DT
+            ,   T1.ODR_TYP
+            ,   T1.SERIAL_NO
+            ,   T1.CUSTOMER_CD
+            ,   T1.LGCY_SHIP_TO
+            ,   T1.CUSTOMER_ITEM_NO_ORG
+            ,   T1.ODR_CTRL_NO
+            ,   T1.REVISION_NO
+            ,   T1.REVISION_NO_EIS
+            ,   T1.ODR_CHG_TYP
+            ,   T1.CUSTOMER_PO_NO
+            ,   T1.TRNS_CD
+            ,   T1.CUSTOMER_DUE_DT
+            ,   T1.ETD_DUE_DT
+            ,   T1.ODR_FIRM_FLG
+            ,   T1.ODR_QTY
+            ,   T1.SUPPLIER_CD
+            ,   T1.CUSTOMER_PLNT_CD
+            ,   T1.ITEM_NO
+            ,   T1.PKG_CD
+            ,   T1.ITEM_DESCRIPTION
+            ,   T1.PLNT_CD
+            ,   T1.SHIPPING_DT
+            ,   T1.LVL1_ERR_CD_LIST
+            ,   T1.LVL2_ERR_CD_LIST
+            ,   T1.LVL3_ERR_CD_LIST
+            ,   T1.LVL3_WARN_CD_LIST
+            ,   T1.ERROR_TYP
+            ,   NULL PLTZ_ALLOC_QTY
+            ,   NULL SHIPPED_QTY
+            ,   NULL OLD_ODR_QTY
+            ,   NULL OLD_CUSTOMER_PO_NO
+            ,   NULL OLD_TRNS_CD
+            ,   NULL OLD_ETD_DUE_DT
+            ,   NULL OLD_ODR_FIRM_FLG
+            ,   NULL OLD_CUSTOMER_DUE_DT
+            ,
+            (
+                case
+                    when exists (
+                        select 'X'
+                        from
+                            TT_EXP_RCV_ODR T2
+                        where
+                                T1.RCV_ODR_COMP_CD = T2.RCV_ODR_COMP_CD
+                            and T1.CUSTOMER_CD = T2.CUSTOMER_CD
+                            and T1.LGCY_SHIP_TO = T2.LGCY_SHIP_TO
+                            and T1.CUSTOMER_ITEM_NO_ORG = T2.CUSTOMER_ITEM_NO_ORG
+                            and T1.ODR_CTRL_NO = T2.ODR_CTRL_NO
+                    ) then 'Y' else 'N'
+                end
+            ) EXIST_EXP_RCV_ODR_FLG
+            ,   decode(T3.RCV_ODR_COMP_CD, NULL, 'N', 'Y') EXIST_ITEM_SP_INFO_FLG
+            ,   decode(T4.RCV_ODR_COMP_CD, NULL, 'N', 'Y') EXIST_FORMALITI_ITEM_FLG
+            ,   NULL LAST_DIGIT_CHG_FLG
+            ,   T3.SHIPPING_LOT
+        from
+            <isEqual property="rtryFlg" compareValue="N">
+                TT_EDI_RCV_ODR T1
+            </isEqual>
+            <isEqual property="rtryFlg" compareValue="Y">
+                TT_EDI_RCV_ODR_RTRY T1
+            </isEqual>
+            ,
+            (
+                select
+                /*+ use_hash(T1 T2) */
+                        T1.RCV_ODR_COMP_CD
+                    ,   T1.CUSTOMER_SUBSIDIARY_CD
+                    ,   T1.TRANSMISSION_DT
+                    ,   T1.ODR_TYP
+                    ,   T1.SERIAL_NO
+                    ,   T2.SHIPPING_LOT
+                from
+                    <isEqual property="rtryFlg" compareValue="N">
+                        TT_EDI_RCV_ODR T1
+                    </isEqual>
+                    <isEqual property="rtryFlg" compareValue="Y">
+                        TT_EDI_RCV_ODR_RTRY T1
+                    </isEqual>
+                    ,   TM_EXP_ITEM_NO_SP_INFO T2
+                where
+                        T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    and T1.TRANSMISSION_DT = #transmissionDt#
+                    and T1.ODR_CHG_TYP = '1'
+                    and T1.RCV_ODR_COMP_CD = T2.COMP_CD
+                    and T1.ITEM_NO = T2.ITEM_NO
+                    and T2.PKG_CD = ' '
+                    and T1.CUSTOMER_CD = T2.CUSTOMER_CD
+                    and T1.LGCY_SHIP_TO = T2.LGCY_SHIP_TO
+                    and T2.APLY_STRT_DT = (
+                        select
+                            max(T2MAX.APLY_STRT_DT)
+                        from
+                            TM_EXP_ITEM_NO_SP_INFO T2MAX
+                        where
+                                T2MAX.COMP_CD = T2.COMP_CD
+                            and T2MAX.ITEM_NO = T2.ITEM_NO
+                            and T2MAX.PKG_CD = T2.PKG_CD
+                            and T2MAX.CUSTOMER_CD = T2.CUSTOMER_CD
+                            and T2MAX.LGCY_SHIP_TO = T2.LGCY_SHIP_TO
+                            and T2MAX.APLY_STRT_DT <![CDATA[ <= ]]> T1.ETD_DUE_DT
+                    )
+            ) T3
+            ,
+            (
+                select
+                /*+ use_hash(T1 T2) */
+                        T1.RCV_ODR_COMP_CD
+                    ,   T1.CUSTOMER_SUBSIDIARY_CD
+                    ,   T1.TRANSMISSION_DT
+                    ,   T1.ODR_TYP
+                    ,   T1.SERIAL_NO
+                from
+                    <isEqual property="rtryFlg" compareValue="N">
+                        TT_EDI_RCV_ODR T1
+                    </isEqual>
+                    <isEqual property="rtryFlg" compareValue="Y">
+                        TT_EDI_RCV_ODR_RTRY T1
+                    </isEqual>
+                    ,   TM_EXP_FORMALITI_ITEM_NO T2
+                where
+                        T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    and T1.TRANSMISSION_DT = #transmissionDt#
+                    and T1.ODR_CHG_TYP = '1'
+                    and T1.RCV_ODR_COMP_CD = T2.COMP_CD
+                    and T1.ITEM_NO = T2.ITEM_NO
+                    and T2.APLY_STRT_DT = (
+                        select
+                            max(T2MAX.APLY_STRT_DT)
+                        from
+                            TM_EXP_FORMALITI_ITEM_NO T2MAX
+                        where
+                                T2MAX.COMP_CD = T2.COMP_CD
+                            and T2MAX.ITEM_NO = T2.ITEM_NO
+                            and T2MAX.APLY_STRT_DT <![CDATA[ <= ]]> T1.ETD_DUE_DT
+                    )
+
+            ) T4
+        where
+                T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and T1.TRANSMISSION_DT = #transmissionDt#
+            and T1.ODR_CHG_TYP = '1'
+            and T1.RCV_ODR_COMP_CD = T3.RCV_ODR_COMP_CD(+)
+            and T1.CUSTOMER_SUBSIDIARY_CD = T3.CUSTOMER_SUBSIDIARY_CD(+)
+            and T1.TRANSMISSION_DT = T3.TRANSMISSION_DT(+)
+            and T1.ODR_TYP = T3.ODR_TYP(+)
+            and T1.SERIAL_NO = T3.SERIAL_NO(+)
+            and T1.RCV_ODR_COMP_CD = T4.RCV_ODR_COMP_CD(+)
+            and T1.CUSTOMER_SUBSIDIARY_CD = T4.CUSTOMER_SUBSIDIARY_CD(+)
+            and T1.TRANSMISSION_DT = T4.TRANSMISSION_DT(+)
+            and T1.ODR_TYP = T4.ODR_TYP(+)
+            and T1.SERIAL_NO = T4.SERIAL_NO(+)
+        order by
+                T1.CUSTOMER_SUBSIDIARY_CD
+            ,   T1.ODR_TYP
+            ,   T1.SERIAL_NO
+    </select>
+
+    <!--
+    ==================================================================
+    == NEXUS side other (chg, del, error) check processing
+    == NEXUS側other(chg, del, error)チェック処理
+    ==================================================================
+    -->
+    <select id="SearchCheckEdiOdrChgTypNxsSide" resultMap="B0100EdiRcvOdrDomain_SearchCheckEdiOdrNxsSide"
+        parameterClass="java.util.Map">
+
+        select
+        /* SqlMap-JbEdiRcvOdr.SearchCheckEdiOdrChgTypNxsSide */
+                T1.RCV_ODR_COMP_CD
+            ,   T1.CUSTOMER_SUBSIDIARY_CD
+            ,   T1.TRANSMISSION_DT
+            ,   T1.ODR_TYP
+            ,   T1.SERIAL_NO
+            ,   T1.CUSTOMER_CD
+            ,   T1.LGCY_SHIP_TO
+            ,   T1.CUSTOMER_ITEM_NO_ORG
+            ,   T1.ODR_CTRL_NO
+            ,   T1.REVISION_NO
+            ,   T1.REVISION_NO_EIS
+            ,   T1.ODR_CHG_TYP
+            ,   T1.CUSTOMER_PO_NO
+            ,   T1.TRNS_CD
+            ,   T1.CUSTOMER_DUE_DT
+            ,   T1.ETD_DUE_DT
+            ,   T1.ODR_FIRM_FLG
+            ,   T1.ODR_QTY
+            ,   T1.SUPPLIER_CD
+            ,   T1.CUSTOMER_PLNT_CD
+            ,   nvl(T1.ITEM_NO, T2.ITEM_NO) ITEM_NO
+            ,   nvl(T1.PKG_CD, T2.PKG_CD) PKG_CD
+            ,   T1.ITEM_DESCRIPTION
+            ,   nvl(T1.PLNT_CD, T2.PLNT_CD) PLNT_CD
+            ,   T1.SHIPPING_DT
+            ,   T1.LVL1_ERR_CD_LIST
+            ,   T1.LVL2_ERR_CD_LIST
+            ,   T1.LVL3_ERR_CD_LIST
+            ,   T1.LVL3_WARN_CD_LIST
+            ,   T1.ERROR_TYP
+            ,   T2.PLTZ_ALLOC_QTY
+            ,   T2.SHIPPED_QTY
+            ,   T2.ODR_QTY          OLD_ODR_QTY
+            ,   T2.CUSTOMER_PO_NO   OLD_CUSTOMER_PO_NO
+            ,   T2.TRNS_CD          OLD_TRNS_CD
+            ,   T2.ETD_DUE_DT       OLD_ETD_DUE_DT
+            ,   T2.ODR_FIRM_FLG     OLD_ODR_FIRM_FLG
+            ,   T2.CUSTOMER_DUE_DT  OLD_CUSTOMER_DUE_DT
+            ,   decode(T2.RCV_ODR_COMP_CD, NULL, 'N', 'Y') EXIST_EXP_RCV_ODR_FLG
+            ,   NULL EXIST_ITEM_SP_INFO_FLG
+            ,   NULL EXIST_FORMALITI_ITEM_FLG
+            ,   decode(T3.RCV_ODR_COMP_CD, NULL, 'N', 'Y') LAST_DIGIT_CHG_FLG
+            ,   T4.SHIPPING_LOT
+        from
+            <isEqual property="rtryFlg" compareValue="N">
+                TT_EDI_RCV_ODR T1
+            </isEqual>
+            <isEqual property="rtryFlg" compareValue="Y">
+                TT_EDI_RCV_ODR_RTRY T1
+            </isEqual>
+            ,   TT_EXP_RCV_ODR T2
+            ,
+            (
+                select distinct
+                        T1.RCV_ODR_COMP_CD
+                    ,   T1.CUSTOMER_CD
+                    ,   T1.LGCY_SHIP_TO
+                    ,   T1.CUSTOMER_ITEM_NO_ORG
+                    ,   T1.ODR_CTRL_NO
+                from TT_EXP_RCV_ODR T1
+                where
+                        T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    and T1.LAST_FIGURE_CHG_FLG = 'Y'
+            ) T3
+            ,
+            (
+                select
+                /*+ use_hash(T1 T2) */
+                        T1.RCV_ODR_COMP_CD
+                    ,   T1.CUSTOMER_SUBSIDIARY_CD
+                    ,   T1.TRANSMISSION_DT
+                    ,   T1.ODR_TYP
+                    ,   T1.SERIAL_NO
+                    ,   T2.SHIPPING_LOT
+                from
+                    <isEqual property="rtryFlg" compareValue="N">
+                        TT_EDI_RCV_ODR T1
+                    </isEqual>
+                    <isEqual property="rtryFlg" compareValue="Y">
+                        TT_EDI_RCV_ODR_RTRY T1
+                    </isEqual>
+                    ,   TM_EXP_ITEM_NO_SP_INFO T2
+                where
+                        T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    and T1.TRANSMISSION_DT = #transmissionDt#
+                    and T1.ODR_CHG_TYP != '1'
+                    and T1.RCV_ODR_COMP_CD = T2.COMP_CD
+                    and T1.ITEM_NO = T2.ITEM_NO
+                    and T2.PKG_CD = ' '
+                    and T1.CUSTOMER_CD = T2.CUSTOMER_CD
+                    and T1.LGCY_SHIP_TO = T2.LGCY_SHIP_TO
+                    and T2.APLY_STRT_DT = (
+                        select
+                            max(T2MAX.APLY_STRT_DT)
+                        from
+                            TM_EXP_ITEM_NO_SP_INFO T2MAX
+                        where
+                                T2MAX.COMP_CD = T2.COMP_CD
+                            and T2MAX.ITEM_NO = T2.ITEM_NO
+                            and T2MAX.PKG_CD = T2.PKG_CD
+                            and T2MAX.CUSTOMER_CD = T2.CUSTOMER_CD
+                            and T2MAX.LGCY_SHIP_TO = T2.LGCY_SHIP_TO
+                            and T2MAX.APLY_STRT_DT <![CDATA[ <= ]]> T1.ETD_DUE_DT
+                    )
+            ) T4
+        where
+                T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and T1.TRANSMISSION_DT = #transmissionDt#
+            and T1.ODR_CHG_TYP != '1'
+            and T1.RCV_ODR_COMP_CD = T2.RCV_ODR_COMP_CD(+)
+            and T1.CUSTOMER_CD = T2.CUSTOMER_CD(+)
+            and T1.LGCY_SHIP_TO = T2.LGCY_SHIP_TO(+)
+            and T1.CUSTOMER_ITEM_NO_ORG = T2.CUSTOMER_ITEM_NO_ORG(+)
+            and T1.ODR_CTRL_NO = T2.ODR_CTRL_NO(+)
+            and T2.LAST_FIGURE_CHG_FLG(+) = 'N'
+            and T1.RCV_ODR_COMP_CD = T3.RCV_ODR_COMP_CD(+)
+            and T1.CUSTOMER_CD = T3.CUSTOMER_CD(+)
+            and T1.LGCY_SHIP_TO = T3.LGCY_SHIP_TO(+)
+            and T1.CUSTOMER_ITEM_NO_ORG = T3.CUSTOMER_ITEM_NO_ORG(+)
+            and T1.ODR_CTRL_NO = T3.ODR_CTRL_NO(+)
+            and T1.RCV_ODR_COMP_CD = T4.RCV_ODR_COMP_CD(+)
+            and T1.CUSTOMER_SUBSIDIARY_CD = T4.CUSTOMER_SUBSIDIARY_CD(+)
+            and T1.TRANSMISSION_DT = T4.TRANSMISSION_DT(+)
+            and T1.ODR_TYP = T4.ODR_TYP(+)
+            and T1.SERIAL_NO = T4.SERIAL_NO(+)
+        order by
+                T1.CUSTOMER_SUBSIDIARY_CD
+            ,   T1.ODR_TYP
+            ,   T1.SERIAL_NO
+        for update of T2.RCV_ODR_COMP_CD
+    </select>
+
+    <!--
+    ==================================================================
+    == Register the error records to the error report
+    == エラーレコードをエラーレポートへ登録
+    ==================================================================
+    -->
+    <insert id="CreateErrorReportByErrorEdi" parameterClass="java.util.Map">
+        insert
+        /* SqlMap-JbEdiRcvOdr.CreateErrorReportByErrorEdi */
+        into TT_EDI_RCV_ODR_REPORT
+        (
+                RCV_ODR_COMP_CD
+            ,   CUSTOMER_SUBSIDIARY_CD
+            ,   TRANSMISSION_DT
+            ,   ODR_TYP
+            ,   SERIAL_NO
+            ,   CUSTOMER_CD
+            ,   LGCY_SHIP_TO
+            ,   CUSTOMER_ITEM_NO_ORG
+            ,   ODR_CTRL_NO
+            ,   REVISION_NO
+            ,   REVISION_NO_EIS
+            ,   ODR_CHG_TYP
+            ,   ITEM_NO
+            ,   PKG_CD
+            ,   PLNT_CD
+            ,   OLD_CUSTOMER_DUE_DT
+            ,   OLD_ETD_DUE_DT
+            ,   OLD_ODR_QTY
+            ,   OLD_TRNS_CD
+            ,   OLD_CUSTOMER_PO_NO
+            ,   OLD_ODR_FIRM_FLG
+            ,   NEW_CUSTOMER_DUE_DT
+            ,   NEW_ETD_DUE_DT
+            ,   NEW_ODR_QTY
+            ,   NEW_TRNS_CD
+            ,   NEW_CUSTOMER_PO_NO
+            ,   NEW_ODR_FIRM_FLG
+            ,   ERR_CD_LIST
+            ,   COM_UPDATE_FUNC_ID
+            ,   COM_UPDATE_USER_ID
+            ,   COM_UPDATE_TIMESTAMP
+            ,   COM_CREATE_FUNC_ID
+            ,   COM_CREATE_USER_ID
+            ,   COM_CREATE_TIMESTAMP
+        )
+        select
+                T1.RCV_ODR_COMP_CD
+            ,   T1.CUSTOMER_SUBSIDIARY_CD
+            ,   T1.TRANSMISSION_DT
+            ,   T1.ODR_TYP
+            ,   T1.SERIAL_NO
+            ,   T1.CUSTOMER_CD
+            ,   T1.LGCY_SHIP_TO
+            ,   T1.CUSTOMER_ITEM_NO_ORG
+            ,   T1.ODR_CTRL_NO
+            ,   T1.REVISION_NO
+            ,   T1.REVISION_NO_EIS
+            ,   T1.ODR_CHG_TYP
+            ,   T1.ITEM_NO
+            ,   T1.PKG_CD
+            ,   T1.PLNT_CD
+            <isEqual property="addOrChgTyp" compareValue="ADD">
+            ,   NULL                OLD_CUSTOMER_DUE_DT
+            ,   NULL                OLD_ETD_DUE_DT
+            ,   NULL                OLD_ODR_QTY
+            ,   NULL                OLD_TRNS_CD
+            ,   NULL                OLD_CUSTOMER_PO_NO
+            ,   NULL                OLD_ODR_FIRM_FLG
+            </isEqual>
+            <isEqual property="addOrChgTyp" compareValue="CHG">
+            ,   T2.CUSTOMER_DUE_DT  OLD_CUSTOMER_DUE_DT
+            ,   T2.ETD_DUE_DT       OLD_ETD_DUE_DT
+            ,   T2.ODR_QTY          OLD_ODR_QTY
+            ,   T2.TRNS_CD          OLD_TRNS_CD
+            ,   T2.CUSTOMER_PO_NO   OLD_CUSTOMER_PO_NO
+            ,   T2.ODR_FIRM_FLG     OLD_ODR_FIRM_FLG
+            </isEqual>
+            ,   decode(T1.ODR_CHG_TYP, '3', NULL, T1.CUSTOMER_DUE_DT)   NEW_CUSTOMER_DUE_DT
+            ,   decode(T1.ODR_CHG_TYP, '3', NULL, T1.ETD_DUE_DT)        NEW_ETD_DUE_DT
+            ,   decode(T1.ODR_CHG_TYP, '3', NULL, T1.ODR_QTY)           NEW_ODR_QTY
+            ,   decode(T1.ODR_CHG_TYP, '3', NULL, T1.TRNS_CD)           NEW_TRNS_CD
+            ,   decode(T1.ODR_CHG_TYP, '3', NULL, T1.CUSTOMER_PO_NO)    NEW_CUSTOMER_PO_NO
+            ,   decode(T1.ODR_CHG_TYP, '3', NULL, T1.ODR_FIRM_FLG)      NEW_ODR_FIRM_FLG
+            ,   substr(
+                        decode(T1.LVL1_ERR_CD_LIST, NULL, NULL, ',' || T1.LVL1_ERR_CD_LIST)
+                    ||  decode(T1.LVL2_ERR_CD_LIST, NULL, NULL, ',' || T1.LVL2_ERR_CD_LIST)
+                    ||  decode(T1.LVL3_ERR_CD_LIST, NULL, NULL, ',' || T1.LVL3_ERR_CD_LIST)
+                    ||  decode(T1.LVL3_WARN_CD_LIST, NULL, NULL, ',' || T1.LVL3_WARN_CD_LIST)
+                    , 2
+                )
+            ,   'B0100'
+            ,   '0'
+            ,   SYSDATE
+            ,   'B0100'
+            ,   '0'
+            ,   SYSDATE
+        from
+            <isEqual property="rtryFlg" compareValue="N">
+                TT_EDI_RCV_ODR T1
+            </isEqual>
+            <isEqual property="rtryFlg" compareValue="Y">
+                TT_EDI_RCV_ODR_RTRY T1
+            </isEqual>
+            <isEqual property="addOrChgTyp" compareValue="CHG">
+            ,   TT_EXP_RCV_ODR T2
+            </isEqual>
+        where
+                T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and T1.TRANSMISSION_DT = #transmissionDt#
+            and T1.ERROR_TYP != '0'
+            <isEqual property="addOrChgTyp" compareValue="ADD">
+            and T1.ODR_CHG_TYP = '1'
+            </isEqual>
+            <isEqual property="addOrChgTyp" compareValue="CHG">
+            and T1.ODR_CHG_TYP != '1'
+            and T1.RCV_ODR_COMP_CD = T2.RCV_ODR_COMP_CD(+)
+            and T1.CUSTOMER_CD = T2.CUSTOMER_CD(+)
+            and T1.LGCY_SHIP_TO = T2.LGCY_SHIP_TO(+)
+            and T1.CUSTOMER_ITEM_NO_ORG = T2.CUSTOMER_ITEM_NO_ORG(+)
+            and T1.ODR_CTRL_NO = T2.ODR_CTRL_NO(+)
+            and T2.LAST_FIGURE_CHG_FLG(+) = 'N'
+            </isEqual>
+        order by
+                T1.CUSTOMER_SUBSIDIARY_CD
+            ,   T1.ODR_TYP
+            ,   T1.SERIAL_NO
+    </insert>
+
+    <!--
+    ==================================================================
+    == Register the error record to re-try
+    == エラーレコードを持ち回りへ登録
+    ==================================================================
+    -->
+    <insert id="CreateEdiOdrRtryByErrorEdi" parameterClass="java.util.Map">
+        insert
+        /* SqlMap-JbEdiRcvOdr.CreateEdiOdrRtryByErrorEdi */
+        into TT_EDI_RCV_ODR_RTRY (
+                RCV_ODR_COMP_CD
+            ,   CUSTOMER_SUBSIDIARY_CD
+            ,   TRANSMISSION_DT
+            ,   ODR_TYP
+            ,   SERIAL_NO
+            ,   CUSTOMER_CD
+            ,   LGCY_SHIP_TO
+            ,   CUSTOMER_ITEM_NO_ORG
+            ,   ODR_CTRL_NO
+            ,   REVISION_NO
+            ,   REVISION_NO_EIS
+            ,   ODR_CHG_TYP
+            ,   CUSTOMER_PO_NO
+            ,   TRNS_CD
+            ,   CUSTOMER_DUE_DT
+            ,   ETD_DUE_DT
+            ,   ODR_FIRM_FLG
+            ,   ODR_QTY
+            ,   SUPPLIER_CD
+            ,   CUSTOMER_PLNT_CD
+            ,   ITEM_NO
+            ,   PKG_CD
+            ,   ITEM_DESCRIPTION
+            ,   PLNT_CD
+            ,   SHIPPING_DT
+            ,   LVL1_ERR_CD_LIST
+            ,   LVL2_ERR_CD_LIST
+            ,   LVL3_ERR_CD_LIST
+            ,   LVL3_WARN_CD_LIST
+            ,   ERROR_TYP
+            ,   COM_UPDATE_FUNC_ID
+            ,   COM_UPDATE_USER_ID
+            ,   COM_UPDATE_TIMESTAMP
+            ,   COM_CREATE_FUNC_ID
+            ,   COM_CREATE_USER_ID
+            ,   COM_CREATE_TIMESTAMP
+        )
+        select
+                T1.RCV_ODR_COMP_CD
+            ,   T1.CUSTOMER_SUBSIDIARY_CD
+            ,   T1.TRANSMISSION_DT
+            ,   T1.ODR_TYP
+            ,   T1.SERIAL_NO
+            ,   T1.CUSTOMER_CD
+            ,   T1.LGCY_SHIP_TO
+            ,   T1.CUSTOMER_ITEM_NO_ORG
+            ,   T1.ODR_CTRL_NO
+            ,   T1.REVISION_NO
+            ,   T1.REVISION_NO_EIS
+            ,   T1.ODR_CHG_TYP
+            ,   T1.CUSTOMER_PO_NO
+            ,   T1.TRNS_CD
+            ,   T1.CUSTOMER_DUE_DT
+            ,   T1.ETD_DUE_DT
+            ,   T1.ODR_FIRM_FLG
+            ,   T1.ODR_QTY
+            ,   T1.SUPPLIER_CD
+            ,   T1.CUSTOMER_PLNT_CD
+            ,   T1.ITEM_NO
+            ,   T1.PKG_CD
+            ,   T1.ITEM_DESCRIPTION
+            ,   T1.PLNT_CD
+            ,   T1.SHIPPING_DT
+            ,   T1.LVL1_ERR_CD_LIST
+            ,   T1.LVL2_ERR_CD_LIST
+            ,   T1.LVL3_ERR_CD_LIST
+            ,   T1.LVL3_WARN_CD_LIST
+            ,   T1.ERROR_TYP
+            ,   'B0100'
+            ,   '0'
+            ,   SYSDATE
+            ,   'B0100'
+            ,   '0'
+            ,   SYSDATE
+        from
+            TT_EDI_RCV_ODR T1
+        where
+                T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and T1.TRANSMISSION_DT = #transmissionDt#
+            <isEqual property="addOrChgTyp" compareValue="ADD">
+            and T1.ODR_CHG_TYP = '1'
+            and T1.LVL3_ERR_CD_LIST is not NULL
+            and T1.LVL3_ERR_CD_LIST != '29'
+            </isEqual>
+            <isEqual property="addOrChgTyp" compareValue="CHG">
+            and T1.ODR_CHG_TYP = '2'
+            and T1.ERROR_TYP = '2'
+            and T1.LVL1_ERR_CD_LIST like '%30%'
+            and exists (
+                select 'X'
+                from
+                    TT_EDI_RCV_ODR_RTRY T2
+                where
+                        T2.ODR_CHG_TYP = '1'
+                    and T2.RCV_ODR_COMP_CD = T1.RCV_ODR_COMP_CD
+                    and T2.CUSTOMER_SUBSIDIARY_CD = T1.CUSTOMER_SUBSIDIARY_CD
+                    and T2.SUPPLIER_CD = T1.SUPPLIER_CD
+                    and T2.CUSTOMER_PLNT_CD = T1.CUSTOMER_PLNT_CD
+                    and T2.CUSTOMER_ITEM_NO_ORG = T1.CUSTOMER_ITEM_NO_ORG
+                    and T2.ODR_CTRL_NO = T1.ODR_CTRL_NO
+            )
+            </isEqual>
+        order by
+                T1.CUSTOMER_SUBSIDIARY_CD
+            ,   T1.ODR_TYP
+            ,   T1.SERIAL_NO
+    </insert>
+
+    <!--
+    ==================================================================
+    == Register the normal record to export orders update
+    == 正常レコードを輸出受注更新へ登録
+    ==================================================================
+    -->
+    <insert id="CreateExpOdrUpdBySuccessEdi" parameterClass="java.util.Map">
+        insert
+        /* SqlMap-JbEdiRcvOdr.CreateExpOdrUpdBySuccessEdi */
+        into TT_EXP_RCV_ODR_UPD (
+                RCV_ODR_COMP_CD
+            ,   CUSTOMER_SUBSIDIARY_CD
+            ,   TRANSMISSION_DT
+            ,   ODR_TYP
+            ,   SERIAL_NO
+            ,   CUSTOMER_CD
+            ,   LGCY_SHIP_TO
+            ,   CUSTOMER_ITEM_NO_ORG
+            ,   ODR_CTRL_NO
+            ,   REVISION_NO
+            ,   REVISION_NO_EIS
+            ,   SHIPPING_DT
+            ,   ITEM_NO <!-- 2016/01/07 MOV -->
+            ,   PKG_CD <!-- 2016/01/07 MOV -->
+            ,   PLTZ_ALLOC_QTY
+            ,   SHIPPED_QTY
+            ,   PARTIAL_DELIV_CNT
+            ,   ODR_QTY_ORG
+            ,   SALES_COMP_PO_NO
+            ,   UPDATE_TYP
+            ,   OLD_CUSTOMER_DUE_DT
+            ,   OLD_ETD_DUE_DT
+            ,   OLD_ODR_QTY
+            ,   OLD_TRNS_CD
+            ,   OLD_CUSTOMER_PO_NO
+            ,   OLD_ODR_FIRM_FLG
+            ,   OLD_CUSTOMER_ITEM_NO
+            ,   NEW_CUSTOMER_DUE_DT
+            ,   NEW_ETD_DUE_DT
+            ,   NEW_ODR_QTY
+            ,   NEW_TRNS_CD
+            ,   NEW_CUSTOMER_PO_NO
+            ,   NEW_ODR_FIRM_FLG
+            ,   NEW_CUSTOMER_ITEM_NO
+            ,   COM_UPDATE_FUNC_ID
+            ,   COM_UPDATE_USER_ID
+            ,   COM_UPDATE_TIMESTAMP
+            ,   COM_CREATE_FUNC_ID
+            ,   COM_CREATE_USER_ID
+            ,   COM_CREATE_TIMESTAMP
+        )
+        select
+                T1.RCV_ODR_COMP_CD
+            ,   T1.CUSTOMER_SUBSIDIARY_CD
+            ,   T1.TRANSMISSION_DT
+            ,   T1.ODR_TYP
+            ,   T1.SERIAL_NO
+            ,   T1.CUSTOMER_CD
+            ,   T1.LGCY_SHIP_TO
+            ,   T1.CUSTOMER_ITEM_NO_ORG
+            ,   T1.ODR_CTRL_NO
+            ,   T1.REVISION_NO
+            ,   T1.REVISION_NO_EIS
+            ,   T1.SHIPPING_DT
+            <isEqual property="addOrChgTyp" compareValue="ADD">
+            ,   T1.ITEM_NO <!-- 2016/01/07 MOV -->
+            ,   T1.PKG_CD <!-- 2016/01/07 MOV -->
+            ,   0 PLTZ_ALLOC_QTY
+            ,   0 SHIPPED_QTY
+            ,   0 PARTIAL_DELIV_CNT
+            ,   T1.ODR_QTY
+            </isEqual>
+            <isEqual property="addOrChgTyp" compareValue="CHG">
+            ,   T2.ITEM_NO <!-- 2016/01/07 MOD -->
+            ,   T2.PKG_CD <!-- 2016/01/07 MOD -->
+            ,   T2.PLTZ_ALLOC_QTY
+            ,   T2.SHIPPED_QTY
+            ,   T2.PARTIAL_DELIV_CNT
+            ,   T2.ODR_QTY_ORG
+            </isEqual>
+            ,   NULL SALES_COMP_PO_NO
+            ,   T1.ODR_CHG_TYP UPDATE_TYP
+            <isEqual property="addOrChgTyp" compareValue="ADD">
+            ,   NULL                OLD_CUSTOMER_DUE_DT
+            ,   NULL                OLD_ETD_DUE_DT
+            ,   NULL                OLD_ODR_QTY
+            ,   NULL                OLD_TRNS_CD
+            ,   NULL                OLD_CUSTOMER_PO_NO
+            ,   NULL                OLD_ODR_FIRM_FLG
+            ,   NULL                OLD_CUSTOMER_ITEM_NO
+            </isEqual>
+            <isEqual property="addOrChgTyp" compareValue="CHG">
+            ,   T2.CUSTOMER_DUE_DT  OLD_CUSTOMER_DUE_DT
+            ,   T2.ETD_DUE_DT       OLD_ETD_DUE_DT
+            ,   T2.ODR_QTY          OLD_ODR_QTY
+            ,   T2.TRNS_CD          OLD_TRNS_CD
+            ,   T2.CUSTOMER_PO_NO   OLD_CUSTOMER_PO_NO
+            ,   T2.ODR_FIRM_FLG     OLD_ODR_FIRM_FLG
+            ,   T2.CUSTOMER_ITEM_NO OLD_CUSTOMER_ITEM_NO
+            </isEqual>
+            ,   decode(T1.ODR_CHG_TYP, '3', NULL, T1.CUSTOMER_DUE_DT)       NEW_CUSTOMER_DUE_DT
+            ,   decode(T1.ODR_CHG_TYP, '3', NULL, T1.ETD_DUE_DT)            NEW_ETD_DUE_DT
+            ,   decode(T1.ODR_CHG_TYP, '3', NULL, T1.ODR_QTY)               NEW_ODR_QTY
+            ,   decode(T1.ODR_CHG_TYP, '3', NULL, T1.TRNS_CD)               NEW_TRNS_CD
+            ,   decode(T1.ODR_CHG_TYP, '3', NULL, T1.CUSTOMER_PO_NO)        NEW_CUSTOMER_PO_NO
+            ,   decode(T1.ODR_CHG_TYP, '3', NULL, T1.ODR_FIRM_FLG)          NEW_ODR_FIRM_FLG
+            ,   decode(T1.ODR_CHG_TYP, '3', NULL, T1.CUSTOMER_ITEM_NO_ORG)  NEW_CUSTOMER_ITEM_NO
+            ,   'B0100'
+            ,   '0'
+            ,   SYSDATE
+            ,   'B0100'
+            ,   '0'
+            ,   SYSDATE
+        from
+            <isEqual property="rtryFlg" compareValue="N">
+                TT_EDI_RCV_ODR T1
+            </isEqual>
+            <isEqual property="rtryFlg" compareValue="Y">
+                TT_EDI_RCV_ODR_RTRY T1
+            </isEqual>
+            <isEqual property="addOrChgTyp" compareValue="CHG">
+            ,   TT_EXP_RCV_ODR T2
+            </isEqual>
+        where
+                T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and T1.TRANSMISSION_DT = #transmissionDt#
+            and T1.ERROR_TYP in('0', '1')
+            <isEqual property="addOrChgTyp" compareValue="ADD">
+            and T1.ODR_CHG_TYP = '1'
+            </isEqual>
+            <isEqual property="addOrChgTyp" compareValue="CHG">
+            and T1.ODR_CHG_TYP != '1'
+            and T1.RCV_ODR_COMP_CD = T2.RCV_ODR_COMP_CD(+)
+            and T1.CUSTOMER_CD = T2.CUSTOMER_CD(+)
+            and T1.LGCY_SHIP_TO = T2.LGCY_SHIP_TO(+)
+            and T1.CUSTOMER_ITEM_NO_ORG = T2.CUSTOMER_ITEM_NO_ORG(+)
+            and T1.ODR_CTRL_NO = T2.ODR_CTRL_NO(+)
+            </isEqual>
+        order by
+                T1.CUSTOMER_SUBSIDIARY_CD
+            ,   T1.ODR_TYP
+            ,   T1.SERIAL_NO
+    </insert>
+
+    <!--
+    ==================================================================
+    == Registered to export orders (for ADD)
+    == 輸出受注へ登録（ADD分）
+    ==================================================================
+    -->
+    <insert id="CreateExpOdrByAddEdi" parameterClass="java.util.Map">
+        insert
+        /* SqlMap-JbEdiRcvOdr.CreateExpOdrByAddEdi */
+        into TT_EXP_RCV_ODR (
+                RCV_ODR_COMP_CD
+            ,   CUSTOMER_CD
+            ,   LGCY_SHIP_TO
+            ,   ITEM_NO
+            ,   PKG_CD
+            ,   TRNS_CD
+            ,   ETD_DUE_DT
+            ,   CUSTOMER_PO_NO
+            ,   CUSTOMER_ITEM_NO
+            ,   CUSTOMER_ITEM_NO_ORG
+            ,   ODR_CTRL_NO
+            ,   REVISION_NO
+            ,   REVISION_NO_EIS
+            ,   PLNT_CD
+            ,   CUSTOMER_DUE_DT
+            ,   ITEM_NO_ORG
+            ,   ODR_QTY_ORG
+            ,   ODR_QTY
+            ,   PLTZ_ALLOC_QTY
+            ,   SHIPPED_QTY
+            ,   SHIPPING_DT
+            ,   PARTIAL_DELIV_CNT
+            ,   ODR_FIRM_FLG
+            ,   SALES_COMP_PO_NO
+            ,   LAST_FIGURE_CHG_FLG
+            ,   SUPPLIER_CD
+            ,   SHIPPED_TYP
+            ,   COM_UPDATE_FUNC_ID
+            ,   COM_UPDATE_USER_ID
+            ,   COM_UPDATE_TIMESTAMP
+            ,   COM_CREATE_FUNC_ID
+            ,   COM_CREATE_USER_ID
+            ,   COM_CREATE_TIMESTAMP
+        )
+        select
+                T1.RCV_ODR_COMP_CD
+            ,   T1.CUSTOMER_CD
+            ,   T1.LGCY_SHIP_TO
+            ,   T1.ITEM_NO
+            ,   T1.PKG_CD
+            ,   T1.TRNS_CD
+            ,   T1.ETD_DUE_DT
+            ,   T1.CUSTOMER_PO_NO
+            ,   T1.CUSTOMER_ITEM_NO_ORG
+            ,   T1.CUSTOMER_ITEM_NO_ORG
+            ,   T1.ODR_CTRL_NO
+            ,   T1.REVISION_NO
+            ,   T1.REVISION_NO_EIS
+            ,   T1.PLNT_CD
+            ,   T1.CUSTOMER_DUE_DT
+            ,   T1.ITEM_NO
+            ,   T1.ODR_QTY
+            ,   T1.ODR_QTY
+            ,   0
+            ,   0
+            ,   T1.SHIPPING_DT
+            ,   0
+            ,   T1.ODR_FIRM_FLG
+            ,   NULL
+            ,   'N'
+            ,   T1.SUPPLIER_CD
+            ,   '1'
+            ,   'B0100'
+            ,   '0'
+            ,   SYSDATE
+            ,   'B0100'
+            ,   '0'
+            ,   SYSDATE
+        from
+            <isEqual property="rtryFlg" compareValue="N">
+                TT_EDI_RCV_ODR T1
+            </isEqual>
+            <isEqual property="rtryFlg" compareValue="Y">
+                TT_EDI_RCV_ODR_RTRY T1
+            </isEqual>
+        where
+                T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and T1.TRANSMISSION_DT = #transmissionDt#
+            and T1.ODR_CHG_TYP = '1'
+            and T1.ERROR_TYP in('0', '1')
+        order by
+                T1.CUSTOMER_SUBSIDIARY_CD
+            ,   T1.ODR_TYP
+            ,   T1.SERIAL_NO
+    </insert>
+
+    <!--
+    ==================================================================
+    == The latest of the name of the export formalities item master
+    == 輸出手続品目番号原単位の品目名称を最新化
+    ==================================================================
+    -->
+    <update id="UpdateMaItemNameByAddEdi" parameterClass="java.util.Map">
+        update
+        /* SqlMap-JbEdiRcvOdr.UpdateMaItemNameByAddEdi */
+            TM_EXP_FORMALITI_ITEM_NO T1
+        set (
+                T1.ITEM_DESCRIPTION
+            ,   T1.COM_UPDATE_FUNC_ID
+            ,   T1.COM_UPDATE_USER_ID
+            ,   T1.COM_UPDATE_TIMESTAMP
+        ) =
+        (
+            select
+                    min(T2.ITEM_DESCRIPTION)
+                ,   'B0100'
+                ,   '0'
+                ,   SYSDATE
+            from
+            <isEqual property="rtryFlg" compareValue="N">
+                TT_EDI_RCV_ODR T2
+            </isEqual>
+            <isEqual property="rtryFlg" compareValue="Y">
+                TT_EDI_RCV_ODR_RTRY T2
+            </isEqual>
+            where
+                    T2.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                and T2.TRANSMISSION_DT = #transmissionDt#
+                and T2.ODR_CHG_TYP = '1'
+                and T2.ERROR_TYP in('0', '1')
+                and T2.RCV_ODR_COMP_CD = T1.COMP_CD
+                and T2.ITEM_NO = T1.ITEM_NO
+                and T2.ITEM_DESCRIPTION is not NULL
+                and T2.ITEM_DESCRIPTION != T1.ITEM_DESCRIPTION
+        )
+        where
+                T1.COMP_CD = #rcvOdrCompCd#
+            and T1.APLY_STRT_DT = (
+                select
+                    max(T2.APLY_STRT_DT)
+                from
+                    TM_EXP_FORMALITI_ITEM_NO T2
+                where
+                        T2.COMP_CD = T1.COMP_CD
+                    and T2.ITEM_NO = T1.ITEM_NO
+                    and T2.APLY_STRT_DT <![CDATA[ <= ]]> #cigmaAds#
+            )
+            and exists (
+                select 'X'
+                from
+                <isEqual property="rtryFlg" compareValue="N">
+                    TT_EDI_RCV_ODR T2
+                </isEqual>
+                <isEqual property="rtryFlg" compareValue="Y">
+                    TT_EDI_RCV_ODR_RTRY T2
+                </isEqual>
+                where
+                        T2.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    and T2.TRANSMISSION_DT = #transmissionDt#
+                    and T2.ODR_CHG_TYP = '1'
+                    and T2.ERROR_TYP in('0', '1')
+                    and T2.RCV_ODR_COMP_CD = T1.COMP_CD
+                    and T2.ITEM_NO = T1.ITEM_NO
+                    and T2.ITEM_DESCRIPTION is not NULL
+                    and T2.ITEM_DESCRIPTION != T1.ITEM_DESCRIPTION
+            )
+    </update>
+
+    <!--
+    ==================================================================
+    == Update to export orders (for CHG)
+    == 輸出受注へ更新（CHG分）
+    ==================================================================
+    -->
+    <update id="UpdateExpOdrByChgEdi" parameterClass="java.util.Map">
+        update
+        /* SqlMap-JbEdiRcvOdr.UpdateExpOdrByChgEdi */
+            TT_EXP_RCV_ODR T1
+        set (
+                T1.REVISION_NO
+            ,   T1.REVISION_NO_EIS
+            ,   T1.TRNS_CD
+            ,   T1.ETD_DUE_DT
+            ,   T1.CUSTOMER_PO_NO
+            ,   T1.CUSTOMER_DUE_DT
+            ,   T1.ODR_QTY
+            ,   T1.ODR_FIRM_FLG
+            ,   T1.SHIPPING_DT
+            ,   T1.SHIPPED_TYP
+            ,   T1.COM_UPDATE_FUNC_ID
+            ,   T1.COM_UPDATE_USER_ID
+            ,   T1.COM_UPDATE_TIMESTAMP
+        ) =
+        (
+            select
+                    T2.REVISION_NO
+                ,   T2.REVISION_NO_EIS
+                ,   T2.TRNS_CD
+                ,   T2.ETD_DUE_DT
+                ,   T2.CUSTOMER_PO_NO
+                ,   T2.CUSTOMER_DUE_DT
+                ,   T2.ODR_QTY
+                ,   T2.ODR_FIRM_FLG
+                ,   T2.SHIPPING_DT
+                ,
+                (
+                    case
+                        when T2.ODR_QTY <![CDATA[ <= ]]> T1.SHIPPED_QTY then '3'
+                        else
+                            case
+                                when T2.ODR_QTY <![CDATA[ <= ]]> T1.PLTZ_ALLOC_QTY then '2'
+                                else '1'
+                            end
+                    end
+                )
+                ,   'B0100'
+                ,   '0'
+                ,   SYSDATE
+            from
+            <isEqual property="rtryFlg" compareValue="N">
+                TT_EDI_RCV_ODR T2
+            </isEqual>
+            <isEqual property="rtryFlg" compareValue="Y">
+                TT_EDI_RCV_ODR_RTRY T2
+            </isEqual>
+            where
+                    T2.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                and T2.TRANSMISSION_DT = #transmissionDt#
+                and T2.ODR_CHG_TYP = '2'
+                and T2.ERROR_TYP in('0', '1')
+                and T2.RCV_ODR_COMP_CD = T1.RCV_ODR_COMP_CD
+                and T2.CUSTOMER_CD = T1.CUSTOMER_CD
+                and T2.LGCY_SHIP_TO = T1.LGCY_SHIP_TO
+                and T2.CUSTOMER_ITEM_NO_ORG = T1.CUSTOMER_ITEM_NO_ORG
+                and T2.ODR_CTRL_NO = T1.ODR_CTRL_NO
+        )
+        where
+            T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and exists (
+                select 'X'
+                from
+                <isEqual property="rtryFlg" compareValue="N">
+                    TT_EDI_RCV_ODR T2
+                </isEqual>
+                <isEqual property="rtryFlg" compareValue="Y">
+                    TT_EDI_RCV_ODR_RTRY T2
+                </isEqual>
+                where
+                        T2.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    and T2.TRANSMISSION_DT = #transmissionDt#
+                    and T2.ODR_CHG_TYP = '2'
+                    and T2.ERROR_TYP in('0', '1')
+                    and T2.RCV_ODR_COMP_CD = T1.RCV_ODR_COMP_CD
+                    and T2.CUSTOMER_CD = T1.CUSTOMER_CD
+                    and T2.LGCY_SHIP_TO = T1.LGCY_SHIP_TO
+                    and T2.CUSTOMER_ITEM_NO_ORG = T1.CUSTOMER_ITEM_NO_ORG
+                    and T2.ODR_CTRL_NO = T1.ODR_CTRL_NO
+        )
+    </update>
+
+    <!--
+    ==================================================================
+    == Record deletion if that became the quantity 0 (for CHG)
+    == 数量0となった場合レコード削除（CHG分）
+    ==================================================================
+    -->
+    <delete id="DeleteExpOdrZeroQty" parameterClass="java.util.Map">
+        delete
+        /* SqlMap-JbEdiRcvOdr.DeleteExpOdrZeroQty */
+        from
+            TT_EXP_RCV_ODR T1
+        where
+                T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and T1.ODR_QTY = 0
+            and exists (
+                select 'X'
+                from
+                <isEqual property="rtryFlg" compareValue="N">
+                    TT_EDI_RCV_ODR T2
+                </isEqual>
+                <isEqual property="rtryFlg" compareValue="Y">
+                    TT_EDI_RCV_ODR_RTRY T2
+                </isEqual>
+                where
+                        T2.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    and T2.TRANSMISSION_DT = #transmissionDt#
+                    and T2.ODR_CHG_TYP = '2'
+                    and T2.ERROR_TYP in('0', '1')
+                    and T2.RCV_ODR_COMP_CD = T1.RCV_ODR_COMP_CD
+                    and T2.CUSTOMER_CD = T1.CUSTOMER_CD
+                    and T2.LGCY_SHIP_TO = T1.LGCY_SHIP_TO
+                    and T2.CUSTOMER_ITEM_NO_ORG = T1.CUSTOMER_ITEM_NO_ORG
+                    and T2.ODR_CTRL_NO = T1.ODR_CTRL_NO
+            )
+    </delete>
+
+    <!--
+    ==================================================================
+    == Delete from export orders (for DEL)
+    == 輸出受注から削除（DEL分）
+    ==================================================================
+    -->
+    <delete id="DeleteExpOdrByDelEdi" parameterClass="java.util.Map">
+        delete
+        /* SqlMap-JbEdiRcvOdr.DeleteExpOdrByDelEdi */
+        from
+            TT_EXP_RCV_ODR T1
+        where
+                T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and exists (
+                select 'X'
+                from
+                    TT_EDI_RCV_ODR T2
+                where
+                        T2.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    and T2.TRANSMISSION_DT = #transmissionDt#
+                    and T2.ODR_CHG_TYP = '3'
+                    and T2.ERROR_TYP in('0')
+                    and T2.RCV_ODR_COMP_CD = T1.RCV_ODR_COMP_CD
+                    and T2.CUSTOMER_CD = T1.CUSTOMER_CD
+                    and T2.LGCY_SHIP_TO = T1.LGCY_SHIP_TO
+                    and T2.CUSTOMER_ITEM_NO_ORG = T1.CUSTOMER_ITEM_NO_ORG
+                    and T2.ODR_CTRL_NO = T1.ODR_CTRL_NO
+            )
+    </delete>
+
+    <!--
+    ==================================================================
+    == Delete regardless of the Delete (for DEL) presence or absence of error from the re-try
+    == 持ち回りからも削除（DEL分）エラー有無にかかわらず削除
+    ==================================================================
+    -->
+    <delete id="DeleteEdiOdrRtryByDelEdi" parameterClass="java.util.Map">
+        delete
+        /* SqlMap-JbEdiRcvOdr.DeleteEdiOdrRtryByDelEdi */
+        from
+            TT_EDI_RCV_ODR_RTRY T1
+        where
+                T1.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and exists (
+                select 'X'
+                from
+                    TT_EDI_RCV_ODR T2
+                where
+                        T2.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    and T2.TRANSMISSION_DT = #transmissionDt#
+                    and T2.ODR_CHG_TYP = '3'
+                    and T2.RCV_ODR_COMP_CD = T1.RCV_ODR_COMP_CD
+                    and T2.CUSTOMER_SUBSIDIARY_CD = T1.CUSTOMER_SUBSIDIARY_CD
+                    and T2.SUPPLIER_CD = T1.SUPPLIER_CD
+                    and T2.CUSTOMER_PLNT_CD = T1.CUSTOMER_PLNT_CD
+                    and T2.CUSTOMER_ITEM_NO_ORG = T1.CUSTOMER_ITEM_NO_ORG
+                    and T2.ODR_CTRL_NO = T1.ODR_CTRL_NO
+            )
+    </delete>
+
+    <!--
+    ==================================================================
+    == Remove the normal record from re-try
+    == 正常レコードを持ち回りから削除
+    ==================================================================
+    -->
+    <delete id="DeleteEdiOdrRtryBySuccessEdi" parameterClass="java.util.Map">
+        delete
+        /* SqlMap-JbEdiRcvOdr.DeleteEdiOdrRtryBySuccessEdi */
+        from
+            TT_EDI_RCV_ODR_RTRY
+        where
+                RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and TRANSMISSION_DT = #transmissionDt#
+            <isEqual property="addOrChgTyp" compareValue="ADD">
+            and ODR_CHG_TYP = '1'
+            </isEqual>
+            <isEqual property="addOrChgTyp" compareValue="CHG">
+            and ODR_CHG_TYP != '1'
+            </isEqual>
+            and ERROR_TYP in('0', '1')
+    </delete>
+
+    <!--
+    ==================================================================
+    == To reflect the check result of CIGMA side to re-try or EDI orders
+    == CIGMA側チェック結果を持ち回りまたはEDI受注に反映
+    ==================================================================
+    -->
+    <update id="UpdateEdiOdrByCigmaSideCheckResults" parameterClass="B0100EdiRcvOdrDomain">
+        update
+        /* SqlMap-JbEdiRcvOdr.UpdateEdiOdrByCigmaSideCheckResults */
+        <isEqual property="rtryFlg" compareValue="N">
+            TT_EDI_RCV_ODR
+        </isEqual>
+        <isEqual property="rtryFlg" compareValue="Y">
+            TT_EDI_RCV_ODR_RTRY
+        </isEqual>
+        set
+                CUSTOMER_CD = #customerCd#
+            ,   LGCY_SHIP_TO = #lgcyShipTo#
+            ,   ITEM_NO = #itemNo#
+            ,   PKG_CD = #pkgCd#
+            ,   ITEM_DESCRIPTION = #itemDescription#
+            ,   PLNT_CD = #plntCd#
+            ,   SHIPPING_DT = #shippingDt#
+            ,   LVL1_ERR_CD_LIST = #lvl1ErrCdList#
+            ,   LVL2_ERR_CD_LIST = #lvl2ErrCdList#
+            ,   LVL3_ERR_CD_LIST = #lvl3ErrCdList#
+            ,   LVL3_WARN_CD_LIST = #lvl3WarnCdList#
+            ,   COM_UPDATE_FUNC_ID = 'B0100'
+            ,   COM_UPDATE_USER_ID = '0'
+            ,   COM_UPDATE_TIMESTAMP = SYSDATE
+        where
+                RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and CUSTOMER_SUBSIDIARY_CD = #customerSubsidiaryCd#
+            and TRANSMISSION_DT = #transmissionDt#
+            and ODR_TYP = #odrTyp#
+            and SERIAL_NO = #serialNo#
+    </update>
+
+    <!--
+    ==================================================================
+    == To reflect the check result of NEXUS side to re-try or EDI orders
+    == NEXUS側チェック結果を持ち回りまたはEDI受注に反映
+    ==================================================================
+    -->
+    <update id="UpdateEdiOdrByNxsSideCheckResults" parameterClass="B0100EdiRcvOdrDomain">
+        update
+        /* SqlMap-JbEdiRcvOdr.UpdateEdiOdrByNxsSideCheckResults */
+        <isEqual property="rtryFlg" compareValue="N">
+            TT_EDI_RCV_ODR
+        </isEqual>
+        <isEqual property="rtryFlg" compareValue="Y">
+            TT_EDI_RCV_ODR_RTRY
+        </isEqual>
+        set
+                ITEM_NO = #itemNo#
+            ,   PKG_CD = #pkgCd#
+            ,   PLNT_CD = #plntCd#
+            ,   LVL1_ERR_CD_LIST = #lvl1ErrCdList#
+            ,   LVL2_ERR_CD_LIST = #lvl2ErrCdList#
+            ,   LVL3_ERR_CD_LIST = #lvl3ErrCdList#
+            ,   LVL3_WARN_CD_LIST = #lvl3WarnCdList#
+            ,   ERROR_TYP = #errorTyp#
+            ,   COM_UPDATE_FUNC_ID = 'B0100'
+            ,   COM_UPDATE_USER_ID = '0'
+            ,   COM_UPDATE_TIMESTAMP = SYSDATE
+        where
+                RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and CUSTOMER_SUBSIDIARY_CD = #customerSubsidiaryCd#
+            and TRANSMISSION_DT = #transmissionDt#
+            and ODR_TYP = #odrTyp#
+            and SERIAL_NO = #serialNo#
+    </update>
+
+    <!--
+    ==================================================================
+    == EDI orders registered general-purpose
+    == EDI受注登録汎用
+    ==================================================================
+    -->
+    <insert id="CreateEdiOdr" parameterClass="B0100EdiRcvOdrDomain">
+        insert
+        /* SqlMap-JbEdiRcvOdr.CreateEdiOdr */
+        into TT_EDI_RCV_ODR (
+                RCV_ODR_COMP_CD
+            ,   CUSTOMER_SUBSIDIARY_CD
+            ,   TRANSMISSION_DT
+            ,   ODR_TYP
+            ,   SERIAL_NO
+            ,   CUSTOMER_CD
+            ,   LGCY_SHIP_TO
+            ,   CUSTOMER_ITEM_NO_ORG
+            ,   ODR_CTRL_NO
+            ,   REVISION_NO
+            ,   REVISION_NO_EIS
+            ,   ODR_CHG_TYP
+            ,   CUSTOMER_PO_NO
+            ,   TRNS_CD
+            ,   CUSTOMER_DUE_DT
+            ,   ETD_DUE_DT
+            ,   ODR_FIRM_FLG
+            ,   ODR_QTY
+            ,   SUPPLIER_CD
+            ,   CUSTOMER_PLNT_CD
+            ,   ITEM_NO
+            ,   PKG_CD
+            ,   ITEM_DESCRIPTION
+            ,   PLNT_CD
+            ,   SHIPPING_DT
+            ,   LVL1_ERR_CD_LIST
+            ,   LVL2_ERR_CD_LIST
+            ,   LVL3_ERR_CD_LIST
+            ,   LVL3_WARN_CD_LIST
+            ,   ERROR_TYP
+            ,   COM_UPDATE_FUNC_ID
+            ,   COM_UPDATE_USER_ID
+            ,   COM_UPDATE_TIMESTAMP
+            ,   COM_CREATE_FUNC_ID
+            ,   COM_CREATE_USER_ID
+            ,   COM_CREATE_TIMESTAMP
+        )
+        values (
+                #rcvOdrCompCd#
+            ,   #customerSubsidiaryCd#
+            ,   #transmissionDt#
+            ,   #odrTyp#
+            ,   #serialNo#
+            ,   #customerCd#
+            ,   #lgcyShipTo#
+            ,   #customerItemNoOrg#
+            ,   #odrCtrlNo#
+            ,   #revisionNo#
+            ,   #revisionNoEis#
+            ,   #odrChgTyp#
+            ,   #customerPoNo#
+            ,   #trnsCd#
+            ,   #customerDueDt#
+            ,   #etdDueDt#
+            ,   #odrFirmFlg#
+            ,   #odrQty#
+            ,   #supplierCd#
+            ,   #customerPlntCd#
+            ,   #itemNo#
+            ,   #pkgCd#
+            ,   #itemDescription#
+            ,   #plntCd#
+            ,   #shippingDt#
+            ,   #lvl1ErrCdList#
+            ,   #lvl2ErrCdList#
+            ,   #lvl3ErrCdList#
+            ,   #lvl3WarnCdList#
+            ,   #errorTyp#
+            ,   'B0100'
+            ,   '0'
+            ,   SYSDATE
+            ,   'B0100'
+            ,   '0'
+            ,   SYSDATE
+        )
+    </insert>
+
+
+   <!-- 検索 SQL文 (【STEP3:エラーレポート出力】EDI受注エラーレポートのヘッダ単位の検索 -->
+    <select id="SearchEdiRcvOdrReportHeader" resultMap="TtEdiRcvOdrReport_SearchEdiRcvOdrReportHeader"
+        parameterClass="TtEdiRcvOdrReportCriteriaDomain">
+        
+        select /* SqlMap-JbEdiRcvOdr.SearchEdiRcvOdrReportHeader */
+             CUSTOMER_SUBSIDIARY_CD
+            ,TRANSMISSION_DT
+            ,CUSTOMER_CD
+            ,LGCY_SHIP_TO
+            ,PLNT_CD
+        from
+            TT_EDI_RCV_ODR_REPORT
+        where RCV_ODR_COMP_CD = #rcvOdrCompCd#
+        group by 
+             CUSTOMER_SUBSIDIARY_CD
+            ,TRANSMISSION_DT
+            ,CUSTOMER_CD
+            ,LGCY_SHIP_TO
+            ,PLNT_CD
+        order by 
+             PLNT_CD
+            ,CUSTOMER_SUBSIDIARY_CD
+            ,CUSTOMER_CD
+            ,LGCY_SHIP_TO
+            ,TRANSMISSION_DT
+    </select>
+    
+    <!-- 検索 SQL文 (【STEP3:エラーレポート出力】EDI受注エラーレポートの出力プリンタの検索) -->
+    <select id="SearchPrinterForErrReport" resultClass="java.lang.String"
+        parameterClass="java.util.Map">
+
+        select /* SqlMap-JbEdiRcvOdr.SearchPrinterForErrReport */
+             PRT.PRINTER_NM
+        from (select PRINTER_ID, PLNT_CD, ODR_ERR_PRINTER_FLG, ODR_ERR_DEF_PRITNTER_FLG
+                from TM_PRINTER_PURPOSE
+               where COMP_CD = #compCd#) PUR,
+             (select PRINTER_ID, PRINTER_NM
+                from TM_PRINTER
+               where COMP_CD = #compCd#) PRT
+        where PUR.PLNT_CD = nvl(#plntCd#, PUR.PLNT_CD)
+          and nvl2(#plntCd#, PUR.ODR_ERR_PRINTER_FLG, PUR.ODR_ERR_DEF_PRITNTER_FLG) = 'Y'
+          and PUR.PRINTER_ID = PRT.PRINTER_ID
+    </select>
+    
+    <!-- 更新 SQL文 (【STEP4:内示受注数見直し】輸出受注の更新) -->
+    <update id="UpdateTtExpRcvOdrForReviseOdrQty" parameterClass="java.util.Map">
+        update /* SqlMap-JbEdiRcvOdr.UpdateTtExpRcvOdrForReviseOdrQty */ TT_EXP_RCV_ODR 
+           set 
+                ODR_QTY = #domain.odrQty#
+               ,COM_UPDATE_FUNC_ID = #domain.comUpdateFuncId#
+               ,COM_UPDATE_USER_ID = #domain.comUpdateUserId#
+               ,COM_UPDATE_TIMESTAMP = SYSDATE
+        where RCV_ODR_COMP_CD = #condition.rcvOdrCompCd#
+          and ODR_FIRM_FLG = #condition.odrFirmFlg#
+          and PLTZ_ALLOC_QTY = #condition.pltzAllocQty#
+          and SHIPPED_QTY = #condition.shippedQty#
+          and SHIPPING_DT <![CDATA[<=]]> #condition.shippingDtLessThanEqual#
+          and ODR_QTY <![CDATA[<>]]> 0
+    </update>
+    
+</sqlMap>

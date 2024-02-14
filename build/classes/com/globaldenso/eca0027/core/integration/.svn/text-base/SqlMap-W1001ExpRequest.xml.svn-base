@@ -1,0 +1,1783 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-W1001ExpRequest.xml
+ *
+ * W1001ExpRequestDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="W1001ExpRequest">
+
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="W1001ExpRequestDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W1001ExpRequestDomain" />
+     <typeAlias alias="TtExpRequestDtlDomain"
+        type="com.globaldenso.eca0027.core.auto.business.domain.TtExpRequestDtlDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W1001ExpRequestCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W1001ExpRequestCriteriaDomain" />
+    <typeAlias alias="TtExpRequestDtlCriteriaDomain"
+        type="com.globaldenso.eca0027.core.auto.business.domain.criteria.TtExpRequestDtlCriteriaDomain" />
+
+
+    <!-- 検索結果をMapで受け取る -->
+    <resultMap id="W1001ExpRequest" class="W1001ExpRequestDomain">
+    	<result property="requestStatus" column="REQUEST_STATUS" />
+    	<result property="shipperCd" column="SHIPPER_CD" />
+    	<result property="consigneeCd" column="CONSIGNEE_CD" />
+    	<result property="shipToCd" column="SHIP_TO_CD" />
+    	<result property="trnsCd" column="TRNS_CD" />
+    	<result property="invoiceCtgry" column="INVOICE_CTGRY" />
+    	<result property="customerShipTo" column="CUSTOMER_SHIP_TO" />
+        <result property="expRequestNo" column="EXP_REQUEST_NO" />
+        <result property="comCreateUserId" column="COM_CREATE_USER_ID" />
+        <result property="comUpdateUserId" column="COM_UPDATE_USER_ID" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+        <result property="packingCompCd" column="PACKING_COMP_CD" />
+        <result property="packingWhCd" column="PACKING_WH_CD" />
+        <result property="stagingInstructionFlg" column="STG_INSTR_FLG" />
+        <result property="splitShippingNgFlg" column="SPLIT_SHIPPING_NG_FLG" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="currCd" column="CURR_CD" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="qtyUnit" column="QTY_UNIT" />
+        <result property="reExpGoodsFlg" column="RE_EXP_GOODS_FLG" />
+    </resultMap>
+    
+    <resultMap id="W1001ExpRequestSearch" class="W1001ExpRequestDomain">
+    	<result property="requestStatus" column="REQUEST_STATUS" />
+    	<result property="shipperCd" column="SHIPPER_CD" />
+    	<result property="consigneeCd" column="CONSIGNEE_CD" />
+    	<result property="shipToCd" column="SHIP_TO_CD" />
+    	<result property="trnsCd" column="TRNS_CD" />
+    	<result property="invoiceCtgry" column="INVOICE_CTGRY" />
+        <result property="expRequestNo" column="EXP_REQUEST_NO" />
+        <result property="customerShipTo" column="CUSTOMER_SHIP_TO" />
+        <result property="comCreateUserId" column="ISSUER_NAME" />
+        <result property="comUpdateUserId" column="UPDATE_NAME" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+        <result property="packingCompCd" column="PACKING_COMP_CD" />
+        <result property="packingWhCd" column="PACKING_WH_CD" />
+        <result property="stagingInstructionFlg" column="STG_INSTR_FLG" />
+        <result property="splitShippingNgFlg" column="SPLIT_SHIPPING_NG_FLG" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="currCd" column="CURR_CD" />
+    </resultMap>
+	
+	<resultMap id="W1002ExpRequest" class="W1001ExpRequestDomain">
+        <result property="expRequestNo" column="EXP_REQUEST_NO" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="densoShipperTyp" column="DENSO_SHIPPER_TYP" />
+        <result property="plantCd" column="PLANT_CD" />
+        <result property="requestIssuerCompCd" column="REQUEST_ISSUER_COMP_CD" />
+        <result property="requestIssuerDeptNm" column="REQUEST_ISSUER_DEPT_NM" />
+        <result property="requestIssuerId" column="REQUEST_ISSUER_ID" />
+        <result property="requestIssuerNm" column="REQUEST_ISSUER_NM" />
+        <result property="issuerCompTel" column="ISSUER_COMP_TEL" />
+        <result property="issuerCompNiceNet" column="ISSUER_COMP_NICE_NET" />
+        <result property="invoiceCtgry" column="INVOICE_CTGRY" />
+        <result property="reExpGoodsFlg" column="RE_EXP_GOODS_FLG" />
+        <result property="impInvoiceNo1" column="IMP_INVOICE_NO_1" />
+        <result property="impInvoiceNo2" column="IMP_INVOICE_NO_2" />
+        <result property="itemTyp" column="ITEM_TYP" />
+        <result property="description" column="DESCRIPTION" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="qtyUnit" column="QTY_UNIT" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="customerShipTo" column="CUSTOMER_SHIP_TO" />
+        <result property="accounteeCd" column="ACCOUNTEE_CD" />
+        <result property="accounteeCompNm" column="ACCOUNTEE_COMP_NM" />
+        <result property="accounteeCompAddr" column="ACCOUNTEE_COMP_ADDR" />
+        <result property="accounteeCompTel" column="ACCOUNTEE_COMP_TEL" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="consigneeCd" column="CONSIGNEE_CD" />
+        <result property="consigneeCompNm" column="CONSIGNEE_COMP_NM" />
+        <result property="consigneeCntryCd" column="CONSIGNEE_CNTRY_CD" />
+        <result property="consigneeCompAddr" column="CONSIGNEE_COMP_ADDR" />
+        <result property="consigneeCompTel" column="CONSIGNEE_COMP_TEL" />
+        <result property="shipToCd" column="SHIP_TO_CD" />
+        <result property="shipToCompNm" column="SHIP_TO_COMP_NM" />
+        <result property="shipToCntryCd" column="SHIP_TO_CNTRY_CD" />
+        <result property="shipToCompAddr" column="SHIP_TO_COMP_ADDR" />
+        <result property="shipToCompTel" column="SHIP_TO_COMP_TEL" />
+        <result property="shipToCompDeptNm" column="SHIP_TO_COMP_DEPT_NM" />
+        <result property="shipToAttnNm" column="SHIP_TO_ATTN_NM" />
+        <result property="currCd" column="CURR_CD" />
+        <result property="priceTerms" column="PRICE_TERMS" />
+        <result property="priceTerms1" column="PRICE_TERMS_1" />
+        <result property="priceTerms2" column="PRICE_TERMS_2" />
+        <result property="termsPoint" column="TERMS_POINT" />
+        <result property="tradeTerms1" column="TRADE_TERMS_1" />
+        <result property="payMeth" column="PAY_METH" />
+        <result property="payTerms" column="PAY_TERMS" />
+        <result property="tradeTerms" column="TRADE_TERMS" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="stagingInstructionFlg" column="STG_INSTR_FLG" />
+        <result property="splitShippingNgFlg" column="SPLIT_SHIPPING_NG_FLG" />
+        <result property="dueDt" column="DUE_DT" />
+        <result property="requiredShipDt" column="REQUIRED_SHIP_DT" />
+        <result property="packingWhCd" column="PACKING_WH_CD" />
+        <result property="packingCompLocationFlg" column="PACKING_COMP_LOCATION_FLG" />
+        <result property="packingCompCd" column="PACKING_COMP_CD" />
+        <result property="packingCompDeptNm" column="PACKING_COMP_DEPT_NM" />
+        <result property="requestToPackingSec" column="REQUEST_TO_PACKING_SEC" />
+        <result property="casemarkNotation" column="CASEMARK_NOTATION" />
+        <result property="freightResponsibleCd" column="FREIGHT_RESPONSIBLE_CD" />
+        <result property="ctgryCd1" column="CTGRY_CD_1" />
+        <result property="budgetNo1" column="BUDGET_NO_1" />
+        <result property="jobNo1" column="JOB_NO_1" />
+        <result property="per1" column="PER_1" />
+        <result property="ctgryCd2" column="CTGRY_CD_2" />
+        <result property="budgetNo2" column="BUDGET_NO_2" />
+        <result property="jobNo2" column="JOB_NO_2" />
+        <result property="per2" column="PER_2" />
+        <result property="ctgryCd3" column="CTGRY_CD_3" />
+        <result property="budgetNo3" column="BUDGET_NO_3" />
+        <result property="jobNo3" column="JOB_NO_3" />
+        <result property="per3" column="PER_3" />
+        <result property="prepareExpInvoiceCtgry" column="PREPARE_EXP_INVOICE_CTGRY" />
+        <result property="supplierInvoiceNo" column="SUPPLIER_INVOICE_NO" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="createOriginTyp" column="CREATE_ORIGIN_TYP" />
+        <result property="requestDt" column="REQUEST_DT" />
+        <result property="requestStatus" column="REQUEST_STATUS" />
+        <result property="requestLastUpdateDt" column="REQUEST_LAST_UPDATE_DT" />
+        <result property="comUpdateFuncId" column="COM_UPDATE_FUNC_ID" />
+        <result property="comUpdateUserId" column="COM_UPDATE_USER_ID" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+        <result property="comCreateFuncId" column="COM_CREATE_FUNC_ID" />
+        <result property="comCreateUserId" column="COM_CREATE_USER_ID" />
+        <result property="comCreateTimestamp" column="COM_CREATE_TIMESTAMP" />
+    </resultMap>
+    
+    <resultMap id="ContianerSort" class="W1001ExpRequestDomain">
+    	<result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+    </resultMap>
+    
+    <!-- 検索結果をMapで受け取る -->
+    <resultMap id="QtyDtl" class="TtExpRequestDtlDomain">
+        <result property="expRequestNo" column="EXP_REQUEST_NO" />
+        <result property="qtyUnit" column="QTY_UNIT" />
+        <result property="qty" column="QTY" />
+    </resultMap>
+    
+    <!-- 検索結果をMapで受け取る -->
+    <resultMap id="AmountDtl" class="TtExpRequestDtlDomain">
+        <result property="expRequestNo" column="EXP_REQUEST_NO" />
+        <result property="currCd" column="CURR_CD" />
+        <result property="unitPrice" column="UNIT_PRICE" />
+        <result property="commercialFlg" column="COMMERCIAL_FLG" />
+    </resultMap>
+
+    <!-- 汎用 項目 -->
+    <sql id="Cols">
+             EXP_REQUEST_NO
+            ,SHIPPER_CD
+            ,DENSO_SHIPPER_TYP
+            ,PLANT_CD
+            ,REQUEST_ISSUER_COMP_CD
+            ,REQUEST_ISSUER_DEPT_NM
+            ,REQUEST_ISSUER_ID
+            ,REQUEST_ISSUER_NM
+            ,ISSUER_COMP_TEL
+            ,ISSUER_COMP_NICE_NET
+            ,INVOICE_CTGRY
+            ,RE_EXP_GOODS_FLG
+            ,IMP_INVOICE_NO_1
+            ,IMP_INVOICE_NO_2
+            ,ITEM_TYP
+            ,DESCRIPTION
+            ,ORIGIN_CNTRY_CD
+            ,QTY_UNIT
+            ,WEIGHT_UNIT
+            ,CUSTOMER_SHIP_TO
+            ,ACCOUNTEE_CD
+            ,ACCOUNTEE_COMP_NM
+            ,ACCOUNTEE_COMP_ADDR
+            ,ACCOUNTEE_COMP_TEL
+            ,CONTAINER_SORTING_KEY
+            ,LOADING_CD
+            ,CONSIGNEE_CD
+            ,CONSIGNEE_COMP_NM
+            ,CONSIGNEE_CNTRY_CD
+            ,CONSIGNEE_COMP_ADDR
+            ,CONSIGNEE_COMP_TEL
+            ,SHIP_TO_CD
+            ,SHIP_TO_COMP_NM
+            ,SHIP_TO_CNTRY_CD
+            ,SHIP_TO_COMP_ADDR
+            ,SHIP_TO_COMP_TEL
+            ,SHIP_TO_COMP_DEPT_NM
+            ,SHIP_TO_ATTN_NM
+            ,CURR_CD
+            ,PRICE_TERMS
+            ,PRICE_TERMS_1
+            ,PRICE_TERMS_2
+            ,TERMS_POINT
+            ,TRADE_TERMS_1
+            ,PAY_METH
+            ,PAY_TERMS
+            ,TRADE_TERMS
+            ,TRNS_CD
+            ,STG_INSTR_FLG
+            ,SPLIT_SHIPPING_NG_FLG
+            ,DUE_DT
+            ,REQUIRED_SHIP_DT
+            ,PACKING_WH_CD
+            ,PACKING_COMP_LOCATION_FLG
+            ,PACKING_COMP_CD
+            ,PACKING_COMP_DEPT_NM
+            ,REQUEST_TO_PACKING_SEC
+            ,CASEMARK_NOTATION
+            ,FREIGHT_RESPONSIBLE_CD
+            ,CTGRY_CD_1
+            ,BUDGET_NO_1
+            ,JOB_NO_1
+            ,PER_1
+            ,CTGRY_CD_2
+            ,BUDGET_NO_2
+            ,JOB_NO_2
+            ,PER_2
+            ,CTGRY_CD_3
+            ,BUDGET_NO_3
+            ,JOB_NO_3
+            ,PER_3
+            ,PREPARE_EXP_INVOICE_CTGRY
+            ,SUPPLIER_INVOICE_NO
+            ,CUSTOMER_CD
+            ,CREATE_ORIGIN_TYP
+            ,REQUEST_DT
+            ,REQUEST_STATUS
+            ,REQUEST_LAST_UPDATE_DT
+            ,COM_UPDATE_FUNC_ID
+            ,COM_UPDATE_USER_ID
+            ,COM_UPDATE_TIMESTAMP
+            ,COM_CREATE_FUNC_ID
+            ,COM_CREATE_USER_ID
+            ,COM_CREATE_TIMESTAMP
+            
+    </sql>
+    
+    <sql id="ColsA">
+             a.EXP_REQUEST_NO
+            ,a.SHIPPER_CD
+            ,a.DENSO_SHIPPER_TYP
+            ,a.PLANT_CD
+            ,a.REQUEST_ISSUER_COMP_CD
+            ,a.REQUEST_ISSUER_DEPT_NM
+            ,a.REQUEST_ISSUER_ID
+            ,a.REQUEST_ISSUER_NM
+            ,a.ISSUER_COMP_TEL
+            ,a.ISSUER_COMP_NICE_NET
+            ,a.INVOICE_CTGRY
+            ,a.RE_EXP_GOODS_FLG
+            ,a.IMP_INVOICE_NO_1
+            ,a.IMP_INVOICE_NO_2
+            ,a.ITEM_TYP
+            ,a.DESCRIPTION
+            ,a.ORIGIN_CNTRY_CD
+            ,a.QTY_UNIT
+            ,a.WEIGHT_UNIT
+            ,a.CUSTOMER_SHIP_TO
+            ,a.ACCOUNTEE_CD
+            ,a.ACCOUNTEE_COMP_NM
+            ,a.ACCOUNTEE_COMP_ADDR
+            ,a.ACCOUNTEE_COMP_TEL
+            ,a.CONTAINER_SORTING_KEY
+            ,a.LOADING_CD
+            ,a.CONSIGNEE_CD
+            ,a.CONSIGNEE_COMP_NM
+            ,a.CONSIGNEE_CNTRY_CD
+            ,a.CONSIGNEE_COMP_ADDR
+            ,a.CONSIGNEE_COMP_TEL
+            ,a.SHIP_TO_CD
+            ,a.SHIP_TO_COMP_NM
+            ,a.SHIP_TO_CNTRY_CD
+            ,a.SHIP_TO_COMP_ADDR
+            ,a.SHIP_TO_COMP_TEL
+            ,a.SHIP_TO_COMP_DEPT_NM
+            ,a.SHIP_TO_ATTN_NM
+            ,a.CURR_CD
+            ,a.PRICE_TERMS
+            ,a.PRICE_TERMS_1
+            ,a.PRICE_TERMS_2
+            ,a.TERMS_POINT
+            ,a.TRADE_TERMS_1
+            ,a.PAY_METH
+            ,a.PAY_TERMS
+            ,a.TRADE_TERMS
+            ,a.TRNS_CD
+            ,a.STG_INSTR_FLG
+            ,a.SPLIT_SHIPPING_NG_FLG
+            ,a.DUE_DT
+            ,a.REQUIRED_SHIP_DT
+            ,a.PACKING_WH_CD
+            ,a.PACKING_COMP_LOCATION_FLG
+            ,a.PACKING_COMP_CD
+            ,a.PACKING_COMP_DEPT_NM
+            ,a.REQUEST_TO_PACKING_SEC
+            ,a.CASEMARK_NOTATION
+            ,a.FREIGHT_RESPONSIBLE_CD
+            ,a.CTGRY_CD_1
+            ,a.BUDGET_NO_1
+            ,a.JOB_NO_1
+            ,a.PER_1
+            ,a.CTGRY_CD_2
+            ,a.BUDGET_NO_2
+            ,a.JOB_NO_2
+            ,a.PER_2
+            ,a.CTGRY_CD_3
+            ,a.BUDGET_NO_3
+            ,a.JOB_NO_3
+            ,a.PER_3
+            ,a.PREPARE_EXP_INVOICE_CTGRY
+            ,a.SUPPLIER_INVOICE_NO
+            ,a.CUSTOMER_CD
+            ,a.CREATE_ORIGIN_TYP
+            ,a.REQUEST_DT
+            ,a.REQUEST_STATUS
+            ,a.REQUEST_LAST_UPDATE_DT
+            ,a.COM_UPDATE_FUNC_ID
+            ,a.COM_UPDATE_USER_ID
+            ,a.COM_UPDATE_TIMESTAMP
+            ,a.COM_CREATE_FUNC_ID
+            ,a.COM_CREATE_USER_ID
+            ,a.COM_CREATE_TIMESTAMP
+            
+    </sql>
+    
+    <sql id="ColsB">
+    		,b.ITEM_NO
+         	,b.DESCRIPTION
+            ,b.MAIN_MARK
+    </sql>
+
+	<sql id="ColsC">
+             a.EXP_REQUEST_NO
+            ,a.SHIPPER_CD
+            ,a.DENSO_SHIPPER_TYP
+            ,a.PLANT_CD
+            ,a.REQUEST_ISSUER_COMP_CD
+            ,a.REQUEST_ISSUER_DEPT_NM
+            ,a.REQUEST_ISSUER_ID
+            ,a.REQUEST_ISSUER_NM
+            ,a.ISSUER_COMP_TEL
+            ,a.ISSUER_COMP_NICE_NET
+            ,a.INVOICE_CTGRY
+            ,a.RE_EXP_GOODS_FLG
+            ,a.IMP_INVOICE_NO_1
+            ,a.IMP_INVOICE_NO_2
+            ,a.ITEM_TYP
+            ,a.DESCRIPTION
+            ,a.ORIGIN_CNTRY_CD
+            ,a.QTY_UNIT
+            ,a.WEIGHT_UNIT
+            ,a.CUSTOMER_SHIP_TO
+            ,a.ACCOUNTEE_CD
+            ,a.ACCOUNTEE_COMP_NM
+            ,a.ACCOUNTEE_COMP_ADDR
+            ,a.ACCOUNTEE_COMP_TEL
+            ,a.CONTAINER_SORTING_KEY
+            ,a.LOADING_CD
+            ,a.CONSIGNEE_CD
+            ,a.CONSIGNEE_COMP_NM
+            ,a.CONSIGNEE_CNTRY_CD
+            ,a.CONSIGNEE_COMP_ADDR
+            ,a.CONSIGNEE_COMP_TEL
+            ,a.SHIP_TO_CD
+            ,a.SHIP_TO_COMP_NM
+            ,a.SHIP_TO_CNTRY_CD
+            ,a.SHIP_TO_COMP_ADDR
+            ,a.SHIP_TO_COMP_TEL
+            ,a.SHIP_TO_COMP_DEPT_NM
+            ,a.SHIP_TO_ATTN_NM
+            ,a.CURR_CD
+            ,a.PRICE_TERMS
+            ,a.PRICE_TERMS_1
+            ,a.PRICE_TERMS_2
+            ,a.TERMS_POINT
+            ,a.TRADE_TERMS_1
+            ,a.PAY_METH
+            ,a.PAY_TERMS
+            ,a.TRADE_TERMS
+            ,a.TRNS_CD
+            ,a.STG_INSTR_FLG
+            ,a.SPLIT_SHIPPING_NG_FLG
+            ,a.DUE_DT
+            ,a.REQUIRED_SHIP_DT
+            ,a.PACKING_WH_CD
+            ,a.PACKING_COMP_LOCATION_FLG
+            ,a.PACKING_COMP_CD
+            ,a.PACKING_COMP_DEPT_NM
+            ,a.REQUEST_TO_PACKING_SEC
+            ,a.CASEMARK_NOTATION
+            ,a.FREIGHT_RESPONSIBLE_CD
+            ,a.CTGRY_CD_1
+            ,a.BUDGET_NO_1
+            ,a.JOB_NO_1
+            ,a.PER_1
+            ,a.CTGRY_CD_2
+            ,a.BUDGET_NO_2
+            ,a.JOB_NO_2
+            ,a.PER_2
+            ,a.CTGRY_CD_3
+            ,a.BUDGET_NO_3
+            ,a.JOB_NO_3
+            ,a.PER_3
+            ,a.PREPARE_EXP_INVOICE_CTGRY
+            ,a.SUPPLIER_INVOICE_NO
+            ,a.CUSTOMER_CD
+            ,a.CREATE_ORIGIN_TYP
+            ,a.REQUEST_DT
+            ,a.REQUEST_STATUS
+            ,a.REQUEST_LAST_UPDATE_DT
+            ,a.COM_UPDATE_FUNC_ID
+            ,a.COM_UPDATE_USER_ID
+            ,a.COM_UPDATE_TIMESTAMP
+            ,a.COM_CREATE_FUNC_ID
+            ,a.COM_CREATE_USER_ID
+            ,a.COM_CREATE_TIMESTAMP
+            ,s.USR_NM_EN as ISSUER_NAME
+            ,u.USR_NM_EN as UPDATE_NAME
+            ,row_number() over (order by a.REQUEST_STATUS
+                               ,a.SHIPPER_CD
+                               ,a.CONSIGNEE_CD
+                               ,a.SHIP_TO_CD
+                               ,a.TRNS_CD) ROW_NUM
+    </sql>
+	<sql id="ColsD">
+             d.EXP_REQUEST_NO
+            ,(select COMP_NM_ABB from TM_NXS_COMP where COMP_CD =  d.SHIPPER_CD) as SHIPPER_CD
+            ,d.DENSO_SHIPPER_TYP
+            ,d.PLANT_CD
+            ,d.REQUEST_ISSUER_COMP_CD
+            ,d.REQUEST_ISSUER_DEPT_NM
+            ,d.REQUEST_ISSUER_ID
+            ,d.REQUEST_ISSUER_NM
+            ,d.ISSUER_COMP_TEL
+            ,d.ISSUER_COMP_NICE_NET
+            ,d.INVOICE_CTGRY
+            ,d.RE_EXP_GOODS_FLG
+            ,d.IMP_INVOICE_NO_1
+            ,d.IMP_INVOICE_NO_2
+            ,d.ITEM_TYP
+            ,d.DESCRIPTION
+            ,d.ORIGIN_CNTRY_CD
+            ,d.QTY_UNIT
+            ,d.WEIGHT_UNIT
+            ,d.CUSTOMER_SHIP_TO
+            ,d.ACCOUNTEE_CD
+            ,d.ACCOUNTEE_COMP_NM
+            ,d.ACCOUNTEE_COMP_ADDR
+            ,d.ACCOUNTEE_COMP_TEL
+            ,d.CONTAINER_SORTING_KEY
+            ,d.LOADING_CD
+            ,(select COMP_NM_ABB from TM_NXS_COMP where COMP_CD =  d.CONSIGNEE_CD) as CONSIGNEE_CD
+            ,d.CONSIGNEE_COMP_NM
+            ,d.CONSIGNEE_CNTRY_CD
+            ,d.CONSIGNEE_COMP_ADDR
+            ,d.CONSIGNEE_COMP_TEL
+            ,(select SHIP_TO_NM_ABB from TM_NXS_SHIP_TO where SHIP_TO_CD = d.SHIP_TO_CD) as SHIP_TO_CD
+            ,d.SHIP_TO_COMP_NM
+            ,d.SHIP_TO_CNTRY_CD
+            ,d.SHIP_TO_COMP_ADDR
+            ,d.SHIP_TO_COMP_TEL
+            ,d.SHIP_TO_COMP_DEPT_NM
+            ,d.SHIP_TO_ATTN_NM
+            ,d.CURR_CD
+            ,d.PRICE_TERMS
+            ,d.PRICE_TERMS_1
+            ,d.PRICE_TERMS_2
+            ,d.TERMS_POINT
+            ,d.TRADE_TERMS_1
+            ,d.PAY_METH
+            ,d.PAY_TERMS
+            ,d.TRADE_TERMS
+            ,d.TRNS_CD
+            ,d.STG_INSTR_FLG
+            ,d.SPLIT_SHIPPING_NG_FLG
+            ,d.DUE_DT
+            ,d.REQUIRED_SHIP_DT
+            ,d.PACKING_WH_CD
+            ,d.PACKING_COMP_LOCATION_FLG
+            ,d.PACKING_COMP_CD
+            ,d.PACKING_COMP_DEPT_NM
+            ,d.REQUEST_TO_PACKING_SEC
+            ,d.CASEMARK_NOTATION
+            ,d.FREIGHT_RESPONSIBLE_CD
+            ,d.CTGRY_CD_1
+            ,d.BUDGET_NO_1
+            ,d.JOB_NO_1
+            ,d.PER_1
+            ,d.CTGRY_CD_2
+            ,d.BUDGET_NO_2
+            ,d.JOB_NO_2
+            ,d.PER_2
+            ,d.CTGRY_CD_3
+            ,d.BUDGET_NO_3
+            ,d.JOB_NO_3
+            ,d.PER_3
+            ,d.PREPARE_EXP_INVOICE_CTGRY
+            ,d.SUPPLIER_INVOICE_NO
+            ,d.CUSTOMER_CD
+            ,d.CREATE_ORIGIN_TYP
+            ,d.REQUEST_DT
+            ,d.REQUEST_STATUS
+            ,d.REQUEST_LAST_UPDATE_DT
+            ,d.COM_UPDATE_FUNC_ID
+            ,d.COM_UPDATE_USER_ID
+            ,d.COM_UPDATE_TIMESTAMP
+            ,d.COM_CREATE_FUNC_ID
+            ,d.COM_CREATE_USER_ID
+            ,d.COM_CREATE_TIMESTAMP
+            ,d.ISSUER_NAME as ISSUER_NAME
+            ,d.UPDATE_NAME as UPDATE_NAME
+    </sql>
+	
+    <!-- 汎用 SELECT句 -->
+    <sql id="Select">
+        select distinct
+        <include refid="ColsA" />
+        from TT_EXP_REQUEST a
+        <include refid="Join" />
+    </sql>
+    
+    <sql id="Join">
+    	join ( 
+        <include refid="ttExpRequestDtl" />
+        union all
+        <include refid="ttPltzItem" />
+        ) b 
+        on a.EXP_REQUEST_NO = b.EXP_REQUEST_NO
+        <isNotEmpty prepend="and" property="pltzItemNo">
+            b.ITEM_NO = #pltzItemNo#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="itemDescription">
+            b.DESCRIPTION = #itemDescription#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="mainMark">
+            b.MAIN_MARK = #mainMark#
+        </isNotEmpty>
+    </sql>
+    
+    <sql id="LeftJoin">
+    	left join ( 
+        <include refid="ttExpRequestDtl" />
+        union all
+        <include refid="ttPltzItem" />
+        ) b 
+        on a.EXP_REQUEST_NO = b.EXP_REQUEST_NO
+        <isNotEmpty prepend="and" property="pltzItemNo">
+            b.ITEM_NO = #pltzItemNo#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="itemDescription">
+            b.DESCRIPTION = #itemDescription#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="mainMark">
+            b.MAIN_MARK = #mainMark#
+        </isNotEmpty>
+    </sql>
+    <sql id="LeftJoinIssuer">
+    	left join TM_USER s
+    	on s.DSC_ID = a.COM_CREATE_USER_ID
+    </sql>
+    <sql id="LeftJoinUpdateUser">
+    	left join TM_USER u
+    	on u.DSC_ID = a.COM_UPDATE_USER_ID
+    </sql>
+    
+    <sql id="ttExpRequestDtl">
+        select d.EXP_REQUEST_NO, d.ITEM_NO, DESCRIPTION, '' as MAIN_MARK 
+        from TT_EXP_REQUEST_DTL d
+    </sql>
+    
+    <sql id="ttPltzItem">
+        select i.EXP_REQUEST_NO,'' as ITEM_NO, '' as DESCRIPTION, i.MAIN_MARK  
+        from TT_PLTZ_ITEM i
+    </sql>
+    
+    <sql id="ContSort">
+        select distinct e.container_sorting_key 
+        from tm_exp_ship_to_shipping e
+        <dynamic prepend="where">
+        	<isNotEmpty prepend="and" property="shipperCd">
+                e.COMP_CD = #shipperCd#
+            </isNotEmpty>
+        	<isNotEmpty prepend="and" property="shipToCd">
+                e.SHIP_TO_CD = #shipToCd#
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+
+    <!-- 汎用 SELECT句（ページング用） -->
+    <sql id="SelectForPaging">
+        select
+        <include refid="Cols" />
+            
+        from TT_EXP_REQUEST
+    </sql>
+
+    <!-- 汎用 Where句（主キー） -->
+    <sql id="WhereKey">
+        <dynamic prepend="where">
+        <isParameterPresent prepend="and">
+            EXP_REQUEST_NO = #expRequestNo#
+        </isParameterPresent>
+        </dynamic>
+    </sql>
+
+    <!-- 汎用 Where句（全項目） -->
+    <sql id="WhereCondition">
+        <dynamic prepend="where">
+            
+            <isNotEmpty prepend="and" property="shipperCd">
+                SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="requestStatus">
+                REQUEST_STATUS = #requestStatus#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="consigneeCd">
+                CONSIGNEE_CD = #consigneeCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shipToCd">
+                SHIP_TO_CD = #shipToCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="expRequestNo">
+                EXP_REQUEST_NO LIKE CONCAT(#expRequestNo#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserId">
+                COM_CREATE_USER_ID = #comCreateUserId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCd">
+                TRNS_CD = #trnsCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="fmUpdateTimestamp">
+                #fmUpdateTimestamp# <![CDATA[<]]> = COM_UPDATE_TIMESTAMP
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="toUpdateTimestamp">
+                COM_UPDATE_TIMESTAMP <![CDATA[<]]> #toUpdateTimestamp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceCtgry">
+                INVOICE_CTGRY = #invoiceCtgry#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="packingCompCd">
+                PACKING_COMP_CD = #packingCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="packingWhCd">
+                PACKING_WH_CD = #packingWhCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCd">
+                CUSTOMER_CD = #customerCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="splitShippingNgFlg">
+                SPLIT_SHIPPING_NG_FLG = #splitShippingNgFlg#
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+    
+     <!-- 汎用 Where句（全項目） -->
+    <sql id="WhereConditionA">
+        <dynamic prepend="where">
+            
+            <isNotEmpty prepend="and" property="shipperCd">
+                a.SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="requestStatus">
+                a.REQUEST_STATUS = #requestStatus#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="consigneeCd">
+                a.CONSIGNEE_CD = #consigneeCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shipToCd">
+                a.SHIP_TO_CD = #shipToCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="expRequestNo">
+                a.EXP_REQUEST_NO = #expRequestNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserId">
+                a.COM_CREATE_USER_ID = #comCreateUserId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCd">
+                a.TRNS_CD = #trnsCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="fmUpdateTimestamp">
+                #fmUpdateTimestamp# <![CDATA[<]]> = a.COM_UPDATE_TIMESTAMP
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="toUpdateTimestamp">
+                a.COM_UPDATE_TIMESTAMP <![CDATA[<]]> = #toUpdateTimestamp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceCtgry">
+                a.INVOICE_CTGRY = #invoiceCtgry#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="packingCompCd">
+                a.PACKING_COMP_CD = #packingCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="packingWhCd">
+                a.PACKING_WH_CD = #packingWhCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCd">
+                a.CUSTOMER_CD = #customerCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="splitShippingNgFlg">
+                a.SPLIT_SHIPPING_NG_FLG = #splitShippingNgFlg#
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+	<sql id="WhereConditionB">
+        <dynamic prepend="where">
+            
+            <isNotEmpty prepend="and" property="shipperCd">
+                a.SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="requestStatus">
+                a.REQUEST_STATUS = #requestStatus#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="consigneeCd">
+                a.CONSIGNEE_CD = #consigneeCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shipToCd">
+                a.SHIP_TO_CD = #shipToCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="expRequestNo">
+                a.EXP_REQUEST_NO LIKE CONCAT(#expRequestNo#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserId">
+                a.COM_CREATE_USER_ID = #comCreateUserId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCd">
+                a.TRNS_CD = #trnsCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="fmUpdateTimestamp">
+                #fmUpdateTimestamp# <![CDATA[<]]> = a.COM_UPDATE_TIMESTAMP
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="toUpdateTimestamp">
+                a.COM_UPDATE_TIMESTAMP <![CDATA[<]]> = #toUpdateTimestamp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceCtgry">
+                a.INVOICE_CTGRY = #invoiceCtgry#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="packingCompCd">
+                a.PACKING_COMP_CD = #packingCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="packingWhCd">
+                a.PACKING_WH_CD = #packingWhCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCd">
+                a.CUSTOMER_CD = #customerCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="splitShippingNgFlg">
+                a.SPLIT_SHIPPING_NG_FLG = #splitShippingNgFlg#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="mainMark">
+	            b.MAIN_MARK = #mainMark#
+	        </isNotEmpty>
+        	
+        	<!-- If no RegisterAll, no BrowseAll -->
+        	<!-- RegisterAllなし、BrowseAllなしの場合 -->
+	        <isNotEmpty property="userAuthList" prepend="and">
+	            A1.AUTH_PLNT <![CDATA[ >= ]]> '1'
+	            and a.SHIPPER_CD = A1.SHIPPER_CD
+                and a.PLANT_CD = A1.PLANT_CD
+	        </isNotEmpty>
+	        
+        </dynamic>
+    </sql>
+    <sql id="WhereConditionCount">
+        <dynamic prepend="where">
+            
+            <isNotEmpty prepend="and" property="shipperCd">
+                a.SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="requestStatus">
+                a.REQUEST_STATUS = #requestStatus#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="consigneeCd">
+                a.CONSIGNEE_CD = #consigneeCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shipToCd">
+                a.SHIP_TO_CD = #shipToCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="expRequestNo">
+                a.EXP_REQUEST_NO LIKE CONCAT(#expRequestNo#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserId">
+                a.COM_CREATE_USER_ID = #comCreateUserId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCd">
+                a.TRNS_CD = #trnsCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="fmUpdateTimestamp">
+                #fmUpdateTimestamp# <![CDATA[<]]> = a.COM_UPDATE_TIMESTAMP
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="toUpdateTimestamp">
+                a.COM_UPDATE_TIMESTAMP <![CDATA[<]]> = #toUpdateTimestamp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceCtgry">
+                a.INVOICE_CTGRY = #invoiceCtgry#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="packingCompCd">
+                a.PACKING_COMP_CD = #packingCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="packingWhCd">
+                a.PACKING_WH_CD = #packingWhCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCd">
+                a.CUSTOMER_CD = #customerCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="splitShippingNgFlg">
+                a.SPLIT_SHIPPING_NG_FLG = #splitShippingNgFlg#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="mainMark">
+	            b.MAIN_MARK = #mainMark#
+	        </isNotEmpty>
+            <!-- If no RegisterAll, no BrowseAll -->
+        	<!-- RegisterAllなし、BrowseAllなしの場合 -->
+	        <isNotEmpty property="userAuthList" prepend="and">
+	            A1.AUTH_PLNT <![CDATA[ >= ]]> '1'
+	            and a.SHIPPER_CD = A1.SHIPPER_CD
+                and a.PLANT_CD = A1.PLANT_CD
+	        </isNotEmpty>
+        </dynamic>
+    </sql>
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeys">
+        order by 
+        	REQUEST_STATUS
+        	,SHIPPER_CD
+        	,CONSIGNEE_CD
+        	,SHIP_TO_CD
+        	,TRNS_CD
+    </sql>
+
+    <!-- 検索 SQL文（任意条件、ページング用） -->
+    <select id="SearchByConditionForPaging" resultMap="W1001ExpRequestSearch"
+        parameterClass="W1001ExpRequestCriteriaDomain">
+        select distinct <include refid="ColsD" /> from (
+        select distinct
+            <include refid="ColsC" />
+            /* SqlMap-W1001ExpRequest.SearchByConditionForPaging */
+            from (
+                <include refid="SelectForPaging" />
+                <include refid="WhereCondition" />
+            ) a
+            <isNotEmpty property="pltzItemNo">
+            	<include refid="LeftJoin" />
+        	</isNotEmpty>
+        	<isNotEmpty property="itemDescription">
+        		<isEmpty property="pltzItemNo">
+            		<include refid="LeftJoin" />
+            	</isEmpty>
+        	</isNotEmpty>
+        	<isNotEmpty property="mainMark">
+            	<isEmpty property="itemDescription">
+        			<isEmpty property="pltzItemNo">
+            			<include refid="LeftJoin" />
+            		</isEmpty>
+        		</isEmpty>
+        	</isNotEmpty>
+            <include refid="LeftJoinIssuer" />
+            <include refid="LeftJoinUpdateUser" />
+            <!-- If no RegisterAll, no BrowseAll -->
+        	<!-- RegisterAllなし、BrowseAllなしの場合 -->
+	        <isNotEmpty property="userAuthList" prepend=",">
+	            (
+	                select
+	                		A1.SHIPPER_CD
+                  		   ,A1.PLANT_CD 
+						   ,max(
+	                            case
+	                                <iterate property="userAuthList">
+	                                    when A1.SHIPPER_CD = #userAuthList[].authMgtComp# and A1.PLANT_CD = #userAuthList[].procMfgDivCd#
+	                                        then #userAuthList[].authority#
+	                                </iterate>
+	                                else '0'
+	                            end
+	                        ) AUTH_PLNT
+	                from
+	                        TT_EXP_REQUEST A1
+	                where 
+	                    	A1.PLANT_CD is not NULL
+	                group by
+                        A1.SHIPPER_CD
+                       ,A1.PLANT_CD 
+	                
+	            ) A1
+	        </isNotEmpty>
+            <include refid="WhereConditionB" />
+            order by a.REQUEST_STATUS, a.EXP_REQUEST_NO, a.SHIPPER_CD, a.CONSIGNEE_CD
+        )d where ROW_NUM between #rowNumFrom# and #rowNumTo#
+         order by REQUEST_STATUS, EXP_REQUEST_NO, SHIPPER_CD, CONSIGNEE_CD
+    </select>
+
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCount" resultClass="java.lang.Integer"
+        parameterClass="W1001ExpRequestCriteriaDomain">
+        select count(rownum)  from (
+          select distinct
+            <include refid="ColsC" />
+        	from TT_EXP_REQUEST a
+        	<isNotEmpty property="pltzItemNo">
+            	<include refid="Join" />
+        	</isNotEmpty>
+        	<isNotEmpty property="itemDescription">
+        		<isEmpty property="pltzItemNo">
+            		<include refid="Join" />
+            	</isEmpty>
+        	</isNotEmpty>
+        	<isNotEmpty property="mainMark">
+            	<isEmpty property="itemDescription">
+        			<isEmpty property="pltzItemNo">
+            			<include refid="Join" />
+            		</isEmpty>
+        		</isEmpty>
+        	</isNotEmpty>
+        	 <include refid="LeftJoinIssuer" />
+            <include refid="LeftJoinUpdateUser" />
+        	<!-- If no RegisterAll, no BrowseAll -->
+        	<!-- RegisterAllなし、BrowseAllなしの場合 -->
+	        <isNotEmpty property="userAuthList" prepend=",">
+	            (
+	                select
+	                		A1.SHIPPER_CD
+                  		   ,A1.PLANT_CD 
+						   ,max(
+	                            case
+	                                <iterate property="userAuthList">
+	                                    when A1.SHIPPER_CD = #userAuthList[].authMgtComp# and A1.PLANT_CD = #userAuthList[].procMfgDivCd#
+	                                        then #userAuthList[].authority#
+	                                </iterate>
+	                                else '0'
+	                            end
+	                        ) AUTH_PLNT
+	                from
+	                        TT_EXP_REQUEST A1
+	                where 
+	                    	A1.PLANT_CD is not NULL
+	                group by
+                        A1.SHIPPER_CD
+                       ,A1.PLANT_CD 
+	            ) A1
+	        </isNotEmpty>
+        /* SqlMap-W1001ExpRequest.SearchCount */
+        <include refid="WhereConditionCount" />
+        )
+    </select>
+
+    <!-- 汎用 Where句（主キー Update/Delete用） -->
+    <sql id="WhereKeyForChange">
+        <dynamic prepend="where">
+        <isParameterPresent prepend="and">
+            EXP_REQUEST_NO = #expRequestNo#
+        </isParameterPresent>
+        </dynamic>
+    </sql>
+
+    <!-- 検索 SQL文（Update/Delete用） -->
+    <select id="SearchByKeyForChange" resultMap="W1002ExpRequest"
+        parameterClass="W1001ExpRequestCriteriaDomain">
+        select
+        <include refid="Cols" />
+        from TT_EXP_REQUEST a
+        /* SqlMap-W1001ExpRequest.SearchByKeyForChange */
+        <include refid="WhereKey" />
+    </select>
+    
+    <select id="SearchByKeyForInit" resultMap="W1001ExpRequest"
+        parameterClass="W1001ExpRequestCriteriaDomain">
+        select
+        <include refid="Cols" />
+        from TT_EXP_REQUEST a
+        /* SqlMap-W1001ExpRequest.SearchByKeyForChange */
+        <include refid="WhereKey" />
+    </select>
+
+    <!-- 登録 SQL文 -->
+    <insert id="Create" parameterClass="W1001ExpRequestDomain">
+        <dynamic prepend="insert into TT_EXP_REQUEST (">
+        /* SqlMap-W1001ExpRequest.Create */
+            <isNotNull prepend="," property="expRequestNo">
+                EXP_REQUEST_NO
+            </isNotNull>
+            <isNotNull prepend="," property="shipperCd">
+                SHIPPER_CD
+            </isNotNull>
+            <isNotNull prepend="," property="densoShipperTyp">
+                DENSO_SHIPPER_TYP
+            </isNotNull>
+            <isNotNull prepend="," property="plantCd">
+                PLANT_CD
+            </isNotNull>
+            <isNotNull prepend="," property="requestIssuerCompCd">
+                REQUEST_ISSUER_COMP_CD
+            </isNotNull>
+            <isNotNull prepend="," property="requestIssuerDeptNm">
+                REQUEST_ISSUER_DEPT_NM
+            </isNotNull>
+            <isNotNull prepend="," property="requestIssuerId">
+                REQUEST_ISSUER_ID
+            </isNotNull>
+            <isNotNull prepend="," property="requestIssuerNm">
+                REQUEST_ISSUER_NM
+            </isNotNull>
+            <isNotNull prepend="," property="issuerCompTel">
+                ISSUER_COMP_TEL
+            </isNotNull>
+            <isNotNull prepend="," property="issuerCompNiceNet">
+                ISSUER_COMP_NICE_NET
+            </isNotNull>
+            <isNotNull prepend="," property="invoiceCtgry">
+                INVOICE_CTGRY
+            </isNotNull>
+            <isNotNull prepend="," property="reExpGoodsFlg">
+                RE_EXP_GOODS_FLG
+            </isNotNull>
+            <isNotNull prepend="," property="impInvoiceNo1">
+                IMP_INVOICE_NO_1
+            </isNotNull>
+            <isNotNull prepend="," property="impInvoiceNo2">
+                IMP_INVOICE_NO_2
+            </isNotNull>
+            <isNotNull prepend="," property="itemTyp">
+                ITEM_TYP
+            </isNotNull>
+            <isNotNull prepend="," property="description">
+                DESCRIPTION
+            </isNotNull>
+            <isNotNull prepend="," property="originCntryCd">
+                ORIGIN_CNTRY_CD
+            </isNotNull>
+            <isNotNull prepend="," property="qtyUnit">
+                QTY_UNIT
+            </isNotNull>
+            <isNotNull prepend="," property="weightUnit">
+                WEIGHT_UNIT
+            </isNotNull>
+            <isNotNull prepend="," property="customerShipTo">
+                CUSTOMER_SHIP_TO
+            </isNotNull>
+            <isNotNull prepend="," property="accounteeCd">
+                ACCOUNTEE_CD
+            </isNotNull>
+            <isNotNull prepend="," property="accounteeCompNm">
+                ACCOUNTEE_COMP_NM
+            </isNotNull>
+            <isNotNull prepend="," property="accounteeCompAddr">
+                ACCOUNTEE_COMP_ADDR
+            </isNotNull>
+            <isNotNull prepend="," property="accounteeCompTel">
+                ACCOUNTEE_COMP_TEL
+            </isNotNull>
+            <isNotNull prepend="," property="containerSortingKey">
+                CONTAINER_SORTING_KEY
+            </isNotNull>
+            <isNotNull prepend="," property="loadingCd">
+                LOADING_CD
+            </isNotNull>
+            <isNotNull prepend="," property="consigneeCd">
+                CONSIGNEE_CD
+            </isNotNull>
+            <isNotNull prepend="," property="consigneeCompNm">
+                CONSIGNEE_COMP_NM
+            </isNotNull>
+            <isNotNull prepend="," property="consigneeCntryCd">
+                CONSIGNEE_CNTRY_CD
+            </isNotNull>
+            <isNotNull prepend="," property="consigneeCompAddr">
+                CONSIGNEE_COMP_ADDR
+            </isNotNull>
+            <isNotNull prepend="," property="consigneeCompTel">
+                CONSIGNEE_COMP_TEL
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCd">
+                SHIP_TO_CD
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCompNm">
+                SHIP_TO_COMP_NM
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCntryCd">
+                SHIP_TO_CNTRY_CD
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCompAddr">
+                SHIP_TO_COMP_ADDR
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCompTel">
+                SHIP_TO_COMP_TEL
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCompDeptNm">
+                SHIP_TO_COMP_DEPT_NM
+            </isNotNull>
+            <isNotNull prepend="," property="shipToAttnNm">
+                SHIP_TO_ATTN_NM
+            </isNotNull>
+            <isNotNull prepend="," property="currCd">
+                CURR_CD
+            </isNotNull>
+            <isNotNull prepend="," property="priceTerms">
+                PRICE_TERMS
+            </isNotNull>
+            <isNotNull prepend="," property="priceTerms1">
+                PRICE_TERMS_1
+            </isNotNull>
+            <isNotNull prepend="," property="priceTerms2">
+                PRICE_TERMS_2
+            </isNotNull>
+            <isNotNull prepend="," property="termsPoint">
+                TERMS_POINT
+            </isNotNull>
+            <isNotNull prepend="," property="tradeTerms1">
+                TRADE_TERMS_1
+            </isNotNull>
+            <isNotNull prepend="," property="payMeth">
+                PAY_METH
+            </isNotNull>
+            <isNotNull prepend="," property="payTerms">
+                PAY_TERMS
+            </isNotNull>
+            <isNotNull prepend="," property="tradeTerms">
+                TRADE_TERMS
+            </isNotNull>
+            <isNotNull prepend="," property="trnsCd">
+                TRNS_CD
+            </isNotNull>
+            <isNotNull prepend="," property="stagingInstructionFlg">
+                STG_INSTR_FLG
+            </isNotNull>
+            <isNotNull prepend="," property="splitShippingNgFlg">
+                SPLIT_SHIPPING_NG_FLG
+            </isNotNull>
+            <isNotNull prepend="," property="dueDt">
+                DUE_DT
+            </isNotNull>
+            <isNotNull prepend="," property="requiredShipDt">
+                REQUIRED_SHIP_DT
+            </isNotNull>
+            <isNotNull prepend="," property="packingWhCd">
+                PACKING_WH_CD
+            </isNotNull>
+            <isNotNull prepend="," property="packingCompLocationFlg">
+                PACKING_COMP_LOCATION_FLG
+            </isNotNull>
+            <isNotNull prepend="," property="packingCompCd">
+                PACKING_COMP_CD
+            </isNotNull>
+            <isNotNull prepend="," property="packingCompDeptNm">
+                PACKING_COMP_DEPT_NM
+            </isNotNull>
+            <isNotNull prepend="," property="requestToPackingSec">
+                REQUEST_TO_PACKING_SEC
+            </isNotNull>
+            <isNotNull prepend="," property="casemarkNotation">
+                CASEMARK_NOTATION
+            </isNotNull>
+            <isNotNull prepend="," property="freightResponsibleCd">
+                FREIGHT_RESPONSIBLE_CD
+            </isNotNull>
+            <isNotNull prepend="," property="ctgryCd1">
+                CTGRY_CD_1
+            </isNotNull>
+            <isNotNull prepend="," property="budgetNo1">
+                BUDGET_NO_1
+            </isNotNull>
+            <isNotNull prepend="," property="jobNo1">
+                JOB_NO_1
+            </isNotNull>
+            <isNotNull prepend="," property="per1">
+                PER_1
+            </isNotNull>
+            <isNotNull prepend="," property="ctgryCd2">
+                CTGRY_CD_2
+            </isNotNull>
+            <isNotNull prepend="," property="budgetNo2">
+                BUDGET_NO_2
+            </isNotNull>
+            <isNotNull prepend="," property="jobNo2">
+                JOB_NO_2
+            </isNotNull>
+            <isNotNull prepend="," property="per2">
+                PER_2
+            </isNotNull>
+            <isNotNull prepend="," property="ctgryCd3">
+                CTGRY_CD_3
+            </isNotNull>
+            <isNotNull prepend="," property="budgetNo3">
+                BUDGET_NO_3
+            </isNotNull>
+            <isNotNull prepend="," property="jobNo3">
+                JOB_NO_3
+            </isNotNull>
+            <isNotNull prepend="," property="per3">
+                PER_3
+            </isNotNull>
+            <isNotNull prepend="," property="prepareExpInvoiceCtgry">
+                PREPARE_EXP_INVOICE_CTGRY
+            </isNotNull>
+            <isNotNull prepend="," property="supplierInvoiceNo">
+                SUPPLIER_INVOICE_NO
+            </isNotNull>
+            <isNotNull prepend="," property="customerCd">
+                CUSTOMER_CD
+            </isNotNull>
+            <isNotNull prepend="," property="createOriginTyp">
+                CREATE_ORIGIN_TYP
+            </isNotNull>
+            <isNotNull prepend="," property="requestDt">
+                REQUEST_DT
+            </isNotNull>
+            <isNotNull prepend="," property="requestStatus">
+                REQUEST_STATUS
+            </isNotNull>
+            <isNotNull prepend="," property="requestLastUpdateDt">
+                REQUEST_LAST_UPDATE_DT
+            </isNotNull>
+            <isNotNull prepend="," property="comUpdateFuncId">
+                COM_UPDATE_FUNC_ID
+            </isNotNull>
+            <isNotNull prepend="," property="comUpdateUserId">
+                COM_UPDATE_USER_ID
+            </isNotNull>
+            <isParameterPresent prepend=",">
+                COM_UPDATE_TIMESTAMP
+            </isParameterPresent>
+            <isNotNull prepend="," property="comCreateFuncId">
+                COM_CREATE_FUNC_ID
+            </isNotNull>
+            <isNotNull prepend="," property="comCreateUserId">
+                COM_CREATE_USER_ID
+            </isNotNull>
+            <isParameterPresent prepend=",">
+                COM_CREATE_TIMESTAMP
+            </isParameterPresent>
+        </dynamic>
+        <dynamic prepend=") values (">
+            <isNotNull prepend="," property="expRequestNo">
+                #expRequestNo#
+            </isNotNull>
+            <isNotNull prepend="," property="shipperCd">
+                #shipperCd#
+            </isNotNull>
+            <isNotNull prepend="," property="densoShipperTyp">
+                #densoShipperTyp#
+            </isNotNull>
+            <isNotNull prepend="," property="plantCd">
+                #plantCd#
+            </isNotNull>
+            <isNotNull prepend="," property="requestIssuerCompCd">
+                #requestIssuerCompCd#
+            </isNotNull>
+            <isNotNull prepend="," property="requestIssuerDeptNm">
+                #requestIssuerDeptNm#
+            </isNotNull>
+            <isNotNull prepend="," property="requestIssuerId">
+                #requestIssuerId#
+            </isNotNull>
+            <isNotNull prepend="," property="requestIssuerNm">
+                #requestIssuerNm#
+            </isNotNull>
+            <isNotNull prepend="," property="issuerCompTel">
+                #issuerCompTel#
+            </isNotNull>
+            <isNotNull prepend="," property="issuerCompNiceNet">
+                #issuerCompNiceNet#
+            </isNotNull>
+            <isNotNull prepend="," property="invoiceCtgry">
+                #invoiceCtgry#
+            </isNotNull>
+            <isNotNull prepend="," property="reExpGoodsFlg">
+                #reExpGoodsFlg#
+            </isNotNull>
+            <isNotNull prepend="," property="impInvoiceNo1">
+                #impInvoiceNo1#
+            </isNotNull>
+            <isNotNull prepend="," property="impInvoiceNo2">
+                #impInvoiceNo2#
+            </isNotNull>
+            <isNotNull prepend="," property="itemTyp">
+                #itemTyp#
+            </isNotNull>
+            <isNotNull prepend="," property="description">
+                #description#
+            </isNotNull>
+            <isNotNull prepend="," property="originCntryCd">
+                #originCntryCd#
+            </isNotNull>
+            <isNotNull prepend="," property="qtyUnit">
+                #qtyUnit#
+            </isNotNull>
+            <isNotNull prepend="," property="weightUnit">
+                #weightUnit#
+            </isNotNull>
+            <isNotNull prepend="," property="customerShipTo">
+                #customerShipTo#
+            </isNotNull>
+            <isNotNull prepend="," property="accounteeCd">
+                #accounteeCd#
+            </isNotNull>
+            <isNotNull prepend="," property="accounteeCompNm">
+                #accounteeCompNm#
+            </isNotNull>
+            <isNotNull prepend="," property="accounteeCompAddr">
+                #accounteeCompAddr#
+            </isNotNull>
+            <isNotNull prepend="," property="accounteeCompTel">
+                #accounteeCompTel#
+            </isNotNull>
+            <isNotNull prepend="," property="containerSortingKey">
+                #containerSortingKey#
+            </isNotNull>
+            <isNotNull prepend="," property="loadingCd">
+                #loadingCd#
+            </isNotNull>
+            <isNotNull prepend="," property="consigneeCd">
+                #consigneeCd#
+            </isNotNull>
+            <isNotNull prepend="," property="consigneeCompNm">
+                #consigneeCompNm#
+            </isNotNull>
+            <isNotNull prepend="," property="consigneeCntryCd">
+                #consigneeCntryCd#
+            </isNotNull>
+            <isNotNull prepend="," property="consigneeCompAddr">
+                #consigneeCompAddr#
+            </isNotNull>
+            <isNotNull prepend="," property="consigneeCompTel">
+                #consigneeCompTel#
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCd">
+                #shipToCd#
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCompNm">
+                #shipToCompNm#
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCntryCd">
+                #shipToCntryCd#
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCompAddr">
+                #shipToCompAddr#
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCompTel">
+                #shipToCompTel#
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCompDeptNm">
+                #shipToCompDeptNm#
+            </isNotNull>
+            <isNotNull prepend="," property="shipToAttnNm">
+                #shipToAttnNm#
+            </isNotNull>
+            <isNotNull prepend="," property="currCd">
+                #currCd#
+            </isNotNull>
+            <isNotNull prepend="," property="priceTerms">
+                #priceTerms#
+            </isNotNull>
+            <isNotNull prepend="," property="priceTerms1">
+                #priceTerms1#
+            </isNotNull>
+            <isNotNull prepend="," property="priceTerms2">
+                #priceTerms2#
+            </isNotNull>
+            <isNotNull prepend="," property="termsPoint">
+                #termsPoint#
+            </isNotNull>
+            <isNotNull prepend="," property="tradeTerms1">
+                #tradeTerms1#
+            </isNotNull>
+            <isNotNull prepend="," property="payMeth">
+                #payMeth#
+            </isNotNull>
+            <isNotNull prepend="," property="payTerms">
+                #payTerms#
+            </isNotNull>
+            <isNotNull prepend="," property="tradeTerms">
+                #tradeTerms#
+            </isNotNull>
+            <isNotNull prepend="," property="trnsCd">
+                #trnsCd#
+            </isNotNull>
+            <isNotNull prepend="," property="stagingInstructionFlg">
+                #stagingInstructionFlg#
+            </isNotNull>
+            <isNotNull prepend="," property="splitShippingNgFlg">
+                #splitShippingNgFlg#
+            </isNotNull>
+            <isNotNull prepend="," property="dueDt">
+                #dueDt#
+            </isNotNull>
+            <isNotNull prepend="," property="requiredShipDt">
+                #requiredShipDt#
+            </isNotNull>
+            <isNotNull prepend="," property="packingWhCd">
+                #packingWhCd#
+            </isNotNull>
+            <isNotNull prepend="," property="packingCompLocationFlg">
+                #packingCompLocationFlg#
+            </isNotNull>
+            <isNotNull prepend="," property="packingCompCd">
+                #packingCompCd#
+            </isNotNull>
+            <isNotNull prepend="," property="packingCompDeptNm">
+                #packingCompDeptNm#
+            </isNotNull>
+            <isNotNull prepend="," property="requestToPackingSec">
+                #requestToPackingSec#
+            </isNotNull>
+            <isNotNull prepend="," property="casemarkNotation">
+                #casemarkNotation#
+            </isNotNull>
+            <isNotNull prepend="," property="freightResponsibleCd">
+                #freightResponsibleCd#
+            </isNotNull>
+            <isNotNull prepend="," property="ctgryCd1">
+                #ctgryCd1#
+            </isNotNull>
+            <isNotNull prepend="," property="budgetNo1">
+                #budgetNo1#
+            </isNotNull>
+            <isNotNull prepend="," property="jobNo1">
+                #jobNo1#
+            </isNotNull>
+            <isNotNull prepend="," property="per1">
+                #per1#
+            </isNotNull>
+            <isNotNull prepend="," property="ctgryCd2">
+                #ctgryCd2#
+            </isNotNull>
+            <isNotNull prepend="," property="budgetNo2">
+                #budgetNo2#
+            </isNotNull>
+            <isNotNull prepend="," property="jobNo2">
+                #jobNo2#
+            </isNotNull>
+            <isNotNull prepend="," property="per2">
+                #per2#
+            </isNotNull>
+            <isNotNull prepend="," property="ctgryCd3">
+                #ctgryCd3#
+            </isNotNull>
+            <isNotNull prepend="," property="budgetNo3">
+                #budgetNo3#
+            </isNotNull>
+            <isNotNull prepend="," property="jobNo3">
+                #jobNo3#
+            </isNotNull>
+            <isNotNull prepend="," property="per3">
+                #per3#
+            </isNotNull>
+            <isNotNull prepend="," property="prepareExpInvoiceCtgry">
+                #prepareExpInvoiceCtgry#
+            </isNotNull>
+            <isNotNull prepend="," property="supplierInvoiceNo">
+                #supplierInvoiceNo#
+            </isNotNull>
+            <isNotNull prepend="," property="customerCd">
+                #customerCd#
+            </isNotNull>
+            <isNotNull prepend="," property="createOriginTyp">
+                #createOriginTyp#
+            </isNotNull>
+            <isNotNull prepend="," property="requestDt">
+                #requestDt#
+            </isNotNull>
+            <isNotNull prepend="," property="requestStatus">
+                #requestStatus#
+            </isNotNull>
+            <isNotNull prepend="," property="requestLastUpdateDt">
+                #requestLastUpdateDt#
+            </isNotNull>
+            <isNotNull prepend="," property="comUpdateFuncId">
+                #comUpdateFuncId#
+            </isNotNull>
+            <isNotNull prepend="," property="comUpdateUserId">
+                #comUpdateUserId#
+            </isNotNull>
+            <isParameterPresent prepend=",">
+                SYSDATE
+            </isParameterPresent>
+            <isNotNull prepend="," property="comCreateFuncId">
+                #comCreateFuncId#
+            </isNotNull>
+            <isNotNull prepend="," property="comCreateUserId">
+                #comCreateUserId#
+            </isNotNull>
+            <isParameterPresent prepend=",">
+                SYSDATE
+            </isParameterPresent>
+        </dynamic>
+            )
+    </insert>
+
+    <!-- 更新 SQL文（主キー） -->
+    <update id="Update" parameterClass="W1001ExpRequestDomain">
+        <dynamic prepend="update TT_EXP_REQUEST set ">
+        /* SqlMap-W1001ExpRequest.Update */
+            <isNotNull prepend="," property="shipperCd">
+                SHIPPER_CD = #shipperCd#
+            </isNotNull>
+            <isNotNull prepend="," property="densoShipperTyp">
+                DENSO_SHIPPER_TYP = #densoShipperTyp#
+            </isNotNull>
+            <isNotNull prepend="," property="plantCd">
+                PLANT_CD = #plantCd#
+            </isNotNull>
+            <isNotNull prepend="," property="requestIssuerCompCd">
+                REQUEST_ISSUER_COMP_CD = #requestIssuerCompCd#
+            </isNotNull>
+            <isNotNull prepend="," property="requestIssuerDeptNm">
+                REQUEST_ISSUER_DEPT_NM = #requestIssuerDeptNm#
+            </isNotNull>
+            <isNotNull prepend="," property="requestIssuerId">
+                REQUEST_ISSUER_ID = #requestIssuerId#
+            </isNotNull>
+            <isNotNull prepend="," property="requestIssuerNm">
+                REQUEST_ISSUER_NM = #requestIssuerNm#
+            </isNotNull>
+            <isNotNull prepend="," property="issuerCompTel">
+                ISSUER_COMP_TEL = #issuerCompTel#
+            </isNotNull>
+            <isNotNull prepend="," property="issuerCompNiceNet">
+                ISSUER_COMP_NICE_NET = #issuerCompNiceNet#
+            </isNotNull>
+            <isNotNull prepend="," property="invoiceCtgry">
+                INVOICE_CTGRY = #invoiceCtgry#
+            </isNotNull>
+            <isNotNull prepend="," property="reExpGoodsFlg">
+                RE_EXP_GOODS_FLG = #reExpGoodsFlg#
+            </isNotNull>
+            <isNotNull prepend="," property="impInvoiceNo1">
+                IMP_INVOICE_NO_1 = #impInvoiceNo1#
+            </isNotNull>
+            <isNotNull prepend="," property="impInvoiceNo2">
+                IMP_INVOICE_NO_2 = #impInvoiceNo2#
+            </isNotNull>
+            <isNotNull prepend="," property="itemTyp">
+                ITEM_TYP = #itemTyp#
+            </isNotNull>
+            <isNotNull prepend="," property="description">
+                DESCRIPTION = #description#
+            </isNotNull>
+            <isNotNull prepend="," property="originCntryCd">
+                ORIGIN_CNTRY_CD = #originCntryCd#
+            </isNotNull>
+            <isNotNull prepend="," property="qtyUnit">
+                QTY_UNIT = #qtyUnit#
+            </isNotNull>
+            <isNotNull prepend="," property="weightUnit">
+                WEIGHT_UNIT = #weightUnit#
+            </isNotNull>
+            <isNotNull prepend="," property="customerShipTo">
+                CUSTOMER_SHIP_TO = #customerShipTo#
+            </isNotNull>
+            <isNotNull prepend="," property="accounteeCd">
+                ACCOUNTEE_CD = #accounteeCd#
+            </isNotNull>
+            <isNotNull prepend="," property="accounteeCompNm">
+                ACCOUNTEE_COMP_NM = #accounteeCompNm#
+            </isNotNull>
+            <isNotNull prepend="," property="accounteeCompAddr">
+                ACCOUNTEE_COMP_ADDR = #accounteeCompAddr#
+            </isNotNull>
+            <isNotNull prepend="," property="accounteeCompTel">
+                ACCOUNTEE_COMP_TEL = #accounteeCompTel#
+            </isNotNull>
+            <isNotNull prepend="," property="containerSortingKey">
+                CONTAINER_SORTING_KEY = #containerSortingKey#
+            </isNotNull>
+            <isNotNull prepend="," property="loadingCd">
+                LOADING_CD = #loadingCd#
+            </isNotNull>
+            <isNotNull prepend="," property="consigneeCd">
+                CONSIGNEE_CD = #consigneeCd#
+            </isNotNull>
+            <isNotNull prepend="," property="consigneeCompNm">
+                CONSIGNEE_COMP_NM = #consigneeCompNm#
+            </isNotNull>
+            <isNotNull prepend="," property="consigneeCntryCd">
+                CONSIGNEE_CNTRY_CD = #consigneeCntryCd#
+            </isNotNull>
+            <isNotNull prepend="," property="consigneeCompAddr">
+                CONSIGNEE_COMP_ADDR = #consigneeCompAddr#
+            </isNotNull>
+            <isNotNull prepend="," property="consigneeCompTel">
+                CONSIGNEE_COMP_TEL = #consigneeCompTel#
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCd">
+                SHIP_TO_CD = #shipToCd#
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCompNm">
+                SHIP_TO_COMP_NM = #shipToCompNm#
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCntryCd">
+                SHIP_TO_CNTRY_CD = #shipToCntryCd#
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCompAddr">
+                SHIP_TO_COMP_ADDR = #shipToCompAddr#
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCompTel">
+                SHIP_TO_COMP_TEL = #shipToCompTel#
+            </isNotNull>
+            <isNotNull prepend="," property="shipToCompDeptNm">
+                SHIP_TO_COMP_DEPT_NM = #shipToCompDeptNm#
+            </isNotNull>
+            <isNotNull prepend="," property="shipToAttnNm">
+                SHIP_TO_ATTN_NM = #shipToAttnNm#
+            </isNotNull>
+            <isNotNull prepend="," property="currCd">
+                CURR_CD = #currCd#
+            </isNotNull>
+            <isNotNull prepend="," property="priceTerms">
+                PRICE_TERMS = #priceTerms#
+            </isNotNull>
+            <isNotNull prepend="," property="priceTerms1">
+                PRICE_TERMS_1 = #priceTerms1#
+            </isNotNull>
+            <isNotNull prepend="," property="priceTerms2">
+                PRICE_TERMS_2 = #priceTerms2#
+            </isNotNull>
+            <isNotNull prepend="," property="termsPoint">
+                TERMS_POINT = #termsPoint#
+            </isNotNull>
+            <isNotNull prepend="," property="tradeTerms1">
+                TRADE_TERMS_1 = #tradeTerms1#
+            </isNotNull>
+            <isNotNull prepend="," property="payMeth">
+                PAY_METH = #payMeth#
+            </isNotNull>
+            <isNotNull prepend="," property="payTerms">
+                PAY_TERMS = #payTerms#
+            </isNotNull>
+            <isNotNull prepend="," property="tradeTerms">
+                TRADE_TERMS = #tradeTerms#
+            </isNotNull>
+            <isNotNull prepend="," property="trnsCd">
+                TRNS_CD = #trnsCd#
+            </isNotNull>
+            <isNotNull prepend="," property="stagingInstructionFlg">
+                STG_INSTR_FLG = #stagingInstructionFlg#
+            </isNotNull>
+            <isNotNull prepend="," property="splitShippingNgFlg">
+                SPLIT_SHIPPING_NG_FLG = #splitShippingNgFlg#
+            </isNotNull>
+            <isNotNull prepend="," property="dueDt">
+                DUE_DT = #dueDt#
+            </isNotNull>
+            <isNotNull prepend="," property="requiredShipDt">
+                REQUIRED_SHIP_DT = #requiredShipDt#
+            </isNotNull>
+            <isNotNull prepend="," property="packingWhCd">
+                PACKING_WH_CD = #packingWhCd#
+            </isNotNull>
+            <isNotNull prepend="," property="packingCompLocationFlg">
+                PACKING_COMP_LOCATION_FLG = #packingCompLocationFlg#
+            </isNotNull>
+            <isNotNull prepend="," property="packingCompCd">
+                PACKING_COMP_CD = #packingCompCd#
+            </isNotNull>
+            <isNotNull prepend="," property="packingCompDeptNm">
+                PACKING_COMP_DEPT_NM = #packingCompDeptNm#
+            </isNotNull>
+            <isNotNull prepend="," property="requestToPackingSec">
+                REQUEST_TO_PACKING_SEC = #requestToPackingSec#
+            </isNotNull>
+            <isNotNull prepend="," property="casemarkNotation">
+                CASEMARK_NOTATION = #casemarkNotation#
+            </isNotNull>
+            <isNotNull prepend="," property="freightResponsibleCd">
+                FREIGHT_RESPONSIBLE_CD = #freightResponsibleCd#
+            </isNotNull>
+            <isNotNull prepend="," property="ctgryCd1">
+                CTGRY_CD_1 = #ctgryCd1#
+            </isNotNull>
+            <isNotNull prepend="," property="budgetNo1">
+                BUDGET_NO_1 = #budgetNo1#
+            </isNotNull>
+            <isNotNull prepend="," property="jobNo1">
+                JOB_NO_1 = #jobNo1#
+            </isNotNull>
+            <isNotNull prepend="," property="per1">
+                PER_1 = #per1#
+            </isNotNull>
+            <isNotNull prepend="," property="ctgryCd2">
+                CTGRY_CD_2 = #ctgryCd2#
+            </isNotNull>
+            <isNotNull prepend="," property="budgetNo2">
+                BUDGET_NO_2 = #budgetNo2#
+            </isNotNull>
+            <isNotNull prepend="," property="jobNo2">
+                JOB_NO_2 = #jobNo2#
+            </isNotNull>
+            <isNotNull prepend="," property="per2">
+                PER_2 = #per2#
+            </isNotNull>
+            <isNotNull prepend="," property="ctgryCd3">
+                CTGRY_CD_3 = #ctgryCd3#
+            </isNotNull>
+            <isNotNull prepend="," property="budgetNo3">
+                BUDGET_NO_3 = #budgetNo3#
+            </isNotNull>
+            <isNotNull prepend="," property="jobNo3">
+                JOB_NO_3 = #jobNo3#
+            </isNotNull>
+            <isNotNull prepend="," property="per3">
+                PER_3 = #per3#
+            </isNotNull>
+            <isNotNull prepend="," property="prepareExpInvoiceCtgry">
+                PREPARE_EXP_INVOICE_CTGRY = #prepareExpInvoiceCtgry#
+            </isNotNull>
+            <isNotNull prepend="," property="supplierInvoiceNo">
+                SUPPLIER_INVOICE_NO = #supplierInvoiceNo#
+            </isNotNull>
+            <isNotNull prepend="," property="customerCd">
+                CUSTOMER_CD = #customerCd#
+            </isNotNull>
+            <isNotNull prepend="," property="createOriginTyp">
+                CREATE_ORIGIN_TYP = #createOriginTyp#
+            </isNotNull>
+            <isNotNull prepend="," property="requestDt">
+                REQUEST_DT = #requestDt#
+            </isNotNull>
+            <isNotNull prepend="," property="requestStatus">
+                REQUEST_STATUS = #requestStatus#
+            </isNotNull>
+            <isNotNull prepend="," property="requestLastUpdateDt">
+                REQUEST_LAST_UPDATE_DT = #requestLastUpdateDt#
+            </isNotNull>
+            <isNotNull prepend="," property="comUpdateFuncId">
+                COM_UPDATE_FUNC_ID = #comUpdateFuncId#
+            </isNotNull>
+            <isNotNull prepend="," property="comUpdateUserId">
+                COM_UPDATE_USER_ID = #comUpdateUserId#
+            </isNotNull>
+            <isParameterPresent prepend=",">
+                COM_UPDATE_TIMESTAMP = SYSDATE
+            </isParameterPresent>
+        </dynamic>
+        <include refid="WhereKeyForChange" />
+    </update>
+    
+    <select id="SearchByContSort" resultMap="ContianerSort"
+        parameterClass="W1001ExpRequestCriteriaDomain">
+        <include refid="ContSort" />
+        /* SqlMap-W1001ExpRequest.SearchByContSort */
+    </select>
+    
+    <select id="SearchQtyForDtl" resultMap="QtyDtl"
+        parameterClass="TtExpRequestDtlCriteriaDomain">
+        select distinct EXP_REQUEST_NO, QTY_UNIT, sum(QTY) as QTY
+        from TT_EXP_REQUEST_DTL
+        where EXP_REQUEST_NO = #expRequestNo#
+        group by EXP_REQUEST_NO, QTY_UNIT
+        /* SqlMap-W1001ExpRequest.SearchQtyForDtl */
+    </select>
+    
+    <select id="SearchAmountForDtl" resultMap="AmountDtl"
+        parameterClass="TtExpRequestDtlCriteriaDomain">
+        select distinct EXP_REQUEST_NO, CURR_CD, COMMERCIAL_FLG, sum(UNIT_PRICE) as UNIT_PRICE
+        from TT_EXP_REQUEST_DTL
+        where EXP_REQUEST_NO = #expRequestNo#
+        group by EXP_REQUEST_NO, CURR_CD, COMMERCIAL_FLG
+        /* SqlMap-W1001ExpRequest.SearchAmountForDtl */
+    </select>
+</sqlMap>

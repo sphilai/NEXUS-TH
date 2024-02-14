@@ -1,0 +1,113 @@
+@CHARSET "utf-8";
+/*
+ * W6006.css
+ * 
+ * Documentaition [Invoice Grouping]
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ Criteria Area ------------*/ 
+.gscm_search .search_stg_cd {
+    width: 90px;
+}
+
+.gscm_search .search_stg_wh {
+    width: 80px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 60px;
+}
+
+.gscm_search .search_container_loose_typ {
+    width: 70px;
+}
+
+.gscm_search .search_custom_timing_typ {
+    width: 90px;
+}
+
+.gscm_search .search_container_sorting_key {
+    width: 120px;
+}
+
+.gscm_search .search_etd {
+    width: 80px;
+}
+
+.gscm_search .search_operation_no {
+    width: 180px;
+}
+
+/*------------ Button Area ------------*/ 
+.gscm_search_button .search_button {
+    width: 780px;
+}
+
+/*------------ Date Shipped ------------*/ 
+table.grid {
+    width: 260px;
+}
+
+.grid .grid_header {
+    width: 110px;
+}
+
+.grid .grid_contents {
+    width: 150px;
+}
+
+/*------------ result List Area ------------*/ 
+table.gscm_resultlist {
+    width:980px;
+}
+
+table.gscm_resultlist thead tr {
+    height: 18px;
+}
+
+.gscm_resultlist .resultlist_ck { 
+    width: 40px; 
+}
+
+.gscm_resultlist .resultlist_grp_no_1 {
+    width: 60px;
+}
+
+.gscm_resultlist .resultlist_grp_no_2 {
+    width: 60px;
+}
+
+.gscm_resultlist .resultlist_consignee_cd {
+    width: 80px;
+}
+
+.gscm_resultlist .resultlist_ship_to_cd {
+    width: 80px;
+}
+
+.gscm_resultlist .resultlist_cml_typ {
+    width: 70px;
+}
+
+.gscm_resultlist .resultlist_invoice_key {
+    width: 60px;
+}
+
+.gscm_resultlist .resultlist_re_exp_goods_flg {
+    width: 70px;
+}
+
+.gscm_resultlist .resultlist_invoice_ctgry {
+    width: 70px;
+}
+
+.gscm_resultlist .resultlist_customerCd {
+    width: 90px;
+}
+
+.gscm_resultlist .resultlist_lgcy_ship_to {
+    width: 70px;
+}
+

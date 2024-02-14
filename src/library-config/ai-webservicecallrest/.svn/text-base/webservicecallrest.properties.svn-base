@@ -1,0 +1,35 @@
+###########################################################################
+#
+# webservicecallrest.properties
+#
+# [JP] Web\u30b5\u30fc\u30d3\u30b9\u547c\u51fa\u90e8\u54c1(REST\u7248)\u306e\u30d7\u30ed\u30d1\u30c6\u30a3\u30d5\u30a1\u30a4\u30eb\u3067\u3059\u3002
+# [EN] This property file defines properties for Web servcie (REST) caller.
+#
+# $Id: webservicecallrest.properties 9972 2014-12-05 04:12:20Z 810833843 $
+#
+###########################################################################
+
+# [JP] \u30b5\u30fc\u30d0\u3068\u63a5\u7d9a\u3059\u308b\u307e\u3067\u306e\u30bf\u30a4\u30e0\u30a2\u30a6\u30c8\u6642\u9593(\u5358\u4f4d\u306f\u30df\u30ea\u79d2, 0:\u90e8\u54c1\u3067\u306e\u5236\u9650\u7121\u3057)
+# [EN] Connecting time-out (The unit is milliseconds. 0: unlimitedly in terms of this program)
+connectTimeout=5000
+
+# [JP] \u30b5\u30fc\u30d0\u304b\u3089\u306e\u30ec\u30b9\u30dd\u30f3\u30b9\u3092\u53d7\u4fe1\u3059\u308b\u307e\u3067\u306e\u30bf\u30a4\u30e0\u30a2\u30a6\u30c8\u6642\u9593(\u5358\u4f4d\u306f\u30df\u30ea\u79d2, 0:\u90e8\u54c1\u3067\u306e\u5236\u9650\u7121\u3057)
+# [EN] Response time-out (The unit is milliseconds. 0: unlimitedly in terms of this program)
+readTimeout=0
+
+# [JP] URL\u306e\u6700\u5927\u9577(\u5358\u4f4d\u306f\u30d0\u30a4\u30c8)
+# [EN] Maximum size of URL (The unit is bytes.)
+urlMaxSize=7500
+
+# [JP] \u30ea\u30af\u30a8\u30b9\u30c8\u9001\u4fe1\u6642\u306b\u30ed\u30b0\u306b\u51fa\u529b\u3059\u308b\u30d1\u30e9\u30e1\u30fc\u30bf\u306e\u6700\u5927\u6587\u5b57\u6570(0:\u51fa\u529b\u3057\u306a\u3044)
+# [EN] Maximum number of characters of paramters output to a log file when sending a request (0: not output)
+requestLoggingParameterMaxNum=3000
+
+# [JP] \u30ec\u30b9\u30dd\u30f3\u30b9\u53d7\u4fe1\u6642\u306b\u30ed\u30b0\u306b\u51fa\u529b\u3059\u308b\u30ec\u30b9\u30dd\u30f3\u30b9\u6587\u5b57\u5217\u306e\u6700\u5927\u6587\u5b57\u6570(0:\u51fa\u529b\u3057\u306a\u3044)
+# [EN] Maximum number of characters of a response output to a log file when receiving it (0: not output)
+responseLoggingResultMaxNum=3000
+
+# [JP] \u30c1\u30e3\u30f3\u30af\u30b5\u30a4\u30ba(\u5358\u4f4d\u306f\u30d0\u30a4\u30c8, 0:\u30c7\u30d5\u30a9\u30eb\u30c8, \u306a\u3057:\u4f7f\u7528\u3057\u306a\u3044)
+# [EN] Chunk size(The unit is bytes. 0: defualt, None: not used)
+#chunkedEncodingSize=4096
+chunkedEncodingSize=

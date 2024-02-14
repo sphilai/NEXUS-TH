@@ -1,0 +1,109 @@
+@charset "utf-8";
+/*
+ * WB003.css
+ * 
+ * Order Entry Multi PO Register画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+
+.gscm_search .search_rcv_odr_comp_cd {
+    width: 78px;
+}
+
+.gscm_search .search_comp_nm {
+    width: 902px;
+}
+
+.gscm_search .search_customer_cd {
+    width: 137px;
+}
+
+.gscm_search .search_ship_to_nm {
+    width: 334px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 200px;
+}
+
+.gscm_search .search_etd_due_dt {
+    width: 353px;
+}
+
+.gscm_search .search_item_no {
+    width: 167px;
+}
+
+.gscm_search .search_pkg_cd {
+    width: 69px;
+}
+
+.gscm_search .search_item_description {
+    width: 744px;
+}
+
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 960px;
+}
+
+.gscm_resultlist .resultlist_checked_key {
+    width: 48px;
+}
+
+.gscm_resultlist .resultlist_firm_qty {
+    width: 77px;
+}
+
+.gscm_resultlist .resultlist_forecast_qty {
+    width: 77px;
+}
+
+.gscm_resultlist .resultlist_customer_due_dt {
+    width: 101px;
+}
+
+.gscm_resultlist .resultlist_pltz_alloc_qty {
+    width: 77px;
+}
+
+.gscm_resultlist .resultlist_customer_item_no {
+    width: 230px;
+}
+
+.gscm_resultlist .resultlist_customer_po_no {
+    width: 230px;
+}
+
+.gscm_resultlist .resultlist_sales_comp_po_no {
+    width: 135px;
+}
+
+/*------------ 表示幅 ------------*/
+
+.wb003_ship_to_nm {
+    width: 334px;
+}
+
+.wb003_item_no {
+    width: 150px;
+}
+
+.wb003_alloc_qty {
+    width: 66px;
+    border:none;
+    opacity:0.0;
+    background-color: transparent;
+}
+
+.wb003_customer_item_no {
+    width: 220px;
+}
+
+.wb003_customer_po_no {
+    width: 220px;
+}

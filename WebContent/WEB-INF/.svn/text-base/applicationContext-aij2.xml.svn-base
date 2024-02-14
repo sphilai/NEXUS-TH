@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * applicationContext-aij2.xml
+ * 
+ * [JP] 各システム用の Spring 設定ファイルです。
+ * [EN] This is the Spring configuration file for each system.
+ * 
+ * $ applicationContext-aij2.xml 4294 2013-05-15 12:30:57Z HIDETOSHI_NAKATANI@denso.co.jp $
+ *
+ * Copyright (c) 2011 DENSO IT SOLUTIONS. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!-- GSCM Framework -->
+    <import resource="conf/gscm/framework/applicationContext-gscm-aop.xml" />
+    <import resource="conf/gscm/framework/applicationContext-dao_gscm.xml" />
+    
+    <!-- SACT -->
+    <import resource="conf/gscm/framework/applicationContext-dao_auto.xml" />
+    <import resource="conf/gscm/framework/applicationContext-service_auto.xml" />
+    
+    
+    <!-- [JP] Service実装 ======================================================= -->
+    <!-- [EN] Implementation Service ============================================ -->
+    <!-- [JP]   利用する Service はここに定義してください。                       -->
+    <!-- [JP]   外部ファイルに外出しすることも可能です。                          -->
+    <!-- [EN]   Please define Service to use here.                                -->
+    <!-- [EN]   It is also possible to separate external files.                   -->
+    <!-- =================================================================== -->
+    <bean id="searchMainMenuService" class="com.globaldenso.gscm.framework.business.service.SearchMainMenuServiceImpl"/>
+
+    <bean id="springUtil" class="com.globaldenso.gscm.framework.util.SpringUtil" />
+    
+    <!-- SACT -->
+    <import resource="conf/eca0027/core/spring/applicationContext-service_auto.xml" />
+    
+    <!-- ECA0027 -->
+    <!-- <import resource="conf/eca0027/core/spring/applicationContext-service_eca0027.xml" /> -->
+    <!-- <import resource="conf/eca0027/th/spring/applicationContext-service_eca0027_th.xml" /> -->
+    <import resource="conf/eca0027/ph/spring/applicationContext-service_eca0027_ph.xml" />
+    
+    <!-- [JP] DAO実装 =========================================================== -->
+    <!-- [EN] Implementation DAO ================================================ -->
+    <!-- [JP]   利用する DAO はここに定義してください。                           -->
+    <!-- [JP]   外部ファイルに外出しすることも可能です。                          -->
+    <!-- [EN]   Please define DAO to use here.                                    -->
+    <!-- [EN]   It is also possible to separate external files.                   -->
+    <!-- =================================================================== -->
+
+    <!-- SACT -->
+    <import resource="conf/eca0027/core/spring/applicationContext-dao_auto.xml" />
+ 
+    <!-- ECA0027 -->
+    <!-- 11/02/2015 A.Chonthicha: to support setting total packing as Pltz_Item_Qty -->
+    <!-- <import resource="conf/eca0027/core/spring/applicationContext-dao_eca0027.xml" /> -->
+    <import resource="conf/eca0027/asia/spring/applicationContext-dao_eca0027_asia.xml" />
+
+    <!-- Resource(Webサービス) ============================================= -->
+    <!--   利用する Resource(Webサービス) はここに定義してください。         -->
+    <!--   外部ファイルに外出しすることも可能です。                          -->
+    <!-- =================================================================== -->
+
+    <import resource="conf/eca0027/core/spring/applicationContext-resource_eca0027.xml" />
+</beans>

@@ -1,0 +1,2 @@
+"ID","SCREEN_ID","SCREEN_NM","PAR_SCREEN_ID","ACTION_PATH","PERMITTED"
+801,"W8001","Progress Control","W8000","/W8001Init.do","true"

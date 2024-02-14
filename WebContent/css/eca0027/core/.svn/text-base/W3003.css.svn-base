@@ -1,0 +1,80 @@
+﻿@charset "utf-8";
+/*
+ * W3003.css
+ * 
+ * Print Carry Out List by CML画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+/*------------ Search condition area 1 ------------*/ 
+.gscm_search .search_wh_comp_cd {
+    width: 145px;
+}
+.gscm_search .search_wh_cd {
+    width: 100px;
+}
+.gscm_search .search_shipper {
+    width: 50px;
+}
+.gscm_search .search_cml_type {
+    width: 115px;
+}
+.gscm_search .search_export_req_no {
+    width: 120px;
+}
+.gscm_search .search_main_mark {
+    width: 140px;
+}
+.gscm_search .search_cml_issue_dt {
+    width: 155px;
+}
+
+/*------------ Result search ------------*/ 
+/*------------ Search result area ------------*/ 
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 800px;
+}
+
+.gscm_resultlist .resultlist_chk {
+    width: 40px;
+}
+.gscm_resultlist .resultlist_cml_type {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_main_mark {
+    width: 220px;
+}
+.gscm_resultlist .resultlist_cont_sort_cd {
+    width: 120px;
+}
+.gscm_resultlist .resultlist_g_w {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_cml_issue_date {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_export_request_no {
+    width: 170px;
+}
+
+.print_update {
+    width: 190px;
+}
+.print_all {
+    width: 150px;
+}
+
+.cml_type {
+    width: 115px;
+}
+.main_mark {
+    width: 135px;
+}
+.shipper_cd_2 {
+    width: 55px;
+}
+.exp_request_no_2 {
+    width: 120px;
+}

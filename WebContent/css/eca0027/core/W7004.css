@@ -1,0 +1,145 @@
+@CHARSET "UTF-8";
+/*
+ * W7003.css
+ * 
+ * 船積み実績Register画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/
+
+.gscm_search .search_shipper_cd {
+    width: 60px;
+}
+
+.gscm_search .search_consignee_cd {
+    width: 95px;
+}
+
+.gscm_search .search_ship_to_comp_cd {
+    width: 110px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 50px;
+}
+
+.gscm_search .search_no_of_invoice {
+    width: 120px;
+}
+
+.gscm_search .search_no_of_container {
+    width: 140px;
+}
+
+.gscm_search .search_pkg_qty {
+    width: 125px;
+}
+
+.gscm_search .search_shipping_act_status {
+    width: 60px;
+}
+
+.gscm_search .search_freight_responsible_cd {
+    width: 40px;
+}
+
+.gscm_search .search_auto_invoice_register_flg {
+    width: 145px;
+}
+
+.gscm_search .search_billd_update {
+    width: 180px;
+}
+
+.gscm_search .search_register_dt {
+    width: 130px;
+}
+
+.gscm_search .search_atd {
+    width: 118px;
+}
+
+.gscm_search .search_eta {
+    width: 118px;
+}
+
+.gscm_search .search_carrier_comp_cd {
+    width: 155px;
+}
+
+.gscm_search .search_vessel {
+    width: 180px;
+}
+
+.gscm_search .search_billd_no {
+    width: 180px;
+}
+
+.gscm_search .search_container_loose_typ {
+/*    width: 186px;*/
+}
+
+.w7004_view_trns_cd {
+    width: 50px;
+}
+
+.w7004_view_freight_responsible_cd {
+    width: 30px;
+}
+.w7004_shipper_cd {
+    width: 60px;
+}
+.w7004_shipping_act_status {
+    width: 40px;
+}
+.gscm_search .w7004_carrier_comp_cd {
+    width: 40px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .billd_no {
+    width: 220px;
+}
+
+/*------------ 検索結果エリア ------------*/
+table.gscm_resultlist {
+    width: 730px;
+}
+
+.gscm_resultlist .resultlist_delete {
+    width: 51px;
+}
+
+.gscm_resultlist .resultlist_invoice_no {
+    width: 219px;
+}
+
+.gscm_resultlist .resultlist_full_rt_inv {
+    width: 88px;
+}
+
+.gscm_resultlist .resultlist_pkg_qty {
+    width: 73px;
+}
+
+.gscm_resultlist .resultlist_shipping_act_status {
+    width: 58px;
+}
+
+.gscm_resultlist .resultlist_move_to_other_doc_Upload {
+    width: 110px;
+}
+
+.gscm_resultlist .resultlist_status_change {
+    width: 131px;
+}
+
+.gscm_resultlist .invoice_no {
+    width: 200px;
+}
+
+.gscm_resultlist .resultlist_need_other_doc_flg {
+    width: 88px;
+}

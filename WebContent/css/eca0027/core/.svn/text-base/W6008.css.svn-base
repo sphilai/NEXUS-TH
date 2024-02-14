@@ -1,0 +1,114 @@
+@CHARSET "utf-8";
+/*
+ * W6008.css
+ * 
+ * Documentaition [Invoice Detail]画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+ /*------------ 検索条件エリアテーブル ------------*/ 
+table.gscm_search {
+    width: 980px;
+}
+
+ /*------------ 検索条件エリア１ ------------*/ 
+.gscm_search .search_shipper_cd { 
+    width: 67px; 
+}
+
+.gscm_search .search_consignee_cd { 
+    width: 88px; 
+}
+
+.gscm_search .search_ship_to_cd { 
+    width: 118px; 
+}
+
+.gscm_search .search_total_qty { 
+    width: 98px; 
+}
+
+.gscm_search .search_total_net_weight { 
+    width: 127px; 
+}
+
+.gscm_search .search_curr_cd { 
+    width: 480px; 
+}
+.w6008_total_qty { 
+    width: 60px; 
+}
+.w6008_total_nw { 
+    width: 105px; 
+}
+.w6008_item_no {
+    width: 151px; 
+}
+.w6008_model_cd {
+    width: 151px; 
+}
+.w6008_item_description {
+    width: 201px; 
+}
+ /*------------ 検索条件ボタンテーブル ------------*/ 
+table.gscm_search_button {
+    width: 980px;
+}
+
+
+ /*------------ 検索結果ボタンテーブル ------------*/ 
+table.gscm_resultlist_button {
+    width: 980px;
+}
+
+ /*------------ 検索結果ボタン ------------*/ 
+.gscm_resultlist_button .resultlist_button_remove { 
+    width: 98px; 
+}
+
+.gscm_resultlist_button .resultlist_button_hs_code_warning { 
+    width: 196px; 
+}
+
+.gscm_resultlist_button .resultlist_button_ignore_warnings { 
+    width: 686px; 
+}
+
+.gscm_resultlist_button .resultlist_button_label { 
+    width: 157px; 
+}
+
+ /*------------ 検索結果リストテーブル ------------*/ 
+table.gscm_resultlist {
+    width: 960px; 
+}
+
+ /*------------ 検索結果リスト ------------*/ 
+.gscm_resultlist .resultlist_remove { 
+    width: 58px; 
+}
+
+.gscm_resultlist .resultlist_itemNo { 
+    width: 192px; 
+}
+
+.gscm_resultlist .resultlist_modelCd { 
+    width: 192px; 
+}
+
+.gscm_resultlist .resultlist_item_description { 
+    width: 250px; 
+}
+
+.gscm_resultlist .resultlist_qty { 
+    width: 67px; 
+}
+
+.gscm_resultlist .resultlist_list_curr_cd { 
+    width: 38px; 
+}
+
+.gscm_resultlist .resultlist_unit_price { 
+    width: 163px; 
+}

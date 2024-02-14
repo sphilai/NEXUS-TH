@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-WB001OdrRcv.xml
+ *
+ * WB001OdrRcvDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="WB001OdrRcv">
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="WB001OdrRcvDomain"
+        type="com.globaldenso.eca0027.core.business.domain.WB001OdrRcvDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="WB001OdrRcvCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.WB001OdrRcvCriteriaDomain" />
+
+    <!-- 検索結果をMapで受け取る -->
+    <!-- 輸出受注情報の検索(Register画面) -->
+    <resultMap id="WB001OdrRcvDomain_SearchTtExpRcvOdrByRegister" class="WB001OdrRcvDomain">
+        <result property="etdDueDt" column="ETD_DUE_DT" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="odrCtrlNo" column="ODR_CTRL_NO" />
+        <result property="customerDueDt" column="CUSTOMER_DUE_DT" />
+        <result property="customerItemNoOrg" column="CUSTOMER_ITEM_NO_ORG" />
+        <result property="odrQtyOrg" column="ODR_QTY_ORG" />
+        <result property="firmQty" column="FIRM_QTY" />
+        <result property="forecastQty" column="FORECAST_QTY" />
+        <result property="odrQty" column="ODR_QTY" />
+        <result property="pltzAllocQty" column="PLTZ_ALLOC_QTY" />
+        <result property="shippedQty" column="SHIPPED_QTY" />
+        <result property="partialDelivCnt" column="PARTIAL_DELIV_CNT" />
+        <result property="salesCompPoNo" column="SALES_COMP_PO_NO" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+        <result property="count" column="COUNT" />
+    </resultMap>
+    
+    <!-- 検索結果をMapで受け取る -->
+    <!-- 輸出受注情報の検索(Order Inquiry Main画面) -->
+    <resultMap id="WB001OdrRcvDomain_SearchForPagingTtExpRcvOdrByMainSearch" class="WB001OdrRcvDomain">
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="odrQty" column="ODR_QTY" />
+        <result property="pltzAllocQty" column="PLTZ_ALLOC_QTY" />
+        <result property="shippedQty" column="SHIPPED_QTY" />
+        <result property="shipToNm" column="SHIP_TO_NM" />
+    </resultMap>
+    
+    <!-- 検索結果をMapで受け取る -->
+    <!-- 輸出受注情報詳細の検索(Order Inquiry Detail画面) -->
+    <resultMap id="WB001OdrRcvDomain_SearchForPagingTtExpRcvOdrByDetailInit" class="WB001OdrRcvDomain">
+        <result property="etdDueDt" column="ETD_DUE_DT" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="customerDueDt" column="CUSTOMER_DUE_DT" />
+        <result property="salesCompPoNo" column="SALES_COMP_PO_NO" />
+        <result property="firmQty" column="FIRM_QTY" />
+        <result property="forecastQty" column="FORECAST_QTY" />
+        <result property="odrQty" column="ODR_QTY" />
+        <result property="pltzAllocQty" column="PLTZ_ALLOC_QTY" />
+        <result property="shippedQty" column="SHIPPED_QTY" />
+    </resultMap>
+    
+    <!-- 検索結果をMapで受け取る -->
+    <!-- 輸出受注情報の検索(Last Digit Change Main画面) -->
+    <resultMap id="WB001OdrRcvDomain_SearchForPagingTtExpRcvOdrByLstDgtChgMainSearch" class="WB001OdrRcvDomain">
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="odrCtrlNo" column="ODR_CTRL_NO" />
+        <result property="itemNoOrg" column="ITEM_NO_ORG" />
+        <result property="odrQty" column="ODR_QTY" />
+    </resultMap>
+    
+    <!-- 検索結果をMapで受け取る -->
+    <!-- サマリ画面で選択された情報の品目番号を検索(Last Digit Change Register画面) -->
+    <resultMap id="WB001OdrRcvDomain_SearchTtExpRcvOdrByLstDgtChgRegisterInit" class="WB001OdrRcvDomain">
+        <result property="rcvOdrCompCd" column="RCV_ODR_COMP_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="etdDueDt" column="ETD_DUE_DT" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="customerItemNoOrg" column="CUSTOMER_ITEM_NO_ORG" />
+        <result property="odrCtrlNo" column="ODR_CTRL_NO" />
+        <result property="revisionNo" column="REVISION_NO" />
+        <result property="revisionNoEis" column="REVISION_NO_EIS" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="customerDueDt" column="CUSTOMER_DUE_DT" />
+        <result property="odrQty" column="ODR_QTY" />
+        <result property="pltzAllocQty" column="PLTZ_ALLOC_QTY" />
+        <result property="salesCompPoNo" column="SALES_COMP_PO_NO" />
+        <result property="supplierCd" column="SUPPLIER_CD" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+        <result property="shippingLot" column="SHIPPING_LOT" />
+    </resultMap>
+    
+    <!-- 検索結果をMapで受け取る -->
+    <!-- 品番末尾以外が一致し、過去1ヶ月間に受注が存在する品目番号を検索(Last Digit Change Register画面) -->
+    <resultMap id="WB001OdrRcvDomain_SearchTtExpRcvOdrByLstDgtChgRegisterInitPost" class="WB001OdrRcvDomain">
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="shippingLot" column="SHIPPING_LOT" />
+    </resultMap>
+
+    <!-- =================================================================================================== -->
+    <!-- Customer Order Receiving Register / 輸出受注情報の検索                                              -->
+    <!-- =================================================================================================== -->
+
+    <!-- 項目 -->
+    <sql id="Cols_OdrRcv">
+        ETD_DUE_DT
+        , min(CUSTOMER_PO_NO) CUSTOMER_PO_NO
+        , min(CUSTOMER_ITEM_NO) CUSTOMER_ITEM_NO
+        , min(ODR_CTRL_NO) ODR_CTRL_NO
+        , min(CUSTOMER_DUE_DT) CUSTOMER_DUE_DT
+        , min(CUSTOMER_ITEM_NO_ORG) CUSTOMER_ITEM_NO_ORG
+        , sum(ODR_QTY_ORG) ODR_QTY_ORG
+        , sum(decode(ODR_FIRM_FLG, 'Y', ODR_QTY, 0)) FIRM_QTY
+        , sum(decode(ODR_FIRM_FLG, 'N', ODR_QTY, 0)) FORECAST_QTY
+        , sum(ODR_QTY) ODR_QTY
+        , sum(PLTZ_ALLOC_QTY) PLTZ_ALLOC_QTY
+        , sum(SHIPPED_QTY) SHIPPED_QTY
+        , sum(PARTIAL_DELIV_CNT) PARTIAL_DELIV_CNT
+        , min(SALES_COMP_PO_NO) SALES_COMP_PO_NO
+        , min(COM_UPDATE_TIMESTAMP) COM_UPDATE_TIMESTAMP
+        , count(RCV_ODR_COMP_CD) COUNT
+    </sql>
+    
+    <!-- Where句（検索条件） -->
+    <sql id="WhereCondition_OdrRcv">
+        <dynamic>
+            RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            and CUSTOMER_CD = #customerCd#
+            and LGCY_SHIP_TO = #lgcyShipTo#
+            and ITEM_NO = #itemNo#
+            <isNotEmpty property="pkgCd">
+            and PKG_CD = #pkgCd#
+            </isNotEmpty>
+            and TRNS_CD = #trnsCd#
+            and ETD_DUE_DT <![CDATA[ >= ]]> trunc(#etdDueDt#, 'MM')
+            and ETD_DUE_DT <![CDATA[ < ]]> add_months(trunc(#etdDueDt#, 'MM'), 6)
+        </dynamic>
+    </sql>
+    
+    <!-- 検索 SQL文 -->
+    <select id="SearchTtExpRcvOdrByRegister" resultMap="WB001OdrRcvDomain_SearchTtExpRcvOdrByRegister"
+        parameterClass="WB001OdrRcvDomain">
+            select
+                /* SqlMap-WB001OdrRcv.SearchTtExpRcvOdrByRegister */
+                <include refid="Cols_OdrRcv" />
+            from
+                TT_EXP_RCV_ODR
+            where
+                <include refid="WhereCondition_OdrRcv" />
+            group by 
+                ETD_DUE_DT
+            order by 
+                ETD_DUE_DT
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- Order Inquiry Main / 輸出受注情報の検索(件数のみ)                                -->
+    <!-- =================================================================================================== -->
+    
+    <!-- 検索 SQL文 -->
+    <select id="SearchCountTtExpRcvOdrByMainSearch"  resultClass="java.lang.Integer"
+        parameterClass="WB001OdrRcvCriteriaDomain">
+            select
+                /* SqlMap-WB001OdrRcv.SearchCountTtExpRcvOdrByMainSearch */
+                count(rownum)
+            from (
+                select
+                    A.CUSTOMER_CD
+                    , A.LGCY_SHIP_TO
+                    , A.TRNS_CD
+                    , A.PKG_CD
+                    , C.SHIP_TO_NM
+                from
+                    TT_EXP_RCV_ODR A
+                    , TM_CIGMA_SHIP_TO_XREF B
+                    , TM_NXS_SHIP_TO C
+                where
+                    A.RCV_ODR_COMP_CD = B.LGCY_LIB_COMP_CD (+)
+                    and A.CUSTOMER_CD = B.CUSTOMER_CD (+)
+                    and A.LGCY_SHIP_TO = B.LGCY_SHIP_TO (+)
+                    and B.SHIP_TO_CD = C.SHIP_TO_CD (+)
+                    and A.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    and A.ITEM_NO = #itemNo#
+                    <isNotEmpty prepend="and" property="pkgCd">
+                        A.PKG_CD = #pkgCd#
+                    </isNotEmpty>
+                    and A.RCV_ODR_COMP_CD in (select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+                    <isNotEmpty prepend="and" property="userAuthList">
+                        (A.RCV_ODR_COMP_CD, A.PLNT_CD) in (
+                            <iterate property="userAuthList" conjunction=",">
+                                (#userAuthList[].authMgtComp#, #userAuthList[].procMfgDivCd#)
+                            </iterate>
+                        )
+                    </isNotEmpty>
+                group by
+                    A.CUSTOMER_CD
+                    , A.LGCY_SHIP_TO
+                    , A.TRNS_CD
+                    , A.PKG_CD
+                    , C.SHIP_TO_NM
+                order by 
+                    A.CUSTOMER_CD
+                    , A.LGCY_SHIP_TO
+                    , A.TRNS_CD
+            )
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- Order Inquiry Main / 輸出受注情報の検索                                          -->
+    <!-- =================================================================================================== -->
+    
+    <!-- 検索 SQL文 -->
+    <select id="SearchForPagingTtExpRcvOdrByMainSearch"  resultMap="WB001OdrRcvDomain_SearchForPagingTtExpRcvOdrByMainSearch"
+        parameterClass="WB001OdrRcvCriteriaDomain">
+            select
+                /* SqlMap-WB001OdrRcv.SearchForPagingTtExpRcvOdrByMainSearch */
+                CUSTOMER_CD
+                , LGCY_SHIP_TO
+                , TRNS_CD
+                , PKG_CD
+                , ODR_QTY
+                , PLTZ_ALLOC_QTY
+                , SHIPPED_QTY
+                , SHIP_TO_NM
+            from (
+                select rownum ROW_NUM, X.* from (
+                    select
+                        A.CUSTOMER_CD
+                        , A.LGCY_SHIP_TO
+                        , A.TRNS_CD
+                        , A.PKG_CD
+                        , sum(A.ODR_QTY) ODR_QTY
+                        , sum(A.PLTZ_ALLOC_QTY) PLTZ_ALLOC_QTY
+                        , sum(A.SHIPPED_QTY) SHIPPED_QTY
+                        , C.SHIP_TO_NM
+                    from
+                        TT_EXP_RCV_ODR A
+                        , TM_CIGMA_SHIP_TO_XREF B
+                        , TM_NXS_SHIP_TO C
+                    where
+                        A.RCV_ODR_COMP_CD = B.LGCY_LIB_COMP_CD (+)
+                        and A.CUSTOMER_CD = B.CUSTOMER_CD (+)
+                        and A.LGCY_SHIP_TO = B.LGCY_SHIP_TO (+)
+                        and B.SHIP_TO_CD = C.SHIP_TO_CD (+)
+                        and A.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                        and A.ITEM_NO = #itemNo#
+                        <isNotEmpty prepend="and" property="pkgCd">
+                             A.PKG_CD = #pkgCd#
+                        </isNotEmpty>
+                        /* 権限 */
+                        and A.RCV_ODR_COMP_CD in (select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+                        <isNotEmpty prepend="and" property="userAuthList">
+                            (A.RCV_ODR_COMP_CD, A.PLNT_CD) in (
+                                <iterate property="userAuthList" conjunction=",">
+                                    (#userAuthList[].authMgtComp#, #userAuthList[].procMfgDivCd#)
+                                </iterate>
+                            )
+                        </isNotEmpty>
+                    group by
+                        A.CUSTOMER_CD
+                        , A.LGCY_SHIP_TO
+                        , A.TRNS_CD
+                        , A.PKG_CD
+                        , C.SHIP_TO_NM
+                    order by
+                        A.CUSTOMER_CD
+                        , A.LGCY_SHIP_TO
+                        , A.TRNS_CD
+                        , A.PKG_CD
+                ) X
+            )
+            where 
+                /* ページング */
+                ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- Order Inquiry Detail / 輸出受注情報詳細の検索(件数のみ)                                             -->
+    <!-- =================================================================================================== -->
+    
+    <!-- 検索 SQL文 -->
+    <select id="SearchCountTtExpRcvOdrByDetailInit"  resultClass="java.lang.Integer"
+        parameterClass="WB001OdrRcvCriteriaDomain">
+            select 
+                /* SqlMap-WB001OdrRcv.SearchCountTtExpRcvOdrByDetailInit */
+                count(rownum)
+            from (
+                select
+                    ETD_DUE_DT
+                    , CUSTOMER_PO_NO
+                    , CUSTOMER_ITEM_NO
+                    , CUSTOMER_DUE_DT
+                    , SALES_COMP_PO_NO
+                from
+                    TT_EXP_RCV_ODR
+                where
+                    RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    and CUSTOMER_CD = #customerCd#
+                    and LGCY_SHIP_TO = #lgcyShipTo#
+                    and ITEM_NO = #itemNo#
+                    and PKG_CD = #pkgCd#
+                    and TRNS_CD = #trnsCd#
+                group by
+                    ETD_DUE_DT
+                    , CUSTOMER_PO_NO
+                    , CUSTOMER_ITEM_NO
+                    , CUSTOMER_DUE_DT
+                    , SALES_COMP_PO_NO
+                order by
+                    ETD_DUE_DT
+                    , CUSTOMER_ITEM_NO
+                    , CUSTOMER_DUE_DT
+                    , CUSTOMER_PO_NO
+                    , SALES_COMP_PO_NO
+            )
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- Order Inquiry Detail / 輸出受注情報詳細の検索                                                       -->
+    <!-- =================================================================================================== -->
+    
+    <!-- 検索 SQL文 -->
+    <select id="SearchForPagingTtExpRcvOdrByDetailInit"  resultMap="WB001OdrRcvDomain_SearchForPagingTtExpRcvOdrByDetailInit"
+        parameterClass="WB001OdrRcvCriteriaDomain">
+            select
+                /* SqlMap-WB001OdrRcv.SearchForPagingTtExpRcvOdrByDetailInit */
+                ETD_DUE_DT
+                , CUSTOMER_PO_NO
+                , CUSTOMER_ITEM_NO
+                , CUSTOMER_DUE_DT
+                , SALES_COMP_PO_NO
+                , FIRM_QTY
+                , FORECAST_QTY
+                , ODR_QTY
+                , PLTZ_ALLOC_QTY
+                , SHIPPED_QTY
+            from (
+                select rownum ROW_NUM, X.* from (
+                    select 
+                        ETD_DUE_DT
+                        , CUSTOMER_PO_NO
+                        , CUSTOMER_ITEM_NO
+                        , CUSTOMER_DUE_DT
+                        , SALES_COMP_PO_NO
+                        , sum(decode(ODR_FIRM_FLG, 'Y', ODR_QTY, 0)) FIRM_QTY
+                        , sum(decode(ODR_FIRM_FLG, 'N', ODR_QTY, 0)) FORECAST_QTY
+                        , sum(ODR_QTY) ODR_QTY
+                        , sum(PLTZ_ALLOC_QTY) PLTZ_ALLOC_QTY
+                        , sum(SHIPPED_QTY) SHIPPED_QTY
+                    from
+                        TT_EXP_RCV_ODR
+                    where
+                        RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                        and CUSTOMER_CD = #customerCd#
+                        and LGCY_SHIP_TO = #lgcyShipTo#
+                        and ITEM_NO = #itemNo#
+                        and PKG_CD = #pkgCd#
+                        and TRNS_CD = #trnsCd#
+                    group by
+                        ETD_DUE_DT
+                        , CUSTOMER_PO_NO
+                        , CUSTOMER_ITEM_NO
+                        , CUSTOMER_DUE_DT
+                        , SALES_COMP_PO_NO
+                    order by
+                        ETD_DUE_DT
+                        , CUSTOMER_ITEM_NO
+                        , CUSTOMER_DUE_DT
+                        , CUSTOMER_PO_NO
+                        , SALES_COMP_PO_NO
+                ) X
+            )
+        where
+            /* ページング */
+            ROW_NUM between #rowNumFrom# and #rowNumTo#
+            
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- Last Digit Change Main / 輸出受注情報の検索(件数のみ)                                               -->
+    <!-- =================================================================================================== -->
+    
+    <!-- 検索 SQL文 -->
+    <select id="SearchCountTtExpRcvOdrByLstDgtChgMainSearch"  resultClass="java.lang.Integer"
+        parameterClass="WB001OdrRcvCriteriaDomain">
+            select
+                /* SqlMap-WB001OdrRcv.SearchCountTtExpRcvOdrByLstDgtChgMainSearch */
+                count(rownum)
+            from (
+                select
+                    PKG_CD
+                    , CUSTOMER_PO_NO
+                    , ODR_CTRL_NO
+                    , ITEM_NO_ORG
+                from
+                    TT_EXP_RCV_ODR
+                where
+                    RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    and CUSTOMER_CD = #customerCd#
+                    and LGCY_SHIP_TO = #lgcyShipTo#
+                    and TRNS_CD = #trnsCd#
+                    <isNotEmpty prepend="and" property="pkgCd">
+                        PKG_CD = #pkgCd#
+                    </isNotEmpty>
+                    and ITEM_NO_ORG = #itemNoOrg#
+                    and SHIPPING_DT = #shippingDt#
+                    and ODR_FIRM_FLG = 'Y'
+                    /* 権限 */
+                    and RCV_ODR_COMP_CD in (select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+                    <isNotEmpty prepend="and" property="userAuthList">
+                        (RCV_ODR_COMP_CD, PLNT_CD) in (
+                            <iterate property="userAuthList" conjunction=",">
+                                (#userAuthList[].authMgtComp#, #userAuthList[].procMfgDivCd#)
+                            </iterate>
+                        )
+                    </isNotEmpty>
+                    
+                    group by
+                        PKG_CD
+                        , CUSTOMER_PO_NO
+                        , ODR_CTRL_NO
+                        , ITEM_NO_ORG
+                    order by
+                        ITEM_NO_ORG
+                        , PKG_CD
+                        , CUSTOMER_PO_NO
+                        , ODR_CTRL_NO
+            )
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- Last Digit Change Main / 輸出受注情報の検索                                                         -->
+    <!-- =================================================================================================== -->
+    
+    <!-- 検索 SQL文 -->
+    <select id="SearchForPagingTtExpRcvOdrByLstDgtChgMainSearch"  resultMap="WB001OdrRcvDomain_SearchForPagingTtExpRcvOdrByLstDgtChgMainSearch"
+        parameterClass="WB001OdrRcvCriteriaDomain">
+            select
+                /* SqlMap-WB001OdrRcv.SearchForPagingTtExpRcvOdrByLstDgtChgMainSearch */
+                PKG_CD
+                , CUSTOMER_PO_NO
+                , ODR_CTRL_NO
+                , ITEM_NO_ORG
+                , ODR_QTY
+            from (
+                select rownum ROW_NUM, X.* from (
+                    select
+                        PKG_CD
+                        , CUSTOMER_PO_NO
+                        , ODR_CTRL_NO
+                        , ITEM_NO_ORG
+                        , sum(ODR_QTY) ODR_QTY
+                    from
+                        TT_EXP_RCV_ODR
+                    where
+                        RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                        and CUSTOMER_CD = #customerCd#
+                        and LGCY_SHIP_TO = #lgcyShipTo#
+                        and TRNS_CD = #trnsCd#
+                        <isNotEmpty prepend="and" property="pkgCd">
+                            PKG_CD = #pkgCd#
+                        </isNotEmpty>
+                        and ITEM_NO_ORG = #itemNoOrg#
+                        and SHIPPING_DT = #shippingDt#
+                        and ODR_FIRM_FLG = 'Y'
+                        /* 権限 */
+                        and RCV_ODR_COMP_CD in (select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+                        <isNotEmpty prepend="and" property="userAuthList">
+                            (RCV_ODR_COMP_CD, PLNT_CD) in (
+                                <iterate property="userAuthList" conjunction=",">
+                                    (#userAuthList[].authMgtComp#, #userAuthList[].procMfgDivCd#)
+                                </iterate>
+                            )
+                        </isNotEmpty>
+                    group by
+                        PKG_CD
+                        , CUSTOMER_PO_NO
+                        , ODR_CTRL_NO
+                        , ITEM_NO_ORG
+                    order by
+                        ITEM_NO_ORG
+                        , PKG_CD
+                        , CUSTOMER_PO_NO
+                        , ODR_CTRL_NO
+                ) X
+            )
+            where 
+                /* ページング */
+                ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- Last Digit Change Register / サマリ画面で選択された情報の品目番号を検索                             -->
+    <!-- =================================================================================================== -->
+    
+    <!-- 検索 SQL文 -->
+    <select id="SearchTtExpRcvOdrByLstDgtChgRegisterInit"  resultMap="WB001OdrRcvDomain_SearchTtExpRcvOdrByLstDgtChgRegisterInit"
+        parameterClass="WB001OdrRcvCriteriaDomain">
+            select
+                /* SqlMap-WB001OdrRcv.SearchTtExpRcvOdrByLstDgtChgRegisterInit */
+                  A.RCV_ODR_COMP_CD
+                , A.CUSTOMER_CD
+                , A.LGCY_SHIP_TO
+                , A.ITEM_NO
+                , A.PKG_CD
+                , A.TRNS_CD
+                , A.ETD_DUE_DT
+                , A.CUSTOMER_PO_NO
+                , A.CUSTOMER_ITEM_NO
+                , A.CUSTOMER_ITEM_NO_ORG
+                , A.ODR_CTRL_NO
+                , A.REVISION_NO
+                , A.REVISION_NO_EIS
+                , A.PLNT_CD
+                , A.CUSTOMER_DUE_DT
+                , A.ODR_QTY
+                , A.PLTZ_ALLOC_QTY
+                , A.SALES_COMP_PO_NO
+                , A.SUPPLIER_CD
+                , A.COM_UPDATE_TIMESTAMP
+                , B.SHIPPING_LOT
+            from
+                TT_EXP_RCV_ODR A
+                , TM_EXP_ITEM_NO_SP_INFO B
+            where
+                A.RCV_ODR_COMP_CD = B.COMP_CD
+                and A.ITEM_NO = B.ITEM_NO
+                and A.PKG_CD = B.PKG_CD
+                and A.CUSTOMER_CD = B.CUSTOMER_CD
+                and A.LGCY_SHIP_TO = B.LGCY_SHIP_TO
+                and B.APLY_STRT_DT = (
+                    select
+                        max(B2.APLY_STRT_DT)
+                    from
+                        TM_EXP_ITEM_NO_SP_INFO B2
+                    where
+                        B2.COMP_CD = A.RCV_ODR_COMP_CD
+                        and B2.ITEM_NO = A.ITEM_NO
+                        and B2.PKG_CD = A.PKG_CD
+                        and B2.CUSTOMER_CD = A.CUSTOMER_CD
+                        and B2.LGCY_SHIP_TO = A.LGCY_SHIP_TO
+                        and B2.APLY_STRT_DT <![CDATA[<]]>= A.ETD_DUE_DT
+                )
+                and A.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                and A.CUSTOMER_CD = #customerCd#
+                and A.LGCY_SHIP_TO = #lgcyShipTo#
+                and A.TRNS_CD = #trnsCd#
+                and A.ITEM_NO_ORG = #itemNoOrg#
+                and A.PKG_CD = #pkgCd#
+                and A.CUSTOMER_PO_NO = #customerPoNo#
+                and A.SHIPPING_DT = #shippingDt#
+                and A.ODR_FIRM_FLG = 'Y'
+                and A.ODR_CTRL_NO = #odrCtrlNo#
+            order by
+                A.ITEM_NO
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- Last Digit Change Register / 品番末尾以外が一致し、過去1ヶ月間に受注が存在する品目番号を検索        -->
+    <!-- =================================================================================================== -->
+    
+    <!-- 検索 SQL文 -->
+    <select id="SearchTtExpRcvOdrByLstDgtChgRegisterInitPost"  resultMap="WB001OdrRcvDomain_SearchTtExpRcvOdrByLstDgtChgRegisterInitPost"
+        parameterClass="WB001OdrRcvCriteriaDomain">
+            select
+                /* SqlMap-WB001OdrRcv.SearchTtExpRcvOdrByLstDgtChgRegisterInitPost */
+                A.ITEM_NO
+                , B.SHIPPING_LOT
+            from
+                TT_EXP_RCV_ODR A
+                , TM_EXP_ITEM_NO_SP_INFO B
+            where
+                A.RCV_ODR_COMP_CD = B.COMP_CD
+                and A.ITEM_NO = B.ITEM_NO
+                and A.PKG_CD = B.PKG_CD
+                and A.CUSTOMER_CD = B.CUSTOMER_CD
+                and A.LGCY_SHIP_TO = B.LGCY_SHIP_TO
+                and B.APLY_STRT_DT = (
+                    select
+                        max(B2.APLY_STRT_DT)
+                    from
+                        TM_EXP_ITEM_NO_SP_INFO B2
+                    where
+                        B2.COMP_CD = A.RCV_ODR_COMP_CD
+                        and B2.ITEM_NO = A.ITEM_NO
+                        and B2.PKG_CD = A.PKG_CD
+                        and B2.CUSTOMER_CD = A.CUSTOMER_CD
+                        and B2.LGCY_SHIP_TO = A.LGCY_SHIP_TO
+                        and B2.APLY_STRT_DT <![CDATA[<]]>= A.ETD_DUE_DT
+                )
+                and A.RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                and A.ITEM_NO like #itemNoOrg#
+                and A.PKG_CD = #pkgCd#
+                and #oneMonthBefore# <![CDATA[<]]> = A.ETD_DUE_DT
+                and A.ETD_DUE_DT <![CDATA[<]]>= #etdDueDt#
+            order by
+                A.ITEM_NO
+
+    </select>
+</sqlMap>

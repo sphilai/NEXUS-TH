@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * applicationContext-aij2-jdbc-pro.xml
+ * 
+ * [JP] AI-J2 の DB 接続設定ファイルです。(本番環境用)
+ * [JP]
+ * [JP] 以下の DB 接続情報を定義しています。
+ * [JP]
+ * [JP] ・トランザクションマネージャーの設定
+ * [JP] ・データソースの設定
+ * [JP] ・jdbc.properties の指定
+ * [JP] ・iBatis の設定
+ * [JP]
+ * [JP] 付属の build.xml を使用して本番環境用の WAR ファイルを作成すると、
+ * [JP] applicationContext-jdbc.xml に自動で差し替えられます。
+ * 
+ * [EN] This is the configuration file for DB connection AI-J2. (For production environment)
+ * [EN]
+ * [EN] We define the following DB connection information.
+ * [EN]
+ * [EN] ・Configuration of the transaction manager
+ * [EN] ・Configuration of the data source
+ * [EN] ・Specify jdbc.properties
+ * [EN] ・Configuration of the iBatis
+ * [EN]
+ * [EN] When you create a WAR file for the production environment using the supplied build.xml, 
+ * [EN] you will be automatically replaced in applicationContext-jdbc.xml.
+ * 
+ * $ applicationContext-aij2-jdbc-pro.xml 4294 2013-05-15 12:30:57Z HIDETOSHI_NAKATANI@denso.co.jp $
+ *
+ * Copyright (c) 2011 DENSO IT SOLUTIONS. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!-- [JP] トランザクション管理 ============================================== -->
+    <!-- [EN] Transaction management ============================================== -->
+    <bean id="transactionManager"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- [JP] データソース ==========================================================
+         [EN] Data source ==========================================================
+         [JP] 【注意】
+         [JP]     参考値のパラメータが設定されています。
+         [JP]     システムの規模によって必要なコネクション数は異なるため、想定規模に応じて
+         [JP]     適切なパラメータを設定するようにしてください。
+         [EN] [Note]
+         [EN]     Parameters of the reference value is set.
+         [EN]     Because the number of connections required will vary depending on the size of the system, 
+         [EN]     please set the parameters as appropriate, depending on the size expected.
+    ======================================================================== -->
+    <bean id="dataSource"
+        class="org.apache.commons.dbcp.BasicDataSource"
+        destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="initialSize" value="3" />
+        <property name="maxActive" value="20" />
+        <property name="maxIdle" value="20" />
+        <property name="maxWait" value="10000" />
+        <property name="minIdle" value="3" />
+        <property name="removeAbandoned" value="true" />
+        <property name="removeAbandonedTimeout" value="300" />
+        <property name="logAbandoned" value="false" />
+        <property name="accessToUnderlyingConnectionAllowed"
+            value="true" />
+    </bean>
+
+    <!-- [JP] JDBCプロパティファイル ============================================ -->
+    <!-- [EN] JDBC properties file ============================================ -->
+    <bean id="jdbcConnectionConfigurer"
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc-aij2.properties" />
+    </bean>
+
+    <!-- simpleExtractorのBean定義設定 -->
+    <!-- ※ OC4JのJNDIからデータソースを取得する場合は、プロパティはすべてtrueにしておくこと。 -->
+    <bean id="simpleExtractor"
+        class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor">
+        <property name="nativeConnectionNecessaryForNativeStatements" value="true"/>
+        <property name="nativeConnectionNecessaryForNativePreparedStatements" value="true"/>
+        <property name="nativeConnectionNecessaryForNativeCallableStatements" value="true"/>
+    </bean>
+
+    <!-- LOBフィールドを扱うためのハンドラ -->
+    <bean id="oracleLobHandler"
+        class="org.springframework.jdbc.support.lob.OracleLobHandler">
+        <property name="nativeJdbcExtractor" ref="simpleExtractor"/>
+    </bean>
+
+    <!-- [JP] iBATIS 設定 ======================================================= -->
+    <!-- [EN] iBATIS configuration ======================================================= -->
+    <bean id="sqlMapClient"
+        class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+        <property name="configLocation">
+            <value>WEB-INF/SqlMapConfig-aij2.xml</value>
+        </property>
+        <property name="useTransactionAwareDataSource">
+            <value>true</value>
+        </property>
+        <property name="dataSource">
+            <ref bean="dataSource" />
+        </property>
+        <property name="lobHandler">
+            <ref bean="oracleLobHandler" />
+        </property>
+    </bean>
+</beans>

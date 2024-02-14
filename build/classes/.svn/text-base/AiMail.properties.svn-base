@@ -1,0 +1,36 @@
+################################################################################
+#
+#   AiMail.properties
+#
+# [JP] \u30e1\u30fc\u30eb\u9001\u4fe1\u6642\u306b\u5fc5\u8981\u306a\u30d7\u30ed\u30d1\u30c6\u30a3\u3067\u3059\u3002
+# [JP]
+# [JP] AiMailSend\u306e\u30e1\u30fc\u30eb\u9001\u4fe1\u6a5f\u80fd\u4f7f\u7528\u6642\u306b\u306f\u5fc5\u8981\u4e8b\u9805\u3092\u8a2d\u5b9a\u3057\u3066\u4f7f\u7528\u3057\u3066\u304f\u3060\u3055\u3044\u3002
+#
+# [EN] It is the properties that are required when sending mail. 
+# [EN]
+# [EN] Please use this to set the necessary information at the time of use of mail sending function AiMailSend.
+#
+#   $ AiMail.properties 8362 2014-07-02 07:46:48Z 815372040074 $
+#
+################################################################################
+# [JP] \u30a8\u30f3\u30b3\u30fc\u30c9\u30bf\u30a4\u30d7\u3092\u8a2d\u5b9a\u3059\u308b\u3002
+# [EN] Set the encoding type.
+encodeType=iso-2022-jp
+# [JP] \u30e1\u30fc\u30eb\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\u3092\u8a2d\u5b9a\u3059\u308b\u3002
+# [EN] Set the e-mail format.
+mailFormat=text/plain;charset="iso-2022-jp"
+# [JP] \u9001\u4fe1\u5143\u30a2\u30c9\u30ec\u30b9\u3092\u8a2d\u5b9a\u3059\u308b\u3002
+# [EN] Set the source address.
+sendFromMailAddress=
+# [JP] SMTPAUTH\u3092\u8a2d\u5b9a\u3059\u308b\u3002(\u8a8d\u8a3c\u3059\u308b\u5834\u5408\u306ftrue)
+# [EN] Set the SMTPAUTH. (If you want to authenticate is true)
+smtpAuthFlg=true
+# [JP] SMTP\u30b5\u30fc\u30d0\u30db\u30b9\u30c8\u540d\u3092\u8a2d\u5b9a\u3059\u308b\u3002
+# [EN] Set the SMTP server host name.
+hostnm=
+# [JP] SMTPAUTH \u30e6\u30fc\u30b6ID\u3092\u8a2d\u5b9a\u3059\u308b\u3002
+# [EN] Set the SMTPAUTH user ID.
+smtpAuthUserId=
+# [JP] SMTPAUTH \u30d1\u30b9\u30ef\u30fc\u30c9\u3092\u8a2d\u5b9a\u3059\u308b\u3002
+# [EN] Set the password SMTPAUTH.
+smtpAuthPasswd=

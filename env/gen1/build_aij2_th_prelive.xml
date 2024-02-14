@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ===========================================================================
+
+ [JP] build_aij2.xml (AI-J2(war)作成:本番機用)
+ [EN] build_aij2.xml (Create a AI-J2(war): for production machine)
+    
+    $ build_aij2_pro.xml 2153 2012-06-14 12:54:48Z tokuhiro_nishizawa@dnitsol.com $
+
+============================================================================ -->
+
+<project name="[NEXUS_EXPORT] AI-J2 Ant Build(Production)" default="makeWar" basedir=".">
+
+    <!-- [JP] * ビルドの初期設定ファイルをインポート * -->
+    <!-- [EN] * Import the initialization file of the build * -->
+    <import file="buildProperties_th.xml" />
+    <!-- [JP] * ユーザ定義の追加ターゲット設定ファイル(AI-J2用)をインポート * -->
+    <!-- [EN] * Import the User-defined additional targets configuration file (for AI-J2) * -->
+    <import file="build_aij2_userdef.xml"/>
+    
+    <!-- [JP] ========================================================== 前処理系 -->
+    <!-- [EN] ========================================================== Pre-processing -->
+    <!-- [JP] * 作業フォルダクリーン * -->
+    <!-- [EN] * Clean work folder * -->
+    <target name="clean_aij2">
+        <delete dir="${dir.out.pre}"/>
+    </target>
+    
+    <!-- [JP] ============================================================ 初期化 -->
+    <!-- [EN] ============================================================ Initialization -->
+    
+    <!-- [JP] * 初期化 * -->
+    <!-- [EN] * Initialization * -->
+    <target name="init_aij2">
+        <echo message="I will start a build.(${ant.project.name})" />
+        <echo message="basedir ：${basedir}" />
+        <echo message="Destination  ：${dir.out.pre}" />
+    </target>
+    
+    <!-- [JP] * 初期化 for 本番機 * -->
+    <!-- [EN] * Initialization for production machine * -->
+    <target name="config_aij2">
+        <echo message="Using a configuration file for the production machine." />
+        <property name="war.name.wrk"            value="${war.name}_${timestamp}.war" />
+        <property name="jdbc-aij2.prop.wrk"      value="${jdbc-aij2.prop.prelive}" />
+        <property name="log4j.prop.web.wrk"      value="${log4j.prop.web.pro}" />
+        <property name="appCtx.jdbc.web.wrk"     value="${appCtx.jdbc.web.prelive}" />
+        <property name="env.wrk"                 value="${env.prelive}" />
+    	<property name="ldapConnection.prop.wrk" value="${ldapConnection.prop.dev}" />
+    </target>
+    
+    <!-- [JP] ====================================================== メイン処理系 -->
+    <!-- [EN] ====================================================== Main-processing -->
+
+    <target name="main_aij2_compile" description="The main process of the Build">
+        <!-- [JP] * 出力フォルダ作成 * -->
+        <!-- [EN] * Create output folder * -->
+        <mkdir  dir="${dir.out.pre}"/>
+        <!-- [JP] * ワークフォルダ作成 * -->
+        <!-- [EN] * Create a work folder * -->
+        <mkdir  dir="${dir.temp}"/>
+        <mkdir  dir="${dir.temp.classes}"/>
+
+        <!-- [JP] * コンパイル * -->
+        <!-- [EN] * Compile * -->
+        <javac nowarn            ="${compile.nowarn}"
+               debug             ="${compile.debug}"
+               optimize          ="${compile.optimize}"
+               source            ="${compile.source}"
+               encoding          ="${compile.encoding}"
+               srcdir            ="${dir.src}"
+               destdir           ="${dir.temp.classes}"
+               memoryInitialSize ="${compile.memoryInitialSize}"
+               memoryMaximumSize ="${compile.memoryMaximumSize}"
+               fork              ="on"
+               executable        ="${compiler}"
+               includeantruntime ="false">
+            <src path="${dir.src}"/>
+            <src path="${dir.project}/sact"/>
+            <src path="${dir.project}/src_framework"/>
+            <classpath refid="ai.classpath"/>
+        </javac>
+
+        <!-- [JP] * 設定ファイルを差し替え * -->
+        <!-- [EN] * Replace the configuration file * -->
+        <!-- [JP] src フォルダ配下の java 以外のファイルを作業フォルダにコピーする -->
+        <!-- [EN] Copy the file under the src folder to a working folder except for the java file -->
+        <copy includeemptydirs="false" todir="${dir.temp.classes}">
+            <fileset dir="${dir.project}/src" excludes="**/*.launch, **/*.java"/>
+            <fileset dir="${dir.project}/aij2-config" />
+            <fileset dir="${dir.project}/aijb-config" includes="AijbLogMessages*.properties"/>
+            <fileset dir="${dir.project}/aiws-config"/>
+            <fileset dir="${dir.project}/sact" excludes="**/*.launch, **/*.java"/>
+            <fileset dir="${dir.project}/src_framework" excludes="**/*.launch, **/*.java"/>
+            <fileset dir="${dir.project}/form-template" excludes="**/*.launch, **/*.java"/>
+        </copy>
+
+        <!-- [JP] WebContent フォルダ配下の全ファイルをコピーする -->
+        <!-- [EN] Copy all the files under the WebContent folder -->
+        <copy includeemptydirs="false" todir="${dir.temp}/WebContent">
+            <fileset dir="${dir.project}/WebContent" />
+        </copy>
+
+        <!-- [JP] jdbc.properties を差し替える -->
+        <!-- [EN] replace the jdbc.properties -->
+        <move file   ="${dir.temp.classes}/${jdbc-aij2.prop}"
+              tofile ="${dir.temp.classes}/${jdbc-aij2.prop.org}" />
+        <move file   ="${dir.temp.classes}/${jdbc-aij2.prop.wrk}"
+              tofile ="${dir.temp.classes}/${jdbc-aij2.prop}" />
+     </target>
+
+     <target name="main_aij2_sql" description="Fixed format of SQL" if="sql.replace.flg">
+        <!-- [JP] SQLのフォーマットを修正 -->
+        <!-- [EN] Modify format of SQL -->
+        <replaceregexp match="^[ ]+" replace=" " encoding="UTF-8" flags="gm">
+            <fileset dir="${dir.temp.classes}" includes="**/integration/**/SqlMap-*.xml"/>
+        </replaceregexp>
+    </target>
+
+    <target name="main_aij2_jsp" description="Fixed format of JSP" if="jsp.replace.flg">
+        <!-- [JP] JSPのフォーマットを修正 -->
+        <!-- [EN] Modify format of JSP -->
+        <replaceregexp match="^[ ]+" replace=" " encoding="UTF-8" flags="gm">
+            <fileset dir="${dir.temp}/WebContent/WEB-INF/jsp" includes="**/*.jsp"/>
+        </replaceregexp>
+    </target>
+
+    <target name="main_aij2_war" description="The main process of the Build">
+        <!-- [JP] * WAR を作成 * -->
+        <!-- [EN] * Create a WAR * -->
+        <!-- [JP] log4j.xml を差し替える -->
+        <!-- [EN] replace the log4j.xml -->
+        <move file   ="${dir.temp.classes}/${log4j.prop}"
+              tofile ="${dir.temp.classes}/${log4j.prop.org}" />
+        <move file   ="${dir.temp.classes}/${log4j.prop.web.wrk}"
+              tofile ="${dir.temp.classes}/${log4j.prop}" />
+        
+        <!-- [JP] applicationContext-aij2-jdbc.xml を差し替える -->
+        <!-- [EN] replace the applicationContext-aij2-jdbc.xml -->
+        <move file   ="${dir.temp}/WebContent/WEB-INF/${appCtx.jdbc.web}"
+              tofile ="${dir.temp}/WebContent/WEB-INF/${appCtx.jdbc.web.org}" />
+        <move file   ="${dir.temp}/WebContent/WEB-INF/${appCtx.jdbc.web.wrk}"
+              tofile ="${dir.temp}/WebContent/WEB-INF/${appCtx.jdbc.web}" />
+        
+        <!-- [EN] replace the applicationContext-aij2_th.xml -->
+        <move file   ="${dir.temp}/WebContent/WEB-INF/${appCtx.web.th}"
+              tofile ="${dir.temp}/WebContent/WEB-INF/${appCtx.web}" />
+
+        <!-- [JP] context.xml を差し替える -->
+        <!-- [EN] replace the context.xml -->
+        <move file   ="${dir.temp}/WebContent/META-INF/${context.wrk}"
+              tofile ="${dir.temp}/WebContent/META-INF/${context}" />
+
+        <!-- [JP] env.css を差し替える -->
+        <!-- [EN] replace the env.css -->
+        <move file   ="${dir.temp}/WebContent/css/eca0027/core/${env}"
+              tofile ="${dir.temp}/WebContent/css/eca0027/core/${env.org}" />
+        <move file   ="${dir.temp}/WebContent/css/eca0027/core/${env.wrk}"
+              tofile ="${dir.temp}/WebContent/css/eca0027/core/${env}" />
+
+        <!-- [JP] LdapConnection.properties を差し替える -->
+        <!-- [EN] replace the env.css -->
+        <move file   ="${dir.temp.classes}/${ldapConnection.prop}"
+              tofile ="${dir.temp.classes}/${ldapConnection.prop.org}" />
+        <move file   ="${dir.temp.classes}/${ldapConnection.prop.wrk}"
+              tofile ="${dir.temp.classes}/${ldapConnection.prop}" />
+
+        <!-- [JP] タイムスタンプを残す -->
+        <!-- [EN] Create a timestamp file -->
+        <touch file="${dir.temp}/WebContent/WEB-INF/${timestampFile}" />
+    </target>
+
+    <target name="create_war_aij2">
+        <echo message="I make ${war.name.wrk}" />
+        <war destfile="${dir.out.pre}/${war.name.wrk}"
+           webxml="${dir.temp}/WebContent/WEB-INF/web.xml">
+            <fileset dir="${dir.temp}/WebContent" excludes="**/web.xml" />
+            <!-- [JP] ビルドしたclassファイルをWEB-INF/classesフォルダに配置 -->
+            <!-- [EN] Placed class file that I have built to the WEB-INF/classes folder -->
+            <classes dir="${dir.temp.classes}"/>
+        </war>
+    </target>
+    
+    <!-- [JP] ========================================================== 後処理系 -->
+    <!-- [EN] ========================================================== Post-processing -->
+    <!-- [JP] * 作業フォルダクリーン * -->
+    <!-- [EN] * Clean work folder * -->
+    <target name="destroy_aij2">
+        <delete dir="${dir.temp}"/>
+    </target>
+
+    <!-- [JP] ================================================== 実行用ターゲット -->
+    <!-- [EN] ================================================== Target for execution -->
+
+    <!-- [JP] * 本番環境向け WAR ファイル作成 * -->
+    <!-- [EN] * Create a WAR file for the production environment * -->
+    <target name="makeWar"
+            description="Create a WAR file for the production environment"
+            depends="clean_aij2,init_aij2,config_aij2,main_aij2_compile,main_aij2_sql,main_aij2_jsp,main_aij2_war,create_war_aij2,destroy_aij2" />
+    
+    <target name="makeWarForAll"
+            description="Create a ZIP file and a WAR file for the production environment"
+            depends="init_aij2,config_aij2,main_aij2_compile,main_aij2_sql,main_aij2_jsp,main_aij2_war,create_war_aij2,destroy_aij2" />
+
+</project>

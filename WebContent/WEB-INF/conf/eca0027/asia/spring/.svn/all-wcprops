@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/E008_ECA0027/!svn/ver/15734/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/conf/eca0027/asia/spring
+END
+applicationContext-service_eca0027_asia.xml
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/E008_ECA0027/!svn/ver/15734/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/conf/eca0027/asia/spring/applicationContext-service_eca0027_asia.xml
+END
+applicationContext-dao_eca0027_asia.xml
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/15734/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/conf/eca0027/asia/spring/applicationContext-dao_eca0027_asia.xml
+END
+applicationContext-resource_eca0027_asia.xml
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/conf/eca0027/asia/spring/applicationContext-resource_eca0027_asia.xml
+END

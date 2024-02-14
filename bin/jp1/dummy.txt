@@ -1,0 +1,6 @@
+ [JP] 空のbin/JP1フォルダをエクスポートするためのダミーファイルです。
+ [JP] 本ファイルの有無・内容は基盤の動作に影響を与えません。
+ [JP] 原則、削除・編集禁止とします。
+ [EN] It is a dummy file for exporting bin/JP1 empty folder.
+ [EN] Existence and contents of this file does not affect the operation of the foundation.
+ [EN] The principle, delete, and edit forbidden.

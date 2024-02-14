@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * SqlMapConfig-aijb-AMC.xml
+ * 
+ * AI-JB(iBatis) AijbMainController の SQL Map 設定ファイルです。
+ * 
+ * $ SqlMapConfig-aijb-AMC.xml 6188 2013-12-09 01:10:03Z HIDETOSHI_NAKATANI@denso.co.jp $
+ *
+ * Copyright (c) 2011 DENSO IT SOLUTIONS. All rights reserved.
+-->
+<!DOCTYPE sqlMapConfig PUBLIC
+  "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+    <!-- AI-JB に必要な設定です。(変更不可) =============================== -->
+    <!-- 名前空間の利用宣言 ================================================================ --> 
+    <settings useStatementNamespaces="true" />
+    <!-- ================================================================================ -->
+
+    <sqlMap
+        resource="com/globaldenso/ai/aijb/core/integration/dao/SqlMap-QueueInf.xml" />
+    <sqlMap
+        resource="com/globaldenso/ai/aijb/core/integration/dao/SqlMap-QueueExecuteHistoryInf.xml" />
+    <sqlMap
+        resource="com/globaldenso/ai/aijb/core/integration/dao/SqlMap-JobManage.xml" />
+    <sqlMap
+        resource="com/globaldenso/ai/aijb/core/integration/dao/SqlMap-JobHistory.xml" />
+    <sqlMap
+        resource="com/globaldenso/ai/aijb/core/integration/dao/SqlMap-QueueHistory.xml" />
+    <sqlMap
+        resource="com/globaldenso/ai/aijb/core/integration/dao/SqlMap-CalendarDateManage.xml" />
+    <sqlMap
+        resource="com/globaldenso/ai/aijb/core/integration/dao/SqlMap-JobRetainerGroup.xml" />
+    <sqlMap
+        resource="com/globaldenso/ai/aijb/core/integration/dao/SqlMap-UserMstr.xml" />
+    <sqlMap
+        resource="com/globaldenso/ai/aijb/auto/integration/SqlMap-AijbSysManage.xml" />
+
+</sqlMapConfig>

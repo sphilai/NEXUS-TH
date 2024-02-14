@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * applicationContext-aij2-aop.xml
+ * 
+ * [JP] AI-J2(Spring) の AOP 設定ファイルです。
+ * [EN] This is the configuration file of the AOP AI-J2(Spring).
+ * 
+ * $ applicationContext-aij2-aop.xml 4294 2013-05-15 12:30:57Z HIDETOSHI_NAKATANI@denso.co.jp $
+ *
+ * Copyright (c) 2011 DENSO IT SOLUTIONS. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!-- [JP] AOP設定 =========================================================== -->
+    <!-- [EN] AOP configuration =========================================================== -->
+    <aop:config>
+        <aop:pointcut id="serviceAop"
+            expression="execution(* *..*Service.*(..))" />
+        <aop:pointcut id="daoAop"
+            expression="execution(* *..*Dao.*(..))" />
+        <aop:pointcut id="resourceAop"
+            expression="execution(* *..*Resource.*(..))" />
+
+        <aop:advisor pointcut-ref="serviceAop"
+            advice-ref="transactionInterceptor" />
+        <aop:advisor pointcut-ref="serviceAop"
+            advice-ref="serviceLoggingAdvice" />
+        <aop:advisor pointcut-ref="daoAop"
+            advice-ref="daoLoggingAdvice" />
+        <aop:advisor pointcut-ref="daoAop"
+            advice-ref="integrationLayerThrowsAdvice" />
+        <aop:advisor pointcut-ref="resourceAop"
+            advice-ref="WebServiceExceptionAdvice" />
+
+    </aop:config>
+
+    <!-- [JP] トランザクション設定 ============================================== -->
+    <!-- [EN] Transaction settings ============================================== -->
+    <tx:advice id="transactionInterceptor"
+        transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="transact*" propagation="REQUIRED"
+                isolation="READ_COMMITTED" read-only="false"
+                rollback-for="java.lang.Exception" />
+            <tx:method name="create*" propagation="REQUIRED"
+                isolation="READ_COMMITTED" read-only="false"
+                rollback-for="java.lang.Exception" />
+            <tx:method name="update*" propagation="REQUIRED"
+                isolation="READ_COMMITTED" read-only="false"
+                rollback-for="java.lang.Exception" />
+            <tx:method name="delete*" propagation="REQUIRED"
+                isolation="READ_COMMITTED" read-only="false"
+                rollback-for="java.lang.Exception" />
+            <tx:method name="search*" propagation="REQUIRED"
+                isolation="READ_COMMITTED" read-only="true"
+                rollback-for="java.lang.Exception" />
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- [JP] Bean 定義 ========================================================= -->
+    <!-- [EN] Bean definition ========================================================= -->
+    <!-- [JP] Service ログ出力 -->
+    <!-- [EN] Service log output -->
+    <bean id="serviceLoggingAdvice"
+        class="com.globaldenso.ai.common.core.logging.ServiceLoggingInterceptor" />
+
+    <!-- [JP] Dao ログ出力 -->
+    <!-- [EN] Dao log output -->
+    <bean id="daoLoggingAdvice"
+        class="com.globaldenso.ai.common.core.logging.DaoLoggingInterceptor" />
+
+    <!-- [JP] Integration レイヤの例外ハンドラ  -->
+    <!-- [EN] Integration layer exception handlers  -->
+    <bean id="integrationLayerThrowsAdvice"
+        class="com.globaldenso.ai.common.core.exception.UniqueConstraintViolationThrowsAdvice" />
+    
+    <!-- WebServiceレイヤの例外ハンドラ -->
+    <bean id="WebServiceExceptionAdvice"
+        class="com.globaldenso.ai.aiws.exception.WebServiceExceptionAdvice" />
+</beans>

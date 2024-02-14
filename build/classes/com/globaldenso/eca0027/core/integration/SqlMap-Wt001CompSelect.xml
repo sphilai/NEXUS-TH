@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-Wt001CompSelect.xml
+ *
+ * SqlMap file of Wt001CompSelectDao.
+ * Wt001CompSelectDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Wt001CompSelect">
+
+    <!-- Domain -->
+    <typeAlias alias="Wt001CompSelectDomain"
+        type="com.globaldenso.eca0027.core.business.domain.Wt001CompSelectDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="Wt001CompSelectCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.Wt001CompSelectCriteriaDomain" />
+
+    <resultMap id="Wt001CompSelectResult" class="Wt001CompSelectDomain">
+        <result property="compCd" column="COMP_CD" />
+        <result property="compNm" column="COMP_NM" />
+        <result property="compNmAbb" column="COMP_NM_ABB" />
+        <result property="compAddr" column="COMP_ADDR" />
+        <result property="compTel" column="COMP_TEL" />
+        <result property="cntryCd" column="CNTRY_CD" />
+        <result property="lengthUnitDisp" column="LENGTH_UNIT_DISP" />
+        <result property="weightUnitDisp" column="WEIGHT_UNIT_DISP" />
+        <result property="volumeUnitDisp" column="VOLUME_UNIT_DISP" />
+    </resultMap>
+
+    <!-- 汎用 項目 -->
+    <sql id="TableCols">
+        T1.COMP_CD
+        , T1.COMP_NM
+        , T1.COMP_NM_ABB
+        , T1.COMP_ADDR
+        , T1.COMP_TEL
+        , T1.CNTRY_CD
+        , T2.UNIT_DISP LENGTH_UNIT_DISP
+        , T3.UNIT_DISP WEIGHT_UNIT_DISP
+        , T4.UNIT_DISP VOLUME_UNIT_DISP
+    </sql>
+
+    <!-- 汎用 項目 -->
+    <sql id="Cols">
+        TEMP.COMP_CD
+        , TEMP.COMP_NM
+        , TEMP.COMP_NM_ABB
+        , TEMP.COMP_ADDR
+        , TEMP.COMP_TEL
+        , TEMP.CNTRY_CD
+        , TEMP.LENGTH_UNIT_DISP
+        , TEMP.WEIGHT_UNIT_DISP
+        , TEMP.VOLUME_UNIT_DISP
+    </sql>
+
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeys">
+        order by 
+            COMP_CD
+    </sql>
+
+    <!-- FROM句   -->
+    <sql id="From">
+        from
+            TM_NXS_COMP T1
+            , TM_MEASURE_UNIT T2
+            , TM_MEASURE_UNIT T3
+            , TM_MEASURE_UNIT T4
+
+    </sql>
+
+    <!-- 汎用 Where句（基本項目） -->
+    <!-- NL040 MOD -->
+    <sql id="WhereCondition">
+        where
+            T1.LENGTH_UNIT = T2.UNIT_CD
+            and T1.WEIGHT_UNIT = T3.UNIT_CD
+            and T1.VOLUME_UNIT = T4.UNIT_CD
+            <isNotEmpty property="compCd"> 
+                and T1.COMP_CD like #compCd# || '%' 
+            </isNotEmpty> 
+            <isNotEmpty property="compNm"> 
+                and upper(T1.COMP_NM) like upper(#compNm#) || '%' 
+            </isNotEmpty> 
+            <isNotEmpty property="compNmAbb"> 
+                and T1.COMP_NM_ABB like #compNmAbb# || '%' 
+            </isNotEmpty> 
+            <isNotEmpty property="shipperFlg"> 
+                and T1.SHIPPER_FLG = #shipperFlg#
+            </isNotEmpty> 
+            <isNotEmpty property="customsBrokerFlg"> 
+                and T1.CUSTOMS_BROKER_FLG = #customsBrokerFlg#
+            </isNotEmpty> 
+            <isNotEmpty property="carrierCompFlg"> 
+                and T1.CARRIER_COMP_FLG = #carrierCompFlg#
+            </isNotEmpty> 
+    </sql>
+
+    <!-- 検索 SQL文（任意条件、ページング用） -->
+    <select id="SearchByConditionForPaging" resultMap="Wt001CompSelectResult"
+        parameterClass="Wt001CompSelectCriteriaDomain">
+        select
+        /* SqlMap-Wt001CompSelect.SearchByConditionForPaging */
+        <include refid="Cols" />
+        from (
+            select 
+            <include refid="TableCols" />
+            ,row_number() over (<include refid="SortKeys" />) ROW_NUM
+            <include refid="From" />
+            <include refid="WhereCondition" />
+            <include refid="SortKeys" />
+        ) TEMP
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCount" resultClass="java.lang.Integer"
+        parameterClass="Wt001CompSelectCriteriaDomain">
+        select count(ROWNUM)
+        /* SqlMap-Wt001CompSelect.SearchCount */
+        <include refid="From" />
+        <include refid="WhereCondition" />
+    </select>
+
+</sqlMap>

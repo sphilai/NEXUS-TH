@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * struts-config_eca0027_action_w6.xml
+ * 
+ * AI-J2(Struts) の action設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <!-- Application Action Mapping Definitions ============================ -->
+    <action-mappings>
+        <!-- =============================================================== -->
+        <!-- W6001: Invoice Main画面                                         -->
+        <!-- =============================================================== -->
+        <!-- W6001: Invoice Main画面 初期表示アクション -->
+        <action path="/W6001Init"
+            type="com.globaldenso.eca0027.core.presentation.W6001InitAction"
+            name="W6001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6001" />
+        </action>
+        
+        <!-- W6001: Invoice Main画面 Create Newアクション -->
+        <action path="/W6001CreateNew"
+            type="com.globaldenso.eca0027.core.presentation.W6001CreateNewAction"
+            name="W6001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W6003Init.do" />
+        </action>
+        
+        <!-- W6001: Invoice Main画面 Upload Main Invアクション -->
+        <action path="/W6001UploadMainInv"
+            type="com.globaldenso.eca0027.core.presentation.W6001UploadMainInvAction"
+            name="W6001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W6002Init.do" />
+        </action>
+ 
+        <!-- W6001: Invoice Main画面 Searchアクション -->
+        <action path="/W6001Search"
+            type="com.globaldenso.eca0027.core.presentation.W6001SearchAction"
+            name="W6001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6001" />
+            <forward name="error" path="W6001" />
+        </action>
+
+        <!-- W6001: Invoice Main画面 Upload Frt Invアクション -->
+        <action path="/W6001UploadFrtInv"
+            type="com.globaldenso.eca0027.core.presentation.W6001UploadFrtInvAction"
+            name="W6001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W6002Init.do" />
+            <forward name="error" path="W6001" />
+        </action>
+
+        <!-- W6001: Invoice Main画面 Upload Non DN-G Inv or Re-Invアクション -->
+        <action path="/W6001UploadNonDnGInvOrReInv"
+            type="com.globaldenso.eca0027.core.presentation.W6001UploadNonDnGInvOrReInvAction"
+            name="W6001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W6002Init.do" />
+            <forward name="error" path="W6001" />
+        </action>
+
+        <!-- W6001: Invoice Main画面 Cancel Invアクション -->
+        <action path="/W6001CancelInv"
+            type="com.globaldenso.eca0027.core.presentation.W6001CancelInvAction"
+            name="W6001Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="W6001" />
+            <forward name="W6002" path="/W6002Init.do" />
+            <forward name="W6009" path="/W6009Init.do" />
+        </action>
+
+        <!-- W6001: Invoice Main画面 Print Documentアクション -->
+        <action path="/W6001PrintDocument"
+            type="com.globaldenso.eca0027.core.presentation.W6001PrintDocumentAction"
+            name="W6001Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="W6001" />
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- W6002: Manual Invoice Upload画面                                -->
+        <!-- =============================================================== -->
+        <!-- W6002: Manual Invoice Upload画面 初期表示アクション -->
+        <action path="/W6002Init"
+            type="com.globaldenso.eca0027.core.presentation.W6002InitAction"
+            name="W6002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6002" />
+            <forward name="error" path="W6002" />
+        </action>
+        
+        <!-- W6002: Manual Invoice Upload画面 Registerアクション -->
+        <action path="/W6002Register"
+            type="com.globaldenso.eca0027.core.presentation.W6002RegisterAction"
+            name="W6002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W6001Init.do?back=true" />
+            <forward name="error" path="W6002" />
+            <forward name="W6001" path="/W6001Init.do?back=true" />
+            <forward name="W6002" path="/W6002Init.do" />
+        </action>
+
+        <!-- W6002: Manual Invoice Upload画面 skipアクション -->
+        <action path="/W6002Skip"
+            type="com.globaldenso.eca0027.core.presentation.W6002SkipAction"
+            name="W6002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W6002Init.do" />
+            <forward name="error" path="W6002" />
+            <forward name="W6001" path="/W6001Init.do?back=true" />
+        </action>
+
+        <!-- W6002: Manual Invoice Upload画面 Remittance or L/Cのラジオボタンを変更時アクション -->
+        <action path="/W6002SelectRadioRemittanceOrLc"
+            type="com.globaldenso.eca0027.core.presentation.W6002SelectRadioRemittanceOrLcAction"
+            name="W6002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6002" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W6003: [Invoice Header]画面                       -->
+        <!-- =============================================================== -->
+        <!-- W6003: [Invoice Header]画面 初期表示アクション -->
+        <action path="/W6003Init"
+            type="com.globaldenso.eca0027.core.presentation.W6003InitAction"
+            name="W6003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6003" />
+        </action>
+
+        <!-- W6003: [Invoice Header]画面 Move to Createアクション -->
+        <action path="/W6003MoveToCreate"
+            type="com.globaldenso.eca0027.core.presentation.W6003MoveToCreateAction"
+            name="W6003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W6004Init.do" />
+            <forward name="error" path="W6003" />
+        </action>
+
+
+        <!-- =============================================================== -->
+        <!-- W6004: [Invoice Data Create]画面                  -->
+        <!-- =============================================================== -->
+        <!-- W6004: [Invoice Data Create]画面 初期表示アクション -->
+        <action path="/W6004Init"
+            type="com.globaldenso.eca0027.core.presentation.W6004InitAction"
+            name="W6004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6004" />
+        </action>
+
+        <!-- W6004: [Invoice Data Create]画面 Searchアクション -->
+        <action path="/W6004Search"
+            type="com.globaldenso.eca0027.core.presentation.W6004SearchAction"
+            name="W6004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6004" />
+            <forward name="error" path="W6004" />
+        </action>
+
+        <!-- W6004: [Invoice Data Create]画面 Updateアクション -->
+        <action path="/W6004Update"
+            type="com.globaldenso.eca0027.core.presentation.W6004UpdateAction"
+            name="W6004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6004" />
+            <forward name="error" path="W6004" />
+        </action>
+
+        <!-- W6004: [Invoice Data Create]画面 Move to Shipping Information Inputアクション -->
+        <action path="/W6004MoveToShippingInformationInput"
+            type="com.globaldenso.eca0027.core.presentation.W6004MoveToShippingInformationInputAction"
+            name="W6004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W6005Init.do" />
+            <forward name="error" path="W6004" />
+        </action>
+
+
+        <!-- =============================================================== -->
+        <!-- W6005: Shipping Information Input画面          -->
+        <!-- =============================================================== -->
+        <!-- W6005: Shipping Information Input画面 初期表示アクション -->
+        <action path="/W6005Init"
+            type="com.globaldenso.eca0027.core.presentation.W6005InitAction"
+            name="W6005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6005" />
+        </action>
+        
+        <!-- W6005: Shipping Information Input画面 Move to Invoice Grouping アクション -->
+        <action path="/W6005MoveToInvoiceGrouping"
+            type="com.globaldenso.eca0027.core.presentation.W6005MoveToInvoiceGroupingAction"
+            name="W6005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W6006Init.do" />
+            <forward name="error" path="W6005" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W6006: Invoice Grouping画面                                     -->
+        <!-- =============================================================== -->
+        <!-- W6006: Invoice Grouping画面 初期表示アクション -->
+        <action path="/W6006Init"
+            type="com.globaldenso.eca0027.core.presentation.W6006InitAction"
+            name="W6006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6006" />
+        </action>
+        
+        <!-- W6006: Invoice Grouping画面 Searchアクション -->
+        <action path="/W6006Search"
+            type="com.globaldenso.eca0027.core.presentation.W6006SearchAction"
+            name="W6006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6006" />
+            <forward name="error" path="W6006" />
+        </action>
+        
+        <!-- W6006: Invoice Grouping画面 Move to Invoice Detailアクション -->
+        <action path="/W6006MoveToInvoiceDetail"
+            type="com.globaldenso.eca0027.core.presentation.W6006MoveToInvoiceDetailAction"
+            name="W6006Form"
+            scope="request"
+            validate="false">
+            <forward name="W6007" path="/W6007Init.do" />
+            <forward name="W6008" path="/W6008Init.do" />
+            <forward name="error" path="W6006" />
+        </action>
+         
+        <!-- W6006: Invoice Grouping画面 Back to Main Screenアクション -->
+        <action path="/W6006BackToMainScreen"
+            type="com.globaldenso.eca0027.core.presentation.W6006BackToMainScreenAction"
+            name="W6006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W6001Init.do?back=true" />
+            <forward name="error" path="W6006" />
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- W6007: Invoice Detail画面                                       -->
+        <!-- =============================================================== -->
+        <!-- W6007: Invoice Detail画面 初期表示アクション -->
+        <action path="/W6007Init"
+            type="com.globaldenso.eca0027.core.presentation.W6007InitAction"
+            name="W6007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6007" />
+        </action>
+         
+        <!-- W6007: Invoice Detail画面 refreshアクション -->
+        <action path="/W6007Refresh"
+            type="com.globaldenso.eca0027.core.presentation.W6007RefreshAction"
+            name="W6007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6007" />
+            <forward name="error" path="W6007" />
+        </action>
+
+        <!-- W6007: Invoice Detail画面 Removeアクション -->
+        <action path="/W6007Remove"
+            type="com.globaldenso.eca0027.core.presentation.W6007RemoveAction"
+            name="W6007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6007" />
+            <forward name="error" path="W6007" />
+        </action>
+
+        <!-- W6007: Invoice Detail画面 Move to Registerアクション -->
+        <action path="/W6007MoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.W6007MoveToRegisterAction"
+            name="W6007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W6009Init.do" />
+            <forward name="error" path="W6007" />
+        </action>
+ 
+        
+        <!-- =============================================================== -->
+        <!-- W6008: Invoice Detail(Full Returnable)画面     -->
+        <!-- =============================================================== -->
+        <!-- W6008: Invoice Detail(Full Returnable)画面 初期表示アクション -->
+        <action path="/W6008Init"
+            type="com.globaldenso.eca0027.core.presentation.W6008InitAction"
+            name="W6008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6008" />
+            <!-- 2014/11/25 DNJP.Kawamura UT149対応 START >>>>> -->
+            <!-- <forward name="error" path="/W6006Init.do?back=true" /> -->
+            <forward name="error" path="W6008" />
+            <!-- 2014/11/25 DNJP.Kawamura UT149対応 END <<<<< -->
+        </action>
+        
+        <!-- W6008: Invoice Detail(Full Returnable)画面 Removeアクション -->
+        <action path="/W6008Remove"
+            type="com.globaldenso.eca0027.core.presentation.W6008RemoveAction"
+            name="W6008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6008" />
+            <forward name="error" path="W6008" />
+        </action>
+
+        <!-- W6008: Invoice Detail(Full Returnable)画面 Move to Registerアクション -->
+        <action path="/W6008MoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.W6008MoveToRegisterAction"
+            name="W6008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W6009Init.do" />
+            <forward name="error" path="W6008" />
+        </action>
+        
+
+        <!-- =============================================================== -->
+        <!-- W6009: Invoice Register画面                                     -->
+        <!-- =============================================================== -->
+        <!-- W6009: Invoice Register画面 初期表示アクション -->
+        <action path="/W6009Init"
+            type="com.globaldenso.eca0027.core.presentation.W6009InitAction"
+            name="W6009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6009" />
+            <!-- 2015/1/19 DNJP.Kawamura UT038対応 START >>>>> -->
+            <forward name="successFrt" path="/W6009ChangeFrtShipper.do" />
+            <!-- 2015/1/19 DNJP.Kawamura UT038対応 END <<<<< -->
+            <forward name="W6001" path="/W6001Init.do" />
+            <forward name="W6007" path="/W6007Init.do?back=true" />
+            <forward name="W6008" path="/W6008Init.do?back=true" />
+        </action>
+        
+        <!-- W6009: Invoice Register画面 Calculate(Amount)アクション -->
+        <action path="/W6009CalculateAmount"
+            type="com.globaldenso.eca0027.core.presentation.W6009CalculateAmountAction"
+            name="W6009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6009" />
+            <forward name="error" path="W6009" />
+        </action>
+
+        <!-- W6009: Invoice Register画面 Back to Invoice Detailアクション -->
+        <action path="/W6009BackToInvoiceDetail"
+            type="com.globaldenso.eca0027.core.presentation.W6009BackToInvoiceDetailAction"
+            name="W6009Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="W6009" />
+            <forward name="W6007" path="/W6007Init.do?back=true" />
+            <forward name="W6008" path="/W6008Init.do?back=true" />
+        </action>
+
+        <!-- W6009: Invoice Register画面 Registerアクション -->
+        <action path="/W6009Register"
+            type="com.globaldenso.eca0027.core.presentation.W6009RegisterAction"
+            name="W6009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6009" />
+            <forward name="error" path="W6009" />
+        </action>
+
+        <!-- W6009: Invoice Register画面 Cancelアクション -->
+        <action path="/W6009Cancel"
+            type="com.globaldenso.eca0027.core.presentation.W6009CancelAction"
+            name="W6009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6009" />
+            <forward name="error" path="W6009" />
+        </action>
+
+        <!-- W6009: Invoice Register画面 Print Documentアクション -->
+        <action path="/W6009PrintDocument"
+            type="com.globaldenso.eca0027.core.presentation.W6009PrintDocumentAction"
+            name="W6009Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="W6009" />
+        </action>
+
+        <!-- W6009: Invoice Register画面 FRT Shipper Changeアクション -->
+        <action path="/W6009ChangeFrtShipper"
+            type="com.globaldenso.eca0027.core.presentation.W6009ChangeFrtShipperAction"
+            name="W6009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6009" />
+            <forward name="error" path="W6009" />
+        </action>
+
+        <!-- W6009: Invoice Register画面 Radio Remittance Or Lcアクション -->
+        <action path="/W6009RadioRemittanceOrLc"
+            type="com.globaldenso.eca0027.core.presentation.W6009RadioRemittanceOrLcAction"
+            name="W6009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W6009" />
+        </action>
+        
+    </action-mappings>
+</struts-config>

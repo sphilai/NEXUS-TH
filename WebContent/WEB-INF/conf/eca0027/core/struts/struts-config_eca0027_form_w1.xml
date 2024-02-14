@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config_eca0027_form_w1.xml
+ * 
+ * AI-J2(Struts) の form設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <display-name></display-name>
+    <description></description>
+
+    <!-- Application Form Bean Definitions ================================= -->
+    <form-beans>
+    	<!-- W1001: Main -->
+        <form-bean name="W1001Form"
+            type="com.globaldenso.eca0027.core.presentation.W1001ActionForm">
+        </form-bean>
+        
+        <!-- W1002: Create New -->
+        <form-bean name="W1002Form"
+            type="com.globaldenso.eca0027.core.presentation.W1002ActionForm">
+        </form-bean>
+        
+        <!-- W1003: Description -->
+        <form-bean name="W1003Form"
+            type="com.globaldenso.eca0027.core.presentation.W1003ActionForm">
+        </form-bean>
+        
+        <!-- W1004: Kit -->
+        <form-bean name="W1004Form"
+            type="com.globaldenso.eca0027.core.presentation.W1004ActionForm">
+        </form-bean>
+        
+        <!-- W1006: Description -->
+        <form-bean name="W1006Form"
+            type="com.globaldenso.eca0027.core.presentation.W1006ActionForm">
+        </form-bean>
+         <!-- W1007: Description -->
+        <form-bean name="W1007Form"
+            type="com.globaldenso.eca0027.core.presentation.W1007ActionForm">
+        </form-bean>
+         <!-- W1008: Description -->
+        <form-bean name="W1008Form"
+            type="com.globaldenso.eca0027.core.presentation.W1008ActionForm">
+        </form-bean>
+         <!-- W1009: Export Packaging Returnable PKG Material -->
+        <form-bean name="W1009Form"
+            type="com.globaldenso.eca0027.core.presentation.W1009ActionForm">
+        </form-bean>
+        <!-- W1010: Export Request Upload -->
+        <form-bean name="W1010Form"
+            type="com.globaldenso.eca0027.core.presentation.W1010ActionForm">
+        </form-bean>
+    </form-beans>
+</struts-config>

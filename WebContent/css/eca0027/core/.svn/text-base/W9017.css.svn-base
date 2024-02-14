@@ -1,0 +1,79 @@
+@CHARSET "utf-8";
+/*
+ * W9017.css
+ * 
+ * Export Shipping Item Special Information MA Edit画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+table.grid {
+    width: 510px;
+}
+
+.grid .grid_title {
+    width:200px;
+}
+
+.grid .grid_primary_key {
+    width:40px;
+}
+
+.grid .grid_data {
+    width:320px;
+}
+
+table.grid {
+    width: 510px;
+}
+
+table.button {
+    width:510px;
+}
+.w9017_comp_cd {
+    width: 65px;
+}
+.w9017_item_no {
+    width: 320px;
+}
+.w9017_shipping_lot {
+    width: 80px;
+}
+
+.w9017_customer_cd {
+    width: 80px;
+}
+
+.w9017_item_description {
+    width: 220px;
+}
+
+.w9017_invoice_key {
+    width: 34px;
+    text-transform: uppercase; /* UT305 ADD */
+}
+
+.w9017_loading_cd {
+    width: 36px;
+}
+
+.w9017_container_loose_typ {
+    width: 36px;
+}
+
+.w9017_calender_img {
+    cursor: default;
+}
+
+/* UT305 ADD */
+.w9017_container_sorting_key {
+    width: 90px;
+    text-transform: uppercase; /* UT305 ADD */
+}
+
+.left {
+    text-align: left;
+}
+.w9017_break_all {
+    word-break: break-all;
+}

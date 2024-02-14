@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * tiles-defs_eca0027_w2.xml
+ *
+ * AI-J2(Struts) の Tiles 設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE tiles-definitions PUBLIC
+            "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+
+    <!-- 個別画面 -->
+    <!-- ====================================================================-->
+
+    <!--
+        この個別画面の定義名はaction-mappingsのforwardタグと紐付き、
+        header.jspにて画面IDとして共通的に埋め込まれます。
+        このため、この個別画面の定義名には、画面IDそのものを使用してください。
+    -->
+
+    <!-- 梱包指示Main画面 -->
+    <definition name="W2001" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2001"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2001.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2001"/>
+        <put name="js_filepath" value="js/eca0027/core/W2001.js"/>
+    </definition>
+
+    <!-- 梱包指示Header画面 -->
+    <definition name="W2002" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2002"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2002.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2002"/>
+    </definition>
+
+    <!-- 梱包指示Create画面 -->
+    <definition name="W2003" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2003"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2003.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2003"/>
+        <put name="js_filepath" value="js/eca0027/core/W2003.js"/>
+    </definition>
+
+    <!-- 梱包指示Register画面 -->
+    <definition name="W2004" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2004"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2004.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2004"/>
+        <put name="js_filepath" value="js/eca0027/core/W2004.js"/>
+    </definition>
+
+    <!-- Multiple Item No. in 1Box PKG Main Screen画面 -->
+    <definition name="W2005" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2005"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2005.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2005"/>
+        <put name="js_filepath" value="js/eca0027/core/W2005.js"/>
+    </definition>
+
+    <!-- Multiple Item No. in 1Box PKG Header画面 -->
+    <definition name="W2006" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2006"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2006.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2006"/>
+        <put name="js_filepath" value="js/eca0027/core/W2006.js"/>
+    </definition>
+
+    <!-- Multiple Item No. in 1Box PKG Create画面 -->
+    <definition name="W2007" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2007"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2007.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2007"/>
+        <put name="js_filepath" value="js/eca0027/core/W2007.js"/>
+    </definition>
+
+    <!-- Multiple Item No. in 1Box PKG Register画面 -->
+    <definition name="W2008" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2008"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2008.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2008"/>
+        <put name="js_filepath" value="js/eca0027/core/W2008.js"/>
+    </definition>
+
+    <!-- Multiple Item No. in 1Box PKG Detail画面 -->
+    <definition name="W2018" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2018"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2018.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2018"/>
+        <put name="js_filepath" value="js/eca0027/core/W2018.js"/>
+    </definition>
+
+    <!-- CML Main画面 -->
+    <definition name="W2009" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2009"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2009.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2009"/>
+        <put name="js_filepath" value="js/eca0027/core/W2009.js"/>
+    </definition>
+
+    <!-- CML Header画面 -->
+    <definition name="W2010" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2010"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2010.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2010"/>
+        <put name="js_filepath" value="js/eca0027/core/W2010.js"/>
+    </definition>
+
+    <!-- CML Create画面 -->
+    <definition name="W2011" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2011"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2011.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2011"/>
+        <put name="js_filepath" value="js/eca0027/core/W2011.js"/>
+    </definition>
+
+    <!-- CML Register画面 -->
+    <definition name="W2012" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2012"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2012.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2012"/>
+        <put name="js_filepath" value="js/eca0027/core/W2012.js"/>
+    </definition>
+
+    <!-- CML PKG Info Detail画面 -->
+    <definition name="W2013" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2013"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2013.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2013"/>
+        <put name="js_filepath" value="js/eca0027/core/W2013.js"/>
+    </definition>
+
+    <!-- CML TransRevise画面 -->
+    <definition name="W2019" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2019"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2019.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2019"/>
+        <put name="js_filepath" value="js/eca0027/core/W2019.js"/>
+    </definition>
+
+    <!-- X-Tag Main Screen画面 -->
+    <definition name="W2014" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2014"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2014.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2014"/>
+        <put name="js_filepath" value="js/eca0027/core/W2014.js"/>
+    </definition>
+
+    <!-- X-Tag Header画面 -->
+    <definition name="W2015" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2015"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2015.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2015"/>
+    </definition>
+
+    <!-- X-Tag Create画面 -->
+    <definition name="W2016" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2016"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2016.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2016"/>
+        <put name="js_filepath" value="js/eca0027/core/W2016.js"/>
+    </definition>
+
+    <!-- X-Tag Register画面 -->
+    <definition name="W2017" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2017"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2017.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2017"/>
+        <put name="js_filepath" value="js/eca0027/core/W2017.js"/>
+    </definition>
+
+    <!-- Multi Label Register画面 UT304 MULTI LABEL ADD -->
+    <definition name="W2020" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W2020"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W2020.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W2020"/>
+        <put name="js_filepath" value="js/eca0027/core/W2020.js"/>
+    </definition>
+
+</tiles-definitions>

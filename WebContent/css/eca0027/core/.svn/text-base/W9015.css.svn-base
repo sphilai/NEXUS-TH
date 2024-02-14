@@ -1,0 +1,30 @@
+@charset "utf-8";
+/*
+ * W9015.css
+ * 
+ * Style sheet used in CIGMA W/H X-Reference MA Edit screen.
+ * CIGMA W/H X-Reference MA Edit画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+
+.grid{
+    width:360px;
+}
+
+.blank {
+    width:360px;
+}
+
+.grid .grid_header {
+    width:150px;
+}
+
+.grid .grid_contents {
+    width:40px;
+}
+.left {
+    text-align: left;
+}

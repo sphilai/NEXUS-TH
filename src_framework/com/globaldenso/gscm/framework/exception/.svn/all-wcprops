@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/exception
+END
+ValidationWarningException.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/exception/ValidationWarningException.java
+END
+GscmBusinessExceptionHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/exception/GscmBusinessExceptionHandler.java
+END
+GscmBusinessException.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/exception/GscmBusinessException.java
+END
+ValidationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/exception/ValidationException.java
+END
+GscmApplicationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/exception/GscmApplicationException.java
+END

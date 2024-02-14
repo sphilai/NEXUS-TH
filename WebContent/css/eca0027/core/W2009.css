@@ -1,0 +1,183 @@
+@charset "utf-8";
+/*
+ * W2009.css
+ * 
+ * CML Main画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+
+.gscm_search .search_shipper_cd {
+    width: 78px;
+}
+
+.gscm_search .search_customer_cd {
+    width: 108px;
+}
+
+.gscm_search .search_lgcy_ship_to {
+    width: 89px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 120px;
+}
+
+.gscm_search .search_main_mark {
+    width: 190px;
+}
+
+.gscm_search .search_plnt_cd {
+    width: 60px;
+}
+
+.gscm_search .search_lgcy_wh_cd {
+    width: 49px;
+}
+
+.gscm_search .search_packing_wh_comp_cd {
+    width: 79px;
+}
+
+.gscm_search .search_packing_wh_cd {
+    width: 69px;
+}
+
+.gscm_search .search_pltz_instr_no {
+    width: 138px;
+}
+
+.gscm_search .search_container_sorting_key {
+    width: 118px;
+}
+
+.gscm_search .search_mix_tag_no {
+    width: 206px;
+}
+
+.gscm_search .search_pltz_item_no {
+    width: 176px;
+}
+
+.gscm_search .search_pkg_cd {
+    width: 69px;
+}
+
+.gscm_search .search_revise_flg {
+    width: 78px;
+}
+
+.gscm_search .search_issue_from_date {
+    width: 118px;
+}
+
+.gscm_search .search_issue_to_date {
+    width: 118px;
+}
+
+.gscm_search .search_exp_packing_issuer_id {
+    width: 97px;
+}
+
+/* UT414 ADD START */
+.gscm_search .search_from_main_mark {
+    width: 190px;
+}
+
+.gscm_search .search_from_main_mark {
+}
+/* UT414 ADD END */
+
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 960px;
+}
+
+.gscm_resultlist .resultlist_checked_key {
+    width: 25px;
+}
+
+.gscm_resultlist .resultlist_shipper_cd {
+    width: 55px;
+}
+
+.gscm_resultlist .resultlist_customer_cd {
+    width: 85px;
+}
+
+.gscm_resultlist .resultlist_lgcy_ship_to {
+    width: 50px;
+}
+
+.gscm_resultlist .resultlist_trns_cd {
+    width: 43px;
+}
+
+.gscm_resultlist .resultlist_main_mark {
+    width: 193px;
+}
+
+.gscm_resultlist .resultlist_plnt_cd {
+    width: 40px;
+}
+
+.gscm_resultlist .resultlist_lgcy_wh_cd {
+    width: 40px;
+}
+
+.gscm_resultlist .resultlist_packing_wh_comp_cd {
+    width: 65px;
+}
+
+.gscm_resultlist .resultlist_pltz_instr_no {
+    width: 105px;
+}
+
+.gscm_resultlist .resultlist_container_sorting_key {
+    width: 85px;
+}
+
+.gscm_resultlist .resultlist_loading_cd {
+    width: 23px;
+}
+
+.gscm_resultlist .resultlist_revise_flg {
+    width: 49px;
+}
+
+.gscm_resultlist .resultlist_exp_packing_dt {
+    width: 102px;
+}
+
+/*------------ 検索結果エリア 表示用テキスト ------------*/ 
+
+.w2009_main_mark_disptext {
+    width: 183px;
+}
+.w2009_exp_packing_issuer_nm_disptext {
+    width: 92px;
+}
+
+/*------------ 項目表示幅 ------------*/ 
+
+.w2009_lgcy_ship_to {
+    width: 36px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.w2009_trns_cd {
+    width: 120px;
+}
+
+.w2009_main_mark {
+	width: 190px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.w2009_plnt_cd {
+    width: 50px;
+    text-transform: uppercase; /* NL040 ADD */
+}

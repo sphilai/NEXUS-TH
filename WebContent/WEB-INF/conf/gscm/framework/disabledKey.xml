@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- GSCM Framework　提供ファイル（修正しないでください） -->
+<!--                                                                                    
+ * disabledKey.xml                                                                                    
+ *                                                                                  
+ * 禁止操作キー の 設定ファイルです。                                                                                    
+ *                                                                                  
+ * Copyright (c) 2013 DENSO IT SOLUTIONS. All rights reserved.                                                                                  
+-->                                                                                 
+
+
+<disabled-keys>
+    <!-- バックスペース禁止  -->
+    <disabled-key name="backspace" />
+
+    <!-- Escキー禁止  -->    
+    <disabled-key name="esc" />
+
+    <!-- PageDownキー + Altキー禁止  -->    
+    <disabled-key name="down" alt="true" />
+    
+    <!-- Endキー + Altキー禁止  --> 
+    <disabled-key name="end" alt="true" />
+    
+    <!-- Enterキー + Altキー禁止  -->
+    <disabled-key name="enter" alt="true" />
+    
+    <!-- Homeキー + Altキー禁止  -->
+    <disabled-key name="home" alt="true" />
+    
+    <!-- ←矢印キー + Altキー禁止  -->
+    <disabled-key name="left" alt="true" />
+    
+    <!-- →矢印キー + Altキー禁止  -->
+    <disabled-key name="right" alt="true" />
+    
+    <!-- ↑矢印キー + Altキー禁止  -->
+    <disabled-key name="up" alt="true" />
+    
+    <!-- Aキー + Altキー禁止  -->
+    <disabled-key name="a" alt="true" />
+    
+    <!-- Cキー + Altキー禁止  -->    
+    <disabled-key name="c" alt="true" />
+    
+    <!-- Dキー + Altキー禁止  -->
+    <disabled-key name="d" alt="true" />
+    
+    <!-- Fキー + Altキー禁止  -->
+    <disabled-key name="f" alt="true" />
+    
+    <!-- Hキー + Altキー禁止  -->
+    <disabled-key name="h" alt="true" />
+    
+    <!-- Iキー + Altキー禁止  -->
+    <disabled-key name="i" alt="true" />
+    
+    <!-- Jキー + Altキー禁止  -->
+    <disabled-key name="j" alt="true" />
+    
+    <!-- Lキー + Altキー禁止  -->
+    <disabled-key name="l" alt="true" />
+    
+    <!-- Mキー + Altキー禁止  -->
+    <disabled-key name="m" alt="true" />
+    
+    <!-- Oキー + Altキー禁止  -->
+    <disabled-key name="o" alt="true" />
+    
+    <!-- Pキー + Altキー禁止  -->
+    <disabled-key name="p" alt="true" />
+    
+    <!-- Rキー + Altキー禁止  -->
+    <disabled-key name="r" alt="true" />
+    
+    <!-- Sキー + Altキー禁止  -->
+    <disabled-key name="s" alt="true" />
+    
+    <!-- Tキー + Altキー禁止  -->
+    <disabled-key name="t" alt="true" />
+    
+    <!-- Uキー + Altキー禁止  -->
+    <disabled-key name="u" alt="true" />
+    
+    <!-- Zキー + Altキー禁止  -->
+    <disabled-key name="z" alt="true" />
+    
+    <!-- 1キー + Ctrlキー禁止  -->
+    <disabled-key name="1" ctrl="true" />
+    
+    <!-- 2キー + Ctrlキー禁止  -->
+    <disabled-key name="2" ctrl="true" />
+    
+    <!-- 3キー + Ctrlキー禁止  -->
+    <disabled-key name="3" ctrl="true" />
+    
+    <!-- 4キー + Ctrlキー禁止  -->
+    <disabled-key name="4" ctrl="true" />
+    
+    <!-- 5キー + Ctrlキー禁止  -->
+    <disabled-key name="5" ctrl="true" />
+    
+    <!-- 6キー + Ctrlキー禁止  -->
+    <disabled-key name="6" ctrl="true" />
+    
+    <!-- 7キー + Ctrlキー禁止  -->
+    <disabled-key name="7" ctrl="true" />
+    
+    <!-- 8キー + Ctrlキー禁止  -->
+    <disabled-key name="8" ctrl="true" />
+    
+    <!-- 9キー + Ctrlキー禁止  -->
+    <disabled-key name="9" ctrl="true" />
+    
+    <!-- ↓矢印キー + Ctrlキー禁止  -->
+    <disabled-key name="down" ctrl="true" />
+    
+    <!-- Enterキー + Ctrlキー禁止  -->
+    <disabled-key name="enter" ctrl="true" />
+    
+    <!-- ←矢印キー + Ctrlキー禁止  -->
+    <disabled-key name="left" ctrl="true" />
+    
+    <!-- →矢印キー + Ctrlキー禁止  -->
+    <disabled-key name="right" ctrl="true" />
+    
+    <!-- Tabキー + Ctrlキー禁止  -->
+    <disabled-key name="tab" ctrl="true" />
+    
+    <!-- F5キー + Ctrlキー禁止  -->
+    <disabled-key name="f5" ctrl="true" />
+    
+    <!-- Bキー + Ctrlキー禁止  -->
+    <disabled-key name="b" ctrl="true" />
+    
+    <!-- Dキー + Ctrlキー禁止  -->
+    <disabled-key name="d" ctrl="true" />
+    
+    <!-- Eキー + Ctrlキー禁止  -->
+    <disabled-key name="e" ctrl="true" />
+    
+    <!-- Hキー + Ctrlキー禁止  -->
+    <disabled-key name="h" ctrl="true" />
+    
+    <!-- Iキー + Ctrlキー禁止  -->
+    <disabled-key name="i" ctrl="true" />
+    
+    <!-- Jキー + Ctrlキー禁止  -->
+    <disabled-key name="j" ctrl="true" />
+    
+    <!-- Kキー + Ctrlキー禁止  -->
+    <disabled-key name="k" ctrl="true" />
+    
+    <!-- Nキー + Ctrlキー禁止  -->
+    <disabled-key name="n" ctrl="true" />
+    
+    <!-- Oキー + Ctrlキー禁止  -->
+    <disabled-key name="o" ctrl="true" />
+    
+    <!-- Qキー + Ctrlキー禁止  -->
+    <disabled-key name="q" ctrl="true" />
+    
+    <!-- Sキー + Ctrlキー禁止  -->
+    <disabled-key name="s" ctrl="true" />
+    
+    <!-- Tキー + Ctrlキー禁止  -->
+    <disabled-key name="t" ctrl="true" />
+    
+    <!-- Rキー + Ctrlキー禁止  -->
+    <disabled-key name="r" ctrl="true" />
+    
+    <!-- Lキー + Ctrlキー禁止  -->
+    <disabled-key name="l" ctrl="true" />
+    
+    <!-- F10キー + Shiftキー禁止  -->
+    <disabled-key name="f10" shift="true" />
+    
+    <!-- Deleteキー + Shiftキー + Ctrlキー禁止  -->
+    <disabled-key name="del" shift="true" ctrl="true" />
+    
+    <!-- Tabキー + Shiftキー + Ctrlキー禁止  -->
+    <disabled-key name="tab" shift="true" ctrl="true" />
+    
+    <!-- Jキー + Shiftキー + Ctrlキー禁止  -->
+    <disabled-key name="j" shift="true" ctrl="true" />
+    
+    <!-- Pキー + Shiftキー + Ctrlキー禁止  -->
+    <disabled-key name="p" shift="true" ctrl="true" />
+    
+    <!-- Tキー + Shiftキー + Ctrlキー禁止  -->
+    <disabled-key name="t" shift="true" ctrl="true" />
+    
+    <!-- F4キー + Ctrlキー + Altキー禁止  -->
+    <disabled-key name="f4" ctrl="true" alt="true" />
+    
+    <!-- Lキー + Shiftキー + Ctrlキー禁止  -->
+    <disabled-key name="l" shift="true" ctrl="true" />
+
+    <!-- Dキー + Shiftキー + Ctrlキー禁止  -->
+    <disabled-key name="d" shift="true" ctrl="true" />
+</disabled-keys>

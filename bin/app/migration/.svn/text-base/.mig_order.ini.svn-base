@@ -1,0 +1,20 @@
+#
+# shell infomation
+# シェル情報
+#
+PRA="2"                 # number of argments/引数の数
+
+
+#
+# directories
+# ディレクトリ情報
+#
+DATFILE="$DATDIR/mig_order.dat"             # data file/データファイル
+BADFILE="$DATDIR/mig_order_bad.bad"       # BAD file/BAD ファイル
+
+
+#
+# control file
+# 制御ファイル
+#
+CTLFILE=${CTLDIR}/mig_order.ctl     # control file for SQL*Loader/SQL*Loader 制御ファイル

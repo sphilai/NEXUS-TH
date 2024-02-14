@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/E008_ECA0027/!svn/ver/15097/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/env/gen2/setup/aij2-config
+END
+log4j-aij2-pro.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/E008_ECA0027/!svn/ver/15097/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/env/gen2/setup/aij2-config/log4j-aij2-pro.xml
+END
+log4j-aij2-dev.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/E008_ECA0027/!svn/ver/15097/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/env/gen2/setup/aij2-config/log4j-aij2-dev.xml
+END

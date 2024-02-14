@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ===========================================================================
+
+ [JP] build_all_dev.xml (AI-J2(jar),AI-JB(zip)作成:開発機用)
+ [EN] build_all_dev.xml (Create a AI-J2(jar), AI-JB(zip): for development machine)
+    
+    $ build_all_dev.xml 2153 2012-06-14 12:54:48Z tokuhiro_nishizawa@dnitsol.com $
+
+============================================================================ -->
+<project name="[NEXUS_EXPORT] AI Ant Build(Development)" default="makeAll" basedir=".">
+    <!-- [JP] * ビルドの初期設定ファイルをインポート * -->
+    <!-- [EN] * Import the initialization file of the build * -->
+    <import file="build_aij2_dev.xml" />
+    <import file="build_aijb_dev.xml" />
+    <!-- [JP] * 開発環境向けWARファイル,ZIPファイル作成 * -->
+    <!-- [EN] * Create a WAR file and a ZIP file for the development environment * -->
+    <target name="makeAll" 
+        description="Create a WAR file and a ZIP file for the development environment"
+        depends="makeZipForAll,makeWarForAll"/>
+</project>

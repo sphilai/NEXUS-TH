@@ -1,0 +1,366 @@
+@CHARSET "UTF-8";
+/*
+ * W8001.css
+ * 
+ * 進度管理Main画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+/*------------ 検索条件エリア ------------*/
+/*  search condition 1 */
+.gscm_search table.search1 {
+    margin:0px;
+    padding:0px;
+    width:650px;
+    height:60px;
+}
+
+
+.gscm_search .search_shipper_cd {
+    width: 128px;
+ }
+.gscm_search .w8001_shipper_cd {
+    width: 58px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .search_consignee_cd {
+    width: 128px;
+}
+.gscm_search .w8001_consignee_cd {
+    width: 58px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .search_ship_to_comp_cd {
+    width: 96px;
+}
+.gscm_search .w8001_ship_to_comp_cd {
+    width: 81px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .search_customer_cd {
+    width: 130px;
+}
+.gscm_search .w8001_customer_cd {
+    width: 92px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+.gscm_search .w8001_lgcy_ship_to {
+    width: 23px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .search_trns_cd {
+    width: 63px;
+}
+.gscm_search .w8001_trns_cd {
+    width: 62px;
+}
+
+
+.gscm_search .search_exp_packing {
+    width: 261px;
+}
+
+.gscm_search .search_fm_exp_packing_dt {
+    width: 90px;
+}
+
+.gscm_search .search_to_exp_packing_dt {
+    width: 90px;
+}
+
+.gscm_search .search_exp_packing_issuer_id {
+    width: 80px;
+}
+
+/*  search condition 2 */
+.gscm_search .search_status {
+    width: 186px;
+}
+.w8001_status {
+    width: 180px;
+}
+.w8001_main_mark {
+    width: 176px;
+}
+.w8001_invoice_no {
+    width: 138px;
+}
+
+.gscm_search .search_main_mark {
+    width: 200px;
+}
+.gscm_search .w8001_main_mark {
+    width: 197px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .search_cml_typ {
+    width: 168px;
+}
+.gscm_search .w8001_cml_typ {
+    width: 150px;
+}
+
+.gscm_search .search_custom_timing_typ {
+    width: 80px;
+}
+
+.gscm_search .search_cur_wh_comp_cd {
+    width: 80px;
+}
+
+.gscm_search .search_cur_wh_cd {
+    width: 180px;
+}
+
+/* search condition 3 */
+.gscm_search .search_item_no {
+    width: 480px;
+}
+.gscm_search .search_select_condition_pltz_item_no {
+    width: 18px;
+}
+
+.gscm_search .search_pltz_item_no {
+    width: 174px;
+}
+.gscm_search .w8001_pltz_item_no {
+    width: 174px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .search_select_condition_customer_po_no {
+    width: 18px;
+}
+.gscm_search .search_customer_po_no {
+    width: 228px;
+}
+.gscm_search .w8001_customer_po_no {
+    width: 225px;
+}
+
+.gscm_search .search_pkg_cd {
+    width: 69px;
+}
+
+.gscm_search .search_request_issuer_id {
+    width: 98px;
+}
+.gscm_search .w8001_request_issuer_id {
+    width: 98px;
+}
+
+.gscm_search .search_exp_request_no {
+    width: 142px;
+}
+.gscm_search .w8001_exp_request_no {
+    width: 134px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .search_return_style_cd {
+    width: 180px;
+}
+.gscm_search .w8001_return_style_cd {
+    width: 175px;
+}
+
+
+/* search condition 4 */
+.gscm_search table.search2 {
+    margin:0px;
+    padding:0px;
+    width:350px;
+    height:60px;
+}
+
+.gscm_search .search_container_no {
+    width: 147px;
+}
+
+.gscm_search .search_invoice_no {
+    width: 147px;
+}
+.gscm_search .w8001_invoice_no {
+    width: 140px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .search_invoice_ctgry {
+    width: 127px;
+}
+.gscm_search .w8001_invoice_ctgry {
+    width: 125px;
+}
+
+.gscm_search .search_etd {
+    width: 225px;
+}
+
+.gscm_search .search_fm_etd {
+    width: 107px;
+}
+
+.gscm_search .search_to_etd {
+    width: 107px;
+}
+
+.gscm_search .search_atd {
+    width: 225px;
+}
+
+.gscm_search .search_fm_atd {
+    width: 107px;
+}
+
+.gscm_search .search_to_atd {
+    width: 107px;
+}
+
+.gscm_search .search_button {
+    width: 109px;
+}
+
+/* search_exp_packingセル内情報 */
+.gscm_search div.ele_exp_packing {
+    border: 1px solid #828282;
+    margin:0px;
+    padding:0px;
+    width:337px;
+    height:60px;
+}
+
+.gscm_search table.ele_exp_packing {
+    margin:0px;
+    padding:0px;
+    width:337px;
+    height:60px;
+}
+
+/* search_item_noセル内情報 */
+.gscm_search div.ele_item_no {
+    border: 1px solid #828282;
+    margin:0px;
+    padding:0px;
+    width:461px;
+    height:60px;
+}
+
+.gscm_search table.ele_item_no {
+    margin:0px;
+    padding:0px;
+    width:461px;
+    height:60px;
+}
+
+.gscm_search table.ele_item_no th{
+    padding-left:0px;
+    padding-right:0px;
+}
+.gscm_search table.ele_item_no td{
+    padding-left:0px;
+    padding-right:0px;
+}
+/* search_etdセル内情報 */
+.gscm_search div.ele_etd {
+    border: 1px solid #828282;
+    margin:0px;
+    padding:0px;
+    width:217px;
+    height:60px;
+}
+
+.gscm_search table.ele_etd {
+    margin:0px;
+    padding:0px;
+    width:217px;
+    height:60px;
+}
+
+/* search_etdセル内情報 */
+.gscm_search div.ele_atd {
+    border: 1px solid #828282;
+    margin:0px;
+    padding:0px;
+    width:214px;
+    height:60px;
+}
+
+.gscm_search table.ele_atd {
+    margin:0px;
+    padding:0px;
+    width:214px;
+    height:60px;
+}
+
+
+/*------------ 検索結果エリア ------------*/
+table.gscm_resultlist {
+    width:960px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 29px;
+}
+
+.gscm_resultlist .resultlist_warn {
+    width: 48px;
+}
+
+.gscm_resultlist .resultlist_shipper_cd {
+    width: 58px;
+}
+
+.gscm_resultlist .resultlist_ship_to_cd {
+    width: 79px;
+}
+
+.gscm_resultlist .resultlist_trns_cd {
+    width: 48px;
+}
+
+.gscm_resultlist .resultlist_main_mark {
+    width: 182px;
+}
+
+.gscm_resultlist .resultlist_cml_typ {
+    width: 38px;
+}
+
+.gscm_resultlist .resultlist_cur_wh_comp_cd {
+    width: 58px;
+}
+
+.gscm_resultlist .resultlist_qty {
+    width: 77px;
+}
+
+.gscm_resultlist .resultlist_stg_act_dt {
+    width: 67px;
+}
+
+.gscm_resultlist .resultlist_shipping_firm_dt {
+    width: 67px;
+}
+
+.gscm_resultlist .resultlist_invoice_ctgry {
+    width: 38px;
+}
+
+.gscm_resultlist .resultlist_invoice_key {
+    width: 38px;
+}
+
+.gscm_resultlist .resultlist_etd {
+    width: 67px;
+}
+
+.gscm_resultlist .resultlist_atd {
+    width: 66px;
+}
+

@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="WsBhtTransfer">
+
+    <!-- Alias Domain -->
+    <!-- Domain -->
+    <typeAlias alias="WsBhtTransferDomain"
+        type="com.globaldenso.eca0027.core.business.domain.WsBhtTransferDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="WsBhtTransferCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.WsBhtTransferCriteriaDomain" />
+
+    <!-- Ws3501CmlListItemDomain -->
+    <typeAlias alias="Ws3501CmlListItemDomain"
+        type="com.globaldenso.eca0027.core.business.domain.Ws3501CmlListItemDomain" />
+    <!-- Ws3501ItemNoListItemDomain -->
+    <typeAlias alias="Ws3501ItemNoListItemDomain"
+        type="com.globaldenso.eca0027.core.business.domain.Ws3501ItemNoListItemDomain" />
+    <!-- Ws3506UpdateDomain -->
+    <typeAlias alias="Ws3506UpdateDomain"
+        type="com.globaldenso.eca0027.core.business.domain.Ws3506UpdateDomain" />
+    <!-- Ws3504SearchResultDomain -->
+    <typeAlias alias="Ws3504SearchResultDomain"
+        type="com.globaldenso.eca0027.core.business.domain.Ws3504SearchResultDomain" />
+
+    <!-- Result Map SearchWs3001Param -->
+    <resultMap id="WsBhtTransferDomain_SearchWs3001ParamByCML" class="WsBhtTransferDomain">
+        <result property="trNo" column="TR_NO" />
+        <result property="trItemTyp" column="TR_ITEM_TYP" />
+        <result property="editCnt" column="EDIT_CNT" />
+        <result property="trActvMethTyp" column="TR_ACTV_METH_TYP" />
+        <result property="lgcyLibCompCd" column="LGCY_LIB_COMP_CD" />
+        <result property="lgcyWhFrm" column="LGCY_WH_FRM" />
+        <result property="lgcyWhTo" column="LGCY_WH_TO" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="qty" column="QTY" />
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="carryInCompCd" column="CARRY_IN_COMP_CD" />
+        <result property="carryInWhCd" column="CARRY_IN_WH_CD" />
+        <result property="itemType" column="ITEM_TYP" />
+    </resultMap>
+   <!-- Result Map SearchWs3001Param -->
+    <resultMap id="WsBhtTransferDomain_SearchWs3001ParamByParts" class="WsBhtTransferDomain">
+        <result property="trNo" column="TR_NO" />
+        <result property="trItemTyp" column="TR_ITEM_TYP" />
+        <result property="editCnt" column="EDIT_CNT" />
+        <result property="trActvMethTyp" column="TR_ACTV_METH_TYP" />
+        <result property="lgcyLibCompCd" column="LGCY_LIB_COMP_CD" />
+        <result property="lgcyWhFrm" column="LGCY_WH_FRM" />
+        <result property="lgcyWhTo" column="LGCY_WH_TO" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="qty" column="QTY" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+    </resultMap>
+    <!-- SNT 追加　Start -->
+    <!-- Result Map SearchTransferInfoDetailByCml -->
+    <resultMap id="Ws3501CmlListItemDomain_SearchTransferInfoDetailByCml" class="Ws3501CmlListItemDomain">
+        <result property="trNo" column="TR_NO" />
+        <result property="mainMark" column="MAIN_MARK" />
+    </resultMap>
+    
+    <!-- Result Map SearchTransferInfoDetailByItemNo -->
+    <resultMap id="Ws3501ItemNoListItemDomain_SearchTransferInfoDetailByItemNo" class="Ws3501ItemNoListItemDomain">
+        <result property="trNo" column="TR_NO" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="carryOutQty" column="CARRY_OUT_QTY" />
+        <result property="carryOutCaseQty" column="CARRY_OUT_CASE_QTY" />
+    </resultMap>
+    <!-- Result Map SearchMainMarkList -->
+    <resultMap id="Ws3506UpdateDomain_SearchMainMarkList" class="Ws3506UpdateDomain">
+        <result property="editCnt" column="EDIT_CNT" />
+        <result property="trItemTyp" column="TR_ITEM_TYP" />
+        <result property="mainMark" column="MAIN_MARK" />
+    </resultMap>
+    <!-- Result Map SearchTransferListByItemNo -->
+    <resultMap id="Ws3504SearchResultDomain_SearchTransferListByItemNo" class="Ws3504SearchResultDomain">
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="summaryOfQty" column="SUMMARY_OF_QTY" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="shippingLot" column="SHIPPING_LOT" />
+        <result property="carryOutQty" column="CARRY_OUT_QTY" />
+        <result property="qty" column="QTY" />
+        <result property="curWhCd" column="CUR_WH_CD" />
+    </resultMap>
+    
+    <!-- SearchUpdateDataForCml SQL -->
+    <select id="WsBhtTransfer.SearchWs3001ParamForCml" resultMap="WsBhtTransferDomain_SearchWs3001ParamByCML"
+        parameterClass="com.globaldenso.eca0027.core.business.domain.criteria.WsBhtTransferCriteriaDomain">
+        select  /* SqlMap-WsBhtTransfer.SearchWs3001ParamForCml */
+                T1.TR_NO
+               ,T1.TR_ITEM_TYP
+               ,T1.EDIT_CNT
+               ,T1.TR_ACTV_METH_TYP
+               ,T1.SHIPPER_CD
+               ,T1.CARRY_IN_COMP_CD
+               ,T1.CARRY_IN_WH_CD
+               ,M1.LGCY_LIB_COMP_CD
+               ,M1.LGCY_WH_CD as LGCY_WH_FRM
+               ,M2.LGCY_WH_CD as LGCY_WH_TO
+               ,T2.ITEM_NO
+               ,T2.PKG_CD
+               ,T2.QTY
+               ,T2.MAIN_MARK
+               ,T2.ITEM_TYP
+        from  TT_TRANSFER T1
+               inner join (select  T1.TR_NO
+                                  ,T1.MAIN_MARK
+                                  ,T2.PLTZ_ITEM_NO as ITEM_NO
+                                  ,T2.PKG_CD
+                                  ,sum(T2.QTY) as QTY
+                                  ,T2.ITEM_TYP
+                           from TT_TRANSFER_ITEM_PLTZ T1
+                                 inner join TT_PLTZ_ITEM T2
+                                  on T1.MAIN_MARK = T2.MAIN_MARK
+                                  <!-- Start : Thalerngsak modify for Export Request -->
+                                  <!-- and T2.ITEM_TYP IS NULL -->
+                                  <!-- End : Thalerngsak modify for Export Request -->
+                           group by T1.TR_NO, T1.MAIN_MARK, T2.PLTZ_ITEM_NO ,T2.PKG_CD,T2.ITEM_TYP
+                           ) T2
+                on T1.TR_NO = T2.TR_NO
+               inner join (select  M1.LGCY_LIB_COMP_CD
+                                  ,M1.COMP_CD
+                                  ,M1.WH_CD
+                                  ,max(M1.LGCY_WH_CD) as LGCY_WH_CD
+                           from TM_CIGMA_WH_XREF M1
+                           group by M1.LGCY_LIB_COMP_CD ,M1.COMP_CD ,M1.WH_CD
+                           ) M1
+                           <!-- A.Chonthicha -->
+                on T1.CARRY_OUT_COMP_CD = M1.COMP_CD
+                and T1.SHIPPER_CD = M1.LGCY_LIB_COMP_CD
+                and T1.CARRY_OUT_WH_CD = M1.WH_CD
+               inner join (select  M1.LGCY_LIB_COMP_CD
+                                  ,M1.COMP_CD
+                                  ,M1.WH_CD
+                                  ,max(M1.LGCY_WH_CD) as LGCY_WH_CD
+                           from TM_CIGMA_WH_XREF M1
+                           group by M1.LGCY_LIB_COMP_CD ,M1.COMP_CD ,M1.WH_CD
+                           ) M2
+                on T1.SHIPPER_CD = M2.LGCY_LIB_COMP_CD
+                and T1.CARRY_IN_COMP_CD = M2.COMP_CD
+                and T1.CARRY_IN_WH_CD = M2.WH_CD
+        where  T1.TR_NO = #trNo#
+        order by T2.ITEM_NO
+    </select>
+
+    <!-- SearchUpdateDataForParts SQL -->
+    <select id="WsBhtTransfer.SearchWs3001ParamForParts" resultMap="WsBhtTransferDomain_SearchWs3001ParamByParts"
+        parameterClass="com.globaldenso.eca0027.core.business.domain.criteria.WsBhtTransferCriteriaDomain">
+        select  /* SqlMap-WsBhtTransfer.SearchWs3001ParamForParts */
+                T1.TR_NO
+               ,T1.TR_ITEM_TYP
+               ,T1.EDIT_CNT
+               ,T1.TR_ACTV_METH_TYP
+               ,T1.SHIPPER_CD
+               ,M1.LGCY_LIB_COMP_CD
+               ,M1.LGCY_WH_CD as LGCY_WH_FRM
+               ,M2.LGCY_WH_CD as LGCY_WH_TO
+               ,T2.ITEM_NO
+               ,T2.PKG_CD
+               ,T2.QTY
+               ,T2.CASE_QTY
+        from  TT_TRANSFER T1
+               inner join (select  T1.TR_NO
+                                  ,T1.ITEM_NO
+                                  ,T1.PKG_CD
+                                  ,sum(T1.CARRY_OUT_QTY) as QTY
+                                  ,sum(T1.CARRY_OUT_CASE_QTY) as CASE_QTY
+                           from TT_TRANSFER_ITEM_ITEM_NO T1
+                           group by T1.TR_NO, T1.ITEM_NO, T1.PKG_CD
+                           ) T2
+                on T1.TR_NO = T2.TR_NO
+               inner join (select  M1.LGCY_LIB_COMP_CD
+                                  ,M1.COMP_CD
+                                  ,M1.WH_CD
+                                  ,max(M1.LGCY_WH_CD) as LGCY_WH_CD
+                           from TM_CIGMA_WH_XREF M1
+                           group by M1.LGCY_LIB_COMP_CD ,M1.COMP_CD ,M1.WH_CD
+                           ) M1
+                <!-- Chaiporn Add 28/11/2014 -->           
+                <!--  on T1.CARRY_OUT_COMP_CD = M1.LGCY_LIB_COMP_CD
+                and T1.SHIPPER_CD = M1.COMP_CD-->
+                on T1.SHIPPER_CD = M1.LGCY_LIB_COMP_CD
+                and T1.CARRY_OUT_COMP_CD = M1.COMP_CD
+                <!-- Chaiporn Add end 8/11/2014 --> 
+                and T1.CARRY_OUT_WH_CD = M1.WH_CD
+               inner join (select  M1.LGCY_LIB_COMP_CD
+                                  ,M1.COMP_CD
+                                  ,M1.WH_CD
+                                  ,max(M1.LGCY_WH_CD) as LGCY_WH_CD
+                           from TM_CIGMA_WH_XREF M1
+                           group by M1.LGCY_LIB_COMP_CD ,M1.COMP_CD ,M1.WH_CD
+                           ) M2
+                on T1.SHIPPER_CD = M2.LGCY_LIB_COMP_CD
+                and T1.CARRY_IN_COMP_CD = M2.COMP_CD
+                and T1.CARRY_IN_WH_CD = M2.WH_CD
+        where  T1.TR_NO = #trNo#
+        order by T2.ITEM_NO
+    </select>
+
+    <!-- SearchTransferInfoDetailByCml SQL -->
+    <select id="WsBhtTransfer.SearchTransferInfoDetailByCml" resultMap="Ws3501CmlListItemDomain_SearchTransferInfoDetailByCml"
+        parameterClass="com.globaldenso.eca0027.core.business.domain.criteria.WsBhtTransferCriteriaDomain">
+        select TT.TR_NO
+               ,TTIP.MAIN_MARK
+        from TT_TRANSFER TT
+             inner join TT_TRANSFER_ITEM_PLTZ TTIP
+             on TT.TR_NO = TTIP.TR_NO
+        where TT.TR_NO =#trNo#
+    </select>
+    
+    <!-- SearchTransferInfoDetailByItemNo SQL -->
+    <select id="WsBhtTransfer.SearchTransferInfoDetailByItemNo" resultMap="Ws3501ItemNoListItemDomain_SearchTransferInfoDetailByItemNo"
+        parameterClass="com.globaldenso.eca0027.core.business.domain.criteria.WsBhtTransferCriteriaDomain">
+        select TT.TR_NO
+               ,TTIIN.ITEM_NO
+               ,TTIIN.PKG_CD
+               ,TTIIN.CARRY_OUT_QTY
+               ,TTIIN.CARRY_OUT_CASE_QTY
+        from TT_TRANSFER TT
+             inner join TT_TRANSFER_ITEM_ITEM_NO TTIIN
+             on TT.TR_NO = TTIIN.TR_NO
+        where TT.TR_NO =#trNo#
+    </select>
+    <!-- SearchMainMarkList SQL -->
+    <select id="WsBhtTransfer.SearchMainMarkList" resultMap="Ws3506UpdateDomain_SearchMainMarkList"
+        parameterClass="com.globaldenso.eca0027.core.business.domain.WsBhtTransferDomain">
+        select TT.EDIT_CNT
+            ,TT.TR_ITEM_TYP
+            ,TTIP.MAIN_MARK
+        from TT_TRANSFER TT
+            inner join TT_TRANSFER_ITEM_PLTZ TTIP
+            on TT.TR_NO = TTIP.TR_NO
+        where TT.TR_NO = #trNo#
+    </select>
+    <!-- SearchTransferListByItemNo SQL -->
+    <select id="WsBhtTransfer.SearchTransferListByItemNo" resultMap="Ws3504SearchResultDomain_SearchTransferListByItemNo"
+        parameterClass="com.globaldenso.eca0027.core.business.domain.criteria.Ws3504CriteriaDomain">
+        select /* SqlMap-WsBhtTransfer.SearchTransferListByItemNo */
+        distinct
+               TERO.ITEM_NO,
+               TERO.PKG_CD,
+               nvl(T3.SUMMARY_OF_QTY, 0) as SUMMARY_OF_QTY,
+               TERO.PLNT_CD,
+               TEINSI.SHIPPING_LOT,
+               nvl(T1.CARRY_OUT_QTY, 0) as CARRY_OUT_QTY,
+               nvl(T2.QTY, 0) as QTY,
+               T2.CUR_WH_CD
+        from TT_EXP_RCV_ODR TERO
+               inner join TM_EXP_ITEM_NO_SP_INFO TEINSI
+                on TERO.RCV_ODR_COMP_CD = TEINSI.COMP_CD
+                and TERO.ITEM_NO = TEINSI.ITEM_NO
+                and TERO.PKG_CD = TEINSI.PKG_CD
+                and TERO.CUSTOMER_CD = TEINSI.CUSTOMER_CD
+                and TERO.LGCY_SHIP_TO = TEINSI.LGCY_SHIP_TO
+                 <!-- 20160224 Thalerngsak add for criteria APLY_STRT_DT : Start-->
+                and TEINSI.APLY_STRT_DT = (SELECT MAX(TSP.APLY_STRT_DT) 
+                                            FROM TM_EXP_ITEM_NO_SP_INFO TSP 
+                                            WHERE TSP.ITEM_NO = TERO.ITEM_NO
+                                            <!--S: Chaiporn IN256 20160224-->
+                                            and TSP.CUSTOMER_CD = TERO.CUSTOMER_CD
+                                            and TSP.LGCY_SHIP_TO = TERO.LGCY_SHIP_TO
+                                            )
+                                            <!--E: Chaiporn IN256 20160224-->
+               left join (
+                          select sum(TTIIN.CARRY_OUT_QTY) as CARRY_OUT_QTY,
+                                 TTIIN.ITEM_NO,
+                                 TTIIN.PKG_CD,
+                                 TT.CARRY_OUT_COMP_CD,
+                                 TT.CARRY_OUT_WH_CD,
+                                 TT.SHIPPER_CD,
+                                 TT.TR_STATUS,
+                                 TT.TR_ITEM_TYP
+                          from TT_TRANSFER_ITEM_ITEM_NO TTIIN
+                                inner join TT_TRANSFER TT
+                                on TTIIN.TR_NO = TT.TR_NO
+                                where TT.CARRY_OUT_COMP_CD = #carryOutCompCd#
+                                and TT.CARRY_OUT_WH_CD = #carryOutWhCd#
+                                and TT.SHIPPER_CD = #shipperCd#
+                                and TT.TR_STATUS = '20' <!-- kimura update from 10 to 20 -->
+                                and TT.TR_ITEM_TYP = '2'
+                          group by TTIIN.PKG_CD,
+                                   TTIIN.ITEM_NO,
+                                   TT.CARRY_OUT_COMP_CD,
+                                   TT.CARRY_OUT_WH_CD,
+                                   TT.SHIPPER_CD,
+                                   TT.TR_STATUS,
+                                   TT.TR_ITEM_TYP
+                        ) T1
+                on TERO.ITEM_NO = T1.ITEM_NO
+                and TERO.PKG_CD = T1.PKG_CD
+               left join (
+                           select sum(TPI.QTY) AS QTY,
+                                 <!--S:Chaiporn Fix Bug Pltz Qty Cal. -->
+                                 <!-- TPI.MAIN_MARK, --> 
+                                 <!--E:Chaiporn Fix Bug Pltz Qty Cal. -->
+                                  TPI.PLTZ_ITEM_NO,
+                                  TPI.PKG_CD,
+                                  TP.CUR_WH_CD,
+                                  TP.CUR_WH_COMP_CD
+                                  <!--S:Chaiporn Fix Bug Pltz Qty Cal.  -->
+                                  <!-- ,TP.PLTZ_STATUS -->
+                                  <!--E:Chaiporn Fix Bug Pltz Qty Cal. -->
+                                  <!-- S:Chaiporn IN256 -->
+                                  <!-- TP.LAST_TR_STATUS -->
+                                  <!-- E:Chaiporn IN256 -->
+                           from TT_PLTZ_ITEM TPI
+                                 inner join TT_PLTZ TP
+                                  on TPI.MAIN_MARK = TP.MAIN_MARK
+                                  where TP.CUR_WH_COMP_CD = #carryOutCompCd#
+                                  and TP.CUR_WH_CD = #carryOutWhCd#
+                                  and TP.PLTZ_STATUS = '10'
+                                  <!-- S:Chaiporn IN256 -->
+                                  <!-- and TP.LAST_TR_STATUS = '20' kimura update from 10 to 20 -->
+                                  and TP.LAST_TR_STATUS <![CDATA[<=]]> '20'
+                                  <!-- E:Chaiporn IN256 --> 
+                           group by
+                           <!--S:Chaiporn Fix Bug Pltz Qty Cal. -->
+                           <!-- TPI.MAIN_MARK,  -->
+                           <!--E:Chaiporn Fix Bug Pltz Qty Cal. -->
+                                    TPI.PLTZ_ITEM_NO,
+                                    TPI.PKG_CD,
+                                    TP.CUR_WH_CD,
+                                    TP.CUR_WH_COMP_CD
+                           <!--S:Chaiporn Fix Bug Pltz Qty Cal. -->
+                                    <!-- ,TP.PLTZ_STATUS -->
+                           <!--E:Chaiporn Fix Bug Pltz Qty Cal. -->
+                                    <!-- S:Chaiporn IN256 -->
+                                    <!-- , TP.LAST_TR_STATUS -->
+                                    <!-- E:Chaiporn IN256 -->
+                           ) T2
+                on TERO.ITEM_NO = T2.PLTZ_ITEM_NO
+                and TERO.PKG_CD = T2.PKG_CD
+               left join (
+                          select sum(ODR_QTY - SHIPPED_QTY) as SUMMARY_OF_QTY,
+                                 ITEM_NO,
+                                 PKG_CD
+                          from TT_EXP_RCV_ODR
+                          <!-- Chaiporn IN256 Start -->
+                          <!--  where SHIPPED_TYP = '1'-->
+                          <!--  and ODR_FIRM_FLG = 'Y'-->
+                                where ODR_FIRM_FLG = 'Y'
+                                and SHIPPED_TYP in ('1', '2')
+                          <!-- Chaiporn IN256 End -->
+                          group by ITEM_NO,
+                                   PKG_CD
+                          ) T3
+                on TERO.ITEM_NO = T3.ITEM_NO
+                and TERO.PKG_CD = T3.PKG_CD
+        where TERO.RCV_ODR_COMP_CD = #shipperCd#
+        <iterate property="itemNoList" prepend="and (TERO.ITEM_NO, TERO.PKG_CD) in " open="(" close=")" conjunction="," >
+            (#itemNoList[].itemNo#, #itemNoList[].pkgCd#)
+        </iterate>
+        <!-- S:Chaiporn IN256 20160224 -->
+                     and TERO.CUSTOMER_CD = (select MAX(TBL1.customer_cd)
+                                from TT_EXP_RCV_ODR TBL1
+                                where TBL1.item_no = TERO.ITEM_NO
+                                and TBL1.PKG_CD = ' '
+                                <!-- S: Chaiporn UT459 20160706 -->
+                                and TBL1.RCV_ODR_COMP_CD = #shipperCd#
+                                <!-- E: Chaiporn UT459 20160706 -->
+                                )
+                     and TERO.lgcy_ship_to = (select MAX(TBL2.lgcy_ship_to)
+                                  from TT_EXP_RCV_ODR TBL2
+                                  where TBL2.item_no = TERO.ITEM_NO
+                                  and TBL2.PKG_CD = ' '
+                                  <!-- S: Chaiporn IN256 20160419 -->
+                                  and TBL2.CUSTOMER_CD = (select MAX(TBL1.customer_cd)
+                                                          from TT_EXP_RCV_ODR TBL1
+                                                          where TBL1.item_no = TERO.ITEM_NO
+                                                          and TBL1.PKG_CD = ' '
+                                                          <!-- S: Chaiporn UT459 20160706 -->
+                                                          and TBL1.RCV_ODR_COMP_CD = #shipperCd#
+                                                          <!-- E: Chaiporn UT459 20160706 -->
+                                                          )
+                                  <!-- E: Chaiporn IN256 20160419 -->
+                                  
+                                  )
+       <!-- E:Chaiporn IN256 20160224 -->
+        and TEINSI.APLY_STRT_DT <![CDATA[<=]]> sysdate
+    </select>
+    
+</sqlMap>

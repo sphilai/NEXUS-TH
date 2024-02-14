@@ -1,0 +1,31 @@
+@CHARSET "windows-31j";
+/*
+ * WT015.css
+ * 
+ * Unit Price Error List子画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+/*------------ Search result total area------------*/ 
+/*------------ 検索結果エリア(全体) ------------*/ 
+table.gscm_resultlist {
+    width: 660px;
+}
+
+/*------------ Search result individual area ------------*/ 
+/*------------ 検索結果エリア(個別) ------------*/ 
+.gscm_resultlist .resultlist_customer_cd {
+    width: 83px;
+}
+.gscm_resultlist .resultlist_curr_cd {
+    width: 40px;
+}
+.gscm_resultlist .resultlist_unit_price {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_item_no {
+    width: 277px;
+}
+.gscm_resultlist .resultlist_customer_po_no {
+    width: 210px;
+}

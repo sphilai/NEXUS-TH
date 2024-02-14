@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="invoice_heafer01" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+    <property name="ireport.zoom" value="1.6528925619834736"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="732"/>
+    <style name="Title_Small" fontName="IPAゴシック" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+    <style name="Title_Small-C" hAlign="Center" fontName="IPAゴシック" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+    <style name="Title_Middle" fontName="IPAゴシック" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+    <style name="Title_Large" fontName="IPAゴシック" fontSize="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+    <style name="Title_ExLarge" fontName="IPAゴシック" fontSize="20" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+    <style name="StringData_Small" fontName="IPAゴシック" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+    <style name="StringData_Small-C" hAlign="Center" fontName="IPAゴシック" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+    <style name="StringData_Middle" fontName="IPAゴシック" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+    <style name="StringData_Middle-R" hAlign="Right" fontName="IPAゴシック" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+    <style name="StringData_MiddleB-R" hAlign="Right" fontName="IPAゴシック" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+    <style name="StringData_LargeB" fontName="IPAゴシック" fontSize="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+    <style name="StringData_LargeB-R" hAlign="Right" fontName="IPAゴシック" fontSize="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+    <style name="GridTitle_Middle" hAlign="Center" vAlign="Middle" fontName="IPAゴシック" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true">
+        <box>
+            <pen lineWidth="1.0" lineColor="#000000"/>
+            <topPen lineWidth="1.0" lineColor="#000000"/>
+            <leftPen lineWidth="1.0" lineColor="#000000"/>
+            <bottomPen lineWidth="1.0" lineColor="#000000"/>
+            <rightPen lineWidth="1.0" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="GridStringData_Middle" hAlign="Center" vAlign="Middle" fontName="IPAゴシック" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true">
+        <box>
+            <pen lineWidth="1.0" lineColor="#000000"/>
+            <topPen lineWidth="1.0" lineColor="#000000"/>
+            <leftPen lineWidth="1.0" lineColor="#000000"/>
+            <bottomPen lineWidth="1.0" lineColor="#000000"/>
+            <rightPen lineWidth="1.0" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="GridStringData_Middle_LR" hAlign="Center" vAlign="Middle" fontName="IPAゴシック" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true">
+        <box>
+            <pen lineWidth="1.0" lineColor="#000000"/>
+            <topPen lineWidth="0.0" lineColor="#000000"/>
+            <leftPen lineWidth="1.0" lineColor="#000000"/>
+            <bottomPen lineWidth="0.0" lineColor="#000000"/>
+            <rightPen lineWidth="1.0" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="GridStringData_Middle_LRB" hAlign="Center" vAlign="Middle" fontName="IPAゴシック" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true">
+        <box>
+            <pen lineWidth="1.0" lineColor="#000000"/>
+            <topPen lineWidth="0.0" lineColor="#000000"/>
+            <leftPen lineWidth="1.0" lineColor="#000000"/>
+            <bottomPen lineWidth="1.0" lineColor="#000000"/>
+            <rightPen lineWidth="1.0" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="GridTitle_Middle-Dot" hAlign="Left" vAlign="Middle" fontName="IPAゴシック" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true">
+        <box leftPadding="3">
+            <leftPen lineWidth="1.2" lineStyle="Dotted" lineColor="#000000"/>
+            <bottomPen lineWidth="1.2" lineStyle="Dotted" lineColor="#000000"/>
+            <rightPen lineWidth="1.2" lineStyle="Dotted" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="GridStringData_Middle-Dot" hAlign="Left" vAlign="Middle" fontName="IPAゴシック" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipag.ttc" pdfEncoding="Identity-H" isPdfEmbedded="true">
+        <box leftPadding="3">
+            <leftPen lineWidth="1.2" lineStyle="Dotted" lineColor="#000000"/>
+            <bottomPen lineWidth="1.2" lineStyle="Dotted" lineColor="#000000"/>
+            <rightPen lineWidth="1.2" lineStyle="Dotted" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Title" mode="Opaque" backcolor="#999999" fill="Solid" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+        <box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+            <pen lineWidth="1.0"/>
+            <topPen lineWidth="1.0"/>
+            <leftPen lineWidth="1.0"/>
+            <bottomPen lineWidth="1.0"/>
+            <rightPen lineWidth="1.0"/>
+        </box>
+    </style>
+    <style name="String" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+        <box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+            <pen lineWidth="1.0"/>
+            <topPen lineWidth="1.0"/>
+            <leftPen lineWidth="1.0"/>
+            <bottomPen lineWidth="1.0"/>
+            <rightPen lineWidth="1.0"/>
+        </box>
+    </style>
+    <style name="Integer" hAlign="Right" vAlign="Middle" pattern="#,##0" isBlankWhenNull="true" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+        <box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+            <pen lineWidth="1.0"/>
+            <topPen lineWidth="1.0"/>
+            <leftPen lineWidth="1.0"/>
+            <bottomPen lineWidth="1.0"/>
+            <rightPen lineWidth="1.0"/>
+        </box>
+    </style>
+    <style name="Date" hAlign="Left" vAlign="Middle" pattern="yyyy/MM/dd" isBlankWhenNull="true" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+        <box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+            <pen lineWidth="1.0"/>
+            <topPen lineWidth="1.0"/>
+            <leftPen lineWidth="1.0"/>
+            <bottomPen lineWidth="1.0"/>
+            <rightPen lineWidth="1.0"/>
+        </box>
+    </style>
+    <style name="Time" hAlign="Left" vAlign="Middle" pattern="hh:mm:ss" isBlankWhenNull="true" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+        <box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+            <pen lineWidth="1.0"/>
+            <topPen lineWidth="1.0"/>
+            <leftPen lineWidth="1.0"/>
+            <bottomPen lineWidth="1.0"/>
+            <rightPen lineWidth="1.0"/>
+        </box>
+    </style>
+    <field name="compNmInv1" class="java.lang.String"/>
+    <field name="compNmInv2" class="java.lang.String"/>
+    <field name="shipperTaxIdNo" class="java.lang.String"/>
+    <field name="shipperCompAddrInv1" class="java.lang.String"/>
+    <field name="shipperCompTel" class="java.lang.String"/>
+    <field name="shipperCompFax" class="java.lang.String"/>
+    <field name="consigneeCompNmInv1" class="java.lang.String"/>
+    <field name="consigneeCompAddrInv1" class="java.lang.String"/>
+    <field name="consigneeCompAddrInv2" class="java.lang.String"/>
+    <field name="consigneeAttn" class="java.lang.String"/>
+    <field name="shipToNmInv1" class="java.lang.String"/>
+    <field name="shipToAddrInv1" class="java.lang.String"/>
+    <field name="shipToAddrInv2" class="java.lang.String"/>
+    <field name="shipToCompNmAbb" class="java.lang.String"/>
+    <field name="documentsType" class="java.lang.String"/>
+    <field name="invoiceNo" class="java.lang.String"/>
+    <field name="reInvoiceNo1" class="java.lang.String"/>
+    <field name="reInvoiceNo2" class="java.lang.String"/>
+    <field name="invoiceCategoryNm" class="java.lang.String"/>
+    <field name="issuedDate" class="java.lang.String"/>
+    <field name="shippedDate" class="java.lang.String"/>
+    <field name="etd" class="java.lang.String"/>
+    <field name="eta" class="java.lang.String"/>
+    <field name="trnsWayNm" class="java.lang.String"/>
+    <field name="loadingPortNm" class="java.lang.String"/>
+    <field name="dischargePortNm" class="java.lang.String"/>
+    <field name="deliveryPoint" class="java.lang.String"/>
+    <field name="carrierCompNmAbb" class="java.lang.String"/>
+    <field name="vessel" class="java.lang.String"/>
+    <field name="bookingNo" class="java.lang.String"/>
+    <field name="containerNo" class="java.lang.String"/>
+    <field name="noOfPkg" class="java.lang.String"/>
+    <field name="totalNetWeight" class="java.lang.String"/>
+    <field name="totalGrossWeight" class="java.lang.String"/>
+    <field name="totalVolume" class="java.lang.String"/>
+    <field name="freightStatusNm" class="java.lang.String"/>
+    <field name="priceTermNm" class="java.lang.String"/>
+    <field name="costNetAmount" class="java.lang.String"/>
+    <field name="costFreight" class="java.lang.String"/>
+    <field name="costInsurance" class="java.lang.String"/>
+    <field name="costSubTotal" class="java.lang.String"/>
+    <field name="costVat" class="java.lang.String"/>
+    <field name="costAdditionalCharge" class="java.lang.String"/>
+    <field name="costHandlingCharge" class="java.lang.String"/>
+    <field name="costTotalInvoiceAmount" class="java.lang.String"/>
+    <field name="totalNetWeightUnit" class="java.lang.String"/>
+    <field name="totalGrossWeghtUnit" class="java.lang.String"/>
+    <field name="totalVolumeUnit" class="java.lang.String"/>
+    <field name="vatPercentage" class="java.lang.String"/>
+    <field name="netAmountCurrCd" class="java.lang.String"/>
+    <field name="freightCurrCd" class="java.lang.String"/>
+    <field name="insuranceCurrCd" class="java.lang.String"/>
+    <field name="subTotalCurrCd" class="java.lang.String"/>
+    <field name="vatCurrCd" class="java.lang.String"/>
+    <field name="handlingChargeCurrCd" class="java.lang.String"/>
+    <field name="freeAdditionalChargeCurrCd" class="java.lang.String"/>
+    <field name="totalInvoiceAmountCurrCd" class="java.lang.String"/>
+    <field name="specialInformation2Value" class="java.lang.String"/>
+    <field name="consigneeCompNmInv2" class="java.lang.String"/>
+    <field name="consigneeCompAddrInv3" class="java.lang.String"/>
+    <field name="consigneeCompAddrInv4" class="java.lang.String"/>
+    <field name="shipToNmInv2" class="java.lang.String"/>
+    <field name="shipToAddrInv3" class="java.lang.String"/>
+    <field name="shipToAddrInv4" class="java.lang.String"/>
+    <field name="freeAdditionalChargeNm" class="java.lang.String"/>
+    <field name="master2" class="java.lang.String"/>
+    <field name="master3" class="java.lang.String"/>
+    <field name="master7" class="java.lang.String"/>
+    <field name="master8" class="java.lang.String"/>
+    <field name="handlingChargeDisplay" class="java.lang.String"/>
+    <field name="vatDisplay1" class="java.lang.String"/>
+    <field name="vatDisplay2" class="java.lang.String"/>
+    <field name="consigneeBlockName" class="java.lang.String"/>
+    <field name="shipperCompAddrInv2" class="java.lang.String"/>
+    <field name="autoText1" class="java.io.InputStream"/>
+    <field name="autoText5" class="java.io.InputStream"/>
+    <field name="autoText6" class="java.io.InputStream"/>
+    <field name="autoText9" class="java.io.InputStream"/>
+    <field name="specialInformationValue" class="java.lang.String"/>
+    <title>
+        <band height="45" splitType="Stretch">
+            <line>
+                <reportElement x="0" y="44" width="555" height="1"/>
+                <graphicElement>
+                    <pen lineWidth="1.0" lineStyle="Solid"/>
+                </graphicElement>
+            </line>
+            <image isUsingCache="true">
+                <reportElement x="0" y="0" width="100" height="25"/>
+                <imageExpression class="java.io.InputStream"><![CDATA[$F{autoText1}]]></imageExpression>
+            </image>
+            <staticText>
+                <reportElement style="Title_Middle" x="0" y="28" width="555" height="12"/>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[INVOICE ]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="Title_ExLarge" x="100" y="0" width="370" height="12"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{compNmInv1} + $F{compNmInv2}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="432" y="14" width="124" height="26"/>
+                <textElement>
+                    <font size="7"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{master2}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="742" splitType="Stretch">
+            <staticText>
+                <reportElement style="Title_Small" x="12" y="20" width="58" height="12"/>
+                <textElement textAlignment="Left"/>
+                <text><![CDATA[Tax ID No.:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" x="148" y="20" width="42" height="12"/>
+                <textElement textAlignment="Left"/>
+                <text><![CDATA[Address:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" x="148" y="44" width="42" height="12"/>
+                <textElement textAlignment="Left"/>
+                <text><![CDATA[Phone  :]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" mode="Transparent" x="299" y="44" width="22" height="12"/>
+                <textElement>
+                    <font isItalic="false"/>
+                </textElement>
+                <text><![CDATA[FAX:]]></text>
+            </staticText>
+            <line>
+                <reportElement x="0" y="60" width="555" height="1"/>
+            </line>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="70" y="20" width="78" height="12"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{shipperTaxIdNo}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="190" y="20" width="365" height="12"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{shipperCompAddrInv1}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="190" y="44" width="109" height="12"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{shipperCompTel}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="321" y="44" width="234" height="12"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{shipperCompFax}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="182" y="61" width="1" height="109"/>
+            </line>
+            <staticText>
+                <reportElement style="Title_Middle" x="187" y="63" width="170" height="12"/>
+                <textElement>
+                    <font isBold="false" isUnderline="true"/>
+                </textElement>
+                <text><![CDATA[Ship to]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Middle" x="367" y="63" width="162" height="12"/>
+                <textElement>
+                    <font isBold="false" isUnderline="true"/>
+                </textElement>
+                <text><![CDATA[Document Information]]></text>
+            </staticText>
+            <line>
+                <reportElement x="1" y="353" width="555" height="1"/>
+            </line>
+            <line>
+                <reportElement x="0" y="61" width="1" height="680"/>
+            </line>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="6" y="79" width="175" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{consigneeCompNmInv1}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="6" y="103" width="175" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{consigneeCompAddrInv1}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="6" y="115" width="175" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{consigneeCompAddrInv2}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="187" y="79" width="175" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{shipToNmInv1}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="187" y="103" width="175" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{shipToAddrInv1}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="187" y="115" width="175" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{shipToAddrInv2}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="StringData_Small" x="187" y="151" width="23" height="10"/>
+                <textElement/>
+                <text><![CDATA[From]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="210" y="151" width="152" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{shipToCompNmAbb}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Title_Small" x="367" y="79" width="85" height="10"/>
+                <textElement/>
+                <text><![CDATA[Document Type]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" x="367" y="91" width="85" height="10"/>
+                <textElement/>
+                <text><![CDATA[Invoice No.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" x="367" y="103" width="85" height="10"/>
+                <textElement/>
+                <text><![CDATA[Ref Invoice No.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" x="367" y="127" width="85" height="10"/>
+                <textElement/>
+                <text><![CDATA[Invoice Category]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="453" y="79" width="100" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{documentsType}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="453" y="103" width="100" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{reInvoiceNo1}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="453" y="115" width="100" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{reInvoiceNo2}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="453" y="91" width="100" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{invoiceNo}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="453" y="127" width="100" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{invoiceCategoryNm}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="0" y="170" width="555" height="1"/>
+            </line>
+            <line>
+                <reportElement x="0" y="741" width="555" height="1"/>
+            </line>
+            <line>
+                <reportElement x="555" y="60" width="1" height="681"/>
+            </line>
+            <staticText>
+                <reportElement style="Title_Small" x="5" y="213" width="80" height="10"/>
+                <textElement/>
+                <text><![CDATA[From Port]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Middle" x="5" y="173" width="124" height="12"/>
+                <textElement>
+                    <font isBold="false" isUnderline="true"/>
+                </textElement>
+                <text><![CDATA[Delivery Information]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" x="5" y="201" width="80" height="10"/>
+                <textElement/>
+                <text><![CDATA[Transportation]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" x="205" y="189" width="24" height="10"/>
+                <textElement/>
+                <text><![CDATA[ETA]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" x="5" y="225" width="80" height="10"/>
+                <textElement/>
+                <text><![CDATA[To Port]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" x="5" y="237" width="80" height="10"/>
+                <textElement/>
+                <text><![CDATA[Delivery Point]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" x="5" y="261" width="80" height="10"/>
+                <textElement/>
+                <text><![CDATA[Carrier]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" x="5" y="249" width="80" height="10"/>
+                <textElement/>
+                <text><![CDATA[Vessel]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" x="165" y="261" width="75" height="10"/>
+                <textElement/>
+                <text><![CDATA[Booking No.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Middle" x="5" y="290" width="154" height="12"/>
+                <textElement>
+                    <font isBold="false" isUnderline="true"/>
+                </textElement>
+                <text><![CDATA[PKG Information]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" mode="Transparent" x="5" y="318" width="65" height="10"/>
+                <textElement/>
+                <text><![CDATA[Net Weight]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" mode="Transparent" x="5" y="306" width="65" height="10"/>
+                <textElement/>
+                <text><![CDATA[No. of PKG]]></text>
+            </staticText>
+            <line>
+                <reportElement x="1" y="287" width="334" height="1"/>
+            </line>
+            <staticText>
+                <reportElement style="Title_Small" mode="Transparent" x="5" y="330" width="65" height="10"/>
+                <textElement/>
+                <text><![CDATA[Gross Weight]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" mode="Transparent" x="5" y="342" width="34" height="10"/>
+                <textElement/>
+                <text><![CDATA[Volume]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Middle" x="187" y="290" width="138" height="12"/>
+                <textElement>
+                    <font isBold="false" isUnderline="true"/>
+                </textElement>
+                <text><![CDATA[Freight & Price Terms]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="87" y="189" width="53" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{etd}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="87" y="201" width="189" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{trnsWayNm}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="87" y="213" width="245" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{loadingPortNm}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="87" y="225" width="245" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{dischargePortNm}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="87" y="237" width="75" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{deliveryPoint}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="87" y="261" width="75" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{carrierCompNmAbb}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="87" y="249" width="231" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{vessel}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="243" y="261" width="75" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{bookingNo}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="80" y="306" width="100" height="10"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{noOfPkg}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="102" y="318" width="78" height="10"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{totalNetWeight}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="72" y="318" width="28" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA["(" + $F{totalNetWeightUnit} + ")"]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="102" y="330" width="78" height="10"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{totalGrossWeight}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="72" y="330" width="28" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA["(" + $F{totalGrossWeghtUnit} + ")"]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="72" y="342" width="108" height="10"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{totalVolume}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="42" y="342" width="28" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA["(" + $F{totalVolumeUnit} + ")"]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="453" y="151" width="100" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{shippedDate}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="453" y="139" width="100" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{issuedDate}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Title_Small" x="367" y="151" width="85" height="10"/>
+                <textElement>
+                    <font isPdfEmbedded="false"/>
+                </textElement>
+                <text><![CDATA[Date Shipped]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" x="367" y="139" width="85" height="10"/>
+                <textElement/>
+                <text><![CDATA[Issued Date]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Small" x="5" y="273" width="80" height="10"/>
+                <textElement/>
+                <text><![CDATA[Container No.]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="264" y="306" width="61" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{freightStatusNm}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Title_Small" x="187" y="306" width="72" height="10"/>
+                <textElement/>
+                <text><![CDATA[Freight]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="264" y="318" width="61" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{priceTermNm}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Title_Small" x="187" y="318" width="72" height="10"/>
+                <textElement/>
+                <text><![CDATA[Price Terms]]></text>
+            </staticText>
+            <line>
+                <reportElement x="276" y="354" width="1" height="387"/>
+            </line>
+            <line>
+                <reportElement x="1" y="514" width="555" height="1"/>
+            </line>
+            <line>
+                <reportElement x="1" y="633" width="555" height="1"/>
+            </line>
+            <staticText>
+                <reportElement style="Title_Small" x="5" y="5" width="150" height="10"/>
+                <textElement>
+                    <font isUnderline="false" isPdfEmbedded="false"/>
+                </textElement>
+                <text><![CDATA[Shipper Information]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Title_Middle" x="5" y="517" width="260" height="12"/>
+                <textElement>
+                    <font isBold="false" isUnderline="true"/>
+                </textElement>
+                <text><![CDATA[Special Information]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="282" y="518" width="266" height="110"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{specialInformation2Value}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="StringData_Small" x="6" y="151" width="22" height="10"/>
+                <textElement/>
+                <text><![CDATA[Attn]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="28" y="151" width="153" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{consigneeAttn}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="6" y="91" width="175" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{consigneeCompNmInv2}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="6" y="127" width="175" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{consigneeCompAddrInv3}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="6" y="139" width="175" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{consigneeCompAddrInv4}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="187" y="91" width="175" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{shipToNmInv2}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="187" y="127" width="175" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{shipToAddrInv3}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="187" y="139" width="175" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{shipToAddrInv4}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="182" y="287" width="1" height="66"/>
+            </line>
+            <staticText>
+                <reportElement style="Title_Small" x="5" y="189" width="24" height="10"/>
+                <textElement/>
+                <text><![CDATA[ETD]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="243" y="189" width="53" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{eta}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="335" y="170" width="1" height="183"/>
+            </line>
+            <image isUsingCache="true">
+                <reportElement x="5" y="357" width="260" height="154"/>
+                <imageExpression class="java.io.InputStream"><![CDATA[$F{autoText5}]]></imageExpression>
+            </image>
+            <image isUsingCache="true">
+                <reportElement x="12" y="646" width="253" height="83"/>
+                <imageExpression class="java.io.InputStream"><![CDATA[$F{autoText9}]]></imageExpression>
+            </image>
+            <image isUsingCache="true">
+                <reportElement x="286" y="638" width="262" height="70"/>
+                <imageExpression class="java.io.InputStream"><![CDATA[$F{autoText6}]]></imageExpression>
+            </image>
+            <line>
+                <reportElement x="364" y="61" width="1" height="109"/>
+            </line>
+            <textField isBlankWhenNull="true">
+                <reportElement style="Title_Middle" x="286" y="437" width="123" height="12"/>
+                <textElement>
+                    <font isBold="false"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{freeAdditionalChargeNm}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="439" y="437" width="109" height="12"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{costAdditionalCharge}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="414" y="453" width="20" height="12"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{vatCurrCd}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="414" y="469" width="20" height="12"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{totalInvoiceAmountCurrCd}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="439" y="405" width="109" height="12"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="9" isBold="false"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{costSubTotal}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="414" y="405" width="20" height="12"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{subTotalCurrCd}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="439" y="389" width="109" height="12"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="9" isBold="false"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{costInsurance}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Title_Middle" x="286" y="405" width="123" height="12"/>
+                <textElement>
+                    <font isBold="false"/>
+                </textElement>
+                <text><![CDATA[Sub Total]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="414" y="389" width="20" height="12"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{insuranceCurrCd}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Title_Middle" x="286" y="469" width="123" height="12"/>
+                <textElement>
+                    <font isBold="false"/>
+                </textElement>
+                <text><![CDATA[Total Amount]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="439" y="373" width="109" height="12"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="9" isBold="false"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{costFreight}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="414" y="437" width="20" height="12"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{freeAdditionalChargeCurrCd}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Title_Middle" x="286" y="389" width="123" height="12"/>
+                <textElement>
+                    <font isBold="false"/>
+                </textElement>
+                <text><![CDATA[Insurance]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="439" y="453" width="109" height="12"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="9" isBold="false"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{costVat}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="414" y="373" width="20" height="12"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{freightCurrCd}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Title_Middle" x="286" y="373" width="123" height="12"/>
+                <textElement>
+                    <font isBold="false"/>
+                </textElement>
+                <text><![CDATA[Freight]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="439" y="357" width="109" height="12"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="9" isBold="false"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{costNetAmount}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Title_Middle" x="286" y="357" width="123" height="12"/>
+                <textElement>
+                    <font isBold="false"/>
+                </textElement>
+                <text><![CDATA[Net Amount]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="414" y="421" width="20" height="12"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{handlingChargeCurrCd}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="439" y="421" width="109" height="12"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="9" isBold="false"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{costHandlingCharge}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="439" y="469" width="109" height="12"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="9" isBold="false"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{costTotalInvoiceAmount}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle" x="414" y="357" width="20" height="12"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{netAmountCurrCd}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="414" y="483" width="134" height="1"/>
+                <graphicElement>
+                    <pen lineWidth="2.0" lineStyle="Double"/>
+                </graphicElement>
+            </line>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="286" y="710" width="262" height="15"/>
+                <textElement>
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{master7}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="286" y="724" width="262" height="15"/>
+                <textElement>
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{master8}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="339" y="174" width="209" height="177"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{master3}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="87" y="273" width="231" height="10"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{containerNo}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="Title_Middle" x="6" y="63" width="175" height="12"/>
+                <textElement markup="none">
+                    <font isBold="false" isUnderline="true"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{consigneeBlockName}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle-R" x="286" y="453" width="39" height="12"/>
+                <textElement textAlignment="Left"/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{vatDisplay1}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="Title_Middle" x="286" y="421" width="123" height="12"/>
+                <textElement>
+                    <font isBold="false"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{handlingChargeDisplay}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="190" y="32" width="365" height="12"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{shipperCompAddrInv2}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Small" x="4" y="530" width="269" height="100"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{specialInformationValue}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle-R" x="367" y="453" width="39" height="12"/>
+                <textElement textAlignment="Left"/>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{vatDisplay2}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="StringData_Middle-R" x="327" y="453" width="39" height="12"/>
+                <textElement textAlignment="Left">
+                    <font size="12" isBold="false"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{vatPercentage}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageHeader>
+</jasperReport>

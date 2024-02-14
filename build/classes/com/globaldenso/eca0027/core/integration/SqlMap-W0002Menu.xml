@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-W0002Menu.xml
+ *
+ * W0002MenuDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="W0002Menu">
+
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="W0002MenuDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W0002MenuDomain" />
+    <typeAlias alias="W0002OtherMenuDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W0002OtherMenuDomain" />
+    <typeAlias alias="W0002ServerDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W0002ServerDomain" />
+    <typeAlias alias="W0002CigmaStatusDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W0002CigmaStatusDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W0002MenuCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W0002MenuCriteriaDomain" />
+    <typeAlias alias="W0002OtherMenuCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W0002OtherMenuCriteriaDomain" />
+    <typeAlias alias="W0002ServerCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W0002ServerCriteriaDomain" />
+    <typeAlias alias="W0002CigmaStatusCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W0002CigmaStatusCriteriaDomain" />
+
+
+    <!-- 検索結果をMapで受け取る -->
+    <resultMap id="W0002MenuDomain_SearchVmMenu" class="W0002MenuDomain">
+        <result property="id" column="TM_MENU_SEQ" />
+        <result property="screenId" column="SCREEN_ID" />
+        <result property="screenNm" column="SCREEN_NM" />
+        <result property="parScreenId" column="PAR_SCREEN_ID" />
+        <result property="actionPath" column="ACTION_PATH" />
+        <result property="role" column="ROLE" />
+    </resultMap>
+    <resultMap id="W0002OtherMenuDomain_SearchTmOtherSysLink" class="W0002OtherMenuDomain">
+        <result property="sysNm" column="SYS_NM" />
+        <result property="url" column="URL" />
+    </resultMap>
+    <resultMap id="W0002ServerDomain_SearchTmServer" class="W0002ServerDomain">
+        <result property="serverNm" column="SERVER_NM" />
+        <result property="url" column="URL" />
+    </resultMap>
+    <resultMap id="W0002CigmaStatusDomain_SearchTmCigmaEnv" class="W0002CigmaStatusDomain">
+        <result property="compCd" column="COMP_CD" />
+        <result property="timezoneId" column="TIMEZONE_ID" />
+        <result property="timezoneName" column="TIMEZONE_NAME" />
+        <result property="nightBatStrtTime" column="NIGHT_BAT_STRT_TIME" />
+    </resultMap>
+
+    <!-- 検索 SQL文（メニュー情報） -->
+    <select id="SearchVmMenu" resultMap="W0002MenuDomain_SearchVmMenu"
+        parameterClass="W0002MenuCriteriaDomain">
+        
+        select /* SqlMap-W0002Menu.SearchVmMenu */
+             M.TM_MENU_SEQ
+            ,M.SCREEN_ID
+            ,ML.SCREEN_NM
+            ,M.PAR_SCREEN_ID
+            ,M.ACTION_PATH
+            ,A.ROLE
+        from 
+             TM_MENU M
+            ,TM_MENU_LNG ML
+            ,(select SCREEN_ID, ROLE from TM_MENU_USE_AUTH_CNF where COMP_CD = ' ') A
+        where M.TM_MENU_SEQ = ML.TM_MENU_SEQ
+          and M.SCREEN_ID = ML.SCREEN_ID
+          and M.SCREEN_ID = A.SCREEN_ID (+)
+          and M.MENU_DISP_FLG = '1'
+          and ML.LNG_CD = #lngCd#
+        order by M.DISP_ODR, A.ROLE
+    </select>
+    
+    <!-- 検索 SQL文（他システムメニュー情報） -->
+    <select id="SearchTmOtherSysLink" resultMap="W0002OtherMenuDomain_SearchTmOtherSysLink"
+        parameterClass="W0002OtherMenuCriteriaDomain">
+
+        select /* SqlMap-W0002Menu.SearchTmOtherSysLink */
+             SL.SYS_NM
+            ,S.URL
+        from TM_OTHER_SYS_LINK S, TM_OTHER_SYS_LINK_LANG SL
+        where S.SYS_ID = SL.SYS_ID
+          and S.COMP_CD = #compCd#
+          and SL.LNG_CD = #lngCd#
+        order by 
+             S.SORT_ODR
+    </select>
+
+    <!-- 検索 SQL文（サーバ情報） -->
+    <select id="SearchTmServer" resultMap="W0002ServerDomain_SearchTmServer"
+        parameterClass="W0002ServerCriteriaDomain">
+
+        select /* SqlMap-W0002Menu.SearchTmServer */
+             SL.SERVER_NM
+            ,S.URL
+        from TM_SERVER S, TM_SERVER_LANG SL
+        where S.SERVER_ID = SL.SERVER_ID
+          and S.SERVER_ID <![CDATA[<>]]> #serverId#
+          and SL.LNG_CD = #lngCd#
+        order by 
+             S.SORT_ODR
+    </select>
+
+    <!-- 検索 SQL文（CIGMA夜間バッチ情報） -->
+    <select id="SearchTmCigmaEnv" resultMap="W0002CigmaStatusDomain_SearchTmCigmaEnv"
+        parameterClass="W0002CigmaStatusCriteriaDomain">
+
+        select /* SqlMap-W0002Menu.SearchTmCigmaEnv */
+             CIG.COMP_CD
+            ,TZ.TIMEZONE_ID
+            ,'(UTC' || TZ.TIME_DIFF_SIGN || substr(TZ.TIME_DIFF, 0, 2) || ':' || substr(TZ.TIME_DIFF, -2) || ') ' || TZ.TIMEZONE_NAME TIMEZONE_NAME
+            ,CIG.NIGHT_BAT_STRT_TIME
+        from TM_CIGMA_ENV CIG, TM_NXS_COMP CO, LB_TIMEZONE_MANAGE TZ
+        where CIG.COMP_CD = CO.COMP_CD
+          and CO.TIMEZONE_ID = TZ.TIMEZONE_ID
+          and CIG.ACCESSIBILITY_TYP <![CDATA[<>]]> '1'
+          and CO.SERVER_ID = #serverId#
+        order by CIG.COMP_CD
+    </select>
+
+</sqlMap>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-Wt006OuterPkgSelect.xml
+ *
+ * SqlMap file of Wt006OuterPkgSelectDao.
+ * Wt006OuterPkgSelectDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Wt006OuterPkgSelect">
+
+    <!-- ListDomain -->
+    <typeAlias alias="Wt006OuterPkgSelectDomain"
+        type="com.globaldenso.eca0027.core.business.domain.Wt006OuterPkgSelectDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="Wt006OuterPkgSelectCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.Wt006OuterPkgSelectCriteriaDomain" />
+
+    <resultMap id="Wt006OuterPkgSelectResult" class="Wt006OuterPkgSelectDomain">
+        <result property="ownerComp" column="OWNER_COMP" />
+        <result property="outerPkgCd" column="OUTER_PKG_CD" />
+        <result property="lengthUnitOuterPkg" column="LENGTH_UNIT_OUTERPKG" />
+        <result property="lengthBefore" column="LENGTH_BEFORE" />
+        <result property="widthBefore" column="WIDTH_BEFORE" />
+        <result property="heightBefore" column="HEIGHT_BEFORE" />
+        <result property="volumeUnitOuterPkg" column="VOLUME_UNIT_OUTERPKG" />
+        <result property="volumeBefore" column="VOLUM_BEFORE" />
+        <result property="pkgItemNo" column="PKG_ITEM_NO" />
+        <result property="lengthUnitComp" column="LENGTH_UNIT_COMP" />
+        <result property="volumeUnitComp" column="VOLUME_UNIT_COMP" />
+        <result property="lengthUnitDisp" column="LENGTH_UNIT_DISP" />
+        <result property="volumeUnitDisp" column="VOLUME_UNIT_DISP" />
+
+
+        
+    </resultMap>
+
+    <!-- 汎用 項目 -->
+    <sql id="TableCols">
+        T1.OWNER_COMP OWNER_COMP
+        , T1.OUTER_PKG_CD OUTER_PKG_CD
+        , T1.LENGTH_UNIT LENGTH_UNIT_OUTERPKG
+        , T1.LENGTH LENGTH_BEFORE
+        , T1.WIDTH WIDTH_BEFORE
+        , T1.HEIGHT HEIGHT_BEFORE
+        , T1.VOLUME_UNIT VOLUME_UNIT_OUTERPKG
+        , T1.VOLUME VOLUM_BEFORE
+        , T2.PKG_ITEM_NO PKG_ITEM_NO
+        , T3.LENGTH_UNIT LENGTH_UNIT_COMP
+        , T3.VOLUME_UNIT VOLUME_UNIT_COMP
+        , T4.UNIT_DISP LENGTH_UNIT_DISP
+        , T5.UNIT_DISP VOLUME_UNIT_DISP
+    </sql>
+
+    <!-- 汎用 項目 -->
+    <sql id="Cols">
+        TEMP.OWNER_COMP
+        , TEMP.OUTER_PKG_CD
+        , TEMP.LENGTH_UNIT_OUTERPKG
+        , TEMP.LENGTH_BEFORE
+        , TEMP.WIDTH_BEFORE
+        , TEMP.HEIGHT_BEFORE
+        , TEMP.VOLUME_UNIT_OUTERPKG
+        , TEMP.VOLUM_BEFORE
+        , TEMP.PKG_ITEM_NO
+        , TEMP.LENGTH_UNIT_COMP
+        , TEMP.VOLUME_UNIT_COMP
+        , TEMP.LENGTH_UNIT_DISP
+        , TEMP.VOLUME_UNIT_DISP
+    </sql>
+
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeys">
+        order by
+            T1.OUTER_PKG_CD asc
+            , T2.PKG_ITEM_NO asc
+    </sql>
+
+    <!-- FROM句   -->
+    <sql id="From">
+        from
+            TM_PKG_SET_HDR T1
+            , TM_PKG_SET_DTL T2
+            , TM_NXS_COMP T3
+            , TM_MEASURE_UNIT T4
+            , TM_MEASURE_UNIT T5
+
+    </sql>
+
+    <!-- 汎用 Where句（基本項目） -->
+    <sql id="WhereCondition">
+        where
+            T1.OWNER_COMP = T2.OWNER_COMP
+            and T1.OUTER_PKG_CD = T2.OUTER_PKG_CD
+            and T3.COMP_CD = T1.OWNER_COMP
+            and T3.LENGTH_UNIT = T4.UNIT_CD
+            and T3.VOLUME_UNIT = T5.UNIT_CD
+            and T1.OWNER_COMP = #ownerComp#
+            <isNotEmpty property="outerPkgCd">
+                and T1.OUTER_PKG_CD like #outerPkgCd# || '%'
+            </isNotEmpty>
+            <isNotEmpty property="pkgItemNo">
+                <!-- ST967 MOD START -->
+                and (
+                        T2.PKG_ITEM_NO like #pkgItemNo# || '%'
+                    or  T2.PKG_ITEM_NO like '  ' || replace(#pkgItemNo#, '-', '') || '%'
+                )
+                <!-- ST967 MOD END -->
+            </isNotEmpty>
+    </sql>
+
+    <!-- 検索 SQL文（任意条件、ページング用） -->
+    <select id="SearchByConditionForPaging" resultMap="Wt006OuterPkgSelectResult"
+        parameterClass="Wt006OuterPkgSelectCriteriaDomain">
+        select
+        /* SqlMap-Wt006OuterPkgSelect.SearchByConditionForPaging */
+        <include refid="Cols" />
+        from (
+            select 
+            <include refid="TableCols" />
+            ,row_number() over (<include refid="SortKeys" />) ROW_NUM
+            <include refid="From" />
+            <include refid="WhereCondition" />
+            <include refid="SortKeys" />
+        ) TEMP
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCount" resultClass="java.lang.Integer"
+        parameterClass="Wt006OuterPkgSelectCriteriaDomain">
+        select count(ROWNUM)
+        /* SqlMap-Wt006OuterPkgSelect.SearchCount */
+        <include refid="From" />
+        <include refid="WhereCondition" />
+    </select>
+
+</sqlMap>

@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config_eca0027_action_w0.xml
+ * 
+ * AI-J2(Struts) の action設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+
+    <!-- Application Action Mapping Definitions ============================ -->
+    <action-mappings>
+        <!-- =============================================================== -->
+        <!-- W2001: 梱包指示Main画面                                         -->
+        <!-- =============================================================== -->
+        
+        <!-- W2001: 梱包指示Main画面 Initアクション -->
+        <action path="/W2001Init"
+            type="com.globaldenso.eca0027.core.presentation.W2001InitAction"
+            name="W2001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2001" />
+        </action>
+
+        <!-- W2001: 梱包指示Main画面 Searchアクション -->
+        <action path="/W2001Search"
+            type="com.globaldenso.eca0027.core.presentation.W2001SearchAction"
+            name="W2001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2001" />
+            <forward name="error" path="W2001" />
+        </action>
+
+        <!-- W2001: 梱包指示Main画面 CreateNewアクション -->
+        <action path="/W2001CreateNew"
+            type="com.globaldenso.eca0027.core.presentation.W2001CreateNewAction"
+            name="W2001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2002Init.do" />
+            <forward name="error" path="W2001" />
+        </action>
+
+        <!-- W2001: 梱包指示Main画面 ConfirmDetailアクション -->
+        <action path="/W2001ConfirmDetail"
+            type="com.globaldenso.eca0027.core.presentation.W2001ConfirmDetailAction"
+            name="W2001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2004Init.do" />
+            <forward name="error" path="W2001" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2002: 梱包指示Header画面                                       -->
+        <!-- =============================================================== -->
+        
+        <!-- W2002: 梱包指示Header画面 Initアクション -->
+        <action path="/W2002Init"
+            type="com.globaldenso.eca0027.core.presentation.W2002InitAction"
+            name="W2002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2002" />
+            <forward name="error" path="W2002" />
+        </action>
+
+        <!-- W2002: 梱包指示Header画面 MoveToCreateアクション -->
+        <action path="/W2002MoveToCreate"
+            type="com.globaldenso.eca0027.core.presentation.W2002MoveToCreateAction"
+            name="W2002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2003Init.do" />
+            <forward name="error" path="W2002" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2003: 梱包指示Create画面                                       -->
+        <!-- =============================================================== -->
+
+        <!-- W2003: 梱包指示Create画面 Initアクション -->
+        <action path="/W2003Init"
+            type="com.globaldenso.eca0027.core.presentation.W2003InitAction"
+            name="W2003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2003" />
+            <forward name="error" path="W2003" />
+        </action>
+
+        <!-- W2003: 梱包指示Create画面 Move to Registerアクション -->
+        <action path="/W2003MoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.W2003MoveToRegisterAction"
+            name="W2003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2004Init.do" />
+            <forward name="error" path="W2003" />
+        </action>
+
+        <!-- W2003: 梱包指示Create画面 Searchアクション -->
+        <action path="/W2003Search"
+            type="com.globaldenso.eca0027.core.presentation.W2003SearchAction"
+            name="W2003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2003" />
+            <forward name="error" path="W2003" />
+        </action>
+
+        <!-- W2003: 梱包指示Create画面 Updateアクション -->
+        <action path="/W2003Update"
+            type="com.globaldenso.eca0027.core.presentation.W2003UpdateAction"
+            name="W2003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2003" />
+            <forward name="error" path="W2003" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2004: 梱包指示Register画面                                     -->
+        <!-- =============================================================== -->
+
+        <!-- W2004: 梱包指示Register画面 Initアクション -->
+        <action path="/W2004Init"
+            type="com.globaldenso.eca0027.core.presentation.W2004InitAction"
+            name="W2004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2004" />
+            <forward name="error" path="W2004" />
+            <forward name="W2001" path="/W2001Search.do?back=true" />
+            <forward name="W2003" path="/W2003Search.do" />
+        </action>
+
+        <!-- W2004: 梱包指示Register画面 Registerアクション -->
+        <action path="/W2004Register"
+            type="com.globaldenso.eca0027.core.presentation.W2004RegisterAction"
+            name="W2004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2004" />
+            <forward name="error" path="W2004" />
+        </action>
+
+        <!-- W2004: 梱包指示Register画面 Cancelアクション -->
+        <action path="/W2004Cancel"
+            type="com.globaldenso.eca0027.core.presentation.W2004CancelAction"
+            name="W2004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2001Init.do?back=true" />
+            <forward name="error" path="W2004" />
+        </action>
+
+        <!-- W2004: 梱包指示Register画面 Deleteアクション -->
+        <action path="/W2004Delete"
+            type="com.globaldenso.eca0027.core.presentation.W2004DeleteAction"
+            name="W2004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2004" />
+            <forward name="error" path="W2004" />
+            <forward name="W2003" path="/W2003Init.do?back=true" />
+        </action>
+
+        <!-- W2004: 梱包指示Register画面 PrintInstrアクション -->
+        <action path="/W2004PrintInstr"
+            type="com.globaldenso.eca0027.core.presentation.W2004PrintInstrAction"
+            name="W2004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2004" />
+            <forward name="error" path="W2004" />
+        </action>
+
+        <!-- W2004: 梱包指示Register画面 PrintCmlForInstrアクション -->
+        <action path="/W2004PrintCmlForInstr"
+            type="com.globaldenso.eca0027.core.presentation.W2004PrintCmlForInstrAction"
+            name="W2004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2004" />
+            <forward name="error" path="W2004" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2005: Multiple Item No. in 1Box PKG Main Screen画面            -->
+        <!-- =============================================================== -->
+
+        <!-- W2005: Multiple Item No. in 1Box PKG Main Screen画面 ConfirmDetailアクション -->
+        <action path="/W2005ConfirmDetail"
+            type="com.globaldenso.eca0027.core.presentation.W2005ConfirmDetailAction"
+            name="W2005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2008Init.do" />
+            <forward name="error" path="W2005" />
+        </action>
+
+        <!-- W2005: Multiple Item No. in 1Box PKG Main Screen画面 CreateNewアクション -->
+        <action path="/W2005CreateNew"
+            type="com.globaldenso.eca0027.core.presentation.W2005CreateNewAction"
+            name="W2005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2006Init.do" />
+            <forward name="error" path="W2005" />
+        </action>
+
+        <!-- W2005: Multiple Item No. in 1Box PKG Main Screen画面 Initアクション -->
+        <action path="/W2005Init"
+            type="com.globaldenso.eca0027.core.presentation.W2005InitAction"
+            name="W2005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2005" />
+            <forward name="error" path="W2005" />
+        </action>
+
+        <!-- W2005: Multiple Item No. in 1Box PKG Main Screen画面 Searchアクション -->
+        <action path="/W2005Search"
+            type="com.globaldenso.eca0027.core.presentation.W2005SearchAction"
+            name="W2005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2005" />
+            <forward name="error" path="W2005" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2006: Multiple Item No. in 1Box PKG Header画面                 -->
+        <!-- =============================================================== -->
+
+        <!-- W2006: Multiple Item No. in 1Box PKG Header画面 Initアクション -->
+        <action path="/W2006Init"
+            type="com.globaldenso.eca0027.core.presentation.W2006InitAction"
+            name="W2006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2006" />
+            <forward name="error" path="W2006" />
+        </action>
+
+        <!-- W2006: Multiple Item No. in 1Box PKG Header画面 MoveToCreateアクション -->
+        <action path="/W2006MoveToCreate"
+            type="com.globaldenso.eca0027.core.presentation.W2006MoveToCreateAction"
+            name="W2006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2007Init.do" />
+            <forward name="error" path="W2006" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2007: Multiple Item No. in 1Box PKG Create画面                 -->
+        <!-- =============================================================== -->
+
+        <!-- W2007: Multiple Item No. in 1Box PKG Create画面 Initアクション -->
+        <action path="/W2007Init"
+            type="com.globaldenso.eca0027.core.presentation.W2007InitAction"
+            name="W2007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2007" />
+            <forward name="error" path="W2007" />
+        </action>
+
+        <!-- W2007: Multiple Item No. in 1Box PKG Create画面 MoveToRegisterアクション -->
+        <action path="/W2007MoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.W2007MoveToRegisterAction"
+            name="W2007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2008Init.do" />
+            <forward name="error" path="W2007" />
+        </action>
+
+        <!-- W2007: Multiple Item No. in 1Box PKG Create画面 Searchアクション -->
+        <action path="/W2007Search"
+            type="com.globaldenso.eca0027.core.presentation.W2007SearchAction"
+            name="W2007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2007" />
+            <forward name="error" path="W2007" />
+        </action>
+
+        <!-- W2007: Multiple Item No. in 1Box PKG Create画面 Updateアクション -->
+        <action path="/W2007Update"
+            type="com.globaldenso.eca0027.core.presentation.W2007UpdateAction"
+            name="W2007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2007" />
+            <forward name="error" path="W2007" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2008: Multiple Item No. in 1Box PKG Register画面               -->
+        <!-- =============================================================== -->
+
+        <!-- W2008: Multiple Item No. in 1Box PKG Register画面 Cancelアクション -->
+        <action path="/W2008Cancel"
+            type="com.globaldenso.eca0027.core.presentation.W2008CancelAction"
+            name="W2008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2005Init.do?back=true" />
+            <forward name="error" path="W2008" />
+        </action>
+
+        <!-- W2008: Multiple Item No. in 1Box PKG Register画面 Deleteアクション -->
+        <action path="/W2008Delete"
+            type="com.globaldenso.eca0027.core.presentation.W2008DeleteAction"
+            name="W2008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2008" />
+            <forward name="error" path="W2008" />
+            <forward name="W2007" path="/W2007Init.do?back=true" />
+        </action>
+
+        <!-- W2008: Multiple Item No. in 1Box PKG Register画面 Initアクション -->
+        <action path="/W2008Init"
+            type="com.globaldenso.eca0027.core.presentation.W2008InitAction"
+            name="W2008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2008" />
+            <forward name="error" path="W2008" />
+            <forward name="W2005" path="/W2005Search.do?back=true" />
+            <forward name="W2007" path="/W2007Search.do" />
+        </action>
+
+        <!-- W2008: Multiple Item No. in 1Box PKG Register画面 PkgMaterialsアクション -->
+        <action path="/W2008PkgMaterials"
+            type="com.globaldenso.eca0027.core.presentation.W2008PkgMaterialsAction"
+            name="W2008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2018Init.do" />
+            <forward name="error" path="W2008" />
+        </action>
+
+        <!-- W2008: Multiple Item No. in 1Box PKG Register画面 PrintTagアクション -->
+        <action path="/W2008PrintTag"
+            type="com.globaldenso.eca0027.core.presentation.W2008PrintTagAction"
+            name="W2008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2008" />
+            <forward name="error" path="W2008" />
+        </action>
+
+        <!-- W2008: Multiple Item No. in 1Box PKG Register画面 Registerアクション -->
+        <action path="/W2008Register"
+            type="com.globaldenso.eca0027.core.presentation.W2008RegisterAction"
+            name="W2008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2008" />
+            <forward name="error" path="W2008" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2018: Multiple Item No. in 1Box PKG Detail画面                 -->
+        <!-- =============================================================== -->
+
+        <!-- W2018: Multiple Item No. in 1Box PKG Detail画面 Deleteアクション -->
+        <action path="/W2018Delete"
+            type="com.globaldenso.eca0027.core.presentation.W2018DeleteAction"
+            name="W2018Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2018" />
+            <forward name="error" path="W2018" />
+        </action>
+
+        <!-- W2018: Multiple Item No. in 1Box PKG Detail画面 Initアクション -->
+        <action path="/W2018Init"
+            type="com.globaldenso.eca0027.core.presentation.W2018InitAction"
+            name="W2018Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2018" />
+            <forward name="error" path="W2018" />
+        </action>
+
+        <!-- W2018: Multiple Item No. in 1Box PKG Detail画面 Saveアクション -->
+        <action path="/W2018Save"
+            type="com.globaldenso.eca0027.core.presentation.W2018SaveAction"
+            name="W2018Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2018" />
+            <forward name="error" path="W2018" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2009: CML Main画面                                             -->
+        <!-- =============================================================== -->
+        
+        <!-- W2009: CML Main画面 ConfirmDetailアクション -->
+        <action path="/W2009ConfirmDetail"
+            type="com.globaldenso.eca0027.core.presentation.W2009ConfirmDetailAction"
+            name="W2009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2012Init.do" />
+            <forward name="error" path="W2009" />
+        </action>
+
+        <!-- W2009: CML Main画面 CreateNewアクション -->
+        <action path="/W2009CreateNew"
+            type="com.globaldenso.eca0027.core.presentation.W2009CreateNewAction"
+            name="W2009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2010Init.do" />
+            <forward name="error" path="W2009" />
+        </action>
+
+        <!-- W2009: CML Main画面 Initアクション -->
+        <action path="/W2009Init"
+            type="com.globaldenso.eca0027.core.presentation.W2009InitAction"
+            name="W2009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2009" />
+            <forward name="error" path="W2009" />
+        </action>
+
+        <!-- W2009: CML Main画面 Searchアクション -->
+        <action path="/W2009Search"
+            type="com.globaldenso.eca0027.core.presentation.W2009SearchAction"
+            name="W2009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2009" />
+            <forward name="error" path="W2009" />
+        </action>
+
+        <!-- W2009: CML Main画面 Trans./PKG Reviseアクション -->
+        <action path="/W2009TransPkgRevise"
+            type="com.globaldenso.eca0027.core.presentation.W2009TransPkgReviseAction"
+            name="W2009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2019Init.do" />
+            <forward name="error" path="W2009" />
+        </action>
+
+        <!-- W2009: CML Main画面 Print Multi CMLアクション UT414 ADD -->
+        <action path="/W2009PrintMultiCml"
+            type="com.globaldenso.eca0027.core.presentation.W2009PrintMultiCmlAction"
+            name="W2009Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="W2009" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2010: CML Header画面                                           -->
+        <!-- =============================================================== -->
+
+        <!-- W2010: CML Header画面 Initアクション -->
+        <action path="/W2010Init"
+            type="com.globaldenso.eca0027.core.presentation.W2010InitAction"
+            name="W2010Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2010" />
+            <forward name="error" path="W2010" />
+        </action>
+
+        <!-- W2010: CML Header画面 MoveToCreateアクション -->
+        <action path="/W2010MoveToCreate"
+            type="com.globaldenso.eca0027.core.presentation.W2010MoveToCreateAction"
+            name="W2010Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2011Init.do" />
+            <forward name="error" path="W2010" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2011: CML Create画面                                           -->
+        <!-- =============================================================== -->
+
+        <!-- W2011: CML Create画面 Initアクション -->
+        <action path="/W2011Init"
+            type="com.globaldenso.eca0027.core.presentation.W2011InitAction"
+            name="W2011Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2011" />
+            <forward name="error" path="W2011" />
+        </action>
+
+        <!-- W2011: CML Create画面 MoveToRegisterアクション -->
+        <action path="/W2011MoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.W2011MoveToRegisterAction"
+            name="W2011Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2012Init.do" />
+            <forward name="error" path="W2011" />
+        </action>
+
+        <!-- W2011: CML Create画面 Searchアクション -->
+        <action path="/W2011Search"
+            type="com.globaldenso.eca0027.core.presentation.W2011SearchAction"
+            name="W2011Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2011" />
+            <forward name="error" path="W2011" />
+        </action>
+
+        <!-- W2011: CML Create画面 Updateアクション -->
+        <action path="/W2011Update"
+            type="com.globaldenso.eca0027.core.presentation.W2011UpdateAction"
+            name="W2011Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2011" />
+            <forward name="error" path="W2011" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2012: CML Register画面                                         -->
+        <!-- =============================================================== -->
+
+        <!-- W2012: CML Register画面 Cancelアクション -->
+        <action path="/W2012Cancel"
+            type="com.globaldenso.eca0027.core.presentation.W2012CancelAction"
+            name="W2012Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2009Init.do?back=true" />
+            <forward name="error" path="W2012" />
+        </action>
+
+        <!-- W2012: CML Register画面 Deleteアクション -->
+        <action path="/W2012Delete"
+            type="com.globaldenso.eca0027.core.presentation.W2012DeleteAction"
+            name="W2012Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2012" />
+            <forward name="error" path="W2012" />
+            <forward name="W2011" path="/W2011Search.do?back=true" />
+        </action>
+
+        <!-- W2012: CML Register画面 Initアクション -->
+        <action path="/W2012Init"
+            type="com.globaldenso.eca0027.core.presentation.W2012InitAction"
+            name="W2012Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2012" />
+            <forward name="error" path="W2012" />
+            <forward name="W2009" path="/W2009Search.do?back=true" />
+            <forward name="W2011" path="/W2011Search.do" />
+        </action>
+
+        <!-- W2012: CML Register画面 PkgMaterialsアクション -->
+        <action path="/W2012PkgMaterials"
+            type="com.globaldenso.eca0027.core.presentation.W2012PkgMaterialsAction"
+            name="W2012Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2013Init.do" />
+            <forward name="error" path="W2012" />
+        </action>
+
+        <!-- W2012: CML Register画面 PrintCmlアクション -->
+        <action path="/W2012PrintCml"
+            type="com.globaldenso.eca0027.core.presentation.W2012PrintCmlAction"
+            name="W2012Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="W2012" />
+        </action>
+
+        <!-- W2012: CML Register画面 Registerアクション -->
+        <action path="/W2012Register"
+            type="com.globaldenso.eca0027.core.presentation.W2012RegisterAction"
+            name="W2012Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2012" />
+            <forward name="error" path="W2012" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2013: CML PKG Info Detail画面                              -->
+        <!-- =============================================================== -->
+
+        <!-- W2013: CML PKG Info Detail画面 Deleteアクション -->
+        <action path="/W2013Delete"
+            type="com.globaldenso.eca0027.core.presentation.W2013DeleteAction"
+            name="W2013Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2013" />
+            <forward name="error" path="W2013" />
+        </action>
+
+        <!-- W2013: CML PKG Info Detail画面 Initアクション -->
+        <action path="/W2013Init"
+            type="com.globaldenso.eca0027.core.presentation.W2013InitAction"
+            name="W2013Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2013" />
+            <forward name="error" path="W2013" />
+            <forward name="W2012" path="/W2012Init.do" />
+            <forward name="W2019" path="/W2019Init.do" />
+        </action>
+
+        <!-- W2013: CML PKG Info Detail画面 SaveAndMoveToRegisterアクション -->
+        <action path="/W2013SaveAndMoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.W2013SaveAndMoveToRegisterAction"
+            name="W2013Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2012Init.do?back=true" />
+            <forward name="error" path="W2013" />
+            <forward name="W2020" path="/W2020Init.do?back=true" /> <!-- UT304 MULTI LABEL ADD -->
+        </action>
+
+        <!-- W2013: CML PKG Info Detail画面 SaveAndMoveToTransPKGReviseアクション -->
+        <action path="/W2013SaveAndMoveToTransPKGRevise"
+            type="com.globaldenso.eca0027.core.presentation.W2013SaveAndMoveToTransPKGReviseAction"
+            name="W2013Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2019Init.do?back=true" />
+            <forward name="error" path="W2013" />
+        </action>
+
+        <!-- W2013: CML PKG Info Detail画面 AddNewLineアクション -->
+        <action path="/W2013AddNewLine"
+            type="com.globaldenso.eca0027.core.presentation.W2013AddNewLineAction"
+            name="W2013Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2013" />
+            <forward name="error" path="W2013" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2019: CML Trans Revise画面                                     -->
+        <!-- =============================================================== -->
+
+        <!-- W2019: CML Trans Revise画面 Initアクション -->
+        <action path="/W2019Init"
+            type="com.globaldenso.eca0027.core.presentation.W2019InitAction"
+            name="W2019Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2019" />
+            <forward name="error" path="W2019" />
+            <forward name="W2013" path="/W2013Init.do" />
+            <forward name="W2009" path="/W2009Init.do" />
+        </action>
+
+        <!-- W2019: CML Trans Revise画面 PkgMaterialsアクション -->
+        <action path="/W2019PkgMaterials"
+            type="com.globaldenso.eca0027.core.presentation.W2019PkgMaterialsAction"
+            name="W2019Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2013Init.do" />
+            <forward name="error" path="W2019" />
+        </action>
+
+        <!-- W2019: CML Trans Revise画面 PrintCmlアクション -->
+        <action path="/W2019PrintCml"
+            type="com.globaldenso.eca0027.core.presentation.W2019PrintCmlAction"
+            name="W2019Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="W2019" />
+        </action>
+
+        <!-- W2019: CML Trans Revise画面 Registerアクション -->
+        <action path="/W2019Register"
+            type="com.globaldenso.eca0027.core.presentation.W2019RegisterAction"
+            name="W2019Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2019" />
+            <forward name="error" path="W2019" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2014: X-Tag Main Screen画面                                    -->
+        <!-- =============================================================== -->
+
+        <!-- W2014: X-Tag Main Screen画面 ConfirmDetailアクション -->
+        <action path="/W2014ConfirmDetail"
+            type="com.globaldenso.eca0027.core.presentation.W2014ConfirmDetailAction"
+            name="W2014Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2017Init.do" />
+            <forward name="error" path="W2014" />
+        </action>
+
+        <!-- W2014: X-Tag Main Screen画面 CreateNewアクション -->
+        <action path="/W2014CreateNew"
+            type="com.globaldenso.eca0027.core.presentation.W2014CreateNewAction"
+            name="W2014Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2015Init.do" />
+            <forward name="error" path="W2014" />
+        </action>
+
+        <!-- W2014: X-Tag Main Screen画面 Initアクション -->
+        <action path="/W2014Init"
+            type="com.globaldenso.eca0027.core.presentation.W2014InitAction"
+            name="W2014Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2014" />
+            <forward name="error" path="W2014" />
+        </action>
+
+        <!-- W2014: X-Tag Main Screen画面 Searchアクション -->
+        <action path="/W2014Search"
+            type="com.globaldenso.eca0027.core.presentation.W2014SearchAction"
+            name="W2014Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2014" />
+            <forward name="error" path="W2014" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2015 X-Tag Header画面                                          -->
+        <!-- =============================================================== -->
+
+        <!-- W2015: X-Tag Main Header画面 Initアクション -->
+        <action path="/W2015Init"
+            type="com.globaldenso.eca0027.core.presentation.W2015InitAction"
+            name="W2015Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2015" />
+            <forward name="error" path="W2015" />
+        </action>
+
+        <!-- W2015: X-Tag Main Header画面 MoveToCreateアクション -->
+        <action path="/W2015MoveToCreate"
+            type="com.globaldenso.eca0027.core.presentation.W2015MoveToCreateAction"
+            name="W2015Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2016Init.do" />
+            <forward name="error" path="W2015" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2016 X-Tag Create画面                                          -->
+        <!-- =============================================================== -->
+
+        <!-- W2016: X-Tag Main Create画面 Initアクション -->
+        <action path="/W2016Init"
+            type="com.globaldenso.eca0027.core.presentation.W2016InitAction"
+            name="W2016Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2016" />
+            <forward name="error" path="W2016" />
+        </action>
+
+        <!-- W2016: X-Tag Main Create画面 MoveToRegisterアクション -->
+        <action path="/W2016MoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.W2016MoveToRegisterAction"
+            name="W2016Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2017Init.do" />
+            <forward name="error" path="W2016" />
+        </action>
+
+        <!-- W2016: X-Tag Main Create画面 Searchアクション -->
+        <action path="/W2016Search"
+            type="com.globaldenso.eca0027.core.presentation.W2016SearchAction"
+            name="W2016Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2016" />
+            <forward name="error" path="W2016" />
+        </action>
+
+        <!-- W2016: X-Tag Main Create画面 Updateアクション -->
+        <action path="/W2016Update"
+            type="com.globaldenso.eca0027.core.presentation.W2016UpdateAction"
+            name="W2016Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2016" />
+            <forward name="error" path="W2016" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W2017 X-Tag Register画面                                          -->
+        <!-- =============================================================== -->
+
+        <!-- W2017: X-Tag Main Register画面 Cancelアクション -->
+        <action path="/W2017Cancel"
+            type="com.globaldenso.eca0027.core.presentation.W2017CancelAction"
+            name="W2017Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2014Init.do?back=true" />
+            <forward name="error" path="W2017" />
+        </action>
+
+        <!-- W2017: X-Tag Main Register画面 Deleteアクション -->
+        <action path="/W2017Delete"
+            type="com.globaldenso.eca0027.core.presentation.W2017DeleteAction"
+            name="W2017Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2017" />
+            <forward name="error" path="W2017" />
+            <forward name="W2016" path="/W2016Init.do?back=true" />
+        </action>
+
+        <!-- W2017: X-Tag Main Register画面 Initアクション -->
+        <action path="/W2017Init"
+            type="com.globaldenso.eca0027.core.presentation.W2017InitAction"
+            name="W2017Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2017" />
+            <forward name="error" path="W2017" />
+            <forward name="W2014" path="/W2014Init.do?back=true" />
+            <forward name="W2016" path="/W2016Init.do?back=true" />
+        </action>
+
+        <!-- W2017: X-Tag Main Register画面 PrintTagアクション -->
+        <action path="/W2017PrintTag"
+            type="com.globaldenso.eca0027.core.presentation.W2017PrintTagAction"
+            name="W2017Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2017" />
+            <forward name="error" path="W2017" />
+        </action>
+
+        <!-- W2017: X-Tag Main Register画面 Registerアクション -->
+        <action path="/W2017Register"
+            type="com.globaldenso.eca0027.core.presentation.W2017RegisterAction"
+            name="W2017Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2017" />
+            <forward name="error" path="W2017" />
+        </action>
+
+        <!-- UT304 MULTI LABEL ADD START -->
+        <!-- =============================================================== -->
+        <!-- W2020: Multi Label Register画面                                           -->
+        <!-- =============================================================== -->
+
+        <!-- W2020: Multi Label Register画面 Initアクション -->
+        <action path="/W2020Init"
+            type="com.globaldenso.eca0027.core.presentation.W2020InitAction"
+            name="W2020Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2020" />
+            <forward name="error" path="W2020" />
+        </action>
+
+        <!-- W2020: Multi Label Register画面 Searchアクション -->
+        <action path="/W2020Search"
+            type="com.globaldenso.eca0027.core.presentation.W2020SearchAction"
+            name="W2020Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2020" />
+            <forward name="error" path="W2020" />
+        </action>
+
+        <!-- W2020: Multi Label Register画面 PkgMaterialsアクション -->
+        <action path="/W2020PkgMaterials"
+            type="com.globaldenso.eca0027.core.presentation.W2020PkgMaterialsAction"
+            name="W2020Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W2013Init.do?callScreenId=W2020" />
+            <forward name="error" path="W2020" />
+            </action>
+
+        <!-- W2020: Multi Label Register画面 Registerアクション -->
+        <action path="/W2020Register"
+            type="com.globaldenso.eca0027.core.presentation.W2020RegisterAction"
+            name="W2020Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2020" />
+            <forward name="error" path="W2020" />
+        </action>
+
+        <!-- W2020: Multi Label Register画面 PrintCmlアクション -->
+        <action path="/W2020PrintCml"
+            type="com.globaldenso.eca0027.core.presentation.W2020PrintCmlAction"
+            name="W2020Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2020" />
+            <forward name="error" path="W2020" />
+        </action>
+
+        <!-- W2020: Multi Label Register画面 Clearアクション -->
+        <action path="/W2020Clear"
+            type="com.globaldenso.eca0027.core.presentation.W2020ClearAction"
+            name="W2020Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W2020" />
+            <forward name="error" path="W2020" />
+        </action>
+        <!-- UT304 MULTI LABEL ADD END -->
+
+    </action-mappings>
+</struts-config>

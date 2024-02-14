@@ -1,0 +1,118 @@
+@charset "utf-8";
+/*
+ * W2004.css
+ * 
+ * 梱包指示Register画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+#gscm_wrapper {
+    overflow-y: auto;
+}
+
+/*------------ 検索条件エリア ------------*/ 
+
+.gscm_search .search_shipper_cd {
+    width: 90px;
+}
+
+.gscm_search .search_customer_cd {
+    width: 89px;
+}
+
+.gscm_search .search_lgcy_ship_to {
+    width: 60px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 55px;
+}
+
+.gscm_search .search_plnt_cd {
+    width: 70px;
+}
+
+.gscm_search .search_lgcy_wh_cd {
+    width: 45px;
+}
+
+.gscm_search .search_pltz_instr_dt {
+    width: 80px;
+}
+
+.gscm_search .search_pltz_instr_status {
+    width: 40px;
+}
+
+.gscm_search .search_cml_print_out_dt {
+    width: 120px;
+}
+
+.gscm_search .search_pltz_instr_no {
+    width: 570px;
+}
+
+.gscm_search .search_fm_dt {
+    width: 80px;
+}
+
+.gscm_search .search_to_dt {
+    width: 80px;
+}
+
+.gscm_search .search_customer_po_no {
+    width: 286px;
+}
+
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+	width: 960px;
+}
+
+.gscm_resultlist .resultlist_delete {
+    width: 55px;
+}
+
+.gscm_resultlist .resultlist_item_no {
+    width: 266px;
+}
+
+.gscm_resultlist .resultlist_pkg_cd {
+    width: 65px;
+}
+
+.gscm_resultlist .resultlist_cml_flg {
+    width: 65px;
+}
+
+.gscm_resultlist .resultlist_shipping_lot {
+    width: 111px;
+}
+
+.gscm_resultlist .resultlist_instr_qty {
+    width: 111px;
+}
+
+.gscm_resultlist .resultlist_box_lot_qty {
+    width: 111px;
+}
+
+.gscm_resultlist .resultlist_total_net_weight {
+    width: 111px;
+}
+
+.gscm_resultlist .resultlist_box_qty {
+    width: 65px;
+}
+
+/*------------ 表示幅 ------------*/ 
+
+.w2004_trns_cd {
+    width: 26px;
+}
+
+.w2004_pltz_instr_status {
+    width: 26px;
+}

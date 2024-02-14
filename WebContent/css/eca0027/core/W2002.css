@@ -1,0 +1,38 @@
+@charset "utf-8";
+/*
+ * W2002.css
+ * 
+ * 梱包指示Header画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+
+table.grid {
+    width: 420px;
+}
+
+.grid .grid_header {
+    width: 150px;
+}
+
+.grid .grid_contents {
+    width: 270px;
+}
+
+table.po_due_dt_table {
+    border :solid 0px;
+}
+
+table.po_due_dt_table td {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 8px;
+    border: none;
+    background-color: transparent;
+    border-spacing:0;
+}

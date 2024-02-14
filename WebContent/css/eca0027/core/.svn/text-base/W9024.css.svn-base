@@ -1,0 +1,31 @@
+@CHARSET "utf-8";
+/*
+ * W9024.css
+ * 
+ * Export Item No. Apply Start Date Refer & Register画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+table.grid {
+    width: 550px;
+}
+
+.grid .grid_header {
+    width:150px;
+}
+
+.w9024_item_no {
+    width: 300px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+div.box_add_refer {
+    position: absolute;
+    top: 90px;
+    left: 560px;
+}
+
+.grid th {
+    text-align: right;
+}

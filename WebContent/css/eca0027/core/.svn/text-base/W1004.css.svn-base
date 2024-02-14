@@ -1,0 +1,134 @@
+@charset "utf-8";
+/*
+ * W1003.css
+ * 
+ * 梱包指示Main画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+/* --- 検索条件部の表示枠 --------------------- */
+/*------------ Search condition area 1 ------------*/ 
+table.header_1 {
+    width: 600px;
+}
+.header_1 .search_request_no {
+    width: 100px;
+}
+.header_1 .search_shipper {
+    width: 100px;
+}
+.header_1 .search_consignee {
+    width: 100px;
+}
+.header_1 .search_ship_to {
+    width: 130px;
+}
+.header_1 .search_trans {
+    width: 70px;
+}
+.header_1 .search_weight_unit {
+    width: 100px;
+}
+/*------------ Result search ------------*/ 
+table.gscm_resultlist {
+    width: 980px;
+}
+.gscm_resultlist .resultlist_line {
+    width: 35px;
+}
+.gscm_resultlist .resultlist_sub_line {
+    width: 65px;
+}
+.gscm_resultlist .resultlist_customer_item_no {
+    width: 130px;
+}
+.gscm_resultlist .resultlist_child_item_no {
+    width: 125px;
+}
+.gscm_resultlist .resultlist_co {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_qty_unit {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_qty {
+    width: 75px;
+}
+.gscm_resultlist .resultlist_currancy {
+    width: 70px;
+}
+.gscm_resultlist .resultlist_unit_price {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_net_weight {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_comm {
+    width: 105px;
+}
+.gscm_resultlist .resultlist_rEx {
+    width: 55px;
+}
+
+/*------------ Result data------------*/ 
+.kit_par_flg{
+	width: 99%;
+}
+.customer_po_no{
+	width: 97%;
+}
+.description{
+	width: 99%;
+}
+.dngr_goods_imp_exp{
+	width: 98%;
+}
+.customer_item_no{
+	width: 97%;
+}
+.item_no{
+	width: 97%;
+}
+.pkg_cd{
+	width: 89%;
+}
+.origin_cntry_cd{
+	width: 99%;
+}
+.qty_unit{
+	width: 99%;
+}
+.qty{
+	width: 90%;
+}
+.unit_price{
+	width: 90%;
+}
+.net_weight{
+	width: 90%;
+}
+.commercial_flg{
+	width: 99%;
+}
+.re_exp_goods_flg{
+	width: 99%;
+}
+.location_no{
+	width: 94%;
+}
+.construction_work_no{
+	width: 95%;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right !important;
+}
+
+#gscm_wrapper {
+    overflow-y: auto;
+}

@@ -1,0 +1,122 @@
+"OWNER_COMP","PKG_ITEM_NO","LNG_CD","PKG_NM","COM_UPDATE_FUNC_ID","COM_UPDATE_USER_ID","COM_UPDATE_TIMESTAMP","COM_CREATE_FUNC_ID","COM_CREATE_USER_ID","COM_CREATE_TIMESTAMP"
+"MYB","PKGITEMENO-001","1","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"MYB","PKGITEMENO-002","1","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"MYB","PKGITEMENO-003","1","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"MYB","PKGITEMENO-004","1","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"MYB","PKGITEMENO-005","1","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"MYB","PKGITEMENO-006","1","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"MYB","PKGITEMENO-007","1","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"MYA","PKGITEMENO-001","1","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"MYA","PKGITEMENO-002","1","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"MYA","PKGITEMENO-003","1","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"MYA","PKGITEMENO-004","1","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"MYA","PKGITEMENO-005","1","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"MYA","PKGITEMENO-006","1","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"MYA","PKGITEMENO-007","1","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"MYA","PKGITEMENO-001","en","Cardboard","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYA","PKGITEMENO-001","ja","段ボール","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYA","PKGITEMENO-002","en","Packing tape","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYA","PKGITEMENO-002","ja","ガムテープ","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYA","PKGITEMENO-003","en","Bubble wrap","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYA","PKGITEMENO-003","ja","プチプチ","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYA","PKGITEMENO-004","en","Eco-Soft","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYA","PKGITEMENO-004","ja","エコソフト","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYA","PKGITEMENO-005","en","Air pillow","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYA","PKGITEMENO-005","ja","エアピロー","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYA","PKGITEMENO-006","en","Styrofoam type A","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYA","PKGITEMENO-006","ja","発泡スチロール型A","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYA","PKGITEMENO-007","en","Styrofoam type B","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYA","PKGITEMENO-007","ja","発泡スチロール型B","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-001","en","Cardboard","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"BHT","PKGITEMENO-001","en","packageMaterial English","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-002","en","Packing tape","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-002","ja","ガムテープ","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-003","en","Bubble wrap","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-003","ja","プチプチ","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-004","en","Eco-Soft","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-004","ja","エコソフト","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-005","en","Air pillow","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-005","ja","エアピロー","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-006","en","Styrofoam type A","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-006","ja","発泡スチロール型A","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-007","en","Styrofoam type B","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-007","ja","発泡スチロール型B","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY6","PKGITEMENO-001","ja","段ボール","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY6","PKGITEMENO-001","en","Cardboard","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY6","PKGITEMENO-002","en","Packing tape","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY6","PKGITEMENO-002","ja","ガムテープ","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"BHT","PKGITEMENO-000","en","packageMaterial English","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"BHT","PKGITEMENO-000","ja","包装材 日本語０","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY7","PKGITEMENO-001","ja","段ボール","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY7","PKGITEMENO-002","ja","ガムテープ","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY7","PKGITEMENO-003","ja","プチプチ","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY7","PKGITEMENO-004","ja","エコソフト","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY7","PKGITEMENO-005","ja","エアピロー","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY7","PKGITEMENO-006","ja","発泡スチロール型A","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY7","PKGITEMENO-007","ja","発泡スチロール型B","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY7","PKGITEMENO-001","en","Cardboard","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY7","PKGITEMENO-002","en","Packing tape","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY7","PKGITEMENO-003","en","Bubble wrap","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY7","PKGITEMENO-004","en","Eco-Soft","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY7","PKGITEMENO-005","en","Air pillow","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY7","PKGITEMENO-006","en","Styrofoam type A","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY7","PKGITEMENO-007","en","Styrofoam type B","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"YY7","PKGITEMENO-001","en","Cardboard","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"YY7","PKGITEMENO-001","ja","段ボール","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"YY7","PKGITEMENO-002","en","Packing tape","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"YY7","PKGITEMENO-002","ja","ガムテープ","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"YY7","PKGITEMENO-003","ja","プチプチ","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"YY7","PKGITEMENO-003","en","プチプチ","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"YY7","PKGITEMENO-004","en","Eco-Soft","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"YY7","PKGITEMENO-004","ja","エコソフト","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"YY7","PKGITEMENO-005","en","Air pillow","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"YY7","PKGITEMENO-005","ja","エアピロー","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"YY7","PKGITEMENO-006","en","Styrofoam type A","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"YY7","PKGITEMENO-006","ja","発泡スチロール型A","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"YY7","PKGITEMENO-007","en","Styrofoam type B","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"YY7","PKGITEMENO-007","ja","発泡スチロール型B","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-030","en","PKGITEMENO-030","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY3","1","ja","AAAAA","1","1",2014/03/19 17:32:15,"1","1",2014/03/19 17:32:15
+"MY8","PKGITEMENO-001","en","Cardboard","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY8","PKGITEMENO-001","ja","段ボール","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY8","PKGITEMENO-002","en","Packing tape","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY8","PKGITEMENO-002","ja","ガムテープ","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY8","PKGITEMENO-003","en","Bubble wrap","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY8","PKGITEMENO-003","ja","プチプチ","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY8","PKGITEMENO-004","en","Eco-Soft","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY8","PKGITEMENO-004","ja","エコソフト","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY8","PKGITEMENO-005","en","Air pillow","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY8","PKGITEMENO-005","ja","エアピロー","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY8","PKGITEMENO-006","en","Styrofoam type A","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY8","PKGITEMENO-006","ja","発泡スチロール型A","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY8","PKGITEMENO-007","en","Styrofoam type B","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY8","PKGITEMENO-007","ja","発泡スチロール型B","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-008","en","PKGITEMENO-008","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-009","en","PKGITEMENO-009","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-010","en","PKGITEMENO-010","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-020","en","PKGITEMENO-020","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-021","en","PKGITEMENO-021","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-022","en","PKGITEMENO-022","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY6","PKGITEMENO-003","en","Bubble wrap","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY6","PKGITEMENO-003","ja","プチプチ","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY6","PKGITEMENO-004","en","Eco-Soft","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY6","PKGITEMENO-004","ja","エコソフト","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY6","PKGITEMENO-005","en","Air pillow","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY6","PKGITEMENO-005","ja","エアピロー","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-000","1","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"MYB","PKGITEMENO-000","en","Cardboard dummy","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-000","ja","Cardboard dummy","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-200","en","PKGITEMENO-200","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MYB","PKGITEMENO-200","ja","PKGITEMENO-200","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"MY4","1","en","MR","1","1",1899/12/30 01:00:00,"1","1",1899/12/30 01:00:00
+"BHT","PKGITEMENO-901","en","package Name 901","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"BHT","PKGITEMENO-902","en","package Name 902","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"BHT","PKGITEMENO-903","en","package Name 903","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"BHT","PKGITEMENO-904","en","package Name 904","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"BHT","PKGITEMENO-905","en","package Name 905","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"BHT","PKGITEMENO-901","ja","梱包材名称９０１","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"BHT","PKGITEMENO-902","ja","梱包材名称９０２","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"BHT","PKGITEMENO-903","ja","梱包材名称９０３","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"BHT","PKGITEMENO-904","ja","梱包材名称９０４","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"BHT","PKGITEMENO-905","ja","梱包材名称９０５","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00
+"BHT","PKGITEMENO-001","ja","包装材 日本語１","dummy","dummy",2014/03/22 00:00:00,"dummy","dummy",2014/03/22 00:00:00

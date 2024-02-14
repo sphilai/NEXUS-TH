@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/E008_ECA0027/!svn/ver/15760/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/E008_ECA0027/!svn/ver/15116/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/.classpath
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/E008_ECA0027/!svn/ver/15097/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/.project
+END
+.fbprefs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/E008_ECA0027/!svn/ver/15097/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/.fbprefs
+END
+.djunitplugin
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/.djunitplugin
+END
+.checkstyle
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/E008_ECA0027/!svn/ver/15097/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/.checkstyle
+END
+findbugs_exclude_filter.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/findbugs_exclude_filter.xml
+END

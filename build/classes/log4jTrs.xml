@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ *    log4jTrs.xml
+ *    
+ * [JP]    AijbMainController の Log4j 設定ファイルです。
+ * [JP]
+ * [JP]    本番/開発環境用の log4j 設定ファイルです。
+ * [JP]
+ * [JP]    出力ファイルサイズ軽減のため、標準出力はしていないので注意してください。
+ * [JP]
+ * [JP]    システムログ( aijbTrsSys.log )は JP1 監視対象のため、ログローテーションを
+ * [JP]    行わない設定になっています。(変更不可)
+ * [JP]    その他のログはローテーションを行うことが可能です。
+ * [JP]    標準設定はアプリログ( aijbTrsApp.log )のみ日次でローテーションを行う設定に
+ * [JP]    なっています。
+ *    
+ * [EN]    It is the configuration file for Log4j AijbMainController.
+ * [EN]
+ * [EN]    It is a log4j configuration file for the production environment / development machine.
+ * [EN]
+ * [EN]    Please note that in order to reduce output file size, does not have the standard output.
+ * [EN]
+ * [EN]    In order to JP1 monitor, system logging (aijbTrsSys.log) is configured to not perform log rotation.
+ * [EN]    (Do not change)
+ * [EN]    Other logs can perform the rotation is possible.
+ * [EN]    The standard setting has been configured to perform log (aijbTrsApp.log) rotation 
+ * [EN]    on a daily basis only app.
+ *    
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE log4j:configuration SYSTEM "./log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!-- ========================================================== Appender -->
+
+    <!-- [JP] アプリケーションログ (日次ローテーション) -->
+    <!-- [EN] Application Log (daily rotation) -->
+    <appender name="app_file_roll" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/data/AIJB/logs/aijbTrsApp.log" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[APP] [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="INFO" />
+            <param name="LevelMax" value="INFO" />
+        </filter>
+    </appender>
+
+    <!-- [JP] システムログ (固定出力) -->
+    <!-- [EN] System log (fixed output) -->
+    <appender name="sys_file_fix" class="org.apache.log4j.FileAppender">
+        <param name="File" value="/data/AIJB/logs/aijbTrsSys.log" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[SYS] [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] [%C{1}.%M] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="WARN" />
+            <param name="LevelMax" value="FATAL" />
+        </filter>
+    </appender>
+
+    <!-- [JP] 各アプリジョブのプロセスID ログ (ファイル出力) -->
+    <!-- [EN] Log of every job application process ID (output file) -->
+    <appender name="pid_file_fix" class="org.apache.log4j.FileAppender">
+        <param name="File" value="/data/AIJB/logs/aijbTrsPid.log" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[APP] [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="INFO" />
+            <param name="LevelMax" value="INFO" />
+        </filter>
+    </appender>
+
+    <!-- ============================================================ Logger -->
+    <!-- [JP] アプリ基盤  -->
+    <!-- [EN] Application Development Infrastructure -->
+    <logger name="com.globaldenso.ai" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_fix" />
+    </logger>
+
+    <!-- [JP] AI-JB プロセスID出力  -->
+    <!-- [EN] AI-JB output process ID  -->
+    <logger name="com.globaldenso.ai.aijb.core.util.ProcessId" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="pid_file_fix" />
+    </logger>
+
+    <!-- [JP] Spring Framework トランザクション情報出力 -->
+    <!-- [EN] Spring Framework transaction information output -->
+    <logger name="org.springframework.transaction" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_fix" />
+    </logger>
+
+    <!-- [JP] iBATIS SQL情報出力  -->
+    <!-- [EN] information output iBATIS SQL -->
+    <logger name="java.sql.Connection" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_fix" />
+    </logger>
+
+    <logger name="java.sql.PreparedStatement" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_fix" />
+    </logger>
+
+    <logger name="java.sql.Statement" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_fix" />
+    </logger>
+
+    <!-- ============================================================== Root -->
+    <root>
+        <level value="ERROR" />
+        <appender-ref ref="sys_file_fix" />
+    </root>
+
+</log4j:configuration>

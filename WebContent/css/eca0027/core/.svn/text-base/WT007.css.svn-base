@@ -1,0 +1,30 @@
+@charset "utf-8"; 
+/*
+ * WT007.css
+ * 
+ * Style sheet used in Item No. Info Sub Screen. 
+ * 品番表示子画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved. 
+ */
+/*------------ Search result total area------------*/ 
+/*------------ 検索結果エリア(全体) ------------*/ 
+table.gscm_resultlist {
+    width:500px; 
+}
+
+/*------------ Search result individual area ------------*/ 
+/*------------ 検索結果エリア(個別) ------------*/ 
+.gscm_resultlist .resultlist_itemNo { 
+    width: 280px; 
+}
+.gscm_resultlist .resultlist_pkgCd { 
+    width: 60px; 
+}
+.gscm_resultlist .resultlist_shipLot { 
+    width: 80px; 
+}
+.gscm_resultlist .resultlist_actualPkgQty { 
+    width: 80px; 
+} 
+

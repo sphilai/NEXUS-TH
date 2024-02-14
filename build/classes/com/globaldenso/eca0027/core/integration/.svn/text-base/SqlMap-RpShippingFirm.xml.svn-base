@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * SqlMap-RpShippingFirm.xml
+ * 
+ * Shipping Confirmation機能用の SQL 設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="RpShippingFirm">
+
+    <!-- Domain type alias -->
+    <typeAlias alias="L5001InvoiceDomain" type="com.globaldenso.eca0027.core.business.domain.L5001InvoiceDomain" />
+
+    <!-- Result mapping definition/検索結果をMapで受け取る -->
+    <resultMap id="L5001InvoiceDomain_SearchInvoiceByShiipingFirmNo" class="L5001InvoiceDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="shipperNmAbb" column="SHIPPER_NM_ABB" />
+        <result property="shipToNmAbb" column="SHIP_TO_NM_ABB" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" />
+        <result property="invoiceClass" column="INVOICE_CLASS" />
+        <result property="originalVolumeUnit" column="VOLUME_UNIT" />
+        <result property="originalWeightUnit" column="WEIGHT_UNIT" />
+        <result property="originalVolume" column="VOLUME" />
+        <result property="originalGrossWeight" column="GROSS_WEIGHT" />
+        <result property="pkgQty" column="PKG_QTY" />
+    </resultMap>
+
+    <!--
+    ================================================================
+    == Search the Staging actuality No. that output to L5001(Template:L5001-1) report.
+    == However, since there is no Staging actuality the case of the Air, returns the Staging instruction No. instead.
+    == L5001(定義体:L5001-1)出荷確認帳票に出力する山作り実績No.を検索する。
+    == ただし、Airは山作りがないので代わりに荷揃え指示No.を返す。
+    ================================================================
+    -->
+    <select id="searchStgNoByShiipingFirmNo" resultClass="java.lang.String"
+        parameterClass="java.lang.String">
+
+        select /* SqlMap-RpShippingFirm.searchStgNoByShiipingFirmNo */
+        distinct
+            <!-- decode(TRNS_CD, 'A', STG_INSTR_NO, STG_ACT_NO) STG_NO -->
+            case
+                when CUSTOM_TIMING_TYP = 'Z' and CONTAINER_LOOSE_TYP = 'L' then
+                    STG_INSTR_NO
+                else
+                    STG_ACT_NO
+            end STG_NO
+        from
+            TT_PLTZ
+        where
+            SHIPPING_FIRM_NO = #value#
+        order by
+            STG_NO
+    </select>
+
+    <!--
+    ================================================================
+    == Search L5001(Template:L5001-2) detail data that invoice unit.
+    == Palletizing that invoice No. is not set is not the target.
+    == At the union, also it adds the relational FRT invoice No..
+    == L5001(定義体:L5001-2)出荷確認帳票に出力するインボイス単位の明細データを検索する。
+    == インボイスNo.が設定されていないパレタイズは対象としない。
+    == unionにて関連するFRTインボイスNo.も付け加える。
+    ================================================================
+    -->
+    <select id="SearchInvoiceByShiipingFirmNo" resultMap="L5001InvoiceDomain_SearchInvoiceByShiipingFirmNo"
+        parameterClass="java.lang.String">
+
+        select /* SqlMap-RpShippingFirm.SearchInvoiceByShiipingFirmNo */
+            *
+        from
+        (
+            select
+                T1.SHIPPER_CD
+            ,   T2.COMP_NM_ABB  SHIPPER_NM_ABB
+            ,   T3.SHIP_TO_NM_ABB
+            ,   T1.INVOICE_NO
+            ,   T1.INVOICE_ISSUE_DT
+            ,   NULL INVOICE_CLASS
+            ,   T1.VOLUME_UNIT
+            ,   T1.WEIGHT_UNIT
+            ,   sum(T1.VOLUME) VOLUME
+            ,   sum(T1.GROSS_WEIGHT) GROSS_WEIGHT
+            ,   count(*) PKG_QTY
+            from
+                TT_PLTZ T1
+            ,   TM_NXS_COMP T2
+            ,   TM_NXS_SHIP_TO T3
+            where
+                T1.SHIPPING_FIRM_NO = #value#
+            and T1.CUSTOM_TIMING_TYP != 'A'
+            and T1.SHIPPER_CD = T2.COMP_CD
+            and T1.SHIP_TO_CD = T3.SHIP_TO_CD
+            group by
+                T1.SHIPPER_CD
+            ,   T2.COMP_NM_ABB
+            ,   T1.SHIP_TO_CD
+            ,   T3.SHIP_TO_NM_ABB
+            ,   T1.INVOICE_NO
+            ,   T1.INVOICE_ISSUE_DT
+            ,   T1.VOLUME_UNIT
+            ,   T1.WEIGHT_UNIT
+            union all
+            select
+                T2.SHIPPER_CD
+            ,   T3.COMP_NM_ABB  SHIPPER_NM_ABB
+            ,   T4.SHIP_TO_NM_ABB
+            ,   T2.INVOICE_NO
+            ,   T2.INVOICE_ISSUE_DT
+            ,   'F' INVOICE_CLASS
+            ,   NULL VOLUME_UNIT
+            ,   NULL WEIGHT_UNIT
+            ,   NULL VOLUME
+            ,   NULL GROSS_WEIGHT
+            ,   NULL PKG_QTY
+            from
+                TT_PLTZ T1
+            ,   TT_INVOICE T2
+            ,   TM_NXS_COMP T3
+            ,   TM_NXS_SHIP_TO T4
+            where
+                T1.SHIPPING_FIRM_NO = #value#
+            and T1.CUSTOM_TIMING_TYP != 'A'
+            and T2.INVOICE_CLASS = 'F'
+            and T2.CANCEL_TYP = 'N'
+            and T1.SHIPPER_CD = T2.PAR_INVOICE_SHIPPER_CD
+            and T1.INVOICE_NO = T2.PAR_INVOICE_NO
+            and T1.INVOICE_ISSUE_DT = T2.PAR_INVOICE_ISSUE_DT
+            and T2.SHIPPER_CD = T3.COMP_CD
+            and T2.SHIP_TO_CD = T4.SHIP_TO_CD
+            group by
+                T2.SHIPPER_CD
+            ,   T3.COMP_NM_ABB
+            ,   T4.SHIP_TO_NM_ABB
+            ,   T2.INVOICE_NO
+            ,   T2.INVOICE_ISSUE_DT
+        ) T1
+        order by
+            T1.SHIPPER_CD
+        ,   T1.SHIPPER_NM_ABB
+        ,   T1.SHIP_TO_NM_ABB
+        ,   T1.INVOICE_NO
+    </select>
+</sqlMap>

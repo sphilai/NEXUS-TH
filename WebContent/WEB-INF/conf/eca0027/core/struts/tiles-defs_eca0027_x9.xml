@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * tiles-defs_eca0027_x9.xml
+ *
+ * AI-J2(Struts) の Tiles 設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE tiles-definitions PUBLIC
+            "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+
+    <!-- 個別画面 -->
+    <!-- ====================================================================-->
+
+    <!--
+        この個別画面の定義名はaction-mappingsのforwardタグと紐付き、
+        header.jspにて画面IDとして共通的に埋め込まれます。
+        このため、この個別画面の定義名には、画面IDそのものを使用してください。
+    -->
+    
+    <!-- X9001:子画面用テスト親画面
+    <definition name="X9001" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="X9001"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/X9001.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/X9001"/>
+        <put name="js_filepath" value="js/eca0027/core/X9001.js"/>
+    </definition>  -->
+
+    <!-- X9001:子画面用テスト親画面 -->
+    <definition name="X9001" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="X9001"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/X9001.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/ECA0027_common_en_US"/>
+        <put name="js_filepath" value="js/eca0027/core/eca0027_common.js"/>
+        <put name="windowCloseFlg" value="false"/>
+    </definition>
+</tiles-definitions>

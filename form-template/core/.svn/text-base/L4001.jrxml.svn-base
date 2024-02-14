@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="StagingInstruction" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.9487171000000065"/>
+	<property name="ireport.x" value="370"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" mode="Opaque" backcolor="#999999" fill="Solid" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<style name="String" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<style name="Integer" hAlign="Right" vAlign="Middle" pattern="#,##0" isBlankWhenNull="true" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<style name="Date" hAlign="Left" vAlign="Middle" pattern="yy/MM/dd" isBlankWhenNull="true" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<style name="Time" hAlign="Left" vAlign="Middle" pattern="hh:mm:ss" isBlankWhenNull="true" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<style name="String_fixed" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="IPAゴシック" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="String_data" hAlign="Left" vAlign="Middle" isBlankWhenNull="true" fontName="IPAゴシック" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="qrCode" mode="Opaque" backcolor="#000000"/>
+	<style name="String_listHead" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="IPAゴシック" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<style name="String_listData" hAlign="Center" vAlign="Middle" isBlankWhenNull="true" fontName="IPAゴシック" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="ipagp.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+			<pen lineWidth="1.0"/>
+			<topPen lineWidth="1.0"/>
+			<leftPen lineWidth="1.0"/>
+			<bottomPen lineWidth="1.0"/>
+			<rightPen lineWidth="1.0"/>
+		</box>
+	</style>
+	<subDataset name="L4001ReportDetailDataSet">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="dngrItemFlg" class="java.lang.String">
+			<fieldDescription><![CDATA[dngrItemFlg]]></fieldDescription>
+		</field>
+		<field name="grossWeight" class="java.lang.String">
+			<fieldDescription><![CDATA[grossWeight]]></fieldDescription>
+		</field>
+		<field name="mainMark" class="java.lang.String">
+			<fieldDescription><![CDATA[mainMark]]></fieldDescription>
+		</field>
+		<field name="volume" class="java.lang.String">
+			<fieldDescription><![CDATA[volume]]></fieldDescription>
+		</field>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="printDt" class="java.lang.String"/>
+	<field name="stgInstrIssuerNm" class="java.lang.String"/>
+	<field name="stgInstrNo" class="java.lang.String"/>
+	<field name="pkgQty" class="java.lang.String"/>
+	<field name="containerSortingKey" class="java.lang.String"/>
+	<field name="stgInstrDt" class="java.lang.String"/>
+	<field name="shipperNmAbb" class="java.lang.String"/>
+	<field name="trnsCd" class="java.lang.String"/>
+	<field name="containerLooseTyp" class="java.lang.String"/>
+	<field name="etd" class="java.lang.String"/>
+	<field name="carrierCompCd" class="java.lang.String"/>
+	<field name="qrCdStream" class="java.io.InputStream"/>
+	<field name="detailDomainList" class="java.util.List"/>
+	<field name="weightUnitDisp" class="java.lang.String"/>
+	<field name="volumeUnitDisp" class="java.lang.String"/>
+	<title>
+		<band height="147">
+			<staticText>
+				<reportElement style="String_fixed" x="0" y="15" width="555" height="35"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="28"/>
+				</textElement>
+				<text><![CDATA[Staging Instruction]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="String_fixed" x="195" y="0" width="43" height="15"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Issuer: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="String_fixed" x="442" y="0" width="77" height="15"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page: "+$V{PAGE_NUMBER}+" / "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" pattern="">
+				<reportElement style="String_fixed" x="519" y="0" width="36" height="15"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="String_data" x="238" y="0" width="187" height="15"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{stgInstrIssuerNm}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="String_fixed" x="0" y="50" width="145" height="20"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Stg. Instr. No.: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="String_fixed" x="0" y="75" width="145" height="20"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Cont. Sort Key : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="String_fixed" x="0" y="100" width="76" height="20"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Shipper: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="String_fixed" x="0" y="125" width="76" height="20"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[ETD    : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="String_data" x="134" y="50" width="134" height="20"/>
+				<box topPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Left">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{stgInstrNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="String_data" x="134" y="75" width="134" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{containerSortingKey}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="String_fixed" x="268" y="75" width="100" height="20"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Issue Date:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="457" y="43" width="102" height="102"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$F{qrCdStream}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="String_fixed" x="268" y="50" width="100" height="20"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[PKG QTY   : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="String_data" mode="Opaque" x="362" y="50" width="88" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{pkgQty}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="String_fixed" x="247" y="100" width="75" height="20"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Trans.: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="String_data" x="308" y="100" width="22" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{trnsCd}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="String_fixed" x="332" y="100" width="110" height="20"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Cont. Loose: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="String_data" x="433" y="100" width="27" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{containerLooseTyp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="String_data" x="69" y="125" width="126" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{etd}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="String_fixed" x="239" y="125" width="75" height="20"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Carrier: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="String_data" x="308" y="125" width="132" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{carrierCompCd}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="String_fixed" x="0" y="0" width="43" height="15"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[L4001]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="String_fixed" x="44" y="0" width="70" height="15"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Printed Date: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="String_data" x="114" y="0" width="81" height="15"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{printDt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="String_data" x="362" y="75" width="99" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{stgInstrDt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="String_data" x="69" y="100" width="188" height="20"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{shipperNmAbb}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="15">
+			<textField evaluationTime="Report">
+				<reportElement style="String_fixed" x="519" y="0" width="36" height="15">
+					<printWhenExpression><![CDATA[($V{PAGE_NUMBER} >= 2)  ? Boolean.TRUE : Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="String_fixed" x="442" y="0" width="77" height="15">
+					<printWhenExpression><![CDATA[($V{PAGE_NUMBER} >= 2)  ? Boolean.TRUE : Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page: "+$V{PAGE_NUMBER}+" / "]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement style="String_listHead" x="0" y="0" width="26" height="30"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="String_listHead" x="26" y="0" width="150" height="30"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CML No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="String_listHead" x="176" y="0" width="42" height="30"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DG
+Flg]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="String_listHead" x="408" y="0" width="147" height="30"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Remarks]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="String_listHead" x="218" y="0" width="95" height="30"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["G/W" + "\n" + "(" + $F{weightUnitDisp} + ")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="String_listHead" x="313" y="0" width="95" height="30"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Vol." + "\n" +"(" + $F{volumeUnitDisp} + ")"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39">
+			<componentElement>
+				<reportElement x="0" y="0" width="555" height="38"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="L4001ReportDetailDataSet">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{detailDomainList})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="38" width="555">
+						<textField>
+							<reportElement style="String_listData" x="0" y="0" width="26" height="38"/>
+							<textElement textAlignment="Right">
+								<font size="11"/>
+							</textElement>
+							<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement style="String_listData" x="26" y="0" width="150" height="38"/>
+							<textElement textAlignment="Left">
+								<font size="14" isBold="true"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{mainMark}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement style="String_listData" x="176" y="0" width="42" height="38"/>
+							<textElement textAlignment="Left">
+								<font size="11"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{dngrItemFlg}]]></textFieldExpression>
+						</textField>
+						<textField pattern="">
+							<reportElement style="String_listData" x="218" y="0" width="95" height="38"/>
+							<textElement textAlignment="Right">
+								<font size="11"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{grossWeight}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement style="String_listData" x="313" y="0" width="95" height="38"/>
+							<textElement textAlignment="Right">
+								<font size="11"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{volume}]]></textFieldExpression>
+						</textField>
+						<rectangle>
+							<reportElement x="408" y="0" width="147" height="38"/>
+						</rectangle>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

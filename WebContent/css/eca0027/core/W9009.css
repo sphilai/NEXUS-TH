@@ -1,0 +1,52 @@
+@CHARSET "windows-31j";
+/*
+ * W9009.css
+ *
+ * Style sheet used in  CIGMA Ship to X-Reference MA Inquiry screen.
+ * CIGMA Ship to X-Reference MA Inquiry画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ Search result total area------------*/ 
+/*------------ 検索結果エリア(全体) ------------*/ 
+table.gscm_resultlist {
+    width:430px;
+}
+/*------------ Search condition area ------------*/ 
+/*------------ 検索条件エリア ------------*/ 
+.gscm_search .search_lgcy_lib_comp_cd {
+    width: 75px;
+}
+.gscm_search .search_customer_cd_and_lgcy_ship_to {
+    width: 155px;
+}
+.gscm_search .search_ship_to_cd {
+    width: 740px;
+}
+
+.gscm_search .lgcy_lib_comp_cd {
+    width: 40px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .customer_cd {
+    width: 100px;
+}
+/*------------ Search result individual area ------------*/ 
+/*------------ 検索結果エリア(個別) ------------*/ 
+.gscm_resultlist .resultlist_ck {
+    width: 35px;
+}
+.gscm_resultlist .resultlist_lgcy_lib_comp_cd {
+    width: 108px;
+}
+.gscm_resultlist .resultlist_customer_cd {
+    width: 106px;
+}
+.gscm_resultlist .resultlist_lgcy_ship_to {
+    width: 63px;
+}
+.gscm_resultlist .resultlist_ship_to_cd {
+    width: 115px;
+}

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * tiles-defs_eca0027_w9.xml
+ *
+ * AI-J2(Struts) の Tiles 設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE tiles-definitions PUBLIC
+            "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+
+    <!-- 個別画面 -->
+    <!-- ====================================================================-->
+
+    <!--
+        この個別画面の定義名はaction-mappingsのforwardタグと紐付き、
+        header.jspにて画面IDとして共通的に埋め込まれます。
+        このため、この個別画面の定義名には、画面IDそのものを使用してください。
+    -->
+    <!-- Agent MA Inquiry画面 -->
+    <definition name="W9002" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9002"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9002.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9002"/>
+        <put name="js_filepath" value="js/eca0027/core/W9002.js"/>
+    </definition>
+    
+    <!-- Agent MA Edit画面 -->
+    <definition name="W9003" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9003"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9003.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9003"/>
+        <put name="js_filepath" value="js/eca0027/core/W9003.js"/>
+    </definition>
+    
+    
+    <!-- User ID MA Inquiry画面 -->
+    <definition name="W9004" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9004"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9004.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9004"/>
+        <put name="js_filepath" value="js/eca0027/core/W9004.js"/>
+    </definition>
+    
+    <!-- User ID MA Edit画面 -->
+    <definition name="W9005" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9005"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9005.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9005"/>
+        <put name="js_filepath" value="js/eca0027/core/W9005.js"/>
+    </definition>
+    
+    
+    <!-- NEXUS Ship to MA Inquiry画面 -->
+    <definition name="W9006" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9006"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9006.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9006"/>
+        <put name="js_filepath" value="js/eca0027/core/W9006.js"/>
+    </definition>
+
+    <!-- NEXUS Ship to MA Inquiry画面 -->
+    <definition name="W9007" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9007"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9007.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9007"/>
+        <put name="js_filepath" value="js/eca0027/core/W9007.js"/>
+    </definition>
+    
+    <!-- NEXUS Ship to MA Edit画面 -->
+    <definition name="W9008" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9008"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9008.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9008"/>
+        <put name="js_filepath" value="js/eca0027/core/W9008.js"/>
+    </definition>
+
+    <!-- CIGMA Ship to X-Reference MA Inquiry画面 -->
+    <definition name="W9009" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9009"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9009.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9009"/>
+        <put name="js_filepath" value="js/eca0027/core/W9009.js"/>
+    </definition>
+
+    <!-- CIGMA Ship to X-Reference MA Edit画面 -->
+    <definition name="W9010" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9010"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9010.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9010"/>
+        <put name="js_filepath" value="js/eca0027/core/W9010.js"/>
+    </definition>
+
+    <!-- CIGMA Customer No. X-Reference MA Inquiry画面 -->
+    <definition name="W9011" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9011"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9011.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9011"/>
+        <put name="js_filepath" value="js/eca0027/core/W9011.js"/>
+    </definition>
+
+    <!-- CIGMA Customer No. X-Reference MA Edit画面 -->
+    <definition name="W9012" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9012"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9012.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9012"/>
+        <put name="js_filepath" value="js/eca0027/core/W9012.js"/>
+    </definition>
+
+    <!-- NEXUS Ship To MA Inquiry画面 -->
+    <definition name="W9013" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9013"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9013.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9013"/>
+        <put name="js_filepath" value="js/eca0027/core/W9013.js"/>
+    </definition>
+    
+    <!-- CIGMA W/H X-Reference MA Inquiry画面 -->
+    <definition name="W9014" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9014"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9014.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9014"/>
+        <put name="js_filepath" value="js/eca0027/core/W9014.js"/>
+    </definition>
+    
+    <!-- CIGMA W/H X-Reference MA Edit画面 -->
+    <definition name="W9015" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9015"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9015.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9015"/>
+        <put name="js_filepath" value="js/eca0027/core/W9015.js"/>
+    </definition>
+    
+    <!-- Export Shipping Item Special Information MA Inquiry画面 -->
+    <definition name="W9016" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9016"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9016.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9016"/>
+        <put name="js_filepath" value="js/eca0027/core/W9016.js"/>
+    </definition>
+    
+    <!-- Export Shipping Item Special Information MA Edit画面 -->
+    <definition name="W9017" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9017"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9017.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9017"/>
+    </definition>
+    
+    
+    <!-- Export Formalities by Item MA Inquiry画面 -->
+    <definition name="W9018" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9018"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9018.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9018"/>
+        <put name="js_filepath" value="js/eca0027/core/W9018.js"/>
+    </definition>
+    
+    <!-- Export Formalities by Item MA Edit画面 -->
+    <definition name="W9019" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9019"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9019.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9019"/>
+        <put name="js_filepath" value="js/eca0027/core/W9019.js"/>
+    </definition>
+    
+    
+    <!-- Invoice Template MA Inquiry画面 -->
+    <definition name="W9022" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9022"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9022.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9022"/>
+        <put name="js_filepath" value="js/eca0027/core/W9022.js"/>
+    </definition>
+    
+    <!-- Invoice Template MA Edit画面 -->
+    <definition name="W9023" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9023"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9023.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9023"/>
+        <put name="js_filepath" value="js/eca0027/core/W9023.js"/>
+    </definition>
+    
+    
+    <!-- Invoice Item No. Apply Start Date Refer & Register画面 -->
+    <definition name="W9024" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9024"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9024.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9024"/>
+        <put name="js_filepath" value="js/eca0027/core/W9024.js"/>
+    </definition>
+    
+    
+    <!-- Registration Screen of Actual Item Weight画面 -->
+    <definition name="W9025" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W9025"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W9025.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W9025" />
+        <put name="js_filepath" value="js/eca0027/core/W9025.js"/>
+    </definition>
+    
+</tiles-definitions>

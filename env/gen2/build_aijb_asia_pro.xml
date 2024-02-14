@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ===========================================================================
+
+ [JP] build_aijb.xml (AI-JB(zip)作成:本番機用)
+ [EN] build_aijb.xml (Create a AI-JB(zip): for production machine)
+    
+    $ build_aijb_pro.xml 2153 2012-06-14 12:54:48Z tokuhiro_nishizawa@dnitsol.com $
+
+============================================================================ -->
+<project name="[NEXUS_EXPORT] AI-JB Ant Build(Production)" default="makeZip" basedir=".">
+
+    <!-- [JP] * ビルドの初期設定ファイルをインポート * -->
+    <!-- [EN] * Import the initialization file of the build * -->
+    <import file="buildProperties_asia.xml" />
+    <!-- [JP] ユーザ定義の追加ターゲット設定ファイル(AI-JB用)をインポート -->
+    <!-- [EN] Import the User-defined additional targets configuration file (for AI-JB) -->
+    <import file="build_aijb_userdef.xml" />
+
+    
+    <!-- [JP] ========================================================== 前処理系 -->
+    <!-- [EN] ========================================================== Pre-processing -->
+    <!-- [JP] * クリーン * -->
+    <!-- [EN] * Clean * -->
+    <target name="clean_aijb" description="I will clean the AI-JB package">
+        <!-- [JP] 出力フォルダ/作業フォルダを削除 -->
+        <!-- [EN] Delete the output folder / working folder -->
+        <delete dir="${dir.out}"/>
+    </target>
+    
+    
+    <!-- [JP] ========================================================== 初期化 --> 
+    <!-- [EN] ========================================================== Initialization --> 
+    <!-- [JP] * 初期化 開発本番共通 * -->
+    <!-- [EN] * Initialization Common settings in production machine and development machine * -->
+    <target name="init_aijb">
+        <echo message="I will start a build.(${ant.project.name})" />
+        <echo message="basedir      ：${basedir}" />
+        <echo message="Destination         ：${dir.out}" />
+    </target>
+
+    <!-- [JP] * 初期化 for 本番機 * -->
+    <!-- [EN] * Initialization for production machine * -->
+    <target name="config_aijb">
+        <echo message="Using a configuration file for the production machine." />
+        <property name="zip.name.wrk"            value="${zip.name}_${timestamp}.zip" />
+        <property name="jdbc-aijb.prop.wrk"      value="${jdbc-aijb.prop.pro}" />
+        <property name="aijbConstants.prop.wrk"  value="${aijbConstants.prop.pro}" />
+    </target>
+
+
+    <!-- [JP] ====================================================== メイン処理系 -->
+    <!-- [EN] ====================================================== Main-processing -->
+
+    <target name="main_aijb_compile">
+        <!-- [JP] * フォルダを作成 * -->
+        <!-- [EN] * Create a folder * -->
+        <mkdir dir="${dir.out}"/>
+        <mkdir dir="${dir.temp}"/>
+        <mkdir dir="${dir.temp.classes}"/>
+        <!-- [JP] AIJBフォルダ -->
+        <!-- [EN] AIJB folder -->
+        <mkdir dir="${dir.temp.zip.aijb.root}"/>
+        <mkdir dir="${dir.temp.zip.aijb.root}/module"/>
+        <mkdir dir="${dir.temp.zip.aijb.root}/module/bin"/>
+        <mkdir dir="${dir.temp.zip.aijb.root}/module/lib"/>
+        <mkdir dir="${dir.temp.zip.aijb.root}/module/config"/>
+        <mkdir dir="${dir.temp.zip.aijb.root}/module/bin/aijb"/>
+        <mkdir dir="${dir.temp.zip.aijb.root}/module/bin/jp1"/>
+        <mkdir dir="${dir.temp.zip.aijb.root}/module/bin/app"/>
+        <mkdir dir="${dir.temp.zip.aijb.root}/module/config/library-config"/>
+        
+        <!-- [JP] * コンパイル * -->
+        <!-- [EN] * Compile * -->
+        <!-- [JP] xml,propertiesファイルをフォルダにコピー -->
+        <!-- [EN] Copy xml, properties file to the folder -->
+        <copy todir ="${dir.temp.classes}" >
+            <fileset dir="${dir.src}">
+                <include name="com/**/*.xml"/>
+                <include name="com/**/*.properties"/>
+            </fileset>
+            <fileset dir="${dir.project}/sact">
+                <include name="com/**/*.xml"/>
+                <include name="com/**/*.properties"/>
+            </fileset>
+            <fileset dir="${dir.project}/src_framework">
+                <include name="com/**/*.xml"/>
+                <include name="com/**/*.properties"/>
+            </fileset>
+        </copy>
+        <!-- [JP] コンパイル -->
+        <!-- [EN] Compile -->
+        <javac nowarn            ="${compile.nowarn}"
+               debug             ="${compile.debug}"
+               optimize          ="${compile.optimize}"
+               source            ="${compile.source}"
+               encoding          ="${compile.encoding}"
+               srcdir            ="${dir.src}"
+               destdir           ="${dir.temp.classes}"
+               memoryInitialSize ="${compile.memoryInitialSize}"
+               memoryMaximumSize ="${compile.memoryMaximumSize}"
+               fork              ="on"
+               executable        ="${compiler}"
+               includeantruntime ="false">
+            <src path="${dir.src}"/>
+            <src path="${dir.project}/sact"/>
+            <src path="${dir.project}/src_framework"/>
+            <classpath refid="ai.classpath"/>
+        </javac>
+    </target>
+
+    <target name="main_aijb_sql" if="sql.replace.flg">
+        <!-- [JP] SQLのフォーマットを修正 -->
+        <!-- [EN] Modify format of SQL -->
+        <replaceregexp match="^[ ]+" replace=" " encoding="UTF-8" flags="gm">
+            <fileset dir="${dir.temp.classes}" includes="**/integration/**/SqlMap-*.xml"/>
+        </replaceregexp>
+    </target>
+
+    <target name="main_aijb_jar">
+        <!-- [JP] * アプリケーションのjar を作成 * -->
+        <!-- [EN] * Create a jar of the application * -->
+        <echo message="I make ${jar.name}" />
+        <jar destfile="${dir.out}/${jar.name}"
+             basedir="${dir.temp.classes}">
+            <manifest>
+                <attribute name="Built-By" value="${mani.user}"/>
+                <section name="InforMation">
+                    <attribute name="Title" value="${mani.title}" />
+                    <attribute name="Vendor" value="${mani.vendor}" />
+                </section>
+            </manifest>
+        </jar>
+        
+        <!-- [JP] * AI-JB実行環境 を作成 -->
+        <!-- [EN] * Create an execution environment for AI-JB -->
+        <!-- [JP] JAR を ZIP フォルダにコピー -->
+        <!-- Copy the ZIP folder JAR -->
+        <copy todir ="${dir.temp.zip.aijb.root}/module/lib" >
+            <fileset dir="${dir.project}/WebContent/WEB-INF/lib">
+                <include name="**/*.jar" />
+            </fileset>
+            <fileset file="${dir.out}/${jar.name}"/>
+        </copy>
+        <!-- [JP] アプリケーションのjar を 削除 -->
+        <!-- [EN] Remove the jar of the application -->
+        <delete file="${dir.out}/${jar.name}"/>
+        
+        <!-- [JP] bat(JP1起動用) を ZIP フォルダにコピー -->
+        <!-- [EN] Copy the bat files(for JP1) to the ZIP folder -->
+        <copy todir="${dir.temp.zip.aijb.root}/module/bin/jp1">
+            <fileset dir="${dir.project}/bin/jp1">
+                <include name="*.bat"/>
+                <include name="*.sh"/>
+            </fileset>
+        </copy>
+
+        <!-- [JP] bat(JP1起動用を除く) を ZIP フォルダにコピー -->
+        <!-- [EN] Copy the bat files(except for JP1) to the ZIP folder -->
+        <copy todir="${dir.temp.zip.aijb.root}/module/bin/aijb">
+            <fileset dir="${dir.project}/bin/aijb">
+                <include name="aijbJobLauncher.bat"/>
+                <include name="aijbJp1JobLauncher.bat"/>
+                <include name="aijbResidentJobLauncher.bat"/>
+                <include name="aijbResidentJobLauncher_with_wily.bat"/>
+                <include name="setenv.bat"/>
+                <include name="aijbMainControllerStart.bat"/>
+                <include name="aijbMainControllerStop.bat"/>
+                <include name="aijbLogServerStart.bat"/>
+                <include name="aijbLogServerStop.bat"/>
+                <include name="aijbSleep.vbs"/>
+                <include name="aijbJobLauncher.sh"/>
+                <include name="aijbJp1JobLauncher.sh"/>
+                <include name="aijbResidentJobLauncher.sh"/>
+                <include name="aijbResidentJobLauncher_with_wily.sh"/>
+                <include name="setenv.sh"/>
+                <include name="aijbMainControllerStart.sh"/>
+                <include name="aijbMainControllerStop.sh"/>
+                <include name="aijbLogServerStart.sh"/>
+                <include name="aijbLogServerStop.sh"/>
+            </fileset>
+        </copy>
+        
+        <!-- [JP] bat(APP用) を ZIP フォルダにコピー -->
+        <!-- [EN] Copy the bat files(for APP) to the ZIP folder -->
+        <copy todir="${dir.temp.zip.aijb.root}/module/bin/app">
+            <fileset dir="${dir.project}/bin/app">
+                <include name="*.bat"/>
+                <include name="*.sh"/>
+                <include name="migration/**/*" />
+            </fileset>
+        </copy>
+        
+        <!-- [JP] aijb-config直下のproperties,xml,dtdをZIP フォルダにコピー -->
+        <!-- [EN] Copy the properties, xml, dtd files under the aijb-config folder to the ZIP folder -->
+        <copy todir="${dir.temp.zip.aijb.root}/module/config">
+            <fileset dir="${dir.project}/aijb-config">
+                <include name="*.properties"/>
+                <include name="*.xml"/>
+                <include name="*.dtd"/>
+            </fileset>
+        </copy>
+        
+        <!-- [JP] src直下のproperties,xml,dtdをZIP フォルダにコピー -->
+        <!-- [EN] Copy the properties, xml, dtd files under the src folder to the ZIP folder -->
+        <copy todir="${dir.temp.zip.aijb.root}/module/config">
+            <fileset dir="${dir.project}/src">
+                <include name="*.properties"/>
+                <include name="*.xml"/>
+                <include name="*.dtd"/>
+                <exclude name="log4j.xml"/>
+            </fileset>
+        </copy>
+        
+        <!-- [JP] 帳票テンプレートをZIP フォルダにコピー -->
+        <!-- [EN] Copy the report template (JasperReports file) to the ZIP folder -->
+        <copy todir="${dir.temp.zip.aijb.root}/module/config">
+            <fileset dir="${dir.project}/form-template">
+                <include name="**/*" />
+            </fileset>
+        </copy>
+        
+        <!-- [JP] library-config を ZIP フォルダにコピー -->
+        <!-- [EN] Copy the library-config folder to the ZIP folder -->
+        <copy todir="${dir.temp.zip.aijb.root}/module/config/library-config">
+            <fileset dir="${dir.project}/src/library-config">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+        
+        <!-- [JP] applicationContext-library.xmlをZIP フォルダにコピー -->
+        <!-- [EN] Copy the applicationContext-library.xml to the ZIP folder -->
+        <copy todir="${dir.temp.zip.aijb.root}/module/config">
+            <fileset dir="${dir.project}/WebContent/WEB-INF">
+                <include name="applicationContext-library.xml"/>
+            </fileset>
+        </copy>
+        
+        <!-- [JP] jdbc-aijb.properties を差し替える -->
+        <!-- [EN] replace the jdbc-aijb.properties -->
+        <move file  ="${dir.temp.zip.aijb.root}/module/config/${jdbc-aijb.prop}"
+              tofile="${dir.temp.zip.aijb.root}/module/config/${jdbc-aijb.prop.org}" />
+        <move file  ="${dir.temp.zip.aijb.root}/module/config/${jdbc-aijb.prop.wrk}"
+              tofile="${dir.temp.zip.aijb.root}/module/config/${jdbc-aijb.prop}" />
+
+        <!-- [JP] jdbc-aijb.properties を差し替える -->
+        <!-- [EN] replace the jdbc-aijb.properties -->
+        <move file  ="${dir.temp.zip.aijb.root}/module/config/${aijbConstants.prop}"
+              tofile="${dir.temp.zip.aijb.root}/module/config/${aijbConstants.prop.org}" />
+        <move file  ="${dir.temp.zip.aijb.root}/module/config/${aijbConstants.prop.wrk}"
+              tofile="${dir.temp.zip.aijb.root}/module/config/${aijbConstants.prop}" />
+
+        <!-- [JP] タイムスタンプを残す -->
+        <!-- [EN] Create a timestamp file -->
+        <touch file="${dir.temp.zip.aijb.root}/module/${timestampFile}" />
+    </target>
+
+    <!-- [JP] ZIP を作成 -->
+    <!-- [EN] Create ZIP -->
+    <target name="create_zip_aijb">
+        <!-- [JP] 基盤提供のSQLが含まれている場合は削除する -->
+        <!-- [EN] If there are SQL files provided Application infrastructure, they are deleted -->
+        <delete dir="${dir.temp.zip.aijb.root}/module/sql/aijb" />
+        <echo message="I make ${zip.name}" />
+        <zip destfile="${dir.out}/${zip.name.wrk}"
+             basedir="${dir.temp}/${project.name}"/>
+    </target>
+    
+    <!-- [JP] ========================================================== 後処理系 -->
+    <!-- [EN] ========================================================== Post-processing -->
+    <!-- [JP] * 作業フォルダクリーン * -->
+    <!-- [EN] * Clean work folder * -->
+    <target name="destroy_aijb">
+        <delete dir="${dir.temp}"/>
+    </target>
+
+    <!-- [JP] ================================================== 実行用ターゲット -->
+    <!-- [EN] ================================================== Target for execution -->
+    <!-- [JP] * 本番環境向け ZIP ファイル作成 * -->
+    <!-- [EN] * Create a ZIP file for the production environment * -->
+    <target name="makeZip"
+            description="Create a ZIP file for the production environment"
+            depends="clean_aijb,init_aijb,config_aijb,main_aijb_compile,main_aijb_sql,main_aijb_jar,create_zip_aijb,destroy_aijb" />
+
+    <target name="makeZipForAll"
+            description="Create a ZIP, WAR file for the production environment"
+            depends="clean_aijb,init_aijb,config_aijb,main_aijb_compile,main_aijb_sql,main_aijb_jar,create_zip_aijb,destroy_aijb" />
+</project>

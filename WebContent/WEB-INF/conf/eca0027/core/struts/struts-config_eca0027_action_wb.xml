@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config_eca0027_action_wb.xml
+ * 
+ * AI-J2(Struts) の action設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+
+    <!-- Application Action Mapping Definitions ============================ -->
+    <action-mappings>
+
+        <!-- =============================================================== -->
+        <!-- WB001: Order Entry Header画面                                 -->
+        <!-- =============================================================== -->
+
+        <!-- WB001: Order Entry Header画面 Initアクション -->
+        <action path="/WB001Init"
+            type="com.globaldenso.eca0027.core.presentation.WB001InitAction"
+            name="WB001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WB001" />
+            <forward name="error" path="WB001" />
+        </action>
+
+        <!-- WB001: Order Entry Header画面 MoveToRegisterアクション -->
+        <action path="/WB001MoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.WB001MoveToRegisterAction"
+            name="WB001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/WB002Init.do" />
+            <forward name="error" path="WB001" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- WB002: Order Entry Register画面                                 -->
+        <!-- =============================================================== -->
+
+        <!-- WB002: Order Entry Register画面 Initアクション -->
+        <action path="/WB002Init"
+            type="com.globaldenso.eca0027.core.presentation.WB002InitAction"
+            name="WB002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WB002" />
+            <forward name="error" path="WB002" />
+        </action>
+
+        <!-- WB002: Order Entry Register画面 MultiPOアクション -->
+        <action path="/WB002MultiPO"
+            type="com.globaldenso.eca0027.core.presentation.WB002MultiPOAction"
+            name="WB002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/WB003Init.do" />
+            <forward name="error" path="WB002" />
+        </action>
+
+        <!-- WB002: Order Entry Register画面 Registerアクション -->
+        <action path="/WB002Register"
+            type="com.globaldenso.eca0027.core.presentation.WB002RegisterAction"
+            name="WB002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WB002" />
+            <forward name="error" path="WB002" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- WB003: Order Entry Multi PO Register画面                        -->
+        <!-- =============================================================== -->
+
+        <!-- WB003: Order Entry Multi PO Register画面 Initアクション -->
+        <action path="/WB003Init"
+            type="com.globaldenso.eca0027.core.presentation.WB003InitAction"
+            name="WB003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WB003" />
+            <forward name="error" path="WB003" />
+        </action>
+
+        <!-- WB003: Order Entry Multi PO Register画面 Registerアクション -->
+        <action path="/WB003Register"
+            type="com.globaldenso.eca0027.core.presentation.WB003RegisterAction"
+            name="WB003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WB003" />
+            <forward name="error" path="WB003" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- WB004: Order Inquiry Main Screen画面                            -->
+        <!-- =============================================================== -->
+
+        <!-- WB004: Order Inquiry Main Screen画面 Initアクション -->
+        <action path="/WB004Init"
+            type="com.globaldenso.eca0027.core.presentation.WB004InitAction"
+            name="WB004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WB004" />
+            <forward name="error" path="WB004" />
+        </action>
+
+        <!-- WB004: Order Inquiry Main Screen画面 MoveToDetailアクション -->
+        <action path="/WB004MoveToDetail"
+            type="com.globaldenso.eca0027.core.presentation.WB004MoveToDetailAction"
+            name="WB004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/WB005Init.do" />
+            <forward name="error" path="WB004" />
+        </action>
+
+        <!-- WB004: Order Inquiry Main Screen画面 Searchアクション -->
+        <action path="/WB004Search"
+            type="com.globaldenso.eca0027.core.presentation.WB004SearchAction"
+            name="WB004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WB004" />
+            <forward name="error" path="WB004" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- WB005: Order Inquiry Detail画面                                 -->
+        <!-- =============================================================== -->
+
+        <!-- WB005: Order Inquiry Detail画面 Initアクション -->
+        <action path="/WB005Init"
+            type="com.globaldenso.eca0027.core.presentation.WB005InitAction"
+            name="WB005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WB005" />
+            <forward name="error" path="/WB004Search.do?back=true" />
+            <forward name="WB004" path="/WB004Search.do?back=true" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- WB006: Last Digit Change Main Screen画面                        -->
+        <!-- =============================================================== -->
+
+        <!-- WB006: Last Digit Change Main Screen画面 Initアクション -->
+        <action path="/WB006Init"
+            type="com.globaldenso.eca0027.core.presentation.WB006InitAction"
+            name="WB006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WB006" />
+            <forward name="error" path="WB006" />
+        </action>
+
+        <!-- WB006: Last Digit Change Main Screen画面 MoveToRegisterアクション -->
+        <action path="/WB006MoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.WB006MoveToRegisterAction"
+            name="WB006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/WB007Init.do" />
+            <forward name="error" path="WB006" />
+        </action>
+
+        <!-- WB006: Last Digit Change Main Screen画面 Searchアクション -->
+        <action path="/WB006Search"
+            type="com.globaldenso.eca0027.core.presentation.WB006SearchAction"
+            name="WB006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WB006" />
+            <forward name="error" path="WB006" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- WB007: Last Digit Change Register画面                           -->
+        <!-- =============================================================== -->
+
+        <!-- WB007: Last Digit Change Register画面 Initアクション -->
+        <action path="/WB007Init"
+            type="com.globaldenso.eca0027.core.presentation.WB007InitAction"
+            name="WB007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WB007" />
+            <forward name="error" path="WB007" />
+            <forward name="WB006" path="/WB006Search.do?back=true" />
+        </action>
+
+        <!-- WB007: Last Digit Change Register画面 Registerアクション -->
+        <action path="/WB007Register"
+            type="com.globaldenso.eca0027.core.presentation.WB007RegisterAction"
+            name="WB007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WB007" />
+            <forward name="error" path="WB007" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- WB020: 受注アップロード画面                                      -->
+        <!-- =============================================================== -->
+        <!-- WB020: 受注アップロード画面 Initアクション -->
+        <action path="/WB020Init"
+            type="com.globaldenso.eca0027.core.presentation.WB020InitAction"
+            name="WB020Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="WB020" />
+        </action>
+
+        <!-- WB020: 受注アップロード画面 Uploadアクション -->
+        <action path="/WB020Upload"
+            type="com.globaldenso.eca0027.core.presentation.WB020UploadAction"
+            name="WB020Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/WB020Init.do" />
+            <forward name="error" path="WB020" />
+        </action>
+
+        <!-- WB020: 受注アップロード画面 Downloadアクション -->
+        <action path="/WB020Download"
+            type="com.globaldenso.eca0027.core.presentation.WB020DownloadAction"
+            name="WB020Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="WB020" />
+        </action>
+
+    </action-mappings>
+</struts-config>

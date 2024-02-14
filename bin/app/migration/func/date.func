@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+date_sirial()
+{
+	 @datetime = localtime(time);
+	return $datetime[7]
+}

@@ -1,0 +1,101 @@
+@charset "utf-8";
+/*
+ * W4003.css
+ * 
+ * Style sheet used in staging instruction create screen.
+ * 荷揃え指示Create画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ Search condition area ------------*/ 
+/*------------ 検索条件エリア ------------*/ 
+
+.gscm_search .search_wh_comp_cd {
+    width:100px;
+}
+.gscm_search .search_wh_cd {
+    width:110px;
+}
+.gscm_search .search_trns_cd {
+    width:70px;
+}
+.gscm_search .search_container_sorting_key {
+    width:130px;
+}
+.gscm_search .search_shipper_cd {
+    width:80px;
+}
+.gscm_search .search_custom_timing_typ {
+    width:90px;
+}
+.gscm_search .search_container_loose_typ {
+    width:50px;
+}
+.gscm_search .search_etd {
+    width:90px;
+}
+.gscm_search .search_carrier_comp_cd {
+}
+
+.gscm_search .search_loading_cd {
+    width:65px;
+}
+.gscm_search .search_ship_to_cd {
+    width:125px;
+}
+.gscm_search .search_dngr_item_flg {
+    width:70px;
+}
+.gscm_search .search_main_mark {
+    width:205px;
+}
+.gscm_search .search_exp_request_no {
+    width:160px;
+}
+.gscm_search .search_last_tr_rcv_dt_from {
+    width:140px;
+}
+.gscm_search .search_last_tr_rcv_dt_to {
+}
+
+.main_mark {
+    width: 178px;
+}
+
+/*------------ Search result area ------------*/ 
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 960px;
+}
+
+.gscm_resultlist .resultlist_check {
+    width:39px;
+}
+.gscm_resultlist .resultlist_loading_cd {
+    width:49px;
+}
+.gscm_resultlist .resultlist_ship_to_cd {
+    width:107px;
+}
+.gscm_resultlist .resultlist_dngr_item_flg {
+    width:49px;
+}
+.gscm_resultlist .resultlist_main_mark {
+    width:190px;
+}
+.gscm_resultlist .resultlist_exp_request_no {
+    width:135px;
+}
+.gscm_resultlist .resultlist_gross_weight {
+    width:100px;
+}
+.gscm_resultlist .resultlist_volume {
+    width:140px;
+}
+.gscm_resultlist .resultlist_last_tr_rcv_dt {
+    width:75px;
+}
+.gscm_resultlist .resultlist_due_date {
+}

@@ -1,0 +1,184 @@
+/*
+ * PROJECT：eca0027
+ * 
+ * TmTrnsTypVolume のServiceインターフェース
+ * 
+ * Version.   更新日      更新者        更新内容
+ * 1.0.0      2014/02/18  DNITS  新規作成
+ * 
+ * Copyright (c) 2012 DENSO CORPORATION. All rights reserved.
+ */
+package com.globaldenso.eca0027.core.auto.business.service;
+
+import java.util.List;
+
+import com.globaldenso.ai.common.core.exception.ApplicationException;
+import com.globaldenso.eca0027.core.auto.business.domain.criteria.TmTrnsTypVolumeCriteriaDomain;
+import com.globaldenso.eca0027.core.auto.business.domain.TmTrnsTypVolumeDomain;
+
+
+/**
+ * TmTrnsTypVolume のServiceインターフェースです。<BR>
+ * 
+ * <BR>
+ * SACT Version： 1.0.1<BR>
+ * 生成日      ： 2014/02/18 09:47:42<BR>
+ * 
+ * テーブル定義から2014/02/18に自動生成したモジュールです。
+ * 
+ * @author $Author: 10088DS01586 $
+ * @version $Revision: 5759 $
+ */
+public interface TmTrnsTypVolumeService {
+
+    /**
+     * 主キーを条件にデータを検索し、検索結果を返却します。
+     * 
+     * @param criteria tmTrnsTypVolumeの CriteriaDomain クラス
+     * @return tmTrnsTypVolumeのDomainクラス
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public TmTrnsTypVolumeDomain searchByKey(TmTrnsTypVolumeCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * 任意の条件を元にテーブルのデータを検索し、検索結果をリスト形式で返却します。
+     * 
+     * @param criteria tmTrnsTypVolumeの CriteriaDomain クラス
+     * @return tmTrnsTypVolumeのDomainクラスのList
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public List<TmTrnsTypVolumeDomain> searchByCondition(TmTrnsTypVolumeCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * <<ページング処理用>>
+     * 任意の条件を元にテーブルのデータを検索し、検索結果をリスト形式で返却します。
+     * 
+     * @param criteria tmTrnsTypVolumeの CriteriaDomain クラス
+     * @return tmTrnsTypVolumeのDomainクラスのList
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public List<TmTrnsTypVolumeDomain> searchByConditionForPaging(TmTrnsTypVolumeCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * 任意の条件を元にテーブルのデータを検索し、検索結果件数を返却します。
+     * 
+     * @param criteria tmTrnsTypVolumeの CriteriaDomain クラス
+     * @return int 検索結果件数
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public int searchCount(TmTrnsTypVolumeCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * 主キーを条件にデータを検索し、検索結果を返却します。
+     * 
+     * <pre>
+     * 更新前処理のレコード取得は当SQLを使用して下さい。
+     * 
+     * SearchByKeyと違い、検索条件に主キー以外の項目も含まれています。
+     * </pre>
+     * 
+     * @param criteria tmTrnsTypVolumeの CriteriaDomain クラス
+     * @return tmTrnsTypVolumeのDomainクラス
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public TmTrnsTypVolumeDomain searchByKeyForChange(TmTrnsTypVolumeCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * 主キーを条件にロックを取得し、検索結果を返却します。
+     * 
+     * <pre>
+     * 既にロックが取得されている場合、ロックが取得できるまで待機します。
+     * </pre>
+     * 
+     * @param criteria tmTrnsTypVolumeの CriteriaDomain クラス
+     * @return tmTrnsTypVolumeのDomainクラス
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public TmTrnsTypVolumeDomain lockByKey(TmTrnsTypVolumeCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * 主キーを条件にロックを取得し、検索結果を返却します。
+     * 
+     * <pre>
+     * 既にロックが取得されている場合、例外が発生します。
+     * </pre>
+     * 
+     * @param criteria tmTrnsTypVolumeの CriteriaDomain クラス
+     * @return tmTrnsTypVolumeのDomainクラス
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public TmTrnsTypVolumeDomain lockByKeyNoWait(TmTrnsTypVolumeCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * データを登録します。
+     * 
+     * @param domain tmTrnsTypVolumeのDomainクラス
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public void create(TmTrnsTypVolumeDomain domain) throws ApplicationException;
+
+    /**
+     * データを登録します。
+     * 
+     * @param domains tmTrnsTypVolumeのDomainクラスのList
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public void create(List<TmTrnsTypVolumeDomain> domains) throws ApplicationException;
+
+    /**
+     * 主キーを条件に、データを更新します。
+     * 
+     * @param domain tmTrnsTypVolumeのDomainクラス
+     * @return 更新件数
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public int update(TmTrnsTypVolumeDomain domain) throws ApplicationException;
+
+    /**
+     * 主キーを条件に、データを更新します。（複数件更新）
+     * 
+     * @param domains tmTrnsTypVolumeのDomainクラスのList
+     * @return 更新件数
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public int update(List<TmTrnsTypVolumeDomain> domains) throws ApplicationException;
+
+    /**
+     * 任意の条件を元に、データを更新します。
+     * 
+     * @param domain tmTrnsTypVolumeのDomainクラス
+     * @param criteria tmTrnsTypVolumeのCriteriaDomainクラス
+     * @return 更新件数
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public int updateByCondition(TmTrnsTypVolumeDomain domain, TmTrnsTypVolumeCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * 任意の条件を元に、データを更新します。（複数件更新）
+     * 
+     * @param domains tmTrnsTypVolumeのDomainクラスのList
+     * @param criteria tmTrnsTypVolumeのCriteriaDomainクラスのList
+     * @return 更新件数
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public int updateByCondition(List<TmTrnsTypVolumeDomain> domains, List<TmTrnsTypVolumeCriteriaDomain> criteria) throws ApplicationException;
+
+    /**
+     * 主キーを条件に、データを物理削除します。
+     * 
+     * @param criteria tmTrnsTypVolumeのCriteriaDomainクラス
+     * @return 削除件数
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public int delete(TmTrnsTypVolumeCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * 任意の条件を元に、データを物理削除します。
+     * 
+     * @param criteria tmTrnsTypVolumeのCriteriaDomainクラス
+     * @return 削除件数
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public int deleteByCondition(TmTrnsTypVolumeCriteriaDomain criteria) throws ApplicationException;
+
+}

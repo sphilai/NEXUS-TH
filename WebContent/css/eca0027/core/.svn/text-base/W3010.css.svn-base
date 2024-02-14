@@ -1,0 +1,148 @@
+@charset "utf-8";
+/*
+ * W3010.css
+ * 
+ * CSS for Receive CML Transfer Report.
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ Search condition area 1 ------------*/ 
+
+.gscm_search .search_carry_out_comp_cd {
+    width: 130px;
+}
+
+.gscm_search .search_carry_out_wh_cd {
+    width: 100px;
+}
+
+.gscm_search .search_carry_in_comp_cd {
+    width: 130px;
+}
+
+.gscm_search .search_carry_in_wh_cd {
+    width: 100px;
+}
+
+.gscm_search .search_shipper_cd {
+    width: 90px;
+}
+
+.gscm_search .search_cml {
+    width: 60px;
+}
+
+.gscm_search .search_to_tr_issuer {
+    width: 170px;
+}
+
+.gscm_search .search_tr_issue_dt {
+    width: 100px;
+}
+
+/*------------ Search condition area 2 ------------*/ 
+.gscm_search .search_transfer_no {
+    width: 175px;
+}
+
+.gscm_search .search_editflg {
+    width: 65px;
+}
+
+.gscm_search .search_trnsfer_status {
+    width: 75px;
+}
+
+.gscm_search .search_tr_kind {
+    width: 70px;
+}
+
+.gscm_search .search_activate_method {
+    width: 145px;
+}
+
+.gscm_search .search_activate_date {
+    width: 130px;
+}
+
+.gscm_search .search_carry_in_method {
+    width: 145px;
+}
+
+.gscm_search .search_carry_in_date {
+    width: 160px;
+}
+
+/*------------ Result search ------------*/ 
+
+table.gscm_resultlist {
+    width:600px;
+}
+
+.gscm_resultlist .resultlist_cml_type {
+    width: 40px;
+}
+
+.gscm_resultlist .resultlist_trans_cd {
+    width: 50px;
+}
+
+.gscm_resultlist .resultlist_main_mark {
+    width: 150px;
+}
+
+.gscm_resultlist .resultlist_cont_sort_key {
+    width: 80px;
+}
+
+.gscm_resultlist .resultlist_g_w {
+    width: 80px;
+}
+
+.gscm_resultlist .resultlist_cml_issue_date {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_export_request_no {
+    width: 100px;
+}
+
+.printTr {
+    width: 90px;
+}
+
+.trNo {
+    width: 175px;
+}
+
+.editCnt {
+    width: 65px;
+}
+
+.status {
+    width: 75px;
+}
+
+.trKind {
+    width: 70px;
+}
+
+.activateMethod {
+    width: 145px;
+}
+
+.activateDate {
+    width: 130px;
+}
+
+.carryInMethod {
+    width: 145px;
+}
+
+.carryInDate {
+    width: 165px;
+}
+	
+.rcv_total_cml {
+    width: 60px;
+}

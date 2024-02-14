@@ -1,0 +1,1564 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-JbTransferToGinv.xml
+ *
+ * JbTransferToGinvDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2016 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="JbTransferToGinv">
+
+    <!-- typeAlias -->
+    <typeAlias alias="T0400TransferToGinvDomain"
+        type="com.globaldenso.eca0027.core.business.domain.T0400TransferToGinvDomain" />
+    <typeAlias alias="T0400F010InvDomain"
+        type="com.globaldenso.eca0027.core.business.domain.T0400F010InvDomain" />
+    <typeAlias alias="T0400F020CmlDomain"
+        type="com.globaldenso.eca0027.core.business.domain.T0400F020CmlDomain" />
+    <typeAlias alias="T0400F030CmlItemDomain"
+        type="com.globaldenso.eca0027.core.business.domain.T0400F030CmlItemDomain" />
+    <typeAlias alias="T0400F040InvItemDomain"
+        type="com.globaldenso.eca0027.core.business.domain.T0400F040InvItemDomain" />
+    <typeAlias alias="T0400F050CtnrDomain"
+        type="com.globaldenso.eca0027.core.business.domain.T0400F050CtnrDomain" />
+    <typeAlias alias="T0400F060ShpActDomain"
+        type="com.globaldenso.eca0027.core.business.domain.T0400F060ShpActDomain" />
+    <typeAlias alias="T0400F070AttCtlDomain"
+        type="com.globaldenso.eca0027.core.business.domain.T0400F070AttCtlDomain" />
+    <typeAlias alias="T0400F7007ClpDomain"
+        type="com.globaldenso.eca0027.core.business.domain.T0400F7007ClpDomain" />
+
+    <!-- resultMap -->
+
+    <!-- for TT_ONLINE_REQ_JOB_PARAM O-R mapping L005 ADD -->
+    <resultMap id="T0400TransferToGinvDomain_SearchReequstParam" class="T0400TransferToGinvDomain">
+        <result property="requestId" column="REQUEST_ID" />
+        <result property="processTyp" column="PROCESS_TYP" />
+    </resultMap>
+
+    <!-- for F010INV O-R mapping -->
+    <resultMap id="T0400F010InvDomain_SearchT0400F010Inv" class="T0400F010InvDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" />
+        <result property="invoiceClass" column="INVOICE_CLASS" />
+        <result property="cancelFlg" column="CANCEL_FLG" />
+        <result property="cancelTyp" column="CANCEL_TYP" />
+        <result property="cancelInvoiceNo" column="CANCEL_INVOICE_NO" />
+        <result property="cancelInvoiceIssueDt" column="CANCEL_INVOICE_ISSUE_DT" />
+        <result property="parInvoiceShipperCd" column="PAR_INVOICE_SHIPPER_CD" />
+        <result property="parInvoiceNo" column="PAR_INVOICE_NO" />
+        <result property="parInvoiceIssueDt" column="PAR_INVOICE_ISSUE_DT" />
+        <result property="relateInvoiceShipperCd" column="RELATE_INVOICE_SHIPPER_CD" />
+        <result property="relateInvoiceNo" column="RELATE_INVOICE_NO" />
+        <result property="relateInvoiceIssueDt" column="RELATE_INVOICE_ISSUE_DT" />
+        <result property="consigneeCd" column="CONSIGNEE_CD" />
+        <result property="shipToCd" column="SHIP_TO_CD" />
+        <result property="shipToCompCd" column="SHIP_TO_COMP_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="invoiceCtgry" column="INVOICE_CTGRY" />
+        <result property="invoiceCtgryNm" column="INVOICE_CTGRY_NM" />
+        <result property="shippedDt" column="SHIPPED_DT" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="trnsNm" column="TRNS_NM" />
+        <result property="etd" column="ETD" />
+        <result property="eta" column="ETA" />
+        <result property="lPortCntryCd" column="L_PORT_CNTRY_CD" />
+        <result property="loadingPortCd" column="LOADING_PORT_CD" />
+        <result property="loadingPortNm" column="LOADING_PORT_NM" />
+        <result property="dPortCntryCd" column="D_PORT_CNTRY_CD" />
+        <result property="dischargePortCd" column="DISCHARGE_PORT_CD" />
+        <result property="dischargePortNm" column="DISCHARGE_PORT_NM" />
+        <result property="dlivPoint" column="DLIV_POINT" />
+        <result property="carrierCompCd" column="CARRIER_COMP_CD" />
+        <result property="carrierCompNmAbb" column="CARRIER_COMP_NM_ABB" />
+        <result property="forwarderCompCd" column="FORWARDER_COMP_CD" />
+        <result property="forwarderCompNmAbb" column="FORWARDER_COMP_NM_ABB" />
+        <result property="vessel" column="VESSEL" />
+        <result property="bookingNo" column="BOOKING_NO" />
+        <result property="freightResponsibleCd" column="FREIGHT_RESPONSIBLE_CD" />
+        <result property="freightResponsibleNm" column="FREIGHT_RESPONSIBLE_NM" />
+        <result property="priceTerms" column="PRICE_TERMS" />
+        <result property="tradeTerms" column="TRADE_TERMS" />
+        <result property="termsPoint" column="TERMS_POINT" />
+        <result property="payTerms" column="PAY_TERMS" />
+        <result property="payMeth" column="PAY_METH" />
+        <result property="payMethNm" column="PAY_METH_NM" />
+        <result property="remLcTyp" column="REM_LC_TYP" />
+        <result property="remBankNm" column="REM_BANK_NM" />
+        <result property="remBankAddress1" column="REM_BANK_ADDRESS_1" />
+        <result property="remBankAddress2" column="REM_BANK_ADDRESS_2" />
+        <result property="remBankAddress3" column="REM_BANK_ADDRESS_3" />
+        <result property="remBankAccountNo" column="REM_BANK_ACCOUNT_NO" />
+        <result property="lcNo" column="LC_NO" />
+        <result property="lcDt" column="LC_DT" />
+        <result property="lcBankNm1" column="LC_BANK_NM_1" />
+        <result property="lcBankNm2" column="LC_BANK_NM_2" />
+        <result property="currCd" column="CURR_CD" />
+        <result property="netAmount" column="NET_AMOUNT" />
+        <result property="freight" column="FREIGHT" />
+        <result property="insurance" column="INSURANCE" />
+        <result property="subTotal" column="SUB_TOTAL" />
+        <result property="vatRatio" column="VAT_RATIO" />
+        <result property="vat" column="VAT" />
+        <result property="handlingCharge" column="HANDLING_CHARGE" />
+        <result property="additionalChargeCd" column="ADDITIONAL_CHARGE_CD" />
+        <result property="additionalChargeNm" column="ADDITIONAL_CHARGE_NM" />
+        <result property="additionalCharge" column="ADDITIONAL_CHARGE" />
+        <result property="totalInvoiceAmount" column="TOTAL_INVOICE_AMOUNT" />
+        <result property="noCharge" column="NO_CHARGE" />
+        <result property="pltzItemQty" column="PLTZ_ITEM_QTY" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="weightUnitDisp" column="WEIGHT_UNIT_DISP" />
+        <result property="totalNetWeight" column="TOTAL_NET_WEIGHT" />
+        <result property="totalGrossWeight" column="TOTAL_GROSS_WEIGHT" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="volumeUnitDisp" column="VOLUME_UNIT_DISP" />
+        <result property="totalVolume" column="TOTAL_VOLUME" />
+        <result property="free1ColNm" column="FREE_1_COL_NM" />
+        <result property="free2ColNm" column="FREE_2_COL_NM" />
+        <result property="free3ColNm" column="FREE_3_COL_NM" />
+        <result property="free4ColNm" column="FREE_4_COL_NM" />
+        <result property="spInfo" column="SP_INFO" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="notifyParty1CompCd" column="NOTIFY_PARTY_1_COMP_CD" />
+        <result property="notifyParty1CompNmAbb" column="NOTIFY_PARTY_1_COMP_NM_ABB" />
+        <result property="notifyParty1Nm" column="NOTIFY_PARTY_1_NM" />
+        <result property="notifyParty1Addr" column="NOTIFY_PARTY_1_ADDR" />
+        <result property="notifyParty2CompCd" column="NOTIFY_PARTY_2_COMP_CD" />
+        <result property="notifyParty2CompNmAbb" column="NOTIFY_PARTY_2_COMP_NM_ABB" />
+        <result property="notifyParty2Nm" column="NOTIFY_PARTY_2_NM" />
+        <result property="notifyParty2Addr" column="NOTIFY_PARTY_2_ADDR" />
+        <result property="notifyParty3CompCd" column="NOTIFY_PARTY_3_COMP_CD" />
+        <result property="notifyParty3CompNmAbb" column="NOTIFY_PARTY_3_COMP_NM_ABB" />
+        <result property="notifyParty3Nm" column="NOTIFY_PARTY_3_NM" />
+        <result property="notifyParty3Addr" column="NOTIFY_PARTY_3_ADDR" />
+        <result property="notifyParty4CompCd" column="NOTIFY_PARTY_4_COMP_CD" />
+        <result property="notifyParty4CompNmAbb" column="NOTIFY_PARTY_4_COMP_NM_ABB" />
+        <result property="notifyParty4Nm" column="NOTIFY_PARTY_4_NM" />
+        <result property="notifyParty4Addr" column="NOTIFY_PARTY_4_ADDR" />
+        <result property="shipperCompNmAbb" column="SHIPPER_COMP_NM_ABB" />
+        <result property="shipperCompNm1" column="SHIPPER_COMP_NM_1" />
+        <result property="shipperCompNm2" column="SHIPPER_COMP_NM_2" />
+        <result property="shipperCompAddr1" column="SHIPPER_COMP_ADDR_1" />
+        <result property="shipperCompAddr2" column="SHIPPER_COMP_ADDR_2" />
+        <result property="shipperCompAddr3" column="SHIPPER_COMP_ADDR_3" />
+        <result property="shipperCompAddr4" column="SHIPPER_COMP_ADDR_4" />
+        <result property="shipperCompTel" column="SHIPPER_COMP_TEL" />
+        <result property="shipperCompFax" column="SHIPPER_COMP_FAX" />
+        <result property="shipperTaxIdNo" column="SHIPPER_TAX_ID_NO" />
+        <result property="consigneeCompNmAbb" column="CONSIGNEE_COMP_NM_ABB" />
+        <result property="consigneeCompNm1" column="CONSIGNEE_COMP_NM_1" />
+        <result property="consigneeCompNm2" column="CONSIGNEE_COMP_NM_2" />
+        <result property="consigneeCompAddr1" column="CONSIGNEE_COMP_ADDR_1" />
+        <result property="consigneeCompAddr2" column="CONSIGNEE_COMP_ADDR_2" />
+        <result property="consigneeCompAddr3" column="CONSIGNEE_COMP_ADDR_3" />
+        <result property="consigneeCompAddr4" column="CONSIGNEE_COMP_ADDR_4" />
+        <result property="consigneeCompTel" column="CONSIGNEE_COMP_TEL" />
+        <result property="consigneeCompFax" column="CONSIGNEE_COMP_FAX" />
+        <result property="consigneeTaxIdNo" column="CONSIGNEE_TAX_ID_NO" />
+        <result property="consigneeAttn" column="CONSIGNEE_ATTN" />
+        <result property="shipToNmAbb" column="SHIP_TO_NM_ABB" />
+        <result property="shipToNm1" column="SHIP_TO_NM_1" />
+        <result property="shipToNm2" column="SHIP_TO_NM_2" />
+        <result property="shipToAddr1" column="SHIP_TO_ADDR_1" />
+        <result property="shipToAddr2" column="SHIP_TO_ADDR_2" />
+        <result property="shipToAddr3" column="SHIP_TO_ADDR_3" />
+        <result property="shipToAddr4" column="SHIP_TO_ADDR_4" />
+        <result property="shipToCompNmAbb" column="SHIP_TO_COMP_NM_ABB" />
+        <result property="containerNo1" column="CONTAINER_NO_1" />
+        <result property="containerNo2" column="CONTAINER_NO_2" />
+        <result property="containerNo3" column="CONTAINER_NO_3" />
+        <result property="manualInvoiceIssueDt" column="MANUAL_INVOICE_ISSUE_DT" />
+        <result property="reinvoiceNeedFlg" column="REINVOICE_NEED_FLG" />
+    </resultMap>
+
+    <!-- for F020CML O-R mapping -->
+    <resultMap id="T0400F020CmlDomain_SearchT0400F020Cml" class="T0400F020CmlDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" />
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="returnStyleCd" column="RETURN_STYLE_CD" />
+        <result property="netWeight" column="NET_WEIGHT" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+        <result property="netWeightUnit" column="NET_WEIGHT_UNIT" />
+        <result property="weightUnitDisp" column="WEIGHT_UNIT_DISP" />
+        <result property="volume" column="VOLUME" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="volumeUnitDisp" column="VOLUME_UNIT_DISP" />
+        <result property="palletCartonTyp" column="PALLET_CARTON_TYP" />
+        <result property="palletCartonTypNm" column="PALLET_CARTON_TYP_NM" />
+        <result property="containerNo" column="CONTAINER_NO" />
+    </resultMap>
+
+    <!-- for F030CMLITEM O-R mapping -->
+    <resultMap id="T0400F030CmlItemDomain_SearchT0400F030CmlItem" class="T0400F030CmlItemDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" />
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="recordNo" column="RECORD_NO" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="kitFlg" column="KIT_FLG" />
+        <result property="expRequestNo" column="EXP_REQUEST_NO" />
+        <result property="lineNo" column="LINE_NO" />
+        <result property="kitBrch" column="KIT_BRCH" />
+        <result property="parFlg" column="PAR_FLG" />
+        <result property="kitParItemNo" column="KIT_PAR_ITEM_NO" />
+        <result property="qty" column="QTY" />
+        <result property="qtyUnit" column="QTY_UNIT" />
+        <result property="qtyUnitDisp" column="QTY_UNIT_DISP" />
+        <result property="itemWeight" column="ITEM_WEIGHT" />
+        <result property="itemWeightUnit" column="ITEM_WEIGHT_UNIT" />
+        <result property="itemWeightUnitDisp" column="ITEM_WEIGHT_UNIT_DISP" />
+        <result property="netWeight" column="NET_WEIGHT" />
+        <result property="netWeightUnit" column="NET_WEIGHT_UNIT" />
+        <result property="netWeightUnitDisp" column="NET_WEIGHT_UNIT_DISP" />
+    </resultMap>
+
+    <!-- for F040INVITEM O-R mapping -->
+    <resultMap id="T0400F040InvItemDomain_SearchT0400F040InvItem" class="T0400F040InvItemDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" />
+        <result property="recordNo" column="RECORD_NO" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="kitFlg" column="KIT_FLG" />
+        <result property="expRequestNo" column="EXP_REQUEST_NO" />
+        <result property="lineNo" column="LINE_NO" />
+        <result property="kitBrch" column="KIT_BRCH" />
+        <result property="parFlg" column="PAR_FLG" />
+        <result property="kitParItemNo" column="KIT_PAR_ITEM_NO" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="originCntryNm" column="ORIGIN_CNTRY_NM" />
+        <result property="free_1Dtl" column="FREE_1_DTL" />
+        <result property="free_2Dtl" column="FREE_2_DTL" />
+        <result property="free_3Dtl" column="FREE_3_DTL" />
+        <result property="hsCd" column="HS_CD" />
+        <result property="unitPrice" column="UNIT_PRICE" />
+        <result property="unitPriceCurrCd" column="UNIT_PRICE_CURR_CD" />
+        <result property="qty" column="QTY" />
+        <result property="qtyUnit" column="QTY_UNIT" />
+        <result property="qtyUnitDisp" column="QTY_UNIT_DISP" />
+        <result property="amount" column="AMOUNT" />
+        <result property="amountCurrCd" column="AMOUNT_CURR_CD" />
+        <result property="itemWeight" column="ITEM_WEIGHT" />
+        <result property="itemWeightUnit" column="ITEM_WEIGHT_UNIT" />
+        <result property="itemWeightUnitDisp" column="ITEM_WEIGHT_UNIT_DISP" />
+        <result property="netWeight" column="NET_WEIGHT" />
+        <result property="netWeightUnit" column="NET_WEIGHT_UNIT" />
+        <result property="netWeightUnitDisp" column="NET_WEIGHT_UNIT_DISP" />
+        <result property="length" column="LENGTH" />
+        <result property="width" column="WIDTH" />
+        <result property="height" column="HEIGHT" />
+        <result property="lengthUnit" column="LENGTH_UNIT" />
+        <result property="lengthUnitDisp" column="LENGTH_UNIT_DISP" />
+    </resultMap>
+
+    <!-- for F050CTNR O-R mapping -->
+    <resultMap id="T0400F050CtnrDomain_SearchT0400F050Ctnr" class="T0400F050CtnrDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" />
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="containerNo" column="CONTAINER_NO" />
+    </resultMap>
+
+    <!-- for F060SHPACT O-R mapping -->
+    <resultMap id="T0400F060ShpActDomain_SearchT0400F060ShpAct" class="T0400F060ShpActDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" />
+        <result property="invoiceStatus" column="INVOICE_STATUS" />
+        <result property="billdNo" column="BILLD_NO" />
+        <result property="vessel" column="VESSEL" />
+        <result property="atd" column="ATD" />
+        <result property="eta" column="ETA" />
+        <result property="carrierCompCd" column="CARRIER_COMP_CD" />
+        <result property="carrierCompNmAbb" column="CARRIER_COMP_NM_ABB" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+    </resultMap>
+
+    <!-- for F070ATTCTL O-R mapping -->
+    <resultMap id="T0400F070AttCtlDomain_SearchT0400F070AttCtl" class="T0400F070AttCtlDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" />
+        <result property="docGrp" column="DOC_GRP" />
+        <result property="docId" column="DOC_ID" />
+        <result property="zipEntryNm" column="ZIP_ENTRY_NM" />
+        <result property="originalFileNm" column="ORIGINAL_FILE_NM" />
+        <result property="fileId" column="FILE_ID" />
+    </resultMap>
+
+    <!-- for CLP O-R mapping -->
+    <resultMap id="T0400F7007ClpDomain_SearchClp" class="T0400F7007ClpDomain">
+        <result property="trnsNm" column="TRNS_NM" />
+        <result property="vessel" column="VESSEL" />
+        <result property="atd" column="ATD" />
+        <result property="eta" column="ETA" />
+        <result property="loadingPortCd" column="LOADING_PORT_CD" />
+        <result property="dischargePortCd" column="DISCHARGE_PORT_CD" />
+        <result property="carrierCompNmAbb" column="CARRIER_COMP_NM_ABB" />
+        <result property="noOfContainerInVessel" column="NO_OF_CONTAINER_IN_VESSEL" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="containerNo" column="CONTAINER_NO" />
+        <result property="trnsTypNm" column="TRNS_TYP_NM" />
+        <result property="loadingRatio" column="LOADING_RATIO" />
+        <result property="noOfBlInVessel" column="NO_OF_BL_IN_VESSEL" />
+        <result property="billdNo" column="BILLD_NO" />
+        <result property="freightResponsibleCd" column="FREIGHT_RESPONSIBLE_CD" />
+        <result property="shipperCompNmAbb" column="SHIPPER_COMP_NM_ABB" />
+        <result property="shipToCompNmAbb" column="SHIP_TO_COMP_NM_ABB" />
+        <result property="shipToNmAbb" column="SHIP_TO_NM_ABB" />
+        <result property="consigneeCompNmAbb" column="CONSIGNEE_COMP_NM_ABB" />
+        <result property="noOfInvoiceInVessel" column="NO_OF_INVOICE_IN_VESSEL" />
+        <result property="noOfInvoiceInShipper" column="NO_OF_INVOICE_IN_SHIPPER" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceClass" column="INVOICE_CLASS" />
+        <result property="noOfFrtInvInMainInv" column="NO_OF_FRT_INV_IN_MAIN_INV" />
+        <result property="noOfCmlInInv" column="NO_OF_CML_IN_INV" />
+        <result property="totalGrossWeightPerBl" column="TOTAL_GROSS_WEIGHT_PER_BL" />
+        <result property="totalGrossWeightPerCtnr" column="TOTAL_GROSS_WEIGHT_PER_CTNR" />
+        <result property="totalGrossWeightPerInv" column="TOTAL_GROSS_WEIGHT_PER_INV" />
+        <result property="weightUnitDisp" column="WEIGHT_UNIT_DISP" />
+        <result property="totalVolumeOfBl" column="TOTAL_VOLUME_OF_BL" />
+        <result property="totalVolumeOfContainer" column="TOTAL_VOLUME_OF_CONTAINER" />
+        <result property="totalVolumeOfInv" column="TOTAL_VOLUME_OF_INV" />
+        <result property="volumeUnitDisp" column="VOLUME_UNIT_DISP" />
+        <result property="xmainMark" column="XMAIN_MARK" />
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="mixTagNo" column="MIX_TAG_NO" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="pltzItemNo" column="PLTZ_ITEM_NO" />
+        <result property="qty" column="QTY" />
+        <result property="qtyUnitDisp" column="QTY_UNIT_DISP" />
+        <result property="pltzGrossWeight" column="PLTZ_GROSS_WEIGHT" />
+        <result property="pltzVolume" column="PLTZ_VOLUME" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+        <result property="returnStyleCd" column="RETURN_STYLE_CD" />
+        <result property="noOfCmlInContainer" column="NO_OF_CML_IN_CONTAINER" />
+        <result property="noOfCmlInBl" column="NO_OF_CML_IN_BL" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="siteTyp" column="SITE_TYP" />
+        <result property="palletCartonTyp" column="PALLET_CARTON_TYP" />
+        <result property="parInvoiceNo" column="PAR_INVOICE_NO" />
+        <result property="registerDt" column="REGISTER_DT" />
+        <result property="invoiceWeightUnit" column="INVOICE_WEIGHT_UNIT" />
+        <result property="invoiceVolumeUnit" column="INVOICE_VOLUME_UNIT" />
+        <result property="containerWeightUnit" column="CONTAINER_WEIGHT_UNIT" />
+        <result property="containerVolumeUnit" column="CONTAINER_VOLUME_UNIT" />
+        <result property="pltzWeightUnit" column="PLTZ_WEIGHT_UNIT" />
+        <result property="pltzVolumeUnit" column="PLTZ_VOLUME_UNIT" />
+    </resultMap>
+
+    <!--
+    ==================================================================
+    == Search data for editing file of F010INV.
+    == 未処理のTT_ONLINE_REQ_JOB_PARAMを検索します。
+    ==
+    == Since there is no parallel processing, there is no conflict, but just in case, lock it.
+    == 並列処理はないため取り合いはないが、念のためロックする。
+    ==
+    == [L005 ADD]
+    ==================================================================
+    -->
+    <select id="SearchReequstParam" resultMap="T0400TransferToGinvDomain_SearchReequstParam"
+        parameterClass="T0400TransferToGinvDomain">
+
+        select
+        /* SqlMap-JbTransferToGinv.SearchReequstParam */
+            REQUEST_ID
+        ,   PARAM_VALUE_01 PROCESS_TYP
+        from
+            TT_ONLINE_REQ_JOB_PARAM
+        where
+            PARAM_VALUE_10 = '0'
+        and BRCH = 1
+        order by
+            REQUEST_ID
+        for update
+    </select>
+
+    <!--
+    ==================================================================
+    == Update the target TT_ONLINE_REQ_JOB_PARAM to completion.
+    == 対象のTT_ONLINE_REQ_JOB_PARAMを処理済みに更新します。
+    ==
+    == [L005 ADD]
+    ==================================================================
+    -->
+    <update id="UpdateReequstParamComplate" parameterClass="java.util.List">
+        update
+        /* SqlMap-JbTransferToGinv.UpdateReequstParamComplate */
+            TT_ONLINE_REQ_JOB_PARAM
+        set
+            PARAM_VALUE_10 = '1'
+        ,   COM_UPDATE_FUNC_ID = 'T0500'
+        ,   COM_UPDATE_USER_ID = '0'
+        ,   COM_UPDATE_TIMESTAMP = sysdate
+        where
+            REQUEST_ID
+                in (
+                    <iterate conjunction=",">
+                        #[].requestId#
+                    </iterate>
+                )
+    </update>
+
+    <!--
+    ==================================================================
+    == Search data for editing file of F010INV.
+    == F010INVファイル編集用のデータを検索します。
+    ==
+    == [ST050 CHG]
+    == decode INVOICE_CLASS E->M
+    ==================================================================
+    -->
+    <select id="SearchT0400F010Inv" resultMap="T0400F010InvDomain_SearchT0400F010Inv"
+        parameterClass="T0400TransferToGinvDomain">
+
+        select
+        /* SqlMap-JbTransferToGinv.SearchT0400F010Inv */
+            T2.SHIPPER_CD
+        ,   T2.INVOICE_NO
+        ,   to_char(T2.INVOICE_ISSUE_DT, 'YYYYMMDDHH24MISS') INVOICE_ISSUE_DT
+        ,   decode(T2.INVOICE_CLASS, 'E', 'M', T2.INVOICE_CLASS) INVOICE_CLASS
+        ,   T2.CANCEL_FLG
+        ,   T2.CANCEL_TYP
+        ,   T2.CANCEL_INVOICE_NO
+        ,   to_char(T2.CANCEL_INVOICE_ISSUE_DT, 'YYYYMMDDHH24MISS') CANCEL_INVOICE_ISSUE_DT
+        ,   T2.PAR_INVOICE_SHIPPER_CD
+        ,   T2.PAR_INVOICE_NO
+        ,   to_char(T2.PAR_INVOICE_ISSUE_DT, 'YYYYMMDDHH24MISS') PAR_INVOICE_ISSUE_DT
+        ,   T2.RELATE_INVOICE_SHIPPER_CD
+        ,   NULL RELATE_INVOICE_NO
+        ,   NULL RELATE_INVOICE_ISSUE_DT
+        ,   T2.CONSIGNEE_CD
+        ,   T2.SHIP_TO_CD
+        ,   T2.SHIP_TO_COMP_CD
+        ,   T2.CUSTOMER_CD
+        ,   T2.LGCY_SHIP_TO
+        ,   T2.INVOICE_CTGRY
+        ,   T2.INVOICE_CTGRY_NM
+        ,   to_char(T2.SHIPPED_DT, 'YYYYMMDD') SHIPPED_DT
+        ,   T2.TRNS_CD
+        ,   T2.TRNS_NM
+        ,   to_char(T2.ETD, 'YYYYMMDD') ETD
+        ,   to_char(T2.ETA, 'YYYYMMDD') ETA
+        ,   T2.L_PORT_CNTRY_CD
+        ,   T2.LOADING_PORT_CD
+        ,   T2.LOADING_PORT_NM
+        ,   T2.D_PORT_CNTRY_CD
+        ,   T2.DISCHARGE_PORT_CD
+        ,   T2.DISCHARGE_PORT_NM
+        ,   T2.DLIV_POINT
+        ,   T2.CARRIER_COMP_CD
+        ,   T2.CARRIER_COMP_NM_ABB
+        ,   T2.FORWARDER_COMP_CD
+        ,   M6.COMP_NM_ABB FORWARDER_COMP_NM_ABB
+        ,   T2.VESSEL
+        ,   T2.BOOKING_NO
+        ,   T2.FREIGHT_RESPONSIBLE_CD
+        ,   T2.FREIGHT_RESPONSIBLE_NM
+        ,   T2.PRICE_TERMS
+        ,   T2.TRADE_TERMS
+        ,   T2.TERMS_POINT
+        ,   T2.PAY_TERMS
+        ,   T2.PAY_METH
+        ,   T2.PAY_METH_NM
+        ,   T2.REM_LC_TYP
+        ,   T2.REM_BANK_NM
+        ,   T2.REM_BANK_ADDRESS_1
+        ,   T2.REM_BANK_ADDRESS_2
+        ,   T2.REM_BANK_ADDRESS_3
+        ,   T2.REM_BANK_ACCOUNT_NO
+        ,   T2.LC_NO
+        ,   to_char(T2.LC_DT, 'YYYYMMDD') LC_DT
+        ,   T2.LC_BANK_NM_1
+        ,   T2.LC_BANK_NM_2
+        ,   T2.CURR_CD
+        ,   T2.NET_AMOUNT
+        ,   T2.FREIGHT
+        ,   T2.INSURANCE
+        ,   T2.SUB_TOTAL
+        ,   T2.VAT_RATIO
+        ,   T2.VAT
+        ,   T2.HANDLING_CHARGE
+        ,   T2.ADDITIONAL_CHARGE_CD
+        ,   T2.ADDITIONAL_CHARGE_NM
+        ,   T2.ADDITIONAL_CHARGE
+        ,   T2.TOTAL_INVOICE_AMOUNT
+        ,   T2.NO_CHARGE
+        ,   T2.PLTZ_ITEM_QTY
+        ,   T2.WEIGHT_UNIT
+        ,   M4.UNIT_DISP WEIGHT_UNIT_DISP
+        ,   T2.TOTAL_NET_WEIGHT
+        ,   T2.TOTAL_GROSS_WEIGHT
+        ,   T2.VOLUME_UNIT
+        ,   M5.UNIT_DISP VOLUME_UNIT_DISP
+        ,   T2.TOTAL_VOLUME
+        ,   T2.FREE_1_COL_NM
+        ,   T2.FREE_2_COL_NM
+        ,   T2.FREE_3_COL_NM
+        ,   T2.FREE_4_COL_NM
+        ,   T2.SP_INFO
+        ,   T2.CONTAINER_LOOSE_TYP
+        ,   T2.CONTAINER_SORTING_KEY
+        ,   T2.NOTIFY_PARTY_1_COMP_CD
+        ,   T2.NOTIFY_PARTY_1_COMP_NM_ABB
+        ,   T2.NOTIFY_PARTY_1_NM
+        ,   T2.NOTIFY_PARTY_1_ADDR
+        ,   T2.NOTIFY_PARTY_2_COMP_CD
+        ,   T2.NOTIFY_PARTY_2_COMP_NM_ABB
+        ,   T2.NOTIFY_PARTY_2_NM
+        ,   T2.NOTIFY_PARTY_2_ADDR
+        ,   T2.NOTIFY_PARTY_3_COMP_CD
+        ,   T2.NOTIFY_PARTY_3_COMP_NM_ABB
+        ,   T2.NOTIFY_PARTY_3_NM
+        ,   T2.NOTIFY_PARTY_3_ADDR
+        ,   T2.NOTIFY_PARTY_4_COMP_CD
+        ,   T2.NOTIFY_PARTY_4_COMP_NM_ABB
+        ,   T2.NOTIFY_PARTY_4_NM
+        ,   T2.NOTIFY_PARTY_4_ADDR
+        ,   T2.SHIPPER_COMP_NM_ABB
+        ,   T2.SHIPPER_COMP_NM_1
+        ,   T2.SHIPPER_COMP_NM_2
+        ,   T2.SHIPPER_COMP_ADDR_1
+        ,   T2.SHIPPER_COMP_ADDR_2
+        ,   T2.SHIPPER_COMP_ADDR_3
+        ,   T2.SHIPPER_COMP_ADDR_4
+        ,   T2.SHIPPER_COMP_TEL
+        ,   T2.SHIPPER_COMP_FAX
+        ,   T2.SHIPPER_TAX_ID_NO
+        ,   M1.COMP_NM_ABB CONSIGNEE_COMP_NM_ABB
+        ,   T2.CONSIGNEE_COMP_NM_1
+        ,   T2.CONSIGNEE_COMP_NM_2
+        ,   T2.CONSIGNEE_COMP_ADDR_1
+        ,   T2.CONSIGNEE_COMP_ADDR_2
+        ,   T2.CONSIGNEE_COMP_ADDR_3
+        ,   T2.CONSIGNEE_COMP_ADDR_4
+        ,   T2.CONSIGNEE_COMP_TEL
+        ,   T2.CONSIGNEE_COMP_FAX
+        ,   T2.CONSIGNEE_TAX_ID_NO
+        ,   T2.CONSIGNEE_ATTN
+        ,   M2.SHIP_TO_NM_ABB
+        ,   T2.SHIP_TO_NM_1
+        ,   T2.SHIP_TO_NM_2
+        ,   T2.SHIP_TO_ADDR_1
+        ,   T2.SHIP_TO_ADDR_2
+        ,   T2.SHIP_TO_ADDR_3
+        ,   T2.SHIP_TO_ADDR_4
+        ,   M3.COMP_NM_ABB SHIP_TO_COMP_NM_ABB
+        ,   T2.CONTAINER_NO_1
+        ,   T2.CONTAINER_NO_2
+        ,   T2.CONTAINER_NO_3
+        ,   to_char(T2.MANUAL_INVOICE_ISSUE_DT, 'YYYYMMDD') MANUAL_INVOICE_ISSUE_DT
+        ,   decode(T2.RELATE_INVOICE_SHIPPER_CD, NULL, 'N', 'Y') REINVOICE_NEED_FLG
+        from
+            TT_ONLINE_REQ_JOB_PARAM T1
+        ,   TT_INVOICE T2
+        ,   TM_NXS_COMP M1
+        ,   TM_NXS_SHIP_TO M2
+        ,   TM_NXS_COMP M3
+        ,   TM_MEASURE_UNIT M4
+        ,   TM_MEASURE_UNIT M5
+        ,   TM_NXS_COMP M6
+        where
+            T1.REQUEST_ID = #requestId#
+        and T1.BRCH != 1
+        and T1.PARAM_VALUE_01 = T2.SHIPPER_CD
+        and T1.PARAM_VALUE_02 = T2.INVOICE_NO
+        and to_date(T1.PARAM_VALUE_03, 'YYYYMMDDHH24MISS') = T2.INVOICE_ISSUE_DT
+        and T2.CONSIGNEE_CD = M1.COMP_CD
+        and T2.SHIP_TO_CD = M2.SHIP_TO_CD
+        and T2.SHIP_TO_COMP_CD = M3.COMP_CD(+)
+        and T2.WEIGHT_UNIT = M4.UNIT_CD(+)
+        and T2.VOLUME_UNIT = M5.UNIT_CD(+)
+        and T2.FORWARDER_COMP_CD = M6.COMP_CD(+)
+        order by
+            T2.SHIPPER_CD
+        ,   T2.INVOICE_NO
+        ,   T2.INVOICE_ISSUE_DT
+    </select>
+
+    <!--
+    ==================================================================
+    == Search data for editing file of F020CML.
+    == F020CMLファイル編集用のデータを検索します。
+    ==
+    == NL005: Change TT_PLTZ, TM_CD to outer join./NL005:TT_PLTZ, TM_CDを外部結合に変更。
+    ==
+    ==================================================================
+    -->
+    <select id="SearchT0400F020Cml" resultMap="T0400F020CmlDomain_SearchT0400F020Cml"
+        parameterClass="T0400TransferToGinvDomain">
+
+        select
+        /* SqlMap-JbTransferToGinv.SearchT0400F020Cml */
+            T2.SHIPPER_CD
+        ,   T2.INVOICE_NO
+        ,   to_char(T2.INVOICE_ISSUE_DT, 'YYYYMMDDHH24MISS') INVOICE_ISSUE_DT
+        ,   T2.MAIN_MARK
+        ,   T2.RETURN_STYLE_CD
+        ,   T2.NET_WEIGHT
+        ,   T2.GROSS_WEIGHT
+        ,   T2.NET_WEIGHT_UNIT
+        ,   M1.UNIT_DISP WEIGHT_UNIT_DISP
+        ,   T2.VOLUME
+        ,   T2.VOLUME_UNIT
+        ,   M2.UNIT_DISP VOLUME_UNIT_DISP
+        ,   T3.PALLET_CARTON_TYP
+        ,   substr(M3.VALUE, 1, 30) PALLET_CARTON_TYP_NM
+        ,   T4.CONTAINER_NO
+        from
+            TT_ONLINE_REQ_JOB_PARAM     T1
+        ,   TT_PACKING_ATTACHED_CML     T2
+        ,   TT_PLTZ                     T3
+        ,   TT_SHIPPING_FIRM            T4
+        ,   TM_MEASURE_UNIT             M1
+        ,   TM_MEASURE_UNIT             M2
+        ,   TM_CD                       M3
+        where
+            T1.REQUEST_ID = #requestId#
+        and T1.BRCH != 1
+        and T1.PARAM_VALUE_01 = T2.SHIPPER_CD
+        and T1.PARAM_VALUE_02 = T2.INVOICE_NO
+        and to_date(T1.PARAM_VALUE_03, 'YYYYMMDDHH24MISS') = T2.INVOICE_ISSUE_DT
+        and T2.MAIN_MARK = T3.MAIN_MARK(+)
+        and T3.SHIPPING_FIRM_NO = T4.SHIPPING_FIRM_NO(+)
+        and T2.NET_WEIGHT_UNIT = M1.UNIT_CD(+)
+        and T2.VOLUME_UNIT = M2.UNIT_CD(+)
+        and M3.CD_TYP(+) = '77'
+        and M3.LNG_CD(+) = 'en'
+        and T3.PALLET_CARTON_TYP = M3.CD(+)
+        order by
+            T2.SHIPPER_CD
+        ,   T2.INVOICE_NO
+        ,   T2.INVOICE_ISSUE_DT
+        ,   T2.MAIN_MARK
+    </select>
+
+    <!--
+    ==================================================================
+    == Search data for editing file of F030CMLITEM.
+    == F030CMLITEMファイル編集用のデータを検索します。
+    ==================================================================
+    -->
+    <select id="SearchT0400F030CmlItem" resultMap="T0400F030CmlItemDomain_SearchT0400F030CmlItem"
+        parameterClass="T0400TransferToGinvDomain">
+
+        select
+        /* SqlMap-JbTransferToGinv.SearchT0400F030CmlItem */
+            T2.SHIPPER_CD
+        ,   T2.INVOICE_NO
+        ,   to_char(T2.INVOICE_ISSUE_DT, 'YYYYMMDDHH24MISS') INVOICE_ISSUE_DT
+        ,   T2.MAIN_MARK
+        ,   T2.RECORD_NO
+        ,   T2.CUSTOMER_PO_NO
+        ,   T2.CUSTOMER_ITEM_NO
+        ,   T2.ITEM_NO
+        ,   T2.PKG_CD
+        ,   T2.ITEM_DESCRIPTION
+        ,   T2.MODEL_CD
+        ,   T2.KIT_FLG
+        ,   T2.EXP_REQUEST_NO
+        ,   T2.LINE_NO
+        ,   T2.KIT_BRCH
+        ,   T2.PAR_FLG
+        ,   T2.KIT_PAR_ITEM_NO
+        ,   T2.QTY
+        ,   T2.QTY_UNIT
+        ,   M1.UNIT_DISP                QTY_UNIT_DISP
+        ,   T2.NET_WEIGHT               ITEM_WEIGHT
+        ,   T2.NET_WEIGHT_UNIT          ITEM_WEIGHT_UNIT
+        ,   M2.UNIT_DISP                ITEM_WEIGHT_UNIT_DISP
+        ,   T2.TOTAL_NET_WEIGHT         NET_WEIGHT
+        ,   T2.TOTAL_NET_WEIGHT_UNIT    NET_WEIGHT_UNIT
+        ,   M3.UNIT_DISP                NET_WEIGHT_UNIT_DISP
+        from
+            TT_ONLINE_REQ_JOB_PARAM     T1
+        ,   TT_PACK_ATCH_ITEM_NO        T2
+        ,   TM_MEASURE_UNIT             M1
+        ,   TM_MEASURE_UNIT             M2
+        ,   TM_MEASURE_UNIT             M3
+        where
+            T1.REQUEST_ID = #requestId#
+        and T1.BRCH != 1
+        and T1.PARAM_VALUE_01 = T2.SHIPPER_CD
+        and T1.PARAM_VALUE_02 = T2.INVOICE_NO
+        and to_date(T1.PARAM_VALUE_03, 'YYYYMMDDHH24MISS') = T2.INVOICE_ISSUE_DT
+        and T2.QTY_UNIT = M1.UNIT_CD(+)
+        and T2.NET_WEIGHT_UNIT = M2.UNIT_CD(+)
+        and T2.TOTAL_NET_WEIGHT_UNIT = M3.UNIT_CD(+)
+        order by
+            T2.SHIPPER_CD
+        ,   T2.INVOICE_NO
+        ,   T2.INVOICE_ISSUE_DT
+        ,   T2.MAIN_MARK
+        ,   T2.RECORD_NO
+    </select>
+
+    <!--
+    ==================================================================
+    == Search data for editing file of F040INVITEM.
+    == F040INVITEMファイル編集用のデータを検索します。
+    ==================================================================
+    -->
+    <select id="SearchT0400F040InvItem" resultMap="T0400F040InvItemDomain_SearchT0400F040InvItem"
+        parameterClass="T0400TransferToGinvDomain">
+
+        select
+        /* SqlMap-JbTransferToGinv.SearchT0400F040InvItem */
+            T2.SHIPPER_CD
+        ,   T2.INVOICE_NO
+        ,   to_char(T2.INVOICE_ISSUE_DT, 'YYYYMMDDHH24MISS') INVOICE_ISSUE_DT
+        ,   T2.RECORD_NO
+        ,   T2.CUSTOMER_PO_NO
+        ,   T2.CUSTOMER_ITEM_NO
+        ,   T2.ITEM_NO
+        ,   T2.PKG_CD
+        ,   T2.ITEM_DESCRIPTION
+        ,   T2.MODEL_CD
+        ,   T2.KIT_FLG
+        ,   T2.EXP_REQUEST_NO
+        ,   T2.LINE_NO
+        ,   T2.KIT_BRCH
+        ,   T2.PAR_FLG
+        ,   T2.KIT_PAR_ITEM_NO
+        ,   T2.ORIGIN_CNTRY_CD
+        ,   T2.ORIGIN_CNTRY_NM
+        ,   T2.FREE_1_DTL
+        ,   T2.FREE_2_DTL
+        ,   T2.FREE_3_DTL
+        ,   T2.HS_CD
+        ,   T2.UNIT_PRICE
+        ,   T2.UNIT_PRICE_CURR_CD
+        ,   T2.QTY
+        ,   T2.QTY_UNIT
+        ,   M1.UNIT_DISP                QTY_UNIT_DISP
+        ,   T2.AMOUNT
+        ,   T2.AMOUNT_CURR_CD
+        ,   T2.NET_WEIGHT               ITEM_WEIGHT
+        ,   T2.NET_WEIGHT_UNIT          ITEM_WEIGHT_UNIT
+        ,   M2.UNIT_DISP                ITEM_WEIGHT_UNIT_DISP
+        ,   T2.TOTAL_NET_WEIGHT         NET_WEIGHT
+        ,   T2.TOTAL_NET_WEIGHT_UNIT    NET_WEIGHT_UNIT
+        ,   M3.UNIT_DISP                NET_WEIGHT_UNIT_DISP
+        ,   T2.LENGTH
+        ,   T2.WIDTH
+        ,   T2.HEIGHT
+        ,   T2.LENGTH_UNIT
+        ,   M4.UNIT_DISP                LENGTH_UNIT_DISP
+        from
+            TT_ONLINE_REQ_JOB_PARAM     T1
+        ,   TT_INVOICE_ATTACHED         T2
+        ,   TM_MEASURE_UNIT             M1
+        ,   TM_MEASURE_UNIT             M2
+        ,   TM_MEASURE_UNIT             M3
+        ,   TM_MEASURE_UNIT             M4
+        where
+            T1.REQUEST_ID = #requestId#
+        and T1.BRCH != 1
+        and T1.PARAM_VALUE_01 = T2.SHIPPER_CD
+        and T1.PARAM_VALUE_02 = T2.INVOICE_NO
+        and to_date(T1.PARAM_VALUE_03, 'YYYYMMDDHH24MISS') = T2.INVOICE_ISSUE_DT
+        and T2.QTY_UNIT = M1.UNIT_CD(+)
+        and T2.NET_WEIGHT_UNIT = M2.UNIT_CD(+)
+        and T2.TOTAL_NET_WEIGHT_UNIT = M3.UNIT_CD(+)
+        and T2.LENGTH_UNIT = M4.UNIT_CD(+)
+        order by
+            T2.SHIPPER_CD
+        ,   T2.INVOICE_NO
+        ,   T2.INVOICE_ISSUE_DT
+        ,   T2.RECORD_NO
+    </select>
+
+    <!--
+    ==================================================================
+    == Search data for editing file of F050CTNR.
+    == F050CTNRファイル編集用のデータを検索します。
+    ==
+    == [ST048 CHG]
+    == When shipping actuality is canceled, change to clear container number on GINV side.
+    == For this reason NEXUS does not blank edit Container No.
+    == 船積実績キャンセル時はGINV側でコンテナNo.をクリアするように変更。
+    == このためNEXUSでコンテナNo.のブランク編集はしなくてよいのでやめる。
+    ==================================================================
+    -->
+    <select id="SearchT0400F050Ctnr" resultMap="T0400F050CtnrDomain_SearchT0400F050Ctnr"
+        parameterClass="T0400TransferToGinvDomain">
+
+        select
+        /* SqlMap-JbTransferToGinv.SearchT0400F050Ctnr */
+            T2.SHIPPER_CD
+        ,   T2.INVOICE_NO
+        ,   to_char(T2.INVOICE_ISSUE_DT, 'YYYYMMDDHH24MISS') INVOICE_ISSUE_DT
+        ,   T2.MAIN_MARK
+        ,   T3.CONTAINER_NO <!-- ST048 CHG -->
+        from
+            TT_ONLINE_REQ_JOB_PARAM T1
+        ,   TT_PLTZ T2
+        ,   TT_SHIPPING_FIRM T3
+        where
+            T1.REQUEST_ID = #requestId#
+        and T1.BRCH != 1
+        and T1.PARAM_VALUE_04 = 'N' <!-- ST048 ADD -->
+        and T1.PARAM_VALUE_01 = T2.SHIPPER_CD
+        and T1.PARAM_VALUE_02 = T2.INVOICE_NO
+        and to_date(T1.PARAM_VALUE_03, 'YYYYMMDDHH24MISS') = T2.INVOICE_ISSUE_DT
+        and T2.SHIPPING_FIRM_NO = T3.SHIPPING_FIRM_NO(+)
+        order by
+            T2.SHIPPER_CD
+        ,   T2.INVOICE_NO
+        ,   T2.INVOICE_ISSUE_DT
+        ,   T2.MAIN_MARK
+    </select>
+
+    <!--
+    ==================================================================
+    == Search data for editing file of F060SHPACT.
+    == F060SHPACTファイル編集用のデータを検索します。
+    ==================================================================
+    -->
+    <select id="SearchT0400F060ShpAct" resultMap="T0400F060ShpActDomain_SearchT0400F060ShpAct"
+        parameterClass="T0400TransferToGinvDomain">
+
+        select
+        /* SqlMap-JbTransferToGinv.SearchT0400F060ShpAct */
+            T2.SHIPPER_CD
+        ,   T2.INVOICE_NO
+        ,   to_char(T2.INVOICE_ISSUE_DT, 'YYYYMMDDHH24MISS') INVOICE_ISSUE_DT
+        ,   case
+            when T2.SHIPPING_ACT_STATUS is NULL then
+                '10'
+            when T2.SHIPPING_ACT_STATUS = '20' then
+                '40'
+            else
+                case
+                when T3.BILLD_FILE_ID is not NULL then
+                    '30'
+                else
+                    case
+                    when T3.TRNS_CD = 'T' or M1.DN_BASE_FLG = 'N' then
+                        '30'
+                    else
+                        '20'
+                    end
+                end
+            end
+                INVOICE_STATUS
+        ,   T3.BILLD_NO
+        ,   T3.VESSEL
+        ,   to_char(T3.ATD, 'YYYYMMDD') ATD
+        ,   to_char(T3.ETA, 'YYYYMMDD') ETA
+        ,   T3.CARRIER_COMP_CD
+        ,   M2.COMP_NM_ABB CARRIER_COMP_NM_ABB
+        ,   T3.CONTAINER_LOOSE_TYP
+        from
+            TT_ONLINE_REQ_JOB_PARAM T1
+        ,   TT_INVOICE T2
+        ,   TT_SHIPPING_ACT T3
+        ,   TM_NXS_COMP M1
+        ,   TM_NXS_COMP M2
+        where
+            T1.REQUEST_ID = #requestId#
+        and T1.BRCH != 1
+        <isEqual property="processTyp" compareValue="2">
+        and T1.PARAM_VALUE_01 = T2.SHIPPER_CD
+        and T1.PARAM_VALUE_02 = T2.INVOICE_NO
+        and to_date(T1.PARAM_VALUE_03, 'YYYYMMDDHH24MISS') = T2.INVOICE_ISSUE_DT
+        </isEqual>
+        <isNotEqual property="processTyp" compareValue="2">
+        and T1.PARAM_VALUE_01 = T3.SHIPPING_ACT_NO
+        </isNotEqual>
+        and T2.SHIPPING_ACT_NO = T3.SHIPPING_ACT_NO(+)
+        and T2.SHIPPER_CD = M1.COMP_CD
+        and T3.CARRIER_COMP_CD = M2.COMP_CD(+)
+        order by
+            T2.SHIPPER_CD
+        ,   T2.INVOICE_NO
+        ,   T2.INVOICE_ISSUE_DT
+    </select>
+
+    <!--
+    ==================================================================
+    == Search data for editing file of F070ATTCTL when Invoice send.
+    == When file ID is not set; at the time of the rerun put it out, and acquire DOC_GRP subordinates for made up of in a blank.
+    == インボイス送信時にF070ATTCTLファイル編集用のデータを検索します。
+    == ファイルIDが設定されていない場合、リラン時の消し込みのためDOC_GRP配下をブランクで取得する。
+    ==================================================================
+    -->
+    <select id="SearchT0400F070AttCtlWhenInvoice" resultMap="T0400F070AttCtlDomain_SearchT0400F070AttCtl"
+        parameterClass="T0400TransferToGinvDomain">
+
+        select
+        /* SqlMap-JbTransferToGinv.SearchT0400F070AttCtlWhenInvoice */
+            T1.PARAM_VALUE_01 SHIPPER_CD
+        ,   T1.PARAM_VALUE_02 INVOICE_NO
+        ,   T1.PARAM_VALUE_03 INVOICE_ISSUE_DT
+        ,   '1' DOC_GRP
+        ,   T2.DOC_ID
+        ,   T2.FILE_NAME ZIP_ENTRY_NM
+        ,   T2.FILE_NAME ORIGINAL_FILE_NM
+        ,   T2.FILE_ID
+        from
+            TT_ONLINE_REQ_JOB_PARAM T1
+        ,   (
+                select
+                    T2.SHIPPER_CD
+                ,   T2.INVOICE_NO
+                ,   T2.INVOICE_ISSUE_DT
+                ,   '100' DOC_ID
+                ,   T3.FILE_NAME
+                ,   T3.FILE_ID
+                from
+                    TT_ONLINE_REQ_JOB_PARAM T1
+                ,   TT_INVOICE_HEADER       T2
+                ,   LB_FILE_MANAGER         T3
+                where
+                    T1.REQUEST_ID = #requestId#
+                and T1.BRCH != 1
+                and T1.PARAM_VALUE_01 = T2.SHIPPER_CD
+                and T1.PARAM_VALUE_02 = T2.INVOICE_NO
+                and to_date(T1.PARAM_VALUE_03, 'YYYYMMDDHH24MISS') = T2.INVOICE_ISSUE_DT
+                and T2.FILE_ID = T3.FILE_ID
+                union all
+                select
+                    T2.SHIPPER_CD
+                ,   T2.INVOICE_NO
+                ,   T2.INVOICE_ISSUE_DT
+                ,   '101' DOC_ID
+                ,   T3.FILE_NAME
+                ,   T3.FILE_ID
+                from
+                    TT_ONLINE_REQ_JOB_PARAM T1
+                ,   TT_PACKING_HEAD         T2
+                ,   LB_FILE_MANAGER         T3
+                where
+                    T1.REQUEST_ID = #requestId#
+                and T1.BRCH != 1
+                and T1.PARAM_VALUE_01 = T2.SHIPPER_CD
+                and T1.PARAM_VALUE_02 = T2.INVOICE_NO
+                and to_date(T1.PARAM_VALUE_03, 'YYYYMMDDHH24MISS') = T2.INVOICE_ISSUE_DT
+                and T2.FILE_ID = T3.FILE_ID
+                union all
+                select
+                    T2.SHIPPER_CD
+                ,   T2.INVOICE_NO
+                ,   T2.INVOICE_ISSUE_DT
+                ,   '102' DOC_ID
+                ,   T3.FILE_NAME
+                ,   T3.FILE_ID
+                from
+                    TT_ONLINE_REQ_JOB_PARAM T1
+                ,   TT_SC_HEADER            T2
+                ,   LB_FILE_MANAGER         T3
+                where
+                    T1.REQUEST_ID = #requestId#
+                and T1.BRCH != 1
+                and T1.PARAM_VALUE_01 = T2.SHIPPER_CD
+                and T1.PARAM_VALUE_02 = T2.INVOICE_NO
+                and to_date(T1.PARAM_VALUE_03, 'YYYYMMDDHH24MISS') = T2.INVOICE_ISSUE_DT
+                and T2.FILE_ID = T3.FILE_ID
+            ) T2
+        where
+            T1.REQUEST_ID = #requestId#
+        and T1.BRCH != 1
+        and T1.PARAM_VALUE_01 = T2.SHIPPER_CD(+)
+        and T1.PARAM_VALUE_02 = T2.INVOICE_NO(+)
+        and to_date(T1.PARAM_VALUE_03, 'YYYYMMDDHH24MISS') = T2.INVOICE_ISSUE_DT(+)
+        order by
+            T1.PARAM_VALUE_01
+        ,   T1.PARAM_VALUE_02
+        ,   T1.PARAM_VALUE_03
+        ,   T2.DOC_ID
+    </select>
+
+    <!--
+    ==================================================================
+    == Search B/L file ID and file name.
+    == BLのファイルID、ファイル名を検索します。
+    ==================================================================
+    -->
+    <select id="SearchBlldFileSummary" resultMap="T0400F070AttCtlDomain_SearchT0400F070AttCtl"
+        parameterClass="T0400TransferToGinvDomain">
+
+        select distinct
+        /* SqlMap-JbTransferToGinv.SearchBlldFileSummary */
+            NULL        SHIPPER_CD
+        ,   NULL        INVOICE_NO
+        ,   NULL        INVOICE_ISSUE_DT
+        ,   NULL        DOC_GRP
+        ,   NULL        DOC_ID
+        ,   T4.FILE_NAME ZIP_ENTRY_NM
+        ,   T4.FILE_ID
+        ,   NULL        ORIGINAL_FILE_NM
+        from
+            TT_ONLINE_REQ_JOB_PARAM T1
+        ,   TT_SHIPPING_ACT         T2
+        ,   TT_INVOICE              T3
+        ,   LB_FILE_MANAGER         T4
+        where
+            T1.REQUEST_ID = #requestId#
+        and T1.BRCH != 1
+        and T1.PARAM_VALUE_01 = T2.SHIPPING_ACT_NO
+        and T1.PARAM_VALUE_02 = 'N'
+        and T2.SHIPPING_ACT_NO = T3.SHIPPING_ACT_NO
+        and T2.BILLD_FILE_ID = T4.FILE_ID
+        order by
+            T4.FILE_ID
+    </select>
+
+    <!--
+    ==================================================================
+    == Search data for editing file of F070ATTCTL when B/L send.
+    == Delete a cancellation case of B/L, and acquire DOC_GRP subordinates for made up of in a blank.
+    == B/L送信時にF070ATTCTLファイル編集用のデータを検索します。
+    == B/Lのキャンセル場合、消し込みのためDOC_GRP配下をブランクで編集する。
+    ==================================================================
+    -->
+    <select id="SearchT0400F070AttCtlWhenBilld" resultMap="T0400F070AttCtlDomain_SearchT0400F070AttCtl"
+        parameterClass="T0400TransferToGinvDomain">
+
+        select
+        /* SqlMap-JbTransferToGinv.SearchT0400F070AttCtlWhenBilld */
+            T3.SHIPPER_CD
+        ,   T3.INVOICE_NO
+        ,   to_char(T3.INVOICE_ISSUE_DT, 'YYYYMMDDHH24MISS') INVOICE_ISSUE_DT
+        ,   '2' DOC_GRP
+        ,   decode(T1.PARAM_VALUE_02, 'N', '200', NULL) DOC_ID
+        ,   decode(T1.PARAM_VALUE_02, 'N', T4.FILE_NAME, NULL) ZIP_ENTRY_NM
+        ,   decode(T1.PARAM_VALUE_02, 'N', T4.FILE_NAME, NULL) ORIGINAL_FILE_NM
+        ,   decode(T1.PARAM_VALUE_02, 'N', T4.FILE_ID, NULL) FILE_ID
+        from
+            TT_ONLINE_REQ_JOB_PARAM T1
+        ,   TT_SHIPPING_ACT         T2
+        ,   TT_INVOICE              T3
+        ,   LB_FILE_MANAGER         T4
+        where
+            T1.REQUEST_ID = #requestId#
+        and T1.BRCH != 1
+        and T1.PARAM_VALUE_01 = T2.SHIPPING_ACT_NO
+        and T2.SHIPPING_ACT_NO = T3.SHIPPING_ACT_NO
+        and T2.BILLD_FILE_ID = T4.FILE_ID(+)
+        order by
+            T3.SHIPPER_CD
+        ,   T3.INVOICE_NO
+        ,   T3.INVOICE_ISSUE_DT
+    </select>
+
+    <!--
+    ==================================================================
+    == Search data for editing file of F070ATTCTL when CLP send.
+    == Delete a cancellation case of CLP, and acquire DOC_GRP subordinates for made up of in a blank.
+    == CLP file name is aligned as a whole in the same.
+    == CLP送信時にF070ATTCTLファイル編集用のデータを検索します。
+    == CLPのキャンセル場合、消し込みのためDOC_GRP配下をブランクで編集する。
+    == CLPファイル名は全体で同一に揃える。
+    ==================================================================
+    -->
+    <select id="SearchT0400F070AttCtlWhenClp" resultMap="T0400F070AttCtlDomain_SearchT0400F070AttCtl"
+        parameterClass="T0400TransferToGinvDomain">
+
+        select
+        /* SqlMap-JbTransferToGinv.SearchT0400F070AttCtlWhenClp */
+            T3.SHIPPER_CD
+        ,   T3.INVOICE_NO
+        ,   to_char(T3.INVOICE_ISSUE_DT, 'YYYYMMDDHH24MISS') INVOICE_ISSUE_DT
+        ,   '4' DOC_GRP
+        ,   decode(T1.PARAM_VALUE_02, 'N', '400', NULL) DOC_ID
+        ,   decode(T1.PARAM_VALUE_02
+            ,   'N'
+            ,   min('CLP_' || T3.LOADING_PORT_CD || '_' || to_char(T2.ATD, 'YYYYMMDD') || '_' || T2.VESSEL || '.csv')
+                    over()
+            ,   NULL
+            ) ZIP_ENTRY_NM
+        ,   decode(T1.PARAM_VALUE_02
+            ,   'N'
+            ,   min('CLP_' || T3.LOADING_PORT_CD || '_' || to_char(T2.ATD, 'YYYYMMDD') || '_' || T2.VESSEL || '.csv')
+                    over()
+            ,   NULL
+            ) ORIGINAL_FILE_NM
+        ,   NULL FILE_ID
+        from
+            TT_ONLINE_REQ_JOB_PARAM T1
+        ,   TT_SHIPPING_ACT         T2
+        ,   TT_INVOICE              T3
+        where
+            T1.REQUEST_ID = #requestId#
+        and T1.BRCH != 1
+        and T1.PARAM_VALUE_01 = T2.SHIPPING_ACT_NO
+        and T2.SHIPPING_ACT_NO = T3.SHIPPING_ACT_NO
+        order by
+            T3.SHIPPER_CD
+        ,   T3.INVOICE_NO
+        ,   T3.INVOICE_ISSUE_DT
+    </select>
+
+    <!--
+    ==================================================================
+    == Search data for editing CLP file.
+    == CLPファイル編集用のデータを検索します。
+    ==================================================================
+    -->
+    <select id="SearchClp" resultMap="T0400F7007ClpDomain_SearchClp"
+        parameterClass="T0400TransferToGinvDomain">
+
+        select
+        /* SqlMap-JbTransferToGinv.SearchClp */
+            T1.TRNS_NM
+        ,   T1.VESSEL
+        ,   to_char(T1.ATD, 'YYYYMMDD') ATD
+        ,   to_char(T1.ETA, 'YYYYMMDD') ETA
+        ,   T1.CONTAINER_LOOSE_TYP
+        ,   T1.FREIGHT_RESPONSIBLE_CD
+        ,   count(distinct T1.BILLD_NO) over (partition by T1.VESSEL) NO_OF_BL_IN_VESSEL
+        ,   count(distinct T1.CONTAINER_NO) over (partition by T1.VESSEL) NO_OF_CONTAINER_IN_VESSEL
+        ,   count(distinct T1.INVOICE_PK || T12.FRT_INVOICE_PK) over (partition by T1.VESSEL) NO_OF_INVOICE_IN_VESSEL
+        ,   count(distinct T1.INVOICE_PK || T12.FRT_INVOICE_PK) over (partition by decode(T12.FRT_INVOICE_CLASS, 'F', T12.FRT_INVOICE_SHIPPER_CD, T1.SHIPPER_CD)) NO_OF_INVOICE_IN_SHIPPER
+        ,   T1.BILLD_NO
+        ,   T11.TOTAL_GROSS_WEIGHT_PER_BL
+        ,   T11.TOTAL_VOLUME_OF_BL
+        ,   count(distinct T1.MAIN_MARK) over (partition by T1.BILLD_NO) NO_OF_CML_IN_BL
+        ,   T1.LOADING_PORT_CD
+        ,   T1.DISCHARGE_PORT_CD
+        ,   T1.CARRIER_COMP_NM_ABB
+        ,   decode(T12.FRT_INVOICE_CLASS, 'F', T12.FRT_INVOICE_WEIGHT_UNIT, T1.INVOICE_WEIGHT_UNIT) INVOICE_WEIGHT_UNIT
+        ,   T1.INVOICE_VOLUME_UNIT
+        ,   T1.CONTAINER_SORTING_KEY
+        ,   decode(T12.FRT_INVOICE_CLASS, 'F', T1.PAR_INVOICE_NO, NULL) PAR_INVOICE_NO
+        ,   nvl(T10.NO_OF_FRT_INV_IN_MAIN_INV, 0) NO_OF_FRT_INV_IN_MAIN_INV
+        ,   T1.SHIP_TO_COMP_NM_ABB
+        ,   T1.SHIP_TO_NM_ABB
+        ,   T1.CONSIGNEE_COMP_NM_ABB
+        ,   decode(T12.FRT_INVOICE_CLASS, 'F', T12.FRT_SHIPPER_COMP_NM_ABB, T1.SHIPPER_COMP_NM_ABB) SHIPPER_COMP_NM_ABB
+        ,   decode(T12.FRT_INVOICE_CLASS, 'F', T12.FRT_INVOICE_NO, T1.INVOICE_NO) INVOICE_NO
+        ,   decode(T12.FRT_INVOICE_CLASS, 'F', T12.FRT_INVOICE_CLASS, T1.INVOICE_CLASS) INVOICE_CLASS
+        ,   decode(T12.FRT_INVOICE_CLASS, 'F', T12.FRT_INVOICE_TOTAL_NET_WEIGHT, T1.TOTAL_GROSS_WEIGHT_PER_INV) TOTAL_GROSS_WEIGHT_PER_INV
+        ,   decode(T12.FRT_INVOICE_CLASS, 'F', NULL, T1.TOTAL_VOLUME_OF_INV) TOTAL_VOLUME_OF_INV
+        ,   decode(T12.FRT_INVOICE_CLASS, 'F', NULL, count(distinct T1.MAIN_MARK) over (partition by T1.INVOICE_PK)) NO_OF_CML_IN_INV
+        ,   T1.CONTAINER_NO
+        ,   T1.TOTAL_GROSS_WEIGHT_PER_CTNR
+        ,   T1.CONTAINER_WEIGHT_UNIT
+        ,   T1.TOTAL_VOLUME_OF_CONTAINER
+        ,   T1.CONTAINER_VOLUME_UNIT
+        ,   T1.TRNS_TYP_NM
+        ,   T1.LOADING_RATIO
+        ,   count(distinct T1.MAIN_MARK) over (partition by T1.CONTAINER_NO) NO_OF_CML_IN_CONTAINER
+        ,   T1.XMAIN_MARK
+        ,   T1.MAIN_MARK
+        ,   T1.PLTZ_GROSS_WEIGHT
+        ,   T1.PLTZ_WEIGHT_UNIT
+        ,   T1.PLTZ_VOLUME
+        ,   T1.PLTZ_VOLUME_UNIT
+        ,   T1.PKG_FORM_TYP
+        ,   T1.RETURN_STYLE_CD
+        ,   T1.SITE_TYP
+        ,   T1.PALLET_CARTON_TYP
+        ,   T1.MIX_TAG_NO
+        ,   T1.CUSTOMER_ITEM_NO
+        ,   T1.PLTZ_ITEM_NO
+        ,   T1.QTY
+        ,   T1.QTY_UNIT
+        ,   T1.QTY_UNIT_DISP
+        ,   T1.WEIGHT_UNIT_DISP
+        ,   T1.VOLUME_UNIT_DISP
+        ,   to_char(SYSDATE, 'YYYYMMDD') REGISTER_DT
+        from
+            (
+                select
+                    T2.VESSEL
+                ,   T2.ATD
+                ,   T2.ETA
+                ,   T2.CONTAINER_LOOSE_TYP
+                ,   T2.BILLD_NO
+                ,   T2.FREIGHT_RESPONSIBLE_CD
+                ,   T3.LOADING_PORT_CD
+                ,   T3.DISCHARGE_PORT_CD
+                ,   M9.COMP_NM_ABB CARRIER_COMP_NM_ABB
+                ,   T3.WEIGHT_UNIT INVOICE_WEIGHT_UNIT
+                ,   T3.VOLUME_UNIT INVOICE_VOLUME_UNIT
+                ,   T3.CONTAINER_SORTING_KEY
+                ,   T3.PAR_INVOICE_NO
+                ,   T3.SHIPPER_COMP_NM_ABB
+                ,   T3.SHIPPER_CD
+                ,   T3.INVOICE_NO
+                ,   T3.INVOICE_ISSUE_DT
+                ,   T3.INVOICE_CLASS
+                ,   T3.TOTAL_GROSS_WEIGHT TOTAL_GROSS_WEIGHT_PER_INV
+                ,   T3.TOTAL_VOLUME TOTAL_VOLUME_OF_INV
+                ,   rpad(T3.SHIPPER_CD, 5) || rpad(T3.INVOICE_NO, 20) || to_char(T3.INVOICE_ISSUE_DT, 'YYYYMMDDHH24MISS') INVOICE_PK
+                ,   T4.CONTAINER_NO
+                ,   T4.GROSS_WEIGHT TOTAL_GROSS_WEIGHT_PER_CTNR
+                ,   T4.WEIGHT_UNIT CONTAINER_WEIGHT_UNIT
+                ,   T4.VOLUME TOTAL_VOLUME_OF_CONTAINER
+                ,   T4.VOLUME_UNIT CONTAINER_VOLUME_UNIT
+                ,   T5.LOADING_RATIO
+                ,   T6.XMAIN_MARK
+                ,   T6.MAIN_MARK
+                ,   T6.GROSS_WEIGHT PLTZ_GROSS_WEIGHT
+                ,   T6.WEIGHT_UNIT PLTZ_WEIGHT_UNIT
+                ,   T6.VOLUME PLTZ_VOLUME
+                ,   T6.VOLUME_UNIT PLTZ_VOLUME_UNIT
+                ,   decode(T6.PKG_FORM_TYP, 'H', NULL, T6.PKG_FORM_TYP) PKG_FORM_TYP
+                ,   T6.RETURN_STYLE_CD
+                ,   T6.SITE_TYP
+                ,   T6.PALLET_CARTON_TYP
+                ,   T7.MIX_TAG_NO
+                ,   T7.PLTZ_ITEM_NO
+                ,   T7.QTY_UNIT
+                ,   T7.MODEL_CD
+                ,   nvl(T8.CUSTOMER_ITEM_NO, T7.CUSTOMER_ITEM_NO) CUSTOMER_ITEM_NO
+                ,   M1.COMP_NM_ABB SHIP_TO_COMP_NM_ABB
+                ,   M2.COMP_NM_ABB CONSIGNEE_COMP_NM_ABB
+                ,   M3.SHIP_TO_NM_ABB
+                ,   M4.TRNS_TYP_NM
+                ,   M5.UNIT_DISP WEIGHT_UNIT_DISP
+                ,   M6.UNIT_DISP VOLUME_UNIT_DISP
+                ,   M7.UNIT_DISP QTY_UNIT_DISP
+                ,   M8.VALUE TRNS_NM
+                ,   nvl(sum(T8.ALLOC_QTY), sum(T7.QTY)) QTY
+                from
+                    TT_ONLINE_REQ_JOB_PARAM T1
+                ,   TT_SHIPPING_ACT         T2
+                ,   TT_INVOICE              T3
+                ,   TT_SHIPPING_FIRM        T4
+                ,   TT_STG_ACT              T5
+                ,   TT_PLTZ                 T6
+                ,   TT_PLTZ_ITEM            T7
+                ,   TT_PLTZ_ITEM_ODR        T8
+                ,   TM_NXS_COMP             M1
+                ,   TM_NXS_COMP             M2
+                ,   TM_NXS_SHIP_TO          M3
+                ,   TM_TRNS_TYP             M4
+                ,   TM_MEASURE_UNIT         M5
+                ,   TM_MEASURE_UNIT         M6
+                ,   TM_MEASURE_UNIT         M7
+                ,   TM_CD                   M8
+                ,   TM_NXS_COMP             M9
+                where
+                    T1.REQUEST_ID           = #requestId#
+                and T1.BRCH                 != 1
+                and T1.PARAM_VALUE_01       = T2.SHIPPING_ACT_NO
+                and T2.CONTAINER_LOOSE_TYP  = 'C'
+                and T2.SHIPPING_ACT_NO      = T3.SHIPPING_ACT_NO
+                and T3.CANCEL_FLG           = 'N'
+                and T3.CANCEL_TYP           = 'N'
+                and T3.DELETE_FLG           = 'N'
+                and T3.SHIPPER_CD           = T6.SHIPPER_CD
+                and T3.INVOICE_NO           = T6.INVOICE_NO
+                and T3.INVOICE_ISSUE_DT     = T6.INVOICE_ISSUE_DT
+                and T4.SHIPPING_FIRM_NO     = T6.SHIPPING_FIRM_NO
+                and T5.STG_ACT_NO(+)        = T6.STG_ACT_NO
+                and T6.MAIN_MARK            = T7.MAIN_MARK
+                and (
+                    T7.PKG_TYP is NULL
+                    or  (
+                        T7.PKG_TYP is not NULL
+                        and T7.RT_FLG = 'Y'
+                    )
+                )
+                and T7.MAIN_MARK            = T8.MAIN_MARK(+)
+                and T7.BRCH                 = T8.BRCH(+)
+                and T7.PLTZ_ITEM_NO         = T8.ITEM_NO(+)
+                and T3.SHIP_TO_COMP_CD      = M1.COMP_CD(+)
+                and T3.CONSIGNEE_CD         = M2.COMP_CD
+                and T3.SHIP_TO_CD           = M3.SHIP_TO_CD
+                and T4.TRNS_CD              = M4.TRNS_CD(+)
+                and T4.TRNS_TYP_CD          = M4.TRNS_TYP_CD(+)
+                and T7.QTY_UNIT             = M7.UNIT_CD(+)
+                and T2.CARRIER_COMP_CD      = M9.COMP_CD
+                and M5.UNIT_CD              = 'KG'
+                and M6.UNIT_CD              = 'CR'
+                and M8.CD_TYP               = '12'
+                and M8.LNG_CD               = 'en'
+                and M8.CD                   = T2.TRNS_CD
+                group by
+                    T2.VESSEL
+                ,   T2.ATD
+                ,   T2.ETA
+                ,   T2.CONTAINER_LOOSE_TYP
+                ,   T2.BILLD_NO
+                ,   T2.FREIGHT_RESPONSIBLE_CD
+                ,   T3.LOADING_PORT_CD
+                ,   T3.DISCHARGE_PORT_CD
+                ,   M9.COMP_NM_ABB
+                ,   T3.WEIGHT_UNIT
+                ,   T3.VOLUME_UNIT
+                ,   T3.CONTAINER_SORTING_KEY
+                ,   T3.PAR_INVOICE_NO
+                ,   T3.SHIPPER_COMP_NM_ABB
+                ,   T3.SHIPPER_CD
+                ,   T3.INVOICE_NO
+                ,   T3.INVOICE_ISSUE_DT
+                ,   T3.INVOICE_CLASS
+                ,   T3.TOTAL_GROSS_WEIGHT
+                ,   T3.TOTAL_VOLUME
+                ,   rpad(T3.SHIPPER_CD, 5) || rpad(T3.INVOICE_NO, 20) || to_char(T3.INVOICE_ISSUE_DT, 'YYYYMMDDHH24MISS')
+                ,   T4.CONTAINER_NO
+                ,   T4.GROSS_WEIGHT
+                ,   T4.WEIGHT_UNIT
+                ,   T4.VOLUME
+                ,   T4.VOLUME_UNIT
+                ,   T5.LOADING_RATIO
+                ,   T6.XMAIN_MARK
+                ,   T6.MAIN_MARK
+                ,   T6.GROSS_WEIGHT
+                ,   T6.WEIGHT_UNIT
+                ,   T6.VOLUME
+                ,   T6.VOLUME_UNIT
+                ,   decode(T6.PKG_FORM_TYP, 'H', NULL, T6.PKG_FORM_TYP)
+                ,   T6.RETURN_STYLE_CD
+                ,   T6.SITE_TYP
+                ,   T6.PALLET_CARTON_TYP
+                ,   T7.MIX_TAG_NO
+                ,   T7.CUSTOMER_ITEM_NO
+                ,   T7.PLTZ_ITEM_NO
+                ,   T7.QTY_UNIT
+                ,   T7.MODEL_CD
+                ,   nvl(T8.CUSTOMER_ITEM_NO, T7.CUSTOMER_ITEM_NO)
+                ,   M1.COMP_NM_ABB
+                ,   M2.COMP_NM_ABB
+                ,   M3.SHIP_TO_NM_ABB
+                ,   M4.TRNS_TYP_NM
+                ,   M5.UNIT_DISP
+                ,   M6.UNIT_DISP
+                ,   M7.UNIT_DISP
+                ,   M8.VALUE
+            ) T1
+        ,   (
+                select
+                    T3.PAR_INVOICE_SHIPPER_CD
+                ,   T3.PAR_INVOICE_NO PAR_INVOICE_NO
+                ,   T3.PAR_INVOICE_ISSUE_DT
+                ,   count(*) NO_OF_FRT_INV_IN_MAIN_INV
+                from
+                    TT_ONLINE_REQ_JOB_PARAM T1
+                ,   TT_INVOICE              T2
+                ,   TT_INVOICE              T3
+                where
+                    T1.REQUEST_ID           = #requestId#
+                and T1.BRCH                 != 1
+                and T1.PARAM_VALUE_01       = T2.SHIPPING_ACT_NO
+                and T2.CANCEL_FLG           = 'N'
+                and T2.CANCEL_TYP           = 'N'
+                and T2.DELETE_FLG           = 'N'
+                and T2.SHIPPER_CD           = T3.PAR_INVOICE_SHIPPER_CD
+                and T2.INVOICE_NO           = T3.PAR_INVOICE_NO
+                and T2.INVOICE_ISSUE_DT     = T3.PAR_INVOICE_ISSUE_DT
+                and T3.CANCEL_FLG           = 'N'
+                and T3.CANCEL_TYP           = 'N'
+                and T3.DELETE_FLG           = 'N'
+                and T3.INVOICE_CLASS        = 'F'
+                group by
+                    T3.PAR_INVOICE_SHIPPER_CD
+                ,   T3.PAR_INVOICE_NO
+                ,   T3.PAR_INVOICE_ISSUE_DT
+            ) T10
+        ,   (
+                select
+                    T2.BILLD_NO BILLD_NO
+                ,   sum(T3.TOTAL_GROSS_WEIGHT) TOTAL_GROSS_WEIGHT_PER_BL
+                ,   sum(T3.TOTAL_VOLUME) TOTAL_VOLUME_OF_BL
+                from
+                    TT_ONLINE_REQ_JOB_PARAM T1
+                ,   TT_SHIPPING_ACT         T2
+                ,   TT_INVOICE              T3
+                where
+                    T1.REQUEST_ID           = #requestId#
+                and T1.BRCH                 != 1
+                and T1.PARAM_VALUE_01       = T2.SHIPPING_ACT_NO
+                and T2.CONTAINER_LOOSE_TYP  = 'C'
+                and T2.SHIPPING_ACT_NO      = T3.SHIPPING_ACT_NO
+                and T3.CANCEL_FLG           = 'N'
+                and T3.CANCEL_TYP           = 'N'
+                and T3.DELETE_FLG           = 'N'
+                group by
+                    T2.BILLD_NO
+            ) T11
+        ,   (
+                select distinct
+                    T3.PAR_INVOICE_SHIPPER_CD
+                ,   T3.PAR_INVOICE_NO
+                ,   T3.PAR_INVOICE_ISSUE_DT
+                ,   T4.ITEM_NO              FRT_ITEM_NO
+                ,   T4.MODEL_CD             FRT_MODEL_CD
+                ,   T3.SHIPPER_CD           FRT_INVOICE_SHIPPER_CD
+                ,   T3.INVOICE_NO           FRT_INVOICE_NO
+                ,   T3.INVOICE_ISSUE_DT     FRT_INVOICE_ISSUE_DT
+                ,   T3.SHIPPER_COMP_NM_ABB  FRT_SHIPPER_COMP_NM_ABB
+                ,   'F'                     FRT_INVOICE_CLASS
+                ,   rpad(T3.SHIPPER_CD, 5) || rpad(T3.INVOICE_NO, 20) || to_char(T3.INVOICE_ISSUE_DT, 'YYYYMMDDHH24MISS') FRT_INVOICE_PK
+                ,   T3.TOTAL_NET_WEIGHT     FRT_INVOICE_TOTAL_NET_WEIGHT
+                ,   T3.WEIGHT_UNIT          FRT_INVOICE_WEIGHT_UNIT
+                from
+                    TT_ONLINE_REQ_JOB_PARAM T1
+                ,   TT_INVOICE              T2
+                ,   TT_INVOICE              T3
+                ,   TT_INVOICE_ATTACHED     T4
+                where
+                    T1.REQUEST_ID           = #requestId#
+                and T1.BRCH                 != 1
+                and T1.PARAM_VALUE_01       = T2.SHIPPING_ACT_NO
+                and T2.SHIPPER_CD           = T3.PAR_INVOICE_SHIPPER_CD
+                and T2.INVOICE_NO           = T3.PAR_INVOICE_NO
+                and T2.INVOICE_ISSUE_DT     = T3.PAR_INVOICE_ISSUE_DT
+                and T3.INVOICE_CLASS        = 'F'
+                and T3.SHIPPER_CD           = T4.SHIPPER_CD
+                and T3.INVOICE_NO           = T4.INVOICE_NO
+                and T3.INVOICE_ISSUE_DT     = T4.INVOICE_ISSUE_DT
+                and T2.CANCEL_FLG           = 'N'
+                and T2.CANCEL_TYP           = 'N'
+                and T2.DELETE_FLG           = 'N'
+                and T3.CANCEL_FLG           = 'N'
+                and T3.CANCEL_TYP           = 'N'
+                and T3.DELETE_FLG           = 'N'
+                and T4.DELETE_FLG           = 'N'
+            ) T12
+        where
+            T1.SHIPPER_CD           = T10.PAR_INVOICE_SHIPPER_CD(+)
+        and T1.INVOICE_NO           = T10.PAR_INVOICE_NO(+)
+        and T1.INVOICE_ISSUE_DT     = T10.PAR_INVOICE_ISSUE_DT(+)
+        and T1.BILLD_NO             = T11.BILLD_NO(+)
+        and T1.SHIPPER_CD           = T12.PAR_INVOICE_SHIPPER_CD(+)
+        and T1.INVOICE_NO           = T12.PAR_INVOICE_NO(+)
+        and T1.INVOICE_ISSUE_DT     = T12.PAR_INVOICE_ISSUE_DT(+)
+        and T1.PLTZ_ITEM_NO         = T12.FRT_ITEM_NO(+)
+        and T1.MODEL_CD             = T12.FRT_MODEL_CD(+)
+        order by
+            T1.TRNS_NM
+        ,   T1.VESSEL
+        ,   T1.ATD
+        ,   T1.ETA
+        ,   T1.LOADING_PORT_CD
+        ,   T1.DISCHARGE_PORT_CD
+        ,   T1.CARRIER_COMP_NM_ABB
+        ,   T1.CONTAINER_LOOSE_TYP
+        ,   T1.CONTAINER_NO
+        ,   T1.TRNS_TYP_NM
+        ,   T1.BILLD_NO
+        ,   T1.FREIGHT_RESPONSIBLE_CD
+        ,   T1.SHIPPER_COMP_NM_ABB
+        ,   T1.SHIP_TO_COMP_NM_ABB
+        ,   T1.SHIP_TO_NM_ABB
+        ,   T1.CONSIGNEE_COMP_NM_ABB
+        ,   NO_OF_INVOICE_IN_SHIPPER
+        ,   T1.INVOICE_NO
+        ,   T1.XMAIN_MARK
+        ,   T1.MAIN_MARK
+        ,   T1.MIX_TAG_NO
+        ,   T1.CUSTOMER_ITEM_NO
+        ,   T1.PLTZ_ITEM_NO
+    </select>
+
+    <!--
+    ==================================================================
+    == Search Other Shipping Doc. file ID and file name.
+    == その他船積書類のファイルID、ファイル名を検索します。
+    ==================================================================
+    -->
+    <select id="SearchOtherDocFileSummary" resultMap="T0400F070AttCtlDomain_SearchT0400F070AttCtl"
+        parameterClass="T0400TransferToGinvDomain">
+
+        select distinct
+        /* SqlMap-JbTransferToGinv.SearchOtherDocFileSummary */
+            NULL        SHIPPER_CD
+        ,   NULL        INVOICE_NO
+        ,   NULL        INVOICE_ISSUE_DT
+        ,   NULL        DOC_GRP
+        ,   NULL        DOC_ID
+        ,   decode(T4.FILE_ID, NULL, NULL, T4.FILE_ID || '_' || T4.FILE_NAME) ZIP_ENTRY_NM
+        ,   T4.FILE_ID
+        ,   NULL        ORIGINAL_FILE_NM
+        from
+            TT_ONLINE_REQ_JOB_PARAM T1
+        ,   TT_INVOICE              T2
+        ,   TT_SHIPPING_DOCUMENT    T3
+        ,   LB_FILE_MANAGER         T4
+        where
+            T1.REQUEST_ID = #requestId#
+        and T1.BRCH != 1
+        and T1.PARAM_VALUE_01 = T2.SHIPPING_ACT_NO
+        and T1.PARAM_VALUE_02 = 'N'
+        and T2.SHIPPER_CD = T3.SHIPPER_CD
+        and T2.INVOICE_NO = T3.INVOICE_NO
+        and T2.INVOICE_ISSUE_DT = T3.INVOICE_ISSUE_DT
+        and T3.DOC_TYP in ('1', '2', '3')
+        and T3.DELETE_FLG = 'N'
+        and T3.FILE_ID = T4.FILE_ID
+        order by
+            T4.FILE_ID
+    </select>
+
+    <!--
+    ==================================================================
+    == Search data for editing file of F070ATTCTL when Other Shipping Doc. send.
+    == The cancellation does not transmit.
+    == Give the GINV documents ID of other files from 302 in consideration of an omission turn sequentially.
+    == (Premise of max 10 files so from 302 to 311.)
+    == その他船積み書類送信時にF070ATTCTLファイル編集用のデータを検索します。
+    == キャンセルは連携しない。
+    == その他ファイルのGINV書類IDは抜け番を考慮して302から順に付与する。
+    == (最大10ファイルの前提のため302から311まで。)
+    ==================================================================
+    -->
+    <select id="SearchT0400F070AttCtlWhenOtherDoc" resultMap="T0400F070AttCtlDomain_SearchT0400F070AttCtl"
+        parameterClass="T0400TransferToGinvDomain">
+
+        select
+        /* SqlMap-JbTransferToGinv.SearchT0400F070AttCtlWhenOtherDoc */
+            T2.SHIPPER_CD
+        ,   T2.INVOICE_NO
+        ,   to_char(T2.INVOICE_ISSUE_DT, 'YYYYMMDDHH24MISS') INVOICE_ISSUE_DT
+        ,   '3' DOC_GRP
+        ,   decode(T3.DOC_TYP, '1', '300', '2', '301', '3',
+                to_char(
+                    rank() over (
+                        partition by T2.SHIPPER_CD, T2.INVOICE_NO, T2.INVOICE_ISSUE_DT, T3.DOC_TYP
+                            order by T3.BRCH
+                    ) + 301
+                )
+            ) DOC_ID
+        ,   decode(T4.FILE_ID, NULL, NULL, T4.FILE_ID || '_' || T4.FILE_NAME) ZIP_ENTRY_NM
+        ,   T4.FILE_NAME ORIGINAL_FILE_NM
+        ,   T4.FILE_ID
+        from
+            TT_ONLINE_REQ_JOB_PARAM T1
+        ,   TT_INVOICE              T2
+        ,   TT_SHIPPING_DOCUMENT    T3
+        ,   LB_FILE_MANAGER         T4
+        where
+            T1.REQUEST_ID = #requestId#
+        and T1.BRCH != 1
+        and T1.PARAM_VALUE_01 = T2.SHIPPING_ACT_NO
+        and T1.PARAM_VALUE_02 = 'N'
+        and T2.SHIPPER_CD = T3.SHIPPER_CD(+)
+        and T2.INVOICE_NO = T3.INVOICE_NO(+)
+        and T2.INVOICE_ISSUE_DT = T3.INVOICE_ISSUE_DT(+)
+        and T3.DOC_TYP(+) in ('1', '2', '3')
+        and T3.DELETE_FLG(+) = 'N'
+        and T3.FILE_ID = T4.FILE_ID(+)
+        order by
+            T2.SHIPPER_CD
+        ,   T2.INVOICE_NO
+        ,   T2.INVOICE_ISSUE_DT
+        ,   T3.DOC_TYP
+        ,   T4.FILE_ID
+    </select>
+</sqlMap>

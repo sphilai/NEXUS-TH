@@ -1,0 +1,43 @@
+@CHARSET "utf-8";
+/*
+ * W9019.css
+ * 
+ * Export Formalities by Item MA Edit画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+table.grid {
+    width: 860px;
+}
+
+.grid .grid_title {
+    width:150px;
+}
+
+.grid .grid_primary_key {
+    width:40px;
+}
+
+.grid .grid_data1 {
+    width:80px;
+}
+
+.grid .grid_data2 {
+    width:260px;
+}
+
+.grid .grid_data3 {
+    width:330px;
+}
+
+table.button {
+    width:860px;
+}
+.left {
+	text-align: left;
+}
+
+.exp_limit_typ {
+	width: auto !important;
+}

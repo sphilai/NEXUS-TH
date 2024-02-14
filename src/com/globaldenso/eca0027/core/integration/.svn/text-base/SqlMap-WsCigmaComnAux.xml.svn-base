@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-WsCigmaComnAux.xml
+ *
+ * ComnAuxのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="WsCigmaComnAux">
+
+    <!-- Domainの別名定義 -->
+    <!-- CriteriaDomain -->
+    <typeAlias alias="WsCigmaComnAuxCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.WsCigmaComnAuxCriteriaDomain" />
+
+    <!-- 検索 SQL文（任意条件） -->
+    <update id="UpdateTmCigmaEnv" 
+        parameterClass="WsCigmaComnAuxCriteriaDomain">
+        update TM_CIGMA_ENV
+            /* SqlMap-WsCigmaComnAux.UpdateTmCigmaEnv */
+        set (ACCESSIBILITY_TYP, NIGHT_BAT_STRT_TIME, CIGMA_ADS) = (
+            select 
+        <dynamic prepend=" ">
+            <isNotNull property="accessibilityTyp" prepend=",">
+                #accessibilityTyp# ACCESSIBILITY_TYP
+            </isNotNull>
+            <isNotEqual property="accessibilityTyp" compareValue="1" prepend=",">
+                nvl(NIGHT_BAT_STRT_TIME, sys_extract_utc(systimestamp)) NIGHT_BAT_STRT_TIME 
+                ,CIGMA_ADS  CIGMA_ADS
+            </isNotEqual>
+            <isEqual property="accessibilityTyp" compareValue="1" prepend=",">
+                NULL NIGHT_BAT_STRT_TIME
+                <isNotNull property="cigmaAds" prepend=",">
+                    #cigmaAds#  CIGMA_ADS
+                </isNotNull>
+            </isEqual>
+        </dynamic>
+            from 
+                TM_CIGMA_ENV
+        <dynamic prepend="where">
+            <isNotNull property="compCd" prepend="and">
+                COMP_CD = #compCd#
+            </isNotNull>
+        </dynamic>
+        )
+        , COM_UPDATE_FUNC_ID = #comUpdateFuncId#
+        , COM_UPDATE_USER_ID = #comUpdateUserId#
+        , COM_UPDATE_TIMESTAMP = SYSDATE
+        <dynamic prepend="where">
+            <isNotNull property="compCd" prepend="and">
+                COMP_CD = #compCd#
+            </isNotNull>
+        </dynamic>
+    </update>
+</sqlMap>

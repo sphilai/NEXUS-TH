@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ===========================================================================
+
+ [JP] build_aijb_userdef.xml (AI-JB(zip)作成時に含めるユーザ定義のターゲット)
+ [EN] build_aijb_userdef.xml (User-defined target to be included when creating AI-JB(zip))
+    
+    $ build_aijb_userdef.xml 2066 2012-06-04 02:43:52Z HIDETOSHI_NAKATANI@denso.co.jp $
+    
+============================================================================ -->
+<project>
+    <target name="dummy_aijb_target">
+        <!-- [JP] 記述例 PJで追加した設定ファイルをzip対象にしたい場合は、ここに追加してください。
+        <copy todir="コピー先ディレクトリへのパス(ex. ${dir.temp.zip.aijb.root}/module)">
+            <fileset dir="コピーしたいファイルの親ディレクトリへのパス(ex. ./WebContent/WEB-INF)">
+                <include name="コピーしたいファイルの名前または正規表現(ex. **/*.xml)"/>
+            </fileset>
+        </copy>
+        -->
+        <!-- [EN] Description example If you want to include your configuration file that you created to the zip, please add them here.
+        <copy todir="The path to the destination directory(ex. ${dir.temp.zip.aijb.root}/module)">
+            <fileset dir="The path to the parent directory of the file you want to copy(ex. ./WebContent/WEB-INF)">
+                <include name="Regular expression or the name of the file you want to copy(ex. **/*.xml)"/>
+            </fileset>
+        </copy>
+        -->
+    </target>
+</project>

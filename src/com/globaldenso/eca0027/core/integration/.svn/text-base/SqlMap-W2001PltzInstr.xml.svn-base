@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-W2001PltzInstr.xml
+ *
+ * W2001PltzInstrDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="W2001PltzInstr">
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="W2001PltzInstrDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W2001PltzInstrDomain" />
+    <typeAlias alias="W2001PltzInstrItemDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W2001PltzInstrItemDomain" />
+    <typeAlias alias="TtExpRcvOdrDomain"
+        type="com.globaldenso.eca0027.core.auto.business.domain.TtExpRcvOdrDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W2001PltzInstrCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W2001PltzInstrCriteriaDomain" />
+    <typeAlias alias="W2001PltzInstrItemCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W2001PltzInstrItemCriteriaDomain" />
+    <typeAlias alias="TtExpRcvOdrCriteriaDomain"
+        type="com.globaldenso.eca0027.core.auto.business.domain.criteria.TtExpRcvOdrCriteriaDomain" />
+
+
+    <!-- 検索結果をMapで受け取る -->
+    <!-- 梱包指示 (Main画面) -->
+    <resultMap id="W2001PltzInstrDomain_SearchForPagingTtPltzInstr" class="W2001PltzInstrDomain">
+        <result property="pltzInstrNo" column="PLTZ_INSTR_NO" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />
+        <result property="pltzInstrStatus" column="PLTZ_INSTR_STATUS" />
+        <result property="pltzInstrDt" column="PLTZ_INSTR_DT" />
+        <result property="pltzInstrNm" column="PLTZ_INSTR_NM" />
+    </resultMap>
+    <!-- 梱包指示品目番号 (Create画面) -->
+    <resultMap id="W2001PltzInstrItemDomain_SearchTtExpRcvOdr" class="W2001PltzInstrItemDomain">
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="shippingLot" column="SHIP_LOT" />
+        <result property="instrQty" column="INSTR_QTY" />
+        <result property="sumQtyBefore2" column="SUM_QTY_BEFORE_2" />
+        <result property="sumQtyBefore1" column="SUM_QTY_BEFORE_1" />
+        <result property="sumQty" column="SUM_QTY" />
+        <result property="sumQtyAfter1" column="SUM_QTY_AFTER_1" />
+        <result property="sumQtyAfter2" column="SUM_QTY_AFTER_2" />
+        <result property="sumQtyAfter3" column="SUM_QTY_AFTER_3" />
+        <result property="sumQtyAfter4" column="SUM_QTY_AFTER_4" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="disabledFlg" column="DISABLED_FLG" />
+        <result property="netWeightA" column="NET_WEIGHT_A" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="tmpQty" column="TMP_QTY" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+    </resultMap>
+    <!-- 梱包指示 + 梱包指示品目番号 (Register画面 / Init / Main画面からの遷移) -->
+    <resultMap id="W2001PltzInstrDomain_SearchTtPltzInstrItemNo" class="W2001PltzInstrDomain" groupBy="pltzInstrNo">
+        <result property="pltzInstrNo" column="PLTZ_INSTR_NO" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />
+        <result property="pltzInstrStatus" column="PLTZ_INSTR_STATUS" />
+        <result property="pltzInstrDt" column="PLTZ_INSTR_DT" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="cmlPrintOutDt" column="CML_PRINT_OUT_DT" />
+        <result property="pltzInstrItemList" resultMap="W2001PltzInstr.W2001PltzInstrItemDomain_SearchTtPltzInstrItemNo" />
+    </resultMap>
+    <resultMap id="W2001PltzInstrItemDomain_SearchTtPltzInstrItemNo" class="W2001PltzInstrItemDomain">
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="shippingLot" column="SHIPPING_LOT" />
+        <result property="boxQty" column="BOX_QTY" />
+        <result property="instrQty" column="INSTR_QTY" />
+        <result property="packedQty" column="PACKED_QTY" />
+        <result property="totalNetWeight" column="TOTAL_NET_WEIGHT" />
+        <result property="boxLotQty" column="BOX_LOT_QTY" />
+    </resultMap>
+    <!-- 梱包指示品目番号 (Register画面 / Init / Create画面からの遷移) -->
+    <resultMap id="W2001PltzInstrItemDomain_SearchTwPltzInstrItemNo" class="W2001PltzInstrItemDomain">
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="shippingLot" column="SHIPPING_LOT" />
+        <result property="instrQty" column="INSTR_QTY" />
+        <result property="boxQty" column="BOX_QTY" />
+        <result property="totalNetWeight" column="TOTAL_NET_WEIGHT" />
+        <result property="boxLotQty" column="BOX_LOT_QTY" />
+        <result property="whStkLocation" column="WH_STK_LOCATION" />
+        <result property="collateMethTyp" column="COLLATE_METH_TYP" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+    </resultMap>
+    <!-- 輸出受注 (Register画面 / Register) -->
+    <resultMap id="TtExpRcvOdrDomain_LockTtExpRcvOdr" class="TtExpRcvOdrDomain">
+        <result property="rcvOdrCompCd" column="RCV_ODR_COMP_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="etdDueDt" column="ETD_DUE_DT" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="customerItemNoOrg" column="CUSTOMER_ITEM_NO_ORG" />
+        <result property="odrCtrlNo" column="ODR_CTRL_NO" />
+        <result property="revisionNo" column="REVISION_NO" />
+        <result property="revisionNoEis" column="REVISION_NO_EIS" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="customerDueDt" column="CUSTOMER_DUE_DT" />
+        <result property="itemNoOrg" column="ITEM_NO_ORG" />
+        <result property="odrQtyOrg" column="ODR_QTY_ORG" />
+        <result property="odrQty" column="ODR_QTY" />
+        <result property="pltzAllocQty" column="PLTZ_ALLOC_QTY" />
+        <result property="shippedQty" column="SHIPPED_QTY" />
+        <result property="shippingDt" column="SHIPPING_DT" />
+        <result property="partialDelivCnt" column="PARTIAL_DELIV_CNT" />
+        <result property="odrFirmFlg" column="ODR_FIRM_FLG" />
+        <result property="salesCompPoNo" column="SALES_COMP_PO_NO" />
+        <result property="lastFigureChgFlg" column="LAST_FIGURE_CHG_FLG" />
+        <result property="supplierCd" column="SUPPLIER_CD" />
+        <result property="shippedTyp" column="SHIPPED_TYP" />
+        <result property="comUpdateFuncId" column="COM_UPDATE_FUNC_ID" />
+        <result property="comUpdateUserId" column="COM_UPDATE_USER_ID" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+        <result property="comCreateFuncId" column="COM_CREATE_FUNC_ID" />
+        <result property="comCreateUserId" column="COM_CREATE_USER_ID" />
+        <result property="comCreateTimestamp" column="COM_CREATE_TIMESTAMP" />
+    </resultMap>
+
+    <!-- =================================================================================================== -->
+    <!-- 梱包指示Main / 検索                                                                                 -->
+    <!-- =================================================================================================== -->
+
+    <!-- 項目 -->
+    <sql id="Cols_PltzInstr">
+         PLTZ_INSTR_NO
+        ,SHIPPER_CD
+        ,CUSTOMER_CD
+        ,LGCY_SHIP_TO
+        ,TRNS_CD
+        ,PLNT_CD
+        ,LGCY_WH_CD
+        ,PLTZ_INSTR_STATUS
+        ,PLTZ_INSTR_DT
+        ,PLTZ_INSTR_NM
+    </sql>
+
+    <!-- Where句（アクセス権） -->
+    <sql id="WhereCondition_PltzInstr_Auth">
+        SHIPPER_CD in (select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+        <isNotEmpty prepend="and" property="userAuthList">
+            (SHIPPER_CD, PLNT_CD) in (
+                <iterate property="userAuthList" conjunction=",">
+                    (#userAuthList[].authMgtComp#, #userAuthList[].procMfgDivCd#)
+                </iterate>
+            )
+        </isNotEmpty>
+    </sql>
+    
+    <!-- Where句（検索条件） -->
+    <sql id="WhereCondition_PltzInstr">
+        <dynamic>
+            <isNotEmpty prepend="and" property="shipperCd">
+                SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCd">
+                CUSTOMER_CD = #customerCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipTo">
+                LGCY_SHIP_TO = #lgcyShipTo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCd">
+                TRNS_CD = #trnsCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="plntCd">
+                PLNT_CD = #plntCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyWhCd">
+                LGCY_WH_CD = #lgcyWhCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pltzInstrStatus">
+                PLTZ_INSTR_STATUS = #pltzInstrStatus#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pltzInstrNo">
+                PLTZ_INSTR_NO like concat(#pltzInstrNo#, '%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pltzInstrDtFrom">
+                #pltzInstrDtFrom# <![CDATA[<]]> = PLTZ_INSTR_DT 
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pltzInstrDtTo">
+                PLTZ_INSTR_DT <![CDATA[<]]>= #pltzInstrDtTo#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pltzInstrIssuerId">
+                PLTZ_INSTR_ISSUER_ID = #pltzInstrIssuerId#
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeys_PltzInstr">
+        order by 
+             TRNS_CD
+            ,PLNT_CD
+            ,LGCY_WH_CD
+            ,PLTZ_INSTR_STATUS
+            ,PLTZ_INSTR_NO DESC
+    </sql>
+
+    <!-- 検索 SQL文 (Main / 件数取得) -->
+    <select id="SearchCountTtPltzInstr" resultClass="java.lang.Integer"
+        parameterClass="W2001PltzInstrCriteriaDomain">
+        select /* SqlMap-W2001PltzInstr.SearchCountTtPltzInstr */
+               count(rownum)
+        from   TT_PLTZ_INSTR PLT
+        where
+        <include refid="WhereCondition_PltzInstr_Auth" />
+        <include refid="WhereCondition_PltzInstr" />
+    </select>
+    
+    <!-- 検索 SQL文（Main / 検索） -->
+    <select id="SearchForPagingTtPltzInstr" resultMap="W2001PltzInstrDomain_SearchForPagingTtPltzInstr"
+        parameterClass="W2001PltzInstrCriteriaDomain">
+        select /* SqlMap-W2001PltzInstr.SearchForPagingTtPltzInstr */
+            <include refid="Cols_PltzInstr" />
+        from (
+                select
+                    <include refid="Cols_PltzInstr" />
+                    ,row_number() over (<include refid="SortKeys_PltzInstr" />) ROW_NUM
+                from TT_PLTZ_INSTR
+                where
+                <include refid="WhereCondition_PltzInstr_Auth" />
+                <include refid="WhereCondition_PltzInstr" />
+                <include refid="SortKeys_PltzInstr" />
+             ) PLT
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- 梱包指示Create / 検索                                                                                 -->
+    <!-- =================================================================================================== -->
+
+    <!-- 検索 SQL文 (Create / 輸出受注) -->
+    <sql id="Select_EXP_RCV_ODR">
+        select
+             RCV_ODR_COMP_CD
+            ,CUSTOMER_CD
+            ,LGCY_SHIP_TO
+            ,ITEM_NO
+            ,PKG_CD
+            ,TRNS_CD
+            ,sum(case WORKING_DAY when 'n-2' then ODR_QTY - PLTZ_ALLOC_QTY else 0 end) as SUM_QTY_BEFORE_2
+            ,sum(case WORKING_DAY when 'n-1' then ODR_QTY - PLTZ_ALLOC_QTY else 0 end) as SUM_QTY_BEFORE_1
+            ,sum(case WORKING_DAY when 'n'   then ODR_QTY - PLTZ_ALLOC_QTY else 0 end) as SUM_QTY
+            ,sum(case WORKING_DAY when 'n+1' then ODR_QTY - PLTZ_ALLOC_QTY else 0 end) as SUM_QTY_AFTER_1
+            ,sum(case WORKING_DAY when 'n+2' then ODR_QTY - PLTZ_ALLOC_QTY else 0 end) as SUM_QTY_AFTER_2
+            ,sum(case WORKING_DAY when 'n+3' then ODR_QTY - PLTZ_ALLOC_QTY else 0 end) as SUM_QTY_AFTER_3
+            ,sum(case WORKING_DAY when 'n+4' then ODR_QTY - PLTZ_ALLOC_QTY else 0 end) as SUM_QTY_AFTER_4
+            ,(select ITEM_NO_GRP from TM_NXS_COMP where COMP_CD = ODR.RCV_ODR_COMP_CD) as ITEM_NO_GRP
+        from (select
+                   RCV_ODR_COMP_CD
+                  ,CUSTOMER_CD
+                  ,LGCY_SHIP_TO
+                  ,ITEM_NO
+                  ,PKG_CD
+                  ,TRNS_CD
+                  ,ODR_QTY
+                  ,PLTZ_ALLOC_QTY
+                  ,case
+                      when SHIPPING_DT <![CDATA[<]]>= #workingDayList[0]# then 'n-2'
+                      when SHIPPING_DT = #workingDayList[1]# then 'n-1'
+                      when SHIPPING_DT = #workingDayList[2]# then 'n'
+                      when SHIPPING_DT = #workingDayList[3]# then 'n+1'
+                      when SHIPPING_DT = #workingDayList[4]# then 'n+2'
+                      when SHIPPING_DT = #workingDayList[5]# then 'n+3'
+                      when SHIPPING_DT <![CDATA[>]]>= #workingDayList[6]# then 'n+4'
+                   end as WORKING_DAY
+                from
+                    TT_EXP_RCV_ODR
+                where RCV_ODR_COMP_CD = #shipperCd#
+                  and CUSTOMER_CD = #customerCd#
+                  and LGCY_SHIP_TO = #lgcyShipTo#
+                  and TRNS_CD = #trnsCd#
+                  <dynamic>
+                       <isNotEmpty property="customerPoNo">
+                          and CUSTOMER_PO_NO = #customerPoNo#
+                      </isNotEmpty>
+                      <isNotEmpty property="itemNo">
+                          and ITEM_NO like concat(#itemNo#, '%')
+                      </isNotEmpty>
+                      <isNotEmpty property="pkgCd">
+                          and PKG_CD like concat(#pkgCd#, '%')
+                      </isNotEmpty>
+                      <isNotEmpty prepend="and" property="poDueDtFrom">
+                          #poDueDtFrom# <![CDATA[<]]> = ETD_DUE_DT
+                      </isNotEmpty>
+                      <isNotEmpty prepend="and" property="poDueDtTo">
+                          ETD_DUE_DT <![CDATA[<]]>= #poDueDtTo#
+                      </isNotEmpty>
+                  </dynamic>
+                  and ODR_FIRM_FLG = 'Y'
+                  and SHIPPED_TYP = '1'
+               ) ODR
+         group by
+              RCV_ODR_COMP_CD
+             ,CUSTOMER_CD
+             ,LGCY_SHIP_TO
+             ,ITEM_NO
+             ,PKG_CD
+             ,TRNS_CD
+    </sql>
+    
+    <!-- 検索 SQL文 (Create / 梱包仕様原単位(ヘッダ)) -->
+    <sql id="Select_TM_PKG_SPEC_HDR">
+        select
+             HDR.OWNER_COMP
+            ,HDR.ITEM_NO_GRP
+            ,HDR.ITEM_NO
+            ,HDR.PKG_CD
+            ,HDR.TRNS_CD
+            ,HDR.SHIP_LOT
+            ,HDR.PKG_FORM_TYP
+        from
+            TM_PKG_SPEC_HDR HDR,
+            TM_PKG_SPEC_REV REV
+        where HDR.OWNER_COMP = REV.COMP_CD
+          and HDR.ITEM_NO = REV.ITEM_NO
+          and HDR.PKG_CD = REV.PKG_CD
+          and HDR.TRNS_CD = REV.TRNS_CD
+          and HDR.N_PROC = REV.N_PROC
+          and HDR.REV = REV.REV
+          and HDR.OWNER_COMP = #shipperCd#
+          <dynamic>
+              <isNotEmpty property="itemNo">
+                  and HDR.ITEM_NO like concat(#itemNo#, '%')
+              </isNotEmpty>
+              <isNotEmpty property="pkgCd">
+                  and HDR.PKG_CD like concat(#pkgCd#, '%')
+              </isNotEmpty>
+          </dynamic>
+          and HDR.TRNS_CD = #trnsCd#
+          and HDR.N_PROC = ' '
+    </sql>
+    
+    <!-- 検索 SQL文 (Create / 輸出出荷品番原単位) -->
+    <sql id="Select_TM_EXP_ITEM_NO_SP_INFO">
+        select
+             COMP_CD
+            ,ITEM_NO
+            ,PKG_CD
+            ,CUSTOMER_CD
+            ,LGCY_SHIP_TO
+            ,ITEM_DESCRIPTION
+        from (select
+                   COMP_CD
+                  ,ITEM_NO
+                  ,PKG_CD
+                  ,CUSTOMER_CD
+                  ,LGCY_SHIP_TO
+                  ,ITEM_DESCRIPTION
+                  ,rank() over (partition by COMP_CD, ITEM_NO, PKG_CD, CUSTOMER_CD, LGCY_SHIP_TO order by APLY_STRT_DT desc) as RANK
+              from
+                  TM_EXP_ITEM_NO_SP_INFO
+              where COMP_CD = #shipperCd#
+              <dynamic>
+                  <isNotEmpty property="itemNo">
+                      and ITEM_NO like concat(#itemNo#, '%')
+                  </isNotEmpty>
+                  <isNotEmpty property="pkgCd">
+                      and PKG_CD like concat(#pkgCd#, '%')
+                  </isNotEmpty>
+              </dynamic>
+              and CUSTOMER_CD = #customerCd#
+              and LGCY_SHIP_TO = #lgcyShipTo#
+              and APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+             )
+        where RANK = 1
+    </sql>
+    
+    <!-- 検索 SQL文 (Create / 梱包指示品目番号ワーク) -->
+    <sql id="Select_TW_PLTZ_INSTR_ITEM_NO">
+        select
+             ITEM_NO
+            ,PKG_CD
+            ,INSTR_QTY
+            ,COM_UPDATE_TIMESTAMP
+        from
+             TW_PLTZ_INSTR_ITEM_NO
+        where DSC_ID = #dscId#
+    </sql>
+    
+    <!-- 検索 SQL文 (Create / 検索) -->
+    <select id="SearchTtExpRcvOdr" resultMap="W2001PltzInstrItemDomain_SearchTtExpRcvOdr"
+        parameterClass="W2001PltzInstrItemCriteriaDomain">
+        
+        select /* SqlMap-W2001PltzInstr.SearchTtExpRcvOdr */
+             ODR.ITEM_NO
+            ,ODR.PKG_CD
+            ,ODR.SUM_QTY_BEFORE_2
+            ,ODR.SUM_QTY_BEFORE_1
+            ,ODR.SUM_QTY
+            ,ODR.SUM_QTY_AFTER_1
+            ,ODR.SUM_QTY_AFTER_2
+            ,ODR.SUM_QTY_AFTER_3
+            ,ODR.SUM_QTY_AFTER_4
+            ,ITM.ITEM_DESCRIPTION
+            ,HDR.SHIP_LOT
+            ,HDR.PKG_FORM_TYP
+            ,WGT.NET_WEIGHT_A
+            ,WGT.WEIGHT_UNIT
+            ,WRK.INSTR_QTY
+            ,case when WRK.INSTR_QTY is not null then 'Y' else 'N' end as DISABLED_FLG 
+            ,NVL(STK.QTY, 0) TMP_QTY
+        from 
+             (<include refid="Select_EXP_RCV_ODR" />) ODR
+            ,(<include refid="Select_TM_EXP_ITEM_NO_SP_INFO" />) ITM
+            ,(<include refid="Select_TM_PKG_SPEC_HDR" />) HDR
+            ,TM_ACTUAL_ITEM_WEIGHT WGT
+            ,(<include refid="Select_TW_PLTZ_INSTR_ITEM_NO" />) WRK
+            ,TT_TMP_STOCK STK
+        where ODR.RCV_ODR_COMP_CD = ITM.COMP_CD (+)
+          and ODR.CUSTOMER_CD = ITM.CUSTOMER_CD (+)
+          and ODR.LGCY_SHIP_TO = ITM.LGCY_SHIP_TO (+)
+          and ODR.ITEM_NO = ITM.ITEM_NO (+)
+          and ODR.PKG_CD = ITM.PKG_CD (+)
+          and ODR.RCV_ODR_COMP_CD = HDR.OWNER_COMP (+)
+          and ODR.ITEM_NO = HDR.ITEM_NO (+)
+          and ODR.PKG_CD = HDR.PKG_CD (+)
+          and ODR.TRNS_CD = HDR.TRNS_CD (+)
+          and HDR.OWNER_COMP = WGT.OWNER_COMP (+)
+          and HDR.ITEM_NO = WGT.ITEM_NO (+)
+          and ODR.ITEM_NO = WRK.ITEM_NO (+)
+          and ODR.PKG_CD = WRK.PKG_CD (+)
+          and ODR.RCV_ODR_COMP_CD = STK.SHIPPER_CD (+)
+          and ODR.ITEM_NO = STK.ITEM_NO (+)
+          and ODR.PKG_CD = STK.PKG_CD (+)
+        order by ODR.ITEM_NO, ODR.PKG_CD
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- 梱包指示Register / 検索 (Main画面から遷移)                                                          -->
+    <!-- =================================================================================================== -->
+    
+    <select id="SearchTtPltzInstrItemNo" resultMap="W2001PltzInstrDomain_SearchTtPltzInstrItemNo"
+        parameterClass="W2001PltzInstrCriteriaDomain">
+        select /* SqlMap-W2001PltzInstr.SearchTtPltzInstrItemNo */
+             PLT.PLTZ_INSTR_NO
+            ,PLT.SHIPPER_CD
+            ,PLT.CUSTOMER_CD
+            ,PLT.LGCY_SHIP_TO
+            ,PLT.TRNS_CD
+            ,PLT.PLNT_CD
+            ,PLT.LGCY_WH_CD
+            ,PLT.PLTZ_INSTR_STATUS
+            ,PLT.PLTZ_INSTR_DT
+            ,PLT.WEIGHT_UNIT
+            ,PLT.CML_PRINT_OUT_DT
+            ,ITM.ITEM_NO
+            ,ITM.PKG_CD
+            ,ITM.SHIPPING_LOT
+            ,ITM.BOX_QTY
+            ,ITM.INSTR_QTY
+            ,ITM.PACKED_QTY
+            ,ITM.TOTAL_NET_WEIGHT
+            ,ITM.BOX_LOT_QTY
+        from
+             TT_PLTZ_INSTR PLT
+            ,TT_PLTZ_INSTR_ITEM_NO ITM
+        where PLT.PLTZ_INSTR_NO = ITM.PLTZ_INSTR_NO
+          and PLT.PLTZ_INSTR_NO = #pltzInstrNo#
+        order by 
+            ITM.ITEM_NO, ITM.PKG_CD
+    </select>
+
+    <!-- =================================================================================================== -->
+    <!-- 梱包指示Register / 検索 (Create画面から遷移)                                                        -->
+    <!-- =================================================================================================== -->
+    <select id="SearchTwPltzInstrItemNo" resultMap="W2001PltzInstrItemDomain_SearchTwPltzInstrItemNo"
+        parameterClass="W2001PltzInstrItemCriteriaDomain">
+        
+        select /* SqlMap-PltzInstr.SearchTwPltzInstrItemNo */
+             ITEM_NO
+            ,PKG_CD
+            ,ITEM_DESCRIPTION
+            ,SHIPPING_LOT
+            ,INSTR_QTY
+            ,BOX_QTY
+            ,TOTAL_NET_WEIGHT
+            ,BOX_LOT_QTY
+            ,WH_STK_LOCATION
+            ,COLLATE_METH_TYP
+            ,PKG_FORM_TYP
+        from
+            TW_PLTZ_INSTR_ITEM_NO
+        where DSC_ID = #dscId#
+        order by ITEM_NO, PKG_CD
+    </select>
+
+    <!-- =================================================================================================== -->
+    <!-- 梱包指示Register / 輸出受注 (ロック)                                                                -->
+    <!-- =================================================================================================== -->
+
+    <!-- 汎用 Where句（全項目） -->
+    <sql id="WhereCondition_TtExpRcvOdr">
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="rcvOdrCompCd">
+                RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCd">
+                CUSTOMER_CD = #customerCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipTo">
+                LGCY_SHIP_TO = #lgcyShipTo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNo">
+                ITEM_NO = #itemNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCd">
+                PKG_CD = #pkgCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCd">
+                TRNS_CD = #trnsCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="etdDueDt">
+                ETD_DUE_DT = #etdDueDt#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNo">
+                CUSTOMER_PO_NO = #customerPoNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNo">
+                CUSTOMER_ITEM_NO = #customerItemNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrg">
+                CUSTOMER_ITEM_NO_ORG = #customerItemNoOrg#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrCtrlNo">
+                ODR_CTRL_NO = #odrCtrlNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="revisionNo">
+                REVISION_NO = #revisionNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="revisionNoEis">
+                REVISION_NO_EIS = #revisionNoEis#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="plntCd">
+                PLNT_CD = #plntCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerDueDt">
+                CUSTOMER_DUE_DT = #customerDueDt#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoOrg">
+                ITEM_NO_ORG = #itemNoOrg#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrQtyOrg">
+                ODR_QTY_ORG = #odrQtyOrg#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrQty">
+                ODR_QTY = #odrQty#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pltzAllocQty">
+                PLTZ_ALLOC_QTY = #pltzAllocQty#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippedQty">
+                SHIPPED_QTY = #shippedQty#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippingDt">
+                SHIPPING_DT = #shippingDt#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="partialDelivCnt">
+                PARTIAL_DELIV_CNT = #partialDelivCnt#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrFirmFlg">
+                ODR_FIRM_FLG = #odrFirmFlg#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="salesCompPoNo">
+                SALES_COMP_PO_NO = #salesCompPoNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lastFigureChgFlg">
+                LAST_FIGURE_CHG_FLG = #lastFigureChgFlg#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="supplierCd">
+                SUPPLIER_CD = #supplierCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippedTyp">
+                SHIPPED_TYP = #shippedTyp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncId">
+                COM_UPDATE_FUNC_ID = #comUpdateFuncId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserId">
+                COM_UPDATE_USER_ID = #comUpdateUserId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateTimestamp">
+                COM_UPDATE_TIMESTAMP = #comUpdateTimestamp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncId">
+                COM_CREATE_FUNC_ID = #comCreateFuncId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserId">
+                COM_CREATE_USER_ID = #comCreateUserId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateTimestamp">
+                COM_CREATE_TIMESTAMP = #comCreateTimestamp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCdGreaterThan">
+                RCV_ODR_COMP_CD <![CDATA[>]]> #rcvOdrCompCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCdGreaterThanEqual">
+                RCV_ODR_COMP_CD <![CDATA[>=]]> #rcvOdrCompCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCdLessThan">
+                RCV_ODR_COMP_CD <![CDATA[<]]> #rcvOdrCompCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCdLessThanEqual">
+                RCV_ODR_COMP_CD <![CDATA[<=]]> #rcvOdrCompCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCdLikeFront">
+                RCV_ODR_COMP_CD LIKE CONCAT(#rcvOdrCompCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCdGreaterThan">
+                CUSTOMER_CD <![CDATA[>]]> #customerCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCdGreaterThanEqual">
+                CUSTOMER_CD <![CDATA[>=]]> #customerCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCdLessThan">
+                CUSTOMER_CD <![CDATA[<]]> #customerCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCdLessThanEqual">
+                CUSTOMER_CD <![CDATA[<=]]> #customerCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCdLikeFront">
+                CUSTOMER_CD LIKE CONCAT(#customerCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipToGreaterThan">
+                LGCY_SHIP_TO <![CDATA[>]]> #lgcyShipToGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipToGreaterThanEqual">
+                LGCY_SHIP_TO <![CDATA[>=]]> #lgcyShipToGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipToLessThan">
+                LGCY_SHIP_TO <![CDATA[<]]> #lgcyShipToLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipToLessThanEqual">
+                LGCY_SHIP_TO <![CDATA[<=]]> #lgcyShipToLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipToLikeFront">
+                LGCY_SHIP_TO LIKE CONCAT(#lgcyShipToLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoGreaterThan">
+                ITEM_NO <![CDATA[>]]> #itemNoGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoGreaterThanEqual">
+                ITEM_NO <![CDATA[>=]]> #itemNoGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoLessThan">
+                ITEM_NO <![CDATA[<]]> #itemNoLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoLessThanEqual">
+                ITEM_NO <![CDATA[<=]]> #itemNoLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoLikeFront">
+                ITEM_NO LIKE CONCAT(#itemNoLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCdGreaterThan">
+                PKG_CD <![CDATA[>]]> #pkgCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCdGreaterThanEqual">
+                PKG_CD <![CDATA[>=]]> #pkgCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCdLessThan">
+                PKG_CD <![CDATA[<]]> #pkgCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCdLessThanEqual">
+                PKG_CD <![CDATA[<=]]> #pkgCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCdLikeFront">
+                PKG_CD LIKE CONCAT(#pkgCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCdGreaterThan">
+                TRNS_CD <![CDATA[>]]> #trnsCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCdGreaterThanEqual">
+                TRNS_CD <![CDATA[>=]]> #trnsCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCdLessThan">
+                TRNS_CD <![CDATA[<]]> #trnsCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCdLessThanEqual">
+                TRNS_CD <![CDATA[<=]]> #trnsCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCdLikeFront">
+                TRNS_CD LIKE CONCAT(#trnsCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="etdDueDtGreaterThanEqual">
+                ETD_DUE_DT <![CDATA[>=]]> #etdDueDtGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="etdDueDtLessThanEqual">
+                ETD_DUE_DT <![CDATA[<=]]> #etdDueDtLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNoGreaterThan">
+                CUSTOMER_PO_NO <![CDATA[>]]> #customerPoNoGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNoGreaterThanEqual">
+                CUSTOMER_PO_NO <![CDATA[>=]]> #customerPoNoGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNoLessThan">
+                CUSTOMER_PO_NO <![CDATA[<]]> #customerPoNoLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNoLessThanEqual">
+                CUSTOMER_PO_NO <![CDATA[<=]]> #customerPoNoLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNoLikeFront">
+                CUSTOMER_PO_NO LIKE CONCAT(#customerPoNoLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoGreaterThan">
+                CUSTOMER_ITEM_NO <![CDATA[>]]> #customerItemNoGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoGreaterThanEqual">
+                CUSTOMER_ITEM_NO <![CDATA[>=]]> #customerItemNoGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoLessThan">
+                CUSTOMER_ITEM_NO <![CDATA[<]]> #customerItemNoLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoLessThanEqual">
+                CUSTOMER_ITEM_NO <![CDATA[<=]]> #customerItemNoLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoLikeFront">
+                CUSTOMER_ITEM_NO LIKE CONCAT(#customerItemNoLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrgGreaterThan">
+                CUSTOMER_ITEM_NO_ORG <![CDATA[>]]> #customerItemNoOrgGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrgGreaterThanEqual">
+                CUSTOMER_ITEM_NO_ORG <![CDATA[>=]]> #customerItemNoOrgGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrgLessThan">
+                CUSTOMER_ITEM_NO_ORG <![CDATA[<]]> #customerItemNoOrgLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrgLessThanEqual">
+                CUSTOMER_ITEM_NO_ORG <![CDATA[<=]]> #customerItemNoOrgLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrgLikeFront">
+                CUSTOMER_ITEM_NO_ORG LIKE CONCAT(#customerItemNoOrgLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="plntCdGreaterThan">
+                PLNT_CD <![CDATA[>]]> #plntCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="plntCdGreaterThanEqual">
+                PLNT_CD <![CDATA[>=]]> #plntCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="plntCdLessThan">
+                PLNT_CD <![CDATA[<]]> #plntCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="plntCdLessThanEqual">
+                PLNT_CD <![CDATA[<=]]> #plntCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="plntCdLikeFront">
+                PLNT_CD LIKE CONCAT(#plntCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerDueDtGreaterThanEqual">
+                CUSTOMER_DUE_DT <![CDATA[>=]]> #customerDueDtGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerDueDtLessThanEqual">
+                CUSTOMER_DUE_DT <![CDATA[<=]]> #customerDueDtLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoOrgGreaterThan">
+                ITEM_NO_ORG <![CDATA[>]]> #itemNoOrgGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoOrgGreaterThanEqual">
+                ITEM_NO_ORG <![CDATA[>=]]> #itemNoOrgGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoOrgLessThan">
+                ITEM_NO_ORG <![CDATA[<]]> #itemNoOrgLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoOrgLessThanEqual">
+                ITEM_NO_ORG <![CDATA[<=]]> #itemNoOrgLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoOrgLikeFront">
+                ITEM_NO_ORG LIKE CONCAT(#itemNoOrgLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippingDtGreaterThanEqual">
+                SHIPPING_DT <![CDATA[>=]]> #shippingDtGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippingDtLessThanEqual">
+                SHIPPING_DT <![CDATA[<=]]> #shippingDtLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrFirmFlgGreaterThan">
+                ODR_FIRM_FLG <![CDATA[>]]> #odrFirmFlgGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrFirmFlgGreaterThanEqual">
+                ODR_FIRM_FLG <![CDATA[>=]]> #odrFirmFlgGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrFirmFlgLessThan">
+                ODR_FIRM_FLG <![CDATA[<]]> #odrFirmFlgLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrFirmFlgLessThanEqual">
+                ODR_FIRM_FLG <![CDATA[<=]]> #odrFirmFlgLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrFirmFlgLikeFront">
+                ODR_FIRM_FLG LIKE CONCAT(#odrFirmFlgLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="salesCompPoNoGreaterThan">
+                SALES_COMP_PO_NO <![CDATA[>]]> #salesCompPoNoGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="salesCompPoNoGreaterThanEqual">
+                SALES_COMP_PO_NO <![CDATA[>=]]> #salesCompPoNoGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="salesCompPoNoLessThan">
+                SALES_COMP_PO_NO <![CDATA[<]]> #salesCompPoNoLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="salesCompPoNoLessThanEqual">
+                SALES_COMP_PO_NO <![CDATA[<=]]> #salesCompPoNoLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="salesCompPoNoLikeFront">
+                SALES_COMP_PO_NO LIKE CONCAT(#salesCompPoNoLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lastFigureChgFlgGreaterThan">
+                LAST_FIGURE_CHG_FLG <![CDATA[>]]> #lastFigureChgFlgGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lastFigureChgFlgGreaterThanEqual">
+                LAST_FIGURE_CHG_FLG <![CDATA[>=]]> #lastFigureChgFlgGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lastFigureChgFlgLessThan">
+                LAST_FIGURE_CHG_FLG <![CDATA[<]]> #lastFigureChgFlgLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lastFigureChgFlgLessThanEqual">
+                LAST_FIGURE_CHG_FLG <![CDATA[<=]]> #lastFigureChgFlgLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lastFigureChgFlgLikeFront">
+                LAST_FIGURE_CHG_FLG LIKE CONCAT(#lastFigureChgFlgLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="supplierCdGreaterThan">
+                SUPPLIER_CD <![CDATA[>]]> #supplierCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="supplierCdGreaterThanEqual">
+                SUPPLIER_CD <![CDATA[>=]]> #supplierCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="supplierCdLessThan">
+                SUPPLIER_CD <![CDATA[<]]> #supplierCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="supplierCdLessThanEqual">
+                SUPPLIER_CD <![CDATA[<=]]> #supplierCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="supplierCdLikeFront">
+                SUPPLIER_CD LIKE CONCAT(#supplierCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippedTypGreaterThan">
+                SHIPPED_TYP <![CDATA[>]]> #shippedTypGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippedTypGreaterThanEqual">
+                SHIPPED_TYP <![CDATA[>=]]> #shippedTypGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippedTypLessThan">
+                SHIPPED_TYP <![CDATA[<]]> #shippedTypLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippedTypLessThanEqual">
+                SHIPPED_TYP <![CDATA[<=]]> #shippedTypLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippedTypLikeFront">
+                SHIPPED_TYP LIKE CONCAT(#shippedTypLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncIdGreaterThan">
+                COM_UPDATE_FUNC_ID <![CDATA[>]]> #comUpdateFuncIdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncIdGreaterThanEqual">
+                COM_UPDATE_FUNC_ID <![CDATA[>=]]> #comUpdateFuncIdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncIdLessThan">
+                COM_UPDATE_FUNC_ID <![CDATA[<]]> #comUpdateFuncIdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncIdLessThanEqual">
+                COM_UPDATE_FUNC_ID <![CDATA[<=]]> #comUpdateFuncIdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncIdLikeFront">
+                COM_UPDATE_FUNC_ID LIKE CONCAT(#comUpdateFuncIdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserIdGreaterThan">
+                COM_UPDATE_USER_ID <![CDATA[>]]> #comUpdateUserIdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserIdGreaterThanEqual">
+                COM_UPDATE_USER_ID <![CDATA[>=]]> #comUpdateUserIdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserIdLessThan">
+                COM_UPDATE_USER_ID <![CDATA[<]]> #comUpdateUserIdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserIdLessThanEqual">
+                COM_UPDATE_USER_ID <![CDATA[<=]]> #comUpdateUserIdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserIdLikeFront">
+                COM_UPDATE_USER_ID LIKE CONCAT(#comUpdateUserIdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncIdGreaterThan">
+                COM_CREATE_FUNC_ID <![CDATA[>]]> #comCreateFuncIdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncIdGreaterThanEqual">
+                COM_CREATE_FUNC_ID <![CDATA[>=]]> #comCreateFuncIdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncIdLessThan">
+                COM_CREATE_FUNC_ID <![CDATA[<]]> #comCreateFuncIdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncIdLessThanEqual">
+                COM_CREATE_FUNC_ID <![CDATA[<=]]> #comCreateFuncIdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncIdLikeFront">
+                COM_CREATE_FUNC_ID LIKE CONCAT(#comCreateFuncIdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserIdGreaterThan">
+                COM_CREATE_USER_ID <![CDATA[>]]> #comCreateUserIdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserIdGreaterThanEqual">
+                COM_CREATE_USER_ID <![CDATA[>=]]> #comCreateUserIdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserIdLessThan">
+                COM_CREATE_USER_ID <![CDATA[<]]> #comCreateUserIdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserIdLessThanEqual">
+                COM_CREATE_USER_ID <![CDATA[<=]]> #comCreateUserIdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserIdLikeFront">
+                COM_CREATE_USER_ID LIKE CONCAT(#comCreateUserIdLikeFront#,'%')
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+
+    <!-- ロック検索 SQL文（任意）※ロック解除待機しない -->
+    <select id="LockTtExpRcvOdr" resultMap="TtExpRcvOdrDomain_LockTtExpRcvOdr"
+        parameterClass="TtExpRcvOdrCriteriaDomain">
+        select /* SqlMap-PltzInstr.LockTtExpRcvOdr */
+             RCV_ODR_COMP_CD
+            ,CUSTOMER_CD
+            ,LGCY_SHIP_TO
+            ,ITEM_NO
+            ,PKG_CD
+            ,TRNS_CD
+            ,ETD_DUE_DT
+            ,CUSTOMER_PO_NO
+            ,CUSTOMER_ITEM_NO
+            ,CUSTOMER_ITEM_NO_ORG
+            ,ODR_CTRL_NO
+            ,REVISION_NO
+            ,REVISION_NO_EIS
+            ,PLNT_CD
+            ,CUSTOMER_DUE_DT
+            ,ITEM_NO_ORG
+            ,ODR_QTY_ORG
+            ,ODR_QTY
+            ,PLTZ_ALLOC_QTY
+            ,SHIPPED_QTY
+            ,SHIPPING_DT
+            ,PARTIAL_DELIV_CNT
+            ,ODR_FIRM_FLG
+            ,SALES_COMP_PO_NO
+            ,LAST_FIGURE_CHG_FLG
+            ,SUPPLIER_CD
+            ,SHIPPED_TYP
+            ,COM_UPDATE_FUNC_ID
+            ,COM_UPDATE_USER_ID
+            ,COM_UPDATE_TIMESTAMP
+            ,COM_CREATE_FUNC_ID
+            ,COM_CREATE_USER_ID
+            ,COM_CREATE_TIMESTAMP
+        from TT_EXP_RCV_ODR
+        <include refid="WhereCondition_TtExpRcvOdr" />
+        <isNotEmpty property="preferredOrder">
+            order by $preferredOrder$
+        </isNotEmpty>
+        for update nowait
+    </select>
+
+</sqlMap>

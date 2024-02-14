@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-Wt016UnregHsCdList.xml
+ *
+ * SqlMap file of Wt016UnregHsCdListDao.
+ * Wt016UnregHsCdListDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Wt016UnregHsCdList">
+
+    <!-- Domain -->
+    <typeAlias alias="Wt016UnregHsCdListDomain"
+        type="com.globaldenso.eca0027.core.business.domain.Wt016UnregHsCdListDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="Wt016UnregHsCdListCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.Wt016UnregHsCdListCriteriaDomain" />
+
+    <resultMap id="Wt016UnregHsCdListResult" class="Wt016UnregHsCdListDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="itemNo" column="ITEM_NO" />
+    </resultMap>
+
+    <!-- 汎用 項目 -->
+    <sql id="Cols">
+        SHIPPER_CD
+        , ITEM_NO
+    </sql>
+
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeys">
+        order by
+            SHIPPER_CD asc 
+            , ITEM_NO asc 
+    </sql>
+    
+    <!-- 汎用 GroupBy句 -->
+    <sql id="SumKeys">
+        group by
+            SHIPPER_CD 
+            , ITEM_NO 
+    </sql>
+    
+    <!-- FROM句   -->
+    <sql id="From">
+        from
+            TW_INV_ITEM
+    </sql>
+
+    <!-- 汎用 Where句（基本項目） -->
+    <sql id="WhereCondition">
+        where
+            DSC_ID = #loginUserDscId#
+            and SHIPPER_CD = #shipperCd#
+            and HS_CD is null
+            and GRP_NO_1 = #grpNo1#
+            and GRP_NO_2 = #grpNo2#
+            and REMOVE_FLG = 'N'
+    </sql>
+
+    <!-- 検索 SQL文（任意条件、ページング用） -->
+    <select id="SearchByCondition" resultMap="Wt016UnregHsCdListResult"
+        parameterClass="Wt016UnregHsCdListCriteriaDomain">
+        select
+        /* SqlMap-Wt016UnregHsCdList.SearchByCondition */
+        <include refid="Cols" />
+        <include refid="From" />
+        <include refid="WhereCondition" />
+        <include refid="SumKeys" />
+        <include refid="SortKeys" />
+    </select>
+
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCount" resultClass="java.lang.Integer"
+        parameterClass="Wt016UnregHsCdListCriteriaDomain">
+        select count(ROWNUM)
+        /* SqlMap-Wt016UnregHsCdList.SearchCount */
+        from (select
+        <include refid="Cols" />
+        <include refid="From" />
+        <include refid="WhereCondition" />
+        <include refid="SumKeys" />)
+    </select>
+
+</sqlMap>

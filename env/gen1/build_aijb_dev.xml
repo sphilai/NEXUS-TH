@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ===========================================================================
+
+ [JP] build_aijb_dev.xml (AI-JB(zip)作成:開発機用)
+ [EN] build_aijb_dev.xml (Create a AI-JB(zip): for development machine)
+    
+    $ build_aijb_dev.xml 2153 2012-06-14 12:54:48Z tokuhiro_nishizawa@dnitsol.com $
+
+============================================================================ -->
+<project name="[NEXUS_EXPORT] AI-JB Ant Build(Development)" default="makeZip" basedir=".">
+    <!-- [JP] * ビルドの初期設定ファイルをインポート * -->
+    <!-- [EN] * Import the initialization file of the build * -->
+    <import file="build_aijb_pro.xml" />
+    
+    <!-- [JP] * 初期化 for 開発機 * -->
+    <!-- [EN] * Initialization for development machine * -->
+    <target name="config_aijb">
+        <echo message="Using a configuration file for the development machine." />
+        <property name="zip.name.wrk"            value="${zip.name}Dev_${timestamp}.zip" />
+        <property name="jdbc-aijb.prop.wrk"      value="${jdbc-aijb.prop.dev}" />
+        <property name="aijbConstants.prop.wrk"  value="${aijbConstants.prop.dev}" />
+    </target>
+
+</project>

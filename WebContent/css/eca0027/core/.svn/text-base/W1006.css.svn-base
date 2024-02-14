@@ -1,0 +1,195 @@
+@charset "utf-8";
+/*
+ * W1006.css
+ * 
+ * 梱包指示Main画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ Search condition area 1 ------------*/ 
+table.gscm_search {
+    width:980px;
+}
+.gscm_search .search_request_no {
+    width: 80px;
+}
+.gscm_search .search_shipper {
+    width: 80px;
+}
+.gscm_search .search_consignee {
+    width: 130px;
+}
+.gscm_search .search_ship_to {
+    width: 170px;
+}
+.gscm_search .search_trans {
+    width: 80px;
+}
+.gscm_search .search_weight_unit {
+    width: 100px;
+}
+.gscm_search .search_total_id_tag {
+    width: 100px;
+}
+/*------------ Search condition area 2 ------------*/ 
+.gscm_search .search_fm_line {
+    width: 10px;
+}
+.gscm_search .search_to_line {
+    width: 10px;
+}
+.gscm_search .search_description {
+    width: 10px;
+}
+.gscm_search .search_item_no {
+    width: 10px;
+}
+.gscm_search .search_kit {
+    width: 80px;
+}
+.gscm_search .blank {
+    width: 100px;
+}
+
+.fm_line {
+    width: 40px;
+}
+.to_line {
+    width: 40px;
+}
+.description_cd {
+    width: 200px;
+}
+.w1006_customerPoNo{
+    width: 200px;
+}
+.w1006_description_cd{
+    width: 400px;
+}
+.w1006_customerItemNo{
+    width: 200px;
+}
+.w1006_qty{
+    width: 200px;
+}
+.w1006_qtyUnit{
+    width: 200px;
+}
+.w1006_unitPrice{
+    width: 100px;
+}
+.w1006_currCd{
+    width: 100px;
+}
+.w1006_locationNo{
+    width: 100px;
+}
+.w1006_constructionWorkNo{
+    width: 100px;
+}
+.w1006_lineNo{
+    width: 100px;
+}
+.w1006_item{
+    width: 100px;
+}
+.w1006_kitParFlg{
+    width: 100px;
+}
+.w1006_noOfChild{
+    width: 100px;
+}
+.w1006_rtUseFlg{
+    width: 100px;
+}
+.w1006_dngrGoodsImpExpCtrl{
+    width: 100px;
+}
+.w1006_commercialFlg{
+    width: 100px;
+}
+.w1006_reExpGoodsFlg{
+    width: 100px;
+}
+.w1006_netWeight{
+    width: 100px;
+}
+.w1006_itemNo{
+    width: 200px;
+}
+.w1006_pkgCd{
+    width: 200px;
+}
+.w1006_originCntryCd{
+    width: 200px;
+}
+.item_no {
+    width: 200px;
+}
+.kit {
+    width: 70px;
+}
+/*------------ Result search ------------*/ 
+table.gscm_resultlist {
+    width:980px;
+}
+
+.gscm_resultlist .resultlist_print {
+    width: 40px;
+}
+.gscm_resultlist .resultlist_line {
+    width: 35px;
+}
+.gscm_resultlist .resultlist_item {
+    width: 35px;
+}
+.gscm_resultlist .resultlist_customer_no {
+    width: 65px;
+}
+.gscm_resultlist .resultlist_item_no {
+    width: 75px;
+}
+.gscm_resultlist .resultlist_product_name {
+    width: 70px;
+}
+.gscm_resultlist .resultlist_pkg_cd {
+    width: 60px;
+}
+.gscm_resultlist .resultlist_co {
+    width: 40px;
+}
+.gscm_resultlist .resultlist_qty {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_um {
+    width: 80px;
+}
+
+.gscm_resultlist .resultlist_unit_price {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_cr {
+    width: 40px;
+}
+.gscm_resultlist .resultlist_nw {
+    width: 10px;
+}
+.gscm_resultlist .resultlist_kit {
+    width: 30px;
+}
+.gscm_resultlist .resultlist_no_child {
+    width: 40px;
+}
+.gscm_resultlist .resultlist_comm {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_rt {
+    width: 40px;
+}
+.gscm_resultlist .resultlist_location {
+    width: 60px;
+}
+.gscm_resultlist .resultlist_constrution {
+    width: 100px;
+}

@@ -1,0 +1,288 @@
+@CHARSET "utf-8";
+/*
+ * W6002.css
+ * 
+ * Manual Invoice Upload画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/* --- grid ----------------------------------------------------------------- */
+table.grid {
+    width: 980px;
+}
+
+.grid .grid_header {
+    width: 190px;
+}
+
+.grid .grid_header_half {
+    width: 95px;
+}
+
+.grid .grid_header_sub {
+    width: 150px;
+}
+
+.grid .grid_contents {
+    width: 360px;
+}
+
+.grid .grid_contents_main {
+    width: 220px;
+}
+
+.grid .grid_contents_sub {
+    width: 120px;
+}
+
+.grid .grid_contents_date {
+    width: 160px;
+}
+
+.grid th {
+    text-align: right;
+}
+
+/* --- Title ---------------------------------------------------------------- */
+div.box_title {
+    width: 980px;
+}
+
+/*------------ <Export Basic Information> ------------*/
+
+.grid .w6002_type_of_inv {
+     width: 160px;  
+}
+
+.grid .w6002_class_of_inv {
+     width: 130px;   
+}
+
+.grid .w6002_invoice_ctgry {
+     width: 200px;   
+}
+
+.grid .w6002_ship_to_comp_nm {
+    width: 505px;   
+}
+
+.grid .w6002_cons_comp_nm {
+    width: 505px;	
+}
+
+.grid .w6002_invoice_no {
+    width: 300px;	
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.grid .w6002_shipper_cd {
+    width: 69px;   
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.grid .w6002_ship_to_nm {
+    width: 505px;	
+}
+.grid .w6002_consignee_cd {
+    width: 69px;   
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.grid .w6002_trns_cd {
+    width: 200px;	
+}
+
+.grid .w6002_relate_invoice_shipper_cd {
+    width: 90px;	
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.grid .w6002_relate_ship_to_nm {
+   width: 505px;	
+}
+
+.grid .w6002_relate_invoice_no {
+    width: 240px;	
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+
+ /*------------ <Terms/Remittance Information> ------------*/ 
+.grid .w6002_dliv_point{ 
+    width: 180px; 
+}
+
+.grid .w6002_freight_res{ 
+    width: 180px; 
+}
+
+.grid .w6002_price_terms{ 
+    width: 255px; 
+}
+
+.grid .w6002_trade_terms{ 
+    width: 255px; 
+}
+
+.grid .w6002_terms_point{ 
+    width: 266px; 
+}
+
+.grid .w6002_payment_method{ 
+    width: 180px; 
+}
+
+.grid .w6002_pay_terms{ 
+    width: 330px; 
+}
+
+.grid .w6002_rem_bank_nm{ 
+    width: 280px; 
+}
+
+.grid .w6002_rem_bank_address{ 
+    width: 280px; 
+}
+
+.grid .w6002_rem_bank_account_no{ 
+    width: 175px; 
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+
+.grid .w6002_lc_bank{ 
+    width: 300px; 
+}
+
+.grid .w6002_lc_no{ 
+    width: 360px; 
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+
+ /*------------ <Amount Information> ------------*/ 
+.grid .w6002_curr_cd { 
+    width: 100px; 
+}
+
+.grid .w6002_net_amount { 
+    width: 180px; 
+}
+
+.grid .w6002_freight { 
+    width: 180px; 
+}
+
+.grid .w6002_insurance { 
+    width: 180px; 
+}
+
+.grid .w6002_handling_charge { 
+    width: 180px; 
+}
+
+.grid .w6002_free_additional { 
+    width: 180px; 
+}
+
+.grid .w6002_additional_charge_nm { 
+    width: 180px; 
+}
+
+.grid .w6002_vat { 
+    width: 180px; 
+}
+
+.grid .w6002_vat_ratio { 
+    width: 180px; 
+}
+
+.grid .w6002_total_invoice_amount { 
+    width: 183px; 
+}
+
+
+ /*------------ <PKG Information> ------------*/ 
+
+.grid .w6002_pltz_item_qty {
+    width: 140px;  
+}
+
+.grid .w6002_volume_unit {
+    width: 100px;  
+}
+
+.grid .w6002_total_volume {
+    width: 140px;  
+}
+
+.grid .w6002_weight_unit {
+    width: 100px;  
+}
+
+.grid .w6002_total_net_weight {
+    width: 130px;  
+}
+
+.grid .w6002_total_gross_weight {
+    width: 130px;  
+}
+
+
+ /*------------ <Port & Vessel Information> ------------*/ 
+
+.grid .w6002_car_comp_nm {
+    width: 505px;  
+}
+
+.grid .w6002_for_comp_nm {
+    width: 505px;  
+}
+
+.grid .w6002_from_port_nm {
+    width: 303px;  
+}
+.grid .w6002_to_port_nm {
+    width: 303px;  
+}
+
+.grid .w6002_port_cd {
+    width: 40px;  
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.grid .w6002_invoice_pdf {
+    width: 340px;
+    background-color: white;
+}
+.grid .w6002_packing_list {
+    width: 340px;
+    background-color: white;
+}
+
+.grid .w6002_arrival_time {
+    width: 80px;  
+}
+
+.grid .w6002_booking_no {
+    width: 200px;  
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.w6002_forwarder_comp_cd {
+    width: 75px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+.w6002_carrier_comp_cd {
+    width: 40px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+#gscm_wrapper {
+    overflow-y: auto !important;
+}
+
+.gscm_required {
+    background-color:#ffffbb !important;
+}

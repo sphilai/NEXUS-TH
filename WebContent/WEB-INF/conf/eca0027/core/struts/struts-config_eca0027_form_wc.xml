@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config_eca0027_form_wc.xml
+ * 
+ * AI-J2(Struts) の form設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <display-name></display-name>
+    <description></description>
+
+    <!-- Application Form Bean Definitions ================================= -->
+    <form-beans>
+
+        <!-- WC001: Empty RT materials画面 -->
+        <form-bean name="WC001Form"
+            type="com.globaldenso.eca0027.core.presentation.WC001ActionForm">
+        </form-bean>
+
+    </form-beans>
+</struts-config>

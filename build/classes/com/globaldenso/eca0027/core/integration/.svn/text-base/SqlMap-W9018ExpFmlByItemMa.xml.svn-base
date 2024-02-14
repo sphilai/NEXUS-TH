@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * SqlMap-W9018ExpFmlByItemMa.xml
+ *
+ * W9018ExpFmlByItemMaDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ 
+<sqlMap namespace="W9018ExpFmlByItemMa">
+    <!-- ================================================== -->
+    <!-- Domainの別名定義                                   -->
+    <!-- ================================================== -->
+    <!-- Domain -->
+    <typeAlias alias="W9018ExpFmlByItemMaItemDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W9018ExpFmlByItemMaItemDomain" />
+    <typeAlias alias="W9018ExpFmlByItemMaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W9018ExpFmlByItemMaDomain" />
+    
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W9018ExpFmlByItemMaCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W9018ExpFmlByItemMaCriteriaDomain" />
+     
+    <!-- ================================================== -->
+    <!-- 検索結果をMapで受け取る                            -->
+    <!-- ================================================== -->
+    <!-- W9018 検索結果 -->
+    <resultMap id="W9018ExpFmlByItemMaDomain_SearchForPagingTmExpFormalitiItemNo" class="W9018ExpFmlByItemMaItemDomain">
+        <result property="compCd" column="COMP_CD" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="aplyStrtDt" column="APLY_STRT_DT" />
+        <result property="expLimitTyp" column="EXP_LIMIT_TYP" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="hsCd" column="HS_CD" />
+        <result property="cigmaPrdctFlg" column="CIGMA_PRDCT_FLG" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+    </resultMap>
+    
+    <resultMap id="W9018ExpFmlByItemMaDomain_SearchTmPkgMtrl" class="W9018ExpFmlByItemMaDomain">
+        <result property="pkgNm" column="PKG_MTRL_NM" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+    </resultMap>
+    
+    <!-- ================================================== -->
+    <!-- W9018 / 検索結果取得                               -->
+    <!-- ================================================== -->
+    <!-- Where句 / アクセス権 -->
+    <sql id="WhereCondition_TmExpFormalitiItemNo_Auth">
+        COMP_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId# )
+        <isNotEmpty prepend="and" property="userAuthList">
+           COMP_CD in (
+               <iterate property="userAuthList" conjunction=",">
+                   #userAuthList[].authMgtComp#
+               </iterate>
+           )
+        </isNotEmpty>
+    </sql>
+    
+    <!-- Where句 / 絞込条件 -->
+    <sql id="WhereCondition_TmExpFormalitiItemNo">
+        <isNotEmpty prepend="and" property="compCd">
+            COMP_CD like concat(#compCd#, '%')
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="itemNo">
+            ITEM_NO like concat(#itemNo#, '%')
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="expLimitTyp">
+            EXP_LIMIT_TYP = #expLimitTyp#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="dngrItemFlg">
+            DNGR_ITEM_FLG = #dngrItemFlg# 
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="hsCd">
+            HS_CD like CONCAT(#hsCd#,'%')
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="cigmaPrdctFlg">
+            CIGMA_PRDCT_FLG = #cigmaPrdctFlg#
+        </isNotEmpty>
+        <isEqual prepend="and" property="display" compareValue="CAD">
+            APLY_STRT_DT <![CDATA[<=]]> #fmtAplyStrtDt#
+        </isEqual>
+        <isEqual prepend="and" property="display" compareValue="LA2">
+            APLY_STRT_DT <![CDATA[<=]]> #fmtAplyStrtDt#
+        </isEqual>
+    </sql>
+    
+    <!-- ソート条件 -->
+    <sql id="SortKeys_TmExpFormalitiItemNo">
+        order by
+              COMP_CD
+            , ITEM_NO
+            , APLY_STRT_DT desc
+    </sql>
+    
+    <!-- Cols -->
+    <sql id="Col_TmExpFormalitiItemNo">
+          COMP_CD
+        , ITEM_NO
+        , APLY_STRT_DT
+        , EXP_LIMIT_TYP
+        , DNGR_ITEM_FLG
+        , HS_CD
+        , CIGMA_PRDCT_FLG
+        , COM_UPDATE_TIMESTAMP
+    </sql>
+    
+    <!-- 実行SQL文 / 件数取得 -->
+    <select id="SearchCountTmExpFormalitiItemNo"
+        resultClass="java.lang.Integer" parameterClass="W9018ExpFmlByItemMaCriteriaDomain">
+            select
+                /* SqlMap-W9018ExpFmlByItemMa.SearchCountTmExpFormalitiItemNo */
+                count(COMP_CD) COUNT_COMP_CD
+            from
+                (
+                    select
+                        <include refid="Col_TmExpFormalitiItemNo" />
+                        ,ROW_NUMBER() OVER (PARTITION BY COMP_CD, ITEM_NO ORDER BY APLY_STRT_DT desc) RNUM
+                    from 
+                        TM_EXP_FORMALITI_ITEM_NO
+                    where
+                        <include refid="WhereCondition_TmExpFormalitiItemNo_Auth"/>
+                        <include refid="WhereCondition_TmExpFormalitiItemNo"/>
+                )
+            <dynamic prepend="where">
+                <isEqual prepend="and" property="display" compareValue="CAD">
+                    RNUM = 1
+                </isEqual>
+                <isEqual prepend="and" property="display" compareValue="LA2">
+                    RNUM BETWEEN 1 AND 2
+                </isEqual>
+            </dynamic>
+    </select>
+    
+    <!-- 実行SQL文 / 検索結果 -->
+    <select id="SearchForPagingTmExpFormalitiItemNo"
+        resultMap="W9018ExpFmlByItemMaDomain_SearchForPagingTmExpFormalitiItemNo" parameterClass="W9018ExpFmlByItemMaCriteriaDomain">
+            select
+                /* SqlMap-W9018ExpFmlByItemMa.SearchForPagingTmExpFormalitiItemNo */
+                <include refid="Col_TmExpFormalitiItemNo" />
+            from
+                (
+                    select
+                        <include refid="Col_TmExpFormalitiItemNo" />
+                        , row_number() over (<include refid="SortKeys_TmExpFormalitiItemNo" />) ROW_NUM
+                    from
+                        ( 
+                            select
+                                <include refid="Col_TmExpFormalitiItemNo" />
+                                , ROW_NUMBER() OVER (PARTITION BY COMP_CD, ITEM_NO ORDER BY APLY_STRT_DT desc) RNUM
+                            from
+                                TM_EXP_FORMALITI_ITEM_NO
+                            where
+                                <include refid="WhereCondition_TmExpFormalitiItemNo_Auth"/>
+                                <include refid="WhereCondition_TmExpFormalitiItemNo"/>
+                        ) 
+                    <dynamic prepend="where">
+                        <isEqual prepend="and" property="display" compareValue="CAD">
+                            RNUM = 1
+                        </isEqual>
+                        <isEqual prepend="and" property="display" compareValue="LA2">
+                            RNUM BETWEEN 1 AND 2
+                        </isEqual>
+                    </dynamic>
+                    <include refid="SortKeys_TmExpFormalitiItemNo" />
+                )
+            where
+                ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+    
+    <!-- ================================================== -->
+    <!-- W9019                                              -->
+    <!-- ================================================== -->
+    <select id="SearchTmPkgMtrl"
+        resultMap="W9018ExpFmlByItemMaDomain_SearchTmPkgMtrl" parameterClass="W9018ExpFmlByItemMaCriteriaDomain">
+        select
+            /* W9018ExpFmlByItemMa.SearchTmPkgMtrl */
+            A.PKG_MTRL_NM
+            , A.ORIGIN_CNTRY_CD
+        from 
+            TM_PKG_MTRL A
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="compCd">
+                A.OWNER_COMP = #compCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNo">
+                A.PKG_ITEM_NO = #itemNo#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+</sqlMap>

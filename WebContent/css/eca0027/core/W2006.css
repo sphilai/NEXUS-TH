@@ -1,0 +1,59 @@
+@charset "utf-8";
+/*
+ * W2006.css
+ * 
+ * 小箱内多品番梱包Header画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+
+table.grid1 {
+    width: 755px;
+}
+
+table.grid2 {
+    width: 415px;
+}
+
+table.grid3 {
+    width: 328px;
+}
+
+.grid .grid_header {
+    width: 200px;
+}
+
+.grid .grid_contents {
+    width: 215px;
+}
+
+.grid .grid_header2 {
+    width: 150px;
+}
+
+.grid .grid_contents2 {
+    width: 190px;
+}
+
+.grid .grid_contents3 {
+    width: 128px;
+}
+
+table.layout_table {
+    width: 980px;
+    cellpadding: 0px;
+    cellspacing: 0px;
+}
+
+.layout_table .left_table {
+    width: 412px;
+}
+
+.layout_table .rigth_table {
+    width: 568px;
+}
+
+
+/*------------ 表示幅 ------------*/ 

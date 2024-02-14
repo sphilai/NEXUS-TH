@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config_eca0027_action_w3.xml
+ * 
+ * AI-J2(Struts) の action設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+
+    <!-- Application Action Mapping Definitions ============================ -->
+    <action-mappings>
+        <!-- =============================================================== -->
+        <!-- W3001:                                         -->
+        <!-- =============================================================== -->
+        
+        <!-- W3001:  Initial action-->
+        <action path="/W3001Init"
+            type="com.globaldenso.eca0027.core.presentation.W3001InitAction"
+            name="W3001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3001" />
+        </action>
+
+        <!-- W3001:  Search action-->
+        <action path="/W3001Search"
+            type="com.globaldenso.eca0027.core.presentation.W3001SearchAction"
+            name="W3001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3001" />
+            <forward name="error" path="W3001" />
+        </action>
+        
+        <!-- W3001:  Activate action-->
+        <action path="/W3001Activate"
+            type="com.globaldenso.eca0027.core.presentation.W3001ActivateAction"
+            name="W3001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3001Init.do" />
+            <forward name="error" path="/W3001Search.do" />
+        </action>
+        
+        <!-- W3001:  Cancel action-->
+        <action path="/W3001Cancel"
+            type="com.globaldenso.eca0027.core.presentation.W3001CancelAction"
+            name="W3001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3001Init.do" />
+            <forward name="error" path="/W3001Search.do" />
+        </action>
+
+        <!-- W3001:  CreateListOrTr action-->
+        <action path="/W3001CreateListOrTr"
+            type="com.globaldenso.eca0027.core.presentation.W3001CreateListOrTrAction"
+            name="W3001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3002Init.do" />
+            <forward name="error" path="W3001" />
+        </action>
+        <!-- W3001:  Confirm Detail action-->
+        <action path="/W3001ConfirmDetail"
+            type="com.globaldenso.eca0027.core.presentation.W3001ConfirmDetailAction"
+            name="W3001Form"
+            scope="request"
+            validate="false">
+            <!-- kimura change to 2 success path -->
+            <forward name="successPltz" path="/W3001RedirectW3006Init.do" />
+            <forward name="successItemNo" path="/W3001edirectW3008Init.do" />
+            <forward name="error" path="/W3001Search.do" />
+        </action>
+        
+         <!-- W3001:  Edit TR action-->
+        <action path="/W3001EditTr"
+            type="com.globaldenso.eca0027.core.presentation.W3001EditTrAction"
+            name="W3001Form"
+            scope="request"
+            validate="false">
+            <!-- kimura change to 2 success path -->
+            <forward name="successPltz" path="/W3001RedirectW3006Init.do" />
+            <forward name="successItemNo" path="/W3001edirectW3008Init.do" />
+            <forward name="error" path="/W3001Search.do" />
+        </action>
+        
+        <!-- kimura change to 2 success path  -->
+         <!-- Redirect to W3006Init.do-->
+        <action path="/W3001RedirectW3006Init"
+            type="com.globaldenso.eca0027.core.presentation.W3001RedirectW3006Action"
+            name="W3001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3006Init.do" />
+        </action>
+        <action path="/W3001edirectW3008Init"
+            type="com.globaldenso.eca0027.core.presentation.W3001RedirectW3008Action"
+            name="W3001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3008Init.do" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W3002:                                         -->
+        <!-- =============================================================== -->
+        
+        <!-- W3002:  Initial action-->
+        <action path="/W3002Init"
+            type="com.globaldenso.eca0027.core.presentation.W3002InitAction"
+            name="W3002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3002" />
+        </action>
+
+        <!-- W3002:  CreateListForCML action-->
+        <action path="/W3002MoveToCreateListForCml"
+            type="com.globaldenso.eca0027.core.presentation.W3002MoveToCreateListForCmlAction"
+            name="W3002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3003Init.do" />
+            <forward name="error" path="W3002" />
+        </action>
+
+<!-- TIS Tanaka Start-->
+        <!-- W3002:  CreateListForParts action-->
+        <action path="/W3002MoveToCreateListForParts"
+            type="com.globaldenso.eca0027.core.presentation.W3002MoveToCreateListForPartsAction"
+            name="W3002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3004Init.do" />
+            <forward name="error" path="W3002" />
+        </action>
+
+        <!-- W3002:  CreateTrForCML action-->
+        <action path="/W3002MoveToCreateTrForCml"
+            type="com.globaldenso.eca0027.core.presentation.W3002MoveToCreateTrForCmlAction"
+            name="W3002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3005Init.do" />
+            <forward name="error" path="W3002" />
+        </action>
+
+        <!-- W3002:  CreateTrForParts action-->
+        <action path="/W3002MoveToCreateTrForParts"
+            type="com.globaldenso.eca0027.core.presentation.W3002MoveToCreateTrForPartsAction"
+            name="W3002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3007Init.do" />
+            <forward name="error" path="W3002" />
+        </action>
+
+        <!-- W3002:  BackToMainScreen action-->
+        <action path="/W3002BackToMainScreen"
+            type="com.globaldenso.eca0027.core.presentation.W3002BackToMainScreenAction"
+            name="W3002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3001Init.do" />
+            <forward name="error" path="W3002" />
+        </action>
+<!-- TIS Tanaka End -->
+<!-- SNT 追加　Start -->
+        <!-- =============================================================== -->
+        <!-- W3003:                                         -->
+        <!-- =============================================================== -->
+        <!-- W3003:  Initial action-->
+        <action path="/W3003Init"
+            type="com.globaldenso.eca0027.core.presentation.W3003InitAction"
+            name="W3003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3003" />
+        </action>
+        <!-- W3003:  Search action-->
+        <action path="/W3003Search"
+            type="com.globaldenso.eca0027.core.presentation.W3003SearchAction"
+            name="W3003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3003" />
+            <forward name="error" path="W3003" />
+        </action>
+        <!-- W3003:  backToMainScreen action-->
+        <action path="/W3003BackToMainScreen"
+            type="com.globaldenso.eca0027.core.presentation.W3003BackToMainScreenAction"
+            name="W3003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3001Init.do" />
+            <forward name="error" path="W3003" />
+        </action>
+        <!-- W3003:  backToHeader action-->
+        <action path="/W3003BackToHeader"
+            type="com.globaldenso.eca0027.core.presentation.W3003BackToHeaderAction"
+            name="W3003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3002Init.do" />
+            <forward name="error" path="W3003" />
+        </action>
+        
+        <!-- W3003:  Update action-->
+        <action path="/W3003Update"
+            type="com.globaldenso.eca0027.core.presentation.W3003UpdateAction"
+            name="W3003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3003" />
+            <forward name="error" path="W3003" />
+        </action>
+        <!-- W3003:  PrintForUpdate action-->
+        <action path="/W3003PrintListForUpdate"
+            type="com.globaldenso.eca0027.core.presentation.W3003PrintListForUpdateAction"
+            name="W3003Form"
+            scope="request"
+            validate="false">
+<!-- Chonthicha.A
+            <forward name="success" path="W3003" />-->
+            <forward name="error" path="W3003" />
+        </action>
+        
+        <!-- W3003:  PrintForUpdate action-->
+        <action path="/W3003PrintListForAll"
+            type="com.globaldenso.eca0027.core.presentation.W3003PrintListForAllAction"
+            name="W3003Form"
+            scope="request"
+            validate="false">
+<!-- Chonthicha.A
+            <forward name="success" path="W3003" />-->
+            <forward name="error" path="W3003" />
+        </action>
+<!-- TIS Tanaka Start -->
+        <!-- =============================================================== -->
+        <!-- W3004:                                         -->
+        <!-- =============================================================== -->
+        <!-- W3004:  Initial action-->
+        <action path="/W3004Init"
+            type="com.globaldenso.eca0027.core.presentation.W3004InitAction"
+            name="W3004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3004" />
+        </action>
+        <!-- W3004:  Search action-->
+        <action path="/W3004Search"
+            type="com.globaldenso.eca0027.core.presentation.W3004SearchAction"
+            name="W3004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3004" />
+            <forward name="error" path="W3004" />
+        </action>
+        <!-- W3004:  backToMainScreen action-->
+        <action path="/W3004BackToMainScreen"
+            type="com.globaldenso.eca0027.core.presentation.W3004BackToMainScreenAction"
+            name="W3004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3001Init.do" />
+            <forward name="error" path="W3004" />
+        </action>
+        <!-- W3004:  backToHeader action-->
+        <action path="/W3004BackToHeader"
+            type="com.globaldenso.eca0027.core.presentation.W3004BackToHeaderAction"
+            name="W3004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3002Init.do" />
+            <forward name="error" path="W3004" />
+        </action>
+        <!-- W3004:  Update action-->
+        <action path="/W3004Update"
+            type="com.globaldenso.eca0027.core.presentation.W3004UpdateAction"
+            name="W3004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3004" />
+            <forward name="error" path="W3004" />
+        </action>
+        <!-- W3004:  PrintForUpdate action-->
+        <action path="/W3004PrintListForUpdate"
+            type="com.globaldenso.eca0027.core.presentation.W3004PrintListForUpdateAction"
+            name="W3004Form"
+            scope="request"
+            validate="false">
+<!-- Chonthicha.A
+            <forward name="success" path="W3004" />-->
+            <forward name="error" path="W3004" />
+        </action>
+        <!-- W3004:  PrintForAll action-->
+        <action path="/W3004PrintListForAll"
+            type="com.globaldenso.eca0027.core.presentation.W3004PrintListForAllAction"
+            name="W3004Form"
+            scope="request"
+            validate="false">
+<!-- Chonthicha.A
+            <forward name="success" path="W3004" />-->
+            <forward name="error" path="W3004" />
+        </action>
+<!-- TIS Tanaka End -->
+        <!-- =============================================================== -->
+        <!-- W3005:                                         -->
+        <!-- =============================================================== -->
+        <!-- W3005:  Initial action-->
+        <action path="/W3005Init"
+            type="com.globaldenso.eca0027.core.presentation.W3005InitAction"
+            name="W3005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3005" />
+        </action>
+        <!-- W3005:  Search action-->
+        <action path="/W3005Search"
+            type="com.globaldenso.eca0027.core.presentation.W3005SearchAction"
+            name="W3005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3005" />
+            <forward name="error" path="W3005" />
+        </action>
+        <!-- W3005:  backToMainScreen action-->
+        <action path="/W3005BackToMainScreen"
+            type="com.globaldenso.eca0027.core.presentation.W3005BackToMainScreenAction"
+            name="W3005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3001Init.do" />
+            <forward name="error" path="W3005" />
+        </action>
+        <!-- W3005:  backToHeader action-->
+        <action path="/W3005BackToHeader"
+            type="com.globaldenso.eca0027.core.presentation.W3005BackToHeaderAction"
+            name="W3005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3002Init.do" />
+            <forward name="error" path="W3005" />
+        </action>
+        <!-- W3005:  Update action-->
+        <action path="/W3005Update"
+            type="com.globaldenso.eca0027.core.presentation.W3005UpdateAction"
+            name="W3005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3005Search.do" />
+            <forward name="error" path="/W3005Search.do" />
+        </action>
+        <!-- W3005:  MoveToRegister action-->
+        <action path="/W3005MoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.W3005MoveToRegisterAction"
+            name="W3005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3006Init.do" />
+            <forward name="error" path="W3005" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W3006:                                         -->
+        <!-- =============================================================== -->
+        <!-- W3006:  Initial action-->
+        <action path="/W3006Init"
+            type="com.globaldenso.eca0027.core.presentation.W3006InitAction"
+            name="W3006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3006" />
+            <forward name="W3001" path="/W3001Init.do" />
+            <forward name="W3005" path="/W3005Init.do" />
+        </action>
+        <!-- W3006:  Delete action-->
+        <action path="/W3006Delete"
+            type="com.globaldenso.eca0027.core.presentation.W3006DeleteAction"
+            name="W3006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3006Init.do" />
+            <forward name="error" path="W3006" />
+        </action>
+        <!-- W3006:  BackToCreate action-->
+        <action path="/W3006BackToCreate"
+            type="com.globaldenso.eca0027.core.presentation.W3006BackToCreateAction"
+            name="W3006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3005Init.do" />
+            <forward name="error" path="W3006" />
+        </action>
+        <!-- W3006:  Register action-->
+        <action path="/W3006Register"
+            type="com.globaldenso.eca0027.core.presentation.W3006RegisterAction"
+            name="W3006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3006Init.do" />
+            <forward name="error" path="W3006" />
+        </action>
+        <!-- W3006:  EditRegister action-->
+        <action path="/W3006EditRegister"
+            type="com.globaldenso.eca0027.core.presentation.W3006EditRegisterAction"
+            name="W3006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3006Init.do" />
+            <forward name="error" path="W3006" />
+        </action>
+        <!-- W3006:  Print TR action-->
+        <action path="/W3006PrintTr"
+            type="com.globaldenso.eca0027.core.presentation.W3006PrintTrAction"
+            name="W3006Form"
+            scope="request"
+            validate="false">
+<!-- 2014/07/23 delete tanaka
+            <forward name="success" path="W3006" />
+-->
+            <forward name="error" path="W3006" />
+        </action>
+        <!-- W3006:  Cancel TR action-->
+        <action path="/W3006CancelTr"
+            type="com.globaldenso.eca0027.core.presentation.W3006CancelTrAction"
+            name="W3006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3006Init.do" />
+            <forward name="error" path="W3006" />
+        </action>
+        <!-- W3006:  MoveToMain Screen action-->
+        <action path="/W3006MoveToMainScreen"
+            type="com.globaldenso.eca0027.core.presentation.W3006MoveToMainScreenAction"
+            name="W3006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3001Init.do" />
+            <forward name="error" path="W3006" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W3007:                                         -->
+        <!-- =============================================================== -->
+        <!-- W3007:  Initial action-->
+        <action path="/W3007Init"
+            type="com.globaldenso.eca0027.core.presentation.W3007InitAction"
+            name="W3007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3007" />
+        </action>
+        <!-- W3007:  Search action-->
+        <action path="/W3007Search"
+            type="com.globaldenso.eca0027.core.presentation.W3007SearchAction"
+            name="W3007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3007" />
+            <forward name="error" path="W3007" />
+        </action>
+        <!-- W3007:  MoveToMain Screen action-->
+        <action path="/W3007MoveToMainScreen"
+            type="com.globaldenso.eca0027.core.presentation.W3007MoveToMainScreenAction"
+            name="W3007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3001Init.do" />
+            <forward name="error" path="W3007" />
+        </action>
+        <!-- W3007:  Back to Header action-->
+        <action path="/W3007BackToHeader"
+            type="com.globaldenso.eca0027.core.presentation.W3007BackToHeaderAction"
+            name="W3007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3002Init.do" />
+            <forward name="error" path="W3007" />
+        </action>
+        <!-- W3007:  Update action-->
+        <action path="/W3007Update"
+            type="com.globaldenso.eca0027.core.presentation.W3007UpdateAction"
+            name="W3007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3007Search.do" />
+            <forward name="error" path="/W3007Search.do" />
+        </action>
+        <!-- W3007:  MoveToRegister TR action-->
+        <action path="/W3007MoveToRegisterTr"
+            type="com.globaldenso.eca0027.core.presentation.W3007MoveToRegisterTrAction"
+            name="W3007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3008Init.do" />
+            <forward name="error" path="W3007" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W3008:                                         -->
+        <!-- =============================================================== -->
+        <!-- W3008:  Initial action-->
+        <action path="/W3008Init"
+            type="com.globaldenso.eca0027.core.presentation.W3008InitAction"
+            name="W3008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3008" />
+            <forward name="W3007" path="/W3007Init.do" />
+            <forward name="W3001" path="/W3001Init.do" />
+        </action>
+       <!-- W3008:  Delete action-->
+        <action path="/W3008Delete"
+            type="com.globaldenso.eca0027.core.presentation.W3008DeleteAction"
+            name="W3008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3008Init.do" />
+            <forward name="error" path="W3008" />
+        </action>
+        <!-- W3008:  Back to Create action-->
+        <action path="/W3008BackToCreate"
+            type="com.globaldenso.eca0027.core.presentation.W3008BackToCreateAction"
+            name="W3008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3007Init.do" />
+            <forward name="error" path="W3008" />
+        </action>
+        <!-- W3008:  BackToMain Screen action-->
+        <action path="/W3008BackToMainScreen"
+            type="com.globaldenso.eca0027.core.presentation.W3008BackToMainScreenAction"
+            name="W3008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3001Init.do" />
+            <forward name="error" path="W3008" />
+        </action>
+        <!-- W3008:  Register action-->
+        <action path="/W3008Register"
+            type="com.globaldenso.eca0027.core.presentation.W3008RegisterAction"
+            name="W3008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3008Init.do" />
+            <forward name="error" path="/W3008Init.do" />
+        </action>
+        <!-- W3008:  Edit Register action-->
+        <action path="/W3008EditRegister"
+            type="com.globaldenso.eca0027.core.presentation.W3008EditRegisterAction"
+            name="W3008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3008Init.do" />
+            <forward name="error" path="/W3008Init.do" />
+        </action>
+        <!-- W3008:  Print TR action-->
+        <action path="/W3008PrintTr"
+            type="com.globaldenso.eca0027.core.presentation.W3008PrintTrAction"
+            name="W3008Form"
+            scope="request"
+            validate="false">
+            <!--  Thalerngsak delete 20151006
+            <forward name="success" path="W3008" /> -->
+            <forward name="error" path="W3008" />
+        </action>
+        <!-- W3008:  Cancel TR action-->
+        <action path="/W3008CancelTr"
+            type="com.globaldenso.eca0027.core.presentation.W3008CancelTrAction"
+            name="W3008Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3008Init.do" />
+            <forward name="error" path="W3008" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W3009:                                         -->
+        <!-- =============================================================== -->
+
+        <!-- W3009:  Initial action-->
+        <action path="/W3009Init"
+            type="com.globaldenso.eca0027.core.presentation.W3009InitAction"
+            name="W3009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3009" />
+        </action>
+        <!-- W3009:  Search action-->
+        <action path="/W3009Search"
+            type="com.globaldenso.eca0027.core.presentation.W3009SearchAction"
+            name="W3009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3009" />
+            <forward name="error" path="W3009" />
+        </action>
+       <!-- W3009:  Receive action-->
+        <action path="/W3009Receive"
+            type="com.globaldenso.eca0027.core.presentation.W3009ReceiveAction"
+            name="W3009Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3009Init.do" />
+            <forward name="error" path="/W3009Search.do" />
+        </action>
+       <!-- W3009:  Confirm action-->
+        <action path="/W3009Confirm"
+            type="com.globaldenso.eca0027.core.presentation.W3009ConfirmAction"
+            name="W3009Form"
+            scope="request"
+            validate="false">
+            <forward name="W3010" path="/W3010Init.do" />
+            <forward name="W3011" path="/W3011Init.do" />
+            <forward name="error" path="/W3009Search.do" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W3010:                                         -->
+        <!-- =============================================================== -->
+        <!-- W3010:  Initial action-->
+        <action path="/W3010Init"
+            type="com.globaldenso.eca0027.core.presentation.W3010InitAction"
+            name="W3010Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3010" />
+        </action>
+        <action path="/W3010BackToMainScreen"
+            type="com.globaldenso.eca0027.core.presentation.W3010BackToMainScreenAction"
+            name="W3010Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3009Init.do" />
+            <forward name="error" path="W3010" />
+        </action>
+        <action path="/W3010Receive"
+            type="com.globaldenso.eca0027.core.presentation.W3010ReceiveAction"
+            name="W3010Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3010Init.do" />
+            <forward name="error" path="W3010" />
+        </action>
+        <action path="/W3010PrintTr"
+            type="com.globaldenso.eca0027.core.presentation.W3010PrintTrAction"
+            name="W3010Form"
+            scope="request"
+            validate="false">
+<!-- 2014/07/23 delete tanaka
+            <forward name="success" path="W3010" />
+-->
+            <forward name="error" path="W3010" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W3011:                                         -->
+        <!-- =============================================================== -->
+        <!-- W3011:  Initial action-->
+        <action path="/W3011Init"
+            type="com.globaldenso.eca0027.core.presentation.W3011InitAction"
+            name="W3011Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W3011" />
+        </action>
+        <!-- W3011:  Receive action-->
+        <action path="/W3011Receive"
+            type="com.globaldenso.eca0027.core.presentation.W3011ReceiveAction"
+            name="W3011Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3011Init.do" />
+            <forward name="error" path="W3011" />
+        </action>
+        <!-- W3011:  Print TR action-->
+        <action path="/W3011PrintTr"
+            type="com.globaldenso.eca0027.core.presentation.W3011PrintTrAction"
+            name="W3011Form"
+            scope="request"
+            validate="false">
+            <!-- Chonthicha.A
+            <forward name="success" path="W3011" /> -->
+            <forward name="error" path="W3011" />
+        </action>
+        <!-- W3011:  Print TR action-->
+        <action path="/W3011BackToMainScreen"
+            type="com.globaldenso.eca0027.core.presentation.W3011BackToMainScreenAction"
+            name="W3011Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W3009Init.do" />
+            <forward name="error" path="W3011" />
+        </action>
+<!-- SNT 追加　End -->
+
+    </action-mappings>
+</struts-config>

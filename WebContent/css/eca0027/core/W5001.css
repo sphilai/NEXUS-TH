@@ -1,0 +1,140 @@
+@charset "utf-8";
+/*
+ * W5001.css
+ * 
+ * 出荷確認Main画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+
+.gscm_search .search_wh_comp_cd {
+    width: 88px;
+}
+
+.gscm_search .search_wh_cd {
+    width: 98px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 205px;
+}
+
+.gscm_search .search_container_sorting_key {
+    width: 117px;
+}
+
+.gscm_search .search_shipping_firm_status {
+    width: 143px;
+}
+
+.gscm_search .search_shipping_firm_no {
+    width: 163px;
+}
+
+.gscm_search .search_container_loose_typ {
+    width: 166px;
+}
+
+.gscm_search .search_fmEtd {
+    width: 117px;
+}
+
+.gscm_search .search_toEtd {
+    width: 117px;
+}
+
+.gscm_search .search_carrierCompCd {
+    width: 138px;
+}
+
+.gscm_search .search_containerNo {
+    width: 157px;
+}
+
+.gscm_search .search_issuer {
+    width: 98px;
+}
+
+.gscm_search .search_worker {
+    width: 352px;
+}
+
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width:960px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 28px;
+}
+
+.gscm_resultlist .resultlist_wh_comp_cd {
+    width: 53px;
+}
+
+.gscm_resultlist .resultlist_wh_cd {
+    width: 50px;
+}
+
+.gscm_resultlist .resultlist_trns_cd {
+    width: 46px;
+}
+
+.gscm_resultlist .resultlist_container_sorting_key {
+    width: 80px;
+}
+
+.gscm_resultlist .resultlist_shipping_firm_status {
+    width: 48px;
+}
+
+.gscm_resultlist .resultlist_shipping_firm_no {
+    width: 139px;
+}
+
+.gscm_resultlist .resultlist_cl {
+    width: 28px;
+}
+
+.gscm_resultlist .resultlist_etd {
+    width: 63px;
+}
+
+.gscm_resultlist .resultlist_carrier_comp_cd {
+    width: 54px;
+}
+
+.gscm_resultlist .resultlist_container_no {
+    width: 98px;
+}
+
+.gscm_resultlist .resultlist_issue_date {
+    width: 63px;
+}
+
+.gscm_resultlist .resultlist_issuer {
+    width: 86px;
+}
+
+.gscm_resultlist .resultlist_worked_method {
+    width: 61px;
+}
+
+.gscm_resultlist .resultlist_worked_date {
+    width: 63px;
+}
+
+.gscm_resultlist .resultlist_detail_shipping_firm_no {
+    width: 135px;
+}
+
+.gscm_resultlist .resultlist_detail_container_no {
+    width: 93px;
+}
+
+.gscm_resultlist .resultlist_detail_issuer {
+    width: 82px;
+}

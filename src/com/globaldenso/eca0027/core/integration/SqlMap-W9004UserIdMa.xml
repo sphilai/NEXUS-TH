@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * SqlMap-W9004UserIdMa.xml
+ *
+ * W9004UserIdMaDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ 
+<sqlMap namespace="W9004UserIdMa">
+    <!-- ================================================== -->
+    <!-- Domainの別名定義 -->
+    <!-- ================================================== -->
+    
+    <!-- Domain -->
+    <typeAlias alias="W9004UserIdMaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W9004UserIdMaDomain" />
+    
+    <!-- Domain -->
+    <typeAlias alias="W9004UserIdMaItemDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W9004UserIdMaItemDomain" />
+    
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W9004UserIdMaCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W9004UserIdMaCriteriaDomain" />
+     
+    <!-- ================================================== -->
+    <!-- 検索結果をMapで受け取る                            -->
+    <!-- ================================================== -->
+    
+    <resultMap id="W9004UserIdMaDomain_SearchForPagingTmUserId" class="W9004UserIdMaItemDomain">
+        <result property="dscId" column="DSC_ID" />
+        <result property="compNmAbb" column="COMP_NM_ABB" />
+        <result property="usrNmEn" column="USR_NM_EN" />
+        <result property="mailAdd1" column="MAIL_ADD1" />
+        <result property="lastUpdate" column="LAST_UPDATE" />
+    </resultMap>
+    
+    <resultMap id="W9004UserIdMaDomain_LockByNoWaitTmUser" class="W9004UserIdMaDomain">
+        <result property="dscId" column="DSC_ID" />
+    </resultMap>
+    
+    <resultMap id="W9004UserIdMaDomain_SearchTmUser" class="W9004UserIdMaDomain">
+        <result property="dscId" column="DSC_ID" />
+        <result property="compCd" column="COMP_CD" />
+        <result property="lastUpdate" column="LAST_UPDATE" />
+        <result property="usrNmEn" column="USR_NM_EN" />
+        <result property="mailAdd1" column="MAIL_ADD1" />
+    </resultMap>
+    
+    <resultMap id="W9004UserIdMaDomain_SearchTmNxsCompByPlant" class="W9004UserIdMaDomain">
+        <result property="compCd" column="COMP_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+    </resultMap>
+    
+    <resultMap id="W9004UserIdMaDomain_SearchTtUserAuthMgtByArea" class="W9004UserIdMaDomain">
+        <result property="role" column="ROLE" />
+    </resultMap>
+    
+    <resultMap id="W9004UserIdMaDomain_SearchTtUserAuthMgt" class="W9004UserIdMaDomain">
+        <result property="authMgtComp" column="AUTH_MGT_COMP" />
+    </resultMap>
+    
+    <resultMap id="W9004UserIdMaDomain_SearchTtUserAuthMgtByPlantAuth" class="W9004UserIdMaDomain">
+        <result property="role" column="ROLE" />
+        <result property="authMgtComp" column="AUTH_MGT_COMP" />
+        <result property="authDataFrom" column="AUTH_DATA_FROM" />
+    </resultMap>
+    
+    <resultMap id="W9004UserIdMaDomain_SearchTtUserAuthMgtReferModeByCompany" class="W9004UserIdMaDomain">
+        <result property="authMgtComp" column="AUTH_MGT_COMP" />
+    </resultMap>
+    
+    <resultMap id="W9004UserIdMaDomain_SearchTtUserAuthMgtReferModeByPlant" class="W9004UserIdMaDomain">
+        <result property="authMgtComp" column="AUTH_MGT_COMP" />
+        <result property="authDataFrom" column="AUTH_DATA_FROM" />
+    </resultMap>
+    
+    <resultMap id="W9004UserIdMaDomain_SearchTtUserAuthMgtByComp" class="W9004UserIdMaDomain">
+        <result property="role" column="ROLE" />
+        <result property="authMgtComp" column="AUTH_MGT_COMP" />
+    </resultMap>
+    
+    <resultMap id="W9004UserIdMaDomain_SearchTtUserAuthMgtByPlant" class="W9004UserIdMaDomain">
+        <result property="role" column="ROLE" />
+        <result property="authMgtComp" column="AUTH_MGT_COMP" />
+        <result property="authDataFrom" column="AUTH_DATA_FROM" />
+    </resultMap>
+    
+    <resultMap id="W9004UserIdMaDomain_LockByNoWaitTtUserAuthMgtByDscId" class="W9004UserIdMaDomain">
+        <result property="dscId" column="DSC_ID" />
+    </resultMap>
+    
+    
+    <!-- ================================================== -->
+    <!-- 実行SQL                                            -->
+    <!-- ================================================== -->
+
+    <!-- NL040 MOD -->
+    <select id="SearchCountForPagingTmUserId"
+        resultClass="java.lang.Integer" parameterClass="W9004UserIdMaCriteriaDomain">
+        select
+            /* SqlMap-W9004UserIdMa.SearchCountForPagingTmUserId */
+            count(T1.DSC_ID) COUNT_DSC_ID
+        from
+            TM_USER_CONF T1
+            , TM_NXS_COMP T2
+            , TM_USER T3
+        where
+            T1.COMP_CD   = T2.COMP_CD 
+        and T1.DSC_ID    = T3.DSC_ID  
+        and T3.DELETE_DT is null 
+        <isNotEmpty prepend="and" property="compCd">
+            T1.COMP_CD like concat(#compCd#,'%')
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="dscId">
+            upper(T1.DSC_ID) like concat(upper(#dscId#),'%')
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="usrNmEn">
+            upper(T3.USR_NM_EN) like concat(upper(#usrNmEn#),'%') escape '\'
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="ownerCompCd">
+            T1.COMP_CD   = #ownerCompCd#
+        </isNotEmpty>
+        <isNotEmpty property = "userAuthList" > 
+            <iterate prepend = "and" property="userAuthList" conjunction="," open=" T1.COMP_CD in (" close=")">
+                #userAuthList[].authMgtComp#
+            </iterate>
+        </isNotEmpty>
+    </select>
+
+    <!-- NL040 MOD -->
+    <select id="SearchForPagingTmUserId"
+        resultMap="W9004UserIdMaDomain_SearchForPagingTmUserId" parameterClass="W9004UserIdMaCriteriaDomain">
+        select
+            /* SqlMap-W9004UserIdMa.SearchForPagingTmUserId */
+            DSC_ID
+            , COMP_NM_ABB
+            , USR_NM_EN
+            , MAIL_ADD1
+            , LAST_UPDATE
+        from
+            (
+            select
+                T1.DSC_ID
+                , T2.COMP_NM_ABB
+                , T3.USR_NM_EN
+                , T3.MAIL_ADD1
+                , T3.LAST_UPDATE
+                , row_number() over (order by T1.DSC_ID) ROW_NUM
+            from
+                TM_USER_CONF T1
+                , TM_NXS_COMP T2
+                , TM_USER T3 
+            where
+                T1.COMP_CD = T2.COMP_CD 
+            and T1.DSC_ID   = T3.DSC_ID 
+            and T3.DELETE_DT is null 
+            <isNotEmpty prepend="and" property="compCd">
+                T1.COMP_CD like concat(#compCd#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="dscId">
+                upper(T1.DSC_ID) like concat(upper(#dscId#),'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="usrNmEn">
+                upper(T3.USR_NM_EN) like concat(upper(#usrNmEn#),'%') escape '\'
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="ownerCompCd">
+                T1.COMP_CD = #ownerCompCd#
+            </isNotEmpty>
+            <isNotEmpty property = "userAuthList"> 
+                <iterate prepend = "and" property="userAuthList" conjunction="," open=" T1.COMP_CD in (" close=")">
+                    #userAuthList[].authMgtComp#
+                </iterate>
+            </isNotEmpty>
+            order by
+                T1.DSC_ID
+            )
+        where
+            ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+    
+    <select id="LockByNoWaitTmUser"
+        resultMap="W9004UserIdMaDomain_LockByNoWaitTmUser" parameterClass="W9004UserIdMaCriteriaDomain">
+        select
+            /* SqlMap-W9004UserIdMa.LockByNoWaitTmUser */
+            A.DSC_ID 
+        from
+            TM_USER A
+            , TT_USER_AUTH_MGT B
+        where
+            A.DSC_ID = #dscId# 
+        and A.DELETE_DT is null
+        and A.DSC_ID = B.DSC_ID(+)
+        for update nowait
+    </select>
+    
+    <!-- ================================================== -->
+    <!-- W9005 / Get User Information Data                  -->
+    <!-- ================================================== -->
+    <sql id="WhereCondition_SearchTmUser">
+        <dynamic prepend="where">
+            <isParameterPresent prepend="and">
+                T1.DSC_ID = T2.DSC_ID
+            </isParameterPresent>
+            <isNotEmpty property="dscId" prepend="and"> 
+                T1.DSC_ID = #dscId# 
+            </isNotEmpty>
+            <isParameterPresent prepend="and">
+                T2.DELETE_DT is null
+            </isParameterPresent>
+        </dynamic>
+        
+    </sql>
+    
+    <!-- SQL / Get User Information Data -->
+    <select id="SearchTmUser"
+        resultMap="W9004UserIdMaDomain_SearchTmUser" parameterClass="W9004UserIdMaCriteriaDomain">
+        select
+            /* SqlMap-W9004UserIdMa.SearchTmUser */
+            T1.DSC_ID
+            , T1.COMP_CD
+            , T2.LAST_UPDATE
+            , T2.USR_NM_EN
+            , T2.MAIL_ADD1 
+        from
+            TM_USER_CONF T1
+            , TM_USER T2
+        <include refid="WhereCondition_SearchTmUser" />
+    </select>
+    
+    <!-- SQL / Get Number of count User Information Data -->
+    <select id="SearchCountTmUser" resultClass="java.lang.Integer" parameterClass="W9004UserIdMaCriteriaDomain">
+        select
+            /* SqlMap-W9004UserIdMa.SearchCountTmUser */
+            count(rownum)
+        from
+            TM_USER_CONF T1
+            , TM_USER T2
+        <include refid="WhereCondition_SearchTmUser" />
+    </select>
+    
+    <!-- ================================================== -->
+    <!-- W9005 / Get all plant data                         -->
+    <!-- ================================================== -->
+    <select id="SearchTmNxsCompByPlant"
+        resultMap="W9004UserIdMaDomain_SearchTmNxsCompByPlant" parameterClass="W9004UserIdMaCriteriaDomain">
+        select
+            /* SqlMap-W9004UserIdMa.SearchTmNxsCompByPlant */
+            COMP_CD
+            , PLNT_CD 
+        from
+            (
+                select
+                    distinct
+                    T1.COMP_CD
+                    , T2.PLNT_CD 
+                from
+                    TM_NXS_COMP T1
+                    , TM_CIGMA_WH_XREF T2
+                where
+                    T1.COMP_CD = T2.LGCY_LIB_COMP_CD
+                    and T1.SHIPPER_FLG = 'Y'
+                union all
+                select
+                    distinct
+                    T1.COMP_CD
+                    , T3.SUPPLIER_PLNT_CD PLNT_CD
+                from
+                    TM_NXS_COMP T1
+                    , TM_SUPPLIER_WH_XREF T3
+                where
+                    T1.COMP_CD = T3.SUPPLIER_COMP_CD
+                    and T1.SHIPPER_FLG = 'Y'
+            )
+        order by
+            COMP_CD
+            , PLNT_CD
+    </select>
+    
+    <!-- ============================================================= -->
+    <!-- W9005 / Get Administrator Authority (Regional) for View user. -->
+    <!-- ============================================================= -->
+    <select id="SearchTtUserAuthMgtByArea"
+        resultMap="W9004UserIdMaDomain_SearchTtUserAuthMgtByArea" parameterClass="W9004UserIdMaCriteriaDomain">
+        select
+            /* SqlMap-W9004UserIdMa.SearchTtUserAuthMgtByArea */
+            ROLE
+        from
+            TT_USER_AUTH_MGT 
+        where
+            (ROLE = '01' or ROLE = '0B' or ROLE = '0R') 
+        and AUTH_MGT_COMP = ' ' 
+        and AUTH_DATA_TYP = '01'
+        and AUTH_DATA_FROM = ' '
+        and AUTH_DATA_TO = ' '
+        <isNotEmpty property = "dscId" prepend="and">
+            DSC_ID = #dscId#
+        </isNotEmpty>
+    </select>
+    
+    <!-- ============================================================= -->
+    <!-- W9005 / Get the company that can give authorization.          -->
+    <!-- ============================================================= -->
+    <select id="SearchTtUserAuthMgt"
+        resultMap="W9004UserIdMaDomain_SearchTtUserAuthMgt" parameterClass="W9004UserIdMaCriteriaDomain">
+        select
+            /* SqlMap-W9004UserIdMa.SearchTtUserAuthMgt */
+            T1.AUTH_MGT_COMP
+        from
+            TT_USER_AUTH_MGT T1
+            , TM_NXS_COMP T2
+        where
+            T1.AUTH_MGT_COMP = T2.COMP_CD
+        <isNotEmpty prepend="and" property = "dscId">
+            T1.DSC_ID = #dscId#
+        </isNotEmpty>
+        <isParameterPresent prepend="and">
+            T2.SHIPPER_FLG = 'Y'
+        </isParameterPresent>
+        <isParameterPresent prepend="and">
+            T1.ROLE = '02'
+        </isParameterPresent>
+        <isParameterPresent prepend="and">
+            T1.AUTH_DATA_TYP= '01'
+        </isParameterPresent>
+        <isParameterPresent prepend="and">
+            T1.AUTH_DATA_FROM = ' '
+        </isParameterPresent>
+        <isParameterPresent prepend="and">
+            T1.AUTH_DATA_TO = ' '
+        </isParameterPresent>
+        order by 
+            T1.AUTH_MGT_COMP
+    </select>
+    
+    <!-- ============================================================= -->
+    <!-- W9005 / Get the plant that can give authorization.            -->
+    <!-- ============================================================= -->
+    <select id="SearchTtUserAuthMgtByPlantAuth"
+        resultMap="W9004UserIdMaDomain_SearchTtUserAuthMgtByPlantAuth" parameterClass="W9004UserIdMaCriteriaDomain">
+        select
+            /* SqlMap-W9004UserIdMa.SearchTtUserAuthMgtByPlantAuth */
+            ROLE
+            , AUTH_MGT_COMP
+            , AUTH_DATA_FROM
+        from
+            (
+                select
+                    distinct
+                    T1.ROLE
+                    , T1.AUTH_MGT_COMP AUTH_MGT_COMP
+                    , decode(T1.ROLE, '02', T3.PLNT_CD, '03', T1.AUTH_DATA_FROM, null) AUTH_DATA_FROM
+                from
+                    TT_USER_AUTH_MGT T1
+                    , TM_NXS_COMP T2
+                    , TM_CIGMA_WH_XREF T3
+                <dynamic prepend="where">
+                    <isParameterPresent prepend="and">
+                        T1.AUTH_MGT_COMP = T2.COMP_CD
+                    </isParameterPresent>
+                    <isParameterPresent prepend="and">
+                        T1.AUTH_MGT_COMP = T3.LGCY_LIB_COMP_CD
+                    </isParameterPresent>
+                    <isNotEmpty prepend="and" property = "dscId">
+                        T1.DSC_ID = #dscId#
+                    </isNotEmpty>
+                    <isParameterPresent prepend="and">
+                        T1.ROLE in ('02', '03')
+                    </isParameterPresent>
+                    <isParameterPresent prepend="and">
+                        T1.AUTH_DATA_TYP = '01'
+                    </isParameterPresent>
+                    <isParameterPresent prepend="and">
+                        T2.SHIPPER_FLG = 'Y'
+                    </isParameterPresent>
+                </dynamic>
+                union all
+                select
+                    distinct
+                    T1.ROLE
+                    , T1.AUTH_MGT_COMP AUTH_MGT_COMP
+                    , decode(T1.ROLE, '02', T4.SUPPLIER_PLNT_CD, '03', T1.AUTH_DATA_FROM, null) AUTH_DATA_FROM
+                from
+                    TT_USER_AUTH_MGT T1
+                    , TM_NXS_COMP T2
+                    , TM_SUPPLIER_WH_XREF T4
+                <dynamic prepend="where">
+                    <isParameterPresent prepend="and">
+                        T1.AUTH_MGT_COMP = T2.COMP_CD
+                    </isParameterPresent>
+                    <isParameterPresent prepend="and">
+                        T1.AUTH_MGT_COMP = T4.SUPPLIER_COMP_CD
+                    </isParameterPresent>
+                    <isNotEmpty prepend="and" property = "dscId">
+                        T1.DSC_ID = #dscId#
+                    </isNotEmpty>
+                    <isParameterPresent prepend="and">
+                        T1.ROLE in ('02', '03')
+                    </isParameterPresent>
+                    <isParameterPresent prepend="and">
+                        T1.AUTH_DATA_TYP = '01'
+                    </isParameterPresent>
+                    <isParameterPresent prepend="and">
+                        T2.SHIPPER_FLG = 'Y'
+                    </isParameterPresent>
+                </dynamic>
+            )
+        order by
+            AUTH_MGT_COMP
+            , AUTH_DATA_FROM
+    </select>
+    
+    <!-- ============================================================= -->
+    <!-- W9005 / Get the company and plant dor refer                   -->
+    <!-- ============================================================= -->
+    <sql id="WhereCondition_SearchTtUserAuthMgtReferMode_Role_Company">
+        <dynamic prepend="and (" close=")">
+            <isParameterPresent prepend="or">
+                T1.ROLE = '02'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = '10'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = '2B'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = '2R'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = '3B'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = '3R' 
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = '4R' 
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = '5R'
+            </isParameterPresent>
+        </dynamic>
+    </sql>
+    <sql id="WhereCondition_SearchTtUserAuthMgtReferMode_Role_Plant">
+        <dynamic prepend="and (" close=")">
+            <isParameterPresent prepend="or">
+                T1.ROLE = '03'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = '6B'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = '6R'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = '7B'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = '7R'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = '8B' 
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = '8R' 
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = '9B'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = '9R' 
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'AB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'AR' 
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'BB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'BR' 
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'CB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'CR' 
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'DB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'DR' 
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'EB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'ER' 
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'FB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'FR' 
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'GB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'GR' 
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'HB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'HR' 
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                T1.ROLE = 'IB'
+            </isParameterPresent>
+        </dynamic>
+    </sql>
+    
+    <select id="SearchTtUserAuthMgtReferModeByCompany"
+        resultMap="W9004UserIdMaDomain_SearchTtUserAuthMgtReferModeByCompany" parameterClass="W9004UserIdMaCriteriaDomain">
+        select
+            /* SqlMap-W9004UserIdMa.SearchTtUserAuthMgtReferModeByCompany */
+            distinct
+            T1.AUTH_MGT_COMP
+        from
+            TT_USER_AUTH_MGT T1
+            , TM_NXS_COMP T2
+        <dynamic prepend="where">
+            <isParameterPresent prepend="and">
+                T1.AUTH_MGT_COMP = T2.COMP_CD
+            </isParameterPresent>
+            <isNotNull prepend="and" property="authDscId">
+                T1.DSC_ID = #authDscId#
+            </isNotNull>
+            <isParameterPresent prepend="and">
+                T1.AUTH_DATA_TYP = '01'
+            </isParameterPresent>
+            <include refid="WhereCondition_SearchTtUserAuthMgtReferMode_Role_Company"/>
+            <isParameterPresent prepend="and">
+                T1.AUTH_DATA_FROM = ' '
+            </isParameterPresent>
+            <isParameterPresent prepend="and">
+                T1.AUTH_DATA_TO = ' '
+            </isParameterPresent>
+        </dynamic>
+        order by AUTH_MGT_COMP
+    </select>
+    
+    <select id="SearchTtUserAuthMgtReferModeByPlant"
+        resultMap="W9004UserIdMaDomain_SearchTtUserAuthMgtReferModeByPlant" parameterClass="W9004UserIdMaCriteriaDomain">
+        select
+            /* SqlMap-W9004UserIdMa.SearchTtUserAuthMgtReferModeByPlant */
+            distinct
+            T1.AUTH_MGT_COMP
+            , T1.AUTH_DATA_FROM 
+        from
+            TT_USER_AUTH_MGT T1
+            , TM_NXS_COMP T2
+        <dynamic prepend="where">
+            <isParameterPresent prepend="and">
+                T1.AUTH_MGT_COMP = T2.COMP_CD
+            </isParameterPresent>
+            <isNotNull prepend="and" property="authDscId">
+                T1.DSC_ID = #authDscId#
+            </isNotNull>
+            <isParameterPresent prepend="and">
+                T1.AUTH_DATA_TYP = '01'
+            </isParameterPresent>
+            <include refid="WhereCondition_SearchTtUserAuthMgtReferMode_Role_Plant"/>
+        </dynamic>
+        order by 
+            T1.AUTH_MGT_COMP
+            , T1.AUTH_DATA_FROM
+    </select>
+    
+    <!-- ================================================================ -->
+    <!-- W9005 / Get Administrator Authority of Company and Each Function -->
+    <!-- ================================================================ -->
+    <sql id="WhereCondition_SearchTtUserAuthMgtByComp_Role">
+        <dynamic prepend="(" close=")">
+            <isParameterPresent prepend="or">
+                ROLE = '02'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = '10'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = '2B'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = '2R'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = '3B'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = '3R'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = '4R'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = '5R'
+            </isParameterPresent>
+        </dynamic>
+    </sql>
+    
+    <select id="SearchTtUserAuthMgtByComp"
+        resultMap="W9004UserIdMaDomain_SearchTtUserAuthMgtByComp" parameterClass="W9004UserIdMaCriteriaDomain">
+        select
+            /* SqlMap-W9004UserIdMa.SearchTtUserAuthMgtByComp */
+            ROLE
+            , AUTH_MGT_COMP 
+        from
+            TT_USER_AUTH_MGT 
+        where
+        <include refid="WhereCondition_SearchTtUserAuthMgtByComp_Role"/>
+        <isNotEmpty property="dscId" prepend="and">
+            DSC_ID = #dscId#
+        </isNotEmpty>
+        <isNotNull property="authMgtCompList">
+            <iterate prepend="and" property="authMgtCompList" conjunction=" or" open="(" close=")">
+                AUTH_MGT_COMP = #authMgtCompList[]#
+            </iterate>
+        </isNotNull>
+        <isParameterPresent prepend="and">
+            AUTH_DATA_TYP = '01'
+        </isParameterPresent>
+        <isParameterPresent prepend="and">
+            AUTH_DATA_FROM = ' '
+        </isParameterPresent>
+        <isParameterPresent prepend="and">
+            AUTH_DATA_TO = ' '
+        </isParameterPresent>
+    </select>
+    
+    <!-- ================================================================ -->
+    <!-- W9005 / Get Administrator Authority of Plant and Each Function   -->
+    <!-- ================================================================ -->
+    <sql id="WhereCondition_SearchTtUserAuthMgtByPlant_Role">
+        <dynamic prepend="(" close=")">
+            <isParameterPresent prepend="or">
+                ROLE = '03'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = '6B'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = '6R'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = '7B'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = '7R'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = '8B'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = '8R'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = '9B'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = '9R'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'AB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'AR'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'BB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'BR'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'CB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'CR'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'DB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'DR'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'EB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'ER'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'FB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'FR'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'GB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'GR'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'HB'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'HR'
+            </isParameterPresent>
+            <isParameterPresent prepend="or">
+                ROLE = 'IB'
+            </isParameterPresent>
+        </dynamic>
+    </sql>
+    
+    <select id="SearchTtUserAuthMgtByPlant"
+        resultMap="W9004UserIdMaDomain_SearchTtUserAuthMgtByPlant" parameterClass="W9004UserIdMaCriteriaDomain">
+        select
+            /* SqlMap-W9004UserIdMa.SearchTtUserAuthMgtByPlant */
+            ROLE
+            , AUTH_MGT_COMP
+            , AUTH_DATA_FROM 
+        from
+              TT_USER_AUTH_MGT
+        where
+        <include refid="WhereCondition_SearchTtUserAuthMgtByPlant_Role"/>
+        <isNotEmpty prepend="and" property="dscId">
+            DSC_ID = #dscId#
+        </isNotEmpty>
+        <isNotNull property="authMgtCompList">
+            <iterate prepend="and" property="authMgtCompList" conjunction=" or" open="(" close=")">
+                AUTH_MGT_COMP = #authMgtCompList[]#
+            </iterate>
+        </isNotNull>
+        <isParameterPresent prepend="and">
+            AUTH_DATA_TYP = '01'
+        </isParameterPresent>
+        <isNotNull property="authDataFromList">
+            <iterate prepend="and" property="authDataFromList" conjunction=" or" open="(" close=")">
+                AUTH_DATA_FROM = #authDataFromList[]#
+            </iterate>
+        </isNotNull>
+        <isParameterPresent prepend="and">
+            AUTH_DATA_TO = ' '
+        </isParameterPresent>
+    </select>
+    
+    <!-- ================================================================ -->
+    <!-- W9005 / Lock for User master                                     -->
+    <!-- ================================================================ -->
+    <select id="LockByNoWaitTtUserAuthMgtByDscId"
+        resultMap="W9004UserIdMaDomain_LockByNoWaitTtUserAuthMgtByDscId" parameterClass="W9004UserIdMaCriteriaDomain">
+        select
+            /* SqlMap-W9004UserIdMa.LockByNoWaitTtUserAuthMgtByDscId */
+            T1.DSC_ID 
+        from
+            TM_USER T1
+            , TT_USER_AUTH_MGT T2
+        where
+            T1.DSC_ID = T2.DSC_ID(+)
+        and T1.DSC_ID = #dscId# 
+        and T1.DELETE_DT is null
+        for update nowait
+    </select>
+    
+    <update id="UpdateTmUser" parameterClass="java.util.Map">
+        update TM_USER
+            /* SqlMap-W9004UserIdMa.UpdateTmUser */
+        set
+            USR_NM_EN = #domain.usrNmEn#
+            , GRP_COMP_CD = #domain.grpCompCd#
+            , MAIL_ADD1 = #domain.mailAdd1#
+            , LAST_UPDATE = #domain.lastUpdate#
+            , DELETE_DT = null
+        where
+            DSC_ID = #condition.dscId#
+        and DELETE_DT is not null
+    </update>
+    
+    <select id="SearchCountTmUserByDscId"
+        resultClass="java.lang.Integer" parameterClass="W9004UserIdMaCriteriaDomain">
+        select
+            /* SqlMap-W9004UserIdMa.SearchCountTmUserByDscId */
+            count(DSC_ID) 
+        from
+            TM_USER
+        where
+            DSC_ID = #dscId# 
+        and DELETE_DT is not null
+    </select>
+</sqlMap>

@@ -1,0 +1,161 @@
+@charset "utf-8";
+/*
+ * WC001.css
+ * 
+ * Empty RT materials画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+
+table.grid {
+    width: 980px;
+}
+
+.grid1 .grid_header1 {
+    width: 155px;
+}
+
+.grid1 .grid_contents1 {
+    width: 210px;
+}
+
+.grid1 .grid_header2 {
+    width: 155px;
+}
+
+.grid1 .grid_contents2 {
+    width: 150px;
+}
+
+.grid1 .grid_header3 {
+    width: 155px;
+}
+
+.grid1 .grid_contents3 {
+    width: 155px;
+}
+
+.grid2 .grid_header1 {
+    width: 150px;
+}
+
+.grid2 .grid_header2 {
+    width: 115px;
+}
+
+.grid2 .grid_contents2 {
+    width: 167px;
+}
+
+.grid3 .grid_contents1 {
+    width: 548px;
+}
+
+.grid3 .grid_header1 {
+    width: 60px;
+}
+
+.grid3 .grid_contents1 {
+    width: 90px;
+}
+
+.grid3 .grid_header2 {
+    width: 57px;
+}
+
+.grid3 .grid_contents2 {
+    width: 90px;
+}
+
+.grid3 .grid_header3 {
+    width: 57px;
+}
+
+.grid3 .grid_contents3 {
+    width: 90px;
+}
+
+.grid3 .grid_header4 {
+    width: 47px;
+}
+
+.grid3 .grid_contents4 {
+    width: 160px;
+}
+
+.grid3 .grid_header5 {
+    width: 47px;
+}
+
+.grid3 .grid_contents5 {
+    width: 115px;
+}
+
+.grid3 .grid_header6 {
+    width: 47px;
+}
+
+.grid3 .grid_contents6 {
+    width: 120px;
+}
+
+/*------------ 一覧エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 960px;
+}
+
+.gscm_resultlist .resultlist_contents {
+    width: 86px;
+}
+
+.gscm_resultlist .resultlist_pltz_item_no {
+    width: 394px;
+}
+
+.gscm_resultlist .resultlist_model_cd {
+    width: 394px;
+}
+
+.gscm_resultlist .resultlist_qty {
+    width: 86px;
+}
+
+/*------------ 一覧エリア 表示用テキスト ------------*/ 
+
+.wc001_model_cd {
+    width: 384px;
+}
+
+/*------------ 項目表示幅 ------------*/ 
+
+.wc001_shipper_nm {
+    width: 645px;
+}
+
+.wc001_ship_to_nm {
+    width: 635px;
+}
+
+.wc001_net_weight {
+    width: 100px;
+}
+
+.wc001_gross_weight {
+    width: 95px;
+}
+
+.wc001_pkg_item_no {
+    width: 350px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.wc001_volume_unit {
+    width: 78px;
+}
+
+.wc001_volume {
+    width: 135px;
+}

@@ -1,0 +1,175 @@
+<!--
+ * validator-rules-aij2.xml
+ * 
+ * [JP] AI-J2(Struts) の Validator チェックルール定義ファイルです。
+ * [EN] This is the configuration file of the Validator check rules AI-J2(Struts).
+ * 
+ * $ validator-rules-aij2.xml 4294 2013-05-15 12:30:57Z HIDETOSHI_NAKATANI@denso.co.jp $
+ *
+ * Copyright (c) 2011 DENSO IT SOLUTIONS. All rights reserved.
+-->
+<!DOCTYPE form-validation PUBLIC
+        "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+        "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+<form-validation>
+
+    <global>
+        <!-- [JP] AI-J2拡張Validatorルール -->
+        <!-- [EN] AI-J2 Validator extension rules -->
+        <!-- [JP] 半角英数チェック -->
+        <!-- [EN] Check alphanumeric -->
+        <validator name="alphaNumerics"
+            classname="com.globaldenso.ai.aij2.core.struts.validator.Aij2FieldChecks"
+            method="validateAlphaNumerics"
+            methodParams="java.lang.Object,
+                          org.apache.commons.validator.ValidatorAction,
+                          org.apache.commons.validator.Field,
+                          org.apache.struts.action.ActionMessages,
+                          org.apache.commons.validator.Validator,
+                          javax.servlet.http.HttpServletRequest"
+            msg="errors.alphaNumerics">
+        </validator>
+
+
+        <!-- [JP] 禁止文字チェック -->
+        <!-- [EN] Check prohibited characters -->
+        <validator name="prohibited"
+            classname="com.globaldenso.ai.aij2.core.struts.validator.Aij2FieldChecks"
+            method="validateProhibited"
+            methodParams="java.lang.Object,
+                          org.apache.commons.validator.ValidatorAction,
+                          org.apache.commons.validator.Field,
+                          org.apache.struts.action.ActionMessages,
+                          org.apache.commons.validator.Validator,
+                          javax.servlet.http.HttpServletRequest"
+            msg="errors.prohibited">
+        </validator>
+
+        <!-- [JP] 全角カタカナチェック -->
+        <!-- [EN] Check em Katakana -->
+        <validator name="zenkakuKatakana"
+            classname="com.globaldenso.ai.aij2.core.struts.validator.Aij2FieldChecks"
+            method="validateZenkakuKatakana"
+            methodParams="java.lang.Object,
+                          org.apache.commons.validator.ValidatorAction,
+                          org.apache.commons.validator.Field,
+                          org.apache.struts.action.ActionMessages,
+                          org.apache.commons.validator.Validator,
+                          javax.servlet.http.HttpServletRequest"
+            msg="errors.zenkakuKatakana">
+        </validator>
+
+        <!-- [JP] 全角文字列チェック -->
+        <!-- [EN] Check em string -->
+        <validator name="zenkaku"
+            classname="com.globaldenso.ai.aij2.core.struts.validator.Aij2FieldChecks"
+            method="validateZenkaku"
+            methodParams="java.lang.Object,
+                          org.apache.commons.validator.ValidatorAction,
+                          org.apache.commons.validator.Field,
+                          org.apache.struts.action.ActionMessages,
+                          org.apache.commons.validator.Validator,
+                          javax.servlet.http.HttpServletRequest"
+            msg="errors.zenkaku">
+        </validator>
+
+        <!-- [JP] 半角カタカナチェック -->
+        <!-- [EN] Check-byte Katakana -->
+        <validator name="hankakuKatakana"
+            classname="com.globaldenso.ai.aij2.core.struts.validator.Aij2FieldChecks"
+            method="validateHankakuKatakana"
+            methodParams="java.lang.Object,
+                          org.apache.commons.validator.ValidatorAction,
+                          org.apache.commons.validator.Field,
+                          org.apache.struts.action.ActionMessages,
+                          org.apache.commons.validator.Validator,
+                          javax.servlet.http.HttpServletRequest"
+            msg="errors.hankakuKatakana">
+        </validator>
+
+        <!-- [JP] 半角文字列チェック -->
+        <!-- [EN] Check-byte string -->
+        <validator name="hankaku"
+            classname="com.globaldenso.ai.aij2.core.struts.validator.Aij2FieldChecks"
+            method="validateHankaku"
+            methodParams="java.lang.Object,
+                          org.apache.commons.validator.ValidatorAction,
+                          org.apache.commons.validator.Field,
+                          org.apache.struts.action.ActionMessages,
+                          org.apache.commons.validator.Validator,
+                          javax.servlet.http.HttpServletRequest"
+            msg="errors.hankaku">
+        </validator>
+
+        <!-- [JP] 半角カタカナが含まれているかをチェック -->
+        <!-- [EN] Checks are included katakana -->
+        <validator name="includedHankakuKatakana"
+            classname="com.globaldenso.ai.aij2.core.struts.validator.Aij2FieldChecks"
+            method="validateIncludedHankakuKatakana"
+            methodParams="java.lang.Object,
+                          org.apache.commons.validator.ValidatorAction,
+                          org.apache.commons.validator.Field,
+                          org.apache.struts.action.ActionMessages,
+                          org.apache.commons.validator.Validator,
+                          javax.servlet.http.HttpServletRequest"
+            msg="errors.includedHankakuKatakana">
+        </validator>
+
+        <!-- [JP] byte長チェック -->
+        <!-- [EN] byte length check -->
+        <validator name="byteLength"
+            classname="com.globaldenso.ai.aij2.core.struts.validator.Aij2FieldChecks"
+            method="validateByteLength"
+            methodParams="java.lang.Object,
+                          org.apache.commons.validator.ValidatorAction,
+                          org.apache.commons.validator.Field,
+                          org.apache.struts.action.ActionMessages,
+                          org.apache.commons.validator.Validator,
+                          javax.servlet.http.HttpServletRequest"
+            msg="errors.byteLength">
+        </validator>
+
+        <!-- [JP] byte長範囲チェック -->
+        <!-- [EN] Check byte length range -->
+        <validator name="byteRange"
+            classname="com.globaldenso.ai.aij2.core.struts.validator.Aij2FieldChecks"
+            method="validateByteRange"
+            methodParams="java.lang.Object,
+                          org.apache.commons.validator.ValidatorAction,
+                          org.apache.commons.validator.Field,
+                          org.apache.struts.action.ActionMessages,
+                          org.apache.commons.validator.Validator,
+                          javax.servlet.http.HttpServletRequest"
+            msg="errors.byteRange">
+        </validator>
+
+        <!-- [JP] byte上限値チェック -->
+        <!-- [EN] Check upper limit byte -->
+        <validator name="byteMaxLimit"
+            classname="com.globaldenso.ai.aij2.core.struts.validator.Aij2FieldChecks"
+            method="validateByteMaxLimit"
+            methodParams="java.lang.Object,
+                          org.apache.commons.validator.ValidatorAction,
+                          org.apache.commons.validator.Field,
+                          org.apache.struts.action.ActionMessages,
+                          org.apache.commons.validator.Validator,
+                          javax.servlet.http.HttpServletRequest"
+            msg="errors.byteMaxLimit">
+        </validator>
+
+        <!-- [JP] サロゲートペア文字が含まれているかをチェック -->
+        <!-- [EN] Checks are included surrogate pair character -->
+        <validator name="surrogatePair"
+            classname="com.globaldenso.ai.aij2.core.struts.validator.Aij2FieldChecks"
+            method="validateSurrogatePair"
+            methodParams="java.lang.Object,
+                          org.apache.commons.validator.ValidatorAction,
+                          org.apache.commons.validator.Field,
+                          org.apache.struts.action.ActionMessages,
+                          org.apache.commons.validator.Validator,
+                          javax.servlet.http.HttpServletRequest"
+            msg="errors.surrogatePair">
+        </validator>
+
+    </global>
+</form-validation>

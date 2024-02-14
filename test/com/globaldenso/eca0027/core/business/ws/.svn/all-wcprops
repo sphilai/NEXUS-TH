@@ -1,0 +1,191 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws
+END
+WsB009RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsB009RestServiceMockImpl.java
+END
+WsB005RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsB005RestServiceTest.java
+END
+WsB006RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsB006RestServiceTest.java
+END
+WsB007RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsB007RestServiceTest.java
+END
+WsB008RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsB008RestServiceTest.java
+END
+WsB009RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsB009RestServiceTest.java
+END
+WsB009RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsB009RestService.java
+END
+WsT001RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsT001RestServiceTest.java
+END
+Ws7001RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/Ws7001RestServiceTest.java
+END
+Ws7002RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/Ws7002RestServiceTest.java
+END
+Ws7003RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/Ws7003RestServiceTest.java
+END
+Ws9001RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/Ws9001RestServiceTest.java
+END
+Ws7004RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/Ws7004RestServiceTest.java
+END
+WsB009RestServiceTest-applicationContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsB009RestServiceTest-applicationContext.xml
+END
+WsB010RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsB010RestServiceTest.java
+END
+WsB011RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsB011RestServiceTest.java
+END
+WsCigmaComnAuxServceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsCigmaComnAuxServceTest.java
+END
+Ws2001RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/Ws2001RestServiceTest.java
+END
+Ws2002RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/Ws2002RestServiceTest.java
+END
+Ws2004RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/Ws2004RestServiceTest.java
+END
+Ws2005RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/Ws2005RestServiceTest.java
+END
+Ws6001RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/Ws6001RestServiceTest.java
+END
+Ws6002RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/Ws6002RestServiceTest.java
+END
+Ws6003RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/Ws6003RestServiceTest.java
+END
+Ws6004RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/Ws6004RestServiceTest.java
+END
+WsB001RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsB001RestServiceTest.java
+END
+WsB020RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsB020RestServiceTest.java
+END
+T001ResourceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/T001ResourceTest.java
+END
+WsB002RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsB002RestServiceTest.java
+END
+WsB003RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsB003RestServiceTest.java
+END
+WsB004RestServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/test/com/globaldenso/eca0027/core/business/ws/WsB004RestServiceTest.java
+END

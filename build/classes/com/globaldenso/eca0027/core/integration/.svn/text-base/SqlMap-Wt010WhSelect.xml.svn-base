@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-Wt010WhSelect.xml
+ *
+ * SqlMap file of Wt010WhSelectDao.
+ * Expanded SACT DAO.
+ * Wt010WhSelectDaoのSqlMapファイルです。
+ * SACTのDAOを拡張。
+ *
+ * NL040 ADD
+ *
+ * Copyright (c) 2021 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TmNxsWh">
+
+    <!--  Where句（必要項目のみ） -->
+    <sql id="WhereConditionWt010">
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="compCdLikeFront">
+                COMP_CD like concat(#compCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="whCdLikeFront">
+                WH_CD LIKE CONCAT(#whCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="whNmLikeFront">
+                upper(WH_NM) like concat(upper(#whNmLikeFront#),'%')
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+
+    <!-- 検索 SQL文（任意条件、ページング用） -->
+    <select id="SearchByConditionForPagingWt010" resultMap="TmNxsWh"
+        parameterClass="TmNxsWhCriteriaDomain">
+        select 
+            <include refid="Cols" />
+            /* SqlMap-TmNxsWh.SearchByConditionForPagingWt010 */
+            from (
+                <include refid="SelectForPaging" />
+                <include refid="WhereConditionWt010" />
+            ) where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCountWt010" resultClass="java.lang.Integer"
+        parameterClass="TmNxsWhCriteriaDomain">
+        select count(rownum) 
+        from TM_NXS_WH
+        /* SqlMap-TmNxsWh.SearchCountWt010 */
+        <include refid="WhereConditionWt010" />
+    </select>
+
+</sqlMap>

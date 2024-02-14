@@ -1,0 +1,2188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * SqlMap-WsBhtEisProduct.xml
+ *
+ * WsBhtEisProductDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="WsBhtEisProduct">
+
+    <!-- ================================================== -->
+    <!-- Domainの別名定義 -->
+    <!-- ================================================== -->
+    <!-- Domain -->
+    <typeAlias alias="Ws2501TtPltzItemByKanbanDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501TtPltzItemByKanbanDomain" />
+    <typeAlias alias="Ws2501UnpackagedItemNoDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501UnpackagedItemNoDomain" />
+    <typeAlias alias="Ws2501TmCustomerQrPatternHdrByDtlDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501TmCustomerQrPatternHdrByDtlDomain" />
+    <typeAlias alias="Ws2501PkgSpecDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501PkgSpecDomain" />
+    <typeAlias alias="Ws2501TtMixTagDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501TtMixTagDomain" />
+    <typeAlias alias="Ws2501ItemNoNxsNonInstDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501ItemNoNxsNonInstDomain" />
+    <typeAlias alias="Ws2501PltzInstrInfoDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501PltzInstrInfoDomain" />
+    <typeAlias alias="Ws2501ItemNoNxsDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501ItemNoNxsDomain" />
+    <typeAlias alias="Ws2501MixedTagItemDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501MixedTagItemDomain" />
+    <typeAlias alias="Ws2501PkgSpecMaterialsNameRevDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501PkgSpecMaterialsNameRevDomain" />
+    <typeAlias alias="Ws2501PkgSetMaterialsNxsCompNmDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501PkgSetMaterialsNxsCompNmDomain" />
+    <typeAlias alias="Ws2501PkgMaterialsDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501PkgMaterialsDomain" />
+    <typeAlias alias="Ws2501TtPltzItemNwDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501TtPltzItemNwDomain" />
+    <typeAlias alias="Ws2501TtPltzItemGwDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501TtPltzItemGwDomain" />
+    <typeAlias alias="Ws2501TtPltzItemDeliveryTimeDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501TtPltzItemDeliveryTimeDomain" />
+    <typeAlias alias="Ws2501TmNxsWhByXrefDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501TmNxsWhByXrefDomain" />
+    <typeAlias alias="Ws2501TtExpRcvOdrDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501TtExpRcvOdrDomain" />
+    <typeAlias alias="Ws2501PkgSpecRevHisDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501PkgSpecRevHisDomain" />
+    <typeAlias alias="Ws2501NxsPkgSpecificationDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501NxsPkgSpecificationDomain" />
+    <typeAlias alias="Ws2501ItemNoNxsPltzInstNoDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501ItemNoNxsPltzInstNoDomain" />
+    <typeAlias alias="Ws2501ItemNoNxsNonPltzInstNoDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501ItemNoNxsNonPltzInstNoDomain" />
+    <typeAlias alias="Ws2501MixedTagItemNoNwDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501MixedTagItemNoNwDomain" />
+    <typeAlias alias="Ws2501MixedTagRtGwDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501MixedTagRtGwDomain" />
+    <typeAlias alias="Ws2501PltzNxsShipToDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501PltzNxsShipToDomain" />
+    <typeAlias alias="Ws2501OuterSumWeightDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501OuterSumWeightDomain" />
+    <typeAlias alias="Ws2501CntShipperCdDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501CntShipperCdDomain" />
+    <typeAlias alias="Ws2501SumCmlWeightForUnitDomain"
+       type="com.globaldenso.eca0027.core.business.domain.Ws2501SumCmlWeightForUnitDomain" />
+    <typeAlias alias="Ws2501CmlPrintNumDomain"
+        type="com.globaldenso.eca0027.core.business.domain.Ws2501CmlPrintNumDomain" />
+    <typeAlias alias="Ws2501TmExpShipToShippingByKeyDomain"
+        type="com.globaldenso.eca0027.core.business.domain.Ws2501TmExpShipToShippingByKeyDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="Ws2501TtPltzItemByKanbanCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501TtPltzItemByKanbanCriteriaDomain" />
+    <typeAlias alias="Ws2501UnpackagedItemNoCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501UnpackagedItemNoCriteriaDomain" />
+    <typeAlias alias="Ws2501TmCustomerQrPatternHdrByDtlCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501TmCustomerQrPatternHdrByDtlCriteriaDomain" />
+    <typeAlias alias="Ws2501PkgSpecCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501PkgSpecCriteriaDomain" />
+    <typeAlias alias="Ws2501TtMixTagCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501TtMixTagCriteriaDomain" />
+    <typeAlias alias="Ws2501ItemNoNxsNonInstCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501ItemNoNxsNonInstCriteriaDomain" />
+    <typeAlias alias="Ws2501PltzInstrInfoCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501PltzInstrInfoCriteriaDomain" />
+    <typeAlias alias="Ws2501ItemNoNxsCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501ItemNoNxsCriteriaDomain" />
+    <typeAlias alias="Ws2501MixedTagItemCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501MixedTagItemCriteriaDomain" />
+    <typeAlias alias="Ws2501PkgSpecMaterialsNameRevCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501PkgSpecMaterialsNameRevCriteriaDomain" />
+    <typeAlias alias="Ws2501PkgSetMaterialsNxsCompNmCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501PkgSetMaterialsNxsCompNmCriteriaDomain" />
+    <typeAlias alias="Ws2501PkgMaterialsCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501PkgMaterialsCriteriaDomain" />
+    <typeAlias alias="Ws2501TtPltzItemNwCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501TtPltzItemNwCriteriaDomain" />
+    <typeAlias alias="Ws2501TtPltzItemGwCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501TtPltzItemGwCriteriaDomain" />
+    <typeAlias alias="Ws2501TtPltzItemDeliveryTimeCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501TtPltzItemDeliveryTimeCriteriaDomain" />
+    <typeAlias alias="Ws2501TmNxsWhByXrefCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501TmNxsWhByXrefCriteriaDomain" />
+    <typeAlias alias="Ws2501TtExpRcvOdrCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501TtExpRcvOdrCriteriaDomain" />
+    <typeAlias alias="Ws2501PkgSpecRevHisCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501PkgSpecRevHisCriteriaDomain" />
+    <typeAlias alias="Ws2501NxsPkgSpecificationCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501NxsPkgSpecificationCriteriaDomain" />
+    <typeAlias alias="Ws2501ItemNoNxsPltzInstNoCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501ItemNoNxsPltzInstNoCriteriaDomain" />
+    <typeAlias alias="Ws2501ItemNoNxsNonPltzInstNoCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501ItemNoNxsNonPltzInstNoCriteriaDomain" />
+    <typeAlias alias="Ws2501MixedTagItemNoNwCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501MixedTagItemNoNwCriteriaDomain" />
+    <typeAlias alias="Ws2501MixedTagRtGwCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501MixedTagRtGwCriteriaDomain" />
+    <typeAlias alias="Ws2501PltzNxsShipToCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501PltzNxsShipToCriteriaDomain" />
+    <typeAlias alias="Ws2501OuterSumWeightCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501OuterSumWeightCriteriaDomain" />
+    <typeAlias alias="Ws2501CntShipperCdCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501CntShipperCdCriteriaDomain" />
+    <typeAlias alias="Ws2501SumCmlWeightForUnitCriteriaDomain"
+       type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501SumCmlWeightForUnitCriteriaDomain" />
+    <typeAlias alias="Ws2501CmlPrintNumCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501CmlPrintNumCriteriaDomain" />
+    <typeAlias alias="Ws2501TmExpShipToShippingByKeyCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.Ws2501TmExpShipToShippingByKeyCriteriaDomain" />
+
+    <!-- ================================================== -->
+    <!-- 検索結果をMapで受け取る                            -->
+    <!-- ================================================== -->
+    <resultMap id="WsBhtEisProductDomain_SearchTtPltzItemByKanban" class="Ws2501TtPltzItemByKanbanDomain">
+        <result property="pltzItemNo" column="PLTZ_ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="expIndusTypCd" column="EXP_INDUS_TYP_CD" />
+        <result property="expKanbanTyp" column="EXP_KANBAN_TYP" />
+        <result property="expRegulateNo" column="EXP_REGULATE_NO" />
+        <result property="expCustomerRegulateNo" column="EXP_CUSTOMER_REGULATE_NO" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchUnpackagedItemNo" class="Ws2501UnpackagedItemNoDomain">
+       <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="instrQty" column="INSTR_QTY" />
+        <result property="packedQty" column="PACKED_QTY" />
+        <result property="sumQty" column="SUM_QTY" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchTmCustomerQrPatternHdrByDtl" class="Ws2501TmCustomerQrPatternHdrByDtlDomain">
+        <result property="strtPos" column="STRT_POS" />
+        <result property="qrItemLength" column="QR_ITEM_LENGTH" />
+        <result property="qrItemTyp" column="QR_ITEM_TYP" />
+        <result property="chkValue" column="CHK_VALUE" />
+        <result property="qrItemId" column="QR_ITEM_ID" />
+        <result property="reqFlg" column="REQ_FLG" />
+        <result property="attrTyp" column="ATTR_TYP" />
+        <result property="grpId" column="GRP_ID" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchPkgSpec" class="Ws2501PkgSpecDomain">
+    <result property="netWeightA" column="NET_WEIGHT_A" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="volumePalletize" column="VOLUME_PALLETIZE" />
+        <result property="lengthUnit" column="LENGTH_UNIT" />
+        <result property="lengthPalletize" column="LENGTH_PALLETIZE" />
+        <result property="widthPalletize" column="WIDTH_PALLETIZE" />
+        <result property="heightPalletize" column="HEIGHT_PALLETIZE" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_LockByKeyNoWaitTtPltzInstrItemNo" class="TtPltzInstrItemNoDomain">
+        <result property="pltzInstrNo" column="PLTZ_INSTR_NO" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_LockByKeyNoWaitTtPltzInstrOdr" class="TtPltzInstrOdrDomain">
+        <result property="pltzInstrNo" column="PLTZ_INSTR_NO" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_LockByConditionNoWaitTtMixTag" class="TtMixtagDomain">
+        <result property="mixTagNo" column="MIX_TAG_NO" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchItemNoNxsNonInst" class="Ws2501ItemNoNxsNonInstDomain">
+        <result property="orderQty" column="ORDER_QTY" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="stgInstrItemFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="expLimitTyp" column="EXP_LIMIT_TYP" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="netWeightA" column="NET_WEIGHT_A" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+        <result property="lotSize" column="SHIP_LOT" />
+        <result property="tmpStockQty" column="QTY" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchItemNoNxsNonInstErrOdr" class="Ws2501ItemNoNxsNonInstDomain">
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="stgInstrItemFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="expLimitTyp" column="EXP_LIMIT_TYP" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="netWeightA" column="NET_WEIGHT_A" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+        <result property="lotSize" column="SHIP_LOT" />
+        <result property="tmpStockQty" column="QTY" />
+    </resultMap>
+    
+    <resultMap id="WsBhtEisProductDomain_SearchPltzInstrInfo" class="Ws2501PltzInstrInfoDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="pltzInstrStatus" column="PLTZ_INSTR_STATUS" />
+        <result property="shipToCd" column="SHIP_TO_CD" />
+        <result property="consigneeCompCd" column="COMP_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />
+        <result property="whCompCd" column="WH_COMP_CD" />
+        <result property="whCd" column="WH_CD" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchItemNoNxs" class="Ws2501ItemNoNxsDomain">
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="packedQty" column="PACKED_QTY" />
+        <result property="instrQty" column="INSTR_QTY" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="stgInstrItemFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="sumQty" column="SUM_QTY" />
+        <result property="expLimitTyp" column="EXP_LIMIT_TYP" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="netWeightA" column="NET_WEIGHT_A" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+        <result property="lotSize" column="SHIP_LOT" />
+        <result property="qty" column="QTY" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchMixedTagItem" class="Ws2501MixedTagItemDomain">
+        <result property="mixTagNo" column="MIX_TAG_NO" />
+        <result property="currCd" column="CURR_CD" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="lotSize" column="SHIPPING_LOT" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="qty" column="QTY" />
+        <result property="itemWeight" column="ITEM_WEIGHT" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="qtyUnit" column="QTY_UNIT" />
+        <result property="expLimitTyp" column="EXP_LIMIT_TYP" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchPkgSpecMaterialsNameRev" class="Ws2501PkgSpecMaterialsNameRevDomain">
+        <result property="lotSize" column="LOT_SIZE" />
+        <result property="qty" column="QTY" />
+        <result property="rtTyp" column="RT_TYP" />
+        <result property="innerOuterTyp" column="INNER_OUTER_TYP" />
+        <result property="pkgItemNo" column="PKG_ITEM_NO" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="pkgWeight" column="PKG_WEIGHT" />
+        <result property="originCntry" column="ORIGIN_CNTRY_CD" />
+        <result property="currCd" column="CURR_CD" />
+        <result property="pkgNm" column="PKG_MTRL_NM" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchPkgSetMaterialsNxsCompNm" class="Ws2501PkgSetMaterialsNxsCompNmDomain">
+        <result property="pkgItemNo" column="PKG_ITEM_NO" />
+        <result property="useQty" column="USE_QTY" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="pkgWeight" column="PKG_WEIGHT" />
+        <result property="originCntry" column="ORIGIN_CNTRY_CD" />
+        <result property="currCd" column="CURR_CD" />
+        <result property="rtTyp" column="RT_TYP" />
+        <result property="pkgNm" column="PKG_MTRL_NM" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchPkgMaterials" class="Ws2501PkgMaterialsDomain">
+        <result property="ownerComp" column="OWNER_COMP" />
+        <result property="pkgItemNo" column="PKG_ITEM_NO" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="pkgWeight" column="PKG_WEIGHT" />
+        <result property="originCntry" column="ORIGIN_CNTRY_CD" />
+        <result property="currCd" column="CURR_CD" />
+        <result property="rtTyp" column="RT_TYP" />
+        <result property="pkgNm" column="PKG_MTRL_NM" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchTtPltzItemNw" class="Ws2501TtPltzItemNwDomain">
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="netWeight" column="NET_WEIGHT" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchTtPltzItemGw" class="Ws2501TtPltzItemGwDomain">
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="netWeight" column="NET_WEIGHT" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchTtPltzItemDeliveryTime" class="Ws2501TtPltzItemDeliveryTimeDomain">
+        <result property="etdDueDt" column="ETD_DUE_DT" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchTmNxsWhByXref" class="Ws2501TmNxsWhByXrefDomain">
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_LockByKeyNoWaitTtExpRcvOdr" class="Ws2501TtExpRcvOdrDomain">
+        <result property="rcvOdrCompCd" column="RCV_ODR_COMP_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="etdDueDt" column="ETD_DUE_DT" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="customerItemNoOrg" column="CUSTOMER_ITEM_NO_ORG" />
+        <result property="odrCtrlNo" column="ODR_CTRL_NO" />
+        <result property="odrQty" column="ODR_QTY" />
+        <result property="pltzAllocQty" column="PLTZ_ALLOC_QTY" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchPkgSpecRevHis" class="Ws2501PkgSpecRevHisDomain">
+        <result property="brch" column="BRCH" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchNxsPkgSpecification" class="Ws2501NxsPkgSpecificationDomain">
+        <result property="netWeightA" column="NET_WEIGHT_A" />
+        <result property="ownerComp" column="OWNER_COMP" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchItemNoNxsPltzInstNo" class="Ws2501ItemNoNxsPltzInstNoDomain">
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="packedQty" column="PACKED_QTY" />
+        <result property="instrQty" column="INSTR_QTY" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="netWeightA" column="NET_WEIGHT_A" />
+        <result property="mltInBoxArrowFlg" column="MLT_IN_BOX_ALLOW_FLG" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="stgInstrItemFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="expLimitTyp" column="EXP_LIMIT_TYP" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="sumQty" column="SUM_QTY" />
+        <result property="lotSize" column="SHIP_LOT" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+        <result property="qty" column="QTY" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchItemNoNxsNonPltzInstNo" class="Ws2501ItemNoNxsNonPltzInstNoDomain">
+        <result property="orderQty" column="ORDER_QTY" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="stgInstrItemFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="expLimitTyp" column="EXP_LIMIT_TYP" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="qty" column="QTY" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="netWeightA" column="NET_WEIGHT_A" />
+        <result property="mltInBoxArrowFlg" column="MLT_IN_BOX_ALLOW_FLG" />
+        <result property="lotSize" column="SHIP_LOT" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchItemNoNxsNonPltzInstNoErrOdr" class="Ws2501ItemNoNxsNonPltzInstNoDomain">
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="stgInstrItemFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="expLimitTyp" column="EXP_LIMIT_TYP" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="qty" column="QTY" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="netWeightA" column="NET_WEIGHT_A" />
+        <result property="mltInBoxArrowFlg" column="MLT_IN_BOX_ALLOW_FLG" />
+        <result property="lotSize" column="SHIP_LOT" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+    </resultMap>
+    
+    <resultMap id="WsBhtEisProductDomain_SearchMixedTagItemNoNw" class="Ws2501MixedTagItemNoNwDomain">
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="sumItemWeight" column="SUM_ITEM_WEIGHT" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchMixedTagRtGw" class="Ws2501MixedTagRtGwDomain">
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="sumPkgWeight" column="SUM_PKG_WEIGHT" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_LockByKeyNoWaitPltzNxsShipTo" class="Ws2501PltzNxsShipToDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="cmlTyp" column="CML_TYP" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="stgInstrItemFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="pltzStatus" column="PLTZ_STATUS" />
+        <result property="curWhCompCd" column="CUR_WH_COMP_CD" />
+        <result property="curWhCd" column="CUR_WH_CD" />
+        <result property="xmainMark" column="XMAIN_MARK" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="lastTrStatus" column="LAST_TR_STATUS" />
+        <result property="migrationFlg" column="MIGRATION_FLG" />
+        <result property="compCd" column="COMP_CD" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchOuterSumWeight" class="Ws2501OuterSumWeightDomain">
+        <result property="sumWeight" column="SUM_WEIGHT" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchCntShipperCd" class="Ws2501CntShipperCdDomain">
+        <result property="cntShipperCd" column="CNT_SHIPPER_CD" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchSumCmlWeightForUnit" class="Ws2501SumCmlWeightForUnitDomain">
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="sumNetWeight" column="SUM_NET_WEIGHT" />
+        <result property="sumGrossWeight" column="SUM_GROSS_WEIGHT" />
+    </resultMap>
+
+    <!-- 印刷部数取得 -->
+    <resultMap id="WsBhtEisProduct_SearchCmlPrintNum" class="Ws2501CmlPrintNumDomain">
+        <result property="cmlPrintNum" column="CML_PRINT_NUM" />
+    </resultMap>
+
+    <resultMap id="WsBhtEisProductDomain_SearchTmExpShipToShippingByKey" class="Ws2501TmExpShipToShippingByKeyDomain">
+        <result property="compCd" column="COMP_CD" />
+        <result property="shipToCd" column="SHIP_TO_CD" />
+        <result property="aplyStrtDt" column="APLY_STRT_DT" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="labelPrintNum" column="LABEL_PRINT_NUM" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+    </resultMap>
+
+    <!-- =================================================================================================== -->
+    <!-- 梱包指示Main / 検索                                                                                 -->
+    <!-- =================================================================================================== -->
+
+    <!-- 項目 -->
+
+    <!-- Where句（アクセス権） -->
+
+    <!-- Where句（検索条件） -->
+
+    <!-- 汎用 OrderBy句 -->
+
+    <!-- ================================================== -->
+    <!-- 実行SQL                                            -->
+    <!-- ================================================== -->
+    <select id="SearchTtPltzItemByKanban" resultMap="WsBhtEisProductDomain_SearchTtPltzItemByKanban"
+     parameterClass="Ws2501TtPltzItemByKanbanCriteriaDomain">
+         select /* SqlMap-WsBhtEisProduct.SearchTtPltzItemByKanban */
+             A.PLTZ_ITEM_NO       PLTZ_ITEM_NO
+             , A.PKG_CD           PKG_CD
+             , A.CUSTOMER_ITEM_NO CUSTOMER_ITEM_NO
+             , B.EXP_INDUS_TYP_CD EXP_INDUS_TYP_CD
+             , B.EXP_KANBAN_TYP   EXP_KANBAN_TYP
+             , B.EXP_REGULATE_NO  EXP_REGULATE_NO
+             , B.EXP_CUSTOMER_REGULATE_NO EXP_CUSTOMER_REGULATE_NO
+         from
+             TT_PLTZ_ITEM A
+             , TT_PLTZ_KANBAN B
+         where
+             A.MAIN_MARK = B.MAIN_MARK
+             and A.BRCH = B.BRCH
+             and A.PLTZ_INSTR_NO = #pltzInstrNo#
+             and A.MIX_TAG_NO is null
+         order by
+             A.PLTZ_ITEM_NO
+             , A.PKG_CD
+             , B.EXP_INDUS_TYP_CD
+             , B.EXP_KANBAN_TYP
+             , B.EXP_REGULATE_NO
+     </select>
+
+    <select id="SearchUnpackagedItemNo" resultMap="WsBhtEisProductDomain_SearchUnpackagedItemNo"
+     parameterClass="Ws2501UnpackagedItemNoCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchUnpackagedItemNo */
+            D.ITEM_NO     ITEM_NO
+            ,D.PKG_CD     PKG_CD
+            ,D.INSTR_QTY  INSTR_QTY
+            ,D.PACKED_QTY PACKED_QTY
+            ,C.SUM_QTY    SUM_QTY
+        from
+            TT_PLTZ_INSTR_ITEM_NO D
+            ,(
+                select
+                    A.PLTZ_INSTR_NO
+                    ,B.ITEM_NO
+                    ,B.PKG_CD
+                    ,sum(B.QTY) SUM_QTY
+                from
+                    TT_MIXTAG A
+                    ,TT_MIXTAG_ITEM_NO B
+                where
+                    A.MIX_TAG_NO=B.MIX_TAG_NO
+                AND A.MIX_TAG_STATUS = '10'
+                group by
+                    A.PLTZ_INSTR_NO
+                    ,B.ITEM_NO
+                    ,B.PKG_CD
+            ) C
+        where
+            D.PLTZ_INSTR_NO = #pltzInstrNo#
+        and D.PLTZ_INSTR_NO = C.PLTZ_INSTR_NO (+)
+        and D.ITEM_NO       = C.ITEM_NO (+)
+        and D.PKG_CD        = C.PKG_CD  (+)
+        and D.INSTR_QTY - (D.PACKED_QTY + nvl(C.SUM_QTY,0)) > 0
+        order by
+            D.ITEM_NO
+            ,D.PKG_CD
+    </select>
+
+    <select id="SearchTmCustomerQrPatternHdrByDtl" resultMap="WsBhtEisProductDomain_SearchTmCustomerQrPatternHdrByDtl"
+     parameterClass="Ws2501TmCustomerQrPatternHdrByDtlCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchTmCustomerQrPatternHdrByDtl */
+            B.STRT_POS          STRT_POS
+            , B.QR_ITEM_LENGTH  QR_ITEM_LENGTH
+            , B.QR_ITEM_TYP     QR_ITEM_TYP
+            , B.CHK_VALUE       CHK_VALUE
+            , B.QR_ITEM_ID      QR_ITEM_ID
+            , B.REQ_FLG         REQ_FLG
+            , B.ATTR_TYP        ATTR_TYP
+            , B.GRP_ID          GRP_ID
+        from
+            TM_CUSTOMER_QR_PATTERN_HDR A
+            , TM_CUSTOMER_QR_PATTERN_DTL B
+        where
+            A.COMP_CD = B.COMP_CD
+            and A.COLLATE_METH_TYP = B.COLLATE_METH_TYP
+            and A.COMP_CD = #compCd#
+            and A.COLLATE_METH_TYP = #collateMethTyp#
+        order by B.STRT_POS
+    </select>
+    <select id="SearchPkgSpec" resultMap="WsBhtEisProductDomain_SearchPkgSpec"
+     parameterClass="Ws2501PkgSpecCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchPkgSpec */
+            C.NET_WEIGHT_A       NET_WEIGHT_A
+            ,A.PKG_FORM_TYP      PKG_FORM_TYP
+            ,A.VOLUME_UNIT       VOLUME_UNIT
+            ,A.VOLUME_PALLETIZE  VOLUME_PALLETIZE
+            ,A.LENGTH_UNIT       LENGTH_UNIT
+            ,A.LENGTH_PALLETIZE  LENGTH_PALLETIZE
+            ,A.WIDTH_PALLETIZE   WIDTH_PALLETIZE
+            ,A.HEIGHT_PALLETIZE  HEIGHT_PALLETIZE
+        from
+            TM_PKG_SPEC_HDR A
+            , TM_PKG_SPEC_REV B
+            , TM_ACTUAL_ITEM_WEIGHT C
+            , TM_PKG_SPEC_DTL E
+        where
+            A.OWNER_COMP = B.COMP_CD
+            and A.ITEM_NO = B.ITEM_NO
+            and A.PKG_CD = B.PKG_CD
+            and A.TRNS_CD = B.TRNS_CD
+            and A.N_PROC = B.N_PROC
+            and A.REV = B.REV
+            and A.OWNER_COMP=#compCd#
+            and A.ITEM_NO=#itemNo#
+            and A.PKG_CD=#pkgCd#
+            and A.TRNS_CD=#trnsCd#
+            and A.N_PROC = ' '
+            and A.OWNER_COMP = C.OWNER_COMP(+)
+            and A.ITEM_NO = C.ITEM_NO(+)
+            and A.OWNER_COMP = C.OWNER_COMP
+            and A.ITEM_NO = E.ITEM_NO
+            and A.PKG_CD = E.PKG_CD
+            and A.TRNS_CD = E.TRNS_CD
+            and A.N_PROC = E.N_PROC
+            and A.REV = E.REV
+            and E.RT_TYP != (case when PKG_FORM_TYP = 'S' then '2' else '999' end)
+    </select>
+
+    <select id="LockByKeyNoWaitTtPltzInstrItemNo" resultMap="WsBhtEisProductDomain_LockByKeyNoWaitTtPltzInstrItemNo"
+     parameterClass="TtPltzInstrItemNoCriteriaDomain">
+         select /* SqlMap-WsBhtEisProduct.LockByKeyNoWaitTtPltzInstrItemNo */
+             PLTZ_INSTR_NO
+         from TT_PLTZ_INSTR_ITEM_NO
+         where PLTZ_INSTR_NO = #pltzInstrNo#
+         for update nowait
+    </select>
+
+    <select id="LockByKeyNoWaitTtPltzInstrOdr" resultMap="WsBhtEisProductDomain_LockByKeyNoWaitTtPltzInstrOdr"
+     parameterClass="TtPltzInstrOdrCriteriaDomain">
+         select /* SqlMap-WsBhtEisProduct.LockByKeyNoWaitTtPltzInstrOdr */
+             PLTZ_INSTR_NO
+         from TT_PLTZ_INSTR_ODR
+         where PLTZ_INSTR_NO = #pltzInstrNo#
+         for update nowait
+     </select>
+
+    <select id="LockByConditionNoWaitTtMixTag" resultMap="WsBhtEisProductDomain_LockByConditionNoWaitTtMixTag"
+     parameterClass="Ws2501TtMixTagCriteriaDomain">
+         select /* SqlMap-WsBhtEisProduct.LockByConditionNoWaitTtMixTag */
+             MIX_TAG_NO
+         from TT_MIXTAG
+         where PLTZ_INSTR_NO = #pltzInstrNo#
+         for update nowait
+     </select>
+
+    <select id="SearchItemNoNxsNonInst" resultMap="WsBhtEisProductDomain_SearchItemNoNxsNonInst"
+     parameterClass="Ws2501ItemNoNxsNonInstCriteriaDomain">
+         SELECT /* SqlMap-WsBhtEisProduct.SearchItemNoNxsNonInst */
+            A.ORDER_QTY
+            ,B.ITEM_DESCRIPTION
+            ,B.INVOICE_KEY
+            ,B.CONTAINER_SORTING_KEY
+            ,case when A.TRNS_CD = 'A' then 'Y'
+               else B.STG_INSTR_ITEM_FLG
+               end "STG_INSTR_ITEM_FLG"
+            ,case when A.TRNS_CD = 'A' then 'Z'
+               else B.CUSTOM_TIMING_TYP
+               end "CUSTOM_TIMING_TYP"
+            ,case when A.TRNS_CD = 'A' then 'L'
+               else B.CONTAINER_LOOSE_TYP
+               end "CONTAINER_LOOSE_TYP"
+            ,B.LOADING_CD
+            ,C.EXP_LIMIT_TYP
+            ,C.DNGR_ITEM_FLG
+            ,C.ORIGIN_CNTRY_CD
+            ,D.WEIGHT_UNIT
+            ,D.NET_WEIGHT_A
+            ,D.PKG_FORM_TYP
+            ,nvl(D.SHIP_LOT, 0) SHIP_LOT
+            ,nvl(E.QTY, 0) QTY
+        FROM
+            (
+                SELECT
+                    RCV_ODR_COMP_CD
+                    ,ITEM_NO
+                    ,PKG_CD
+                    ,CUSTOMER_CD
+                    ,LGCY_SHIP_TO
+                    ,TRNS_CD
+                    ,sum(ODR_QTY - PLTZ_ALLOC_QTY) as ORDER_QTY
+                FROM
+                    TT_EXP_RCV_ODR
+                WHERE
+                    RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                    AND ITEM_NO = #itemNo#
+                    AND PKG_CD = #pkgCd#
+                    AND CUSTOMER_CD = #customerCd#
+                    AND LGCY_SHIP_TO = #lgcyShipTo#
+                    AND TRNS_CD = #trnsCd#
+                    AND ODR_FIRM_FLG = 'Y'
+                    AND SHIPPED_TYP = '1'
+                GROUP BY
+                    RCV_ODR_COMP_CD
+                    ,ITEM_NO
+                    ,PKG_CD
+                    ,CUSTOMER_CD
+                    ,LGCY_SHIP_TO
+                    ,TRNS_CD
+            ) A
+            , (
+                SELECT
+                    B1.COMP_CD
+                    ,B1.ITEM_NO
+                    ,B1.PKG_CD
+                    ,B1.CUSTOMER_CD
+                    ,B1.LGCY_SHIP_TO
+                    ,B1.ITEM_DESCRIPTION
+                    ,B1.INVOICE_KEY
+                    ,B1.STG_INSTR_ITEM_FLG
+                    ,B1.CUSTOM_TIMING_TYP
+                    ,B1.CONTAINER_SORTING_KEY
+                    ,B1.LOADING_CD
+                    ,B1.CONTAINER_LOOSE_TYP
+                FROM
+                    TM_EXP_ITEM_NO_SP_INFO B1
+                    ,(
+                        SELECT
+                            COMP_CD
+                            ,ITEM_NO
+                            ,PKG_CD
+                            ,CUSTOMER_CD
+                            ,LGCY_SHIP_TO
+                            ,max(APLY_STRT_DT) as MAX_APLY_STRT_DT
+                        FROM
+                            TM_EXP_ITEM_NO_SP_INFO
+                        WHERE
+                            APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+                        GROUP BY
+                            COMP_CD
+                            ,ITEM_NO
+                            ,PKG_CD
+                            ,CUSTOMER_CD
+                            ,LGCY_SHIP_TO
+                    ) B2
+                    WHERE
+                        B1.COMP_CD = B2.COMP_CD
+                        AND B1.ITEM_NO = B2.ITEM_NO
+                        AND B1.PKG_CD  = B2.PKG_CD
+                        AND B1.CUSTOMER_CD  = B2.CUSTOMER_CD
+                        AND B1.LGCY_SHIP_TO = B2.LGCY_SHIP_TO
+                        AND B1.APLY_STRT_DT = B2.MAX_APLY_STRT_DT
+            ) B
+            , (
+                SELECT
+                    C1.COMP_CD
+                    ,C1.ITEM_NO
+                    ,C1.EXP_LIMIT_TYP
+                    ,C1.DNGR_ITEM_FLG
+                    ,C1.ORIGIN_CNTRY_CD
+                FROM
+                    TM_EXP_FORMALITI_ITEM_NO C1
+                    ,(
+                        SELECT
+                            COMP_CD
+                            ,ITEM_NO
+                            ,max(APLY_STRT_DT) as MAX_APLY_STRT_DT
+                        FROM
+                            TM_EXP_FORMALITI_ITEM_NO
+                        WHERE
+                            APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+                        GROUP BY
+                            COMP_CD
+                            ,ITEM_NO
+                    ) C2
+                WHERE
+                    C1.COMP_CD = C2.COMP_CD
+                    AND C1.ITEM_NO = C2.ITEM_NO
+                    AND C1.APLY_STRT_DT = C2.MAX_APLY_STRT_DT
+            ) C
+            , (
+                SELECT distinct
+                    D1.OWNER_COMP
+                    ,D1.ITEM_NO
+                    ,D1.PKG_CD
+                    ,D3.WEIGHT_UNIT
+                    ,D3.NET_WEIGHT_A
+                    ,D1.TRNS_CD
+                    ,D1.SHIP_LOT
+                    ,D1.PKG_FORM_TYP
+                FROM
+                    TM_PKG_SPEC_HDR D1
+                    , TM_PKG_SPEC_REV D2
+                    , TM_ACTUAL_ITEM_WEIGHT D3
+                    , TM_PKG_SPEC_DTL D4
+                WHERE
+                    D1.OWNER_COMP = D2.COMP_CD
+                    AND D1.ITEM_NO = D2.ITEM_NO
+                    AND D1.PKG_CD = D2.PKG_CD
+                    AND D1.TRNS_CD = D2.TRNS_CD
+                    AND D1.N_PROC = D2.N_PROC
+                    AND D1.REV = D2.REV
+                    AND D1.N_PROC = ' '
+                    AND D1.OWNER_COMP = D3.OWNER_COMP
+                    AND D1.ITEM_NO = D3.ITEM_NO
+                    AND D1.OWNER_COMP = D4.OWNER_COMP
+                    AND D1.ITEM_NO = D4.ITEM_NO
+                    AND D1.PKG_CD = D4.PKG_CD
+                    AND D1.TRNS_CD = D4.TRNS_CD
+                    AND D1.N_PROC = D4.N_PROC
+                    AND D1.REV = D4.REV
+                    AND D4.RT_TYP != (case when D1.PKG_FORM_TYP = 'S' then '2' else '999' end)
+            ) D
+            , (
+                SELECT
+                    ITEM_NO
+                    ,PKG_CD
+                    ,SHIPPER_CD
+                    ,QTY
+                FROM
+                    TT_TMP_STOCK
+                WHERE
+                    LGCY_WH_CD = #lgcyWhCd#
+            ) E
+        WHERE
+            A.RCV_ODR_COMP_CD=B.COMP_CD(+)
+            AND A.ITEM_NO=B.ITEM_NO(+)
+            AND A.PKG_CD=B.PKG_CD(+)
+            AND A.CUSTOMER_CD=B.CUSTOMER_CD(+)
+            AND A.LGCY_SHIP_TO=B.LGCY_SHIP_TO(+)
+            AND A.RCV_ODR_COMP_CD=D.OWNER_COMP(+)
+            AND A.ITEM_NO=D.ITEM_NO(+)
+            AND A.PKG_CD=D.PKG_CD(+)
+            AND A.TRNS_CD=D.TRNS_CD(+)
+            AND A.RCV_ODR_COMP_CD=E.SHIPPER_CD(+)
+            AND A.ITEM_NO=E.ITEM_NO(+)
+            AND A.PKG_CD=E.PKG_CD(+)
+            AND A.RCV_ODR_COMP_CD=C.COMP_CD(+)
+            AND A.ITEM_NO=C.ITEM_NO(+)
+    </select>
+
+    <select id="SearchItemNoNxsNonInstErrOdr" resultMap="WsBhtEisProductDomain_SearchItemNoNxsNonInstErrOdr"
+     parameterClass="Ws2501ItemNoNxsNonInstCriteriaDomain">
+         SELECT /* SqlMap-WsBhtEisProduct.SearchItemNoNxsNonInstErrOdr */
+            B.ITEM_DESCRIPTION
+            ,B.INVOICE_KEY
+            ,case when D.TRNS_CD = 'A' then 'Y'
+               else B.STG_INSTR_ITEM_FLG
+               end "STG_INSTR_ITEM_FLG"
+            ,case when D.TRNS_CD = 'A' then 'Z'
+               else B.CUSTOM_TIMING_TYP
+               end "CUSTOM_TIMING_TYP"
+            ,case when D.TRNS_CD = 'A' then 'L'
+               else B.CONTAINER_LOOSE_TYP
+               end "CONTAINER_LOOSE_TYP"
+            ,B.LOADING_CD
+            ,B.CONTAINER_SORTING_KEY
+            ,C.EXP_LIMIT_TYP
+            ,C.DNGR_ITEM_FLG
+            ,C.ORIGIN_CNTRY_CD
+            ,D.WEIGHT_UNIT
+            ,D.NET_WEIGHT_A
+            ,D.PKG_FORM_TYP
+            ,nvl(D.SHIP_LOT, 0) SHIP_LOT
+            ,nvl(E.QTY, 0) QTY
+        FROM
+            (
+                SELECT
+                    B1.COMP_CD
+                    ,B1.ITEM_NO
+                    ,B1.PKG_CD
+                    ,B1.CUSTOMER_CD
+                    ,B1.LGCY_SHIP_TO
+                    ,B1.ITEM_DESCRIPTION
+                    ,B1.INVOICE_KEY
+                    ,B1.STG_INSTR_ITEM_FLG
+                    ,B1.CUSTOM_TIMING_TYP
+                    ,B1.CONTAINER_SORTING_KEY
+                    ,B1.LOADING_CD
+                    ,B1.CONTAINER_LOOSE_TYP
+                FROM
+                    TM_EXP_ITEM_NO_SP_INFO B1
+                    ,(
+                        SELECT
+                            COMP_CD
+                            ,ITEM_NO
+                            ,PKG_CD
+                            ,CUSTOMER_CD
+                            ,LGCY_SHIP_TO
+                            ,max(APLY_STRT_DT) as MAX_APLY_STRT_DT
+                        FROM
+                            TM_EXP_ITEM_NO_SP_INFO
+                        WHERE
+                            COMP_CD = #rcvOdrCompCd#
+                            and ITEM_NO = #itemNo#
+                            and PKG_CD = #pkgCd#
+                            and CUSTOMER_CD = #customerCd#
+                            and LGCY_SHIP_TO = #lgcyShipTo#
+                            and APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+                        GROUP BY
+                            COMP_CD
+                            ,ITEM_NO
+                            ,PKG_CD
+                            ,CUSTOMER_CD
+                            ,LGCY_SHIP_TO
+                    ) B2
+                    WHERE
+                        B1.COMP_CD = B2.COMP_CD
+                        AND B1.ITEM_NO = B2.ITEM_NO
+                        AND B1.PKG_CD  = B2.PKG_CD
+                        AND B1.CUSTOMER_CD  = B2.CUSTOMER_CD
+                        AND B1.LGCY_SHIP_TO = B2.LGCY_SHIP_TO
+                        AND B1.APLY_STRT_DT = B2.MAX_APLY_STRT_DT
+            ) B
+            full outer join
+            (
+                SELECT
+                    C1.COMP_CD
+                    ,C1.ITEM_NO
+                    ,C1.EXP_LIMIT_TYP
+                    ,C1.DNGR_ITEM_FLG
+                    ,C1.ORIGIN_CNTRY_CD
+                FROM
+                    TM_EXP_FORMALITI_ITEM_NO C1
+                    ,(
+                        SELECT
+                            COMP_CD
+                            ,ITEM_NO
+                            ,max(APLY_STRT_DT) as MAX_APLY_STRT_DT
+                        FROM
+                            TM_EXP_FORMALITI_ITEM_NO
+                        WHERE
+                            COMP_CD = #rcvOdrCompCd#
+                            and ITEM_NO = #itemNo#
+                            and APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+                        GROUP BY
+                            COMP_CD
+                            ,ITEM_NO
+                    ) C2
+                WHERE
+                    C1.COMP_CD = C2.COMP_CD
+                    AND C1.ITEM_NO = C2.ITEM_NO
+                    AND C1.APLY_STRT_DT = C2.MAX_APLY_STRT_DT
+            ) C
+            using(ITEM_NO)
+            full outer join
+            (
+                SELECT distinct
+                    D1.OWNER_COMP
+                    ,D1.ITEM_NO
+                    ,D1.PKG_CD
+                    ,D3.WEIGHT_UNIT
+                    ,D3.NET_WEIGHT_A
+                    ,D1.TRNS_CD
+                    ,D1.SHIP_LOT
+                    ,D1.PKG_FORM_TYP
+                FROM
+                    TM_PKG_SPEC_HDR D1
+                    , TM_PKG_SPEC_REV D2
+                    , TM_ACTUAL_ITEM_WEIGHT D3
+                    , TM_PKG_SPEC_DTL D4
+                WHERE
+                    D1.OWNER_COMP = #rcvOdrCompCd#
+                    and D1.OWNER_COMP = D2.COMP_CD
+                    and D1.ITEM_NO = #itemNo#
+                    and D1.ITEM_NO = D2.ITEM_NO
+                    and D1.PKG_CD = #pkgCd#
+                    and D1.PKG_CD = D2.PKG_CD
+                    and D1.TRNS_CD = #trnsCd#
+                    and D1.TRNS_CD = D2.TRNS_CD
+                    and D1.N_PROC = D2.N_PROC
+                    and D1.REV = D2.REV
+                    and D1.N_PROC = ' '
+                    and D1.OWNER_COMP = D3.OWNER_COMP
+                    and D1.ITEM_NO = D3.ITEM_NO
+                    and D1.OWNER_COMP = D4.OWNER_COMP
+                    and D1.ITEM_NO = D4.ITEM_NO
+                    and D1.PKG_CD = D4.PKG_CD
+                    and D1.TRNS_CD = D4.TRNS_CD
+                    and D1.N_PROC = D4.N_PROC
+                    and D1.REV = D4.REV
+                    and D4.RT_TYP != (case when D1.PKG_FORM_TYP = 'S' then '2' else '999' end)
+            ) D
+            using(ITEM_NO)
+            full outer join
+            (
+              select
+                  ITEM_NO
+                  , QTY
+              from
+                  TT_TMP_STOCK
+              where
+                  SHIPPER_CD = #rcvOdrCompCd#
+                  and ITEM_NO = #itemNo#
+                  and PKG_CD = #pkgCd#
+                  and LGCY_WH_CD = #lgcyWhCd#
+            ) E
+            using(ITEM_NO)
+    </select>
+
+    <select id="SearchPltzInstrInfo" resultMap="WsBhtEisProductDomain_SearchPltzInstrInfo"
+     parameterClass="Ws2501PltzInstrInfoCriteriaDomain">
+         select /* SqlMap-WsBhtEisProduct.SearchPltzInstrInfo */
+             A.SHIPPER_CD
+             ,A.CUSTOMER_CD
+             ,A.LGCY_SHIP_TO
+             ,A.TRNS_CD
+             ,A.PLTZ_INSTR_STATUS
+             ,B.SHIP_TO_CD
+             ,C.COMP_CD
+             ,D.PLNT_CD
+             ,D.LGCY_WH_CD
+             ,E.COMP_CD WH_COMP_CD
+             ,E.WH_CD
+         from
+             TT_PLTZ_INSTR A
+             ,TM_CIGMA_SHIP_TO_XREF B
+             ,TM_CIGMA_CUSTOMER_XREF C
+             ,TM_CIGMA_WH_XREF D
+             ,TM_NXS_WH E
+         where
+             A.SHIPPER_CD=B.LGCY_LIB_COMP_CD(+)
+             AND A.CUSTOMER_CD=B.CUSTOMER_CD(+)
+             AND A.LGCY_SHIP_TO=B.LGCY_SHIP_TO(+)
+             AND A.SHIPPER_CD=C.LGCY_LIB_COMP_CD(+)
+             AND A.CUSTOMER_CD=C.CUSTOMER_CD(+)
+             AND A.SHIPPER_CD=D.LGCY_LIB_COMP_CD(+)
+             AND A.PLNT_CD=D.PLNT_CD(+)
+             AND A.LGCY_WH_CD=D.LGCY_WH_CD(+)
+             AND D.COMP_CD=E.COMP_CD(+)
+             AND D.WH_CD=E.WH_CD(+)
+             AND A.PLTZ_INSTR_NO=#pltzInstrNo#
+    </select>
+    <select id="SearchItemNoNxs" resultMap="WsBhtEisProductDomain_SearchItemNoNxs"
+     parameterClass="Ws2501ItemNoNxsCriteriaDomain">
+        SELECT /* SqlMap-WsBhtEisProduct.SearchItemNoNxs */
+            A.ITEM_NO
+            ,A.PKG_CD
+            ,A.PACKED_QTY
+            ,A.INSTR_QTY
+            ,B.CONTAINER_SORTING_KEY
+            ,B.LOADING_CD
+            ,B.INVOICE_KEY
+            ,case when A.TRNS_CD = 'A' then 'Y'
+               else B.STG_INSTR_ITEM_FLG
+               end "STG_INSTR_ITEM_FLG"
+            ,case when A.TRNS_CD = 'A' then 'Z'
+               else B.CUSTOM_TIMING_TYP
+               end "CUSTOM_TIMING_TYP"
+            ,case when A.TRNS_CD = 'A' then 'L'
+               else B.CONTAINER_LOOSE_TYP
+               end "CONTAINER_LOOSE_TYP"
+            ,B.ITEM_DESCRIPTION
+            ,nvl(C.SUM_QTY, 0) SUM_QTY
+            ,D.WEIGHT_UNIT
+            ,D.NET_WEIGHT_A
+            ,D.PKG_FORM_TYP
+            ,nvl(D.SHIP_LOT, 0) SHIP_LOT
+            ,E.EXP_LIMIT_TYP
+            ,E.DNGR_ITEM_FLG
+            ,E.ORIGIN_CNTRY_CD
+            ,nvl(F.QTY, 0) QTY
+        FROM (
+                SELECT
+                    A1.PLTZ_INSTR_NO
+                    ,A1.SHIPPER_CD
+                    ,A1.CUSTOMER_CD
+                    ,A1.LGCY_SHIP_TO
+                    ,A1.LGCY_WH_CD
+                    ,A1.TRNS_CD
+                    ,A3.ITEM_NO
+                    ,A3.PKG_CD
+                    ,A3.PACKED_QTY
+                    ,A3.INSTR_QTY
+                FROM
+                    TT_PLTZ_INSTR A1
+                    ,TT_PLTZ_INSTR_ITEM_NO A3
+                WHERE
+                    A1.PLTZ_INSTR_NO = A3.PLTZ_INSTR_NO
+                    AND A1.PLTZ_INSTR_NO = #pltzInstrNo#
+                    AND A3.ITEM_NO       = #itemNo#
+                    AND A3.PKG_CD        = #pkgCd#
+        ) A
+            , (
+                SELECT
+                    B1.COMP_CD
+                    ,B1.CUSTOMER_CD
+                    ,B1.LGCY_SHIP_TO
+                    ,B1.ITEM_NO
+                    ,B1.PKG_CD
+                    ,B1.CONTAINER_SORTING_KEY
+                    ,B1.LOADING_CD
+                    ,B1.INVOICE_KEY
+                    ,B1.STG_INSTR_ITEM_FLG
+                    ,B1.CUSTOM_TIMING_TYP
+                    ,B1.CONTAINER_LOOSE_TYP
+                    ,B1.ITEM_DESCRIPTION
+                FROM
+                    TM_EXP_ITEM_NO_SP_INFO B1
+                    ,(
+                        SELECT
+                            COMP_CD
+                            ,CUSTOMER_CD
+                            ,LGCY_SHIP_TO
+                            ,ITEM_NO
+                            ,PKG_CD
+                            ,max(APLY_STRT_DT) as MAX_APLY_STRT_DT
+                        FROM
+                            TM_EXP_ITEM_NO_SP_INFO
+                        WHERE
+                            APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+                        GROUP BY
+                            COMP_CD
+                            ,CUSTOMER_CD
+                            ,LGCY_SHIP_TO
+                            ,ITEM_NO
+                            ,PKG_CD
+                    ) B2
+                WHERE
+                    B1.COMP_CD = B2.COMP_CD
+                    AND B1.CUSTOMER_CD = B2.CUSTOMER_CD
+                    AND B1.LGCY_SHIP_TO = B2.LGCY_SHIP_TO
+                    AND B1.ITEM_NO = B2.ITEM_NO
+                    AND B1.PKG_CD = B2.PKG_CD
+                    AND B1.APLY_STRT_DT = B2.MAX_APLY_STRT_DT
+            ) B
+            , (
+                SELECT
+                    C1.PLTZ_INSTR_NO
+                    ,C2.ITEM_NO
+                    ,C2.PKG_CD
+                    ,sum(C2.QTY) SUM_QTY
+                FROM
+                    TT_MIXTAG C1
+                    ,TT_MIXTAG_ITEM_NO C2
+                WHERE
+                    C1.MIX_TAG_NO = C2.MIX_TAG_NO
+                GROUP BY
+                    C1.PLTZ_INSTR_NO
+                    ,C2.ITEM_NO
+                    ,C2.PKG_CD
+            ) C
+            , (
+                SELECT distinct
+                    D1.OWNER_COMP
+                    ,D1.ITEM_NO
+                    ,D1.PKG_CD
+                    ,D3.WEIGHT_UNIT
+                    ,D3.NET_WEIGHT_A
+                    ,D1.TRNS_CD
+                    ,D1.SHIP_LOT
+                    ,D1.PKG_FORM_TYP
+                FROM
+                    TM_PKG_SPEC_HDR D1
+                    , TM_PKG_SPEC_REV D2
+                    , TM_ACTUAL_ITEM_WEIGHT D3
+                    , TM_PKG_SPEC_DTL D4
+                WHERE
+                    D1.OWNER_COMP = D2.COMP_CD
+                    AND D1.ITEM_NO = D2.ITEM_NO
+                    AND D1.PKG_CD = D2.PKG_CD
+                    AND D1.TRNS_CD = D2.TRNS_CD
+                    AND D1.N_PROC = D2.N_PROC
+                    AND D1.REV = D2.REV
+                    AND D1.N_PROC = ' '
+                    AND D1.OWNER_COMP = D3.OWNER_COMP
+                    AND D1.ITEM_NO = D3.ITEM_NO
+                    AND D1.OWNER_COMP = D4.OWNER_COMP
+                    AND D1.ITEM_NO = D4.ITEM_NO
+                    AND D1.PKG_CD = D4.PKG_CD
+                    AND D1.TRNS_CD = D4.TRNS_CD
+                    AND D1.N_PROC = D4.N_PROC
+                    AND D1.REV = D4.REV
+                    AND D4.RT_TYP != (case when D1.PKG_FORM_TYP = 'S' then '2' else '999' end)
+            ) D
+            , (
+                SELECT
+                    E1.COMP_CD
+                    ,E1.ITEM_NO
+                    ,E1.EXP_LIMIT_TYP
+                    ,E1.DNGR_ITEM_FLG
+                    ,E1.ORIGIN_CNTRY_CD
+                FROM
+                    TM_EXP_FORMALITI_ITEM_NO E1
+                    ,(
+                        SELECT
+                            COMP_CD
+                            ,ITEM_NO
+                            ,max(APLY_STRT_DT) AS MAX_APLY_STRT_DT
+                        FROM
+                            TM_EXP_FORMALITI_ITEM_NO
+                        WHERE
+                            APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+                        GROUP BY
+                            COMP_CD
+                            ,ITEM_NO
+                    ) E2
+                WHERE
+                    E1.COMP_CD = E2.COMP_CD
+                    AND E1.ITEM_NO = E2.ITEM_NO
+                    AND E1.APLY_STRT_DT = E2.MAX_APLY_STRT_DT
+            ) E
+            ,TT_TMP_STOCK F
+        WHERE
+            A.SHIPPER_CD = B.COMP_CD(+)
+            AND A.CUSTOMER_CD    = B.CUSTOMER_CD(+)
+            AND A.LGCY_SHIP_TO   = B.LGCY_SHIP_TO(+)
+            AND A.ITEM_NO        = B.ITEM_NO(+)
+            AND A.PKG_CD         = B.PKG_CD(+)
+            AND A.SHIPPER_CD     = D.OWNER_COMP(+)
+            AND A.ITEM_NO        = D.ITEM_NO(+)
+            AND A.SHIPPER_CD     = F.SHIPPER_CD(+)
+            AND A.LGCY_WH_CD     = F.LGCY_WH_CD(+)
+            AND A.ITEM_NO        = F.ITEM_NO(+)
+            AND A.PKG_CD         = F.PKG_CD(+)
+            AND A.PLTZ_INSTR_NO  = C.PLTZ_INSTR_NO(+)
+            AND A.ITEM_NO        = C.ITEM_NO(+)
+            AND A.PKG_CD         = C.PKG_CD(+)
+            AND A.SHIPPER_CD     = E.COMP_CD(+)
+            AND A.ITEM_NO        = E.ITEM_NO(+)
+            AND A.PKG_CD         = D.PKG_CD(+)
+            AND A.TRNS_CD        = D.TRNS_CD(+)
+    </select>
+
+    <select id="SearchMixedTagItem" resultMap="WsBhtEisProductDomain_SearchMixedTagItem"
+     parameterClass="Ws2501MixedTagItemCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchMixedTagItem */
+            A.MIX_TAG_NO
+            ,A.CURR_CD
+            ,B.ITEM_NO
+            ,B.PKG_CD
+            ,B.SHIPPING_LOT
+            ,B.ITEM_DESCRIPTION
+            ,B.QTY
+            ,B.ITEM_WEIGHT
+            ,B.WEIGHT_UNIT
+            ,B.QTY_UNIT
+            ,B.EXP_LIMIT_TYP
+            ,B.DNGR_ITEM_FLG
+            ,B.ORIGIN_CNTRY_CD
+            ,B.PLNT_CD
+            ,B.CUSTOMER_ITEM_NO
+        from
+            TT_MIXTAG A
+            ,TT_MIXTAG_ITEM_NO B
+        where
+            A.MIX_TAG_NO = B.MIX_TAG_NO
+            AND A.MIX_TAG_NO = #mixTagNo#
+    </select>
+
+    <select id="SearchPkgSpecMaterialsNameRev" resultMap="WsBhtEisProductDomain_SearchPkgSpecMaterialsNameRev"
+     parameterClass="Ws2501PkgSpecMaterialsNameRevCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchPkgSpecMaterialsNameRev */
+          B.LOT_SIZE
+          , B.QTY
+          , B.RT_TYP
+          , B.INNER_OUTER_TYP
+          , A.PKG_ITEM_NO
+          , A.MODEL_CD
+          , A.WEIGHT_UNIT
+          , A.PKG_WEIGHT
+          , A.ORIGIN_CNTRY_CD
+          , A.CURR_CD
+          , A.PKG_MTRL_NM
+        from
+          TM_PKG_MTRL A
+          , TM_PKG_SPEC_DTL B
+          , TM_PKG_SPEC_REV C
+        where
+          A.OWNER_COMP = B.OWNER_COMP
+          and A.PKG_ITEM_NO = B.PKG_ITEM_NO
+          and B.OWNER_COMP = C.COMP_CD
+          and B.ITEM_NO = C.ITEM_NO
+          and B.PKG_CD = C.PKG_CD
+          and B.TRNS_CD = C.TRNS_CD
+          and B.N_PROC = C.N_PROC
+          and B.REV = C.REV
+          and A.OWNER_COMP = #ownerCompCd#
+          and B.TRNS_CD = #trnsCd#
+          and B.ITEM_NO = #itemNo#
+          and B.PKG_CD = #pkgCd#
+          and B.N_PROC = ' '
+          <isNotEmpty prepend="and" property="outerPkgCd">
+              B.INNER_OUTER_TYP = '1'
+          </isNotEmpty>
+          <isEqual property="pkgFormTyp" compareValue="S">
+              and B.RT_TYP != '2'
+          </isEqual>
+          and A.PKG_EXP_DT is null
+        order by
+          B.PKG_ITEM_NO
+    </select>
+
+    <select id="SearchPkgSetMaterialsNxsCompNm" resultMap="WsBhtEisProductDomain_SearchPkgSetMaterialsNxsCompNm"
+     parameterClass="Ws2501PkgSetMaterialsNxsCompNmCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchPkgSetMaterialsNxsCompNm */
+          A.PKG_ITEM_NO
+          , A.USE_QTY
+          , B.MODEL_CD
+          , B.WEIGHT_UNIT
+          , B.PKG_WEIGHT
+          , B.ORIGIN_CNTRY_CD
+          , B.CURR_CD
+          , B.RT_TYP
+          , B.PKG_MTRL_NM
+        from
+          TM_PKG_SET_DTL A
+          , TM_PKG_MTRL B
+        where
+          A.OWNER_COMP = B.OWNER_COMP
+          and A.PKG_ITEM_NO = B.PKG_ITEM_NO
+          and A.OWNER_COMP = #ownerComp#
+          and A.OUTER_PKG_CD = #outerCd#
+    </select>
+
+    <select id="SearchPkgMaterials" resultMap="WsBhtEisProductDomain_SearchPkgMaterials"
+     parameterClass="Ws2501PkgMaterialsCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchPkgMaterials */
+          A.OWNER_COMP
+          , A.PKG_ITEM_NO
+          , A.MODEL_CD
+          , A.WEIGHT_UNIT
+          , A.PKG_WEIGHT
+          , A.ORIGIN_CNTRY_CD
+          , A.CURR_CD
+          , A.RT_TYP
+          , A.PKG_MTRL_NM
+        from
+          TM_PKG_MTRL A
+        where
+          A.OWNER_COMP = #ownerComp#
+          and A.PKG_ITEM_NO = #pkgItemNo#
+          and A.PKG_EXP_DT is null
+    </select>
+
+    <select id="SearchTtPltzItemNw" resultMap="WsBhtEisProductDomain_SearchTtPltzItemNw"
+     parameterClass="Ws2501TtPltzItemNwCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchTtPltzItemNw */
+            WEIGHT_UNIT
+            , sum(NET_WEIGHT) NET_WEIGHT
+        from
+            TT_PLTZ_ITEM
+        where
+            MAIN_MARK = #mainMark#
+            and PKG_TYP is null
+        group by WEIGHT_UNIT
+    </select>
+
+    <select id="SearchNextWorkTimeNo" resultClass="java.math.BigDecimal">
+        select
+            ST_WORK_TIME_NO.NEXTVAL
+        from
+            dual
+    </select>
+
+    <select id="SearchTtPltzItemGw" resultMap="WsBhtEisProductDomain_SearchTtPltzItemGw"
+     parameterClass="Ws2501TtPltzItemGwCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchTtPltzItemGw */
+            WEIGHT_UNIT
+            , sum(NET_WEIGHT) NET_WEIGHT
+        from
+            TT_PLTZ_ITEM
+        where
+            MAIN_MARK = #mainMark#
+        group by WEIGHT_UNIT
+    </select>
+
+    <select id="SearchTtPltzItemDeliveryTime" resultMap="WsBhtEisProductDomain_SearchTtPltzItemDeliveryTime"
+     parameterClass="Ws2501TtPltzItemDeliveryTimeCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchTtPltzItemDeliveryTime */
+            min(ETD_DUE_DT) ETD_DUE_DT
+        from
+            TT_PLTZ_ITEM_ODR
+        where
+            MAIN_MARK = #mainMark#
+
+     </select>
+
+    <select id="SearchTmNxsWhByXref" resultMap="WsBhtEisProductDomain_SearchTmNxsWhByXref"
+     parameterClass="Ws2501TmNxsWhByXrefCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchTmNxsWhByXref */
+          B.LGCY_WH_CD
+         ,B.PLNT_CD
+        from
+            TM_NXS_WH A
+          , TM_CIGMA_WH_XREF B
+        where
+              A.COMP_CD = B.COMP_CD
+          and A.WH_CD   = B.WH_CD
+          and A.COMP_CD = #compCd#
+          and A.WH_CD   = #whCd#
+          and B.LGCY_LIB_COMP_CD = #lgcyLibCompCd#
+    </select>
+
+    <select id="LockByKeyNoWaitTtExpRcvOdr" resultMap="WsBhtEisProductDomain_LockByKeyNoWaitTtExpRcvOdr"
+     parameterClass="Ws2501TtExpRcvOdrCriteriaDomain">
+         select /* SqlMap-WsBhtEisProduct.LockByKeyNoWaitTtExpRcvOdr */
+             RCV_ODR_COMP_CD
+            ,CUSTOMER_CD
+            ,LGCY_SHIP_TO
+            ,ITEM_NO
+            ,PKG_CD
+            ,TRNS_CD
+            ,ETD_DUE_DT
+            ,CUSTOMER_PO_NO
+            ,CUSTOMER_ITEM_NO
+            ,CUSTOMER_ITEM_NO_ORG
+            ,ODR_CTRL_NO
+            ,ODR_QTY
+            ,PLTZ_ALLOC_QTY
+         from
+             TT_EXP_RCV_ODR
+         where
+             RCV_ODR_COMP_CD = #rcvOdrCompCd#
+             and CUSTOMER_CD = #customerCd#
+             and LGCY_SHIP_TO = #lgcyShipTo#
+             and TRNS_CD = #trnsCd#
+             <iterate property="itemNoPkgCdList" prepend="and (ITEM_NO, PKG_CD) in " open="(" close=")" conjunction=",">
+                 (#itemNoPkgCdList[].itemNo#, #itemNoPkgCdList[].pkgCd#)
+             </iterate>
+             and ODR_FIRM_FLG = 'Y'
+             and SHIPPED_TYP = '1'
+         for update nowait
+         order by
+             ETD_DUE_DT asc
+            ,CUSTOMER_PO_NO asc
+            ,ODR_CTRL_NO asc
+     </select>
+
+    <select id="SearchPkgSpecRevHis" resultMap="WsBhtEisProductDomain_SearchPkgSpecRevHis"
+     parameterClass="Ws2501PkgSpecRevHisCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchPkgSpecRevHis */
+            max(BRCH) BRCH
+        from
+            TM_PKG_SPEC_REV_HIS
+        where
+              COMP_CD = #compCd#
+            and ITEM_NO = #itemNo#
+            and PKG_CD = #pkgCd#
+            and TRNS_CD = #trnsCd#
+            and N_PROC = #nProc#
+    </select>
+
+
+    <select id="SearchNxsPkgSpecification" resultMap="WsBhtEisProductDomain_SearchNxsPkgSpecification"
+     parameterClass="Ws2501NxsPkgSpecificationCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchNxsPkgSpecification */
+          B.NET_WEIGHT_A NET_WEIGHT_A
+          , C.OWNER_COMP OWNER_COMP
+        from
+          TM_PKG_SPEC_HDR A
+          , TM_ACTUAL_ITEM_WEIGHT B
+          , TM_PKG_SPEC_DTL C
+          , TM_PKG_SPEC_REV D
+        where
+          A.OWNER_COMP = #compCd#
+          and A.TRNS_CD = #trnsCd#
+          and A.ITEM_NO = #itemNo#
+          and A.PKG_CD = #pkgCd#
+          and A.N_PROC = ' '
+          and A.OWNER_COMP = B.OWNER_COMP
+          and A.ITEM_NO = B.ITEM_NO
+          and A.OWNER_COMP = C.OWNER_COMP
+          and A.ITEM_NO = C.ITEM_NO
+          and A.PKG_CD = C.PKG_CD
+          and A.TRNS_CD = C.TRNS_CD
+          and A.N_PROC = C.N_PROC
+          and A.REV = C.REV
+          and A.OWNER_COMP = D.COMP_CD
+          and A.ITEM_NO = D.ITEM_NO
+          and A.PKG_CD = D.PKG_CD
+          and A.TRNS_CD = D.TRNS_CD
+          and A.N_PROC = D.N_PROC
+          and A.REV = D.REV
+    </select>
+
+    <select id="SearchItemNoNxsPltzInstNo" resultMap="WsBhtEisProductDomain_SearchItemNoNxsPltzInstNo"
+     parameterClass="Ws2501ItemNoNxsPltzInstNoCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchItemNoNxsPltzInstNo */
+          A.ITEM_NO
+          , A.PKG_CD
+          , A.PACKED_QTY
+          , A.INSTR_QTY
+          , E.WEIGHT_UNIT
+          , E.NET_WEIGHT_A
+          , E.MLT_IN_BOX_ALLOW_FLG
+          , B.CONTAINER_SORTING_KEY
+          , B.LOADING_CD
+          , B.INVOICE_KEY
+          , B.STG_INSTR_ITEM_FLG
+          , B.CUSTOM_TIMING_TYP
+          , B.CONTAINER_LOOSE_TYP
+          , B.ITEM_DESCRIPTION
+          , D.EXP_LIMIT_TYP
+          , D.DNGR_ITEM_FLG
+          , D.ORIGIN_CNTRY_CD
+          , C.SUM_QTY
+          , E.SHIP_LOT
+          , E.PKG_FORM_TYP
+          , nvl(F.QTY, 0) QTY
+        from
+          (
+            select
+              A5.PLTZ_INSTR_NO
+              , A5.SHIPPER_CD
+              , A5.CUSTOMER_CD
+              , A5.LGCY_SHIP_TO
+              , A5.LGCY_WH_CD
+              , A5.TRNS_CD
+              , A5.ITEM_NO
+              , A5.PKG_CD
+              , A5.PACKED_QTY
+              , A5.INSTR_QTY
+            from
+              (
+                select
+                  A1.PLTZ_INSTR_NO
+                  , A1.SHIPPER_CD
+                  , A1.CUSTOMER_CD
+                  , A1.LGCY_SHIP_TO
+                  , A1.LGCY_WH_CD
+                  , A1.TRNS_CD
+                  , A3.ITEM_NO
+                  , A3.PKG_CD
+                  , A3.PACKED_QTY
+                  , A3.INSTR_QTY
+                from
+                  TT_PLTZ_INSTR A1
+                  , TT_PLTZ_INSTR_ITEM_NO A3
+                where
+                  A1.PLTZ_INSTR_NO = A3.PLTZ_INSTR_NO
+                  and A1.PLTZ_INSTR_NO = #pltzInstrNo#
+                  and A3.ITEM_NO = #itemNo#
+                  and A3.PKG_CD = #pkgCd#
+              ) A5
+          ) A
+          , (
+            select
+              B1.COMP_CD
+              , B1.CUSTOMER_CD
+              , B1.LGCY_SHIP_TO
+              , B1.ITEM_NO
+              , B1.PKG_CD
+              , B1.CONTAINER_SORTING_KEY
+              , B1.LOADING_CD
+              , B1.INVOICE_KEY
+              , B1.STG_INSTR_ITEM_FLG
+              , B1.CUSTOM_TIMING_TYP
+              , B1.CONTAINER_LOOSE_TYP
+              , B1.ITEM_DESCRIPTION
+            from
+              TM_EXP_ITEM_NO_SP_INFO B1
+              , (
+                select
+                  COMP_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , ITEM_NO
+                  , PKG_CD
+                  , max(APLY_STRT_DT) as MAX_APLY_STRT_DT
+                from
+                  TM_EXP_ITEM_NO_SP_INFO
+                where
+                  APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+                group by
+                  COMP_CD
+                  , ITEM_NO
+                  , PKG_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+              ) B2
+            where
+              B1.COMP_CD = B2.COMP_CD
+              and B1.CUSTOMER_CD = B2.CUSTOMER_CD
+              and B1.LGCY_SHIP_TO = B2.LGCY_SHIP_TO
+              and B1.ITEM_NO = B2.ITEM_NO
+              and B1.PKG_CD = B2.PKG_CD
+              and B1.APLY_STRT_DT = B2.MAX_APLY_STRT_DT
+          ) B
+          , (
+            select
+              C1.PLTZ_INSTR_NO
+              , C2.ITEM_NO
+              , C2.PKG_CD
+              , sum(C2.QTY) SUM_QTY
+            from
+              TT_MIXTAG C1
+              , TT_MIXTAG_ITEM_NO C2
+            where
+              C1.MIX_TAG_NO = C2.MIX_TAG_NO
+              and C1.MIX_TAG_STATUS = '10'
+            group by
+              C1.PLTZ_INSTR_NO
+              , C2.ITEM_NO
+              , C2.PKG_CD
+          ) C
+          , (
+            select
+              D1.COMP_CD
+              , D1.ITEM_NO
+              , D1.EXP_LIMIT_TYP
+              , D1.DNGR_ITEM_FLG
+              , D1.ORIGIN_CNTRY_CD
+            from
+              TM_EXP_FORMALITI_ITEM_NO D1
+              , (
+                select
+                  COMP_CD
+                  , ITEM_NO
+                  , max(APLY_STRT_DT) as MAX_APLY_STRT_DT
+                from
+                  TM_EXP_FORMALITI_ITEM_NO
+                where
+                  APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+                group by
+                  COMP_CD
+                  , ITEM_NO
+              ) D2
+            where
+              D1.COMP_CD = D2.COMP_CD
+              and D1.ITEM_NO = D2.ITEM_NO
+              and D1.APLY_STRT_DT = D2.MAX_APLY_STRT_DT
+          ) D
+          , (
+            select
+              E1.OWNER_COMP
+              , E1.ITEM_NO
+              , E1.PKG_CD
+              , E1.SHIP_LOT
+              , E1.PKG_FORM_TYP
+              , E1.TRNS_CD
+              , E1.MLT_IN_BOX_ALLOW_FLG
+              , E3.WEIGHT_UNIT
+              , E3.NET_WEIGHT_A
+            from
+              TM_PKG_SPEC_HDR E1
+              , TM_PKG_SPEC_REV E2
+              , TM_ACTUAL_ITEM_WEIGHT E3
+            where
+              E1.OWNER_COMP = E2.COMP_CD
+              and E1.ITEM_NO = E2.ITEM_NO
+              and E1.PKG_CD = E2.PKG_CD
+              and E1.TRNS_CD = E2.TRNS_CD
+              and E1.N_PROC = E2.N_PROC
+              and E1.REV = E2.REV
+              and E1.N_PROC = ' '
+              and E1.OWNER_COMP = E3.OWNER_COMP
+              and E1.ITEM_NO = E3.ITEM_NO
+          ) E
+          , TT_TMP_STOCK F
+        where
+          A.SHIPPER_CD = B.COMP_CD
+          and A.CUSTOMER_CD = B.CUSTOMER_CD
+          and A.LGCY_SHIP_TO = B.LGCY_SHIP_TO
+          and A.ITEM_NO = B.ITEM_NO
+          and A.PKG_CD = B.PKG_CD
+          and A.SHIPPER_CD = D.COMP_CD(+)
+          and A.ITEM_NO = D.ITEM_NO(+)
+          and A.SHIPPER_CD = F.SHIPPER_CD(+)
+          and A.LGCY_WH_CD = F.LGCY_WH_CD(+)
+          and A.ITEM_NO = F.ITEM_NO(+)
+          and A.PKG_CD = F.PKG_CD(+)
+          and A.PLTZ_INSTR_NO = C.PLTZ_INSTR_NO(+)
+          and A.ITEM_NO = C.ITEM_NO(+)
+          and A.PKG_CD = C.PKG_CD(+)
+          and A.SHIPPER_CD = E.OWNER_COMP(+)
+          and A.ITEM_NO = E.ITEM_NO(+)
+          and A.PKG_CD = E.PKG_CD(+)
+          and A.TRNS_CD = E.TRNS_CD(+)
+    </select>
+
+    <select id="SearchItemNoNxsNonPltzInstNo" resultMap="WsBhtEisProductDomain_SearchItemNoNxsNonPltzInstNo"
+     parameterClass="Ws2501ItemNoNxsNonPltzInstNoCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchItemNoNxsNonPltzInstNo */
+          X.ORDER_QTY
+          , X.ITEM_DESCRIPTION
+          , X.INVOICE_KEY
+          , X.STG_INSTR_ITEM_FLG
+          , X.CUSTOM_TIMING_TYP
+          , X.CONTAINER_SORTING_KEY
+          , X.LOADING_CD
+          , X.CONTAINER_LOOSE_TYP
+          , X.EXP_LIMIT_TYP
+          , X.DNGR_ITEM_FLG
+          , X.ORIGIN_CNTRY_CD
+          , X.PKG_CD
+          , X.QTY
+          , X.WEIGHT_UNIT
+          , X.NET_WEIGHT_A
+          , X.MLT_IN_BOX_ALLOW_FLG
+          , X.SHIP_LOT
+          , X.PKG_FORM_TYP
+        from
+          (
+            select
+              A.ORDER_QTY
+              , A.ITEM_NO
+              , A.PKG_CD A_PKG_CD
+              , A.TRNS_CD
+              , B.ITEM_DESCRIPTION
+              , B.INVOICE_KEY
+              , B.STG_INSTR_ITEM_FLG
+              , B.CUSTOM_TIMING_TYP
+              , B.CONTAINER_SORTING_KEY
+              , B.LOADING_CD
+              , B.CONTAINER_LOOSE_TYP
+              , A.RCV_ODR_COMP_CD
+              , D.EXP_LIMIT_TYP
+              , D.DNGR_ITEM_FLG
+              , D.ORIGIN_CNTRY_CD
+              , E.WEIGHT_UNIT
+              , E.NET_WEIGHT_A
+              , E.MLT_IN_BOX_ALLOW_FLG
+              , E.SHIP_LOT
+              , E.PKG_FORM_TYP
+              , F.PKG_CD
+              , nvl(F.QTY, 0) QTY
+            from
+              (
+                select
+                  RCV_ODR_COMP_CD
+                  , ITEM_NO
+                  , PKG_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , TRNS_CD
+                  , sum(ODR_QTY - PLTZ_ALLOC_QTY) as ORDER_QTY
+                from
+                  TT_EXP_RCV_ODR
+                where
+                  RCV_ODR_COMP_CD = #rcvOdrCompCd#
+                  and ITEM_NO = #itemNo#
+                  and PKG_CD = #pkgCd#
+                  and CUSTOMER_CD = #customerCd#
+                  and LGCY_SHIP_TO = #lgcyShipTo#
+                  and TRNS_CD = #trnsCd#
+                  and ODR_FIRM_FLG = #odrFirmFlg#
+                  and SHIPPED_TYP = #shippedTyp#
+                group by
+                  RCV_ODR_COMP_CD
+                  , ITEM_NO
+                  , PKG_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , TRNS_CD
+              ) A
+              , (
+                select
+                  B1.COMP_CD
+                  , B1.ITEM_NO
+                  , B1.PKG_CD
+                  , B1.CUSTOMER_CD
+                  , B1.LGCY_SHIP_TO
+                  , B1.ITEM_DESCRIPTION
+                  , B1.INVOICE_KEY
+                  , B1.STG_INSTR_ITEM_FLG
+                  , B1.CUSTOM_TIMING_TYP
+                  , B1.CONTAINER_SORTING_KEY
+                  , B1.LOADING_CD
+                  , B1.CONTAINER_LOOSE_TYP
+                from
+                  TM_EXP_ITEM_NO_SP_INFO B1
+                  , (
+                    select
+                      COMP_CD
+                      , ITEM_NO
+                      , PKG_CD
+                      , CUSTOMER_CD
+                      , LGCY_SHIP_TO
+                      , max(APLY_STRT_DT) as MAX_APLY_STRT_DT
+                    from
+                      TM_EXP_ITEM_NO_SP_INFO
+                    where
+                      APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+                    group by
+                      COMP_CD
+                      , ITEM_NO
+                      , PKG_CD
+                      , CUSTOMER_CD
+                      , LGCY_SHIP_TO
+                  ) B2
+                where
+                  B1.COMP_CD = B2.COMP_CD
+                  and B1.ITEM_NO = B2.ITEM_NO
+                  and B1.PKG_CD = B2.PKG_CD
+                  and B1.CUSTOMER_CD = B2.CUSTOMER_CD
+                  and B1.LGCY_SHIP_TO = B2.LGCY_SHIP_TO
+                  and B1.APLY_STRT_DT = B2.MAX_APLY_STRT_DT
+              ) B
+              , (
+                select
+                  D1.COMP_CD
+                  , D1.ITEM_NO
+                  , D1.EXP_LIMIT_TYP
+                  , D1.DNGR_ITEM_FLG
+                  , D1.ORIGIN_CNTRY_CD
+                from
+                  TM_EXP_FORMALITI_ITEM_NO D1
+                  , (
+                    select
+                      COMP_CD
+                      , ITEM_NO
+                      , max(APLY_STRT_DT) as MAX_APLY_STRT_DT
+                    from
+                      TM_EXP_FORMALITI_ITEM_NO
+                    where
+                      APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+                    group by
+                      COMP_CD
+                      , ITEM_NO
+                  ) D2
+                where
+                  D1.COMP_CD = D2.COMP_CD
+                  and D1.ITEM_NO = D2.ITEM_NO
+                  and D1.APLY_STRT_DT = D2.MAX_APLY_STRT_DT
+              ) D
+              , (
+                select
+                  E1.OWNER_COMP
+                  , E1.ITEM_NO
+                  , E1.PKG_CD
+                  , E1.TRNS_CD
+                  , E1.MLT_IN_BOX_ALLOW_FLG
+                  , E1.SHIP_LOT
+                  , E1.PKG_FORM_TYP
+                  , E3.WEIGHT_UNIT
+                  , E3.NET_WEIGHT_A
+                from
+                  TM_PKG_SPEC_HDR E1
+                  , TM_PKG_SPEC_REV E2
+                  , TM_ACTUAL_ITEM_WEIGHT E3
+                where
+                  E1.OWNER_COMP = E2.COMP_CD
+                  and E1.ITEM_NO = E2.ITEM_NO
+                  and E1.PKG_CD = E2.PKG_CD
+                  and E1.TRNS_CD = E2.TRNS_CD
+                  and E1.N_PROC = E2.N_PROC
+                  and E1.REV = E2.REV
+                  and E1.N_PROC = ' '
+                  and E1.OWNER_COMP = E3.OWNER_COMP
+                  and E1.ITEM_NO = E3.ITEM_NO
+              ) E
+              , (
+                SELECT
+                    ITEM_NO
+                    ,PKG_CD
+                    ,SHIPPER_CD
+                    ,QTY
+                FROM
+                    TT_TMP_STOCK
+                WHERE
+                    LGCY_WH_CD = #lgcyWhCd#
+              ) F
+            where
+              A.RCV_ODR_COMP_CD = B.COMP_CD(+)
+              and A.ITEM_NO = B.ITEM_NO(+)
+              and A.PKG_CD = B.PKG_CD(+)
+              and A.CUSTOMER_CD = B.CUSTOMER_CD(+)
+              and A.LGCY_SHIP_TO = B.LGCY_SHIP_TO(+)
+              and A.RCV_ODR_COMP_CD = D.COMP_CD(+)
+              and A.ITEM_NO = D.ITEM_NO(+)
+              and A.RCV_ODR_COMP_CD = E.OWNER_COMP(+)
+              and A.ITEM_NO = E.ITEM_NO(+)
+              and A.PKG_CD = E.PKG_CD(+)
+              and A.TRNS_CD = E.TRNS_CD(+)
+              and A.RCV_ODR_COMP_CD = F.SHIPPER_CD(+)
+              and A.ITEM_NO = F.ITEM_NO(+)
+              and A.PKG_CD = F.PKG_CD(+)
+          ) X
+    </select>
+
+    <select id="SearchItemNoNxsNonPltzInstNoErrOdr" resultMap="WsBhtEisProductDomain_SearchItemNoNxsNonPltzInstNoErrOdr"
+     parameterClass="Ws2501ItemNoNxsNonPltzInstNoCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchItemNoNxsNonPltzInstNoErrOdr */
+          B.ITEM_DESCRIPTION
+          , B.INVOICE_KEY
+          , B.STG_INSTR_ITEM_FLG
+          , B.CUSTOM_TIMING_TYP
+          , B.CONTAINER_SORTING_KEY
+          , B.LOADING_CD
+          , B.CONTAINER_LOOSE_TYP
+          , D.EXP_LIMIT_TYP
+          , D.DNGR_ITEM_FLG
+          , D.ORIGIN_CNTRY_CD
+          , E.WEIGHT_UNIT
+          , E.NET_WEIGHT_A
+          , E.MLT_IN_BOX_ALLOW_FLG
+          , E.SHIP_LOT
+          , E.PKG_FORM_TYP
+          , F.QTY
+        from
+          (
+            select
+              B1.COMP_CD
+              , B1.ITEM_NO
+              , B1.PKG_CD
+              , B1.CUSTOMER_CD
+              , B1.LGCY_SHIP_TO
+              , B1.ITEM_DESCRIPTION
+              , B1.INVOICE_KEY
+              , B1.STG_INSTR_ITEM_FLG
+              , B1.CUSTOM_TIMING_TYP
+              , B1.CONTAINER_SORTING_KEY
+              , B1.LOADING_CD
+              , B1.CONTAINER_LOOSE_TYP
+            from
+              TM_EXP_ITEM_NO_SP_INFO B1
+              , (
+                select
+                  COMP_CD
+                  , ITEM_NO
+                  , PKG_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , max(APLY_STRT_DT) as MAX_APLY_STRT_DT
+                from
+                  TM_EXP_ITEM_NO_SP_INFO
+                where
+                  COMP_CD = #rcvOdrCompCd#
+                  and ITEM_NO = #itemNo#
+                  and PKG_CD = #pkgCd#
+                  and CUSTOMER_CD = #customerCd#
+                  and LGCY_SHIP_TO = #lgcyShipTo#
+                  and APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+                group by
+                  COMP_CD
+                  , ITEM_NO
+                  , PKG_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+              ) B2
+            where
+              B1.COMP_CD = B2.COMP_CD
+              and B1.ITEM_NO = B2.ITEM_NO
+              and B1.PKG_CD = B2.PKG_CD
+              and B1.CUSTOMER_CD = B2.CUSTOMER_CD
+              and B1.LGCY_SHIP_TO = B2.LGCY_SHIP_TO
+              and B1.APLY_STRT_DT = B2.MAX_APLY_STRT_DT
+          ) B
+          full outer join
+          (
+            select
+              D1.COMP_CD
+              , D1.ITEM_NO
+              , D1.EXP_LIMIT_TYP
+              , D1.DNGR_ITEM_FLG
+              , D1.ORIGIN_CNTRY_CD
+            from
+              TM_EXP_FORMALITI_ITEM_NO D1
+              , (
+                select
+                  COMP_CD
+                  , ITEM_NO
+                  , max(APLY_STRT_DT) as MAX_APLY_STRT_DT
+                from
+                  TM_EXP_FORMALITI_ITEM_NO
+                where
+                  APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+                group by
+                  COMP_CD
+                  , ITEM_NO
+              ) D2
+            where
+              D1.COMP_CD = #rcvOdrCompCd#
+              and D1.COMP_CD = D2.COMP_CD
+              and D1.ITEM_NO = #itemNo#
+              and D1.ITEM_NO = D2.ITEM_NO
+              and D1.APLY_STRT_DT = D2.MAX_APLY_STRT_DT
+          ) D
+          using(ITEM_NO)
+          full outer join
+          (
+            select
+              E1.OWNER_COMP
+              , E1.ITEM_NO
+              , E1.PKG_CD
+              , E1.TRNS_CD
+              , E1.MLT_IN_BOX_ALLOW_FLG
+              , E1.SHIP_LOT
+              , E1.PKG_FORM_TYP
+              , E3.WEIGHT_UNIT
+              , E3.NET_WEIGHT_A
+            from
+              TM_PKG_SPEC_HDR E1
+              , TM_PKG_SPEC_REV E2
+              , TM_ACTUAL_ITEM_WEIGHT E3
+            where
+              E1.OWNER_COMP = #rcvOdrCompCd#
+              and E1.OWNER_COMP = E2.COMP_CD
+              and E1.ITEM_NO = #itemNo#
+              and E1.ITEM_NO = E2.ITEM_NO
+              and E1.PKG_CD = #pkgCd#
+              and E1.PKG_CD = E2.PKG_CD
+              and E1.TRNS_CD = #trnsCd#
+              and E1.TRNS_CD = E2.TRNS_CD
+              and E1.N_PROC = E2.N_PROC
+              and E1.REV = E2.REV
+              and E1.N_PROC = ' '
+              and E1.OWNER_COMP = E3.OWNER_COMP
+              and E1.ITEM_NO = E3.ITEM_NO
+          ) E
+          using(ITEM_NO)
+          full outer join
+          (
+            select
+              ITEM_NO
+              , QTY
+            from
+              TT_TMP_STOCK
+            where
+              SHIPPER_CD = #rcvOdrCompCd#
+              and ITEM_NO = #itemNo#
+              and PKG_CD = #pkgCd#
+              and LGCY_WH_CD = #lgcyWhCd#
+          ) F
+          using(ITEM_NO)
+    </select>
+
+    <select id="SearchMixedTagItemNoNw" resultMap="WsBhtEisProductDomain_SearchMixedTagItemNoNw"
+     parameterClass="Ws2501MixedTagItemNoNwCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchMixedTagItemNoNw */
+            WEIGHT_UNIT
+            , sum(ITEM_WEIGHT * QTY) SUM_ITEM_WEIGHT
+        from
+            TT_MIXTAG_ITEM_NO
+        where
+            MIX_TAG_NO = #mixTagNo#
+        group by
+            WEIGHT_UNIT
+    </select>
+
+    <select id="SearchMixedTagRtGw" resultMap="WsBhtEisProductDomain_SearchMixedTagRtGw"
+     parameterClass="Ws2501MixedTagRtGwCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchMixedTagRtGw */
+          WEIGHT_UNIT
+          , sum(PKG_WEIGHT * QTY) SUM_PKG_WEIGHT
+        from
+          TT_MIXTAG_RT
+        where
+          MIX_TAG_NO = #mixTagNo#
+        group by
+          WEIGHT_UNIT
+
+
+    </select>
+
+    <select id="LockByKeyNoWaitPltzNxsShipTo" resultMap="WsBhtEisProductDomain_LockByKeyNoWaitPltzNxsShipTo"
+     parameterClass="Ws2501PltzNxsShipToCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.LockByKeyNoWaitPltzNxsShipTo */
+          A.MAIN_MARK
+          , A.TRNS_CD
+          , A.CONTAINER_SORTING_KEY
+          , A.CML_TYP
+          , A.INVOICE_KEY
+          , A.STG_INSTR_ITEM_FLG
+          , A.PLTZ_STATUS
+          , A.CUR_WH_COMP_CD
+          , A.CUR_WH_CD
+          , A.XMAIN_MARK
+          , A.LOADING_CD
+          , A.DNGR_ITEM_FLG
+          , A.CUSTOM_TIMING_TYP
+          , A.LAST_TR_STATUS
+          , A.MIGRATION_FLG
+          , B.COMP_CD
+        from
+          TT_PLTZ A
+          , TM_NXS_SHIP_TO B
+        where
+          A.MAIN_MARK = #mainMark#
+          AND A.SHIP_TO_CD = B.SHIP_TO_CD(+)
+        for update nowait
+    </select>
+
+    <select id="SearchOuterSumWeight" resultMap="WsBhtEisProductDomain_SearchOuterSumWeight"
+     parameterClass="Ws2501OuterSumWeightCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchOuterSumWeight */
+          sum(WEIGHT) SUM_WEIGHT
+          , WEIGHT_UNIT
+        from
+          (
+            select
+              (B.USE_QTY * C.PKG_WEIGHT) WEIGHT
+              , C.WEIGHT_UNIT
+            from
+              TM_PKG_SET_HDR A
+              , TM_PKG_SET_DTL B
+              , TM_PKG_MTRL C
+            where
+              A.OWNER_COMP = #ownerComp#
+              and B.OUTER_PKG_CD = #outerCd#
+              and A.OWNER_COMP = B.OWNER_COMP
+              and A.OUTER_PKG_CD = B.OUTER_PKG_CD
+              and B.OWNER_COMP = C.OWNER_COMP
+              and B.PKG_ITEM_NO = C.PKG_ITEM_NO
+          )
+        group by
+          WEIGHT_UNIT
+    </select>
+
+    <select id="SearchCntShipperCd" resultMap="WsBhtEisProductDomain_SearchCntShipperCd"
+     parameterClass="Ws2501CntShipperCdCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchCntShipperCd */
+            count(SHIPPER_CD) as CNT_SHIPPER_CD
+        from (
+            select
+                SHIPPER_CD
+            from
+                TT_PLTZ
+            where
+            <iterate property="mainMarkList" prepend="MAIN_MARK in " open="(" close=")" conjunction=",">
+                #mainMarkList[]#
+            </iterate>
+            group by SHIPPER_CD
+        )
+
+    </select>
+
+    <select id="SearchSumCmlWeightForUnit" resultMap="WsBhtEisProductDomain_SearchSumCmlWeightForUnit"
+     parameterClass="Ws2501SumCmlWeightForUnitCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchSumCmlWeightForUnit */
+            WEIGHT_UNIT
+            , SUM(NET_WEIGHT) AS SUM_NET_WEIGHT
+            , SUM(GROSS_WEIGHT) AS SUM_GROSS_WEIGHT
+        from
+            TT_PLTZ
+        where
+            <iterate property="mainMarkList" prepend="MAIN_MARK in " open="(" close=")" conjunction=",">
+                #mainMarkList[]#
+            </iterate>
+        group by
+            WEIGHT_UNIT
+    </select>
+
+    <select id="SearchCmlPrintNum"  resultMap="WsBhtEisProduct_SearchCmlPrintNum"
+        parameterClass="Ws2501CmlPrintNumCriteriaDomain">
+        select /* SqlMap-WsBhtEisProduct.SearchCmlPrintNum */
+            B.CML_PRINT_NUM CML_PRINT_NUM
+        from TT_PLTZ A
+            ,TM_NXS_COMP B
+        where
+            A.MAIN_MARK = #mainMark#
+        and A.SHIPPER_CD = B.COMP_CD
+    </select>
+
+    <select id="SearchTmExpShipToShippingByKey" resultMap="WsBhtEisProductDomain_SearchTmExpShipToShippingByKey"
+        parameterClass="Ws2501TmExpShipToShippingByKeyCriteriaDomain">
+        SELECT  /* SqlMap-WsBhtEisProduct.SearchTmExpShipToShippingByKey */
+            A.COMP_CD
+            ,A.SHIP_TO_CD
+            ,A.APLY_STRT_DT
+            ,A.CONTAINER_SORTING_KEY
+            ,A.LOADING_CD
+            ,A.LABEL_PRINT_NUM
+            ,A.CONTAINER_LOOSE_TYP
+            ,A.CUSTOM_TIMING_TYP
+        FROM
+            TM_EXP_SHIP_TO_SHIPPING A
+            , (
+                SELECT
+                    COMP_CD
+                    ,SHIP_TO_CD
+                    ,max(APLY_STRT_DT) APLY_STRT_DT
+                FROM
+                    TM_EXP_SHIP_TO_SHIPPING
+                WHERE
+                    COMP_CD = #compCd#
+                    AND SHIP_TO_CD = #shipToCd#
+                    AND APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+                GROUP BY
+                    COMP_CD
+                    ,SHIP_TO_CD
+            ) B
+        WHERE
+            A.COMP_CD = B.COMP_CD
+            AND A.SHIP_TO_CD = B.SHIP_TO_CD
+            AND A.APLY_STRT_DT = B.APLY_STRT_DT
+
+     </select>
+    <!-- =================================================================================================== -->
+    <!-- WS2510 / パレタイズのまとめメインマークを更新                                 -->
+    <!-- =================================================================================================== -->
+    <update id="UpdateTtPltzByXmainMark" parameterClass="java.util.Map">
+        update TT_PLTZ /* SqlMap-WsBhtEisProduct.UpdateTtPltzByXmainMark */
+        set XMAIN_MARK = #xmainMark#
+        where
+            <iterate property="condition" prepend="MAIN_MARK in " open="(" close=")" conjunction=",">
+                #condition[]#
+            </iterate>
+    </update>
+</sqlMap>

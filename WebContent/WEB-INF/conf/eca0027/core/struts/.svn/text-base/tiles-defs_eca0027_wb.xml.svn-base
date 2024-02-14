@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * tiles-defs_eca0027_wb.xml
+ *
+ * AI-J2(Struts) の Tiles 設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE tiles-definitions PUBLIC
+            "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+
+    <!-- 個別画面 -->
+    <!-- ====================================================================-->
+
+    <!--
+        この個別画面の定義名はaction-mappingsのforwardタグと紐付き、
+        header.jspにて画面IDとして共通的に埋め込まれます。
+        このため、この個別画面の定義名には、画面IDそのものを使用してください。
+    -->
+
+    <!-- Order Entry Header画面 -->
+    <definition name="WB001" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WB001"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WB001.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WB001"/>
+        <put name="js_filepath" value="js/eca0027/core/WB001.js"/>
+    </definition>
+
+    <!-- Order Entry Register画面 -->
+    <definition name="WB002" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WB002"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WB002.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WB002"/>
+        <put name="js_filepath" value="js/eca0027/core/WB002.js"/>
+    </definition>
+
+    <!-- Order Entry Multi PO Register画面 -->
+    <definition name="WB003" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WB003"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WB003.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WB003"/>
+        <put name="js_filepath" value="js/eca0027/core/WB003.js"/>
+    </definition>
+
+    <!-- Order Inquiry Main Screen画面 -->
+    <definition name="WB004" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WB004"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WB004.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WB004"/>
+        <put name="js_filepath" value="js/eca0027/core/WB004.js"/>
+    </definition>
+
+    <!-- Order Inquiry Detail画面 -->
+    <definition name="WB005" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WB005"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WB005.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WB005"/>
+        <put name="js_filepath" value="js/eca0027/core/WB005.js"/>
+    </definition>
+
+    <!-- Last Digit Change Main Screen画面 -->
+    <definition name="WB006" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WB006"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WB006.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WB006"/>
+        <put name="js_filepath" value="js/eca0027/core/WB006.js"/>
+    </definition>
+
+    <!-- Last Digit Change Register画面 -->
+    <definition name="WB007" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WB007"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WB007.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WB007"/>
+        <put name="js_filepath" value="js/eca0027/core/WB007.js"/>
+    </definition>
+
+    <!-- Order Upload画面 -->
+    <definition name="WB020" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WB020"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WB020.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WB020"/>
+        <put name="js_filepath" value="js/eca0027/core/WB020.js"/>
+    </definition>
+
+</tiles-definitions>

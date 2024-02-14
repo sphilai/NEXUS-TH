@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MainMenu">
+
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="MenuDomain"
+        type="com.globaldenso.gscm.framework.business.domain.MenuDomain" />
+    <typeAlias alias="UserDomain"
+        type="com.globaldenso.gscm.framework.business.domain.UserDomain" />
+    <!-- CriteriaDomain -->
+
+    <!-- 検索結果をMapで受け取る -->
+    <resultMap id="Menu" class="MenuDomain">
+        <result property="screenId" column="SCREEN_ID" />
+        <result property="screenNm" column="SCREEN_NM" />
+        <result property="dispOdr" column="DISP_ODR" />
+        <result property="parScreenId" column="PAR_SCREEN_ID" />
+        <result property="actionPath" column="ACTION_PATH" />
+        <result property="role" column="ROLE" />
+    </resultMap>
+
+    <!-- 汎用 項目 -->
+    <sql id="Cols">
+          A.SCREEN_ID
+          , A.SCREEN_NM
+          , A.DISP_ODR
+          , A.PAR_SCREEN_ID
+          , A.ACTION_PATH 
+          , B.ROLE 
+    </sql>
+
+    <!-- 汎用 SELECT句 -->
+    <sql id="Select">
+        select
+        <include refid="Cols" />
+        from 
+          (SELECT
+              TM_MENU.TM_MENU_SEQ AS TM_MENU_SEQ
+            , TM_MENU.SCREEN_ID AS SCREEN_ID
+            , TM_MENU_LNG.LNG_CD AS LNG_CD
+            , TM_MENU_LNG.SCREEN_NM AS SCREEN_NM
+            , TM_MENU.DISP_ODR AS DISP_ODR
+            , TM_MENU.PAR_SCREEN_ID AS PAR_SCREEN_ID
+            , TM_MENU.ACTION_PATH AS ACTION_PATH
+            , TM_MENU.MENU_DISP_FLG AS MENU_DISP_FLG
+           FROM
+            TM_MENU
+            INNER JOIN TM_MENU_LNG
+            ON TM_MENU.TM_MENU_SEQ = TM_MENU_LNG.TM_MENU_SEQ
+            AND TM_MENU.SCREEN_ID = TM_MENU_LNG.SCREEN_ID) A,
+          (SELECT DISTINCT
+              SCREEN_ID
+            , ROLE
+          FROM
+            TM_MENU_USE_AUTH_CNF 
+          WHERE
+            COMP_CD = #ownerCompCd#
+            AND ROLE IN ( 
+              SELECT
+                ROLE 
+              FROM
+                TT_USER_AUTH_MGT 
+              WHERE
+                DSC_ID = #dscId#
+            AND AUTH_MGT_COMP IN ('999', #ownerCompCd#)
+            )
+          ) B
+    </sql>
+
+    <!-- 汎用 Where句（主キー） -->
+    <sql id="WhereKey">
+        <!-- IDの条件 -->
+    </sql>
+    
+    <!-- 基本結合条件 -->
+    <sql id="joinBase">
+        A.SCREEN_ID = B.SCREEN_ID(+)
+    </sql>
+
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeys">
+        order by 
+         A.DISP_ODR
+    </sql>
+
+    <!-- 検索 SQL文（主キー） -->
+    <select id="SearchByMainMenu" resultMap="Menu"
+        parameterClass="UserDomain">
+        <include refid="Select" />
+        <dynamic prepend="where">
+            <include refid="joinBase"/>
+              AND A.MENU_DISP_FLG = '1'
+              AND A.LNG_CD = #languageCd#
+        </dynamic>
+        <include refid="SortKeys"/>
+    </select>
+</sqlMap>

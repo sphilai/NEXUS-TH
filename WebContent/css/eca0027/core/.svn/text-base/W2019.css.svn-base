@@ -1,0 +1,172 @@
+@charset "utf-8";
+/*
+ * W2019.css
+ * 
+ * CML Trans Revise 画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+
+/* UT110 TRIAL SHIPMENT/号試品対応 ADD */
+table.gscm_search {
+    width:1010px;
+}
+
+/*----- 1段目 -----*/
+.gscm_search .search_shipper_cd {
+    width: 69px;
+}
+
+.gscm_search .search_customer_cd {
+    width: 80px;
+}
+
+.gscm_search .search_lgcy_ship_to {
+    width: 59px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 59px;
+}
+
+.gscm_search .search_plnt_cd {
+    width: 78px;
+}
+
+.gscm_search .search_lgcy_wh_cd {
+    width: 49px;
+}
+
+.gscm_search .search_main_mark {
+    width: 146px;
+}
+
+.gscm_search .search_pkg_form_typ {
+    width: 127px;
+}
+
+.gscm_search .search_original_outer_pkg_cd {
+    /*width: 140px;*/ /* UT420 DEL */
+}
+
+/*----- 2段目 -----*/
+.gscm_search .search_outer_pkg_cd {
+    width: 200px;
+}
+
+.gscm_search .search_packaging_confirmed_flg {
+    /*width: 182px;*/
+    width: 120px; /* UT420 MOD */
+}
+
+.gscm_search .search_volume {
+    width: 172px;
+}
+
+.gscm_search .search_net_weight {
+    width: 131px;
+}
+
+.gscm_search .search_gross_weight {
+}
+
+/* UT110 TRIAL SHIPMENT/号試品対応 ADD START */
+.gscm_search .search_manual_length {
+    width: 90px;
+}
+.gscm_search .search_manual_width {
+    width: 90px;
+}
+.gscm_search .search_manual_height {
+    width: 90px;
+}
+.gscm_search .search_manual_volume {
+    width: 145px;
+}
+.gscm_search .search_manual_net_weight {
+    width: 110px;
+}
+.gscm_search .search_manual_gross_weight {
+}
+/* UT420 MOD */
+.gscm_search .thin {
+    height: 18px;
+}
+.gscm_search .thin td { /* UT420 MOD */
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 12px;
+}
+/* UT110 TRIAL SHIPMENT/号試品対応 ADD END */
+
+/*----- 3段目 -----*/
+/* UT420 ADD */
+.gscm_search .search_pallet_carton {
+}
+.gscm_search .search_revise_flg {
+    width: 800px;
+}
+
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 960px;
+}
+
+.gscm_resultlist .resultlist_kit_par_item_no {
+    width: 211px;
+}
+
+.gscm_resultlist .resultlist_pkg_cd {
+    width: 77px;
+}
+
+.gscm_resultlist .resultlist_item_description {
+    width: 221px;
+}
+
+.gscm_resultlist .resultlist_shipping_lot {
+    width: 96px;
+}
+
+.gscm_resultlist .resultlist_instr_qty {
+    width: 96px;
+}
+
+.gscm_resultlist .resultlist_qty {
+    width: 134px;
+}
+
+.gscm_resultlist .resultlist_tag_qty {
+    width: 125px;
+}
+
+/*------------ 検索結果エリア 表示用テキスト ------------*/ 
+
+.w2019_pltz_item_no_disptext {
+    width: 190px;
+}
+
+.w2019_item_description_disptext {
+    width: 200px;
+}
+
+/*------------ 表示幅 ------------*/ 
+
+.w2019_trns_cd {
+    width: 26px;
+}
+
+.w2019_main_mark {
+    width: 146px;
+}
+
+.w2019_volume_unit {
+    width: 40px;
+}
+
+.w2019_weight_unit {
+    width: 40px;
+}

@@ -1,0 +1,19 @@
+﻿@charset "utf-8";
+/*
+ * env.css 
+ * 
+ * [JP] 環境切替で用いるスタイルシートです。 (ローカル環境用)
+ * [EN] It is a style sheet to use by environmental reshuffling. (For local environment)
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*============================================================
+ * GSCMスタイル変更
+ *============================================================*/
+ 
+/*========================= 画面全体 =========================*/
+/*========================= All parts of window =========================*/
+body {
+    background-color: #e1eecc;
+}

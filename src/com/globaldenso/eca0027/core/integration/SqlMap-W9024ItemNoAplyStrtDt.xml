@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * SqlMap-W9024ItemNoAplyStrtDt.xml
+ *
+ * W9024ItemNoAplyStrtDtのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ 
+<sqlMap namespace="W9024ItemNoAplyStrtDt">
+    <!-- ================================================== -->
+    <!-- Domainの別名定義                                   -->
+    <!-- ================================================== -->
+    <!-- Domain -->
+    <typeAlias alias="W9024ItemNoAplyStrtDtItemDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W9024ItemNoAplyStrtDtItemDomain" />
+    
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W9024ItemNoAplyStrtDtCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W9024ItemNoAplyStrtDtCriteriaDomain" />
+    
+    <!-- ================================================== -->
+    <!-- 検索結果をMapで受け取る                            -->
+    <!-- ================================================== -->
+    <resultMap id="W9024ItemNoAplyStrtDtItemDomain_SearchTmPkgSpecRev" class="W9024ItemNoAplyStrtDtItemDomain">
+        <result property="rev" column="REV" />
+        <result property="aplyStrtDt" column="APLY_STRT_DT" />
+        <result property="comUpdateFuncId" column="COM_UPDATE_FUNC_ID" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+    </resultMap>
+    
+    <!-- ================================================== -->
+    <!-- 実行SQL                                            -->
+    <!-- ================================================== -->
+  
+    <select id="SearchTmPkgSpecRev"
+        resultMap="W9024ItemNoAplyStrtDtItemDomain_SearchTmPkgSpecRev" parameterClass="W9024ItemNoAplyStrtDtCriteriaDomain">
+        select 
+            /* W9024ItemNoAplyStrtDt.SearchTmPkgSpecRev */
+            T1.REV
+            , T1.APLY_STRT_DT
+            , T1.COM_UPDATE_FUNC_ID
+            , T1.COM_UPDATE_TIMESTAMP
+        from
+            TM_PKG_SPEC_REV T1
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="compCd">
+                T1.COMP_CD = #compCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNo">
+                T1.ITEM_NO = #itemNo#
+            </isNotEmpty>
+            <isEmpty prepend="and" property="pkgCd">
+                T1.PKG_CD = ' '
+            </isEmpty>
+            <isNotEmpty prepend="and" property="pkgCd">
+                T1.PKG_CD = #pkgCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCd">
+                T1.TRNS_CD = #trnsCd#
+            </isNotEmpty>
+            <isParameterPresent prepend="and">
+                T1.N_PROC = ' '
+            </isParameterPresent>
+            <isParameterPresent prepend="and">
+                T1.COMP_CD in (select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+            </isParameterPresent>
+            <isNotEmpty prepend = "and" property = "userAuthList">
+                <iterate property = "userAuthList" conjunction = "," open=" T1.COMP_CD in (" close=")">
+                    #userAuthList[].authMgtComp#
+                </iterate >
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <select id="SerachTmPkgSpecRevHis"
+        resultClass="java.lang.Integer" parameterClass="W9024ItemNoAplyStrtDtCriteriaDomain">
+        select 
+            /* SqlMap-W9024ItemNoAplyStrtDt.SerachTmPkgSpecRevHis */
+            nvl(max(A.BRCH), 0)
+        from
+            TM_PKG_SPEC_REV_HIS A
+        <dynamic prepend="where">
+            <isNotNull prepend="and" property="compCd">
+                COMP_CD = #compCd#
+            </isNotNull>
+            <isNotNull prepend="and" property="itemNo">
+                ITEM_NO = #itemNo#
+            </isNotNull>
+            <isNotNull prepend="and" property="pkgCd">
+                PKG_CD = #pkgCd#
+            </isNotNull>
+            <isNotNull prepend="and" property="trnsCd">
+                TRNS_CD = #trnsCd#
+            </isNotNull>
+            <isParameterPresent prepend="and">
+                N_PROC = ' '
+            </isParameterPresent>
+        </dynamic>
+    </select>
+</sqlMap>

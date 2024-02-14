@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * applicationContext-library.xml
+ * 
+ * [JP] アプリ基盤 共通部品用の Spring 設定ファイルです。
+ * [JP] 各システムが利用する共通部品の Bean 定義はこのファイルに記述してください。
+ * 
+ * [EN] This is the Spring configuration file for the common library of the Application Development Infrastructure.
+ * [EN] Please write to this file Bean definition of common library used by each system.
+ * 
+ * $ applicationContext-library.xml 4294 2013-05-15 12:30:57Z HIDETOSHI_NAKATANI@denso.co.jp $
+ *
+ * Copyright (c) 2011 DENSO IT SOLUTIONS. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!-- [JP] Service実装  ====================================================== -->
+    <!-- [EN] Implementation Service ============================================ -->
+    <!-- [JP]   利用する共通部品の Service はここに定義してください。             -->
+    <!-- [EN]   Please define Service of common library to use here.              -->
+    <!-- =================================================================== -->
+    <!-- 時差管理部品 -->
+    <!-- Summertime manage Service -->
+    <bean id="summertimeManageService" class="com.globaldenso.ai.library.timezonemanage.business.service.SummertimeManageServiceImpl">
+        <property name="summertimeManageDao" ref="summertimeManageDao" />
+    </bean>
+    <!-- Timezone manage Service -->
+    <bean id="timezoneManageService" class="com.globaldenso.ai.library.timezonemanage.business.service.TimezoneManageServiceImpl">
+        <property name="timezoneManageDao" ref="timezoneManageDao" />
+    </bean>
+    <!-- Timezone manage Facade Service -->
+    <bean id="timezoneManageFacadeService" class="com.globaldenso.ai.library.timezonemanage.business.service.TimezoneManageFacadeServiceImpl">
+        <property name="summertimeManageService" ref="summertimeManageService" />
+        <property name="timezoneManageService" ref="timezoneManageService" />
+    </bean>    
+    <bean id="fileManagerServiceForStream" class="com.globaldenso.ai.library.filemanagerstream.business.service.FileManagementServiceImpl">
+        <property name="fileManagerDaoForStream" ref="fileManagerDaoForStream"/>
+    </bean>
+
+    <!-- 問合せ先表示部品 -->
+    <bean id="contactInfoDetailService" class="com.globaldenso.ai.library.contactinfodisplay.business.service.ContactInfoDetailServiceImpl">
+        <property name="contactInfoDetailDao" ref="contactInfoDetailDao" />
+    </bean>
+    <bean id="contactInfoSystemService" class="com.globaldenso.ai.library.contactinfodisplay.business.service.ContactInfoSystemServiceImpl">
+        <property name="contactInfoSystemDao" ref="contactInfoSystemDao" />
+    </bean>
+    
+    <!-- [JP] DAO実装 =========================================================== -->
+    <!-- [EN] Implementation DAO ================================================ -->
+    <!-- [JP]   利用する共通部品の DAO はここに定義してください。                 -->
+    <!-- [EN]   Please define DAO of common library to use here.                  -->
+    <!-- =================================================================== -->
+    <!-- 時差管理部品 -->
+    <!-- Summertime manage DAO -->
+    <bean id="summertimeManageDao" class="com.globaldenso.ai.library.timezonemanage.integration.SummertimeManageDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <!-- Timezone manage DAO -->
+    <bean id="timezoneManageDao" class="com.globaldenso.ai.library.timezonemanage.integration.TimezoneManageDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="fileManagerDaoForStream" class="com.globaldenso.ai.library.filemanagerstream.integration.FileManagementDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- 問合せ先表示部品 -->
+    <bean id="contactInfoDetailDao" class="com.globaldenso.ai.library.contactinfodisplay.integration.ContactInfoDetailDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="contactInfoSystemDao" class="com.globaldenso.ai.library.contactinfodisplay.integration.ContactInfoSystemDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+</beans>

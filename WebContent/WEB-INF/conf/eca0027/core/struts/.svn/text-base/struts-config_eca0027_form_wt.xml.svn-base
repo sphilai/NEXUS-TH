@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config_eca0027_form_wT.xml
+ * 
+ * AI-J2(Struts) の form設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <display-name></display-name>
+    <description></description>
+
+    <!-- Application Form Bean Definitions ================================= -->
+    <form-beans>
+        <!-- WT001: 会社選択子画面 -->
+        <form-bean name="WT001Form"
+            type="com.globaldenso.eca0027.core.presentation.Wt001ActionForm">
+        </form-bean>
+        
+        <!-- WT002: 会社選択子画面 -->
+        <form-bean name="WT002Form"
+            type="com.globaldenso.eca0027.core.presentation.Wt002ActionForm">
+        </form-bean>
+        
+        <!-- WT004: 包装材選択子画面 -->
+        <form-bean name="WT004Form"
+            type="com.globaldenso.eca0027.core.presentation.Wt004ActionForm">
+        </form-bean>
+        
+        <!--  WT005: メインマーク表示子画面 --> 
+        <form-bean name="WT005Form"
+            type="com.globaldenso.eca0027.core.presentation.Wt005ActionForm"> 
+        </form-bean>
+        
+        <!-- WT006:外装選択子画面 -->
+        <form-bean name="WT006Form"
+            type="com.globaldenso.eca0027.core.presentation.Wt006ActionForm">
+        </form-bean>
+        
+        <!--  WT007: 品番表示子画面  --> 
+        <form-bean name="WT007Form"
+            type="com.globaldenso.eca0027.core.presentation.Wt007ActionForm"> 
+        </form-bean>
+        
+        <!-- WT008:港選択子画面 -->
+        <form-bean name="WT008Form"
+            type="com.globaldenso.eca0027.core.presentation.Wt008ActionForm">
+        </form-bean>
+        
+        <!-- WT010:倉庫選択子画面 -->
+        <form-bean name="WT010Form"
+            type="com.globaldenso.eca0027.core.presentation.Wt010ActionForm">
+        </form-bean>
+        
+        <!-- WT011:国選択子画面 -->
+        <form-bean name="WT011Form"
+            type="com.globaldenso.eca0027.core.presentation.Wt011ActionForm">
+        </form-bean>
+        
+        <!-- WT014:送荷先選択子画面 -->
+        <form-bean name="WT014Form"
+            type="com.globaldenso.eca0027.core.presentation.Wt014ActionForm">
+        </form-bean>
+        
+        <!-- WT015:売価登録なし品番表示子画面 -->
+        <form-bean name="WT015Form"
+            type="com.globaldenso.eca0027.core.presentation.Wt015ActionForm">
+        </form-bean>
+        
+        <!-- WT016:HSCODE登録なし品番表示子画面 -->
+        <form-bean name="WT016Form"
+            type="com.globaldenso.eca0027.core.presentation.Wt016ActionForm">
+        </form-bean>
+        
+        <!-- WT017:船積実績ワーニングリスト子画面 -->
+        <form-bean name="WT017Form"
+            type="com.globaldenso.eca0027.core.presentation.Wt017ActionForm">
+        </form-bean>
+        
+        <!--  WT018:コンテナNo表示子画面 --> 
+        <form-bean name="WT018Form"
+            type="com.globaldenso.eca0027.core.presentation.Wt018ActionForm"> 
+        </form-bean>
+
+    </form-beans>
+</struts-config>

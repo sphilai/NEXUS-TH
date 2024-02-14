@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+/*
+ * W8004.css
+ * 
+ * 進度管理RTN Info画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+/*------------ 検索条件エリア ------------*/
+.grid.table_header1 {
+ 	width: 350px;
+}
+ 
+.table_header1 .grid_header1 {
+    width: 150px;
+}
+.table_header1 td.grid_void {
+    width: 0px;
+    margin: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    background-color: #f2f7fe;
+}
+.table_header1 .grid_void {
+    width: 0px;
+    border-width: 0px;
+    border-style: none;
+    margin: 0px;
+    padding: 0px;
+    font-size: 0px;
+    background-color: #f2f7fe;
+
+}
+.table_header1 .grid_void:focus {
+    outline: none;
+}
+
+.table_header1 .grid_contents1 {
+    width: 177px;
+}
+
+.w8004_pltz_item_no {
+    width: 152px;
+}
+
+.w8004_model_cd {
+    width: 152px;
+}
+
+.w8004_item_description {
+    width: 254px;
+}
+
+/*------------ 検索結果エリア ------------*/
+table.gscm_resultlist {
+    width: 665px;
+}
+
+.gscm_resultlist .resultlist_pltz_item_no {
+    width: 160px;
+}
+
+.gscm_resultlist .resultlist_model_cd {
+    width: 160px;
+}
+
+.gscm_resultlist .resultlist_item_description {
+    width: 266px;
+}

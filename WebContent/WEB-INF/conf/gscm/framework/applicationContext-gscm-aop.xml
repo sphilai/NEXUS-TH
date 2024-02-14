@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- GSCM Framework　提供ファイル（修正しないでください） -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <aop:config>
+        <!-- searchCount 検索件数処理 AOP  -->
+        <aop:pointcut id="daoAopSearchCount" expression="execution(int *..*Dao.searchCount*(..)) and args(com.globaldenso.gscm.framework.business.domain.AbstractDomain) and !execution(int com.globaldenso.aij2..*Dao.searchCount*(..)) and !execution(int com.globaldenso.ai..*Dao.searchCount*(..))" />
+
+        <!-- update 更新処理 AOP -->
+        <aop:pointcut id="daoAopUpdate" expression="execution(int *..*Dao.update*(..)) and !execution(int com.globaldenso.aij2..*Dao.update*(..)) and !execution(int com.globaldenso.ai..*Dao.update*(..))" />
+        <!-- delete 削除処理 AOP -->
+        <aop:pointcut id="daoAopDelete" expression="execution(int *..*Dao.delete*(..)) and !execution(int com.globaldenso.aij2..*Dao.delete*(..)) and !execution(int com.globaldenso.ai..*Dao.delete*(..))" />
+
+        <!-- searchCount 検索件数処理 AOP -->
+        <aop:advisor pointcut-ref="daoAopSearchCount" advice-ref="searchCountLimitAdvice" />
+
+         <!-- update 更新処理 AOP -->
+        <aop:advisor pointcut-ref="daoAopUpdate" advice-ref="noDataAffectedAdvice" />
+        <!-- delete 削除処理 AOP -->
+        <aop:advisor pointcut-ref="daoAopDelete" advice-ref="noDataAffectedAdvice" />
+        
+    </aop:config>
+    <!-- searchCount 検索条件処理 AOP  -->
+    <bean id="searchCountLimitAdvice" class="com.globaldenso.gscm.framework.aop.SearchCountLimitAdvice" />
+    
+    <!-- update 更新・削除処理 AOP  -->
+    <bean id="noDataAffectedAdvice" class="com.globaldenso.gscm.framework.aop.NoDataAffectedAdvice" />
+
+ </beans>

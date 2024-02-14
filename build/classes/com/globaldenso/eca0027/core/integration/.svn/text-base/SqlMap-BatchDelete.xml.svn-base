@@ -1,0 +1,3304 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * SqlMap-BatchDelete.xml
+ *
+ * ComnAuxDaoのSqlMapファイルです。
+ * バッチジョブ「ECA0027T0100 不要データ削除」から使われます。
+ *
+ * 以下の仕様をベースに作成しています。
+ * - trunk\200_外部設計\011_外部設計書(更新不可12月版)\08_Job Definition Document\T_Common Auxiliary Screen\ジョブ定義書_ECA0027T0100_不要データ削除.xls
+ *      revision 358 シート「出荷データ削除」
+ * - trunk\300_内部設計\370_SQLMap定義書\08_Job Definition Document\T_Common Auxiliary Screen\SQLMap Definition Document (T_Common Auxiliary Screen) .xls
+ *      revision 2316
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ComnAux">
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="T0100BatchDeleteDomain"
+        type="com.globaldenso.eca0027.core.business.domain.T0100BatchDeleteDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="T0100BatchDeleteCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.T0100BatchDeleteCriteriaDomain" />
+
+    <!-- 検索結果をMapで受け取る -->
+    <resultMap id="T0100BatchDeleteDomain_SearchTtPltzItemMixtag" class="T0100BatchDeleteDomain">
+        <result property="mixTagNo" column="MIX_TAG_NO" />
+    </resultMap>
+
+    <resultMap id="T0100BatchDeleteDomain_SearchTtPltzItemPltzInstrNo" class="T0100BatchDeleteDomain">
+        <result property="pltzInstrNo" column="PLTZ_INSTR_NO" />
+    </resultMap>
+
+    <resultMap id="T0100BatchDeleteDomain_SearchTtPltzXMainMark" class="T0100BatchDeleteDomain">
+        <result property="xMainMark" column="XMAIN_MARK" />
+    </resultMap>
+
+    <resultMap id="T0100BatchDeleteDomain_SearchTtPltzStagingInstr" class="T0100BatchDeleteDomain">
+        <result property="stgInstrNo" column="STG_INSTR_NO" />
+    </resultMap>
+
+    <resultMap id="T0100BatchDeleteDomain_SearchTtPltzStagingActuality" class="T0100BatchDeleteDomain">
+        <result property="stgActNo" column="STG_ACT_NO" />
+    </resultMap>
+
+    <!-- =================================================================================================== -->
+
+    <!-- テーブル別名  -->
+    <!-- このファイルでは、以下の別名を用いています。 -->
+
+    <!-- 複数のSQL文から共通して参照されるもの -->
+
+    <!-- テーブル物理名          別名 和名 -->
+    <!-- _______________________ ___  ____ -->
+    <!-- TT_SHIPPING_ACT         SHA  船積実績T -->
+    <!-- TT_SHIPPING_DOCUMENT    SHD  船積書類T -->
+    <!-- TT_INVOICE              IVE  インボイスT一般。メイン/キャンセル含む -->
+    <!-- TT_INVOICE              IVR  インボイスT(リインボイス) -->
+    <!-- TT_INVOICE              IVF  インボイスT(FRT) -->
+    <!-- TT_INVOICE              IVC  インボイスT(キャンセル) -->
+    <!-- TT_INVOICE_HEADER       IVH  インボイスヘッダT -->
+    <!-- TT_INVOICE_ATTACHED     IVA  インボイスアタッチT -->
+    <!-- TT_PLTZ                 PLT  パレタイズT -->
+    <!-- TT_PLTZ_ITEM            PIT  パレタイズ対象品T -->
+    <!-- TT_PACK_ATCH_ITEM_NO    PAN  パッキングアタッチ_品目番号T -->
+    <!-- TT_PACKING_ATTACHED_CML PAC  パッキングアタッチ_CMLT -->
+    <!-- TT_PACKING_HEAD         PKH  パッキングヘッダT -->
+    <!-- LB_FILE_MANAGER         FLM  ファイル管理T -->
+
+    <!-- 個別のSQL文で利用しているもの -->
+
+    <!-- テーブル物理名          別名 和名 -->
+    <!-- _______________________ ___  ____ -->
+    <!-- TT_SHIPPING_FIRM        SHF  出荷確認T -->
+    <!-- TT_SHIPPING_ACT_ODR     SHO  船積実績対象品受注情報T -->
+    <!-- TT_STG_INSTR            STI  荷揃え指示T -->
+    <!-- TT_STG_ACT              STA  山作り実績T -->
+    <!-- TT_PLTZ_ITEM_ODR        PIO  パレタイズ対象品受注情報T -->
+    <!-- TT_PLTZ_INSTR           PLI  梱包指示T -->
+    <!-- TT_PLTZ_INSTR_ODR       PLO  梱包指示品目番号受注情報T -->
+    <!-- TT_PLTZ_INSTR_ITEM_NO   PLN  梱包指示品目番号T -->
+    <!-- TT_PLTZ_KANBAN          PLK  パレタイズ対象品かんばん情報T -->
+    <!-- TT_MIX_KANBAN           MXK  Mix品かんばん情報T -->
+    <!-- TT_MIXTAG               MXT  MIXED現品票T -->
+    <!-- TT_MIXTAG_ITEM_NO       MXN  MIXED品目番号T -->
+    <!-- TT_MIXTAG_RT            MXR  MIXED用RT材T -->
+    <!-- TT_MIXTAG_ODR           MXO  MIXED品目番号受注情報T -->
+    <!-- TT_EXP_RCV_ODR          ERO  輸出受注T -->
+    <!-- TT_CML_ERROR_HEADER     CEH  CMLエラーレポートヘッダ -->
+    <!-- TT_CML_ERROR_DTL        CED  CMLエラーレポート明細 -->
+    <!-- TT_BHT_WORK_PLTZ        BWP  BHT作業情報テーブル(パレタイズ) -->
+    <!-- TT_BHT_WORK_MIX_TAG     BWM  BHT作業情報テーブル(小箱内多品) -->
+    <!-- TT_BHT_WORK_ERR         BWE  BHT作業エラー -->
+    <!-- TT_BHT_WORK_TIME        BWT  BHT作業時間 -->
+    <!-- TT_EDI_RCV_ODR_BK       ERB  EDI受注バックアップ -->
+    <!-- TM_PKG_SPEC_REV         PSR  包装仕様有効リビジョン原単位 -->
+    <!-- TM_PKG_SPEC_REV_HIS     PSH  包装仕様有効リビジョン履歴原単位 -->
+    <!-- TM_CIGMA_SHIP_TO_XREF   CSX  NEXUS送荷先クロスリファレンス原単位T -->
+
+    <!-- =================================================================================================== -->
+    <!-- 不要データ削除 / 検索                                                                               -->
+    <!-- =================================================================================================== -->
+
+    <!-- シート「出荷データ削除」 0.1.1 Where句 抽出条件-->
+    <sql id="WhereCondition_RegisterDate">
+        SHA.REGISTER_DT &lt; add_months(sysdate, -14)
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.1 パターン(A) -->
+    <sql id="Tables_PatternA">
+         TT_SHIPPING_ACT SHA
+    </sql>
+    <sql id="Tables_PatternA_without_SHA">
+         dual
+    </sql>
+    <sql id="WhereCondition_PatternA">
+            (<include refid="WhereCondition_RegisterDate" />)
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.1 パターン(B) -->
+    <sql id="SubQuery_PatternB">
+        (
+            select
+                IVE.SHIPPER_CD
+               ,IVE.INVOICE_NO
+               ,IVE.INVOICE_ISSUE_DT
+            from
+                TT_SHIPPING_ACT SHA
+               ,TT_INVOICE IVE
+            where
+                    IVE.SHIPPING_ACT_NO = SHA.SHIPPING_ACT_NO
+                and (<include refid="WhereCondition_RegisterDate" />)
+        )
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.1 パターン(C) -->
+    <sql id="Tables_PatternC">
+         TT_SHIPPING_ACT SHA
+        ,TT_INVOICE IVE
+        ,TT_PLTZ PLT
+    </sql>
+    <sql id="Tables_PatternC_without_PLT">
+         TT_SHIPPING_ACT SHA
+        ,TT_INVOICE IVE
+    </sql>
+    <sql id="WhereCondition_PatternC">
+            IVE.SHIPPING_ACT_NO  = SHA.SHIPPING_ACT_NO
+        and PLT.SHIPPER_CD       = IVE.SHIPPER_CD
+        and PLT.INVOICE_NO       = IVE.INVOICE_NO
+        and PLT.INVOICE_ISSUE_DT = IVE.INVOICE_ISSUE_DT
+        and (<include refid="WhereCondition_RegisterDate" />)
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.1 パターン(D) -->
+    <sql id="Tables_PatternD">
+         TT_SHIPPING_ACT SHA
+        ,TT_INVOICE IVE
+        ,TT_PLTZ PLT
+        ,TT_PLTZ_ITEM PIT
+    </sql>
+    <sql id="WhereCondition_PatternD">
+            IVE.SHIPPING_ACT_NO  = SHA.SHIPPING_ACT_NO
+        and PLT.SHIPPER_CD       = IVE.SHIPPER_CD
+        and PLT.INVOICE_NO       = IVE.INVOICE_NO
+        and PLT.INVOICE_ISSUE_DT = IVE.INVOICE_ISSUE_DT
+        and PIT.MAIN_MARK        = PLT.MAIN_MARK
+        and (<include refid="WhereCondition_RegisterDate" />)
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.1 パターン(E) -->
+    <sql id="SubQuery_PatternE">
+        (
+            select
+                IVR.SHIPPER_CD
+               ,IVR.INVOICE_NO
+               ,IVR.INVOICE_ISSUE_DT
+            from
+                TT_SHIPPING_ACT SHA
+               ,TT_INVOICE IVE
+               ,TT_INVOICE IVR
+            where
+                    IVE.SHIPPING_ACT_NO           = SHA.SHIPPING_ACT_NO
+                and IVR.RELATE_INVOICE_SHIPPER_CD = IVE.SHIPPER_CD
+                and IVR.RELATE_INVOICE_NO         = IVE.INVOICE_NO
+                and IVR.RELATE_INVOICE_ISSUE_DT   = IVE.INVOICE_ISSUE_DT
+                and (<include refid="WhereCondition_RegisterDate" />)
+        )
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.1 パターン(F) -->
+    <sql id="SubQuery_PatternF">
+        (
+            select
+                IVF.SHIPPER_CD
+               ,IVF.INVOICE_NO
+               ,IVF.INVOICE_ISSUE_DT
+            from
+                TT_SHIPPING_ACT SHA
+               ,TT_INVOICE IVE
+               ,TT_INVOICE IVF
+            where
+                    IVE.SHIPPING_ACT_NO        = SHA.SHIPPING_ACT_NO
+                and IVF.PAR_INVOICE_SHIPPER_CD = IVE.SHIPPER_CD
+                and IVF.PAR_INVOICE_NO         = IVE.INVOICE_NO
+                and IVF.PAR_INVOICE_ISSUE_DT   = IVE.INVOICE_ISSUE_DT
+                and IVF.INVOICE_CLASS          = 'F'
+                and (<include refid="WhereCondition_RegisterDate" />)
+        )
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.2 Where句 抽出条件-->
+    <sql id="WhereCondition_DeleteCancellationInvoice">
+            IVC.CANCEL_TYP = 'C' <!-- キャンセルインボイス -->
+        and IVC.COM_UPDATE_TIMESTAMP &lt; add_months(sysdate, -14)
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.2 パターン(G) -->
+    <sql id="SubQuery_PatternG">
+        (
+            select
+                IVC.SHIPPER_CD
+               ,IVC.INVOICE_NO
+               ,IVC.INVOICE_ISSUE_DT
+            from
+                TT_INVOICE IVC
+            where
+                (<include refid="WhereCondition_DeleteCancellationInvoice" />)
+        )
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.2 パターン(H) -->
+    <sql id="SubQuery_PatternH">
+        (
+            select
+                 IVE.SHIPPER_CD
+                ,IVE.INVOICE_NO
+                ,IVE.INVOICE_ISSUE_DT
+            from
+                TT_INVOICE IVC
+               ,TT_INVOICE IVE
+            where
+                    IVC.SHIPPER_CD                = IVE.SHIPPER_CD
+                and IVC.CANCEL_INVOICE_NO         = IVE.INVOICE_NO
+                and IVC.CANCEL_INVOICE_ISSUE_DT   = IVE.INVOICE_ISSUE_DT
+                and (<include refid="WhereCondition_DeleteCancellationInvoice" />)
+        )
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.2 パターン(I) -->
+    <sql id="SubQuery_PatternI">
+        (
+            select
+                 IVR.SHIPPER_CD
+                ,IVR.INVOICE_NO
+                ,IVR.INVOICE_ISSUE_DT
+            from
+                TT_INVOICE IVC
+               ,TT_INVOICE IVE
+               ,TT_INVOICE IVR
+            where
+                    IVE.SHIPPER_CD                = IVR.RELATE_INVOICE_SHIPPER_CD
+                and IVE.INVOICE_NO                = IVR.RELATE_INVOICE_NO
+                and IVE.INVOICE_ISSUE_DT          = IVR.RELATE_INVOICE_ISSUE_DT
+                and IVC.SHIPPER_CD                = IVE.SHIPPER_CD
+                and IVC.CANCEL_INVOICE_NO         = IVE.INVOICE_NO
+                and IVC.CANCEL_INVOICE_ISSUE_DT   = IVE.INVOICE_ISSUE_DT
+                and (<include refid="WhereCondition_DeleteCancellationInvoice" />)
+        )
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.2 パターン(J) -->
+    <sql id="SubQuery_PatternJ">
+        (
+            select
+                 IVF.SHIPPER_CD
+                ,IVF.INVOICE_NO
+                ,IVF.INVOICE_ISSUE_DT
+            from
+                TT_INVOICE IVC
+               ,TT_INVOICE IVE
+               ,TT_INVOICE IVF
+            where
+                    IVE.SHIPPER_CD                = IVF.PAR_INVOICE_SHIPPER_CD
+                and IVE.INVOICE_NO                = IVF.PAR_INVOICE_NO
+                and IVE.INVOICE_ISSUE_DT          = IVF.PAR_INVOICE_ISSUE_DT
+                and IVC.SHIPPER_CD                = IVE.SHIPPER_CD
+                and IVC.CANCEL_INVOICE_NO         = IVE.INVOICE_NO
+                and IVC.CANCEL_INVOICE_ISSUE_DT   = IVE.INVOICE_ISSUE_DT
+                and IVF.INVOICE_CLASS             = 'F'
+                and (<include refid="WhereCondition_DeleteCancellationInvoice" />)
+        )
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.2 パターン(K) -->
+    <sql id="SubQuery_PatternK">
+        (
+            select
+                 IVR.SHIPPER_CD
+                ,IVR.INVOICE_NO
+                ,IVR.INVOICE_ISSUE_DT
+            from
+                TT_INVOICE IVC
+               ,TT_INVOICE IVR
+            where
+                    IVC.SHIPPER_CD       = IVR.RELATE_INVOICE_SHIPPER_CD
+                and IVC.INVOICE_NO       = IVR.RELATE_INVOICE_NO
+                and IVC.INVOICE_ISSUE_DT = IVR.RELATE_INVOICE_ISSUE_DT
+                and (<include refid="WhereCondition_DeleteCancellationInvoice" />)
+        )
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.2 パターン(L) -->
+    <sql id="SubQuery_PatternL">
+        (
+            select
+                 IVF.SHIPPER_CD
+                ,IVF.INVOICE_NO
+                ,IVF.INVOICE_ISSUE_DT
+            from
+                TT_INVOICE IVC
+               ,TT_INVOICE IVF
+            where
+                    IVC.SHIPPER_CD       = IVF.PAR_INVOICE_SHIPPER_CD
+                and IVC.INVOICE_NO       = IVF.PAR_INVOICE_NO
+                and IVC.INVOICE_ISSUE_DT = IVF.PAR_INVOICE_ISSUE_DT
+                and IVF.INVOICE_CLASS    = 'F'
+                and (<include refid="WhereCondition_DeleteCancellationInvoice" />)
+        )
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.3 Where句 抽出条件-->
+    <sql id="WhereCondition_DeleteManualInvoice">
+            IVE.MANUAL_FLG = 'Y'
+        and IVE.COM_UPDATE_TIMESTAMP &lt; add_months(sysdate, -14)
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.3 パターン(M) -->
+    <sql id="SubQuery_PatternM">
+        (
+            select
+                 IVE.SHIPPER_CD
+                ,IVE.INVOICE_NO
+                ,IVE.INVOICE_ISSUE_DT
+            from
+                TT_INVOICE IVE
+            where
+                (<include refid="WhereCondition_DeleteManualInvoice" />)
+        )
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.3 パターン(N) -->
+    <sql id="SubQuery_PatternN">
+        (
+            select
+                 IVR.SHIPPER_CD
+                ,IVR.INVOICE_NO
+                ,IVR.INVOICE_ISSUE_DT
+            from
+                TT_INVOICE IVE
+               ,TT_INVOICE IVR
+            where
+                    IVR.RELATE_INVOICE_SHIPPER_CD = IVE.SHIPPER_CD
+                and IVR.RELATE_INVOICE_NO         = IVE.INVOICE_NO
+                and IVR.RELATE_INVOICE_ISSUE_DT   = IVE.INVOICE_ISSUE_DT
+                and (<include refid="WhereCondition_DeleteManualInvoice" />)
+        )
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.1.3 パターン(O) -->
+    <sql id="SubQuery_PatternO">
+        (
+            select
+                 IVF.SHIPPER_CD
+                ,IVF.INVOICE_NO
+                ,IVF.INVOICE_ISSUE_DT
+            from
+                TT_INVOICE IVE
+               ,TT_INVOICE IVF
+            where
+                    IVF.PAR_INVOICE_SHIPPER_CD = IVE.SHIPPER_CD
+                and IVF.PAR_INVOICE_NO         = IVE.INVOICE_NO
+                and IVF.PAR_INVOICE_ISSUE_DT   = IVE.INVOICE_ISSUE_DT
+                and IVF.INVOICE_CLASS          = 'F'
+                and (<include refid="WhereCondition_DeleteManualInvoice" />)
+        )
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.2.1. 船積書類ファイル管理情報削除 -->
+    <!-- delete from LB_FILE_MANAGER FLM -->
+    <sql id="Tables_LbFileManagershippinAct">
+         TT_SHIPPING_DOCUMENT SHD
+    </sql>
+    <sql id="WhereCondition_LbFileManagershippinAct">
+            SHD.SHIPPER_CD             = IV_.SHIPPER_CD
+        and SHD.INVOICE_NO             = IV_.INVOICE_NO
+        and SHD.INVOICE_ISSUE_DT       = IV_.INVOICE_ISSUE_DT
+        and FLM.FILE_ID                = SHD.FILE_ID
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.2.2. 船積書類情報削除 -->
+    <!-- delete from TT_SHIPPING_DOCUMENT SHD -->
+    <sql id="Tables_TtShippingDocument">
+         DUAL
+    </sql>
+    <sql id="WhereCondition_TtShippingDocument">
+            SHD.SHIPPER_CD             = IV_.SHIPPER_CD
+        and SHD.INVOICE_NO             = IV_.INVOICE_NO
+        and SHD.INVOICE_ISSUE_DT       = IV_.INVOICE_ISSUE_DT
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.2.3. パッキングアタッチ_品目番号情報削除 -->
+    <!-- delete from TT_PACK_ATCH_ITEM_NO PAN -->
+    <sql id="Tables_TtPackAtchItemNo">
+         dual
+    </sql>
+    <sql id="WhereCondition_TtPackAtchItemNo">
+            PAN.SHIPPER_CD             = IV_.SHIPPER_CD
+        and PAN.INVOICE_NO             = IV_.INVOICE_NO
+        and PAN.INVOICE_ISSUE_DT       = IV_.INVOICE_ISSUE_DT
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.2.4. パッキングアタッチ_CML情報削除 -->
+    <!-- delete from TT_PACKING_ATTACHED_CML PAC -->
+    <sql id="Tables_TtPackingAttachedCml">
+         dual
+    </sql>
+    <sql id="WhereCondition_TtPackingAttachedCml">
+            PAC.SHIPPER_CD             = IV_.SHIPPER_CD
+        and PAC.INVOICE_NO             = IV_.INVOICE_NO
+        and PAC.INVOICE_ISSUE_DT       = IV_.INVOICE_ISSUE_DT
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.2.5. パッキング書類ファイル管理情報削除 -->
+    <!-- delete from LB_FILE_MANAGER FLM -->
+    <sql id="Tables_LbFileManagerPacking">
+         TT_PACKING_HEAD PKH
+    </sql>
+    <sql id="WhereCondition_LbFileManagerPacking">
+            PKH.SHIPPER_CD             = IV_.SHIPPER_CD
+        and PKH.INVOICE_NO             = IV_.INVOICE_NO
+        and PKH.INVOICE_ISSUE_DT       = IV_.INVOICE_ISSUE_DT
+        and FLM.FILE_ID                = PKH.FILE_ID
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.2.6. パッキングヘッダ情報削除 -->
+    <!-- delete from TT_PACKING_HEAD PKH -->
+    <sql id="Tables_TtPackingHead">
+         dual
+    </sql>
+    <sql id="WhereCondition_TtPackingHead">
+            PKH.SHIPPER_CD             = IV_.SHIPPER_CD
+        and PKH.INVOICE_NO             = IV_.INVOICE_NO
+        and PKH.INVOICE_ISSUE_DT       = IV_.INVOICE_ISSUE_DT
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.2.7. インボイスアタッチ情報削除 -->
+    <!-- delete from TT_INVOICE_ATTACHED IVA -->
+    <sql id="Tables_TtInvoiceAttached">
+         dual
+    </sql>
+    <sql id="WhereCondition_TtInvoiceAttached">
+            IVA.SHIPPER_CD             = IV_.SHIPPER_CD
+        and IVA.INVOICE_NO             = IV_.INVOICE_NO
+        and IVA.INVOICE_ISSUE_DT       = IV_.INVOICE_ISSUE_DT
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.2.8. インボイス書類ファイル管理情報削除 -->
+    <!-- delete from LB_FILE_MANAGER FLM -->
+    <sql id="Tables_LbFileManagerInvoice">
+         TT_INVOICE_HEADER IVH
+    </sql>
+    <sql id="WhereCondition_LbFileManagerInvoice">
+            IVH.SHIPPER_CD             = IV_.SHIPPER_CD
+        and IVH.INVOICE_NO             = IV_.INVOICE_NO
+        and IVH.INVOICE_ISSUE_DT       = IV_.INVOICE_ISSUE_DT
+        and FLM.FILE_ID                = IVH.FILE_ID
+    </sql>
+
+    <!-- シート「出荷データ削除」 0.2.9. インボイスヘッダ情報削除 -->
+    <!-- delete from TT_INVOICE_HEADER IVH -->
+    <sql id="Tables_TtInvoiceHeader">
+         dual
+    </sql>
+    <sql id="WhereCondition_TtInvoiceHeader">
+            IVH.SHIPPER_CD             = IV_.SHIPPER_CD
+        and IVH.INVOICE_NO             = IV_.INVOICE_NO
+        and IVH.INVOICE_ISSUE_DT       = IV_.INVOICE_ISSUE_DT
+    </sql>
+
+    <!-- シート「出荷データ削除」 インボイス情報削除 -->
+    <!-- delete from TT_INVOICE IVE -->
+    <sql id="WhereCondition_TtInvoice">
+            IVE.SHIPPER_CD             = IV_.SHIPPER_CD
+        and IVE.INVOICE_NO             = IV_.INVOICE_NO
+        and IVE.INVOICE_ISSUE_DT       = IV_.INVOICE_ISSUE_DT
+    </sql>
+
+    <!-- =================================================================================================== -->
+    <!-- 不要データ削除 / Main                                                                               -->
+    <!-- =================================================================================================== -->
+
+    <!-- 2. Mix品かんばん情報削除 -->
+    <delete id="DeleteTtMixKanban"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_MIX_KANBAN MXK
+        /* SqlMap-BatchDelete.deleteTtMixKanban */
+        where exists (
+            select *
+            from
+               <include refid="Tables_PatternD" />
+            where
+               <include refid="WhereCondition_PatternD" />
+               and MXK.MIX_TAG_NO = PIT.MIX_TAG_NO
+        )
+    </delete>
+
+    <!-- 3-1. Mixed品目番号受注情報削除 -->
+    <delete id="DeleteTtMixtagItemOdr"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_MIXTAG_ODR MXO
+        /* SqlMap-BatchDelete.deleteTtMixtagItemOdr */
+        where exists (
+            select *
+            from
+               <include refid="Tables_PatternD" />
+            where
+               <include refid="WhereCondition_PatternD" />
+               and MXO.MIX_TAG_NO = PIT.MIX_TAG_NO
+        )
+    </delete>
+
+    <!-- 3-2. Mixed品目番号情報削除 -->
+    <delete id="DeleteTtMixtagItemNo"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_MIXTAG_ITEM_NO MXN
+        /* SqlMap-BatchDelete.deleteTtMixtagItemNo */
+        where exists (
+            select *
+            from
+               <include refid="Tables_PatternD" />
+            where
+               <include refid="WhereCondition_PatternD" />
+               and MXN.MIX_TAG_NO = PIT.MIX_TAG_NO
+        )
+    </delete>
+
+    <!-- 4. Mixed用RT材情報削除 -->
+    <delete id="DeleteTtMixtagRt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_MIXTAG_RT MXR
+        /* SqlMap-BatchDelete.deleteTtMixtagRt */
+        where exists (
+            select *
+            from
+               <include refid="Tables_PatternD" />
+            where
+               <include refid="WhereCondition_PatternD" />
+               and MXR.MIX_TAG_NO = PIT.MIX_TAG_NO
+        )
+    </delete>
+
+    <!-- 5. 梱包指示品目番号受注情報削除 -->
+    <delete id="DeleteTtPltzInstrOdr"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PLTZ_INSTR_ODR PLO
+        /* SqlMap-BatchDelete.deleteTtPltzInstrOdr */
+        where exists (
+            select *
+            from
+               <include refid="Tables_PatternD" />
+            where
+               <include refid="WhereCondition_PatternD" />
+               and PLO.PLTZ_INSTR_NO = PIT.PLTZ_INSTR_NO
+        )
+    </delete>
+
+    <!-- 6. 梱包指示品目番号情報削除 -->
+    <delete id="DeleteTtPltzInstrItemNo"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PLTZ_INSTR_ITEM_NO PLN
+        /* SqlMap-BatchDelete.deleteTtPltzInstrOdr */
+        where exists (
+            select *
+            from
+               <include refid="Tables_PatternD" />
+            where
+               <include refid="WhereCondition_PatternD" />
+               and PLN.PLTZ_INSTR_NO = PIT.PLTZ_INSTR_NO
+        )
+    </delete>
+
+    <!-- 7. パレタイズ対象品受注情報削除 -->
+    <delete id="DeleteTtPltzItemOdr"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PLTZ_ITEM_ODR PIO
+        /* SqlMap-BatchDelete.deleteTtPltzItemOdr */
+        where exists (
+            select *
+            from
+               <include refid="Tables_PatternC" />
+            where
+               <include refid="WhereCondition_PatternC" />
+               and PIO.MAIN_MARK = PLT.MAIN_MARK
+        )
+    </delete>
+
+    <!-- 8. パレタイズ対象品かんばん情報削除 -->
+    <delete id="DeleteTtPltzKanban"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PLTZ_KANBAN PLK
+        /* SqlMap-BatchDelete.deleteTtPltzKanban */
+        where exists (
+            select *
+            from
+               <include refid="Tables_PatternC" />
+            where
+               <include refid="WhereCondition_PatternC" />
+               and PLK.MAIN_MARK = PLT.MAIN_MARK
+        )
+    </delete>
+
+    <!-- 9. 削除対象のMixタグ退避 -->
+    <select id="SearchTtPltzItemMixtag" resultMap="T0100BatchDeleteDomain_SearchTtPltzItemMixtag"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        select /* SqlMap-BatchDelete.searchTtPltzItemMixtag */
+             distinct PIT.MIX_TAG_NO
+        from
+           <include refid="Tables_PatternD" />
+        where
+           <include refid="WhereCondition_PatternD" />
+        order by PIT.MIX_TAG_NO
+    </select>
+
+    <!-- 10. 削除対象の梱包指示No.退避 -->
+    <select id="SearchTtPltzItemPltzInstrNo" resultMap="T0100BatchDeleteDomain_SearchTtPltzItemPltzInstrNo"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        select /* SqlMap-BatchDelete.SearchTtPltzItemPltzInstrNo */
+             distinct PIT.PLTZ_INSTR_NO
+        from
+           <include refid="Tables_PatternD" />
+        where
+           <include refid="WhereCondition_PatternD" />
+        order by PIT.PLTZ_INSTR_NO
+    </select>
+
+    <!-- 11. パレタイズ対象品情報削除 -->
+    <delete id="DeleteTtPltzItem"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PLTZ_ITEM PIT
+        /* SqlMap-BatchDelete.deleteTtPltzItem */
+        where exists (
+            select *
+            from
+               <include refid="Tables_PatternC" />
+            where
+               <include refid="WhereCondition_PatternC" />
+               and PIT.MAIN_MARK = PLT.MAIN_MARK
+        )
+    </delete>
+
+    <!-- 12. Mixed現品票情報削除 -->
+    <delete id="DeleteTtMixtag"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_MIXTAG MXT
+        /* SqlMap-BatchDelete.deleteTtMixtag */
+        where
+            MXT.MIX_TAG_NO = #mixTagNo#
+    </delete>
+
+    <!-- 13. 梱包指示情報削除 -->
+    <delete id="DeleteTtPltzInstr"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PLTZ_INSTR PLI
+        /* SqlMap-BatchDelete.deleteTtPltzInstr */
+        where
+            PLI.PLTZ_INSTR_NO = #pltzInstrNo#
+    </delete>
+
+    <!-- 14. 出荷確認情報削除 -->
+    <delete id="DeleteTtShippingFirm"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_SHIPPING_FIRM SHF
+        /* SqlMap-BatchDelete.deleteTtShippingFirm */
+        where exists (
+            select *
+            from
+               <include refid="Tables_PatternC" />
+            where
+               <include refid="WhereCondition_PatternC" />
+               and SHF.SHIPPING_FIRM_NO = PLT.SHIPPING_FIRM_NO
+        )
+    </delete>
+
+    <!-- 15. 削除対象のまとめメインマーク退避 -->
+    <select id="SearchTtPltzXMainMark" resultMap="T0100BatchDeleteDomain_SearchTtPltzXMainMark"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        select /* SqlMap-BatchDelete.searchTtPltzXMainMark */
+             distinct PLT.XMAIN_MARK
+        from
+           <include refid="Tables_PatternC" />
+        where
+           <include refid="WhereCondition_PatternC" />
+        order by PLT.XMAIN_MARK
+    </select>
+
+    <!-- 16. 削除対象の荷揃え指示No.退避 -->
+    <select id="SearchTtPltzStagingInstr" resultMap="T0100BatchDeleteDomain_SearchTtPltzStagingInstr"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        select /* SqlMap-BatchDelete.searchTtPltzStagingInstr */
+             distinct PLT.STG_INSTR_NO
+        from
+           <include refid="Tables_PatternC" />
+        where
+           <include refid="WhereCondition_PatternC" />
+        order by PLT.STG_INSTR_NO
+    </select>
+
+    <!-- 17. 削除対象の山作り実績No.退避 -->
+    <select id="SearchTtPltzStagingActuality" resultMap="T0100BatchDeleteDomain_SearchTtPltzStagingActuality"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        select /* SqlMap-BatchDelete.searchTtPltzStagingActuality */
+             distinct PLT.STG_ACT_NO
+        from
+           <include refid="Tables_PatternC" />
+        where
+           <include refid="WhereCondition_PatternC" />
+        order by PLT.STG_ACT_NO
+    </select>
+
+    <!-- 18. パレタイズ情報削除 -->
+    <delete id="DeleteTtPltz"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PLTZ PLT
+        /* SqlMap-BatchDelete.deleteTtPltz */
+        where exists (
+            select *
+            from
+               <include refid="Tables_PatternC_without_PLT" />
+            where
+               <include refid="WhereCondition_PatternC" />
+        )
+    </delete>
+
+    <!-- 19. まとめパレタイズ情報削除 -->
+    <delete id="DeleteTtXpltz"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_XPLTZ XPL
+        /* SqlMap-BatchDelete.deleteTtXpltz */
+        where
+            XPL.XMAIN_MARK = #xMainMark#
+    </delete>
+
+    <!-- 20. 荷揃え指示情報削除 -->
+    <delete id="DeleteTtStgInstr"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_STG_INSTR STI
+        /* SqlMap-BatchDelete.deleteTtStgInstr */
+        where
+            STI.STG_INSTR_NO = #stgInstrNo#
+    </delete>
+
+    <!-- 21. 山作り実績情報削除 -->
+    <delete id="DeleteTtStgAct"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_STG_ACT STA
+        /* SqlMap-BatchDelete.deleteTtStgAct */
+        where
+            STA.STG_ACT_NO = #stgActNo#
+    </delete>
+
+    <!-- 22. インボイス関連情報削除(メインインボイス-リインボイス) -->
+    <!--     共通　0.2.1. 船積書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagershippinActMainReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagershippinActMainReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternE" /> IV_
+               ,<include refid="Tables_LbFileManagershippinAct" />
+            where
+               <include refid="WhereCondition_LbFileManagershippinAct" />
+        )
+    </delete>
+
+    <!-- 22. インボイス関連情報削除(メインインボイス-リインボイス) -->
+    <!--     共通　0.2.2. 船積書類情報削除 -->
+    <delete id="DeleteTtShippingDocumentMainReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_SHIPPING_DOCUMENT SHD
+        /* SqlMap-BatchDelete.deleteTtShippingDocumentMainReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternE" /> IV_
+               ,<include refid="Tables_TtShippingDocument" />
+            where
+                <include refid="WhereCondition_TtShippingDocument" />
+        )
+    </delete>
+
+    <!-- 22. インボイス関連情報削除(メインインボイス-リインボイス) -->
+    <!--     共通　0.2.3. パッキングアタッチ_品目番号情報削除 -->
+    <delete id="DeleteTtPackAtchItemNoMainReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACK_ATCH_ITEM_NO PAN
+        /* SqlMap-BatchDelete.deleteTtPackAtchItemNoMainReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternE" /> IV_
+               ,<include refid="Tables_TtPackAtchItemNo" />
+            where
+                <include refid="WhereCondition_TtPackAtchItemNo" />
+        )
+    </delete>
+
+    <!-- 22. インボイス関連情報削除(メインインボイス-リインボイス) -->
+    <!--     共通　0.2.4. パッキングアタッチ_CML情報削除 -->
+    <delete id="DeleteTtPackingAttachedCmlMainReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_ATTACHED_CML PAC
+        /* SqlMap-BatchDelete.deleteTtPackingAttachedCmlMainReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternE" /> IV_
+               ,<include refid="Tables_TtPackingAttachedCml" />
+            where
+                <include refid="WhereCondition_TtPackingAttachedCml" />
+        )
+    </delete>
+
+    <!-- 22. インボイス関連情報削除(メインインボイス-リインボイス) -->
+    <!--     共通　0.2.5. パッキング書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerPackingMainReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerPackingMainReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternE" /> IV_
+               ,<include refid="Tables_LbFileManagerPacking" />
+            where
+                <include refid="WhereCondition_LbFileManagerPacking" />
+        )
+    </delete>
+
+    <!-- 22. インボイス関連情報削除(メインインボイス-リインボイス) -->
+    <!--     共通　0.2.6. パッキングヘッダ情報削除 -->
+    <delete id="DeleteTtPackingHeadMainReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_HEAD PKH
+        /* SqlMap-BatchDelete.deleteTtPackingHeadMainReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternE" /> IV_
+               ,<include refid="Tables_TtPackingHead" />
+            where
+                <include refid="WhereCondition_TtPackingHead" />
+        )
+    </delete>
+
+    <!-- 22. インボイス関連情報削除(メインインボイス-リインボイス) -->
+    <!--     共通　0.2.7. インボイスアタッチ情報削除 -->
+    <delete id="DeleteTtInvoiceAttachedMainReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_ATTACHED IVA
+        /* SqlMap-BatchDelete.deleteTtInvoiceAttachedMainReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternE" /> IV_
+               ,<include refid="Tables_TtInvoiceAttached" />
+            where
+                <include refid="WhereCondition_TtInvoiceAttached" />
+        )
+    </delete>
+
+    <!-- 22. インボイス関連情報削除(メインインボイス-リインボイス) -->
+    <!--     共通　0.2.8. インボイス書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerInvoiceMainReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerInvoiceMainReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternE" /> IV_
+               ,<include refid="Tables_LbFileManagerInvoice" />
+            where
+                <include refid="WhereCondition_LbFileManagerInvoice" />
+        )
+    </delete>
+
+    <!-- 22. インボイス関連情報削除(メインインボイス-リインボイス) -->
+    <!--     共通　0.2.9. インボイスヘッダ情報削除 -->
+    <delete id="DeleteTtInvoiceHeaderMainReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_HEADER IVH
+        /* SqlMap-BatchDelete.deleteTtInvoiceHeaderMainReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternE" /> IV_
+               ,<include refid="Tables_TtInvoiceHeader" />
+            where
+                <include refid="WhereCondition_TtInvoiceHeader" />
+        )
+    </delete>
+
+    <!-- 23. インボイス情報削除(メインインボイス-リインボイス) -->
+    <delete id="DeleteTtInvoiceReInvoiceMainReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE IVE
+        /* SqlMap-BatchDelete.deleteTtInvoiceReInvoiceMainReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternE" /> IV_
+            where
+                <include refid="WhereCondition_TtInvoice" />
+        )
+    </delete>
+
+    <!-- 24. インボイス関連情報削除(メインインボイス-FRTインボイス) -->
+    <!--     共通　0.2.1. 船積書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagershippinActMainFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagershippinActMainFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternF" /> IV_
+               ,<include refid="Tables_LbFileManagershippinAct" />
+            where
+                <include refid="WhereCondition_LbFileManagershippinAct" />
+        )
+    </delete>
+
+    <!-- 24. インボイス関連情報削除(メインインボイス-FRTインボイス) -->
+    <!--     共通　0.2.2. 船積書類情報削除 -->
+    <delete id="DeleteTtShippingDocumentMainFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_SHIPPING_DOCUMENT SHD
+        /* SqlMap-BatchDelete.deleteTtShippingDocumentMainFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternF" /> IV_
+               ,<include refid="Tables_TtShippingDocument" />
+            where
+                <include refid="WhereCondition_TtShippingDocument" />
+        )
+    </delete>
+
+    <!-- 24. インボイス関連情報削除(メインインボイス-FRTインボイス) -->
+    <!--     共通　0.2.3. パッキングアタッチ_品目番号情報削除 -->
+    <delete id="DeleteTtPackAtchItemNoMainFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACK_ATCH_ITEM_NO PAN
+        /* SqlMap-BatchDelete.deleteTtPackAtchItemNoMainFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternF" /> IV_
+               ,<include refid="Tables_TtPackAtchItemNo" />
+            where
+                <include refid="WhereCondition_TtPackAtchItemNo" />
+        )
+    </delete>
+
+    <!-- 24. インボイス関連情報削除(メインインボイス-FRTインボイス) -->
+    <!--     共通　0.2.4. パッキングアタッチ_CML情報削除 -->
+    <delete id="DeleteTtPackingAttachedCmlMainFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_ATTACHED_CML PAC
+        /* SqlMap-BatchDelete.deleteTtPackingAttachedCmlMainFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternF" /> IV_
+               ,<include refid="Tables_TtPackingAttachedCml" />
+            where
+                <include refid="WhereCondition_TtPackingAttachedCml" />
+        )
+    </delete>
+
+    <!-- 24. インボイス関連情報削除(メインインボイス-FRTインボイス) -->
+    <!--     共通　0.2.5. パッキング書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerPackingMainFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerPackingMainFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternF" /> IV_
+               ,<include refid="Tables_LbFileManagerPacking" />
+            where
+                <include refid="WhereCondition_LbFileManagerPacking" />
+        )
+    </delete>
+
+    <!-- 24. インボイス関連情報削除(メインインボイス-FRTインボイス) -->
+    <!--     共通　0.2.6. パッキングヘッダ情報削除 -->
+    <delete id="DeleteTtPackingHeadMainFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_HEAD PKH
+        /* SqlMap-BatchDelete.deleteTtPackingHeadMainFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternF" /> IV_
+               ,<include refid="Tables_TtPackingHead" />
+            where
+                <include refid="WhereCondition_TtPackingHead" />
+        )
+    </delete>
+
+    <!-- 24. インボイス関連情報削除(メインインボイス-FRTインボイス) -->
+    <!--     共通　0.2.7. インボイスアタッチ情報削除 -->
+    <delete id="DeleteTtInvoiceAttachedMainFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_ATTACHED IVA
+        /* SqlMap-BatchDelete.deleteTtInvoiceAttachedMainFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternF" /> IV_
+               ,<include refid="Tables_TtInvoiceAttached" />
+            where
+                <include refid="WhereCondition_TtInvoiceAttached" />
+        )
+    </delete>
+
+    <!-- 24. インボイス関連情報削除(メインインボイス-FRTインボイス) -->
+    <!--     共通　0.2.8. インボイス書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerInvoiceMainFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerInvoiceMainFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternF" /> IV_
+               ,<include refid="Tables_LbFileManagerInvoice" />
+            where
+                <include refid="WhereCondition_LbFileManagerInvoice" />
+        )
+    </delete>
+
+    <!-- 24. インボイス関連情報削除(メインインボイス-FRTインボイス) -->
+    <!--     共通　0.2.9. インボイスヘッダ情報削除 -->
+    <delete id="DeleteTtInvoiceHeaderMainFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_HEADER IVH
+        /* SqlMap-BatchDelete.deleteTtInvoiceHeaderMainFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternF" /> IV_
+               ,<include refid="Tables_TtInvoiceHeader" />
+            where
+               <include refid="WhereCondition_TtInvoiceHeader" />
+        )
+    </delete>
+
+    <!-- 25. インボイス情報削除(メインインボイス-FRTインボイス) -->
+    <delete id="DeleteTtInvoiceFrtMainFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE IVE
+        /* SqlMap-BatchDelete.deleteTtInvoiceFrtMainFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternF" /> IV_
+            where
+                <include refid="WhereCondition_TtInvoice" />
+        )
+    </delete>
+
+    <!-- 26. インボイス関連情報削除(メインインボイス) -->
+    <!--     共通　0.2.1. 船積書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagershippinActMain"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagershippinActMain */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternB" /> IV_
+               ,<include refid="Tables_LbFileManagershippinAct" />
+            where
+                <include refid="WhereCondition_LbFileManagershippinAct" />
+        )
+    </delete>
+
+    <!-- 26. インボイス関連情報削除(メインインボイス) -->
+    <!--     共通　0.2.2. 船積書類情報削除 -->
+    <delete id="DeleteTtShippingDocumentMain"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_SHIPPING_DOCUMENT SHD
+        /* SqlMap-BatchDelete.deleteTtShippingDocumentMain */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternB" /> IV_
+               ,<include refid="Tables_TtShippingDocument" />
+            where
+                <include refid="WhereCondition_TtShippingDocument" />
+        )
+    </delete>
+
+    <!-- 26. インボイス関連情報削除(メインインボイス) -->
+    <!--     共通　0.2.3. パッキングアタッチ_品目番号情報削除 -->
+    <delete id="DeleteTtPackAtchItemNoMain"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACK_ATCH_ITEM_NO PAN
+        /* SqlMap-BatchDelete.deleteTtPackAtchItemNoMain */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternB" /> IV_
+               ,<include refid="Tables_TtPackAtchItemNo" />
+            where
+                <include refid="WhereCondition_TtPackAtchItemNo" />
+        )
+    </delete>
+
+    <!-- 26. インボイス関連情報削除(メインインボイス) -->
+    <!--     共通　0.2.4. パッキングアタッチ_CML情報削除 -->
+    <delete id="DeleteTtPackingAttachedCmlMain"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_ATTACHED_CML PAC
+        /* SqlMap-BatchDelete.deleteTtPackingAttachedCmlMain */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternB" /> IV_
+               ,<include refid="Tables_TtPackingAttachedCml" />
+            where
+                <include refid="WhereCondition_TtPackingAttachedCml" />
+        )
+    </delete>
+
+    <!-- 26. インボイス関連情報削除(メインインボイス) -->
+    <!--     共通　0.2.5. パッキング書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerPackingMain"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerPackingMain */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternB" /> IV_
+               ,<include refid="Tables_LbFileManagerPacking" />
+            where
+                <include refid="WhereCondition_LbFileManagerPacking" />
+        )
+    </delete>
+
+    <!-- 26. インボイス関連情報削除(メインインボイス) -->
+    <!--     共通　0.2.6. パッキングヘッダ情報削除 -->
+    <delete id="DeleteTtPackingHeadMain"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_HEAD PKH
+        /* SqlMap-BatchDelete.deleteTtPackingHeadMain */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternB" /> IV_
+               ,<include refid="Tables_TtPackingHead" />
+            where
+                <include refid="WhereCondition_TtPackingHead" />
+        )
+    </delete>
+
+    <!-- 26. インボイス関連情報削除(メインインボイス) -->
+    <!--     共通　0.2.7. インボイスアタッチ情報削除 -->
+    <delete id="DeleteTtInvoiceAttachedMain"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_ATTACHED IVA
+        /* SqlMap-BatchDelete.deleteTtInvoiceAttachedMain */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternB" /> IV_
+               ,<include refid="Tables_TtInvoiceAttached" />
+            where
+                <include refid="WhereCondition_TtInvoiceAttached" />
+        )
+    </delete>
+
+    <!-- 26. インボイス関連情報削除(メインインボイス) -->
+    <!--     共通　0.2.8. インボイス書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerInvoiceMain"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerInvoiceMain */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternB" /> IV_
+               ,<include refid="Tables_LbFileManagerInvoice" />
+            where
+                <include refid="WhereCondition_LbFileManagerInvoice" />
+        )
+    </delete>
+
+    <!-- 26. インボイス関連情報削除(メインインボイス) -->
+    <!--     共通　0.2.9. インボイスヘッダ情報削除 -->
+    <delete id="DeleteTtInvoiceHeaderMain"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_HEADER IVH
+        /* SqlMap-BatchDelete.deleteTtInvoiceHeaderMain */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternB" /> IV_
+               ,<include refid="Tables_TtInvoiceHeader" />
+            where
+                <include refid="WhereCondition_TtInvoiceHeader" />
+        )
+    </delete>
+
+    <!-- 27. インボイス情報削除(メインインボイス) -->
+    <delete id="DeleteTtInvoice"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE IVE
+        /* SqlMap-BatchDelete.deleteTtInvoice */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternB" /> IV_
+            where
+                <include refid="WhereCondition_TtInvoice" />
+        )
+    </delete>
+
+    <!-- 28. 船積実績対象品受注情報削除 -->
+    <delete id="DeleteTtShippingActOdr"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_SHIPPING_ACT_ODR SHO
+        /* SqlMap-BatchDelete.deleteTtShippingActOdr */
+        where exists (
+            select *
+            from
+               <include refid="Tables_PatternA" />
+            where
+               <include refid="WhereCondition_PatternA" />
+               and SHO.SHIPPING_ACT_NO = SHA.SHIPPING_ACT_NO
+        )
+    </delete>
+
+    <!-- 29. B/L、CLPファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerBlClp"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerBlClp */
+        where exists (
+            select *
+            from
+               <include refid="Tables_PatternA" />
+            where
+               <include refid="WhereCondition_PatternA" />
+               and (   FLM.FILE_ID = SHA.BILLD_FILE_ID
+                    OR FLM.FILE_ID = SHA.CLP_FILE_ID)
+        )
+    </delete>
+
+    <!-- 30. 船積実績情報削除 -->
+    <delete id="DeleteTtShippingAct"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_SHIPPING_ACT SHA
+        /* SqlMap-BatchDelete.deleteTtShippingAct */
+        where <include refid="WhereCondition_PatternA" />
+    </delete>
+
+    <!-- 31. 出荷済確定受注情報の削除 -->
+    <delete id="DeleteTtExpRcvOdrShiped"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_EXP_RCV_ODR ERO
+        /* SqlMap-BatchDelete.deleteTtExpRcvOdrShiped */
+        where
+                ERO.ETD_DUE_DT &lt; add_months(sysdate, -14)
+            and ERO.ODR_FIRM_FLG = 'Y'
+            and ERO.ODR_QTY = ERO.SHIPPED_QTY
+            and not exists (
+                select * from TT_MIXTAG_ODR MXO
+                where
+                        MXO.RCV_ODR_COMP_CD = ERO.RCV_ODR_COMP_CD
+                    and MXO.CUSTOMER_CD = ERO.CUSTOMER_CD
+                    and MXO.LGCY_SHIP_TO = ERO.LGCY_SHIP_TO
+                    and MXO.ITEM_NO = ERO.ITEM_NO
+                    and MXO.PKG_CD = ERO.PKG_CD
+                    and MXO.TRNS_CD = ERO.TRNS_CD
+                    and MXO.ETD_DUE_DT = ERO.ETD_DUE_DT
+                    and MXO.CUSTOMER_PO_NO = ERO.CUSTOMER_PO_NO
+                    and MXO.CUSTOMER_ITEM_NO = ERO.CUSTOMER_ITEM_NO
+                    and MXO.CUSTOMER_ITEM_NO_ORG = ERO.CUSTOMER_ITEM_NO_ORG
+                    and MXO.ODR_CTRL_NO = ERO.ODR_CTRL_NO
+            )
+            and not exists (
+                select * from TT_PLTZ_INSTR_ODR PLO
+                where
+                        PLO.RCV_ODR_COMP_CD = ERO.RCV_ODR_COMP_CD
+                    and PLO.CUSTOMER_CD = ERO.CUSTOMER_CD
+                    and PLO.LGCY_SHIP_TO = ERO.LGCY_SHIP_TO
+                    and PLO.ITEM_NO = ERO.ITEM_NO
+                    and PLO.PKG_CD = ERO.PKG_CD
+                    and PLO.TRNS_CD = ERO.TRNS_CD
+                    and PLO.ETD_DUE_DT = ERO.ETD_DUE_DT
+                    and PLO.CUSTOMER_PO_NO = ERO.CUSTOMER_PO_NO
+                    and PLO.CUSTOMER_ITEM_NO = ERO.CUSTOMER_ITEM_NO
+                    and PLO.CUSTOMER_ITEM_NO_ORG = ERO.CUSTOMER_ITEM_NO_ORG
+                    and PLO.ODR_CTRL_NO = ERO.ODR_CTRL_NO
+            )
+            and not exists (
+                select * from TT_PLTZ_ITEM_ODR PIO
+                where
+                        PIO.RCV_ODR_COMP_CD = ERO.RCV_ODR_COMP_CD
+                    and PIO.CUSTOMER_CD = ERO.CUSTOMER_CD
+                    and PIO.LGCY_SHIP_TO = ERO.LGCY_SHIP_TO
+                    and PIO.ITEM_NO = ERO.ITEM_NO
+                    and PIO.PKG_CD = ERO.PKG_CD
+                    and PIO.TRNS_CD = ERO.TRNS_CD
+                    and PIO.ETD_DUE_DT = ERO.ETD_DUE_DT
+                    and PIO.CUSTOMER_PO_NO = ERO.CUSTOMER_PO_NO
+                    and PIO.CUSTOMER_ITEM_NO = ERO.CUSTOMER_ITEM_NO
+                    and PIO.CUSTOMER_ITEM_NO_ORG = ERO.CUSTOMER_ITEM_NO_ORG
+                    and PIO.ODR_CTRL_NO = ERO.ODR_CTRL_NO
+            )
+    </delete>
+
+    <!-- 32. 内示受注情報の削除 -->
+    <delete id="DeleteTtExpRcvOdrPrivateNotification"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_EXP_RCV_ODR ERO
+        /* SqlMap-BatchDelete.deleteTtExpRcvOdrPrivateNotification */
+        where
+                ERO.ETD_DUE_DT &lt; trunc(add_months(sysdate, -1), 'MM')
+            and ERO.ODR_FIRM_FLG = 'N'
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.1. インボイス関連情報削除(キャンセル前インボイス-リインボイス) -->
+    <!--     共通　0.2.1. 船積書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagershippinActBforCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagershippinActBforCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternI" /> IV_
+               ,<include refid="Tables_LbFileManagershippinAct" />
+            where
+               <include refid="WhereCondition_LbFileManagershippinAct" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.1. インボイス関連情報削除(キャンセル前インボイス-リインボイス) -->
+    <!--     共通　0.2.2. 船積書類情報削除 -->
+    <delete id="DeleteTtShippingDocumentBforCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_SHIPPING_DOCUMENT SHD
+        /* SqlMap-BatchDelete.deleteTtShippingDocumentBforCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternI" /> IV_
+               ,<include refid="Tables_TtShippingDocument" />
+            where
+               <include refid="WhereCondition_TtShippingDocument" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.1. インボイス関連情報削除(キャンセル前インボイス-リインボイス) -->
+    <!--     共通　0.2.3. パッキングアタッチ_品目番号情報削除 -->
+    <delete id="DeleteTtPackAtchItemNoBforCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACK_ATCH_ITEM_NO PAN
+        /* SqlMap-BatchDelete.deleteTtPackAtchItemNoBforCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternI" /> IV_
+               ,<include refid="Tables_TtPackAtchItemNo" />
+            where
+               <include refid="WhereCondition_TtPackAtchItemNo" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.1. インボイス関連情報削除(キャンセル前インボイス-リインボイス) -->
+    <!--     共通　0.2.4. パッキングアタッチ_CML情報削除 -->
+    <delete id="DeleteTtPackingAttachedCmlBforCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_ATTACHED_CML PAC
+        /* SqlMap-BatchDelete.deleteTtPackingAttachedCmlBforCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternI" /> IV_
+               ,<include refid="Tables_TtPackingAttachedCml" />
+            where
+               <include refid="WhereCondition_TtPackingAttachedCml" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.1. インボイス関連情報削除(キャンセル前インボイス-リインボイス) -->
+    <!--     共通　0.2.5. パッキング書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerPackingBforCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerPackingBforCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternI" /> IV_
+               ,<include refid="Tables_LbFileManagerPacking" />
+            where
+               <include refid="WhereCondition_LbFileManagerPacking" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.1. インボイス関連情報削除(キャンセル前インボイス-リインボイス) -->
+    <!--     共通　0.2.6. パッキングヘッダ情報削除 -->
+    <delete id="DeleteTtPackingHeadBforCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_HEAD PKH
+        /* SqlMap-BatchDelete.deleteTtPackingHeadBforCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternI" /> IV_
+               ,<include refid="Tables_TtPackingHead" />
+            where
+               <include refid="WhereCondition_TtPackingHead" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.1. インボイス関連情報削除(キャンセル前インボイス-リインボイス) -->
+    <!--     共通　0.2.7. インボイスアタッチ情報削除 -->
+    <delete id="DeleteTtInvoiceAttachedBforCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_ATTACHED IVA
+        /* SqlMap-BatchDelete.deleteTtInvoiceAttachedBforCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternI" /> IV_
+               ,<include refid="Tables_TtInvoiceAttached" />
+            where
+               <include refid="WhereCondition_TtInvoiceAttached" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.1. インボイス関連情報削除(キャンセル前インボイス-リインボイス) -->
+    <!--     共通　0.2.8. インボイス書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerInvoiceBforCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerInvoiceBforCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternI" /> IV_
+               ,<include refid="Tables_LbFileManagerInvoice" />
+            where
+               <include refid="WhereCondition_LbFileManagerInvoice" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.1. インボイス関連情報削除(キャンセル前インボイス-リインボイス) -->
+    <!--     共通　0.2.9. インボイスヘッダ情報削除 -->
+    <delete id="DeleteTtInvoiceHeaderBforCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_HEADER IVH
+        /* SqlMap-BatchDelete.deleteTtInvoiceHeaderBforCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternI" /> IV_
+               ,<include refid="Tables_TtInvoiceHeader" />
+            where
+               <include refid="WhereCondition_TtInvoiceHeader" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.2. インボイス情報削除(キャンセル前インボイス-リインボイス) -->
+    <delete id="DeleteTtInvoiceBforCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE IVE
+        /* SqlMap-BatchDelete.deleteTtInvoiceBforCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternI" /> IV_
+            where
+               <include refid="WhereCondition_TtInvoice" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.3. インボイス関連情報削除(キャンセル前インボイス-FRTインボイス) -->
+    <!--     共通　0.2.1. 船積書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagershippinActBforCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagershippinActBforCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternJ" /> IV_
+               ,<include refid="Tables_LbFileManagershippinAct" />
+            where
+               <include refid="WhereCondition_LbFileManagershippinAct" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.3. インボイス関連情報削除(キャンセル前インボイス-FRTインボイス) -->
+    <!--     共通　0.2.2. 船積書類情報削除 -->
+    <delete id="DeleteTtShippingDocumentBforCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_SHIPPING_DOCUMENT SHD
+        /* SqlMap-BatchDelete.deleteTtShippingDocumentBforCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternJ" /> IV_
+               ,<include refid="Tables_TtShippingDocument" />
+            where
+               <include refid="WhereCondition_TtShippingDocument" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.3. インボイス関連情報削除(キャンセル前インボイス-FRTインボイス) -->
+    <!--     共通　0.2.3. パッキングアタッチ_品目番号情報削除 -->
+    <delete id="DeleteTtPackAtchItemNoBforCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACK_ATCH_ITEM_NO PAN
+        /* SqlMap-BatchDelete.deleteTtPackAtchItemNoBforCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternJ" /> IV_
+               ,<include refid="Tables_TtPackAtchItemNo" />
+            where
+               <include refid="WhereCondition_TtPackAtchItemNo" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.3. インボイス関連情報削除(キャンセル前インボイス-FRTインボイス) -->
+    <!--     共通　0.2.4. パッキングアタッチ_CML情報削除 -->
+    <delete id="DeleteTtPackingAttachedCmlBforCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_ATTACHED_CML PAC
+        /* SqlMap-BatchDelete.deleteTtPackingAttachedCmlBforCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternJ" /> IV_
+               ,<include refid="Tables_TtPackingAttachedCml" />
+            where
+               <include refid="WhereCondition_TtPackingAttachedCml" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.3. インボイス関連情報削除(キャンセル前インボイス-FRTインボイス) -->
+    <!--     共通　0.2.5. パッキング書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerPackingBforCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerPackingBforCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternJ" /> IV_
+               ,<include refid="Tables_LbFileManagerPacking" />
+            where
+               <include refid="WhereCondition_LbFileManagerPacking" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.3. インボイス関連情報削除(キャンセル前インボイス-FRTインボイス) -->
+    <!--     共通　0.2.6. パッキングヘッダ情報削除 -->
+    <delete id="DeleteTtPackingHeadBforCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_HEAD PKH
+        /* SqlMap-BatchDelete.deleteTtPackingHeadBforCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternJ" /> IV_
+               ,<include refid="Tables_TtPackingHead" />
+            where
+               <include refid="WhereCondition_TtPackingHead" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.3. インボイス関連情報削除(キャンセル前インボイス-FRTインボイス) -->
+    <!--     共通　0.2.7. インボイスアタッチ情報削除 -->
+    <delete id="DeleteTtInvoiceAttachedBforCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_ATTACHED IVA
+        /* SqlMap-BatchDelete.deleteTtInvoiceAttachedBforCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternJ" /> IV_
+               ,<include refid="Tables_TtInvoiceAttached" />
+            where
+               <include refid="WhereCondition_TtInvoiceAttached" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.3. インボイス関連情報削除(キャンセル前インボイス-FRTインボイス) -->
+    <!--     共通　0.2.8. インボイス書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerInvoiceBforCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerInvoiceBforCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternJ" /> IV_
+               ,<include refid="Tables_LbFileManagerInvoice" />
+            where
+               <include refid="WhereCondition_LbFileManagerInvoice" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.3. インボイス関連情報削除(キャンセル前インボイス-FRTインボイス) -->
+    <!--     共通　0.2.9. インボイスヘッダ情報削除 -->
+    <delete id="DeleteTtInvoiceHeaderBforCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_HEADER IVH
+        /* SqlMap-BatchDelete.deleteTtInvoiceHeaderBforCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternJ" /> IV_
+               ,<include refid="Tables_TtInvoiceHeader" />
+            where
+               <include refid="WhereCondition_TtInvoiceHeader" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.4. インボイス情報削除(キャンセル前インボイス-FRTインボイス) -->
+    <delete id="DeleteTtInvoiceBforCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE IVE
+        /* SqlMap-BatchDelete.deleteTtInvoiceBforCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternJ" /> IV_
+            where
+               <include refid="WhereCondition_TtInvoice" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.5. インボイス関連情報削除(キャンセル前インボイス) -->
+    <!--     共通　0.2.1. 船積書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagershippinActBforCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagershippinActBforCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternH" /> IV_
+               ,<include refid="Tables_LbFileManagershippinAct" />
+            where
+               <include refid="WhereCondition_LbFileManagershippinAct" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.5. インボイス関連情報削除(キャンセル前インボイス) -->
+    <!--     共通　0.2.2. 船積書類情報削除 -->
+    <delete id="DeleteTtShippingDocumentBforCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_SHIPPING_DOCUMENT SHD
+        /* SqlMap-BatchDelete.deleteTtShippingDocumentBforCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternH" /> IV_
+               ,<include refid="Tables_TtShippingDocument" />
+            where
+               <include refid="WhereCondition_TtShippingDocument" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.5. インボイス関連情報削除(キャンセル前インボイス) -->
+    <!--     共通　0.2.3. パッキングアタッチ_品目番号情報削除 -->
+    <delete id="DeleteTtPackAtchItemNoBforCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACK_ATCH_ITEM_NO PAN
+        /* SqlMap-BatchDelete.deleteTtPackAtchItemNoBforCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternH" /> IV_
+               ,<include refid="Tables_TtPackAtchItemNo" />
+            where
+               <include refid="WhereCondition_TtPackAtchItemNo" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.5. インボイス関連情報削除(キャンセル前インボイス) -->
+    <!--     共通　0.2.4. パッキングアタッチ_CML情報削除 -->
+    <delete id="DeleteTtPackingAttachedCmlBforCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_ATTACHED_CML PAC
+        /* SqlMap-BatchDelete.deleteTtPackingAttachedCmlBforCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternH" /> IV_
+               ,<include refid="Tables_TtPackingAttachedCml" />
+            where
+               <include refid="WhereCondition_TtPackingAttachedCml" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.5. インボイス関連情報削除(キャンセル前インボイス) -->
+    <!--     共通　0.2.5. パッキング書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerPackingBforCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerPackingBforCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternH" /> IV_
+               ,<include refid="Tables_LbFileManagerPacking" />
+            where
+               <include refid="WhereCondition_LbFileManagerPacking" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.5. インボイス関連情報削除(キャンセル前インボイス) -->
+    <!--     共通　0.2.6. パッキングヘッダ情報削除 -->
+    <delete id="DeleteTtPackingHeadBforCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_HEAD PKH
+        /* SqlMap-BatchDelete.deleteTtPackingHeadBforCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternH" /> IV_
+               ,<include refid="Tables_TtPackingHead" />
+            where
+               <include refid="WhereCondition_TtPackingHead" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.5. インボイス関連情報削除(キャンセル前インボイス) -->
+    <!--     共通　0.2.7. インボイスアタッチ情報削除 -->
+    <delete id="DeleteTtInvoiceAttachedBforCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_ATTACHED IVA
+        /* SqlMap-BatchDelete.deleteTtInvoiceAttachedBforCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternH" /> IV_
+               ,<include refid="Tables_TtInvoiceAttached" />
+            where
+               <include refid="WhereCondition_TtInvoiceAttached" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.5. インボイス関連情報削除(キャンセル前インボイス) -->
+    <!--     共通　0.2.8. インボイス書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerInvoiceBforCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerInvoiceBforCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternH" /> IV_
+               ,<include refid="Tables_LbFileManagerInvoice" />
+            where
+               <include refid="WhereCondition_LbFileManagerInvoice" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.5. インボイス関連情報削除(キャンセル前インボイス) -->
+    <!--     共通　0.2.9. インボイスヘッダ情報削除 -->
+    <delete id="DeleteTtInvoiceHeaderBforCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_HEADER IVH
+        /* SqlMap-BatchDelete.deleteTtInvoiceHeaderBforCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternH" /> IV_
+               ,<include refid="Tables_TtInvoiceHeader" />
+            where
+               <include refid="WhereCondition_TtInvoiceHeader" />
+        )
+    </delete>
+
+    <!-- 33. キャンセルインボイスが発行されたキャンセル前インボイス情報の削除 -->
+    <!-- 33.6. インボイス情報削除(キャンセル前インボイス) -->
+    <delete id="DeleteTtInvoiceBforCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE IVE
+        /* SqlMap-BatchDelete.deleteTtInvoiceBforCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternH" /> IV_
+            where
+               <include refid="WhereCondition_TtInvoice" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.1. インボイス関連情報削除(キャンセルインボイス-リインボイス) -->
+    <!--     共通　0.2.1. 船積書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagershippinActCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagershippinActCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternK" /> IV_
+               ,<include refid="Tables_LbFileManagershippinAct" />
+            where
+               <include refid="WhereCondition_LbFileManagershippinAct" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.1. インボイス関連情報削除(キャンセルインボイス-リインボイス) -->
+    <!--     共通　0.2.2. 船積書類情報削除 -->
+    <delete id="DeleteTtShippingDocumentCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_SHIPPING_DOCUMENT SHD
+        /* SqlMap-BatchDelete.deleteTtShippingDocumentCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternK" /> IV_
+               ,<include refid="Tables_TtShippingDocument" />
+            where
+               <include refid="WhereCondition_TtShippingDocument" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.1. インボイス関連情報削除(キャンセルインボイス-リインボイス) -->
+    <!--     共通　0.2.3. パッキングアタッチ_品目番号情報削除 -->
+    <delete id="DeleteTtPackAtchItemNoCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACK_ATCH_ITEM_NO PAN
+        /* SqlMap-BatchDelete.deleteTtPackAtchItemNoCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternK" /> IV_
+               ,<include refid="Tables_TtPackAtchItemNo" />
+            where
+               <include refid="WhereCondition_TtPackAtchItemNo" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.1. インボイス関連情報削除(キャンセルインボイス-リインボイス) -->
+    <!--     共通　0.2.4. パッキングアタッチ_CML情報削除 -->
+    <delete id="DeleteTtPackingAttachedCmlCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_ATTACHED_CML PAC
+        /* SqlMap-BatchDelete.deleteTtPackingAttachedCmlCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternK" /> IV_
+               ,<include refid="Tables_TtPackingAttachedCml" />
+            where
+               <include refid="WhereCondition_TtPackingAttachedCml" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.1. インボイス関連情報削除(キャンセルインボイス-リインボイス) -->
+    <!--     共通　0.2.5. パッキング書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerPackingCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerPackingCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternK" /> IV_
+               ,<include refid="Tables_LbFileManagerPacking" />
+            where
+               <include refid="WhereCondition_LbFileManagerPacking" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.1. インボイス関連情報削除(キャンセルインボイス-リインボイス) -->
+    <!--     共通　0.2.6. パッキングヘッダ情報削除 -->
+    <delete id="DeleteTtPackingHeadCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_HEAD PKH
+        /* SqlMap-BatchDelete.deleteTtPackingHeadCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternK" /> IV_
+               ,<include refid="Tables_TtPackingHead" />
+            where
+               <include refid="WhereCondition_TtPackingHead" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.1. インボイス関連情報削除(キャンセルインボイス-リインボイス) -->
+    <!--     共通　0.2.7. インボイスアタッチ情報削除 -->
+    <delete id="DeleteTtInvoiceAttachedCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_ATTACHED IVA
+        /* SqlMap-BatchDelete.deleteTtInvoiceAttachedCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternK" /> IV_
+               ,<include refid="Tables_TtInvoiceAttached" />
+            where
+               <include refid="WhereCondition_TtInvoiceAttached" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.1. インボイス関連情報削除(キャンセルインボイス-リインボイス) -->
+    <!--     共通　0.2.8. インボイス書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerInvoiceCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerInvoiceCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternK" /> IV_
+               ,<include refid="Tables_LbFileManagerInvoice" />
+            where
+               <include refid="WhereCondition_LbFileManagerInvoice" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.1. インボイス関連情報削除(キャンセルインボイス-リインボイス) -->
+    <!--     共通　0.2.9. インボイスヘッダ情報削除 -->
+    <delete id="DeleteTtInvoiceHeaderCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_HEADER IVH
+        /* SqlMap-BatchDelete.deleteTtInvoiceHeaderCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternK" /> IV_
+               ,<include refid="Tables_TtInvoiceHeader" />
+            where
+               <include refid="WhereCondition_TtInvoiceHeader" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.2. インボイス情報削除(キャンセルインボイス-リインボイス) -->
+    <delete id="DeleteTtInvoiceCancelReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE IVE
+        /* SqlMap-BatchDelete.deleteTtInvoiceCancelReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternK" /> IV_
+            where
+               <include refid="WhereCondition_TtInvoice" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.3. インボイス関連情報削除(キャンセルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.1. 船積書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagershippinActCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagershippinActCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternL" /> IV_
+               ,<include refid="Tables_LbFileManagershippinAct" />
+            where
+               <include refid="WhereCondition_LbFileManagershippinAct" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.3. インボイス関連情報削除(キャンセルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.2. 船積書類情報削除 -->
+    <delete id="DeleteTtShippingDocumentCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_SHIPPING_DOCUMENT SHD
+        /* SqlMap-BatchDelete.deleteTtShippingDocumentCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternL" /> IV_
+               ,<include refid="Tables_TtShippingDocument" />
+            where
+               <include refid="WhereCondition_TtShippingDocument" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.3. インボイス関連情報削除(キャンセルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.3. パッキングアタッチ_品目番号情報削除 -->
+    <delete id="DeleteTtPackAtchItemNoCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACK_ATCH_ITEM_NO PAN
+        /* SqlMap-BatchDelete.deleteTtPackAtchItemNoCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternL" /> IV_
+               ,<include refid="Tables_TtPackAtchItemNo" />
+            where
+               <include refid="WhereCondition_TtPackAtchItemNo" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.3. インボイス関連情報削除(キャンセルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.4. パッキングアタッチ_CML情報削除 -->
+    <delete id="DeleteTtPackingAttachedCmlCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_ATTACHED_CML PAC
+        /* SqlMap-BatchDelete.deleteTtPackingAttachedCmlCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternL" /> IV_
+               ,<include refid="Tables_TtPackingAttachedCml" />
+            where
+               <include refid="WhereCondition_TtPackingAttachedCml" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.3. インボイス関連情報削除(キャンセルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.5. パッキング書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerPackingCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerPackingCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternL" /> IV_
+               ,<include refid="Tables_LbFileManagerPacking" />
+            where
+               <include refid="WhereCondition_LbFileManagerPacking" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.3. インボイス関連情報削除(キャンセルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.6. パッキングヘッダ情報削除 -->
+    <delete id="DeleteTtPackingHeadCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_HEAD PKH
+        /* SqlMap-BatchDelete.deleteTtPackingHeadCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternL" /> IV_
+               ,<include refid="Tables_TtPackingHead" />
+            where
+               <include refid="WhereCondition_TtPackingHead" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.3. インボイス関連情報削除(キャンセルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.7. インボイスアタッチ情報削除 -->
+    <delete id="DeleteTtInvoiceAttachedCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_ATTACHED IVA
+        /* SqlMap-BatchDelete.deleteTtInvoiceAttachedCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternL" /> IV_
+               ,<include refid="Tables_TtInvoiceAttached" />
+            where
+               <include refid="WhereCondition_TtInvoiceAttached" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.3. インボイス関連情報削除(キャンセルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.8. インボイス書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerInvoiceCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerInvoiceCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternL" /> IV_
+               ,<include refid="Tables_LbFileManagerInvoice" />
+            where
+               <include refid="WhereCondition_LbFileManagerInvoice" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.3. インボイス関連情報削除(キャンセルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.9. インボイスヘッダ情報削除 -->
+    <delete id="DeleteTtInvoiceHeaderCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_HEADER IVH
+        /* SqlMap-BatchDelete.deleteTtInvoiceHeaderCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternL" /> IV_
+               ,<include refid="Tables_TtInvoiceHeader" />
+            where
+               <include refid="WhereCondition_TtInvoiceHeader" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.4. インボイス情報削除(キャンセルインボイス-FRTインボイス) -->
+    <delete id="DeleteTtInvoiceCancelFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE IVE
+        /* SqlMap-BatchDelete.deleteTtInvoiceCancelFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternL" /> IV_
+            where
+               <include refid="WhereCondition_TtInvoice" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.5. インボイス関連情報削除(キャンセルインボイス) -->
+    <!--     共通　0.2.1. 船積書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagershippinActCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagershippinActCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternG" /> IV_
+               ,<include refid="Tables_LbFileManagershippinAct" />
+            where
+               <include refid="WhereCondition_LbFileManagershippinAct" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.5. インボイス関連情報削除(キャンセルインボイス) -->
+    <!--     共通　0.2.2. 船積書類情報削除 -->
+    <delete id="DeleteTtShippingDocumentCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_SHIPPING_DOCUMENT SHD
+        /* SqlMap-BatchDelete.deleteTtShippingDocumentCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternG" /> IV_
+               ,<include refid="Tables_TtShippingDocument" />
+            where
+               <include refid="WhereCondition_TtShippingDocument" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.5. インボイス関連情報削除(キャンセルインボイス) -->
+    <!--     共通　0.2.3. パッキングアタッチ_品目番号情報削除 -->
+    <delete id="DeleteTtPackAtchItemNoCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACK_ATCH_ITEM_NO PAN
+        /* SqlMap-BatchDelete.deleteTtPackAtchItemNoCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternG" /> IV_
+               ,<include refid="Tables_TtPackAtchItemNo" />
+            where
+               <include refid="WhereCondition_TtPackAtchItemNo" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.5. インボイス関連情報削除(キャンセルインボイス) -->
+    <!--     共通　0.2.4. パッキングアタッチ_CML情報削除 -->
+    <delete id="DeleteTtPackingAttachedCmlCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_ATTACHED_CML PAC
+        /* SqlMap-BatchDelete.deleteTtPackingAttachedCmlCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternG" /> IV_
+               ,<include refid="Tables_TtPackingAttachedCml" />
+            where
+               <include refid="WhereCondition_TtPackingAttachedCml" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.5. インボイス関連情報削除(キャンセルインボイス) -->
+    <!--     共通　0.2.5. パッキング書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerPackingCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerPackingCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternG" /> IV_
+               ,<include refid="Tables_LbFileManagerPacking" />
+            where
+               <include refid="WhereCondition_LbFileManagerPacking" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.5. インボイス関連情報削除(キャンセルインボイス) -->
+    <!--     共通　0.2.6. パッキングヘッダ情報削除 -->
+    <delete id="DeleteTtPackingHeadCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_HEAD PKH
+        /* SqlMap-BatchDelete.deleteTtPackingHeadCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternG" /> IV_
+               ,<include refid="Tables_TtPackingHead" />
+            where
+               <include refid="WhereCondition_TtPackingHead" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.5. インボイス関連情報削除(キャンセルインボイス) -->
+    <!--     共通　0.2.7. インボイスアタッチ情報削除 -->
+    <delete id="DeleteTtInvoiceAttachedCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_ATTACHED IVA
+        /* SqlMap-BatchDelete.deleteTtInvoiceAttachedCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternG" /> IV_
+               ,<include refid="Tables_TtInvoiceAttached" />
+            where
+               <include refid="WhereCondition_TtInvoiceAttached" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.5. インボイス関連情報削除(キャンセルインボイス) -->
+    <!--     共通　0.2.8. インボイス書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerInvoiceCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerInvoiceCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternG" /> IV_
+               ,<include refid="Tables_LbFileManagerInvoice" />
+            where
+               <include refid="WhereCondition_LbFileManagerInvoice" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.5. インボイス関連情報削除(キャンセルインボイス) -->
+    <!--     共通　0.2.9. インボイスヘッダ情報削除 -->
+    <delete id="DeleteTtInvoiceHeaderCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_HEADER IVH
+        /* SqlMap-BatchDelete.deleteTtInvoiceHeaderCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternG" /> IV_
+               ,<include refid="Tables_TtInvoiceHeader" />
+            where
+               <include refid="WhereCondition_TtInvoiceHeader" />
+        )
+    </delete>
+
+    <!-- 34. キャンセルインボイス自体の情報削除 -->
+    <!-- 34.6. インボイス情報削除(キャンセルインボイス) -->
+    <delete id="DeleteTtInvoiceCancel"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE IVE
+        /* SqlMap-BatchDelete.deleteTtInvoiceCancel */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternG" /> IV_
+            where
+               <include refid="WhereCondition_TtInvoice" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.1. インボイス関連情報削除(マニュアルインボイス-リインボイス) -->
+    <!--     共通　0.2.1. 船積書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagershippinActManualReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagershippinActManualReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternN" /> IV_
+               ,<include refid="Tables_LbFileManagershippinAct" />
+            where
+               <include refid="WhereCondition_LbFileManagershippinAct" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.1. インボイス関連情報削除(マニュアルインボイス-リインボイス) -->
+    <!--     共通　0.2.2. 船積書類情報削除 -->
+    <delete id="DeleteTtShippingDocumentManualReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_SHIPPING_DOCUMENT SHD
+        /* SqlMap-BatchDelete.deleteTtShippingDocumentManualReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternN" /> IV_
+               ,<include refid="Tables_TtShippingDocument" />
+            where
+               <include refid="WhereCondition_TtShippingDocument" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.1. インボイス関連情報削除(マニュアルインボイス-リインボイス) -->
+    <!--     共通　0.2.3. パッキングアタッチ_品目番号情報削除 -->
+    <delete id="DeleteTtPackAtchItemNoManualReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACK_ATCH_ITEM_NO PAN
+        /* SqlMap-BatchDelete.deleteTtPackAtchItemNoManualReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternN" /> IV_
+               ,<include refid="Tables_TtPackAtchItemNo" />
+            where
+               <include refid="WhereCondition_TtPackAtchItemNo" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.1. インボイス関連情報削除(マニュアルインボイス-リインボイス) -->
+    <!--     共通　0.2.4. パッキングアタッチ_CML情報削除 -->
+    <delete id="DeleteTtPackingAttachedCmlManualReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_ATTACHED_CML PAC
+        /* SqlMap-BatchDelete.deleteTtPackingAttachedCmlManualReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternN" /> IV_
+               ,<include refid="Tables_TtPackingAttachedCml" />
+            where
+               <include refid="WhereCondition_TtPackingAttachedCml" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.1. インボイス関連情報削除(マニュアルインボイス-リインボイス) -->
+    <!--     共通　0.2.5. パッキング書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerPackingManualReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerPackingManualReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternN" /> IV_
+               ,<include refid="Tables_LbFileManagerPacking" />
+            where
+               <include refid="WhereCondition_LbFileManagerPacking" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.1. インボイス関連情報削除(マニュアルインボイス-リインボイス) -->
+    <!--     共通　0.2.6. パッキングヘッダ情報削除 -->
+    <delete id="DeleteTtPackingHeadManualReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_HEAD PKH
+        /* SqlMap-BatchDelete.deleteTtPackingHeadManualReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternN" /> IV_
+               ,<include refid="Tables_TtPackingHead" />
+            where
+               <include refid="WhereCondition_TtPackingHead" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.1. インボイス関連情報削除(マニュアルインボイス-リインボイス) -->
+    <!--     共通　0.2.7. インボイスアタッチ情報削除 -->
+    <delete id="DeleteTtInvoiceAttachedManualReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_ATTACHED IVA
+        /* SqlMap-BatchDelete.deleteTtInvoiceAttachedManualReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternN" /> IV_
+               ,<include refid="Tables_TtInvoiceAttached" />
+            where
+               <include refid="WhereCondition_TtInvoiceAttached" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.1. インボイス関連情報削除(マニュアルインボイス-リインボイス) -->
+    <!--     共通　0.2.8. インボイス書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerInvoiceManualReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerInvoiceManualReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternN" /> IV_
+               ,<include refid="Tables_LbFileManagerInvoice" />
+            where
+               <include refid="WhereCondition_LbFileManagerInvoice" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.1. インボイス関連情報削除(マニュアルインボイス-リインボイス) -->
+    <!--     共通　0.2.9. インボイスヘッダ情報削除 -->
+    <delete id="DeleteTtInvoiceHeaderManualReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_HEADER IVH
+        /* SqlMap-BatchDelete.deleteTtInvoiceHeaderManualReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternN" /> IV_
+               ,<include refid="Tables_TtInvoiceHeader" />
+            where
+               <include refid="WhereCondition_TtInvoiceHeader" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.2. インボイス情報削除(マニュアルインボイス-リインボイス) -->
+    <delete id="DeleteTtInvoiceManualReinv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE IVE
+        /* SqlMap-BatchDelete.deleteTtInvoiceManualReinv */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternN" /> IV_
+            where
+               <include refid="WhereCondition_TtInvoice" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.3. インボイス関連情報削除(マニュアルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.1. 船積書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagershippinActManualFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagershippinActManualFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternO" /> IV_
+               ,<include refid="Tables_LbFileManagershippinAct" />
+            where
+               <include refid="WhereCondition_LbFileManagershippinAct" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.3. インボイス関連情報削除(マニュアルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.2. 船積書類情報削除 -->
+    <delete id="DeleteTtShippingDocumentManualFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_SHIPPING_DOCUMENT SHD
+        /* SqlMap-BatchDelete.deleteTtShippingDocumentManualFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternO" /> IV_
+               ,<include refid="Tables_TtShippingDocument" />
+            where
+               <include refid="WhereCondition_TtShippingDocument" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.3. インボイス関連情報削除(マニュアルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.3. パッキングアタッチ_品目番号情報削除 -->
+    <delete id="DeleteTtPackAtchItemNoManualFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACK_ATCH_ITEM_NO PAN
+        /* SqlMap-BatchDelete.deleteTtPackAtchItemNoManualFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternO" /> IV_
+               ,<include refid="Tables_TtPackAtchItemNo" />
+            where
+               <include refid="WhereCondition_TtPackAtchItemNo" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.3. インボイス関連情報削除(マニュアルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.4. パッキングアタッチ_CML情報削除 -->
+    <delete id="DeleteTtPackingAttachedCmlManualFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_ATTACHED_CML PAC
+        /* SqlMap-BatchDelete.deleteTtPackingAttachedCmlManualFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternO" /> IV_
+               ,<include refid="Tables_TtPackingAttachedCml" />
+            where
+               <include refid="WhereCondition_TtPackingAttachedCml" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.3. インボイス関連情報削除(マニュアルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.5. パッキング書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerPackingManualFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerPackingManualFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternO" /> IV_
+               ,<include refid="Tables_LbFileManagerPacking" />
+            where
+               <include refid="WhereCondition_LbFileManagerPacking" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.3. インボイス関連情報削除(マニュアルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.6. パッキングヘッダ情報削除 -->
+    <delete id="DeleteTtPackingHeadManualFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_HEAD PKH
+        /* SqlMap-BatchDelete.deleteTtPackingHeadManualFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternO" /> IV_
+               ,<include refid="Tables_TtPackingHead" />
+            where
+               <include refid="WhereCondition_TtPackingHead" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.3. インボイス関連情報削除(マニュアルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.7. インボイスアタッチ情報削除 -->
+    <delete id="DeleteTtInvoiceAttachedManualFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_ATTACHED IVA
+        /* SqlMap-BatchDelete.deleteTtInvoiceAttachedManualFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternO" /> IV_
+               ,<include refid="Tables_TtInvoiceAttached" />
+            where
+               <include refid="WhereCondition_TtInvoiceAttached" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.3. インボイス関連情報削除(マニュアルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.8. インボイス書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerInvoiceManualFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerInvoiceManualFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternO" /> IV_
+               ,<include refid="Tables_LbFileManagerInvoice" />
+            where
+               <include refid="WhereCondition_LbFileManagerInvoice" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.3. インボイス関連情報削除(マニュアルインボイス-FRTインボイス) -->
+    <!--     共通　0.2.9. インボイスヘッダ情報削除 -->
+    <delete id="DeleteTtInvoiceHeaderManualFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_HEADER IVH
+        /* SqlMap-BatchDelete.deleteTtInvoiceHeaderManualFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternO" /> IV_
+               ,<include refid="Tables_TtInvoiceHeader" />
+            where
+               <include refid="WhereCondition_TtInvoiceHeader" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.4. インボイス情報削除(マニュアルインボイス-FRTインボイス) -->
+    <delete id="DeleteTtInvoiceManualFrt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE IVE
+        /* SqlMap-BatchDelete.deleteTtInvoiceManualFrt */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternO" /> IV_
+            where
+               <include refid="WhereCondition_TtInvoice" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.5. インボイス関連情報削除(マニュアルインボイス) -->
+    <!--     共通　0.2.1. 船積書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagershippinActManual"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagershippinActManual */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternM" /> IV_
+               ,<include refid="Tables_LbFileManagershippinAct" />
+            where
+               <include refid="WhereCondition_LbFileManagershippinAct" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.5. インボイス関連情報削除(マニュアルインボイス) -->
+    <!--     共通　0.2.2. 船積書類情報削除 -->
+    <delete id="DeleteTtShippingDocumentManual"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_SHIPPING_DOCUMENT SHD
+        /* SqlMap-BatchDelete.deleteTtShippingDocumentManual */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternM" /> IV_
+               ,<include refid="Tables_TtShippingDocument" />
+            where
+               <include refid="WhereCondition_TtShippingDocument" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.5. インボイス関連情報削除(マニュアルインボイス) -->
+    <!--     共通　0.2.3. パッキングアタッチ_品目番号情報削除 -->
+    <delete id="DeleteTtPackAtchItemNoManual"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACK_ATCH_ITEM_NO PAN
+        /* SqlMap-BatchDelete.deleteTtPackAtchItemNoManual */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternM" /> IV_
+               ,<include refid="Tables_TtPackAtchItemNo" />
+            where
+               <include refid="WhereCondition_TtPackAtchItemNo" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.5. インボイス関連情報削除(マニュアルインボイス) -->
+    <!--     共通　0.2.4. パッキングアタッチ_CML情報削除 -->
+    <delete id="DeleteTtPackingAttachedCmlManual"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_ATTACHED_CML PAC
+        /* SqlMap-BatchDelete.deleteTtPackingAttachedCmlManual */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternM" /> IV_
+               ,<include refid="Tables_TtPackingAttachedCml" />
+            where
+               <include refid="WhereCondition_TtPackingAttachedCml" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.5. インボイス関連情報削除(マニュアルインボイス) -->
+    <!--     共通　0.2.5. パッキング書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerPackingManual"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerPackingManual */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternM" /> IV_
+               ,<include refid="Tables_LbFileManagerPacking" />
+            where
+               <include refid="WhereCondition_LbFileManagerPacking" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.5. インボイス関連情報削除(マニュアルインボイス) -->
+    <!--     共通　0.2.6. パッキングヘッダ情報削除 -->
+    <delete id="DeleteTtPackingHeadManual"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_PACKING_HEAD PKH
+        /* SqlMap-BatchDelete.deleteTtPackingHeadManual */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternM" /> IV_
+               ,<include refid="Tables_TtPackingHead" />
+            where
+               <include refid="WhereCondition_TtPackingHead" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.5. インボイス関連情報削除(マニュアルインボイス) -->
+    <!--     共通　0.2.7. インボイスアタッチ情報削除 -->
+    <delete id="DeleteTtInvoiceAttachedManual"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_ATTACHED IVA
+        /* SqlMap-BatchDelete.deleteTtInvoiceAttachedManual */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternM" /> IV_
+               ,<include refid="Tables_TtInvoiceAttached" />
+            where
+               <include refid="WhereCondition_TtInvoiceAttached" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.5. インボイス関連情報削除(マニュアルインボイス) -->
+    <!--     共通　0.2.8. インボイス書類ファイル管理情報削除 -->
+    <delete id="DeleteLbFileManagerInvoiceManual"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from LB_FILE_MANAGER FLM
+        /* SqlMap-BatchDelete.deleteLbFileManagerInvoiceManual */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternM" /> IV_
+               ,<include refid="Tables_LbFileManagerInvoice" />
+            where
+               <include refid="WhereCondition_LbFileManagerInvoice" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.5. インボイス関連情報削除(マニュアルインボイス) -->
+    <!--     共通　0.2.9. インボイスヘッダ情報削除 -->
+    <delete id="DeleteTtInvoiceHeaderManual"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE_HEADER IVH
+        /* SqlMap-BatchDelete.deleteTtInvoiceHeaderManual */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternM" /> IV_
+               ,<include refid="Tables_TtInvoiceHeader" />
+            where
+               <include refid="WhereCondition_TtInvoiceHeader" />
+        )
+    </delete>
+
+    <!-- 35. マニュアルインボイス情報の削除 -->
+    <!-- 35.6. インボイス情報削除(マニュアルインボイス) -->
+    <delete id="DeleteTtInvoiceManual"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_INVOICE IVE
+        /* SqlMap-BatchDelete.deleteTtInvoiceManual */
+        where exists (
+            select *
+            from
+                <include refid="SubQuery_PatternM" /> IV_
+            where
+               <include refid="WhereCondition_TtInvoice" />
+        )
+    </delete>
+
+    <!-- 36. 採番原単位データの削除 -->
+    <!-- この機能は仕様から削除されている -->
+
+    <!-- 37. CMLエラーレポート明細情報の削除 -->
+    <delete id="DeleteTtCmlErrorDtl"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_CML_ERROR_DTL CED
+        /* SqlMap-BatchDelete.deleteTtCmlErrorDtl */
+        where exists (
+            select * from TT_CML_ERROR_HEADER CEH
+            where
+                  CED.DSC_ID               = CEH.DSC_ID
+              and CED.ERR_CREATE_TIMESTAMP = CEH.ERR_CREATE_TIMESTAMP
+              and CEH.COM_UPDATE_TIMESTAMP  &lt; trunc(add_months(sysdate, -1), 'MM')
+        )
+    </delete>
+
+    <!-- 38. CMLエラーレポートヘッダ情報の削除 -->
+    <delete id="DeleteTtCmlErrorHeader"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_CML_ERROR_HEADER CEH
+        /* SqlMap-BatchDelete.deleteTtCmlErrorHeader */
+        where
+            CEH.COM_UPDATE_TIMESTAMP  &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+
+    <!-- 39. BHT作業時間情報の削除 -->
+    <!-- 39.1 BHT作業情報テーブル(パレタイズ)情報の削除 -->
+    <delete id="DeleteTtBhtWorkPltz"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_BHT_WORK_PLTZ BWP
+        /* SqlMap-BatchDelete.deleteTtBhtWorkPltz */
+        where exists (
+            select * from TT_BHT_WORK_TIME BWT
+            where
+                  BWP.WORK_TIME_NO = BWT.WORK_TIME_NO
+              and BWT.COM_UPDATE_TIMESTAMP &lt; add_months(sysdate, -14)
+        )
+    </delete>
+
+    <!-- 39. BHT作業時間情報の削除 -->
+    <!-- 39.2 BHT作業情報テーブル(小箱内多品)情報の削除 -->
+    <delete id="DeleteTtBhtWorkMixTag"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+
+        delete from TT_BHT_WORK_MIX_TAG BWM
+        /* SqlMap-BatchDelete.deleteTtBhtWorkMixTag */
+        where exists (
+            select * from TT_BHT_WORK_TIME BWT
+            where
+                  BWM.WORK_TIME_NO = BWT.WORK_TIME_NO
+              and BWT.COM_UPDATE_TIMESTAMP &lt; add_months(sysdate, -14)
+        )
+    </delete>
+
+    <!-- 39. BHT作業時間情報の削除 -->
+    <!-- 39.3 BHT作業エラー情報の削除 -->
+    <delete id="DeleteTtBhtWorkErr"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_BHT_WORK_ERR BWE
+        /* SqlMap-BatchDelete.deleteTtBhtWorkErr */
+        where exists (
+            select * from TT_BHT_WORK_TIME BWT
+            where
+                  BWE.WORK_TIME_NO = BWT.WORK_TIME_NO
+              and BWT.COM_UPDATE_TIMESTAMP &lt; add_months(sysdate, -14)
+        )
+    </delete>
+
+    <!-- 39. BHT作業時間情報の削除 -->
+    <!-- 39.4 BHT作業時間情報の削除 -->
+    <delete id="DeleteTtBhtWorkTime"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_BHT_WORK_TIME BWT
+        /* SqlMap-BatchDelete.deleteTtBhtWorkTime */
+        where
+            BWT.COM_UPDATE_TIMESTAMP &lt; add_months(sysdate, -14)
+    </delete>
+
+    <!-- 41. 包装仕様有効リビジョン履歴情報削除 -->
+    <delete id="DeleteTmPkgSpecRev"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TM_PKG_SPEC_REV_HIS
+        /* SqlMap-BatchDelete.deleteTmPkgSpecRev */
+        where
+            COM_UPDATE_TIMESTAMP &lt; add_months(sysdate, -14)
+    </delete>
+
+    <!--42. 不要ワークデータの削除 -->
+    <!-- 1. 船積実績対象インボイスワークT -->
+    <delete id="DeleteTwShippingActInvoice"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TW_SHIPPING_ACT_INVOICE
+        /* SqlMap-BatchDelete.deleteTwShippingActInvoice */
+        where
+            COM_UPDATE_TIMESTAMP &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+
+    <!--42. 不要ワークデータの削除 -->
+    <!-- 2. インボイス対象パレタイズワークT -->
+    <delete id="DeleteTwInvPltz"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TW_INV_PLTZ
+        /* SqlMap-BatchDelete.deleteTwInvPltz */
+        where
+            COM_UPDATE_TIMESTAMP &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+
+    <!--42. 不要ワークデータの削除 -->
+    <!-- 3. インボイスグループワークT -->
+    <delete id="DeleteTwInv"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TW_INV
+        /* SqlMap-BatchDelete.deleteTwInv */
+        where
+            COM_UPDATE_TIMESTAMP &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+
+    <!--42. 不要ワークデータの削除 -->
+    <!-- 4. インボイスワークT -->
+    <delete id="DeleteTwInvoice"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TW_INVOICE
+        /* SqlMap-BatchDelete.deleteTwInvoice */
+        where
+            COM_UPDATE_TIMESTAMP &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+
+    <!--42. 不要ワークデータの削除 -->
+    <!-- 5. インボイス作成対象品目番号ワークT -->
+    <delete id="DeleteTwInvItem"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TW_INV_ITEM
+        /* SqlMap-BatchDelete.deleteTwInvItem */
+        where
+            COM_UPDATE_TIMESTAMP &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+
+    <!--42. 不要ワークデータの削除 -->
+    <!-- 6. 山作り実績ワークT -->
+    <delete id="DeleteTwStgAct"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TW_STG_ACT
+        /* SqlMap-BatchDelete.deleteTwStgAct */
+        where
+            COM_UPDATE_TIMESTAMP &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+
+    <!--42. 不要ワークデータの削除 -->
+    <!-- 7. 荷揃え指示ワークT -->
+    <delete id="DeleteTwStgInstr"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TW_STG_INSTR
+        /* SqlMap-BatchDelete.deleteTwStgInstr */
+        where
+            COM_UPDATE_TIMESTAMP &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+
+    <!--42. 不要ワークデータの削除 -->
+    <!-- 8. まとめパレタイズワークT -->
+    <delete id="DeleteTwXpltz"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TW_XPLTZ
+        /* SqlMap-BatchDelete.deleteTwXpltz */
+        where
+            COM_UPDATE_TIMESTAMP &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+
+    <!--42. 不要ワークデータの削除 -->
+    <!-- 9. 梱包指示品目番号ワークT -->
+    <delete id="DeleteTwPltzInstrItemNo"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TW_PLTZ_INSTR_ITEM_NO
+        /* SqlMap-BatchDelete.deleteTwPltzInstrItemNo */
+        where
+            COM_UPDATE_TIMESTAMP &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+
+    <!--42. 不要ワークデータの削除 -->
+    <!-- 10. パレタイズ対象品ワークT -->
+    <delete id="DeleteTwPltzItemItemNo"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TW_PLTZ_ITEM_ITEM_NO
+        /* SqlMap-BatchDelete.deleteTwPltzItemItemNo */
+        where
+            COM_UPDATE_TIMESTAMP &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+
+    <!--42. 不要ワークデータの削除 -->
+    <!-- 11. パレタイズ対象品PKGワークT -->
+    <delete id="DeleteTwPltzItemPkg"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TW_PLTZ_ITEM_PKG
+        /* SqlMap-BatchDelete.deleteTwPltzItemPkg */
+        where
+            COM_UPDATE_TIMESTAMP &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+
+    <!--42. 不要ワークデータの削除 -->
+    <!-- 12. MIXED用RT材ワークT -->
+    <delete id="DeleteTwMixtagRt"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TW_MIXTAG_RT
+        /* SqlMap-BatchDelete.deleteTwMixtagRt */
+        where
+            COM_UPDATE_TIMESTAMP &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+
+    <!--42. 不要ワークデータの削除 -->
+    <!-- 13. MIXED品目番号ワークT -->
+    <delete id="DeleteTwMixtag"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TW_MIXTAG
+        /* SqlMap-BatchDelete.deleteTwMixtag */
+        where
+            COM_UPDATE_TIMESTAMP &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+
+    <!--42. 不要ワークデータの削除 -->
+    <!-- 14. バッチリクエストパラメータT -->
+    <delete id="DeleteTtBatchReqParam"
+        parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete from TT_BATCH_REQ_PARAM
+        /* SqlMap-BatchDelete.deleteTtBatchReqParam */
+        where
+            COM_UPDATE_TIMESTAMP &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+
+    <!-- NL015 ADD START -->
+    <!--
+    == Delete TT_SC_ATTACHED of export invoice. Approach from TT_SHIPPING_ACT.
+    == 輸出インボイスに紐付くセールスコントラクトアタッチの削除。船積実績からのアプローチ。
+    -->
+    <delete id="DeleteTtScAttachedByMain" parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete
+        /* SqlMap-BatchDelete.DeleteTtScAttachedByMain */
+        from
+            TT_SC_ATTACHED SCA
+        where
+            exists (
+                select
+                    'X'
+                from
+                    TT_SHIPPING_ACT SHA
+                ,   TT_INVOICE IVE
+                where
+                    <include refid="WhereCondition_RegisterDate" />
+                and SHA.SHIPPING_ACT_NO     = IVE.SHIPPING_ACT_NO
+                and IVE.SHIPPER_CD          = SCA.SHIPPER_CD
+                and IVE.INVOICE_NO          = SCA.INVOICE_NO
+                and IVE.INVOICE_ISSUE_DT    = SCA.INVOICE_ISSUE_DT
+            )
+    </delete>
+
+    <!--
+    == Delete LB_FILE_MANAGER of TT_SC_HEADER. Approach from TT_SHIPPING_ACT.
+    == ファイルマネージャに登録されているセールスコントラクト帳票の削除。船積実績からのアプローチ。
+    -->
+    <delete id="DeleteLbFileManagerScByMain" parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete
+        /* SqlMap-BatchDelete.DeleteLbFileManagerScByMain */
+        from
+            LB_FILE_MANAGER FLM
+        where
+            exists (
+                select
+                    'X'
+                from
+                    TT_SHIPPING_ACT SHA
+                ,   TT_INVOICE IVE
+                ,   TT_SC_HEADER SCH
+                where
+                    <include refid="WhereCondition_RegisterDate" />
+                and SHA.SHIPPING_ACT_NO     = IVE.SHIPPING_ACT_NO
+                and IVE.SHIPPER_CD          = SCH.SHIPPER_CD
+                and IVE.INVOICE_NO          = SCH.INVOICE_NO
+                and IVE.INVOICE_ISSUE_DT    = SCH.INVOICE_ISSUE_DT
+                and SCH.FILE_ID             = FLM.FILE_ID
+            )
+    </delete>
+
+    <!--
+    == Delete TT_SC_HEADER of export invoice. Approach from TT_SHIPPING_ACT.
+    == 輸出インボイスに紐付くセールスコントラクトヘッダの削除。船積実績からのアプローチ。
+    -->
+    <delete id="DeleteTtScHeaderByMain" parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete
+        /* SqlMap-BatchDelete.DeleteTtScHeaderByMain */
+        from
+            TT_SC_HEADER SCH
+        where
+            exists (
+                select
+                    'X'
+                from
+                    TT_SHIPPING_ACT SHA
+                ,   TT_INVOICE IVE
+                where
+                    <include refid="WhereCondition_RegisterDate" />
+                and SHA.SHIPPING_ACT_NO     = IVE.SHIPPING_ACT_NO
+                and IVE.SHIPPER_CD          = SCH.SHIPPER_CD
+                and IVE.INVOICE_NO          = SCH.INVOICE_NO
+                and IVE.INVOICE_ISSUE_DT    = SCH.INVOICE_ISSUE_DT
+            )
+    </delete>
+
+    <!--
+    == Delete TT_SC_ATTACHED of export invoice. Approach from cancel invoice.
+    == 輸出インボイスに紐付くセールスコントラクトアタッチの削除。キャンセルインボイスからのアプローチ。
+    -->
+    <delete id="DeleteTtScAttachedByBeforeCancel" parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete
+        /* SqlMap-BatchDelete.DeleteTtScAttachedByBeforeCancel */
+        from
+            TT_SC_ATTACHED SCA
+        where
+            exists (
+                select
+                    'X'
+                from
+                    TT_INVOICE IVC
+                ,   TT_INVOICE IVE
+                where
+                    <include refid="WhereCondition_DeleteCancellationInvoice" />
+                and IVC.SHIPPER_CD              = IVE.SHIPPER_CD
+                and IVC.CANCEL_INVOICE_NO       = IVE.INVOICE_NO
+                and IVC.CANCEL_INVOICE_ISSUE_DT = IVE.INVOICE_ISSUE_DT
+                and IVE.SHIPPER_CD              = SCA.SHIPPER_CD
+                and IVE.INVOICE_NO              = SCA.INVOICE_NO
+                and IVE.INVOICE_ISSUE_DT        = SCA.INVOICE_ISSUE_DT
+            )
+    </delete>
+
+    <!--
+    == Delete LB_FILE_MANAGER of TT_SC_HEADER. Approach from cancel invoice.
+    == ファイルマネージャに登録されているセールスコントラクト帳票の削除。キャンセルインボイスからのアプローチ。
+    -->
+    <delete id="DeleteLbFileManagerScByBeforeCancel" parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete
+        /* SqlMap-BatchDelete.DeleteLbFileManagerScByBeforeCancel */
+        from
+            LB_FILE_MANAGER FLM
+        where
+            exists (
+                select
+                    'X'
+                from
+                    TT_INVOICE IVC
+                ,   TT_INVOICE IVE
+                ,   TT_SC_HEADER SCH
+                where
+                    <include refid="WhereCondition_DeleteCancellationInvoice" />
+                and IVC.SHIPPER_CD              = IVE.SHIPPER_CD
+                and IVC.CANCEL_INVOICE_NO       = IVE.INVOICE_NO
+                and IVC.CANCEL_INVOICE_ISSUE_DT = IVE.INVOICE_ISSUE_DT
+                and IVE.SHIPPER_CD              = SCH.SHIPPER_CD
+                and IVE.INVOICE_NO              = SCH.INVOICE_NO
+                and IVE.INVOICE_ISSUE_DT        = SCH.INVOICE_ISSUE_DT
+                and SCH.FILE_ID                 = FLM.FILE_ID
+            )
+    </delete>
+
+    <!--
+    == Delete TT_SC_HEADER of export invoice. Approach from cancel invoice.
+    == 輸出インボイスに紐付くセールスコントラクトヘッダの削除。キャンセルインボイスからのアプローチ。
+    -->
+    <delete id="DeleteTtScHeaderByBeforeCancel" parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete
+        /* SqlMap-BatchDelete.DeleteTtScHeaderByBeforeCancel */
+        from
+            TT_SC_HEADER SCH
+        where
+            exists (
+                select
+                    'X'
+                from
+                    TT_INVOICE IVC
+                ,   TT_INVOICE IVE
+                where
+                    <include refid="WhereCondition_DeleteCancellationInvoice" />
+                and IVC.SHIPPER_CD              = IVE.SHIPPER_CD
+                and IVC.CANCEL_INVOICE_NO       = IVE.INVOICE_NO
+                and IVC.CANCEL_INVOICE_ISSUE_DT = IVE.INVOICE_ISSUE_DT
+                and IVE.SHIPPER_CD              = SCH.SHIPPER_CD
+                and IVE.INVOICE_NO              = SCH.INVOICE_NO
+                and IVE.INVOICE_ISSUE_DT        = SCH.INVOICE_ISSUE_DT
+            )
+    </delete>
+
+    <!--
+    == Delete LB_FILE_MANAGER used by Order Upload.
+    == ファイルマネージャに登録されている受注アップロードファイルの削除。
+    -->
+    <delete id="DeleteLbFileManagerByOdrUpload" parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete
+        from
+        /* SqlMap-BatchDelete.DeleteLbFileManagerByOdrUpload */
+            LB_FILE_MANAGER FLM
+        where
+            exists (
+                select
+                    'X'
+                from
+                    TT_ODR_UPLOAD_REQ_MGT OUP
+                where
+                    OUP.COM_UPDATE_TIMESTAMP &lt; add_months(sysdate, -14)
+                and (
+                        OUP.UPLOAD_FILE_ID = FLM.FILE_ID
+                    or  OUP.ERR_FILE_ID = FLM.FILE_ID
+                )
+            )
+    </delete>
+
+    <!--
+    == Delete TT_ODR_UPLOAD_REQ_MGT.
+    == 受注アップロードリクエスト管理の削除。
+    -->
+    <delete id="DeleteTtOdrUploadReqMgt" parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete
+        /* SqlMap-BatchDelete.DeleteTtOdrUploadReqMgt */
+        from
+            TT_ODR_UPLOAD_REQ_MGT
+        where
+            COM_UPDATE_TIMESTAMP &lt; add_months(sysdate, -14)
+    </delete>
+
+    <!--
+    == Delete TT_ONLINE_REQ_JOB_PARAM.
+    == オンラインリクエストジョブパラメータの削除。
+    -->
+    <delete id="DeleteTtOnlineReqJobParam" parameterClass="T0100BatchDeleteCriteriaDomain">
+        delete
+        /* SqlMap-BatchDelete.DeleteTtOnlineReqJobParam */
+        from
+            TT_ONLINE_REQ_JOB_PARAM
+        where
+            COM_UPDATE_TIMESTAMP &lt; trunc(add_months(sysdate, -1), 'MM')
+    </delete>
+    <!-- NL015 ADD END -->
+
+</sqlMap>

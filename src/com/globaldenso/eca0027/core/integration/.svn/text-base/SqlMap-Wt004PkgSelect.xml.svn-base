@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-Wt004PkgSelect.xml
+ *
+ * SqlMap file of Wt004PkgSelectDao.
+ * Wt004PkgSelectDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Wt004PkgSelect">
+
+    <!-- Domain -->
+    <typeAlias alias="Wt004PkgSelectDomain"
+        type="com.globaldenso.eca0027.core.business.domain.Wt004PkgSelectDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="Wt004PkgSelectCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.Wt004PkgSelectCriteriaDomain" />
+
+    <resultMap id="Wt004PkgSelectResult" class="Wt004PkgSelectDomain">
+        <result property="pkgItemNo" column="PKG_ITEM_NO" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="rtTyp" column="RT_TYP" />
+        <result property="pkgMtrlNm" column="PKG_MTRL_NM" />
+
+    </resultMap>
+
+    <!-- 汎用 項目 -->
+    <sql id="TableCols">
+        PKG_ITEM_NO 
+        , MODEL_CD 
+        , RT_TYP 
+        , PKG_MTRL_NM 
+    </sql>
+
+    <!-- 汎用 項目 -->
+    <sql id="Cols">
+        TEMP.PKG_ITEM_NO
+        , TEMP.MODEL_CD
+        , TEMP.RT_TYP
+        , TEMP.PKG_MTRL_NM
+    </sql>
+
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeys">
+        order by (
+            case
+                when RT_TYP = '2' or RT_TYP = '3' then 1
+                when RT_TYP = '1' then 2
+            end
+            )
+            ,PKG_ITEM_NO asc
+    </sql>
+
+    <!-- FROM句   -->
+    <sql id="From">
+        from
+            TM_PKG_MTRL
+    </sql>
+
+    <!-- 汎用 Where句（基本項目） -->
+    <!-- NL040 MOD -->
+    <sql id="WhereCondition">
+        where
+            OWNER_COMP = #ownerComp# 
+            and PKG_EXP_DT is null
+            <isEqual prepend="and" compareValue="Y" property="rtTyp">
+                RT_TYP in('2', '3')
+            </isEqual>
+            <isEqual prepend="and" compareValue="N" property="rtTyp">
+                RT_TYP = '1'
+            </isEqual>
+            <isNotEmpty property="pkgItemNo"> 
+                <!-- ST967 MOD START -->
+                and (
+                        PKG_ITEM_NO like #pkgItemNo# || '%' 
+                    or  PKG_ITEM_NO like '  ' || replace(#pkgItemNo#, '-', '') || '%'
+                )
+                <!-- ST967 MOD END -->
+            </isNotEmpty> 
+            <isNotEmpty property="modelCd"> 
+                and upper(MODEL_CD) like upper(#modelCd#) || '%' 
+            </isNotEmpty> 
+    </sql>
+
+    <!-- 検索 SQL文（任意条件、ページング用） -->
+    <select id="SearchByConditionForPaging" resultMap="Wt004PkgSelectResult"
+        parameterClass="Wt004PkgSelectCriteriaDomain">
+        select
+        /* SqlMap-Wt004PkgSelect.SearchByConditionForPaging */
+        <include refid="Cols" />
+        from (
+            select 
+            <include refid="TableCols" />
+            ,row_number() over (<include refid="SortKeys" />) ROW_NUM
+            <include refid="From" />
+            <include refid="WhereCondition" />
+            <include refid="SortKeys" />
+        ) TEMP
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCount" resultClass="java.lang.Integer"
+        parameterClass="Wt004PkgSelectCriteriaDomain">
+        select count(ROWNUM)
+        /* SqlMap-Wt004PkgSelect.SearchCount */
+        <include refid="From" />
+        <include refid="WhereCondition" />
+    </select>
+
+</sqlMap>

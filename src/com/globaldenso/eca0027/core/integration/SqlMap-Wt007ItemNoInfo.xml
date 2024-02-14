@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!-- 
+ * SqlMap-Wt007ItemNoInfo.xml
+ *
+ * SqlMap file of Wt007ItemNoInfoDao.
+ * Wt007ItemNoInfoDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd"> 
+
+
+<sqlMap namespace="Wt007ItemNoInfo">
+
+    <!-- Domain -->
+    <typeAlias alias="Wt007ItemNoInfoDomain"
+        type="com.globaldenso.eca0027.core.business.domain.Wt007ItemNoInfoDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="Wt007ItemNoInfoCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.Wt007ItemNoInfoCriteriaDomain" />
+
+    <resultMap id="Wt007ItemNoInfoResultTtPltzItem" class="Wt007ItemNoInfoDomain">
+        <result property="itemNo" column="PLTZ_ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="shipLot" column="SHIPPING_LOT" />
+        <result property="actualPkgQty" column="SUM_QTY" />
+    </resultMap>
+    
+    <resultMap id="Wt007ItemNoInfoResultTtMixtagItemNo" class="Wt007ItemNoInfoDomain">
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="shipLot" column="SHIPPING_LOT" />
+        <result property="actualPkgQty" column="QTY" />
+    </resultMap>
+    
+
+    <!-- 汎用 項目 -->
+    <sql id="ColsPltzItem">
+        PLTZ_ITEM_NO
+        , PKG_CD
+        , sum(QTY) SUM_QTY
+        , SHIPPING_LOT
+    </sql>
+
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeysPltzItem">
+        order by
+            PLTZ_ITEM_NO asc 
+            , PKG_CD asc 
+    </sql>
+
+    <!-- 汎用 GroupBy句 -->
+    <sql id="SumKeysPltzItem">
+        group by
+            PLTZ_ITEM_NO 
+            , PKG_CD 
+            , SHIPPING_LOT
+    </sql>
+    
+    <!-- SELECT句   -->
+    <sql id="SelectPltzItem">
+        select 
+        <include refid="ColsPltzItem" />
+    </sql>
+
+    <!-- FROM句   -->
+    <sql id="FromPltzItem">
+        from
+            TT_PLTZ_ITEM
+    </sql>
+
+    <!-- 汎用 Where句（基本項目） -->
+    <sql id="WhereConditionPltzItem">
+        where
+            MAIN_MARK = #mainMark#
+    </sql>
+    
+    <!-- 汎用 項目 -->
+    <sql id="ColsMixTag">
+        ITEM_NO
+        , PKG_CD
+        , SHIPPING_LOT
+        , QTY
+    </sql>
+
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeysMixTag">
+        order by
+            ITEM_NO asc 
+            , PKG_CD asc 
+    </sql>
+    
+    <!-- SELECT句   -->
+    <sql id="SelectMixTag">
+        select 
+        <include refid="ColsMixTag" />
+    </sql>
+
+    <!-- FROM句   -->
+    <sql id="FromMixTag">
+        from
+            TT_MIXTAG_ITEM_NO
+    </sql>
+
+    <!-- 汎用 Where句（基本項目） -->
+    <sql id="WhereConditionMixTag">
+        where
+            MIX_TAG_NO = #mixTagNo#
+    </sql>
+    
+    
+    <!-- 検索 SQL文（任意条件、ページング用） -->
+    <select id="SearchByConditionTtPltzItem" resultMap="Wt007ItemNoInfoResultTtPltzItem"
+        parameterClass="Wt007ItemNoInfoCriteriaDomain">
+        <include refid="SelectPltzItem" />
+        /* SqlMap-Wt007ItemNoInfo.SearchByConditionTtPltzItem */
+        <include refid="FromPltzItem" />
+        <include refid="WhereConditionPltzItem" />
+        <include refid="SumKeysPltzItem" />
+        <include refid="SortKeysPltzItem" />
+    </select>
+
+    <!-- 検索 SQL文（任意条件、ページング用） -->
+    <select id="SearchByConditionTtMixtagItemNo" resultMap="Wt007ItemNoInfoResultTtMixtagItemNo"
+        parameterClass="Wt007ItemNoInfoCriteriaDomain">
+        <include refid="SelectMixTag" />
+        /* SqlMap-Wt007ItemNoInfo.SearchByConditionTtMixtagItemNo */
+        <include refid="FromMixTag" />
+        <include refid="WhereConditionMixTag" />
+        <include refid="SortKeysMixTag" />
+    </select>
+    
+    
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCountTtPltzItem" resultClass="java.lang.Integer"
+        parameterClass="Wt007ItemNoInfoCriteriaDomain">
+        select count(ROWNUM) from 
+        /* SqlMap-Wt007ItemNoInfo.SearchCountTtPltzItem */
+        (<include refid="SelectPltzItem" />
+        <include refid="FromPltzItem" />
+        <include refid="WhereConditionPltzItem" />
+        <include refid="SumKeysPltzItem" />
+        <include refid="SortKeysPltzItem" />)
+        
+    </select>
+    
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCountTtMixtagItemNo" resultClass="java.lang.Integer"
+        parameterClass="Wt007ItemNoInfoCriteriaDomain">
+        select count(ROWNUM)
+        /* SqlMap-Wt007ItemNoInfo.SearchCountTtMixtagItemNo */
+        <include refid="FromMixTag" />
+        <include refid="WhereConditionMixTag" />
+    </select>
+
+</sqlMap>

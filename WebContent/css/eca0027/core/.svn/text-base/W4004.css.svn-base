@@ -1,0 +1,113 @@
+@charset "utf-8";
+/*
+ * W4004.css
+ *
+ * Style sheet used in staging instruction register screen.
+ * 荷揃え指示Register画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ Search condition area ------------*/ 
+/*------------ 検索条件エリア ------------*/ 
+
+.gscm_search .search_wh_comp_cd {
+    width: 89px;
+}
+.gscm_search .search_wh_cd {
+    width: 100px;
+}
+.gscm_search .search_trns_cd {
+    width: 55px;
+}
+.gscm_search .search_container_sorting_key {
+    width: 118px;
+}
+.gscm_search .search_shipper_cd {
+    width: 69px;
+}
+.gscm_search .search_custom_timing_typ {
+    width: 79px;
+}
+.gscm_search .search_container_loose_typ {
+    width: 40px;
+}
+.gscm_search .search_etd {
+    width: 75px;
+}
+.gscm_search .search_carrier_comp_cd {
+    width: 65px;
+}
+.gscm_search .search_stg_instr_dt {
+    width: 90px;
+}
+.gscm_search .search_stg_instr_issuer_nm {
+}
+
+.gscm_search .search_pkg_qty {
+    width: 75px;
+}
+.gscm_search .search_total_gross_weight {
+    width: 145px;
+}
+.gscm_search .search_total_volume {
+    width: 185px;
+}
+.gscm_search .search_worked_dt {
+    width: 100px;
+}
+.gscm_search .search_worked_issuer_nm {
+    width: 170px;
+}
+.gscm_search .search_worked_meth_value {
+    width: 118px;
+}
+.gscm_search .search_stg_instr_status {
+    width: 59px;
+}
+.gscm_search .search_stg_instr_no {
+}
+
+.gscm_search .stg_instr_issuer_nm {
+    width: 165px;
+}
+.gscm_search .worked_issuer_nm {
+    width: 165px;
+}
+
+/*------------ Search result area ------------*/ 
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 960px;
+}
+
+.gscm_resultlist .resultlist_delete {
+    width: 48px;
+}
+.gscm_resultlist .resultlist_loading_cd {
+    width: 48px;
+}
+.gscm_resultlist .resultlist_ship_to_cd {
+    width: 105px;
+}
+.gscm_resultlist .resultlist_dngr_item_flg {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_main_mark {
+    width: 190px;
+}
+.gscm_resultlist .resultlist_exp_request_no {
+    width: 130px;
+}
+.gscm_resultlist .resultlist_gross_weight {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_volume {
+    width: 140px;
+}
+.gscm_resultlist .resultlist_last_tr_rcv_dt {
+    width: 76px;
+}
+.gscm_resultlist .resultlist_due_date {
+}

@@ -1,0 +1,1475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * SqlMap-W7001ShippingAct.xml
+ *
+ * W7001ShippingActDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ 
+<sqlMap namespace="W7001ShippingAct">
+    <!-- ================================================== -->
+    <!-- Domainの別名定義 -->
+    <!-- ================================================== -->
+    <!-- Domain -->
+    <typeAlias alias="W7001ShippingActDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W7001ShippingActDomain" />
+    <typeAlias alias="W7001ShippingActOdrDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W7001ShippingActOdrDomain" />
+    <typeAlias alias="W7001ShippingActInvoiceDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W7001ShippingActInvoiceDomain" />
+    <typeAlias alias="W7001ShippingActDocDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W7001ShippingActDocDomain" />
+    <typeAlias alias="W7001ShippingActPltzDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W7001ShippingActPltzDomain" />
+    <typeAlias alias="W7001ShippingActItemDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W7001ShippingActItemDomain" />
+    <typeAlias alias="W7001ShippingActTwInvoiceDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W7001ShippingActTwInvoiceDomain" />
+        
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W7001ShippingActCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W7001ShippingActCriteriaDomain" />
+    <typeAlias alias="TwShippingActInvoiceDomain"
+        type="com.globaldenso.eca0027.core.auto.business.domain.TwShippingActInvoiceDomain" />
+
+    <!-- ================================================== -->
+    <!-- 検索結果をMapで受け取る                            -->
+    <!-- ================================================== -->
+    <!-- 船積実績（Main画面） -->
+    <resultMap id="W7001ShippingActDomain_SearchForPagingTtShippingAct" class="W7001ShippingActDomain">
+        <result property="shippingActNo" column="SHIPPING_ACT_NO" />
+        <result property="registerDt" column="REGISTER_DT" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="consigneeCd" column="CONSIGNEE_CD" />
+        <result property="shipToCompCd" column="SHIP_TO_COMP_CD" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="carrierCompCd" column="CARRIER_COMP_CD" />
+        <result property="vessel" column="VESSEL" />
+        <result property="billdNo" column="BILLD_NO" />
+        <result property="shippingActStatus" column="SHIPPING_ACT_STATUS" />
+        <result property="freightResponsibleCd" column="FREIGHT_RESPONSIBLE_CD" />
+        <result property="atd" column="ATD" />
+        <result property="eta" column="ETA" />
+        <result property="noOfContainer" column="NO_OF_CONTAINER" />
+        <result property="noOfInvoice" column="NO_OF_INVOICE" />
+        <result property="billdFileId" column="BILLD_FILE_ID" />
+        <result property="needOtherDocFlg" column="NEED_OTHER_DOC_FLG" />
+        <result property="clpGroup" column="CLP_GROUP" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+    </resultMap>
+    
+    <resultMap id="W7001ShippingActDomain_SearchTtShippingActByShippingFirmNo" class="W7001ShippingActDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="shippingFirmNo" column="SHIPPING_FIRM_NO" />
+    </resultMap>
+    
+    <!-- インボイス + パレタイズ（Create画面/検索結果） -->
+    <resultMap id="W7001ShippingActInvoiceDomain_SearchForPagingTtInvoice" class="W7001ShippingActInvoiceDomain">
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" />
+        <result property="vessel" column="VESSEL" />
+        <result property="etd" column="ETD" />
+        <result property="carrierCompCd" column="CARRIER_COMP_CD" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="eta" column="ETA" />
+        <result property="shipToCompCd" column="SHIP_TO_COMP_CD" />
+        <result property="pltzItemQty" column="PLTZ_ITEM_QTY" nullValue="0" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+        <result property="shippingActTwInvoiceList" resultMap="W7001ShippingAct.W7001ShippingActTwInvoiceDomain_SearchForPagingTtInvoice" />
+    </resultMap>
+
+    <resultMap id="W7001ShippingActTwInvoiceDomain_SearchForPagingTtInvoice" class="W7001ShippingActTwInvoiceDomain">
+        <result property="shipperCd" column="TW_SHIPPER_CD" />
+    </resultMap>
+    
+    <!-- インボイス + パレタイズ（Create画面/検索結果） -->
+    <resultMap id="W7001ShippingActInvoiceDomain_SearchForPagingTtInvoiceByNoPltz" class="W7001ShippingActInvoiceDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" />
+        <result property="vessel" column="VESSEL" />
+        <result property="etd" column="ETD" />
+        <result property="carrierCompCd" column="CARRIER_COMP_CD" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="freightResponsibleCd" column="FREIGHT_RESPONSIBLE_CD" />
+        <result property="eta" column="ETA" />
+        <result property="shipToCompCd" column="SHIP_TO_COMP_CD" />
+        <result property="pltzItemQty" column="PLTZ_ITEM_QTY" nullValue="0" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+        <result property="shippingActPltzList" resultMap="W7001ShippingAct.W7001ShippingActPltzDomain_SearchForPagingTtInvoice" />
+        <result property="shippingActTwInvoiceList" resultMap="W7001ShippingAct.W7001ShippingActTwInvoiceDomain_SearchForPagingTtInvoice" />
+    </resultMap>
+
+    <resultMap id="W7001ShippingActPltzDomain_SearchForPagingTtInvoice" class="W7001ShippingActPltzDomain">
+        <result property="shipperCd" column="PLTZ_SHIPPER_CD" />
+    </resultMap>
+
+    <resultMap id="W7001ShippingActTwInvoiceDomain_SearchForPagingTtInvoice" class="W7001ShippingActTwInvoiceDomain">
+        <result property="shipperCd" column="TW_SHIPPER_CD" />
+    </resultMap>
+    
+    <!-- インボイス（Create画面/選択データ件数取得） -->
+    <resultMap id="W7001ShippingActInvoiceDomain_SearchTwShippingActInvoiceByCount" class="W7001ShippingActInvoiceDomain">
+        <result property="countInvoiceNo" column="COUNT_INVOICE_NO" />
+        <result property="pkgQty" column="PKG_QTY" nullValue="0" />
+    </resultMap>
+
+    <!-- インボイス（Register画面/明細データ） -->
+    <resultMap id="W7001ShippingActInvoiceDomain_SearchForPagingTwShippingActInvoice" class="W7001ShippingActInvoiceDomain">
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" />
+        <result property="pkgQty" column="PKG_QTY" />
+        <result property="shippingActStatus" column="SHIPPING_ACT_STATUS" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+        <result property="parInvoiceNo" column="PAR_INVOICE_NO" />
+        <result property="needOtherDocFlg" column="EXP_LIMIT_FLG" />
+    </resultMap>
+
+    <!-- パレタイズ（Register画面/No Of Contの計上） -->
+    <resultMap id="W7001ShippingActPltzDomain_SearchTtShippingFirm" class="W7001ShippingActPltzDomain">
+        <result property="countContainerNo" column="COUNT_CONTAINER_NO" />
+    </resultMap>
+
+    <!-- インボイス（Register画面/PKG QTYの計上） -->
+    <resultMap id="W7001ShippingActInvoiceDomain_SearchTwShippingActInvoiceBySumPkgQty" class="W7001ShippingActInvoiceDomain">
+        <result property="pkgQty" column="PKG_QTY" />
+    </resultMap>    
+
+    <!-- 船積実績（Register画面・BLUpload画面・OtherDocUpload画面/ロック） -->
+    <resultMap id="W7001ShippingActDomain_LockByNoWaitTtShippingAct" class="W7001ShippingActDomain">
+        <result property="shippingActNo" column="SHIPPING_ACT_NO" />
+        <result property="billdFileId" column="BILLD_FILE_ID" />
+        <result property="clpFileId" column="CLP_FILE_ID" />
+        <result property="clpGroup" column="CLP_GROUP" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+    </resultMap>
+
+    <!-- インボイス（Register画面・BLUpload画面・OtherDocUpload画面/ロック） -->
+    <resultMap id="W7001ShippingActInvoiceDomain_LockByNoWaitTtInvoice" class="W7001ShippingActInvoiceDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" />
+        <result property="cmlTyp" column="CML_TYP" />
+    </resultMap>
+
+    <!-- 船積実績対象品受注情報（Register画面/ロック） -->
+    <resultMap id="W7001ShippingActOdrDomain_LockByNoWaitTtShippingActOdr" class="W7001ShippingActOdrDomain">
+        <result property="shippingActNo" column="SHIPPING_ACT_NO" />
+    </resultMap>
+    
+    <!-- 船積書類（Register画面・Other Doc UPLOAD画面/ロック） -->
+    <resultMap id="W7001ShippingActDocDomain_LockByNoWaitTtShippingDocument" class="W7001ShippingActDocDomain">
+        <result property="fileId" column="FILE_ID" />
+    </resultMap>
+
+    <!-- 船積書類（Register画面・Other Doc UPLOAD画面/ファイルID取得） -->
+    <resultMap id="W7001ShippingActDocDomain_SearchTtShippingDocumentByFileId" class="W7001ShippingActDocDomain">
+        <result property="fileId" column="FILE_ID" />
+    </resultMap>
+    
+    <!-- インボイス（Register画面/CIGMAのデータチェック） -->
+    <resultMap id="W7001ShippingActInvoiceDomain_SearchTtInvoice" class="W7001ShippingActInvoiceDomain">
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="trnsCdOrg" column="TRNS_CD_ORG" />
+        <result property="invoiceDelFlg" column="DEL_FLG" /> <!-- 20170314 ADD -->
+    </resultMap>
+
+    <!-- パレタイズ（Register画面/Webサービスの引数に設定するデータ取得） -->
+    <resultMap id="W7001ShippingActPltzDomain_SearchTtPltz" class="W7001ShippingActPltzDomain">
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="trnsCdOrg" column="TRNS_CD_ORG" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" /> <!-- UT380 ADD -->
+    </resultMap>
+    
+    <!-- インボイス + パレタイズ + パレタイズ対象品 + パレタイズ対象品受注情報（Register画面/受注情報取得）-->
+    <resultMap id="W7001ShippingActInvoiceDomain_SearchTwShippingActInvoice" class="W7001ShippingActInvoiceDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" />
+        <result property="shippingActPltzList" resultMap="W7001ShippingAct.W7001ShippingActPltzDomain_SearchTwShippingActInvoice" />
+    </resultMap>
+
+    <resultMap id="W7001ShippingActPltzDomain_SearchTwShippingActInvoice" class="W7001ShippingActPltzDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="containerNo" column="CONTAINER_NO" />
+        <result property="shippingActItemList" resultMap="W7001ShippingAct.W7001ShippingActItemDomain_SearchTwShippingActInvoice" />
+    </resultMap>
+
+    <resultMap id="W7001ShippingActItemDomain_SearchTwShippingActInvoice" class="W7001ShippingActItemDomain">
+        <result property="shippingLot" column="SHIPPING_LOT" />
+        <result property="allocQty" column="ALLOC_QTY" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="etdDueDt" column="ETD_DUE_DT" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="customerItemNoOrg" column="CUSTOMER_ITEM_NO_ORG" />
+        <result property="odrCtrlNo" column="ODR_CTRL_NO" />
+        <result property="salesCompPoNo" column="SALES_COMP_PO_NO" />
+        <result property="cartonQty" column="CARTON_QTY" />
+    </resultMap>
+
+    <!-- 船積実績対象品受注情報（Register画面/インボイスNo取得） -->
+    <resultMap id="W7001ShippingActOdrDomain_SearchTtShippingActOdrByInvoiceNo" class="W7001ShippingActOdrDomain">
+        <result property="invoiceNo" column="INVOICE_NO" />
+    </resultMap>
+    
+    <!-- 船積書類（Other Doc Upload(Summary)画面/データ件数取得 -->
+    <resultMap id="W7001ShippingActInvoiceDomain_SearchCountTtShippingDocumentByShipper" class="W7001ShippingActInvoiceDomain">
+        <result property="countShipperCd" column="COUNT_SHIPPER_CD" />
+    </resultMap>
+    
+    <!-- 船積書類（Other Doc Upload(Summary)画面/枝番の取得 -->
+    <resultMap id="W7001ShippingActDocDomain_SearchTtShippingDocumentByBrch" class="W7001ShippingActDocDomain">
+        <result property="brch" column="BRCH" nullValue="0"/>
+    </resultMap>
+
+    <!-- ================================================== -->
+    <!-- 船積実績Main / 検索                                -->
+    <!-- ================================================== -->
+    <!-- 項目 -->
+    <sql id="Cols_TtShippingAct">
+          T1.SHIPPING_ACT_NO
+        , T1.REGISTER_DT
+        , T1.SHIPPER_CD
+        , T1.CONSIGNEE_CD
+        , T1.SHIP_TO_COMP_CD
+        , T1.TRNS_CD
+        , T1.CONTAINER_LOOSE_TYP
+        , T1.CARRIER_COMP_CD
+        , T1.VESSEL
+        , T1.BILLD_NO
+        , T1.SHIPPING_ACT_STATUS
+        , T1.FREIGHT_RESPONSIBLE_CD
+        , T1.ATD
+        , T1.ETA
+        , T1.NO_OF_CONTAINER
+        , T1.NO_OF_INVOICE
+        , T1.BILLD_FILE_ID
+        , T1.CLP_GROUP
+        , T1.NEED_OTHER_DOC_FLG
+        , T1.COM_UPDATE_TIMESTAMP
+    </sql>
+    
+    <!-- 検索 SQL文（Main / インボイス） -->
+    <sql id="Select_TtInvoiceForTtShippingAct">
+        select
+            A1.SHIPPING_ACT_NO
+        from
+            TT_INVOICE A1
+            , TT_PLTZ A2
+            , TT_SHIPPING_FIRM A3
+        where
+            A1.SHIPPER_CD = A2.SHIPPER_CD(+) 
+            and A1.INVOICE_NO = A2.INVOICE_NO(+) 
+            and A1.INVOICE_ISSUE_DT = A2.INVOICE_ISSUE_DT(+)
+            and A2.SHIPPING_FIRM_NO = A3.SHIPPING_FIRM_NO(+)
+            <isNotEmpty prepend="and" property="invoiceNo">
+                A1.INVOICE_NO like concat(#invoiceNo#, '%') 
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="containerNo">
+                A3.CONTAINER_NO like concat(#containerNo#, '%') 
+            </isNotEmpty>
+        group by
+            A1.SHIPPING_ACT_NO
+    </sql>
+    
+    <!-- 検索 SQL文 (Main / 船積実績) -->
+    <sql id="Select_TtShippingAct">
+        select
+            SHIPPING_ACT_NO
+            , REGISTER_DT
+            , SHIPPER_CD
+            , CONSIGNEE_CD
+            , SHIP_TO_COMP_CD
+            , TRNS_CD
+            , CONTAINER_LOOSE_TYP
+            , CARRIER_COMP_CD
+            , VESSEL
+            , BILLD_NO
+            , SHIPPING_ACT_STATUS
+            , FREIGHT_RESPONSIBLE_CD
+            , ATD
+            , ETA
+            , NO_OF_CONTAINER
+            , NO_OF_INVOICE
+            , case when BILLD_FILE_ID is null 
+                then 'N' 
+                else 'Y' 
+              end BILLD_FILE_ID
+            , CLP_GROUP
+            , NEED_OTHER_DOC_FLG
+            , COM_UPDATE_TIMESTAMP
+            , DELETE_FLG
+        from
+            TT_SHIPPING_ACT
+    </sql>
+    
+    <!-- Where句（検索条件)  -->
+    <!-- NL040 MOD -->
+    <sql id="WhereCondition_TtShippingAct">
+        <dynamic prepend="and">
+            <isNotEmpty prepend="and" property="fmRegisterDt">
+                trunc(T1.REGISTER_DT) <![CDATA[>=]]> #fmRegisterDt#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="toRegisterDt">
+                trunc(T1.REGISTER_DT) <![CDATA[<=]]> #toRegisterDt#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shipperCd">
+                T1.SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="consigneeCd">
+                T1.CONSIGNEE_CD = #consigneeCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shipToCompCd">
+                T1.SHIP_TO_COMP_CD = #shipToCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCd">
+                T1.TRNS_CD = #trnsCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="containerLooseTyp">
+                T1.CONTAINER_LOOSE_TYP = #containerLooseTyp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="carrierCompCd">
+                T1.CARRIER_COMP_CD = #carrierCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="vessel">
+                T1.VESSEL like concat(#vessel#, '%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="freightResponsibleCd">
+                T1.FREIGHT_RESPONSIBLE_CD = #freightResponsibleCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="billdNo">
+                upper(T1.BILLD_NO) like concat(upper(#billdNo#), '%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippingActStatus">
+                T1.SHIPPING_ACT_STATUS = #shippingActStatus#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="fmAtd">
+                trunc(T1.ATD) <![CDATA[>=]]> #fmAtd#
+            </isNotEmpty> 
+            <isNotEmpty prepend="and" property="toAtd">
+                trunc(T1.ATD) <![CDATA[<=]]> #toAtd#
+            </isNotEmpty> 
+            <isEqual prepend="and" property="blUpdate" compareValue="Y">
+                T1.BILLD_FILE_ID is not null
+            </isEqual>
+            <isEqual prepend="and" property="blUpdate" compareValue="N">
+                T1.BILLD_FILE_ID is null
+            </isEqual>
+            <isNotEmpty prepend="and" property="clpGroup">
+                T1.CLP_GROUP = #clpGroup#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="needOtherDocFlg">
+                T1.NEED_OTHER_DOC_FLG = #needOtherDocFlg#
+            </isNotEmpty>
+        </dynamic>
+        and T1.DELETE_FLG = 'N'
+    </sql>
+    
+    <!-- Where句（アクセス権） -->
+    <sql id="WhereCondition_TtShippingAct_Auth">
+        and T1.SHIPPER_CD in (select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#) 
+        <isNotEmpty prepend="and" property="userAuthList">
+            (T1.SHIPPER_CD in ( 
+            <iterate property="userAuthList" conjunction=","> 
+                #userAuthList[].authMgtComp#
+            </iterate>
+            )
+        ) 
+        </isNotEmpty>
+    </sql>
+    
+    <!-- OrderBy句 -->
+    <sql id="SortKeys_TtShippingAct">
+        order by
+              T1.REGISTER_DT desc
+            , T1.TRNS_CD
+            , T1.SHIPPING_ACT_STATUS
+            , T1.ATD desc
+            , T1.BILLD_FILE_ID
+            , T1.CLP_GROUP desc nulls first
+            , T1.CARRIER_COMP_CD
+            , T1.VESSEL
+            , T1.SHIPPER_CD
+            , T1.SHIP_TO_COMP_CD
+            , T1.CONSIGNEE_CD
+            , T1.CONTAINER_LOOSE_TYP
+            , T1.FREIGHT_RESPONSIBLE_CD
+            , T1.NEED_OTHER_DOC_FLG
+            , T1.BILLD_NO
+            , T1.ETA desc
+            , T1.NO_OF_CONTAINER
+            , T1.NO_OF_INVOICE
+    </sql>
+    
+    <!-- 検索 SQL文（Main / 件数取得） -->
+    <select id="SearchCountTtShippingAct" 
+        resultClass="java.lang.Integer" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchCountForPagingTtShippingAct */
+            count(T1.SHIPPING_ACT_NO) COUNT_SHIPPING_ACT_NO
+        from
+          (<include refid="Select_TtShippingAct" />) T1 
+          , (<include refid="Select_TtInvoiceForTtShippingAct" />) T2
+        where
+            T1.SHIPPING_ACT_NO = T2.SHIPPING_ACT_NO
+            <include refid="WhereCondition_TtShippingAct"/>
+            <include refid="WhereCondition_TtShippingAct_Auth"/>
+    </select>
+
+    <!-- 検索 SQL文（Main / 検索） -->
+    <select id="SearchForPagingTtShippingAct" 
+        resultMap="W7001ShippingActDomain_SearchForPagingTtShippingAct" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchForPagingTtShippingAct */
+            <include refid="Cols_TtShippingAct"/>
+        from (
+                select
+                    <include refid="Cols_TtShippingAct"/>
+                    ,row_number() over (<include refid="SortKeys_TtShippingAct" />) ROW_NUM
+                from
+                    (<include refid="Select_TtShippingAct" />) T1 
+                    , (<include refid="Select_TtInvoiceForTtShippingAct" />) T2
+                where
+                    T1.SHIPPING_ACT_NO = T2.SHIPPING_ACT_NO
+                    <include refid="WhereCondition_TtShippingAct"/>
+                    <include refid="WhereCondition_TtShippingAct_Auth"/>
+                    <include refid="SortKeys_TtShippingAct" />
+            ) T1
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+    
+    <!-- ================================================== -->
+    <!-- 船積実績Create / 検索                              -->
+    <!-- ================================================== -->
+    <!-- Order By句 -->
+    <sql id="SortKeys_TtInvoice">
+        order by
+              T1.ETD
+            , T1.CARRIER_COMP_CD
+            , T1.VESSEL
+            , T1.INVOICE_NO
+    </sql>
+    
+    <!-- 検索 SQL文 （Create / 出荷確認済み抽出結果） -->
+    <sql id="Select_TtPltzForShipping">
+        select
+              A1.SHIPPER_CD
+            , A1.INVOICE_NO
+            , A1.INVOICE_ISSUE_DT 
+        from
+              TT_PLTZ A1
+            , TT_SHIPPING_FIRM A2 
+        where
+               A1.SHIPPING_FIRM_NO = A2.SHIPPING_FIRM_NO(+) 
+           and A2.SHIPPING_FIRM_STATUS = '20' 
+        group by
+              A1.SHIPPER_CD
+            , A1.INVOICE_NO
+            , A1.INVOICE_ISSUE_DT 
+        having
+            count(A1.MAIN_MARK) = count(A2.SHIPPING_FIRM_NO)
+    </sql>
+    
+    <!-- 検索 SQL文 （Create / Container No.抽出結果） -->
+    <sql id="Select_TtPltzForContainerNo">
+        select
+              B1.SHIPPER_CD
+            , B1.INVOICE_NO
+            , B1.INVOICE_ISSUE_DT 
+        from
+              TT_PLTZ B1
+            , TT_SHIPPING_FIRM B2 
+        where
+                B1.SHIPPING_FIRM_NO = B2.SHIPPING_FIRM_NO 
+            and B2.CONTAINER_NO like concat(#containerNo#, '%')
+        group by
+              B1.SHIPPER_CD
+            , B1.INVOICE_NO
+            , B1.INVOICE_ISSUE_DT
+    </sql>
+    
+    <!-- 検索 SQL文 (Create / パレタイズにデータなし) -->
+    <sql id="Select_TtPltzForNoPltz">
+        select
+              SHIPPER_CD
+            , INVOICE_ISSUE_DT
+            , INVOICE_NO 
+        from
+            TT_PLTZ 
+        group by
+              SHIPPER_CD
+            , INVOICE_NO
+            , INVOICE_ISSUE_DT
+    </sql>
+    
+    <!-- Where句（検索条件） -->
+    <sql id="WhereCondition_TtInvoice">
+            T1.SHIPPING_ACT_NO is null
+        and T1.INVOICE_CLASS != 'F' 
+        and T1.CANCEL_TYP = 'N' 
+        and T1.CANCEL_FLG = 'N' 
+        and (T1.MANUAL_TYP != '1' or T1.MANUAL_TYP is null)
+        and T1.DELETE_FLG = 'N'
+        <isNotEmpty prepend="and" property="shipperCd">
+            T1.SHIPPER_CD = #shipperCd#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="consigneeCd">
+            T1.CONSIGNEE_CD = #consigneeCd#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="shipToCompCd">
+            T1.SHIP_TO_COMP_CD = #shipToCompCd#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="trnsCd">
+            T1.TRNS_CD = #trnsCd#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="freightResponsibleCd">
+            T1.FREIGHT_RESPONSIBLE_CD = #freightResponsibleCd#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="fmEtd">
+            trunc(T1.ETD) <![CDATA[>=]]> #fmEtd#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="toEtd">
+            trunc(T1.ETD) <![CDATA[<=]]> #toEtd#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="carrierCompCd">
+            T1.CARRIER_COMP_CD = #carrierCompCd#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="vessel">
+            T1.VESSEL like concat(#vessel#, '%')
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="invoiceNo">
+            T1.INVOICE_NO like concat(#invoiceNo#, '%')
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="containerLooseTyp">
+            T1.CONTAINER_LOOSE_TYP = #containerLooseTyp#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="dscId">
+            T2.DSC_ID(+) = #dscId# <!-- IN195 ADD"(+)" -->
+        </isNotEmpty>
+    </sql>
+    
+    <!-- 検索 SQL文 (Create / 件数取得(Auto Invoice Registerが'Y'の場合)) -->
+    <select id="SearchCountTtInvoice" 
+        resultClass="java.lang.Integer" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchCountTtInvoice */
+            count(T1.SHIPPER_CD) COUNT_SHIPPER_CD
+        from
+            TT_INVOICE T1
+          , TW_SHIPPING_ACT_INVOICE T2
+          , (<include refid="Select_TtPltzForShipping"/>) T3
+          <isNotEmpty property="containerNo">
+          , (<include refid="Select_TtPltzForContainerNo"/>) T4 
+          </isNotEmpty>
+        where
+                T1.SHIPPER_CD = T2.SHIPPER_CD(+)
+            and T1.INVOICE_NO = T2.INVOICE_NO(+) 
+            and T1.INVOICE_ISSUE_DT = T2.INVOICE_ISSUE_DT(+) 
+            and T1.SHIPPER_CD = T3.SHIPPER_CD
+            and T1.INVOICE_NO = T3.INVOICE_NO 
+            and T1.INVOICE_ISSUE_DT = T3.INVOICE_ISSUE_DT 
+            <isNotEmpty property="containerNo">
+            and T3.SHIPPER_CD = T4.SHIPPER_CD
+            and T3.INVOICE_NO = T4.INVOICE_NO 
+            and T3.INVOICE_ISSUE_DT = T4.INVOICE_ISSUE_DT 
+            </isNotEmpty>
+            <isParameterPresent prepend="and">
+                <include refid="WhereCondition_TtInvoice"/>
+            </isParameterPresent>
+            
+    </select>
+
+    <!-- 検索 SQL文 (Create / 件数取得(Auto Invoice Registerが'N'の場合)) -->
+    <select id="SearchCountTtInvoiceByNoPltz" 
+        resultClass="java.lang.Integer" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchCountTtInvoiceByNoPltz */
+            count(T1.SHIPPER_CD) COUNT_SHIPPER_CD
+        from
+              TT_INVOICE T1
+            , TW_SHIPPING_ACT_INVOICE T2
+            , (<include refid="Select_TtPltzForNoPltz"/>) T3 
+        where
+                T1.SHIPPER_CD = T2.SHIPPER_CD(+) 
+            and T1.INVOICE_NO = T2.INVOICE_NO(+) 
+            and T1.INVOICE_ISSUE_DT = T2.INVOICE_ISSUE_DT(+)
+            and T1.SHIPPER_CD = T3.SHIPPER_CD(+) 
+            and T1.INVOICE_NO = T3.INVOICE_NO(+) 
+            and T1.INVOICE_ISSUE_DT = T3.INVOICE_ISSUE_DT(+) 
+            <!-- 2014/11/20 DNJP.Kawamura UT106対応 START >>>>> -->
+            <!-- and T1.SHIPPING_ACT_NO is null -->
+            and T3.SHIPPER_CD is null 
+            <!-- 2014/11/20 DNJP.Kawamura UT106対応 START <<<<< -->
+            <isParameterPresent prepend="and">
+                <include refid="WhereCondition_TtInvoice"/>
+            </isParameterPresent>
+    </select>
+
+    <!-- 検索 SQL文 (Create / データ取得(Auto Invoice Registerが'Y'の場合)) -->
+    <select id="SearchForPagingTtInvoice" 
+        resultMap="W7001ShippingActInvoiceDomain_SearchForPagingTtInvoice" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchForPagingTtInvoice */
+              INVOICE_NO
+            , INVOICE_ISSUE_DT
+            , VESSEL
+            , ETD
+            , CARRIER_COMP_CD
+            , CONTAINER_LOOSE_TYP
+            , ETA
+            , SHIP_TO_COMP_CD
+            , PLTZ_ITEM_QTY
+            , COM_UPDATE_TIMESTAMP
+            , TW_SHIPPER_CD
+        from (
+                select
+                      T1.INVOICE_NO
+                    , T1.INVOICE_ISSUE_DT
+                    , T1.VESSEL
+                    , T1.ETD
+                    , T1.CARRIER_COMP_CD
+                    , T1.CONTAINER_LOOSE_TYP
+                    , T1.ETA
+                    , T1.SHIP_TO_COMP_CD
+                    , T1.PLTZ_ITEM_QTY
+                    , T1.COM_UPDATE_TIMESTAMP
+                    , T2.SHIPPER_CD TW_SHIPPER_CD
+                    , row_number() over (<include refid="SortKeys_TtInvoice"/>) ROW_NUM
+                from
+                      TT_INVOICE T1
+                    , TW_SHIPPING_ACT_INVOICE T2
+                    , (<include refid="Select_TtPltzForShipping"/>) T3
+                    <isNotEmpty property="containerNo">
+                    , (<include refid="Select_TtPltzForContainerNo"/>) T4 
+                    </isNotEmpty>
+                where
+                        T1.SHIPPER_CD = T2.SHIPPER_CD(+)
+                    and T1.INVOICE_NO = T2.INVOICE_NO(+) 
+                    and T1.INVOICE_ISSUE_DT = T2.INVOICE_ISSUE_DT(+) 
+                    and T1.SHIPPER_CD = T3.SHIPPER_CD
+                    and T1.INVOICE_NO = T3.INVOICE_NO 
+                    and T1.INVOICE_ISSUE_DT = T3.INVOICE_ISSUE_DT 
+                    <isNotEmpty property="containerNo">
+                    and T3.SHIPPER_CD = T4.SHIPPER_CD
+                    and T3.INVOICE_NO = T4.INVOICE_NO 
+                    and T3.INVOICE_ISSUE_DT = T4.INVOICE_ISSUE_DT
+                    </isNotEmpty> 
+                    <isParameterPresent prepend="and">
+                        <include refid="WhereCondition_TtInvoice"/>
+                    </isParameterPresent>
+                <include refid="SortKeys_TtInvoice"/>
+            ) 
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+
+    <!-- 検索 SQL文 (Create / データ取得(Auto Invoice Registerが'N'の場合)) -->
+    <select id="SearchForPagingTtInvoiceByNoPltz" 
+        resultMap="W7001ShippingActInvoiceDomain_SearchForPagingTtInvoiceByNoPltz" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchForPagingTtInvoiceByNoPltz */
+              SHIPPER_CD
+            , INVOICE_NO
+            , INVOICE_ISSUE_DT
+            , VESSEL
+            , ETD
+            , CARRIER_COMP_CD
+            , CONTAINER_LOOSE_TYP
+            , FREIGHT_RESPONSIBLE_CD
+            , ETA
+            , SHIP_TO_COMP_CD
+            , PLTZ_ITEM_QTY
+            , COM_UPDATE_TIMESTAMP
+            , PLTZ_SHIPPER_CD
+            , TW_SHIPPER_CD
+        from (
+            select
+                  T1.SHIPPER_CD
+                , T1.INVOICE_NO
+                , T1.INVOICE_ISSUE_DT
+                , T1.VESSEL
+                , T1.ETD
+                , T1.CARRIER_COMP_CD
+                , T1.CONTAINER_LOOSE_TYP
+                , T1.FREIGHT_RESPONSIBLE_CD
+                , T1.ETA
+                , T1.SHIP_TO_COMP_CD
+                , T1.PLTZ_ITEM_QTY
+                , T1.COM_UPDATE_TIMESTAMP
+                , T2.SHIPPER_CD TW_SHIPPER_CD
+                , T3.SHIPPER_CD PLTZ_SHIPPER_CD
+                , row_number() over (<include refid="SortKeys_TtInvoice"/>) ROW_NUM
+            from
+                  TT_INVOICE T1
+                , TW_SHIPPING_ACT_INVOICE T2
+                , (<include refid="Select_TtPltzForNoPltz"/>) T3 
+            where
+                    T1.SHIPPER_CD = T2.SHIPPER_CD(+) 
+                and T1.INVOICE_NO = T2.INVOICE_NO(+) 
+                and T1.INVOICE_ISSUE_DT = T2.INVOICE_ISSUE_DT(+) 
+                and T1.SHIPPER_CD = T3.SHIPPER_CD(+) 
+                and T1.INVOICE_NO = T3.INVOICE_NO(+) 
+                and T1.INVOICE_ISSUE_DT = T3.INVOICE_ISSUE_DT(+) 
+                <!-- 2014/11/20 DNJP.Kawamura UT106対応 START >>>>> -->
+                and T3.SHIPPER_CD is null 
+                <!-- 2014/11/20 DNJP.Kawamura UT106対応 START <<<<< -->
+                <isParameterPresent prepend="and">
+                    <include refid="WhereCondition_TtInvoice"/>
+                </isParameterPresent>
+            <include refid="SortKeys_TtInvoice"/>
+            ) T1
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+
+    <!-- ================================================== -->
+    <!-- 船積実績Create / 検索(選択データ件数取得)          -->
+    <!-- ================================================== -->
+    <!-- 検索 SQL文 -->
+    <select id="SearchTwShippingActInvoiceByCount"
+        resultMap="W7001ShippingActInvoiceDomain_SearchTwShippingActInvoiceByCount" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchTwShippingActInvoiceByCount */
+            count(INVOICE_NO) COUNT_INVOICE_NO
+          , sum(PKG_QTY) PKG_QTY
+        from
+            TW_SHIPPING_ACT_INVOICE
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="dscId">
+                DSC_ID = #dscId#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <!-- ================================================== -->
+    <!-- 船積実績Register / 検索(明細データ取得)            -->
+    <!-- ================================================== -->
+    <!-- 検索 SQL文 (Create / インボイス) -->
+    <sql id="Select_TtInvoiceForTtShippingActInvoice">
+        select
+            PAR_INVOICE_SHIPPER_CD
+          , PAR_INVOICE_NO
+          , PAR_INVOICE_ISSUE_DT 
+        from
+            TT_INVOICE 
+        where
+            INVOICE_CLASS = 'F' 
+        group by
+            PAR_INVOICE_SHIPPER_CD
+          , PAR_INVOICE_NO
+          , PAR_INVOICE_ISSUE_DT
+    </sql>
+    
+    <!-- Where句  -->
+    <sql id="WhereCondition_TwShippingActInvoice">
+            T1.SHIPPER_CD = T2.PAR_INVOICE_SHIPPER_CD(+) 
+        and T1.INVOICE_NO = T2.PAR_INVOICE_NO(+) 
+        and T1.INVOICE_ISSUE_DT = T2.PAR_INVOICE_ISSUE_DT(+) 
+        and T1.SHIPPER_CD = T3.SHIPPER_CD(+) 
+        and T1.INVOICE_NO = T3.INVOICE_NO(+) 
+        and T1.INVOICE_ISSUE_DT = T3.INVOICE_ISSUE_DT(+) 
+        and T1.DEL_FLG = 'N' 
+        <isNotEmpty prepend="and" property="dscId">
+            T1.DSC_ID = #dscId#
+        </isNotEmpty>
+    </sql>
+    
+    <!-- 検索 SQL文 (Register / 件数取得) -->
+    <select id="SearchCountTwShippingActInvoice"
+        resultClass="java.lang.Integer" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchCountTwShippingActInvoice */
+            count(T1.INVOICE_NO) COUNT_INVOICE_NO
+        from
+              TW_SHIPPING_ACT_INVOICE T1
+            , (<include refid="Select_TtInvoiceForTtShippingActInvoice" />) T2 
+            , (select
+                  SHIPPER_CD
+                  , INVOICE_NO
+                  , INVOICE_ISSUE_DT 
+              from
+                  (select
+                      T4.SHIPPER_CD
+                      , T4.INVOICE_NO
+                      , T4.INVOICE_ISSUE_DT 
+                      , T5.EXP_LIMIT_FLG
+                  from
+                      TW_SHIPPING_ACT_INVOICE T4
+                      , TT_PLTZ T5
+                  where
+                      T4.SHIPPER_CD = T5.SHIPPER_CD 
+                      and T4.INVOICE_NO = T5.INVOICE_NO 
+                      and T4.INVOICE_ISSUE_DT = T5.INVOICE_ISSUE_DT 
+                  )
+              group by
+                  SHIPPER_CD
+                  , INVOICE_NO
+                  , INVOICE_ISSUE_DT
+              ) T3
+        where
+          <include refid="WhereCondition_TwShippingActInvoice"/>
+    </select>
+
+    <!-- 検索 SQL文(Register / データ取得) -->
+    <select id="SearchForPagingTwShippingActInvoice"
+        resultMap="W7001ShippingActInvoiceDomain_SearchForPagingTwShippingActInvoice" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchForPagingTwShippingActInvoice */
+              T1.INVOICE_NO
+            , T1.INVOICE_ISSUE_DT
+            , T1.PKG_QTY
+            , T1.SHIPPING_ACT_STATUS
+            , T1.COM_UPDATE_TIMESTAMP
+            , T2.PAR_INVOICE_NO 
+            , case when T3.EXP_LIMIT_FLG is null
+                then 'N'
+                else T3.EXP_LIMIT_FLG
+              end EXP_LIMIT_FLG
+        from
+              TW_SHIPPING_ACT_INVOICE T1
+            , (<include refid="Select_TtInvoiceForTtShippingActInvoice" />) T2 
+            , (select
+                  SHIPPER_CD
+                  , INVOICE_NO
+                  , INVOICE_ISSUE_DT 
+                  , case when SUM(case when EXP_LIMIT_FLG = 'Y' then 1 end) > 0
+                    then 'Y'
+                    else 'N'
+                  end EXP_LIMIT_FLG
+              from
+                  (select
+                      T4.SHIPPER_CD
+                      , T4.INVOICE_NO
+                      , T4.INVOICE_ISSUE_DT 
+                      , T5.EXP_LIMIT_FLG
+                  from
+                      TW_SHIPPING_ACT_INVOICE T4
+                      , TT_PLTZ T5
+                  where
+                      T4.SHIPPER_CD = T5.SHIPPER_CD 
+                      and T4.INVOICE_NO = T5.INVOICE_NO 
+                      and T4.INVOICE_ISSUE_DT = T5.INVOICE_ISSUE_DT 
+                  )
+              group by
+                  SHIPPER_CD
+                  , INVOICE_NO
+                  , INVOICE_ISSUE_DT 
+              ) T3
+        where
+            <include refid="WhereCondition_TwShippingActInvoice"/>
+        order by
+              T1.INVOICE_NO
+            , T1.INVOICE_ISSUE_DT
+    </select>
+
+    <!-- ================================================== -->
+    <!-- 船積実績Register / 検索(No Of Contの計上)          -->
+    <!-- ================================================== -->
+    <!-- 検索 SQL文 -->
+    <select id="SearchTtShippingFirm"
+        resultMap="W7001ShippingActPltzDomain_SearchTtShippingFirm" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchTtShippingFirm */
+            count(T.CONTAINER_NO) COUNT_CONTAINER_NO
+        from
+            (select
+                T1.CONTAINER_NO
+            from
+                  TT_SHIPPING_FIRM T1
+                , TT_PLTZ T2
+                , TW_SHIPPING_ACT_INVOICE T3 
+            where
+                    T1.SHIPPING_FIRM_NO = T2.SHIPPING_FIRM_NO 
+                and T2.SHIPPER_CD = T3.SHIPPER_CD 
+                and T2.INVOICE_NO = T3.INVOICE_NO 
+                and T2.INVOICE_ISSUE_DT = T3.INVOICE_ISSUE_DT 
+                <isNotEmpty prepend="and" property="dscId">
+                    T3.DSC_ID = #dscId#
+                </isNotEmpty> 
+                and T3.DEL_FLG = 'N'
+            group by
+                T1.CONTAINER_NO) T
+    </select>
+
+    <!-- ================================================== -->
+    <!-- 船積実績Register / 検索(PKG QTYの計上)             -->
+    <!-- ================================================== -->
+    <!-- 検索 SQL文 -->
+    <select id="SearchTwShippingActInvoiceBySumPkgQty"
+        resultMap="W7001ShippingActInvoiceDomain_SearchTwShippingActInvoiceBySumPkgQty" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchTwShippingActInvoiceBySumPkgQty */
+            sum(PKG_QTY) PKG_QTY
+        from
+            TW_SHIPPING_ACT_INVOICE 
+        where
+                DEL_FLG = 'N'
+            <isNotEmpty prepend="and" property="dscId">
+                DSC_ID = #dscId#
+            </isNotEmpty>
+    </select>
+    
+    <!-- ================================================== -->
+    <!-- 船積実績 ロック                                    -->
+    <!-- ================================================== -->
+    <!-- ロック検索 SQL文 / 船積実績 (ロック解除待機しない) -->
+    <select id="LockByNoWaitTtShippingAct"
+        resultMap="W7001ShippingActDomain_LockByNoWaitTtShippingAct" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.LockByNoWaitTtShippingAct */
+              SHIPPING_ACT_NO
+            , BILLD_FILE_ID
+            , CLP_FILE_ID 
+            , CLP_GROUP
+            , CONTAINER_LOOSE_TYP
+        from
+            TT_SHIPPING_ACT 
+        where
+                DELETE_FLG = 'N'
+            <isNotEmpty prepend="and" property="shippingActNo">
+                SHIPPING_ACT_NO = #shippingActNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateTimestamp">
+                COM_UPDATE_TIMESTAMP = #comUpdateTimestamp#
+            </isNotEmpty>
+        for update nowait
+    </select>
+
+    <!-- ================================================== -->
+    <!-- インボイス ロック                                  -->
+    <!-- ================================================== -->
+    <!-- ロック検索 SQL文 / インボイス(ロック解除待機しない) -->
+    <select id="LockByNoWaitTtInvoice"
+        resultMap="W7001ShippingActInvoiceDomain_LockByNoWaitTtInvoice" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.LockByNoWaitTtInvoice */
+              SHIPPER_CD
+            , INVOICE_NO
+            , INVOICE_ISSUE_DT
+            , CML_TYP 
+        from
+            TT_INVOICE 
+        where
+                DELETE_FLG = 'N'
+            <isNotEmpty prepend="and" property="shipperCd">
+                SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceNo">
+                INVOICE_NO = #invoiceNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceIssueDt">
+                INVOICE_ISSUE_DT = #invoiceIssueDt#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippingActNo">
+                SHIPPING_ACT_NO = #shippingActNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="cancelFlg">
+                CANCEL_FLG = #cancelFlg#
+            </isNotEmpty>               
+        for update nowait
+    </select>
+
+    <!-- ================================================== -->
+    <!-- 船積実績対象品受注情報 ロック                      -->
+    <!-- ================================================== -->
+    <!-- ロック検索 SQL文 / 船積実績対象品受注情報(ロック解除待機しない) -->
+    <select id="LockByNoWaitTtShippingActOdr"
+        resultMap="W7001ShippingActOdrDomain_LockByNoWaitTtShippingActOdr" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.LockByNoWaitTtShippingActOdr */
+            SHIPPING_ACT_NO 
+        from
+            TT_SHIPPING_ACT_ODR 
+        where
+                DELETE_FLG = 'N'
+            <isNotEmpty prepend="and" property="shippingActNo">
+                SHIPPING_ACT_NO = #shippingActNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shipperCd">
+                SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceNo">
+                INVOICE_NO = #invoiceNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceIssueDt">
+                INVOICE_ISSUE_DT = #invoiceIssueDt#
+            </isNotEmpty>
+        for update nowait
+    </select>
+
+    <!-- ================================================== -->
+    <!-- 船積書類 ロック                      -->
+    <!-- ================================================== -->
+    <!-- ロック検索 SQL文 / 船積書類(ロック解除待機しない) -->
+    <select id="LockByNoWaitTtShippingDocument"
+        resultMap="W7001ShippingActDocDomain_LockByNoWaitTtShippingDocument" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.LockByNoWaitTtShippingDocument */
+            FILE_ID 
+        from
+            TT_SHIPPING_DOCUMENT 
+        where
+                DELETE_FLG = 'N'
+            <!--
+            == UT205 CML ATTACH CSV ADD START
+            == It does not delete CML attach CSV from LB_FILE_MANAGER when shipping actuality cancellation.
+            == 船積み実績キャンセル時にファイル管理からCMLアタッチCSVが削除されないようにする。
+            -->
+            and DOC_TYP != '4'
+            <!-- UT205 CML ATTACH CSV ADD END -->
+            <isNotEmpty prepend="and" property="shipperCd">
+                SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceNo">
+                INVOICE_NO = #invoiceNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceIssueDt">
+                INVOICE_ISSUE_DT = #invoiceIssueDt#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="docTyp">
+                DOC_TYP = #docTyp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="brch">
+                BRCH = #brch#
+            </isNotEmpty>
+        for update nowait
+    </select>
+
+    <!-- ================================================== -->
+    <!-- 船積書類 / ファイルID取得                          -->
+    <!-- ================================================== -->
+    <!-- 検索 SQL文 -->
+    <select id="SearchTtShippingDocumentByFileId"
+        resultMap="W7001ShippingActDocDomain_SearchTtShippingDocumentByFileId" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchTtShippingDocumentByFileId */
+            FILE_ID 
+        from
+            TT_SHIPPING_DOCUMENT
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="fileId">
+                FILE_ID = #fileId#
+            </isNotEmpty>
+        </dynamic>
+        group by
+            FILE_ID
+        having
+            count(FILE_ID) = 1
+    </select>
+
+    <!-- ================================================== -->
+    <!-- 船積実績Register画面/ CIGMAのデータチェック        -->
+    <!-- ================================================== -->
+    <!-- 検索 SQL文 / Register -->
+    <select id="SearchTtInvoice"
+        resultMap="W7001ShippingActInvoiceDomain_SearchTtInvoice" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchTtInvoice */
+              T1.INVOICE_NO
+            , T1.CUSTOMER_CD
+            , T1.LGCY_SHIP_TO 
+            , T1.TRNS_CD_ORG
+            , T2.DEL_FLG <!-- 20170314 ADD -->
+        from
+              TT_INVOICE T1
+            , TW_SHIPPING_ACT_INVOICE T2
+        where
+                T1.SHIPPER_CD = T2.SHIPPER_CD 
+            and T1.INVOICE_NO = T2.INVOICE_NO 
+            and T1.INVOICE_ISSUE_DT = T2.INVOICE_ISSUE_DT
+            <isNotEmpty prepend="and" property="dscId"> 
+                T2.DSC_ID = #dscId#
+            </isNotEmpty> 
+            and T1.CML_TYP = '1' 
+            and T1.DELETE_FLG = 'N'
+            <!-- and T2.DEL_FLG = 'Y' 20170314 DEL -->
+    </select>
+
+    <!-- ===================================================== -->
+    <!-- 船積実績Register画面 / 引数へ設定するデータの取得     -->
+    <!-- ===================================================== -->
+    <!-- 検索 SQL文 / パレタイズ -->
+    <sql id="Select_TtPltz">
+        select
+            CUSTOMER_CD
+          , LGCY_SHIP_TO
+          , SHIPPER_CD
+          , INVOICE_NO
+          , INVOICE_ISSUE_DT
+          , TRNS_CD_ORG
+        from
+          TT_PLTZ 
+        where
+          CML_TYP = '1' 
+    </sql>
+    
+    <!-- 検索 SQL文 / Register画面 (Webサービスに引き渡すCUSTOMER_CD、LGCY_SHIP_TOの取得)  -->
+    <select id="SearchTtPltz"
+        resultMap="W7001ShippingActPltzDomain_SearchTtPltz" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchTtPltz */
+              T2.CUSTOMER_CD
+            , T2.LGCY_SHIP_TO
+            , T2.INVOICE_NO
+            , T2.INVOICE_ISSUE_DT <!-- UT380 ADD -->
+            , max(T2.TRNS_CD_ORG) TRNS_CD_ORG 
+        from
+              TW_SHIPPING_ACT_INVOICE T1
+            , (<include refid="Select_TtPltz"/>) T2 
+        where
+                T1.SHIPPER_CD = T2.SHIPPER_CD 
+            and T1.INVOICE_NO = T2.INVOICE_NO 
+            and T1.INVOICE_ISSUE_DT = T2.INVOICE_ISSUE_DT 
+            <isNotEmpty prepend="and" property="dscId">
+                T1.DSC_ID = #dscId#
+            </isNotEmpty> 
+            and T1.DEL_FLG = 'N'
+        group by
+              T2.CUSTOMER_CD
+            , T2.LGCY_SHIP_TO
+            , T2.SHIPPER_CD
+            , T2.INVOICE_NO
+            , T2.INVOICE_ISSUE_DT
+    </select>
+
+    <!-- ================================================== -->
+    <!-- 船積実績Register画面/登録するデータの取得          -->
+    <!-- ================================================== -->
+    <!-- 検索 SQL文 -->
+    <select id="SearchTwShippingActInvoice"
+        resultMap="W7001ShippingActInvoiceDomain_SearchTwShippingActInvoice" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchTwShippingActInvoice */
+              T1.SHIPPER_CD
+            , T1.INVOICE_NO
+            , T1.INVOICE_ISSUE_DT
+            , T2.MAIN_MARK
+            , max(T2.PLNT_CD) PLNT_CD
+            , max(T3.SHIPPING_LOT) SHIPPING_LOT
+            , T4.CONTAINER_NO
+            , sum(T5.ALLOC_QTY) ALLOC_QTY
+            , T6.ITEM_NO
+            , T6.PKG_CD
+            , T6.CUSTOMER_ITEM_NO
+            , T6.CUSTOMER_PO_NO
+            , T6.ETD_DUE_DT
+            , T6.CUSTOMER_ITEM_NO_ORG
+            , T6.ODR_CTRL_NO
+            , sum(ceil(T5.ALLOC_QTY / nvl(T3.SHIPPING_LOT, 1))) CARTON_QTY
+            , max(T6.SALES_COMP_PO_NO) SALES_COMP_PO_NO
+        from
+              TW_SHIPPING_ACT_INVOICE T1
+            , TT_PLTZ T2
+            , TT_PLTZ_ITEM T3
+            , TT_SHIPPING_FIRM T4
+            , TT_PLTZ_ITEM_ODR T5
+            , TT_EXP_RCV_ODR T6
+        where
+                T1.SHIPPER_CD = T2.SHIPPER_CD 
+            and T1.INVOICE_NO = T2.INVOICE_NO 
+            and T1.INVOICE_ISSUE_DT = T2.INVOICE_ISSUE_DT 
+            and T2.SHIPPING_FIRM_NO = T4.SHIPPING_FIRM_NO 
+            and T2.MAIN_MARK = T3.MAIN_MARK
+            and T3.MAIN_MARK = T5.MAIN_MARK 
+            and T3.BRCH = T5.BRCH 
+            and T5.ITEM_NO = T6.ITEM_NO 
+            and T5.PKG_CD = T6.PKG_CD 
+            and T5.RCV_ODR_COMP_CD = T6.RCV_ODR_COMP_CD 
+            and T5.CUSTOMER_CD = T6.CUSTOMER_CD 
+            and T5.LGCY_SHIP_TO = T6.LGCY_SHIP_TO 
+            and T5.TRNS_CD = T6.TRNS_CD 
+            and T5.ETD_DUE_DT = T6.ETD_DUE_DT 
+            and T5.CUSTOMER_PO_NO = T6.CUSTOMER_PO_NO 
+            and T5.CUSTOMER_ITEM_NO = T6.CUSTOMER_ITEM_NO 
+            and T5.CUSTOMER_ITEM_NO_ORG = T6.CUSTOMER_ITEM_NO_ORG 
+            and T5.ODR_CTRL_NO = T6.ODR_CTRL_NO 
+            <isNotEmpty prepend="and" property="dscId">
+                T1.DSC_ID = #dscId#
+            </isNotEmpty> 
+            and T1.DEL_FLG = 'N' 
+            and T2.CML_TYP = '1' 
+        group by
+              T1.SHIPPER_CD
+            , T1.INVOICE_NO
+            , T1.INVOICE_ISSUE_DT
+            , T4.CONTAINER_NO
+            , T2.MAIN_MARK
+            , T6.ITEM_NO
+            , T6.PKG_CD
+            , T6.CUSTOMER_ITEM_NO
+            , T6.CUSTOMER_PO_NO
+            , T6.ETD_DUE_DT
+            , T6.CUSTOMER_ITEM_NO_ORG
+            , T6.ODR_CTRL_NO
+    </select>
+
+    <!-- ================================================== -->
+    <!-- 船積実績Register画面/インボイスNo.取得             -->
+    <!-- ================================================== -->
+    <!-- 検索 SQL文 -->
+    <select id="SearchTtShippingActOdrByInvoiceNo"
+        resultMap="W7001ShippingActOdrDomain_SearchTtShippingActOdrByInvoiceNo" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchTtShippingActOdrByInvoiceNo */
+            T1.INVOICE_NO 
+        from
+            TT_SHIPPING_ACT_ODR T1
+        where
+                T1.DELETE_FLG = 'N'
+            <isNotEmpty prepend="and" property="shippingActNo">
+                T1.SHIPPING_ACT_NO = #shippingActNo#
+            </isNotEmpty>
+        group by
+              T1.SHIPPER_CD
+            , T1.INVOICE_NO
+            , T1.INVOICE_ISSUE_DT
+    </select>
+
+    <!-- ================================================== -->
+    <!-- Other Doc UPLOAD (Summary)画面/データ件数取得      -->
+    <!-- ================================================== -->
+    <!-- 検索 SQL文 -->
+    <select id="SearchCountTtShippingDocumentByShipper"
+        resultMap="W7001ShippingActInvoiceDomain_SearchCountTtShippingDocumentByShipper" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchCountTtShippingDocumentByShipper */
+            count(SHIPPER_CD) COUNT_SHIPPER_CD
+        from
+            TT_SHIPPING_DOCUMENT 
+        where
+                DOC_TYP = '3' 
+            and DELETE_FLG = 'N'
+            <isNotEmpty prepend="and" property="shipperCd">
+                SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceNo">
+                INVOICE_NO = #invoiceNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceIssueDt">
+                INVOICE_ISSUE_DT = #invoiceIssueDt#
+            </isNotEmpty>
+    </select>
+
+    <!-- ================================================== -->
+    <!-- ブランチNo取得                                     -->
+    <!-- ================================================== -->
+    <!-- 検索 SQL文 -->
+    <select id="SearchTtShippingDocumentByBrch"
+        resultMap="W7001ShippingActDocDomain_SearchTtShippingDocumentByBrch" parameterClass="W7001ShippingActCriteriaDomain">
+        select /* SqlMap-W7001ShippingAct.SearchTtShippingDocumentByBrch */
+            max(BRCH) BRCH
+        from
+            TT_SHIPPING_DOCUMENT 
+        where
+                DOC_TYP = '3'
+            and DELETE_FLG = 'N'
+            <isNotEmpty prepend="and" property="shipperCd">
+                SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceNo">
+                INVOICE_NO = #invoiceNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceIssueDt">
+                INVOICE_ISSUE_DT = #invoiceIssueDt#
+            </isNotEmpty>          
+    </select>
+    
+    <!-- ================================================== -->
+    <!-- 船積実績対象インボイスワークテーブルの登録         -->
+    <!-- ================================================== -->
+    <!-- 登録 SQL文 -->
+    <insert id="CreateTwShippingActInvoice" parameterClass="TwShippingActInvoiceDomain">
+        insert /* SqlMap-W7001ShippingAct.CreateTwShippingActInvoice */
+            into TW_SHIPPING_ACT_INVOICE (
+        <dynamic prepend=" ">
+            <isNotNull prepend="," property="dscId">
+                DSC_ID
+            </isNotNull>
+            <isNotNull prepend="," property="shipperCd">
+                SHIPPER_CD
+            </isNotNull>
+            <isNotNull prepend="," property="invoiceNo">
+                INVOICE_NO
+            </isNotNull>
+            <isNotNull prepend="," property="invoiceIssueDt">
+                INVOICE_ISSUE_DT
+            </isNotNull>
+            <isNotNull prepend="," property="pkgQty">
+                PKG_QTY
+            </isNotNull>
+            <isNotNull prepend="," property="shippingActStatus">
+                SHIPPING_ACT_STATUS
+            </isNotNull>
+            <isNotNull prepend="," property="etd">
+                ETD
+            </isNotNull>
+            <isNotNull prepend="," property="eta">
+                ETA
+            </isNotNull>
+            <isNotNull prepend="," property="containerLooseTyp">
+                CONTAINER_LOOSE_TYP
+            </isNotNull>
+            <isNotNull prepend="," property="carrierCompCd">
+                CARRIER_COMP_CD
+            </isNotNull>
+            <isNotNull prepend="," property="vessel">
+                VESSEL
+            </isNotNull>
+            <isNotNull prepend="," property="delFlg">
+                DEL_FLG
+            </isNotNull>
+            <isNotNull prepend="," property="comUpdateFuncId">
+                COM_UPDATE_FUNC_ID
+            </isNotNull>
+            <isNotNull prepend="," property="comUpdateUserId">
+                COM_UPDATE_USER_ID
+            </isNotNull>
+            <isNotNull prepend="," property="comUpdateTimestamp">
+                COM_UPDATE_TIMESTAMP
+            </isNotNull>
+            <isNotNull prepend="," property="comCreateFuncId">
+                COM_CREATE_FUNC_ID
+            </isNotNull>
+            <isNotNull prepend="," property="comCreateUserId">
+                COM_CREATE_USER_ID
+            </isNotNull>
+            <isParameterPresent prepend=",">
+                COM_CREATE_TIMESTAMP
+            </isParameterPresent>
+        </dynamic>
+        ) values (
+        <dynamic prepend=" ">
+            <isNotNull prepend="," property="dscId">
+                #dscId#
+            </isNotNull>
+            <isNotNull prepend="," property="shipperCd">
+                #shipperCd#
+            </isNotNull>
+            <isNotNull prepend="," property="invoiceNo">
+                #invoiceNo#
+            </isNotNull>
+            <isNotNull prepend="," property="invoiceIssueDt">
+                #invoiceIssueDt#
+            </isNotNull>
+            <isNotNull prepend="," property="pkgQty">
+                #pkgQty#
+            </isNotNull>
+            <isNotNull prepend="," property="shippingActStatus">
+                #shippingActStatus#
+            </isNotNull>
+            <isNotNull prepend="," property="etd">
+                #etd#
+            </isNotNull>
+            <isNotNull prepend="," property="eta">
+                #eta#
+            </isNotNull>
+            <isNotNull prepend="," property="containerLooseTyp">
+                #containerLooseTyp#
+            </isNotNull>
+            <isNotNull prepend="," property="carrierCompCd">
+                #carrierCompCd#
+            </isNotNull>
+            <isNotNull prepend="," property="vessel">
+                #vessel#
+            </isNotNull>
+            <isNotNull prepend="," property="delFlg">
+                #delFlg#
+            </isNotNull>
+            <isNotNull prepend="," property="comUpdateFuncId">
+                #comUpdateFuncId#
+            </isNotNull>
+            <isNotNull prepend="," property="comUpdateUserId">
+                #comUpdateUserId#
+            </isNotNull>
+            <isNotNull prepend="," property="comUpdateTimestamp">
+                #comUpdateTimestamp#
+            </isNotNull>
+            <isNotNull prepend="," property="comCreateFuncId">
+                #comCreateFuncId#
+            </isNotNull>
+            <isNotNull prepend="," property="comCreateUserId">
+                #comCreateUserId#
+            </isNotNull>
+            <isParameterPresent prepend=",">
+                SYSDATE
+            </isParameterPresent>
+        </dynamic>
+        )      
+    </insert>
+
+    <!--
+    =======================================================================================
+    == Palletize status check
+    == Examine all of the CML status of under the invoice, Error if there is a following palletize status.
+    == Customs custom timing type A: there are CML other than 90.
+    == Otherwise: there are CML Not 80.
+    == パレタイズステータスチェック
+    == インボイスの配下のパレタイズステータスを全て調べ次のものがある場合エラー。
+    == 通関タイプ-A:90以外のCMLがある。
+    == それ以外:80以外のCMLがある。
+    == UT456 ADD
+    =======================================================================================
+    -->
+    <select id="SearchTtPltzByInvoice" resultClass="java.lang.String" parameterClass="java.lang.String">
+        select
+        /* SqlMap-W7001ShippingAct.SearchTtPltzByInvoice */
+        distinct
+            T2.INVOICE_NO
+        from
+            TW_SHIPPING_ACT_INVOICE T1
+        ,   TT_PLTZ T2
+        where
+            T1.DSC_ID = #value#
+        and T1.DEL_FLG = 'N'
+        and T1.SHIPPER_CD = T2.SHIPPER_CD
+        and T1.INVOICE_NO = T2.INVOICE_NO
+        and T1.INVOICE_ISSUE_DT = T2.INVOICE_ISSUE_DT
+        and
+            (
+                (T2.CUSTOM_TIMING_TYP = 'A' and T2.PLTZ_STATUS != '90')
+            or  (T2.CUSTOM_TIMING_TYP != 'A' and T2.PLTZ_STATUS != '80')
+            )
+        order by
+            T2.INVOICE_NO
+    </select>
+    
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <update id="UpdateTtShippingAct" parameterClass="W7001ShippingActCriteriaDomain">
+        update /* SqlMap-W7001ShippingAct.UpdateTtShippingAct */
+          TT_SHIPPING_ACT 
+        set
+          CLP_GROUP = #clpGroup#
+          <isNotNull prepend="," property="comUpdateFuncId">
+              COM_UPDATE_FUNC_ID = #comUpdateFuncId#
+          </isNotNull>
+          <isNotNull prepend="," property="comUpdateUserId">
+              COM_UPDATE_USER_ID = #comUpdateUserId#
+          </isNotNull>
+          <isParameterPresent prepend=",">
+              COM_UPDATE_TIMESTAMP = SYSDATE
+          </isParameterPresent>
+        where
+          SHIPPING_ACT_NO = #shippingActNo#
+          <isNotNull prepend="and" property="comUpdateTimestamp">
+            COM_UPDATE_TIMESTAMP = #comUpdateTimestamp#
+          </isNotNull>
+    </update>
+    
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTtShippingActByShippingFirmNo" resultMap="W7001ShippingActDomain_SearchTtShippingActByShippingFirmNo" parameterClass="W7001ShippingActCriteriaDomain">
+        select
+          /* SqlMap-W7001ShippingAct.SearchTtShippingActByShippingFirmNo */
+          T3.MAIN_MARK
+          , T3.SHIPPING_FIRM_NO
+        from
+          TT_SHIPPING_ACT T1
+          , TT_INVOICE T2
+          , TT_PLTZ T3
+        where
+          T1.SHIPPING_ACT_NO = #shippingActNo#
+          and T1.SHIPPING_ACT_NO = T2.SHIPPING_ACT_NO
+          and T2.SHIPPER_CD = T3.SHIPPER_CD
+          and T2.INVOICE_NO = T3.INVOICE_NO
+          and T2.INVOICE_ISSUE_DT = T3.INVOICE_ISSUE_DT
+    </select>
+    
+    <!-- Search - SQL statement (for getting the next number of the sequence ) -->
+    <select id="GetClpGroupSeqNextValue" resultClass="java.lang.String">
+        select
+            CLP_GROUP_SEQ.nextval
+        from
+            DUAL
+        where 'SqlMap-W7001ShippingAct.GetClpGroupSeqNextValue' = 'SqlMap-W7001ShippingAct.GetClpGroupSeqNextValue'
+    </select>
+</sqlMap>

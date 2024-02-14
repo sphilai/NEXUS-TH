@@ -1,0 +1,992 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-W5001ShippingFirm.xml
+ *
+ * W5001ShippingFirmDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="W5001ShippingFirm">
+
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="W5001ShippingFirmDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W5001ShippingFirmDomain" />
+    <typeAlias alias="W5001StgDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W5001StgDomain" />
+    <typeAlias alias="W5001CmlDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W5001CmlDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W5001ShippingFirmCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W5001ShippingFirmCriteriaDomain" />
+    <typeAlias alias="W5001StgCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W5001StgCriteriaDomain" />
+
+
+    <!-- 検索結果をMapで受け取る -->
+    <!-- 出荷確認 (Main画面) -->
+    <resultMap id="W5001ShippingFirmDomain_SearchForPagingOnMainSearch" class="W5001ShippingFirmDomain">
+        <result property="shippingFirmNo" column="SHIPPING_FIRM_NO" />
+        <result property="whCompCd" column="WH_COMP_CD" />
+        <result property="whCd" column="WH_CD" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="shippingFirmStatus" column="SHIPPING_FIRM_STATUS" />
+        <result property="etd" column="ETD" />
+        <result property="carrierCompCd" column="CARRIER_COMP_CD" />
+        <result property="containerNo" column="CONTAINER_NO" />
+        <result property="shippingFirmDt" column="SHIPPING_FIRM_DT" />
+        <result property="shippingFirmIssuerNm" column="SHIPPING_FIRM_ISSUER_NM" />
+        <result property="workedDt" column="WORKED_DT" />
+        <result property="value" column="VALUE" />
+    </resultMap>
+    
+    <!-- 出荷確認 (Create画面) -->
+    <resultMap id="W5001StgDomain_SearchForPagingOnCreateSearch" class="W5001StgDomain">
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="stgInstrNo" column="STG_INSTR_NO" />
+        <result property="stgActNo" column="STG_ACT_NO" />
+        <result property="etd" column="ETD" />
+        <result property="carrierCompCd" column="CARRIER_COMP_CD" />
+        <result property="pkgQty" column="PKG_QTY" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="volume" column="VOLUME" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+    </resultMap>
+    
+    <!-- 出荷確認 (Register画面 / Init / Main画面からの遷移) -->
+    <resultMap id="W5001ShippingFirmDomain_SearchOnRegisterInitByFromMain" class="W5001ShippingFirmDomain" groupBy="stgActNo">
+        <result property="whCompCd" column="WH_COMP_CD" />
+        <result property="whCd" column="WH_CD" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="trnsTypCd" column="TRNS_TYP_CD" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="pkgQty" column="PKG_QTY" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="volume" column="VOLUME" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="stgActNo" column="STG_ACT_NO" />
+        <result property="stgInstrNo" column="STG_INSTR_NO" />
+        <result property="shippingFirmStatus" column="SHIPPING_FIRM_STATUS" />
+        <result property="shippingFirmNo" column="SHIPPING_FIRM_NO" />
+        <result property="etd" column="ETD" />
+        <result property="carrierCompCd" column="CARRIER_COMP_CD" />
+        <result property="containerNo" column="CONTAINER_NO" />
+        <result property="workedDt" column="WORKED_DT" />
+        <result property="value" column="VALUE" />
+        <result property="workedIssuerNm" column="WORKED_ISSUER_NM" />
+        <result property="shippingFirmIssuerNm" column="SHIPPING_FIRM_ISSUER_NM" />
+        <result property="shippingFirmDt" column="SHIPPING_FIRM_DT" />
+        <result property="trnsTypCd" column="TRNS_TYP_CD" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+        <result property="cmlDomainList" resultMap="W5001ShippingFirm.W5001CmlDomain_SearchOnRegisterInit" javaType="java.util.ArrayList" />
+    </resultMap>
+    <!-- 出荷確認 (Register画面 / Init / Create画面からの遷移) -->
+    <resultMap id="W5001ShippingFirmDomain_SearchOnRegisterInitByFromCreate" class="W5001ShippingFirmDomain" groupBy="stgActNo">
+        <result property="trnsTypCd" column="TRNS_TYP_CD" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="pkgQty" column="PKG_QTY" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="volume" column="VOLUME" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="stgActNo" column="STG_ACT_NO" />
+        <result property="stgInstrNo" column="STG_INSTR_NO" />
+        <result property="cmlDomainList" resultMap="W5001ShippingFirm.W5001CmlDomain_SearchOnRegisterInit" javaType="java.util.ArrayList" />
+    </resultMap>
+    <resultMap id="W5001CmlDomain_SearchOnRegisterInit" class="W5001CmlDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="xmainMark" column="XMAIN_MARK" />
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="invoiceEtd" column="INVOICE_ETD" />
+        <result property="invoiceCarrierCompCd" column="INVOICE_CARRIER_COMP_CD" />
+        <result property="pltzGrossWeight" column="PLTZ_GROSS_WEIGHT" />
+        <result property="pltzWeightUnit" column="PLTZ_WEIGHT_UNIT" />
+        <result property="pltzVolume" column="PLTZ_VOLUME" />
+        <result property="pltzVolumeUnit" column="PLTZ_VOLUME_UNIT" />
+        <result property="auth" column="AUTH" />
+    </resultMap>
+    <!-- 出荷確認 (Register画面 / Register ) -->
+    <resultMap id="W5001CmlDomain_LockTtPltzByXmainMarkOrMainMarkNoWait" class="W5001CmlDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="pltzStatus" column="PLTZ_STATUS" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+    </resultMap>
+    <!-- 出荷確認  (Register画面 / Re-UpdateContainerNo ) -->
+    <resultMap id="W5001CmlDomain_LockTtPltzTtInvoiceByShippingFirmNoNoWait" class="W5001CmlDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="shippingActNo" column="SHIPPING_ACT_NO" />
+    </resultMap>
+    <!-- 出荷確認  (Register画面 / Cancel ) -->
+    <resultMap id="W5001ShippingFirm.LockTtPltzByShippingFirmNoNoWait" class="W5001CmlDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="shippingActNo" column="SHIPPING_ACT_NO" />
+    </resultMap>
+    
+    <!-- for paging -->
+    <!-- ページング -->
+    <sql id="Paging_Begin">
+        select * from (select XX.*, ROWNUM ROWNUM1 from (
+    </sql>
+    <sql id="Paging_End">
+        ) XX ) where ROWNUM1  between #rowNumFrom# and #rowNumTo#
+    </sql>
+
+    <!-- =================================================================================================== -->
+    <!-- 出荷確認Main / 検索                                                                                 -->
+    <!-- =================================================================================================== -->
+
+    <sql id="Select_Count_MainSearch">
+        select /* SqlMap-W5001ShippingFirm_SearchCountOnMainSearch */
+            count(ROWNUM)
+    </sql>
+    
+    <sql id="Select_MainSearch">
+        select /* SqlMap-W5001ShippingFirm_SearchForPagingOnMainSearch */
+             T1.SHIPPING_FIRM_NO
+            ,T1.WH_COMP_CD
+            ,T1.WH_CD
+            ,T1.TRNS_CD
+            ,T1.CONTAINER_SORTING_KEY
+            ,T1.CONTAINER_LOOSE_TYP
+            ,T1.SHIPPING_FIRM_STATUS
+            ,T1.ETD
+            ,T1.CARRIER_COMP_CD
+            ,T1.CONTAINER_NO
+            ,T1.SHIPPING_FIRM_DT
+            ,T1.SHIPPING_FIRM_ISSUER_NM
+            ,T1.WORKED_DT
+            ,M1.VALUE
+    </sql>
+    <sql id="From_MainSearch">
+        from
+            TT_SHIPPING_FIRM T1
+            ,TM_CD M1
+            <isParameterPresent prepend=",">
+                (
+                    select
+                        A1.SHIPPING_FIRM_NO
+                        , min(decode(A2.COMP_CD, NULL, 0, 1)) AUTH_SERVER_COMP
+                    from
+                        TT_PLTZ A1,
+                        (
+                            select COMP_CD
+                            from TM_NXS_COMP
+                            where SERVER_ID = #serverId#
+                        ) A2
+                    where
+                        A1.SHIPPER_CD = A2.COMP_CD(+)
+                    group by
+                        A1.SHIPPING_FIRM_NO
+                ) A1
+            </isParameterPresent>
+            <isNotEmpty property="userAuthList" prepend=",">
+                (
+                    select
+                        A1.SHIPPING_FIRM_NO
+                        , max(
+                            case
+                                <iterate property="userAuthList">
+                                    when A1.SHIPPER_CD = #userAuthList[].authMgtComp# 
+                                        and A2.PLNT_CD = #userAuthList[].procMfgDivCd# 
+                                    then #userAuthList[].authority#
+                                </iterate>
+                                else '0'
+                            end
+                        ) AUTH_PLNT
+                    from
+                        TT_PLTZ A1
+                        ,TT_PLTZ_ITEM A2
+                    where
+                        A1.MAIN_MARK = A2.MAIN_MARK
+                        and A2.PLNT_CD is not NULL
+                    group by
+                        A1.SHIPPING_FIRM_NO
+                ) A2
+            </isNotEmpty>
+    </sql>
+    <sql id="Where_MainSearch">
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="whCompCd">
+                T1.WH_COMP_CD = #whCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="whCd">
+                T1.WH_CD = #whCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCd">
+                T1.TRNS_CD = #trnsCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="containerSortingKey">
+                T1.CONTAINER_SORTING_KEY LIKE CONCAT(#containerSortingKey#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippingFirmStatus">
+                T1.SHIPPING_FIRM_STATUS = #shippingFirmStatus#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippingFirmNo">
+                T1.SHIPPING_FIRM_NO LIKE CONCAT(#shippingFirmNo#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="containerLooseTyp">
+                T1.CONTAINER_LOOSE_TYP = #containerLooseTyp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="fmEtd">
+                T1.ETD <![CDATA[>=]]> #fmEtd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="toEtd">
+                T1.ETD <![CDATA[<]]> #toEtd# + 1
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="carrierCompCd">
+                T1.CARRIER_COMP_CD = #carrierCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="containerNo">
+                T1.CONTAINER_NO LIKE CONCAT(#containerNo#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippingFirmIssuerId">
+                T1.SHIPPING_FIRM_ISSUER_ID = #shippingFirmIssuerId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="workedIssuerId">
+                T1.WORKED_ISSUER_ID = #workedIssuerId#
+            </isNotEmpty>
+            <isParameterPresent prepend="and">
+                M1.CD_TYP(+) = '46'
+            </isParameterPresent>
+            <isParameterPresent prepend="and">
+                M1.LNG_CD(+) = #languageCd#
+            </isParameterPresent>
+            <isParameterPresent prepend="and">
+                M1.CD(+) = T1.WORKED_METH_TYP
+            </isParameterPresent>
+            <isParameterPresent prepend="and">
+                T1.SHIPPING_FIRM_NO = A1.SHIPPING_FIRM_NO
+                and A1.AUTH_SERVER_COMP = 1
+            </isParameterPresent>
+            <isNotEmpty property="userAuthList" prepend="and">
+                T1.SHIPPING_FIRM_NO = A2.SHIPPING_FIRM_NO
+                and A2.AUTH_PLNT >= '1'
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+    <sql id="Orderby_MainSearch">
+        order by
+            WH_COMP_CD
+            ,WH_CD
+            ,TRNS_CD
+            ,CONTAINER_SORTING_KEY
+            ,SHIPPING_FIRM_STATUS
+            ,SHIPPING_FIRM_NO desc
+    </sql>
+
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCountOnMainSearch" resultClass="java.lang.Integer" parameterClass="W5001ShippingFirmCriteriaDomain">
+        <include refid="Select_Count_MainSearch" />
+        <include refid="From_MainSearch" />
+        <include refid="Where_MainSearch" />
+    </select>
+
+    <!-- 検索 SQL文（任意条件、ページング用） -->
+    <select id="SearchForPagingOnMainSearch" resultMap="W5001ShippingFirmDomain_SearchForPagingOnMainSearch" parameterClass="W5001ShippingFirmCriteriaDomain">
+        <include refid="Paging_Begin" />
+        <include refid="Select_MainSearch" />
+        <include refid="From_MainSearch" />
+        <include refid="Where_MainSearch" />
+        <include refid="Orderby_MainSearch" />
+        <include refid="Paging_End" />
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- 出荷確認Create / 検索                                                                                 -->
+    <!-- =================================================================================================== -->
+
+    <sql id="Select_Count_CreateSearch">
+        select /* SqlMap-W5001ShippingFirm.SearchCountForPagingOnCreateSearch */
+            count(ROWNUM)
+    </sql>
+    
+    <sql id="Select_CreateSearch">
+        select /* SqlMap-W5001ShippingFirm.SearchForPagingOnCreateSearch */
+            CONTAINER_LOOSE_TYP
+            ,STG_INSTR_NO
+            ,STG_ACT_NO
+            ,ETD
+            ,CARRIER_COMP_CD
+            ,PKG_QTY
+            ,GROSS_WEIGHT
+            ,WEIGHT_UNIT
+            ,VOLUME
+            ,VOLUME_UNIT
+    </sql>
+    <sql id="From_CreateSearch">
+        from
+            (
+                select T1.*
+                from
+                    (
+                        select distinct
+                            T1.SHIPPING_FIRM_NO
+                            ,T1.CONTAINER_LOOSE_TYP
+                            ,'' STG_INSTR_NO
+                            ,T2.STG_ACT_NO
+                            ,T2.ETD
+                            ,T2.CARRIER_COMP_CD
+                            ,T2.PKG_QTY
+                            ,T2.GROSS_WEIGHT
+                            ,T2.WEIGHT_UNIT
+                            ,T2.VOLUME
+                            ,T2.VOLUME_UNIT
+                        from
+                            TT_PLTZ T1
+                            ,TT_STG_ACT T2
+                        where
+                                T1.STG_ACT_NO = T2.STG_ACT_NO
+                            and T2.STG_ACT_NO not in
+                                (
+                                    select distinct
+                                        STG_ACT_NO
+                                    from
+                                        TT_PLTZ
+                                    where
+                                        STG_ACT_NO is not NULL
+                                        and PLTZ_STATUS !=
+                                            (
+                                                case CUSTOM_TIMING_TYP
+                                                    when 'A' then '50'
+                                                    when 'B' then '60'
+                                                    when 'Z' then
+                                                    case CONTAINER_LOOSE_TYP
+                                                        when 'C' then '50'
+                                                        when 'L' then '40'
+                                                    end
+                                                end
+                                            )
+                                )
+                            and T2.WH_COMP_CD = #whCompCd#
+                            and T2.WH_CD = #whCd#
+                            and T2.TRNS_CD = #trnsCd#
+                            and T2.CONTAINER_SORTING_KEY = #containerSortingKey#
+                            <isNotEmpty prepend="and" property="fmEtd">
+                                T2.ETD <![CDATA[>=]]> #fmEtd#
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="toEtd">
+                                T2.ETD <![CDATA[<]]> #toEtd# + 1
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="carrierCompCd">
+                                T2.CARRIER_COMP_CD = #carrierCompCd#
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="containerLooseTyp">
+                                T1.CONTAINER_LOOSE_TYP = #containerLooseTyp#
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="stgInstrNo">
+                                T1.STG_INSTR_NO LIKE CONCAT(#stgInstrNo#,'%')
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="stgActNo">
+                                T1.STG_ACT_NO LIKE CONCAT(#stgActNo#,'%')
+                            </isNotEmpty>
+                    ) T1
+                    <!-- RegisterAllなしの場合 -->
+                    <isNotEmpty property="userAuthList" prepend=",">
+                    (
+                        select
+                            A1.STG_ACT_NO
+                            , min(
+                                case
+                                    <iterate property="userAuthList">
+                                        when A1.SHIPPER_CD = #userAuthList[].authMgtComp# 
+                                            and A2.PLNT_CD = #userAuthList[].procMfgDivCd# 
+                                        then #userAuthList[].authority#
+                                    </iterate>
+                                    else '0'
+                                end
+                            ) AUTH_PLNT
+                        from
+                            TT_PLTZ A1
+                            ,TT_PLTZ_ITEM A2
+                        where
+                            A1.MAIN_MARK = A2.MAIN_MARK
+                            and A2.PLNT_CD is not NULL
+                        group by
+                            A1.STG_ACT_NO
+                    ) A1
+                    </isNotEmpty>
+                where
+                    exists (
+                        select 'x'
+                        from
+                            TT_PLTZ A1,
+                            (
+                                select COMP_CD
+                                from TM_NXS_COMP
+                                where SERVER_ID = #serverId#
+                            ) A2
+                        where
+                                T1.STG_ACT_NO = A1.STG_ACT_NO
+                            and A1.SHIPPER_CD = A2.COMP_CD(+)
+                        having
+                            min(decode(A2.COMP_CD, NULL, 0, 1)) = 1
+                    )
+                    <!-- RegisterAllなしの場合 -->
+                    <isNotEmpty property="userAuthList" prepend="and">
+                    T1.STG_ACT_NO = A1.STG_ACT_NO
+                    and A1.AUTH_PLNT >= '2'
+                    </isNotEmpty>
+                union all
+                select T1.*
+                from
+                    (
+                        select distinct
+                            T1.SHIPPING_FIRM_NO
+                            ,T1.CONTAINER_LOOSE_TYP
+                            ,T2.STG_INSTR_NO
+                            ,'' STG_ACT_NO
+                            ,T2.ETD
+                            ,T2.CARRIER_COMP_CD
+                            ,T2.PKG_QTY
+                            ,T2.GROSS_WEIGHT
+                            ,T2.WEIGHT_UNIT 
+                            ,T2.VOLUME
+                            ,T2.VOLUME_UNIT
+                        from
+                            TT_PLTZ T1
+                            ,TT_STG_INSTR T2
+                        where
+                                T1.STG_INSTR_NO = T2.STG_INSTR_NO
+                            and T1.STG_ACT_NO is NULL
+                            and T2.STG_INSTR_NO not in
+                                (
+                                    select distinct
+                                        STG_INSTR_NO
+                                    from
+                                        TT_PLTZ
+                                    where
+                                            STG_ACT_NO is NULL
+                                        and STG_INSTR_NO is not NULL
+                                        and PLTZ_STATUS !=
+                                            (
+                                                case CUSTOM_TIMING_TYP
+                                                    when 'A' then '50'
+                                                    when 'B' then '60'
+                                                    when 'Z' then
+                                                    case CONTAINER_LOOSE_TYP
+                                                        when 'C' then '50'
+                                                        when 'L' then '40'
+                                                    end
+                                                end
+                                            )
+                                )
+                            and T2.WH_COMP_CD = #whCompCd#
+                            and T2.WH_CD = #whCd#
+                            and T2.TRNS_CD = #trnsCd#
+                            and T2.CONTAINER_SORTING_KEY = #containerSortingKey#
+                            <isNotEmpty prepend="and" property="fmEtd">
+                                T2.ETD <![CDATA[>=]]> #fmEtd#
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="toEtd">
+                                T2.ETD <![CDATA[<]]> #toEtd# + 1
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="carrierCompCd">
+                                T2.CARRIER_COMP_CD = #carrierCompCd#
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="containerLooseTyp">
+                                T1.CONTAINER_LOOSE_TYP = #containerLooseTyp#
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="stgInstrNo">
+                                T1.STG_INSTR_NO LIKE CONCAT(#stgInstrNo#,'%')
+                            </isNotEmpty>
+                            <isNotEmpty prepend="and" property="stgActNo">
+                                T1.STG_ACT_NO LIKE CONCAT(#stgActNo#,'%')
+                            </isNotEmpty>
+                    ) T1
+                    <!-- RegisterAllなしの場合 -->
+                    <isNotEmpty property="userAuthList" prepend=",">
+                    (
+                        select
+                            A1.STG_INSTR_NO
+                            , min(
+                                case
+                                    <iterate property="userAuthList">
+                                        when A1.SHIPPER_CD = #userAuthList[].authMgtComp# 
+                                            and A2.PLNT_CD = #userAuthList[].procMfgDivCd# 
+                                        then #userAuthList[].authority#
+                                    </iterate>
+                                    else '0'
+                                end
+                            ) AUTH_PLNT
+                        from
+                            TT_PLTZ A1
+                            ,TT_PLTZ_ITEM A2
+                        where 
+                            A1.MAIN_MARK = A2.MAIN_MARK
+                            and A2.PLNT_CD is not NULL
+                        group by
+                            A1.STG_INSTR_NO
+                    ) A1
+                    </isNotEmpty>
+                where
+                    exists (
+                        select 'x'
+                        from
+                            TT_PLTZ A1,
+                            (
+                                select COMP_CD
+                                from TM_NXS_COMP
+                                where SERVER_ID = #serverId#
+                            ) A2
+                        where
+                                T1.STG_INSTR_NO = A1.STG_INSTR_NO
+                            and A1.SHIPPER_CD = A2.COMP_CD(+)
+                        having
+                            min(decode(A2.COMP_CD, NULL, 0, 1)) = 1
+                    )
+                    <!-- RegisterAllなしの場合 -->
+                    <isNotEmpty property="userAuthList" prepend="and">
+                    T1.STG_INSTR_NO = A1.STG_INSTR_NO
+                    and A1.AUTH_PLNT >= '2'
+                    </isNotEmpty>
+            ) T1
+    </sql>
+    <sql id="Orderby_CreateSearch">
+        order by
+            T1.CONTAINER_LOOSE_TYP
+            ,T1.STG_INSTR_NO
+            ,T1.STG_ACT_NO
+    </sql>
+    
+    <!-- 検索 SQL文 (Create / 山作り実績)（任意条件 件数取得） -->
+    <select id="SearchCountForPagingOnCreateSearch" resultClass="java.lang.Integer" parameterClass="W5001StgCriteriaDomain">
+        <include refid="Select_Count_CreateSearch" />
+        <include refid="From_CreateSearch" />
+    </select>
+
+    <!-- 検索 SQL文 (Create / 山作り実績)（任意条件、ページング用） -->
+    <select id="SearchForPagingOnCreateSearch" resultMap="W5001StgDomain_SearchForPagingOnCreateSearch" parameterClass="W5001StgCriteriaDomain">
+        <include refid="Paging_Begin" />
+        <include refid="Select_CreateSearch" />
+        <include refid="From_CreateSearch" />
+        <include refid="Orderby_CreateSearch" />
+        <include refid="Paging_End" />
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- 出荷確認Register / 検索                                                                                 -->
+    <!-- =================================================================================================== -->
+     <!-- 検索 SQL文 (Register / 出荷確認)（任意条件、ページング用）(Main画面から遷移) -->
+    <select id="SearchOnRegisterInitByFromMain" 
+        resultMap="W5001ShippingFirmDomain_SearchOnRegisterInitByFromMain"
+        parameterClass="W5001ShippingFirmCriteriaDomain">
+        select /* SqlMap-W5001ShippingFirm.SearchOnRegisterInitByFromMain */
+            T1.WH_COMP_CD
+            ,T1.WH_CD
+            ,T1.TRNS_CD
+            ,T1.TRNS_TYP_CD
+            ,T1.CONTAINER_SORTING_KEY
+            ,T1.CONTAINER_LOOSE_TYP
+            ,T1.PKG_QTY
+            ,T1.GROSS_WEIGHT
+            ,T1.WEIGHT_UNIT
+            ,T1.VOLUME
+            ,T1.VOLUME_UNIT
+            ,T1.STG_ACT_NO
+            ,T1.STG_INSTR_NO
+            ,T1.SHIPPING_FIRM_STATUS
+            ,T1.SHIPPING_FIRM_NO
+            ,T1.ETD
+            ,T1.CARRIER_COMP_CD
+            ,T1.CONTAINER_NO
+            ,T1.WORKED_DT
+            ,T1.VALUE
+            ,T1.WORKED_ISSUER_NM
+            ,T1.SHIPPING_FIRM_ISSUER_NM
+            ,T1.SHIPPING_FIRM_DT
+            ,T1.SHIPPER_CD
+            ,T1.XMAIN_MARK
+            ,T1.MAIN_MARK
+            ,T1.MAIN_MARK_OR_XMAIN_MARK
+            ,T1.INVOICE_ETD
+            ,T1.INVOICE_CARRIER_COMP_CD
+            ,T1.PLTZ_GROSS_WEIGHT
+            ,T1.PLTZ_WEIGHT_UNIT
+            ,T1.PLTZ_VOLUME
+            ,T1.PLTZ_VOLUME_UNIT
+            ,T1.COM_UPDATE_TIMESTAMP
+            ,T1.AUTH
+        from
+            (
+                select T1.*
+                    <isNotEmpty property="userAuthList" prepend=",">
+                        (
+                            select
+                                min(
+                                    case
+                                        <iterate property="userAuthList">
+                                            when A1.SHIPPER_CD = #userAuthList[].authMgtComp# 
+                                                and A2.PLNT_CD = #userAuthList[].procMfgDivCd# 
+                                            then #userAuthList[].authority#
+                                        </iterate>
+                                        else '0'
+                                    end
+                                )
+                            from
+                                TT_PLTZ A1
+                                ,TT_PLTZ_ITEM A2
+                            where
+                                    T1.XMAIN_MARK = A1.XMAIN_MARK
+                                and A2.MAIN_MARK = A1.MAIN_MARK
+                                and A2.PLNT_CD is not NULL
+                        ) AUTH
+                    </isNotEmpty>
+                    <isEmpty property="userAuthList" prepend=",">
+                        NULL as AUTH
+                    </isEmpty>
+                from
+                    (
+                        select distinct
+                            T1.WH_COMP_CD
+                            ,T1.WH_CD
+                            ,T1.TRNS_CD
+                            ,T1.TRNS_TYP_CD
+                            ,T1.CONTAINER_SORTING_KEY
+                            ,T1.CONTAINER_LOOSE_TYP
+                            ,T1.PKG_QTY
+                            ,T1.GROSS_WEIGHT
+                            ,T1.WEIGHT_UNIT
+                            ,T1.VOLUME
+                            ,T1.VOLUME_UNIT
+                            ,T1.STG_ACT_NO
+                            ,T1.STG_INSTR_NO
+                            ,T1.SHIPPING_FIRM_STATUS
+                            ,T1.SHIPPING_FIRM_NO
+                            ,T1.ETD
+                            ,T1.CARRIER_COMP_CD
+                            ,T1.CONTAINER_NO
+                            ,T1.WORKED_DT
+                            ,M1.VALUE
+                            ,T1.WORKED_ISSUER_NM
+                            ,T1.SHIPPING_FIRM_ISSUER_NM
+                            ,T1.SHIPPING_FIRM_DT
+                            ,NULL SHIPPER_CD
+                            ,T3.XMAIN_MARK
+                            ,NULL MAIN_MARK
+                            ,T3.XMAIN_MARK MAIN_MARK_OR_XMAIN_MARK
+                            ,NULL INVOICE_ETD
+                            ,NULL INVOICE_CARRIER_COMP_CD
+                            ,T3.GROSS_WEIGHT PLTZ_GROSS_WEIGHT
+                            ,T3.WEIGHT_UNIT PLTZ_WEIGHT_UNIT
+                            ,T3.VOLUME PLTZ_VOLUME
+                            ,T3.VOLUME_UNIT PLTZ_VOLUME_UNIT
+                            ,T1.COM_UPDATE_TIMESTAMP
+                        from
+                            TT_SHIPPING_FIRM T1
+                            ,TT_PLTZ T2
+                            ,TT_XPLTZ T3
+                            ,TM_CD M1
+                        where
+                                T1.SHIPPING_FIRM_NO = T2.SHIPPING_FIRM_NO
+                            and T2.XMAIN_MARK = T3.XMAIN_MARK
+                            and T1.WORKED_METH_TYP = M1.CD(+)
+                            and T1.SHIPPING_FIRM_NO = #shippingFirmNo#
+                            and M1.CD_TYP(+) = '46'
+                            and M1.LNG_CD(+) = #languageCd#
+                    ) T1
+                where
+                    exists (
+                        select 'x'
+                        from
+                            TT_PLTZ A1,
+                            (
+                                select COMP_CD
+                                from TM_NXS_COMP
+                                where SERVER_ID = #serverId#
+                            ) A2
+                        where
+                                T1.XMAIN_MARK = A1.XMAIN_MARK
+                            and A1.SHIPPER_CD = A2.COMP_CD(+)
+                        having
+                            min(decode(A2.COMP_CD, NULL, 0, 1)) = 1
+                    )
+                union all
+                select T1.*
+                    <isNotEmpty property="userAuthList" prepend=",">
+                        (
+                            select
+                                min(
+                                    case
+                                        <iterate property="userAuthList">
+                                            when T1.SHIPPER_CD = #userAuthList[].authMgtComp# 
+                                                and A1.PLNT_CD = #userAuthList[].procMfgDivCd# 
+                                            then #userAuthList[].authority#
+                                        </iterate>
+                                        else '0'
+                                    end
+                                )
+                            from
+                                TT_PLTZ_ITEM A1
+                            where
+                                    T1.MAIN_MARK = A1.MAIN_MARK
+                                and A1.PLNT_CD is not NULL
+                        ) AUTH
+                    </isNotEmpty>
+	                <isEmpty property="userAuthList" prepend=",">
+                        NULL as AUTH
+                    </isEmpty>
+                from
+                    (
+                        select distinct
+                            T1.WH_COMP_CD
+                            ,T1.WH_CD
+                            ,T1.TRNS_CD
+                            ,T1.TRNS_TYP_CD
+                            ,T1.CONTAINER_SORTING_KEY
+                            ,T1.CONTAINER_LOOSE_TYP
+                            ,T1.PKG_QTY
+                            ,T1.GROSS_WEIGHT
+                            ,T1.WEIGHT_UNIT
+                            ,T1.VOLUME
+                            ,T1.VOLUME_UNIT
+                            ,T1.STG_ACT_NO
+                            ,T1.STG_INSTR_NO
+                            ,T1.SHIPPING_FIRM_STATUS
+                            ,T1.SHIPPING_FIRM_NO
+                            ,T1.ETD
+                            ,T1.CARRIER_COMP_CD
+                            ,T1.CONTAINER_NO
+                            ,T1.WORKED_DT
+                            ,M1.VALUE
+                            ,T1.WORKED_ISSUER_NM
+                            ,T1.SHIPPING_FIRM_ISSUER_NM
+                            ,T1.SHIPPING_FIRM_DT
+                            ,T2.SHIPPER_CD
+                            ,NULL XMAIN_MARK
+                            ,T2.MAIN_MARK
+                            ,T2.MAIN_MARK MAIN_MARK_OR_XMAIN_MARK
+                            ,T3.ETD INVOICE_ETD
+                            ,T3.CARRIER_COMP_CD INVOICE_CARRIER_COMP_CD
+                            ,T2.GROSS_WEIGHT PLTZ_GROSS_WEIGHT
+                            ,T2.WEIGHT_UNIT PLTZ_WEIGHT_UNIT
+                            ,T2.VOLUME PLTZ_VOLUME
+                            ,T2.VOLUME_UNIT PLTZ_VOLUME_UNIT
+                            ,T1.COM_UPDATE_TIMESTAMP
+                        from
+                            TT_SHIPPING_FIRM T1
+                            ,TT_PLTZ T2
+                            ,TT_INVOICE T3
+                            ,TM_CD M1
+                        where
+                                T1.SHIPPING_FIRM_NO = T2.SHIPPING_FIRM_NO
+                            and T2.SHIPPER_CD = T3.SHIPPER_CD(+)
+                            and T2.INVOICE_NO = T3.INVOICE_NO(+)
+                            and T2.INVOICE_ISSUE_DT = T3.INVOICE_ISSUE_DT(+)
+                            and T1.WORKED_METH_TYP = M1.CD(+)
+                            and T2.XMAIN_MARK is NULL
+                            and T1.SHIPPING_FIRM_NO = #shippingFirmNo#
+                            and M1.CD_TYP(+) = '46'
+                            and M1.LNG_CD(+) = #languageCd#
+                    ) T1
+                where
+                    T1.SHIPPER_CD
+                        in (
+                            select COMP_CD
+                            from TM_NXS_COMP
+                            where SERVER_ID = #serverId#
+                        )
+            ) T1
+        order by
+             T1.SHIPPER_CD ASC nulls first
+            ,T1.MAIN_MARK_OR_XMAIN_MARK DESC
+    </select>
+     <!-- 検索 SQL文 (Register / 出荷確認)（任意条件、ページング用）(Create画面から遷移)(actualityNoが""の場合) -->
+    <select id="SearchOnRegisterInitByFromCreateStgInstr" 
+        resultMap="W5001ShippingFirmDomain_SearchOnRegisterInitByFromCreate"
+        parameterClass="W5001ShippingFirmCriteriaDomain">
+        select distinct /* SqlMap-W5001ShippingFirm.SearchOnRegisterInitByFromCreateStgInstr */
+            NULL TRNS_TYP_CD
+            ,T1.CONTAINER_LOOSE_TYP
+            ,T1.PKG_QTY
+            ,T1.GROSS_WEIGHT
+            ,T1.WEIGHT_UNIT
+            ,T1.VOLUME
+            ,T1.VOLUME_UNIT
+            ,NULL STG_ACT_NO
+            ,T1.STG_INSTR_NO
+            ,T2.SHIPPER_CD
+            ,NULL XMAIN_MARK
+            ,T2.MAIN_MARK
+            ,T3.ETD INVOICE_ETD
+            ,T3.CARRIER_COMP_CD INVOICE_CARRIER_COMP_CD
+            ,T2.GROSS_WEIGHT PLTZ_GROSS_WEIGHT
+            ,T2.WEIGHT_UNIT PLTZ_WEIGHT_UNIT
+            ,T2.VOLUME PLTZ_VOLUME
+            ,T2.VOLUME_UNIT PLTZ_VOLUME_UNIT
+            ,NULL AUTH
+        from
+            TT_STG_INSTR T1
+            ,TT_PLTZ T2
+            ,TT_INVOICE T3
+        where
+                T1.STG_INSTR_NO = T2.STG_INSTR_NO
+            and T2.SHIPPER_CD = T3.SHIPPER_CD
+            and T2.INVOICE_NO = T3.INVOICE_NO
+            and T2.INVOICE_ISSUE_DT = T3.INVOICE_ISSUE_DT
+            and T1.STG_INSTR_NO = #stgInstrNo#
+        order by
+             T2.SHIPPER_CD
+            ,T2.MAIN_MARK
+    </select>
+     <!-- 検索 SQL文 (Register / 出荷確認)（任意条件、ページング用）(Create画面から遷移)(actualityNoが""以外の場合) -->
+    <select id="SearchOnRegisterInitByFromCreateStgAct" 
+        resultMap="W5001ShippingFirmDomain_SearchOnRegisterInitByFromCreate"
+        parameterClass="W5001ShippingFirmCriteriaDomain">
+        select /* SqlMap-W5001ShippingFirm.SearchOnRegisterInitByFromCreateStgAct */
+            T1.TRNS_TYP_CD
+            ,NULL CONTAINER_LOOSE_TYP
+            ,T1.PKG_QTY
+            ,T1.GROSS_WEIGHT
+            ,T1.WEIGHT_UNIT
+            ,T1.VOLUME
+            ,T1.VOLUME_UNIT
+            ,T1.STG_ACT_NO
+            ,T1.STG_INSTR_NO
+            ,T1.STG_ACT_NO OPERATION_NO
+            ,T1.SHIPPER_CD
+            ,T1.XMAIN_MARK
+            ,T1.MAIN_MARK
+            ,T1.MAIN_MARK_OR_XMAIN_MARK
+            ,T1.INVOICE_ETD
+            ,T1.INVOICE_CARRIER_COMP_CD
+            ,T1.PLTZ_GROSS_WEIGHT
+            ,T1.PLTZ_WEIGHT_UNIT
+            ,T1.PLTZ_VOLUME
+            ,T1.PLTZ_VOLUME_UNIT
+            ,NULL AUTH
+        from
+            (
+                select distinct
+                    T1.TRNS_TYP_CD
+                    ,T1.PKG_QTY
+                    ,T1.GROSS_WEIGHT
+                    ,T1.WEIGHT_UNIT
+                    ,T1.VOLUME
+                    ,T1.VOLUME_UNIT
+                    ,T1.STG_ACT_NO
+                    ,NULL STG_INSTR_NO
+                    ,NULL SHIPPER_CD
+                    ,T3.XMAIN_MARK
+                    ,NULL MAIN_MARK
+                    ,T3.XMAIN_MARK MAIN_MARK_OR_XMAIN_MARK
+                    ,NULL INVOICE_ETD
+                    ,NULL INVOICE_CARRIER_COMP_CD
+                    ,T3.GROSS_WEIGHT PLTZ_GROSS_WEIGHT
+                    ,T3.WEIGHT_UNIT PLTZ_WEIGHT_UNIT
+                    ,T3.VOLUME PLTZ_VOLUME
+                    ,T3.VOLUME_UNIT PLTZ_VOLUME_UNIT
+                from
+                    TT_STG_ACT T1
+                    ,TT_PLTZ T2
+                    ,TT_XPLTZ T3
+                where
+                        T1.STG_ACT_NO = T2.STG_ACT_NO
+                    and T2.XMAIN_MARK = T3.XMAIN_MARK
+                    and T1.STG_ACT_NO = #stgActNo#
+                union all
+                select distinct
+                    T1.TRNS_TYP_CD
+                    ,T1.PKG_QTY
+                    ,T1.GROSS_WEIGHT
+                    ,T1.WEIGHT_UNIT
+                    ,T1.VOLUME
+                    ,T1.VOLUME_UNIT
+                    ,T1.STG_ACT_NO
+                    ,NULL STG_INSTR_NO
+                    ,T2.SHIPPER_CD
+                    ,NULL XMAIN_MARK
+                    ,T2.MAIN_MARK
+                    ,T2.MAIN_MARK MAIN_MARK_OR_XMAIN_MARK
+                    ,T3.ETD INVOICE_ETD
+                    ,T3.CARRIER_COMP_CD INVOICE_CARRIER_COMP_CD
+                    ,T2.GROSS_WEIGHT PLTZ_GROSS_WEIGHT
+                    ,T2.WEIGHT_UNIT PLTZ_WEIGHT_UNIT
+                    ,T2.VOLUME PLTZ_VOLUME
+                    ,T2.VOLUME_UNIT PLTZ_VOLUME_UNIT
+                from
+                    TT_STG_ACT T1
+                    ,TT_PLTZ T2
+                    ,TT_INVOICE T3
+                where
+                        T1.STG_ACT_NO = T2.STG_ACT_NO
+                    and T2.SHIPPER_CD = T3.SHIPPER_CD(+)
+                    and T2.INVOICE_NO = T3.INVOICE_NO(+)
+                    and T2.INVOICE_ISSUE_DT = T3.INVOICE_ISSUE_DT(+)
+                    and T1.STG_ACT_NO = #stgActNo#
+                    and T2.XMAIN_MARK is NULL
+            ) T1
+        order by
+            T1.SHIPPER_CD asc nulls first
+            ,T1.MAIN_MARK_OR_XMAIN_MARK desc
+    </select>
+    
+    <!-- 検索 SQL文  (Register画面 / Register ) -->
+    <select id="LockTtPltzByXmainMarkOrMainMarkNoWait" 
+        resultMap="W5001CmlDomain_LockTtPltzByXmainMarkOrMainMarkNoWait"
+        parameterClass="W5001ShippingFirmCriteriaDomain">
+        select  /* SqlMap-W5001ShippingFirm.LockTtPltzByXmainMarkOrMainMarkNoWait */
+            MAIN_MARK
+            ,PLTZ_STATUS
+            ,CUSTOM_TIMING_TYP
+        from
+            TT_PLTZ
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="mainMark">
+                MAIN_MARK = #mainMark#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="xmainMark">
+                XMAIN_MARK = #xmainMark#
+            </isNotEmpty>
+        </dynamic>
+        for update nowait
+    </select>
+    
+    <!-- 検索 SQL文  (Register画面 / Re-UpdateContainerNo ) -->
+    <select id="LockTtPltzTtInvoiceByShippingFirmNoNoWait" 
+        resultMap="W5001CmlDomain_LockTtPltzTtInvoiceByShippingFirmNoNoWait"
+        parameterClass="W5001ShippingFirmCriteriaDomain">
+        select
+            T1.MAIN_MARK
+            ,T2.SHIPPING_ACT_NO
+        from
+            TT_PLTZ T1
+            ,TT_INVOICE T2
+        where
+            T1.SHIPPER_CD = T2.SHIPPER_CD(+)
+            and T1.INVOICE_NO = T2.INVOICE_NO(+)
+            and T1.INVOICE_ISSUE_DT = T2.INVOICE_ISSUE_DT(+)
+            and T1.SHIPPING_FIRM_NO = #shippingFirmNo#
+        for update nowait
+    </select>
+    
+    <!-- 検索 SQL文  (Register画面 / Cancel ) -->
+    <select id="LockTtPltzByShippingFirmNoNoWait" 
+        resultMap="W5001ShippingFirm.LockTtPltzByShippingFirmNoNoWait"
+        parameterClass="W5001ShippingFirmCriteriaDomain">
+        select
+            T1.MAIN_MARK
+            ,T1.CUSTOM_TIMING_TYP
+            ,T1.CONTAINER_LOOSE_TYP
+            ,T2.INVOICE_NO
+            ,T2.SHIPPING_ACT_NO
+        from
+            TT_PLTZ T1
+            ,TT_INVOICE T2
+        where
+            T1.SHIPPER_CD = T2.SHIPPER_CD(+)
+            and T1.INVOICE_NO = T2.INVOICE_NO(+)
+            and T1.INVOICE_ISSUE_DT = T2.INVOICE_ISSUE_DT(+)
+            and T1.SHIPPING_FIRM_NO = #shippingFirmNo#
+        for update nowait
+    </select>
+</sqlMap>

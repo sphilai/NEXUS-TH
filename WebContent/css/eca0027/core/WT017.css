@@ -1,0 +1,49 @@
+@CHARSET "windows-31j";
+/*
+ * WT017.css
+ * 
+ * Shipping Actuality Warning List子画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+/*------------ Page control position ------------*/ 
+/*------------ ページコントロール位置 ------------*/ 
+table.gscm_page_control {
+    width:760px;
+}
+ 
+/*------------ Search result total area------------*/ 
+/*------------ 検索結果エリア(全体) ------------*/ 
+table.gscm_resultlist {
+    width:736px;
+}
+
+/*------------ Search result individual area ------------*/ 
+/*------------ 検索結果エリア(個別) ------------*/ 
+.gscm_resultlist .resultlist_shipper_cd {
+    width: 66px;
+}
+.gscm_resultlist .resultlist_etd {
+    width: 75px;
+}
+.gscm_resultlist .resultlist_trns_cd {
+    width: 52px;
+}
+.gscm_resultlist .resultlist_invoice_no {
+    width: 204px;
+}
+.gscm_resultlist .resultlist_cml_typ {
+    width: 52px;
+}
+.gscm_resultlist .resultlist_consignee_cd {
+    width: 74px;
+}
+.gscm_resultlist .resultlist_ship_to_cd {
+    width: 75px;
+}
+.gscm_resultlist .resultlist_customer_cd {
+    width: 86px;
+}
+.gscm_resultlist .resultlist_lgcy_ship_to {
+    width: 52px;
+}

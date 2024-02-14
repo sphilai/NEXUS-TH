@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-Wt002CusNoSelectSelect.xml
+ *
+ * SqlMap file of Wt002CigmaCusNoSelectDao.
+ * Wt001CompSelectDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Wt002CusNoSelect">
+
+    <!-- Domain -->
+    <typeAlias alias="Wt002CigmaCusNoShipToDomain"
+        type="com.globaldenso.eca0027.core.business.domain.Wt002CigmaCusNoShipToDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="Wt002CigmaCusNoShipToCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.Wt002CigmaCusNoShipToCriteriaDomain" />
+
+    <!-- Result search -->
+    <resultMap id="Wt002CusNoSelectResult" class="Wt002CigmaCusNoShipToDomain">
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="accounteeCd" column="CUSTOMER_CD" />
+        <result property="consigneeCd" column="CONSIGNEE_COMP_CD" />
+        <result property="consigneeNm" column="CONSIGNEE_COMP_NM" />
+        <result property="lgcyShipToCd" column="LGCY_SHIP_TO" />
+        <result property="shipToCd" column="SHIP_TO_CD" />
+        <result property="shipToAbb" column="SHIP_TO_NM_ABB" />
+        <result property="lgcyLibCompCd" column="LGCY_LIB_COMP_CD" />
+        <result property="shipToNm" column="SHIP_TO_NM" />
+        <result property="shipToCntryCd" column="SHIP_TO_CNTRY_CD" />
+    </resultMap>
+
+    <!-- 汎用 項目 -->
+    <sql id="TableCols">
+        T1.CUSTOMER_CD
+        , T3.LGCY_SHIP_TO
+        , T4.SHIP_TO_NM_ABB
+        , T1.LGCY_LIB_COMP_CD
+        , T1.COMP_CD CONSIGNEE_COMP_CD
+        , T2.COMP_NM CONSIGNEE_COMP_NM
+        , T3.SHIP_TO_CD
+        , T4.SHIP_TO_NM
+        , T44.SHIP_TO_CNTRY_CD
+    </sql>
+    <!-- 汎用 項目 -->
+    <sql id="Cols">
+        TEMP.CUSTOMER_CD
+        , TEMP.LGCY_SHIP_TO
+        , TEMP.SHIP_TO_NM_ABB
+        , TEMP.LGCY_LIB_COMP_CD
+        , TEMP.CONSIGNEE_COMP_CD
+        , TEMP.CONSIGNEE_COMP_NM
+        , TEMP.SHIP_TO_CD
+        , TEMP.SHIP_TO_NM
+        , TEMP.SHIP_TO_CNTRY_CD
+    </sql>
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeys">
+        order by 
+            T1.CUSTOMER_CD
+            , T3.LGCY_SHIP_TO
+            , T4.SHIP_TO_NM_ABB
+    </sql>
+
+    <!-- FROM句   -->
+    <sql id="From">
+        from TM_CIGMA_CUSTOMER_XREF T1
+        inner join TM_NXS_COMP T2 on T1.comp_cd = T2.COMP_CD
+        inner join TM_CIGMA_SHIP_TO_XREF T3 on T1.CUSTOMER_CD = T3.CUSTOMER_CD
+        and T1.lgcy_lib_comp_cd = T3.lgcy_lib_comp_cd
+        inner join TM_NXS_SHIP_TO T4 on T3.SHIP_TO_CD = T4.SHIP_TO_CD
+        inner join
+        (select
+        T11.SHIP_TO_CD,
+        T11.COMP_CD,
+        T22.CNTRY_CD SHIP_TO_CNTRY_CD,
+        T11.SHIP_TO_NM,
+        T11.SHIP_TO_NM_ABB
+        from TM_NXS_SHIP_TO T11
+        inner join TM_NXS_COMP T22 on T11.COMP_CD = T22.COMP_CD) T44 on T3.SHIP_TO_CD = T44.SHIP_TO_CD
+    </sql>
+
+    <!-- Where condition on search for paging -->
+    <sql id="WhereCondition">
+        where
+            T1.LGCY_LIB_COMP_CD = #shipperCd#
+            <isNotEmpty property="customerCd"> 
+                and T1.CUSTOMER_CD >= #customerCd# 
+            </isNotEmpty> 
+            <isNotEmpty property="shipToAbb"> 
+                and T4.SHIP_TO_NM_ABB like '%' || #shipToAbb# || '%' 
+            </isNotEmpty> 
+            <isNotEmpty property="shipToNm"> 
+                and T4.SHIP_TO_NM like '%' || #shipToNm# || '%' 
+            </isNotEmpty> 
+    </sql>
+
+    <!-- Search Condition For Paging -->
+    <select id="SearchByConditionForPaging" resultMap="Wt002CusNoSelectResult"
+        parameterClass="Wt002CigmaCusNoShipToCriteriaDomain">
+        select
+        /* SqlMap-Wt002CusNoSelect.SearchByConditionForPaging */
+        <include refid="Cols" />
+        from (
+            select 
+            <include refid="TableCols" />
+            ,row_number() over (<include refid="SortKeys" />) ROW_NUM
+            <include refid="From" />
+            <include refid="WhereCondition" />
+            <include refid="SortKeys" />
+        ) TEMP
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+
+    <!--Search Count） -->
+    <select id="SearchCount" resultClass="java.lang.Integer"
+        parameterClass="Wt002CigmaCusNoShipToCriteriaDomain">
+        select count(ROWNUM)
+        /* SqlMap-Wt002CusNoSelect.SearchCount */
+        <include refid="From" />
+        <include refid="WhereCondition" />
+    </select>
+
+</sqlMap>

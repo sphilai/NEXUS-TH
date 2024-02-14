@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * SqlMap-W6001Doc.xml
+ *
+ * W6001DocDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ 
+<sqlMap namespace="W6001Doc">
+    <!-- ================================================== -->
+    <!-- Domainの別名定義                                   -->
+    <!-- ================================================== -->
+    <!-- Domain -->
+    <typeAlias alias="W6001DocInvoiceDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W6001DocInvoiceDomain" />
+
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W6001DocCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W6001DocCriteriaDomain" />
+        
+    <!-- ================================================== -->
+    <!-- 検索結果をMapで受け取る                            -->
+    <!-- ================================================== -->
+    <!-- W6001DocDomain_SearchTtInvoiceByHeaderRegisterAsia -->
+    <resultMap id="W6001DocDomain_SearchTtInvoiceByHeaderRegisterAsia" class="W6001DocInvoiceDomain">
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceIssueDt" column="INVOICE_ISSUE_DT" />
+        <result property="dispInvoiceIssueDt" column="INVOICE_ISSUE_DT" /> <!-- ST184 INVOICE ISSUE DATE/インボイス発行日 ADD -->
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="arrivalTime" column="ARRIVAL_TIME" />
+        <result property="approvalPosition" column="APPROVAL_POSITION" />
+        <result property="approvalNm" column="APPROVAL_NM" />
+        <result property="relateInvoiceNo" column="RELATE_INVOICE_NO" />
+        <!-- 11/02/2015 A.Chonthicha: to support setting total packing as Pltz_Item_Qty -->
+        <result property="pltzItemQty" column="PLTZ_ITEM_QTY" />
+        <result property="shipperCompNm1" column="SHIPPER_COMP_NM_1" />
+        <result property="shipperCompAddr1" column="SHIPPER_COMP_ADDR_1" />
+        <result property="shipperCompAddr2" column="SHIPPER_COMP_ADDR_2" />
+        <result property="shipperCompAddr3" column="SHIPPER_COMP_ADDR_3" />
+        <result property="shipperCompTel" column="SHIPPER_COMP_TEL" />
+        <result property="shipperCompFax" column="SHIPPER_COMP_FAX" />
+        <result property="shipperTaxIdNo" column="SHIPPER_TAX_ID_NO" />
+        <result property="shipToNm1" column="SHIP_TO_NM_1" />
+        <result property="shipToAddr1" column="SHIP_TO_ADDR_1" />
+        <result property="shipToAddr2" column="SHIP_TO_ADDR_2" />
+        <result property="shipToAddr3" column="SHIP_TO_ADDR_3" />
+        <result property="shippedDt" column="SHIPPED_DT" />
+        <result property="trnsNm" column="TRNS_NM" /> <!-- UT369 ADD -->
+        <result property="eta" column="ETA" />
+        <result property="dlivPoint" column="DLIV_POINT" />
+        <result property="carrierCompNmAbb" column="CARRIER_COMP_NM_ABB" />
+        <result property="totalNetWeight" column="TOTAL_NET_WEIGHT" />
+        <result property="totalNetWeightUnit" column="TOTAL_NET_WEIGHT_UNIT" />
+        <result property="totalGrossWeight" column="TOTAL_GROSS_WEIGHT" />
+        <result property="totalVolume" column="TOTAL_VOLUME" />
+        <result property="volumeUnit" column="TOTAL_VOLUME_UNIT" />
+        <result property="freightResponsibleCd" column="FREIGHT_RESPONSIBLE_CD" />
+        <result property="priceTerms" column="PRICE_TERMS" />
+        <result property="tradeTerms" column="TRADE_TERMS" />
+        <result property="payTerms" column="PAY_TERMS" />
+        <result property="remLcTyp" column="REM_LC_TYP" />
+        <result property="remBankNm" column="REM_BANK_NM" />
+        <result property="remBankAddress1" column="REM_BANK_ADDRESS_1" />
+        <result property="remBankAddress2" column="REM_BANK_ADDRESS_2" />
+        <result property="remBankAddress3" column="REM_BANK_ADDRESS_3" />
+        <result property="remBankAccountNo" column="REM_BANK_ACCOUNT_NO" />
+        <result property="lcBankNm1" column="LC_BANK_NM_1" />
+        <result property="spInfo" column="SP_INFO" />
+        <result property="freight" column="FREIGHT" />
+        <result property="insurance" column="INSURANCE" />
+        <result property="vatRatio" column="VAT_RATIO" />
+        <result property="vat" column="VAT" />
+        <result property="totalInvoiceAmount" column="TOTAL_INVOICE_AMOUNT" />
+        <result property="totalInvoiceAmountCurrCd" column="TOTAL_INVOICE_AMOUNT_CURR_CD" />
+        <result property="cntryCdShipTo" column="CNTRY_CD_SHIP_TO" />
+        <result property="cntryCdShipper" column="CNTRY_CD_SHIPPER" />
+        <result property="lgcyUnitCd" column="LGCY_UNIT_CD" />
+        <result property="printCompAddr1" column="PRINT_COMP_ADDR_1" />
+        <result property="printCompAddr2" column="PRINT_COMP_ADDR_2" />
+        <result property="printCompAddr3" column="PRINT_COMP_ADDR_3" />
+        <result property="cntryCdCarrier" column="CNTRY_CD_CARRIER" />
+        <result property="libPgm" column="LIB_PGM" />
+        <result property="jobHost" column="JOB_HOST" />
+        <result property="jobUser" column="JOB_USER" />
+        <result property="jobPassword" column="JOB_PASSWORD" />
+        <result property="jobDescription" column="JOB_DESCRIPTION" />
+    </resultMap>
+
+    <!-- ======================================================================================= -->
+    <!-- Documentation Invoice Register画面 (Ws6002呼出パラメータ情報取得)                       -->
+    <!-- ======================================================================================= -->
+    <!-- 検索 SQL文 (W6001Doc.SearchTtInvoiceByHeaderRegisterAsia) -->
+    <select id="SearchTtInvoiceByHeaderRegisterAsia" resultMap="W6001DocDomain_SearchTtInvoiceByHeaderRegisterAsia"
+        parameterClass="W6001DocCriteriaDomain">
+        select
+            /* SqlMap-W6001Doc.SearchTtInvoiceByHeaderRegisterAsia */
+             T1.INVOICE_NO
+            ,T1.INVOICE_ISSUE_DT
+            ,T1.CUSTOMER_CD
+            ,T1.LGCY_SHIP_TO
+            ,T1.ARRIVAL_TIME
+            ,T1.APPROVAL_POSITION
+            ,T1.APPROVAL_NM
+            ,T1.RELATE_INVOICE_NO
+            <!-- 11/02/2015 A.Chonthicha: to support setting total packing as Pltz_Item_Qty -->
+            ,T1.PLTZ_ITEM_QTY
+            ,T2.SHIPPER_COMP_NM_1
+            ,T2.SHIPPER_COMP_ADDR_1
+            ,T2.SHIPPER_COMP_ADDR_2
+            ,T2.SHIPPER_COMP_ADDR_3
+            ,T2.SHIPPER_COMP_TEL
+            ,T2.SHIPPER_COMP_FAX
+            ,T2.SHIPPER_TAX_ID_NO
+            ,T2.SHIP_TO_NM_1
+            ,T2.SHIP_TO_ADDR_1
+            ,T2.SHIP_TO_ADDR_2
+            ,T2.SHIP_TO_ADDR_3
+            ,T2.SHIPPED_DT
+            ,T2.TRNS_NM <!-- UT369 ADD -->
+            ,T2.ETA
+            ,T2.DLIV_POINT
+            ,T2.CARRIER_COMP_NM_ABB
+            ,T2.TOTAL_NET_WEIGHT
+            <!-- 2014/12/10 DNJP.Kawamura ST183対応 START >>>>> -->
+            <!-- ,T2.TOTAL_NET_WEIGHT_UNIT -->
+            ,T6.LGCY_UNIT_DISP TOTAL_NET_WEIGHT_UNIT
+            <!-- 2014/12/10 DNJP.Kawamura ST183対応 END <<<<< -->
+            ,T2.TOTAL_GROSS_WEIGHT
+            ,T2.TOTAL_VOLUME
+            ,T2.TOTAL_VOLUME_UNIT
+            ,T2.FREIGHT_RESPONSIBLE_CD
+            ,T2.PRICE_TERMS
+            ,T2.TRADE_TERMS
+            ,T2.PAY_TERMS
+            ,T2.REM_LC_TYP
+            ,T2.REM_BANK_NM
+            ,T2.REM_BANK_ADDRESS_1
+            ,T2.REM_BANK_ADDRESS_2
+            ,T2.REM_BANK_ADDRESS_3
+            ,T2.REM_BANK_ACCOUNT_NO
+            ,T2.LC_BANK_NM_1
+            ,T2.SP_INFO
+            ,T2.FREIGHT
+            ,T2.INSURANCE
+            ,T2.VAT_RATIO
+            ,T2.VAT
+            ,T2.TOTAL_INVOICE_AMOUNT
+            ,T2.TOTAL_INVOICE_AMOUNT_CURR_CD
+            ,T3.CNTRY_CD CNTRY_CD_SHIP_TO
+            ,T4.CNTRY_CD CNTRY_CD_SHIPPER
+            ,T5.PRINT_COMP_ADDR_1
+            ,T5.PRINT_COMP_ADDR_2
+            ,T5.PRINT_COMP_ADDR_3
+            ,T5.CNTRY_CD CNTRY_CD_CARRIER
+            ,T6.LGCY_UNIT_CD
+            ,T7.LIB_PGM
+            ,T7.JOB_HOST
+            ,T7.JOB_USER
+            ,T7.JOB_PASSWORD
+            ,T7.JOB_DESCRIPTION
+        from
+             TT_INVOICE T1
+            ,TT_INVOICE_HEADER T2
+            ,TM_NXS_COMP T3
+            ,TM_NXS_COMP T4
+            ,TM_NXS_COMP T5
+            ,TM_MEASURE_UNIT T6
+            ,TM_CIGMA_ENV T7
+        where
+            T1.SHIPPER_CD=T2.SHIPPER_CD(+)
+        and T1.INVOICE_NO=T2.INVOICE_NO(+)
+        and T1.INVOICE_ISSUE_DT=T2.INVOICE_ISSUE_DT(+)
+        and T1.SHIP_TO_COMP_CD=T3.COMP_CD(+)
+        and T2.SHIPPER_CD=T4.COMP_CD(+)
+        and T2.CARRIER_COMP_CD=T5.COMP_CD(+)
+        and T4.WEIGHT_UNIT=T6.UNIT_CD(+)
+        and T1.SHIPPER_CD=T7.COMP_CD(+)
+        and T1.SHIPPER_CD=#shipperCd#
+        and T1.INVOICE_NO=#invoiceNo#
+        and T1.INVOICE_ISSUE_DT=#invoiceIssueDt#
+        and T1.CML_TYP='1'
+        and T1.INVOICE_CLASS='M'
+    </select>
+
+</sqlMap>

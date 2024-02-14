@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+<wb-module deploy-name="NEXUS_EXPORT">
+<wb-resource deploy-path="/" source-path="/WebContent"/>
+<wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+<wb-resource deploy-path="/WEB-INF/classes" source-path="/aijb-config"/>
+<wb-resource deploy-path="/WEB-INF/classes" source-path="/aij2-config"/>
+<wb-resource deploy-path="/WEB-INF/classes" source-path="/sact"/>
+<wb-resource deploy-path="/WEB-INF/classes" source-path="/src_framework"/>
+<wb-resource deploy-path="/WEB-INF/classes" source-path="/form-template"/>
+<wb-resource deploy-path="/WEB-INF/classes" source-path="/aiws-config"/>
+<property name="java-output-path" value="build/classes"/>
+<property name="context-root" value="NEXUS_EXPORT"/>
+</wb-module>
+</project-modules>

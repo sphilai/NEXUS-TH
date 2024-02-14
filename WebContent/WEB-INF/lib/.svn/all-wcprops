@@ -1,0 +1,473 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/E008_ECA0027/!svn/ver/15496/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib
+END
+stax-1.2.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/stax-1.2.0.jar
+END
+jstl.jar
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jstl.jar
+END
+jasperreports-3.7.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jasperreports-3.7.6.jar
+END
+aij2core_2.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/aij2core_2.1.1.jar
+END
+cglib-2.2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/cglib-2.2.2.jar
+END
+jcommon-1.0.15.jar
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jcommon-1.0.15.jar
+END
+ai-timezonemanage_Version0.9.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/ai-timezonemanage_Version0.9.0.jar
+END
+jersey-core-1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jersey-core-1.2.jar
+END
+ai-formgenerate_Version1.0.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/ai-formgenerate_Version1.0.0.jar
+END
+commons-chain-1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/commons-chain-1.1.jar
+END
+iTextAsianCmaps.jar
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/iTextAsianCmaps.jar
+END
+aspectjrt.jar
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/aspectjrt.jar
+END
+iText-2.1.7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/iText-2.1.7.jar
+END
+log4j-1.2.15.jar
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/log4j-1.2.15.jar
+END
+ai-qrcodegenerate_Version1.0.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/ai-qrcodegenerate_Version1.0.0.jar
+END
+zxing-1.7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/zxing-1.7.jar
+END
+bsf-2.3.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/bsf-2.3.0.jar
+END
+struts-taglib-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/struts-taglib-1.3.8.jar
+END
+struts-mailreader-dao-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/struts-mailreader-dao-1.3.8.jar
+END
+commons-dbcp-1.2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/commons-dbcp-1.2.2.jar
+END
+pincodeauth_1.0.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/pincodeauth_1.0.1.jar
+END
+stax-api-1.0-2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/stax-api-1.0-2.jar
+END
+mail.jar
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/mail.jar
+END
+ai-stripeline_pl_Version1.0.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/ai-stripeline_pl_Version1.0.0.jar
+END
+cglib-nodep-2.2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/cglib-nodep-2.2.2.jar
+END
+spring-webmvc-struts.jar
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/spring-webmvc-struts.jar
+END
+jsr311-api-1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jsr311-api-1.1.jar
+END
+struts-faces-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/struts-faces-1.3.8.jar
+END
+ai-jaxbdatabindingextend_Version2.0.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/ai-jaxbdatabindingextend_Version2.0.0.jar
+END
+jersey-spring-1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jersey-spring-1.2.jar
+END
+struts-core-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/struts-core-1.3.8.jar
+END
+ai-contactinfodisplay_pl_Version1.0.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/ai-contactinfodisplay_pl_Version1.0.0.jar
+END
+activation.jar
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/activation.jar
+END
+commons-beanutils-1.8.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/commons-beanutils-1.8.2.jar
+END
+ojdbc7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/E008_ECA0027/!svn/ver/15097/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/ojdbc7.jar
+END
+junit-4.10.jar
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/junit-4.10.jar
+END
+iTextAsian.jar
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/iTextAsian.jar
+END
+struts-scripting-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/struts-scripting-1.3.8.jar
+END
+jersey-client-1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jersey-client-1.2.jar
+END
+jackson-mapper-asl-1.9.10.jar
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jackson-mapper-asl-1.9.10.jar
+END
+ai-shortcutkeydisable_pl_Version1.0.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/ai-shortcutkeydisable_pl_Version1.0.1.jar
+END
+bcprov-ext-jdk15-146.jar
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/bcprov-ext-jdk15-146.jar
+END
+commons-io-1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/commons-io-1.1.jar
+END
+struts-extras-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/struts-extras-1.3.8.jar
+END
+jackson-core-asl-1.9.10.jar
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jackson-core-asl-1.9.10.jar
+END
+asm-3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/asm-3.1.jar
+END
+aicommon_2.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/aicommon_2.1.1.jar
+END
+commons-digester-1.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/commons-digester-1.8.jar
+END
+jackson-xc-1.9.10.jar
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jackson-xc-1.9.10.jar
+END
+commons-collections-3.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/commons-collections-3.2.1.jar
+END
+mimepull-1.7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/mimepull-1.7.jar
+END
+jdt-compiler-3.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jdt-compiler-3.1.1.jar
+END
+struts-tiles-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/struts-tiles-1.3.8.jar
+END
+jaxb-api-2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jaxb-api-2.1.jar
+END
+jfreechart-1.0.12.jar
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jfreechart-1.0.12.jar
+END
+commons-validator-1.3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/commons-validator-1.3.1.jar
+END
+commons-logging-1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/commons-logging-1.1.jar
+END
+djunit.jar
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/djunit.jar
+END
+commons-fileupload-1.3.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/E008_ECA0027/!svn/ver/15496/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/commons-fileupload-1.3.3.jar
+END
+standard.jar
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/standard.jar
+END
+jackson-jaxrs-1.9.10.jar
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jackson-jaxrs-1.9.10.jar
+END
+oro-2.0.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/oro-2.0.8.jar
+END
+jaxb-impl-2.1.12.jar
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jaxb-impl-2.1.12.jar
+END
+jersey-server-1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jersey-server-1.2.jar
+END
+ai-csvlistconvert_Version1.0.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/ai-csvlistconvert_Version1.0.2.jar
+END
+aspectjweaver.jar
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/aspectjweaver.jar
+END
+ai-webservicecallrest_Version2.0.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/ai-webservicecallrest_Version2.0.3.jar
+END
+jersey-json-1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jersey-json-1.2.jar
+END
+struts-el-1.3.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/struts-el-1.3.8.jar
+END
+jersey-multipart-1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/jersey-multipart-1.2.jar
+END
+commons-pool-1.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/commons-pool-1.3.jar
+END
+antlr-2.7.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/antlr-2.7.2.jar
+END
+commons-lang-2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/commons-lang-2.1.jar
+END
+ibatis-2.3.4.726.jar
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/ibatis-2.3.4.726.jar
+END
+aijbcore_2.2.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/aijbcore_2.2.0.jar
+END
+ai-filemanagerstream_Version1.0.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/ai-filemanagerstream_Version1.0.0.jar
+END
+spring.jar
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/spring.jar
+END
+aiws_core_Version2.0.5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/lib/aiws_core_Version2.0.5.jar
+END

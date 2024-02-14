@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="L3004" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="L3004ReportDetailDataSet">
+		<field name="itemNo" class="java.lang.String">
+			<fieldDescription><![CDATA[itemNo]]></fieldDescription>
+		</field>
+		<field name="pkgCd" class="java.lang.String">
+			<fieldDescription><![CDATA[pkgCd]]></fieldDescription>
+		</field>
+		<field name="carryOutCaseQty" class="java.lang.String">
+			<fieldDescription><![CDATA[carryOutCaseQty]]></fieldDescription>
+		</field>
+		<field name="carryOutQty" class="java.lang.String">
+			<fieldDescription><![CDATA[carryOutQty]]></fieldDescription>
+		</field>
+		<field name="shippingLot" class="java.lang.String">
+			<fieldDescription><![CDATA[shippingLot]]></fieldDescription>
+		</field>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="compNm" class="java.lang.String">
+		<fieldDescription><![CDATA[compNm]]></fieldDescription>
+	</field>
+	<field name="printDt" class="java.lang.String">
+		<fieldDescription><![CDATA[printDt]]></fieldDescription>
+	</field>
+	<field name="trIssueDt" class="java.lang.String">
+		<fieldDescription><![CDATA[trIssueDt]]></fieldDescription>
+	</field>
+	<field name="trNo" class="java.lang.String">
+		<fieldDescription><![CDATA[trNo]]></fieldDescription>
+	</field>
+	<field name="sumCarryOutCaseQty" class="java.lang.String">
+		<fieldDescription><![CDATA[sumCarryOutCaseQty]]></fieldDescription>
+	</field>
+	<field name="carryInCompCd" class="java.lang.String">
+		<fieldDescription><![CDATA[carryInCompCd]]></fieldDescription>
+	</field>
+	<field name="carryInWhCd" class="java.lang.String">
+		<fieldDescription><![CDATA[carryInWhCd]]></fieldDescription>
+	</field>
+	<field name="carryOutCompCd" class="java.lang.String">
+		<fieldDescription><![CDATA[carryOutCompCd]]></fieldDescription>
+	</field>
+	<field name="carryOutWhCd" class="java.lang.String">
+		<fieldDescription><![CDATA[carryOutWhCd]]></fieldDescription>
+	</field>
+	<field name="editCnt" class="java.lang.String">
+		<fieldDescription><![CDATA[editCnt]]></fieldDescription>
+	</field>
+	<field name="qrCdStream" class="java.io.InputStream">
+		<fieldDescription><![CDATA[qrCdStream]]></fieldDescription>
+	</field>
+	<field name="detailDomainList" class="java.util.List">
+		<fieldDescription><![CDATA[detailDomainList]]></fieldDescription>
+	</field>
+	<field name="issuer" class="java.lang.String">
+		<fieldDescription><![CDATA[issuer]]></fieldDescription>
+	</field>
+	<title>
+		<band height="109" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="360" height="20"/>
+				<textElement>
+					<font fontName="IPAGothic" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{compNm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="21" width="360" height="20"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["EXPORT TRANSFER REPORT (BY ITEM NO)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="42" width="180" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Transfer Report Issue Date:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="57" width="150" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["From W/H Com Code :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="72" width="150" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["W/H From          :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="87" width="150" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Total Boxes       :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="57" width="115" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["To W/H Com Code:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="72" width="115" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["W/H To         :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="42" width="75" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{trIssueDt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="57" width="75" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{carryOutCompCd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="72" width="75" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{carryOutWhCd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="87" width="75" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{sumCarryOutCaseQty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="57" width="88" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{carryInCompCd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="72" width="88" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{carryInWhCd}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="513" y="10" width="42" height="35"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="471" y="10" width="42" height="35"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="429" y="10" width="42" height="35"/>
+			</rectangle>
+			<image>
+				<reportElement x="479" y="48" width="72" height="60"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$F{qrCdStream}]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="387" y="10" width="42" height="35"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="429" y="0" width="42" height="10"/>
+				<box leftPadding="0">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="IPAGothic" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Driver]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="387" y="0" width="42" height="10"/>
+				<box leftPadding="0">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="IPAGothic" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Issue]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="471" y="0" width="42" height="10"/>
+				<box leftPadding="0">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="IPAGothic" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Activate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="513" y="0" width="42" height="10"/>
+				<box leftPadding="0">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="IPAGothic" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Receive]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="218" y="87" width="115" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Issuer         :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="90" width="146" height="10"/>
+				<textElement>
+					<font fontName="IPAGothic" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{issuer}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="130" height="20"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Transfer Report No:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="0" width="75" height="20"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Edit Flag:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="0" width="40" height="20"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{editCnt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="0" width="90" height="20"/>
+				<textElement>
+					<font fontName="IPAGothic" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{trNo}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="537" y="0" width="20" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="487" y="0" width="51" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="IPAGothic" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page: "+$V{PAGE_NUMBER}+"/ "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="0" width="65" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Printed Date: "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="0" width="90" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{printDt}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="25" height="18"/>
+				<textElement>
+					<font fontName="IPAGothic" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["No."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="0" width="53" height="18"/>
+				<textElement>
+					<font fontName="IPAGothic" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["PKG CD"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="0" width="92" height="18"/>
+				<textElement>
+					<font fontName="IPAGothic" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Item No."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="0" width="55" height="18"/>
+				<textElement>
+					<font fontName="IPAGothic" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["# Boxes"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="345" y="0" width="61" height="18"/>
+				<textElement>
+					<font fontName="IPAGothic" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["TR QTY"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="0" width="94" height="18"/>
+				<textElement>
+					<font fontName="IPAGothic" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Message"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="0" width="70" height="18"/>
+				<textElement>
+					<font fontName="IPAGothic" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Lot Size"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<componentElement>
+				<reportElement x="0" y="1" width="555" height="20"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="L3004ReportDetailDataSet">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{detailDomainList})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="20" width="555">
+						<textField>
+							<reportElement x="0" y="0" width="16" height="15"/>
+							<textElement textAlignment="Right">
+								<font fontName="IPAGothic" size="10"/>
+							</textElement>
+							<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+						</textField>
+						<line>
+							<reportElement x="411" y="13" width="143" height="1"/>
+						</line>
+						<textField>
+							<reportElement x="352" y="0" width="32" height="15"/>
+							<textElement textAlignment="Right">
+								<font fontName="IPAGothic"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{carryOutQty}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="189" y="0" width="52" height="15"/>
+							<textElement textAlignment="Right">
+								<font fontName="IPAGothic"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{carryOutCaseQty}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="132" y="0" width="43" height="15"/>
+							<textElement>
+								<font fontName="IPAGothic"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{pkgCd}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="32" y="0" width="75" height="20"/>
+							<textElement>
+								<font fontName="IPAGothic"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{itemNo}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="285" y="0" width="36" height="15"/>
+							<textElement textAlignment="Right">
+								<font fontName="IPAGothic"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[$F{shippingLot}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+	<summary>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="492" y="15" width="60" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="IPAゴシック" size="10"/>
+				</textElement>
+				<text><![CDATA[<End Page>]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="530" y="0" width="25" height="15"/>
+				<textElement>
+					<font fontName="IPAGothic" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="0" width="63" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="IPAGothic" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page: "+$V{PAGE_NUMBER}+" / "]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

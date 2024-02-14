@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fileset-config file-format-version="1.2.0" simple-config="true" sync-formatter="false">
+  <local-check-config name="ai-j2_checks" location="C:\Eclipse_AIJ3\xml\ai-j2_checks.xml" type="external" description="">
+    <additional-data name="protect-config-file" value="false"/>
+  </local-check-config>
+  <fileset name="all" enabled="true" check-config-name="Google Checks" local="false">
+    <file-match-pattern match-pattern="." include-pattern="true"/>
+  </fileset>
+  <filter name="FilesFromPackage" enabled="true">
+    <filter-data value="test/org"/>
+    <filter-data value="sact"/>
+    <filter-data value="form-template"/>
+    <filter-data value="src_framework"/>
+    <filter-data value="test_framework"/>
+  </filter>
+</fileset-config>

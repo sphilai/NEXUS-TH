@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * tiles-defs_eca0027_w2.xml
+ *
+ * AI-J2(Struts) の Tiles 設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE tiles-definitions PUBLIC
+            "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+
+    <!-- 個別画面 -->
+    <!-- ====================================================================-->
+
+    <!--
+        この個別画面の定義名はaction-mappingsのforwardタグと紐付き、
+        header.jspにて画面IDとして共通的に埋め込まれます。
+        このため、この個別画面の定義名には、画面IDそのものを使用してください。
+    -->
+
+    <!-- Carry out main screen -->
+    <definition name="W3001" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W3001"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W3001.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W3001"/>
+        <put name="js_filepath" value="js/eca0027/core/W3001.js"/>
+    </definition>
+
+    <!-- Carry out Header screen -->
+    <definition name="W3002" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W3002"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W3002.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W3002"/>
+        <put name="js_filepath" value="js/eca0027/core/W3002.js"/>
+    </definition>
+
+    <!-- Print Carry Out List by CML screen -->
+    <definition name="W3003" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W3003"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W3003.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W3003"/>
+        <put name="js_filepath" value="js/eca0027/core/W3003.js"/>
+    </definition>
+    
+<!-- TIS Tanaka Start -->
+    <!-- Print Carry Out List by Parts screen -->
+    <definition name="W3004" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W3004"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W3004.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W3004"/>
+        <put name="js_filepath" value="js/eca0027/core/W3004.js"/>
+    </definition>
+<!-- TIS Tanaka End -->
+
+<!-- SNT 追加　Start -->
+    <!-- Create CML Transfer Report -->
+    <definition name="W3005" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W3005"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W3005.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W3005"/>
+        <put name="js_filepath" value="js/eca0027/core/W3005.js"/>
+    </definition>
+    
+    <!-- Register CML Transfer Report -->
+    <definition name="W3006" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W3006"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W3006.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W3006"/>
+        <put name="js_filepath" value="js/eca0027/core/W3006.js"/>
+    </definition>
+    
+    <!-- Create Parts Transfer Report -->
+    <definition name="W3007" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W3007"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W3007.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W3007"/>
+        <put name="js_filepath" value="js/eca0027/core/W3007.js"/>
+    </definition>
+    
+    <!-- Register Parts Transfer Report -->
+    <definition name="W3008" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W3008"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W3008.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W3008"/>
+        <put name="js_filepath" value="js/eca0027/core/W3008.js"/>
+    </definition>
+    
+    <!-- Carry In Main Screen -->
+    <definition name="W3009" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W3009"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W3009.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W3009"/>
+        <put name="js_filepath" value="js/eca0027/core/W3009.js"/>
+    </definition>
+
+    <!-- Receive CML Transfer Report -->
+    <definition name="W3010" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W3010"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W3010.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W3010"/>
+        <put name="js_filepath" value="js/eca0027/core/W3010.js"/>
+    </definition>
+
+    <!-- Receive Parts Transfer Report -->
+    <definition name="W3011" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W3011"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W3011.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W3011"/>
+        <put name="js_filepath" value="js/eca0027/core/W3011.js"/>
+    </definition>
+<!-- SNT 追加　End -->
+
+</tiles-definitions>

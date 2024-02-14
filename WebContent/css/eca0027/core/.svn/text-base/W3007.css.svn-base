@@ -1,0 +1,97 @@
+@charset "utf-8";
+/*
+ * W3007.css
+ * 
+ * Style sheet used in Create Parts Transfer Report screen.
+ * 品番単位の送荷書作成画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ Search condition area ------------*/ 
+/*------------ 検索条件エリア ------------*/ 
+
+.gscm_search .search_fr_wh_comp_cd {
+    width: 104px;
+}
+.gscm_search .search_fr_wh_cd {
+    width: 102px;
+}
+.gscm_search .search_to_wh_comp_cd {
+    width: 104px;
+}
+.gscm_search .search_to_wh_cd {
+    width: 102px;
+}
+.gscm_search .search_shipper_cd {
+    width: 95px;
+}
+.gscm_search .search_item_no {
+    width: 125px;
+}
+.gscm_search .search_pkg {
+    width: 51px;
+}
+
+.item_no {
+    width: 130px;
+}
+
+/*------------ Search result area ------------*/ 
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 728px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 38px;
+}
+.gscm_resultlist .resultlist_plant {
+    width: 40px;
+}
+.gscm_resultlist .resultlist_parts_no {
+    width: 150px;
+}
+.gscm_resultlist .resultlist_pkg_cd {
+    width: 40px;
+}
+.gscm_resultlist .resultlist_act_qty {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_act_tag_qty {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_soh {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_ship_lot {
+    width: 60px;
+}
+.gscm_resultlist .resultlist_box_no {
+    width: 60px;
+}
+.gscm_resultlist .resultlist_transferable_qty {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_cust_no {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_ship_to {
+    width: 60px;
+}
+
+.scroll_content {
+    position:relative;
+    top:-1px;
+    height:361px;
+    width:977px;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+.act_qty {
+	width: 70px
+}
+.act_tag_qty {
+    width: 70px
+}

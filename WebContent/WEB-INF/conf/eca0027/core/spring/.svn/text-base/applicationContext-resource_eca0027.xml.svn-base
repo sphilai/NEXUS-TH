@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * applicationContext-resource_eca0027.xml
+ * 
+ * Resourceクラス の Spring 設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!-- Resource(Webサービス) ============================================= -->
+    <!--   利用する Resource(Webサービス) はここに定義してください。         -->
+    <!--   外部ファイルに外出しすることも可能です。                          -->
+    <!-- =================================================================== -->
+
+    <!-- =================================================================== -->
+    <!-- 01_Web                                                              -->
+    <!-- =================================================================== -->
+
+    <!-- =================================================================== -->
+    <!-- B_Customer Order Receiving                                          -->
+    <!-- =================================================================== -->
+    
+    <!-- Call EDI Order Entry Job -->
+    <bean id="wsB009Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.WsB009ResourceImpl">
+        <property name="wsB009FacadeService" ref="wsB009FacadeService" />
+    </bean>
+    
+    <!-- =================================================================== -->
+    <!-- T_Common Auxiliary Screen                                           -->
+    <!-- =================================================================== -->
+
+    <!-- Notify Night Batch Status -->
+    <bean id="wsT001Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.WsT001ResourceImpl">
+        <property name="wsT001FacadeService" ref="wsT001FacadeService" />
+    </bean>
+    
+    <!-- =================================================================== -->
+    <!-- X_Migration                                                         -->
+    <!-- =================================================================== -->
+
+    <!-- Migration -->
+    <bean id="wsR001Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.WsR001ResourceImpl">
+        <property name="wsR001FacadeService" ref="wsR001FacadeService" />
+    </bean>
+
+    <!-- =================================================================== -->
+    <!-- 02_BHT                                                              -->
+    <!-- =================================================================== -->
+
+    <!-- =================================================================== -->
+    <!-- 0_Login Menu                                                        -->
+    <!-- =================================================================== -->
+
+    <!-- Get Login Information -->
+    <bean id="ws0501Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws0501ResourceImpl">
+        <property name="ws0501SearchFacadeService" ref="ws0501SearchFacadeService" />
+    </bean>
+
+    <!-- Change Password -->
+    <bean id="ws0502Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws0502ResourceImpl">
+        <property name="ws0502UpdateFacadeService" ref="ws0502UpdateFacadeService" />
+    </bean>
+
+    <!-- Get QR Check Information -->
+    <bean id="ws0503Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws0503ResourceImpl">
+        <property name="ws0503SearchFacadeService" ref="ws0503SearchFacadeService" />
+    </bean>
+
+    <!-- =================================================================== -->
+    <!-- 2_EIS Product                                                       -->
+    <!-- =================================================================== -->
+
+    <!-- Get Palletize Instruction -->
+    <bean id="ws2501Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws2501ResourceImpl">
+        <property name="ws2501SearchFacadeService" ref="ws2501SearchFacadeService" />
+    </bean>
+
+    <!-- Create Inst Palletize -->
+    <bean id="ws2502Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws2502ResourceImpl">
+        <property name="ws2502TransactFacadeService" ref="ws2502TransactFacadeService" />
+    </bean>
+
+    <!-- Create Non Inst Palletize -->
+    <bean id="ws2503Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws2503ResourceImpl">
+        <property name="ws2503TransactFacadeService" ref="ws2503TransactFacadeService" />
+    </bean>
+
+    <!-- Create E-RT Palletize -->
+    <bean id="ws2504Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws2504ResourceImpl">
+        <property name="ws2504CreateFacadeService" ref="ws2504CreateFacadeService" />
+    </bean>
+
+    <!-- Create PKG Spec -->
+    <bean id="ws2505Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws2505ResourceImpl">
+        <property name="ws2505TransactFacadeService" ref="ws2505TransactFacadeService" />
+    </bean>
+
+    <!-- Print Case Mark Label -->
+    <bean id="ws2507Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws2507ResourceImpl">
+        <property name="ws2507SearchFacadeService" ref="ws2507SearchFacadeService" />
+    </bean>
+
+    <!-- Create Mixed Label -->
+    <bean id="ws2508Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws2508ResourceImpl">
+        <property name="ws2508CreateFacadeService" ref="ws2508CreateFacadeService" />
+    </bean>
+
+    <!-- Print Mixed Label -->
+    <bean id="ws2509Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws2509ResourceImpl">
+        <property name="ws2509SearchFacadeService" ref="ws2509SearchFacadeService" />
+    </bean>
+
+    <!-- Create X CML -->
+    <bean id="ws2510Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws2510ResourceImpl">
+        <property name="ws2510TransactFacadeService" ref="ws2510TransactFacadeService" />
+    </bean>
+
+    <!-- Print X CML -->
+    <bean id="ws2511Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws2511ResourceImpl">
+        <property name="ws2511SearchFacadeService" ref="ws2511SearchFacadeService" />
+    </bean>
+
+    <!-- Print Case Mark Label(E-RT) -->
+    <bean id="ws2512Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws2512ResourceImpl">
+        <property name="ws2512SearchFacadeService" ref="ws2512SearchFacadeService" />
+    </bean>
+
+    <!-- =================================================================== -->
+    <!-- 3_Carry Out In                                                      -->
+    <!-- =================================================================== -->
+
+    <bean id="ws3501Resource"
+        class="com.globaldenso.eca0027.core.ws.rest.resource.Ws3501ResourceImpl">
+        <property name="ws3501SearchFacadeService"
+            ref="ws3501SearchFacadeService" />
+    </bean>
+    <bean id="ws3503Resource"
+        class="com.globaldenso.eca0027.core.ws.rest.resource.Ws3503ResourceImpl">
+        <property name="ws3503TransactFacadeService"
+            ref="ws3503TransactFacadeService" />
+    </bean>
+    <bean id="ws3504Resource"
+        class="com.globaldenso.eca0027.core.ws.rest.resource.Ws3504ResourceImpl">
+        <property name="ws3504TransactFacadeService"
+            ref="ws3504TransactFacadeService" />
+    </bean>
+    <bean id="ws3505Resource"
+        class="com.globaldenso.eca0027.core.ws.rest.resource.Ws3505ResourceImpl">
+        <property name="ws3505TransactFacadeService"
+            ref="ws3505TransactFacadeService" />
+    </bean>
+    <bean id="ws3506Resource"
+        class="com.globaldenso.eca0027.core.ws.rest.resource.Ws3506ResourceImpl">
+        <property name="ws3506TransactFacadeService"
+            ref="ws3506TransactFacadeService" />
+    </bean>
+    <bean id="ws3507Resource"
+        class="com.globaldenso.eca0027.core.ws.rest.resource.Ws3507ResourceImpl">
+        <property name="ws3507TransactFacadeService"
+            ref="ws3507TransactFacadeService" />
+    </bean>
+
+    <!-- =================================================================== -->
+    <!-- 4_Staging                                                           -->
+    <!-- =================================================================== -->
+
+    <!-- Get Staging Instruction -->
+    <bean id="ws4501Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws4501ResourceImpl">
+        <property name="ws4501SearchFacadeService" ref="ws4501SearchFacadeService" />
+    </bean>
+
+    <!-- Update Staging Instruction -->
+    <bean id="ws4502Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws4502ResourceImpl">
+        <property name="ws4502UpdateFacadeService" ref="ws4502UpdateFacadeService" />
+    </bean>
+
+    <!-- Create Staging Actuality -->
+    <bean id="ws4503Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws4503ResourceImpl">
+        <property name="ws4503CreateFacadeService" ref="ws4503CreateFacadeService" />
+    </bean>
+
+    <!-- Print Staging Actuality -->
+    <bean id="ws4504Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws4504ResourceImpl">
+        <property name="ws4504ProcessFacadeService" ref="ws4504ProcessFacadeService" />
+    </bean>
+
+    <!-- =================================================================== -->
+    <!-- 5_Shipping Confirmation                                             -->
+    <!-- =================================================================== -->
+
+    <!-- Get Shipping Confirm -->
+    <bean id="ws5501Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws5501ResourceImpl">
+        <property name="ws5501SearchFacadeService" ref="ws5501SearchFacadeService" />
+    </bean>
+
+    <!-- Update Shipping Confirm -->
+    <bean id="ws5502Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.Ws5502ResourceImpl">
+        <property name="ws5502UpdateFacadeService" ref="ws5502UpdateFacadeService" />
+    </bean>
+
+    <!-- =================================================================== -->
+    <!-- T_Common Auxiliary Screen                                           -->
+    <!-- =================================================================== -->
+
+    <!-- Check Unlock BHT -->
+    <bean id="wsT501Resource" class="com.globaldenso.eca0027.core.ws.rest.resource.WsT501ResourceImpl">
+         <property name="wsT501SearchFacadeService" ref="wsT501SearchFacadeService" />
+    </bean>
+</beans>

@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * SqlMapConfig.xml
+ * 
+ * [JP] AI-J2(iBatis) の SQL Map 設定ファイルです。
+ * [EN] This is the configuration file of the SQL Map AI-J2(iBatis).
+ * 
+ * $ SqlMapConfig-aij2.xml 4294 2013-05-15 12:30:57Z HIDETOSHI_NAKATANI@denso.co.jp $
+ *
+ * Copyright (c) 2011 DENSO IT SOLUTIONS. All rights reserved.
+-->
+<!DOCTYPE sqlMapConfig PUBLIC
+  "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+    <!-- [JP] 名前空間の利用宣言 =============================================== --> 
+    <!-- [EN] Declaration of use the namespace =============================================== --> 
+    <settings useStatementNamespaces="true" />
+
+    <!-- [JP] アプリ基盤 共通部品 ===================================================
+         [EN] Common library of Application Development Infrastructure =============================
+         [JP] アプリ基盤の提供する共通部品を利用する場合はこの下に定義を追加して
+         [JP] ください。
+         [EN] If you use the common library of the Application Development Infrastructure, 
+         [EN] please add the definition to the bottom of this.
+    ======================================================================== -->
+    <!-- 時差管理部品 -->
+    <!-- LB_SUMMERTIME_MANAGE sqlMap -->
+    <sqlMap resource="com/globaldenso/ai/library/timezonemanage/integration/SqlMap-LbSummertimeManage.xml" />
+
+    <!-- LB_TIMEZONE_MANAGE sqlMap -->
+    <sqlMap resource="com/globaldenso/ai/library/timezonemanage/integration/SqlMap-LbTimezoneManage.xml" />
+    
+    <!-- ファイルマネージャ部品 -->
+    <sqlMap resource="com/globaldenso/ai/library/filemanagerstream/integration/SqlMap-FileManagement.xml" />
+
+    <!-- 問合せ先表示部品 -->
+    <!-- CONTACT_INFO_DETAIL sqlMap -->
+    <sqlMap resource="com/globaldenso/ai/library/contactinfodisplay/integration/SqlMap-ContactInfoDetail.xml" />
+    <!-- CONTACT_INFO_SYSTEM sqlMap -->
+    <sqlMap resource="com/globaldenso/ai/library/contactinfodisplay/integration/SqlMap-ContactInfoSystem.xml" />
+
+    <!-- 常駐リクエストバッチ登録 -->
+    <sqlMap resource="com/globaldenso/ai/aijb/auto/integration/SqlMap-AijbJobManage.xml" />
+    <sqlMap resource="com/globaldenso/ai/aijb/core/integration/dao/SqlMap-JobManage.xml" />
+    <sqlMap resource="com/globaldenso/ai/aijb/job/residentrequest/integration/dao/SqlMap-ResidentRequest.xml" />
+    <sqlMap resource="com/globaldenso/ai/aijb/auto/integration/SqlMap-AijbResidentReqManage.xml" />
+    
+    <!-- [JP] アプリ個別設定 ========================================================
+         [EN] Individual settings app ==============================================
+         [JP] アプリ個別で作成した定義はこの下に追加してください。
+         [EN] Please add this under the definitions that you create a separate app.
+    ======================================================================== -->
+
+    <!-- ======================================================================= -->
+    <!-- GSCM標準                                                                -->
+    <!-- ======================================================================= -->
+    
+    <!-- リソースマスタ sqlMap -->
+    <sqlMap resource="com/globaldenso/gscm/framework/integration/SqlMap-TmResources.xml" />
+    
+    <!-- 業務日付管理DB sqlMap -->
+    <sqlMap resource="com/globaldenso/gscm/framework/integration/SqlMap-TtWorkDate.xml" />
+    
+    <!-- ユーザー原単位 sqlMap -->
+    <sqlMap resource="com/globaldenso/gscm/framework/integration/SqlMap-TmUser.xml" />
+    
+    <!-- ユーザー設定原単位 sqlMap -->
+    <sqlMap resource="com/globaldenso/gscm/framework/integration/SqlMap-TmUserConf.xml" />
+    
+    <!-- メインメニュー sqlMap -->
+    <sqlMap resource="com/globaldenso/gscm/framework/integration/SqlMap-MainMenu.xml" />
+    
+    <!-- TM_COLUMN_SIZE sqlMap -->
+    <sqlMap resource="com/globaldenso/gscm/framework/integration/SqlMap-TmColumnSize.xml" />
+    
+    <!-- ======================================================================= -->
+    <!-- SACT                                                                    -->
+    <!-- ======================================================================= -->
+
+    <!-- TM_AGENT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmAgent.xml" />
+    <!-- TM_BHT_LOCK_MSG_MGT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmBhtLockMsgMgt.xml" />
+    <!-- TM_BHT_MODULE sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmBhtModule.xml" />
+    <!-- TM_BHT_RESOURCE_FILE sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmBhtResourceFile.xml" />
+    <!-- TM_CANCEL_INV_SEQ_TYP sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCancelInvSeqTyp.xml" />
+    <!-- TM_CD sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCd.xml" />
+    <!-- NEXUS Ship to MA Inquiry -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W9006NxsShipToMa.xml" />
+    <!-- TM_CIGMA Ship to XREF sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W9009CgmShipToXRefMa.xml" />
+    <!-- TM_CIGMA_CUSTOMER_XREF sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCigmaCustomerXref.xml" />
+    <!-- TM_CIGMA_ENV sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCigmaEnv.xml" />
+    <!-- TM_CIGMA_SHIP_TO_XREF sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCigmaShipToXref.xml" />
+    <!-- TM_CIGMA_WH_XREF sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCigmaWhXref.xml" />
+    <!-- TM_CML_INV_PATTERN sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCmlInvPattern.xml" />
+    <!-- TM_CNTRY sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCntry.xml" />
+    <!-- TM_CURRENCY sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCurrency.xml" />
+    <!-- TM_CUSTOMER_QR_PATTERN_DTL sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCustomerQrPatternDtl.xml" />
+    <!-- TM_CUSTOMER_QR_PATTERN_HDR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmCustomerQrPatternHdr.xml" />
+    <!-- TM_DEL_DATA sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmDelData.xml" />
+    <!-- TM_EXP_FORMALITI_ITEM_NO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmExpFormalitiItemNo.xml" />
+    <!-- TM_EXP_ITEM_NO_SP_INFO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmExpItemNoSpInfo.xml" />
+    <!-- TM_EXP_REGULATE_TYP sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmExpRegulateTyp.xml" />
+    <!-- TM_EXP_REQUEST_ITEM_NO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmExpRequestItemNo.xml" />
+    <!-- TM_EXP_SHIP_TO_SHIPPING sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmExpShipToShipping.xml" />
+    <!-- TM_FNC_USE_AUTH_CNF sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmFncUseAuthCnf.xml" />
+    <!-- TM_INV_AMOUNT_CHK sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmInvAmountChk.xml" />
+    <!-- TM_INV_FREE_ITEM sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmInvFreeItem.xml" />
+    <!-- TM_INV_SEQ sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmInvSeq.xml" />
+    <!-- TM_INV_TPL sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmInvTpl.xml" />
+    <!-- TM_INV_TPL_SHIP_TO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmInvTplShipTo.xml" />
+    <!-- TM_ITEM_TYP_XREF sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmItemTypXref.xml" />
+    <!-- TM_MEASURE_UNIT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmMeasureUnit.xml" />
+    <!-- TM_NXS_COMP sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmNxsComp.xml" />
+    <!-- TM_NXS_SHIP_TO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmNxsShipTo.xml" />
+    <!-- TM_NXS_WH sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmNxsWh.xml" />
+    <!-- Other System Link Language Master/他システムリンク原単位(言語)  Master that defines the other system Link Name/他システムのリンク名称を保持するMaster sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmOtherSysLinkLang.xml" />
+    <!-- Other System Link Master/他システムリンク原単位  Master that defines the other system link information/他システムのリンク情報を保持するMaster sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmOtherSysLink.xml" />
+
+    <!-- TM_PKG_MTRL sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPkgMtrl.xml" />
+    <!-- TM_PKG_SPEC_HDR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPkgSpecHdr.xml" />
+    <!-- TM_PKG_SPEC_DTL sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPkgSpecDtl.xml" />
+    <!-- TM_ACTUAL_ITEM_WEIGHT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmActualItemWeight.xml" />
+    <!-- TM_PKG_SET_DTL sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPkgSetDtl.xml" />
+    <!-- TM_PKG_SET_HDR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPkgSetHdr.xml" />
+
+    <!-- TM_PKG_SPEC_REV sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPkgSpecRev.xml" />
+    <!-- TM_PKG_SPEC_REV_HIS sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPkgSpecRevHis.xml" />
+    <!-- TM_PORT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPort.xml" />
+    <!-- TM_PRINTER sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPrinter.xml" />
+    <!-- TM_PRINTER_PURPOSE sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmPrinterPurpose.xml" />
+    <!-- TM_SAILING_SCHEDULE sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmSailingSchedule.xml" />
+    <!-- TM_SEQ sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmSeq.xml" />
+    <!-- TM_SERVER sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmServer.xml" />
+    <!-- TM_SERVER_LANG sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmServerLang.xml" />
+    <!-- TM_STD_QR_PATTERN_DTL sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmStdQrPatternDtl.xml" />
+    <!-- TM_STD_QR_PATTERN_HDR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmStdQrPatternHdr.xml" />
+    <!-- TM_STD_QR_USE_FUNC sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmStdQrUseFunc.xml" />
+    <!-- TM_SUPPLIER_WH_XREF sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmSupplierWhXref.xml" />
+    <!-- TM_TRNS_TYP sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmTrnsTyp.xml" />
+    <!-- TM_TRNS_TYP_VOLUME sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmTrnsTypVolume.xml" />
+    <!-- TM_UOM_CNV_DEC sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmUomCnvDec.xml" />
+    <!-- TM_UOM_CNV_FRC sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TmUomCnvFrc.xml" />
+    <!-- TT_BATCH_REQ_PARAM sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtBatchReqParam.xml" />
+    <!-- TT_BHT_WORK_ERR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtBhtWorkErr.xml" />
+    <!-- TT_BHT_WORK_MIX_TAG sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtBhtWorkMixTag.xml" />
+    <!-- TT_BHT_WORK_PLTZ sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtBhtWorkPltz.xml" />
+    <!-- TT_BHT_WORK_TIME sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtBhtWorkTime.xml" />
+    <!-- TT_CML_ERROR_DTL sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtCmlErrorDtl.xml" />
+    <!-- TT_CML_ERROR_HEADER sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtCmlErrorHeader.xml" />
+    <!-- TT_DOWNLOAD_LOG sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtDownloadLog.xml" />
+    <!-- TT_EDI_RCV_ODR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtEdiRcvOdr.xml" />
+    <!-- TT_EDI_RCV_ODR_RTRY sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtEdiRcvOdrRtry.xml" />
+    <!-- TT_EDI_RCV_ODR_REPORT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtEdiRcvOdrReport.xml" />
+    <!-- TT_EXP_RCV_ODR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtExpRcvOdr.xml" />
+    <!-- TT_EXP_RCV_ODR_UPD sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtExpRcvOdrUpd.xml" />
+    <!-- TT_EXP_REQUEST sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtExpRequest.xml" />
+    <!-- TT_EXP_REQUEST_DTL sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtExpRequestDtl.xml" />
+    <!-- TT_EXP_REQUEST_DTL_KIT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtExpRequestDtlKit.xml" />
+    <!-- TT_EXP_REQUEST_DTL_RT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtExpRequestDtlRt.xml" />
+    <!-- TT_EXP_REQUEST_PLTZ_RT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtExpRequestPltzRt.xml" />
+    <!-- TT_INVOICE sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtInvoice.xml" />
+    <!-- TT_INVOICE_ATTACHED sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtInvoiceAttached.xml" />
+    <!-- TT_INVOICE_HEADER sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtInvoiceHeader.xml" />
+    <!-- TT_MIX_KANBAN sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtMixKanban.xml" />
+    <!-- TT_MIXTAG sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtMixtag.xml" />
+    <!-- TT_MIXTAG_ITEM_NO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtMixtagItemNo.xml" />
+    <!-- TT_MIXTAG_ODR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtMixtagOdr.xml" />
+    <!-- TT_MIXTAG_RT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtMixtagRt.xml" />
+    <!-- TT_ODR_UPLOAD_REQ_MGT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtOdrUploadReqMgt.xml" />
+    <!-- TT_ONLINE_REQ_JOB_PARAM sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtOnlineReqJobParam.xml" />
+    <!-- TT_PACK_ATCH_ITEM_NO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPackAtchItemNo.xml" />
+    <!-- TT_PACKING_ATTACHED_CML sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPackingAttachedCml.xml" />
+    <!-- TT_PACKING_HEAD sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPackingHead.xml" />
+    <!-- TT_PLTZ sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltz.xml" />
+    <!-- TT_PLTZ_INSTR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzInstr.xml" />
+    <!-- TT_PLTZ_INSTR_ITEM_NO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzInstrItemNo.xml" />
+    <!-- TT_PLTZ_INSTR_ODR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzInstrOdr.xml" />
+    <!-- TT_PLTZ_ITEM sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzItem.xml" />
+    <!-- TT_PLTZ_ITEM_KIT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzItemKit.xml" />
+    <!-- TT_PLTZ_ITEM_ODR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzItemOdr.xml" />
+    <!-- TT_PLTZ_KANBAN sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzKanban.xml" />
+    <!-- TT_SC_ATTACHED sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtScAttached.xml" />
+    <!-- TT_SC_HEADER sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtScHeader.xml" />
+    <!-- TT_SEARCH_CRITERIA sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtSearchCriteria.xml" />
+    <!-- TT_SHIPPING_ACT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtShippingAct.xml" />
+    <!-- TT_SHIPPING_ACT_ODR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtShippingActOdr.xml" />
+    <!-- TT_SHIPPING_DOCUMENT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtShippingDocument.xml" />
+    <!-- TT_SHIPPING_FIRM sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtShippingFirm.xml" />
+    <!-- TT_STG_ACT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtStgAct.xml" />
+    <!-- TT_STG_INSTR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtStgInstr.xml" />
+    <!-- TT_SYS_INFO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtSysInfo.xml" />
+    <!-- TT_SYS_INFO_LNG sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtSysInfoLng.xml" />
+    <!-- TT_TMP_STOCK sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtTmpStock.xml" />
+    <!-- TT_TRANSFER sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtTransfer.xml" />
+    <!-- TT_TRANSFER_ITEM_ITEM_NO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtTransferItemItemNo.xml" />
+    <!-- TT_TRANSFER_ITEM_PLTZ sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtTransferItemPltz.xml" />
+    <!-- TT_TRANSFER_KANBAN sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtTransferKanban.xml" />
+    <!-- TT_PLTZ_KANBAN_EXTRA sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtPltzKanbanExtra.xml" />
+    <!-- TT_USER_AUTH_MGT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtUserAuthMgt.xml" />
+    <!-- TT_XPLTZ sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TtXpltz.xml" />
+    <!-- TW_CARRY_OUT_LIST_ITEM_NO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwCarryOutListItemNo.xml" />
+    <!-- TW_CARRY_OUT_LIST_MM sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwCarryOutListPltz.xml" />
+    <!-- TW_CASE_MARK_DTL_IF sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwCaseMarkDtlIf.xml" />
+    <!-- TW_CASE_MARK_HDR_IF sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwCaseMarkHdrIf.xml" />
+    <!-- TW_CASE_MARK_UNSHIP sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwCaseMarkUnship.xml" />
+    <!-- TW_EXP_REQUEST_PALLETIZE_RT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwExpRequestPalletizeRt.xml" />
+    <!-- TW_INV sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwInv.xml" />
+    <!-- TW_INV_ITEM sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwInvItem.xml" />
+    <!-- TW_INVOICE sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwInvoice.xml" />
+    <!-- TW_INV_PLTZ sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwInvPltz.xml" />
+    <!-- TW_MIXTAG sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwMixtag.xml" />
+    <!-- TW_MIXTAG_RT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwMixtagRt.xml" />
+    <!-- TW_PLTZ_INSTR_ITEM_NO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwPltzInstrItemNo.xml" />
+    <!-- TW_PLTZ_ITEM_ITEM_NO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwPltzItemItemNo.xml" />
+    <!-- TW_PLTZ_ITEM_PKG sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwPltzItemPkg.xml" />
+    <!-- TW_SHIPPING_ACT_INVOICE sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwShippingActInvoice.xml" />
+    <!-- TW_STG_ACT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwStgAct.xml" />
+    <!-- TW_STG_INSTR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwStgInstr.xml" />
+    <!-- TW_TRANSFER_ITEM_ITEM_NO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwTransferItemItemNo.xml" />
+    <!-- TW_TRANSFER_ITEM_PLTZ sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwTransferItemPltz.xml" />
+    <!-- TW_XPLTZ sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-TwXpltz.xml" />
+    <!-- VM_RP_INV_TPL sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VmRpInvTpl.xml" />
+    <!-- VT_RP_CML_HDR_MIXED_PLTZ sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpCmlHdrMixedPltz.xml" />
+    <!-- VT_RP_CML_MIXTAG_ERR_REP sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpCmlMixtagErrRep.xml" />
+    <!-- VT_RP_INV_ATCHED_FOR_MAIN sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpInvAtchedForMain.xml" />
+    <!-- VT_RP_INV_ATCHED_FOR_RT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpInvAtchedForRt.xml" />
+    <!-- VT_RP_INV_HDR_FOR_CMRCL_INTANG sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpInvHdrForCmrclIntang.xml" />
+    <!-- VT_RP_INV_HDR_FOR_FRT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpInvHdrForFrt.xml" />
+    <!-- VT_RP_INV_HDR_FOR_NON_CMRCL sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpInvHdrForNonCmrcl.xml" />
+    <!-- VT_RP_MIXTAG sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpMixtag.xml" />
+    <!-- VT_RP_ODR_RCV_ERR_REPORT_HDR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpOdrRcvErrReportHdr.xml" />
+    <!-- VT_RP_PACK_ATCHED_FOR_ERT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpPackAtchedForErt.xml" />
+    <!-- VT_RP_PACK_ATCHED_FOR_FRT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpPackAtchedForFrt.xml" />
+    <!-- VT_RP_PACK_HDR_FOR_FRT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpPackHdrForFrt.xml" />
+    <!-- VT_RP_PACK_HDR_FOR_MAIN sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpPackHdrForMain.xml" />
+    <!-- VT_RP_PLTZ_INSTR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpPltzInstr.xml" />
+    <!-- VT_RP_SALES_CNTRCT_HDR_FOR_FRT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpSalesCntrctHdrForFrt.xml" />
+    <!-- VT_RP_SLS_CNTRCT_ATCHED_MAIN sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpSlsCntrctAtchedMain.xml" />
+    <!-- VT_RP_SLS_CNTRCT_ATCHED_RT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpSlsCntrctAtchedRt.xml" />
+    <!-- VT_RP_SLS_CNTRCT_HDR_CMRCL sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpSlsCntrctHdrCmrcl.xml" />
+    <!-- VT_RP_SLS_CNTRCT_HDR_NON_CMRCL sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpSlsCntrctHdrNonCmrcl.xml" />
+    <!-- VT_RP_XTAG sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpXtag.xml" />
+    <!-- VM_RP_PRINTER_PURPOSE sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VmRpPrinterPurpose.xml" />
+    <!-- VM_SERVER_INFO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VmServerInfo.xml" />
+    <!-- VT_SYS_INFO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtSysInfo.xml" />
+    <!-- VM_TIME_DIFF_INFO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VmTimeDiffInfo.xml" />
+    <!-- VM_USER_INFO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VmUserInfo.xml" />
+    <!-- VT_COMP_MEASURE_UNIT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtCompMeasureUnit.xml" />
+    <!-- VT_RP_STG_INSTR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpStgInstr.xml" />
+    <!-- VT_RP_STG_ACT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpStgAct.xml" />
+    <!-- VT_RP_SHIPPING_FIRM sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpShippingFirm.xml" />
+    <!-- VT_RP_PL_SUMMARY sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpPackingSummary.xml" />
+    <!-- SI追加分 -->
+    <!-- VM_GET_QR_CHECK sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VmGetQrCheck.xml" />
+    <!-- VT_PLTZ_STG_INSTR sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtPltzStgInstr.xml" />
+    <!-- VT_TRNS_TYP_STG_ACT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtTrnsTypStgAct.xml" />
+    <!-- VT_XPLTZ_STG_ACT sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtXpltzStgAct.xml" />    
+    <!-- VT_BHT_LOCKUSER sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtBhtLockuser.xml" />
+    <!-- VT_SHIPPING_FIRM sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtShippingFirm.xml" />
+    <!-- W3TransferCarryOutList -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W3TransferCarryOutList.xml" />
+    <!-- VT_RP_TRANSFER_PLTZ sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpTransferPltz.xml" />
+    <!-- VT_RP_TRANSFER_ITEM_NO sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/auto/integration/SqlMap-VtRpTransferItemNo.xml" />
+
+    <!-- ======================================================================= -->
+    <!-- システム共通                                                            -->
+    <!-- ======================================================================= -->
+    <!-- メニュー -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W0002Menu.xml" />
+
+    <!-- ユーザ機能利用権限 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-UserAuth.xml" />
+    
+    <!-- ======================================================================= -->
+    <!-- 業務個別                                                                -->
+    <!-- ======================================================================= -->
+
+	<!-- Export Request -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W1001ExpRequest.xml" />
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W1006ExpRequest.xml" />
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W1006ExpRequestDtl.xml" />
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W1006ExpRequestDtlKit.xml" />
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W1007ExpRequest.xml" />
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W1007ExpRequestDtl.xml" />
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W1007ExpRequestDtlKit.xml" />
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W1007PltzWk.xml" />
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W1008Pltz.xml" />
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W1008PltzItem.xml" />
+    <!-- 梱包指示 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W2001PltzInstr.xml" />
+        
+    <!-- MixTag -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W2005MixTag.xml" />
+    
+    <!-- CML -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W2009Cml.xml" />
+    
+    <!-- まとめパレタイズ -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W2014Xtag.xml" /> 
+    
+    <!-- 荷揃え指示 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W4001StgInstr.xml" />
+
+    <!-- 山作り実績 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W4005StgAct.xml" />
+
+    <!-- 出荷確認 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W5001ShippingFirm.xml" />
+    
+    <!-- Documentation -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W6001Doc.xml" />
+    
+    <!-- 11/02/2015 A.Chonthicha: to support setting total packing as Pltz_Item_Qty -->
+    <!-- Documentation -->
+    <sqlMap resource="com/globaldenso/eca0027/asia/integration/SqlMap-W6001Doc_Asia.xml" />
+    
+    <!-- 船積実績 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W7001ShippingAct.xml" />
+
+    <!-- 進度管理 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W8001ProgCtrl.xml" />
+
+    <!-- CIGMA Customer No. X-Reference MA -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W9011CgmCusNoXRefMa.xml" />
+    
+    <!-- NEXUS W/H MA NL040 ADD -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W9013NxsWhMa.xml" />
+    
+    <!-- CIGMA W/H X-Reference MA -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W9014CgmWhXRefMa.xml" />
+    
+    <!-- WEB AgentMa -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W9002AgentMa.xml" />
+    
+    <!-- WEB User ID MA -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W9004UserIdMa.xml" />
+    
+    <!-- WEB Export Ship to Shipping MA -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W9007ExpShipToShippingMa.xml" />
+    
+    <!-- WEB Export Shipping Item Special Information MA -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W9016ExpShippingItemSpInfoMa.xml" />
+    
+    <!-- WEB Export Formalities by Item MA -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W9018ExpFmlByItemMa.xml" />
+    
+    <!-- インボイステンプレートマスタ -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W9022InvTplMa.xml" />
+    
+    <!-- Item No. Apply Start Date Refer & Register -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W9024ItemNoAplyStrtDt.xml" />
+    
+    <!-- 受注業務 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-WB001OdrRcv.xml" />
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-WB020OdrUpload.xml" />
+    
+    <!-- E-RT -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-WC001Ert.xml" />
+    
+    <!-- Company Select sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-Wt001CompSelect.xml" />
+    
+    <!-- Company Select sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-Wt002CusNoSelect.xml" />
+    
+    <!-- Package Select sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-Wt004PkgSelect.xml" />
+    
+    <!-- Outer Package Select sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-Wt006OuterPkgSelect.xml" />
+    
+    <!--  Item No Information sqlMap --> 
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-Wt007ItemNoInfo.xml" /> 
+    
+    <!-- Port Select sqlMap NL040 ADD --> 
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-Wt008PortSelect.xml" /> 
+    
+    <!-- WH Select sqlMap NL040 ADD --> 
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-Wt010WhSelect.xml" /> 
+    
+    <!-- Ship to Select NL040 ADD -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-Wt014ShipToSelect.xml" />
+    
+    <!-- Unit Price Error List sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-Wt015UnitPriceErrList.xml" />
+    
+    <!-- Unregistered Hs Code List sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-Wt016UnregHsCdList.xml" />
+    
+    <!-- Shipping Actuality Warning List sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-Wt017ShippingActWarnList.xml" />
+    
+    <!--  Container Information sqlMap --> 
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-Wt018ContainerInfo.xml" /> 
+    
+    <!-- L2000番台 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-RpEisProduct.xml" />
+    
+    <!-- L4000番台 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-RpStgAct.xml" /> <!-- UT429 ADD -->
+    
+    <!-- L5000番台 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-RpShippingFirm.xml" /> <!-- UT429 ADD -->
+    
+    <!-- L6000番台 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-RpDoc.xml" />
+    
+    <!-- L6000Asia add by DCS 08022017 -->
+    <sqlMap resource="com/globaldenso/eca0027/asia/integration/SqlMap-RpDocAsia.xml" />
+    
+    <!-- L7001 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-RpShippingAct.xml" />
+    
+    <!-- LB001 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-RpOdrRcv.xml" />
+    
+    <!-- LC001 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-RpErt.xml" />
+    
+    <!-- BHT EisProduct -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-WsBhtEisProduct.xml" />
+    
+    <!-- Migration -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-WsR001MigrationCmlPrint.xml" />
+    
+    <!-- Cigma ComnAux -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-WsCigmaComnAux.xml" />
+
+    <!-- SI追加分 -->    <!-- WS4 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-Stg.xml" />  
+    <!-- Ws5501 -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-WsBhtShippingFirm.xml" />
+
+    <!-- W3 Transfer -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-W3Transfer.xml" />
+    
+    <!-- WsBhtTransfer sqlMap -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-WsBhtTransfer.xml" />
+
+    <!-- REQUEST_ID_SEQ sqlMap L005 Add -->
+    <sqlMap resource="com/globaldenso/eca0027/core/integration/SqlMap-RequestIdSeq.xml" />
+
+</sqlMapConfig>

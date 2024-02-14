@@ -1,0 +1,139 @@
+@charset "utf-8";
+/*
+ * W3006.css
+ * 
+ * Register CML Transfer Report画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+/*------------ Search condition area 1 ------------*/ 
+.gscm_search .search_wh_comp_cd {
+    width: 130px;
+}
+.gscm_search .search_wh_cd {
+    width: 100px;
+}
+.gscm_search .search_shipper_cd {
+    width: 90px;
+}
+.gscm_search .search_total_cml {
+    width: 65px;
+}
+.gscm_search .search_issuer {
+    width: 160px;
+}
+.gscm_search .search_issue_dt {
+    width: 180px;
+}
+/*------------ Search condition area 2 ------------*/ 
+.gscm_search .search_editflg {
+    width: 75px;
+}
+.gscm_search .search_trnsfer_status {
+    width: 75px;
+}
+.gscm_search .search_tr_kind {
+    width: 80px;
+}
+.gscm_search .search_act_method {
+    width: 150px;
+}
+.gscm_search .search_act_dt {
+    width: 150px;
+}
+.gscm_search .search_transfer_no {
+    width: 450px;
+}
+
+/*------------ Result search ------------*/ 
+/*------------ Search result area ------------*/ 
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 850px;
+}
+
+.gscm_resultlist .resultlist_del {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_main_mark {
+    width: 210px;
+}
+.gscm_resultlist .resultlist_cml_type {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_trans {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_cont_sort_cd {
+    width: 120px;
+}
+.gscm_resultlist .resultlist_g_w {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_cml_issue_date {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_export_request_no {
+    width: 170px;
+}
+
+.gscm_search .disptd {
+    padding-bottom: 0px;
+    vertical-align: bottom;
+}
+.gscm_search .disptdb {
+    font-weight: bold;
+}
+.gscm_search .disptdbr {
+    font-weight: bold;
+    text-align: right;
+}
+.gscm_resultlist .disptdb {
+    font-weight: bold;
+}
+.edit_register {
+    width: 105px;
+}
+.cancel_tr {
+    width: 105px;
+    background: #FF6666
+}
+
+.search_wh_comp_cd {
+    width: 130px;
+}
+.search_wh_cd {
+    width: 100px;
+}
+.search_shipper_cd {
+    width: 90px;
+}
+.search_total_cml {
+    width: 65px;
+}
+.search_issuer {
+    width: 160px;
+}
+.search_issue_dt {
+    width: 180px;
+}
+
+.search_transfer_no {
+    width: 210px;
+}
+.search_editflg {
+    width: 75px;
+}
+.search_trnsfer_status {
+    width: 75px;
+}
+.search_tr_kind {
+    width: 80px;
+}
+.search_act_method {
+    width: 150px;
+}
+.search_act_dt {
+    width: 390px;
+}

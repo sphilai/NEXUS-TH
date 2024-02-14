@@ -1,0 +1,64 @@
+@CHARSET "utf-8";
+/*
+ * W9022.css
+ * 
+ * Export Invoice Template MA Inquiry画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+.gscm_search .search_company {
+    width:78px;
+}
+
+.gscm_search .search_doc_no {
+    width:108px;
+}
+
+.gscm_search .search_invoice_ctgry {
+    width:235px;
+}
+
+.gscm_search .search_invoice_class {
+    width:559px;
+}
+
+table.gscm_search_button .gscm_search_button_add {
+    width:490px;
+}
+
+table.gscm_search_button .gscm_search_button_search {
+    width:490px;
+}
+
+/*------------ 検索結果エリア ------------*/ 
+table.gscm_resultlist {
+    width:450px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 45px;
+}
+
+.gscm_resultlist .resultlist_comp_cd {
+    width: 90px;
+}
+
+.gscm_resultlist .resultlist_doc_no {
+    width: 113px;
+}
+
+.gscm_resultlist .resultlist_invoice_ctgry {
+    width: 113px;
+}
+
+.gscm_resultlist .resultlist_invoice_class {
+    width: 90px;
+}
+
+/*------------ 入力項目 ------------*/ 
+.w9022_invoice_ctgry {
+    width: 200px;
+}
+

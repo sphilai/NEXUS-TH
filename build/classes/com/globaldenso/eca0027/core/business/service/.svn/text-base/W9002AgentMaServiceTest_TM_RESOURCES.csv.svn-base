@@ -1,0 +1,1254 @@
+﻿"LOCALE_KEY","RESOURCE_KEY","VALUE","COM_UPDATE_FUNC_ID","COM_UPDATE_USER_ID","COM_UPDATE_TIMESTAMP","COM_CREATE_FUNC_ID","COM_CREATE_USER_ID","COM_CREATE_TIMESTAMP"
+"default","format.screen.yyyymmdd","dd/MM/yy","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","format.report.yyyymmdd","dd/MM/yyyy","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.WS2512.printerId.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.WS2512.mainMark.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.WS2512.compCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.WS2511.xmainMark.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.WS2511.printerId.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.WS2511.compCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.WS2509.printerId.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.WS2509.compCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.WS2507.printerId.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.WS2507.compCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9024.pkg.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9024.nxsCompCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9024.nxsCompCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9024.nxsCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9024.itemNo.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.master_11.maxlen","509","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.master_10.maxlen","359","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.master_8.maxlen","20","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.master_7.maxlen","22","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.master_4.maxlen","509","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.master_3.maxlen","359","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.master_2.maxlen","105","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.m6File.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.m1File.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.invoiceClass.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.invoiceCategory.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.docNo.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.docNo.maxlen","3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.docNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.compCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.compCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9023.compCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9019.originCntryCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9019.originCntryCd.len","2","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9019.originCntryCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9019.hsCd.maxlen","12","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9019.hsCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9019.free3RegFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9019.free3Dtl.maxlen","20","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9019.free2RegFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9019.free2Dtl.maxlen","20","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9019.free1RegFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9019.free1Dtl.maxlen","20","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9019.expLimitTyp.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9019.dngrItemFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9019.aplyStrtDt.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9019.aplyStrtDt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9018.toAplyStrtDt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9018.hsCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9018.fmAplyStrtDt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9018.comp_cd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9018.comp_cd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.stg_instrItemFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.shippingLot.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.shippingLot.maxlen","7","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.shippingLot.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.loadingCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.itemDescription.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.itemDescription.maxlen","240","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.itemDescription.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.invoiceKey.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.invoiceKey.len","3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.invoiceKey.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.customTimingTyp.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.containerSortingKey.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.containerSortingKey.len","6or8","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.containerSortingKey.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.containerLooseTyp.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.casemarkNotation.maxlen","50","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.aplyStrtDt.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9017.aplyStrtDt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.pkgCd.len","3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.pkgCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.lgcyShipTo.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.lgcyShipTo.len","2","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.lgcyShipTo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.itemNo.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.itemNo.maxlen","27","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.invoiceKey.len","3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.invoiceKey.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.customerCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.customerCd.len","8","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.customerCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.containerSortingKey.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.compCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.compCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9016.compCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9015.whCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9015.whCd.len","4","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9015.whCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9015.plntCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9015.plntCd.len","2","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9015.plntCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9015.lgcyWhCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9015.lgcyWhCd.len","1","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9015.lgcyWhCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9015.lgcyLibCompCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9015.lgcyLibCompCd.len","3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9015.lgcyLibCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9015.compCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9015.compCd.len","5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9015.compCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9014.whCd.len","4","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9014.whCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9014.plntCd.len","2","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9014.plntCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9014.lgcyWhCd.len","1","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9014.lgcyWhCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9014.lgcyLibCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9014.compCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9013.whCd.len","4","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9013.whCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9013.compCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9012.reIinvoiceFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9012.lgcyLibCompCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9012.lgcyLibCompCd.len","3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9012.lgcyLibCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9012.customerCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9012.customerCd.len","8","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9012.customerCd.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9012.compCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9012.compCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9012.compCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9011.lgcyLibCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9011.customerCd.len","8","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9011.customerCd.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9011.compCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9011.compCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9010.shipToCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9010.shipToCd.len","5or7","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9010.shipToCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9010.lgcyShipTo.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9010.lgcyShipTo.len","2","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9010.lgcyShipTo.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9010.lgcyLibCompCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9010.lgcyLibCompCd.len","3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9010.lgcyLibCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9010.customerCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9010.customerCd.len","8","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9010.customerCd.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9009.shipToCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9009.lgcyShipTo.len","2","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9009.lgcyShipTo.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9009.lgcyLibCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9009.customerCd.len","8","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9009.customerCd.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9008.shipToCompCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9008.shipToCompCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9008.shipToCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9008.label_print_num.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9008.label_print_num.len","1","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9008.label_print_num.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9008.docNo.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9008.customTimingTyp.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9008.containerSortingKey.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9008.containerSortingKey.len","6or8","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9008.containerSortingKey.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9008.aplyStrtDt.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9008.aplyStrtDt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9007.shipperCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9007.shipToCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9007.containerSortingKey.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9006.shipToCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9006.compNm.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9006.compCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9005.usrNmEn.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9005.usrNmEn.maxlen","150","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9005.usrNmEn.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9005.mailAdd1.maxlen","256","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9005.mailAdd1.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9005.dscId.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9005.dscId.maxlen","20","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9005.dscId.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9005.auth_mgt_comp.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9004.ownerComp.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9004.ownerComp.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9004.dscId.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.xTagAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.translateAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.stgInstrAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.stgActAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.shippingInstrAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.shippingConfirmAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.shippingActAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.rcvOdrAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.progControlAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.mixTagAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.maOtherAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.expRequestPkgAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.expRequestAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.ertAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.docAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.cmlAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.bhtUnlockAuthFlg.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9003.agentCompany.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9002.orgNxsCompCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9002.orgNxsCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9002.agentNxsCompCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W9002.agentNxsCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.toExpPackingDt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.toEtd.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.toAtd.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.shipperCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.shipToCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.returnStyleCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.pkgCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.mainMark.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.lgcyShipTo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.invoiceNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.fmExpPackingDt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.fmEtd.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.fmAtd.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.expRequestNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.customerPoNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.customerCd.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.curWhCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.curWhCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.containerNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W8001.consigneeCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7004.vessel.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7004.eta.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7004.eta.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7004.containerLooseTyp.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7004.carrierCompCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7004.carrierCompCd.len","3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7004.carrierCompCd.attr","alpha","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7004.billd_no.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7004.billd_no.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7004.atd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7004.atd.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7003.toEtd.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7003.invoiceNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7003.fmEtd.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7003.containerNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7003.carrierCompCd.attr","alpha","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7002.trnsCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7002.shipperCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7002.shipperCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7002.shipperCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7002.shipToCompCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7002.shipToCompCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7002.shipToCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7002.freightResponsibleCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7002.consigneeCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7002.consigneeCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7002.consigneeCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7002.autoInvoiceResister.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7001.toRegisterDt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7001.toAtd.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7001.shipperCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7001.shipperCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7001.shipToCompCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7001.shipToCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7001.invoiceNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7001.fmRegisterDt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7001.fmAtd.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7001.containerNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7001.consigneeCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7001.consigneeCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7001.carrierCompCd.maxlen","3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7001.carrierCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W7001.billdNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.vatRatio.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.spInfo.maxlen","509","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.remLcTyp.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.remBankNm.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.remBankAddr1.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.remBankAccountNo.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.lcNo.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.lcDt.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.lcDt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.lcBank1.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.invTplNo.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.insurance.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.handlingCharge.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.frtShipperCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.frtConsigneeCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.freightResponsibleNm.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.freight.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.bookingNo.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6009.additionalChargeNm.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6007.dateShipper.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6007.dateShipper.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6006.shipperCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6006.listEtd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6006.listEtd.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.vessel.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.loadinfPortCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.loadinfPortCd.len","3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.loadinfPortCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.forwarderCompCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.forwarderCompCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.forwarderCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.etd.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.eta.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.dischageProtCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.dischageProtCd.len","3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.dischageProtCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.carrierCompCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.carrierCompCd.len","3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.carrierCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6005.arrivalTime.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6004.toWorkedDt.required","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6004.toEdt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6004.shppingFirmNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6004.fmWorkedDt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6004.fmEdt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6004.containerSortingKey.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6003.trnsCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6003.stgWh.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6003.stgWh.len","4","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6003.stgWh.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6003.stgCom.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6003.stgCom.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6003.stgCom.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6003.customTimingTyp.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6003.containerLooseTyp.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.vessel.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.vessel.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.vatRatio.format","^([0-9]{1,15}|[0-9]{1,15}\.[0-9]{1,2})$","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.vatRatio.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.vat.format","^([0-9]{1,15}|[0-9]{1,15}\.[0-9]{1,2})$","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.vat.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.typeOfInv.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.transCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.totalVolume.format","^([0-9]{1,12}|[0-9]{1,12}\.[0-9]{1,2})$","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.totalVolume.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.totalNetWeight.format","^([0-9]{1,7}|[0-9]{1,7}\.[0-9]{1,3})$","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.totalNetWeight.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.totalInvoiceAmount.format","^([0-9]{1,15}|[0-9]{1,15}\.[0-9]{1,2})$","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.totalGrossWeight.format","^([0-9]{1,7}|[0-9]{1,7}\.[0-9]{1,3})$","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.totalGrossWeight.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.subTotal.format","^([0-9]{1,15}|[0-9]{1,15}\.[0-9]{1,2})$","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.shipperCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.shipperCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.shipperCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.shipToCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.shipToCd.len","5or7","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.shipToCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.remittanceOrLc.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.relateInvoiceShipperCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.relateInvoiceShipperCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.relateInvoiceNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.pltzItemQty.format","^[0-9]{1,7}$","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.pltzItemQty.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.netAmount.format","^([0-9]{1,15}|[0-9]{1,15}\.[0-9]{1,2})$","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.netAmount.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.loadinfPortCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.loadinfPortCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.lcDt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.invoiceNo.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.invoiceNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.invCategory.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.insurance.format","^([0-9]{1,15}|[0-9]{1,15}\.[0-9]{1,2})$","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.insurance.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.handlingCharge.format","^([0-9]{1,15}|[0-9]{1,15}\.[0-9]{1,2})$","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.handlingCharge.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.freightRes.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.freight.format","^([0-9]{1,15}|[0-9]{1,15}\.[0-9]{1,2})$","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.freight.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.forwarderCompCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.forwarderCompCd.len","5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.forwarderCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.etd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.etd.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.eta.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.eta.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.dischageProtCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.dischageProtCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.consigneeCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.consigneeCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.consigneeCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.classOfInv.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.carrierCompCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.carrierCompCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.carrierCompCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.arrivalTime.format","^([0-1][0-9]|[2][0-3]):[0-5][0-9]$","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.arrivalTime.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.additionalCharge.format","^([0-9]{1,15}|[0-9]{1,15}\.[0-9]{1,2})$","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6002.additionalCharge.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.trnsCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.toEdt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.stgInstrNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.stgActNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.shippingFirmNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.shipperCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.shipperCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.shipperCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.shipToCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.invoiceNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.forwarderCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.forwarderCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.fmEdt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.consigneeCd.len","3or5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.consigneeCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.carrierCompCd.len","3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W6001.carrierCompCd.attr","alpha","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W2003.instrQty.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W2002.trnsCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W2002.shipperCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W2002.pltzInstrDt.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W2002.plntCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W2002.lgcyWhCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W2002.lgcyShipTo.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W2002.customerCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W2001.shipperCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W2001.lgcyShipTo.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.W2001.customerCd.required","TRUE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.shipperCd.format","[A-Za-z0-9]{3}|[A-Za-z0-9]{5}","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.pltzInstrNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.pltzInstrDtTo.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.pltzInstrDtFrom.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.pltzInstrDt.date.ref","format.screen.yyyymmdd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.plntCd.maxlen","2","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.plntCd.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.pkgCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.lgcyWhCd.maxlen","1","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.lgcyWhCd.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.lgcyShipTo.maxlen","2","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.lgcyShipTo.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.itemNo.format","[-A-Za-z0-9]+","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.instrQty.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.customerPoNo.attr","alphaNumeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.customerCd.maxlen","8","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","valid.customerCd.attr","numeric","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","sessionTime","10","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","maxwincnt","3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","maxCount.default","1000","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.xCml","""X"" CML","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.vanningShipment","Vanning Shipment","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.userIdMaInquiry","User ID MA Inquiry","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.stagingResult","Staging Result","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.stagingInstruction","Staging Instruction","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.staging","Staging","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.shippingInstruction","Shipping Instruction","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.shippingActuality","Shipping Actuality","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.shipmentInstruction","Shipment Instruction","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.progressControl","Progress Control","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.pNoApplyStartDateReferRegister","P/No Apply Start Date Refer & Register","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.orderInqiry","Order Inqiry","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.orderEntry","Order Entry","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.nexusWarehouseMaInquiry","NEXUS Warehouse MA Inquiry","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.nexusShipToMaInquiry","NEXUS Ship to MA Inquiry","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.multiplePNoIn1Box","Multiple Item No. in 1Box","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.miscellaneousOutcludeERT","Miscellaneous(outclude E-RT)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.masterMaintenance","Master Maintenance","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.lastDigitChangeForEdi","Last Digit Change (for EDI)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.invoiceTempletateMaInquiry","Invoice Templetate MA Inquiry","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.exportShippingItemSpecialInformationMaInquiry","Export Shipping Item Special Information MA Inquiry","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.exportShipToShippingMaInquiry","Export Ship to Shipping MA Inquiry","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.exportSailingScheduleMaInquiry","Export Sailing Schedule MA Inquiry","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.exportRequest","Export Request","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.exportRegulationByItemMaInquiry","Export Regulation by Item MA Inquiry","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.emptyReturnable","Empty returnable","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.eisProduct","EIS PRODUCT","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.documentation","Documentation","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.customerOrderReceiving","Customer Order Receiving","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.cml","CML","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.cigmaWhXReferenceMaInquiry","CIGMA W/H X-Reference MA Inquiry","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.cigmaShipToXReferenceMaInquiry","CIGMA Ship to X-Reference MA Inquiry","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.cigmaCustomerNoXReferenceMaInquiry","CIGMA Customer No X-Reference MA Inquiry","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.carryOut","Carry out","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.carryInOut","Carry in out","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.carryIn","Carry in","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.agentMaInquiry","Agent MA Inquiry","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","menu.administrator","Administrator","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","link.packageSpecification","https://www.denso.co.jp/ja/","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","link.documentSharing","https://www.denso.co.jp/ja/","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.xtagPackingIssuerNm","Issuer","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.xtagPackingIssuerId","Issuer","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.xtagPackingDt","Issue Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.xmainMark","X-Tag No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.width","Width","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.whCompCd","W/H Com.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.whCd","NEXUS W/H","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.weightUnitNw","Weight UNIT(N/W)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.weightUnitGw","Weight UNIT(G/W)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.volumeXxxx","Vol. + XXXX","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.volumeUnit","Volume UNIT","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.volume","Vol.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.vol","Vol.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.trnsCd","Trans.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.transport","Transport","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.totalShipper","Total Shipper","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.totalShippedQty","Total Shipped QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.totalQtyOfMonthlyOrder","Total QTY of Monthly Order","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.totalQty","Total QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.totalPltzAllocQty","Total Alloc. QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.totalOdrQty","Total Order QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.totalNetWeight","Total N/W","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.total5","Total 5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.total4","Total 4","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.total3","Total 3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.total2","Total 2","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.total1","Total 1","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.toXtagPackingDt","TO) Issue Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.toPltzInstrDt","TO) Instr. Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.toMainMark","CML No. (To)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.toExpPackingDt","TO) Issue Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.timeZone2","Time Zone","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.timeZone","TimeZone","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.tagQty","Actual Tag QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.systemTitle","GSCM/NEXUS","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.systemInformation","System Information","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.sumQtyBefore2","yy/mm/dd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.sumQtyBefore1","yy/mm/dd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.sumQtyAfter4","yy/mm/dd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.sumQtyAfter3","yy/mm/dd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.sumQtyAfter2","yy/mm/dd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.sumQtyAfter1","yy/mm/dd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.sumQty","yy/mm/dd","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.stgInstrItemFlg","Stg. Instr. Flg","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.startTime","Start Time","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.shippingLot","Ship Lot","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.shippingDt","Shipping Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.shipperNm","Shipper Name","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.shipperCd","Shipper","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.shipper","Shipper","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.shippedQty","Shipped QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.shipToNm","Ship to Name","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.shipToCompCd","NEXUS Ship to Com.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.shipToCd","Ship To","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.serverName","ServerName","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.select","Select","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.salesCompPoNo","Sales P/O No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.rtUseFlg","RT Flg","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.rtFlg","RT Flg","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.reviseFlg","Revise Flg","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.returnStyleCd","Return style CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.rePrint","Re-Print","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.rcvOdrCompCd","Company","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.radioLabel","Radio Label","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.qtyWc","Qty","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.qty","QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.printerId","Printer ID","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.priceTerms","Price Terms","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pltzItemNo","Item No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pltzInstrStatus","Status","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pltzInstrRequired","Palletize Instr. Required","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pltzInstrNo","Palletize Instr. NO.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pltzInstrNm","Issuer","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pltzInstrIssuerId","Issuer","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pltzInstrDtTo","TO) Instr. Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pltzInstrDtFrom","FM) Instr. Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pltzInstrDt","Instr. Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pltzAllocQty","Alloc. QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.plntCd","Plant CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.plntAndWhDeclaration","Plant & W/H Declaration","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.placeDt","Place date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pkgTyp","PKG TYPE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pkgItemNo","Package Item No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pkgIp","PKG I/P","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pkgFormTyp","PKG Form TYPE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pkgCd","PKG CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.passwd","PASSWORD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.palletQty","Pallet QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.palletNo","Pallet No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.packingWhCompCd","W/H Com.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.packingWhCd","NEXUS W/H","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.packagingConfirmedFlg","Packaging Confirmed Flg","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.packageSpecification","MMMMMMMMMMMMMMM","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.outerPkgCd","Outer CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.others","Others","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.otherServers","Other Servers","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.originalOuterPkgCd","Original Outer CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.orderQty","Order QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.onHandQty","On Hand QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.odrQty","Order QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.nxsUserName","User Name","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.no","No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.nexus","NEXUS","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.newQty","New QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.netWeightXxxx","N/W + XXXX","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.netWeightUnit","N/W Unit","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.netWeight","N/W","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.mpobStatus","Status","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.month5","Month 5","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.month4","Month 4","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.month3","Month 3","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.month2","Month 2","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.month1","Month 1","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.modelCd","Model","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.mixTagStatus","Status","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.mixTagNoItemNo","Mix Tag No. / Item No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.mixTagNo","Mix Tag No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.mixTagIssuerId","Issuer","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.mixTagIssuer","Issuer","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.mixTagIssueDtTo","TO) Issue Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.mixTagIssueDtFrom","FM) Issue Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.mixTagIssueDt","Issue Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.messageTask","Company Under Night Batch","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.messageCharCd","Character Code","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.mainMark","CML No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.lotSize","Ship Lot","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.loadingCd","LD CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.lgcyWhCd","W/H","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.lgcyShipTo","Ship to","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.lengthUnitWidth","Length UNIT（Width）","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.lengthUnitLength","Length UNIT（Length）","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.lengthUnitHeight","Length UNIT（Height）","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.length","Length","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.language","Language","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.kitParItemNo","Mix Tag No. / Item No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.itemWeight","N/W / Ship Lot(kg)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.itemNoOrg","Item No.(ORG)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.itemNo","Item No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.itemDescriptionWb","Part Name","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.itemDescription","Description","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.issueToDate","TO) Issue Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.issueFromDate","FM) Issue Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.invoiceKey","Inv. Set Key","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.invoiceCtgry","Inv. Category","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.instrQty","Instr. QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.instrPkgedQty","Instr. PKGed QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.inputUsedBoxInTheFirstRow","*Input used Box in the first row","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.inputMethod","Input Method","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.inputInstrNo","Input Instr. No. ->","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.inputBelowContents","Input below contents","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.infoCntnts","Information contents","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.infoCntnt","Information content","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.ignoreWarnings","Ignore Warnings","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.height","Height","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.gscm","GSCM","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.grossWeightXxxxBrackets","G/W(XXXX)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.grossWeightXxxx","G/W + XXXX","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.grossWeightUnit","G/W Unit","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.grossWeight","G/W","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.fromMainMark","CML No. (From)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.fromBaseDate","*From Base Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.freightResponsibleCd","Freight Res.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.forecastQty","Forecast QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.fmXtagPackingDt","FM) Issue Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.fmPltzInstrDt","FM) Instr. Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.fmExpPackingDt","FM) Issue Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.firmQty","Firm QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.fcstQty","Fcst QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.expRcvOdrNum","Num","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.expPackingIssuerNm","Issuer","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.expPackingIssuerId","Issuer","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.expPackingDt","Issue Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.enHowToLogin","ログイン方法表示","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.dueDt","Request Ship Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.dscId","DSC-ID","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.documentSharing","Document Sharing","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.delete","Delete","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.date","Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.customerPoNoWb","Customer P/O No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.customerPoNoInitVal","Customer P/O No. Init Value","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.customerPoNo","Cust. P/O No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.customerPo","Customer P/O","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.customerItemNo","Customer Item No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.customerDueDt","Receiving Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.customerCdWb","Customer No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.customerCdAndLgcyShipTo","Cust. No. & Ship to","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.customerCd","Cust. No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.customTimingTyp","C/C TYPE","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.custPoNo","Cust. P/O No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.curWhCompanyCd","W/H Company","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.curWhCompCd","W/H Com.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.curWhCd","NEXUS W/H","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.createNew","Create New","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.contents","Contents","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.containerSortingKey","Cont. Sort Key","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.containerLooseTyp","C/L","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.compNm","Company Name","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.compCdWb","Company CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.coFlg","CO Flg","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cntnts15ModelCd","Contents15_Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cntnts14ModelCd","Contents14_Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cntnts13ModelCd","Contents13_Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cntnts12ModelCd","Contents12_Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cntnts11ModelCd","Contents11_Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cntnts10ModelCd","Contents10_Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cntnts9ModelCd","Contents9_Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cntnts8ModelCd","Contents8_Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cntnts7ModelCd","Contents7_Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cntnts6ModelCd","Contents6_Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cntnts5ModelCd","Contents5_Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cntnts4ModelCd","Contents4_Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cntnts3ModelCd","Contents3_Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cntnts2ModelCd","Contents2_Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cntnts1ModelCd","Contents1_Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cmlPrintOutDt","CML Print Out Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cmlFlg","CML Flg","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.close","Close","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.clear","Clear","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.ck","CK.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.checkedKeyOne","CK.(ONE)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.checkedKeyAll","CK.(ALL)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.check","Check","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.characterCode","Character Code","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.changeOuterCd","Change Outer CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.cancel","Cancel","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.businessInformation","Business Information","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.boxQty","Box","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.boxNo","Box No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.boxLotQty","QTY/Box","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.boQty","B/O QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.actualPkgQty","Actual PKG QTY","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.actionSelect","Action Select","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.WC001.pltzItemNo","Part No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.WC001.packingWhCd","W/H","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.WC001.modelCd","Model CD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.WB007.shippingLot","QTY/Carton","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.WB005.etdDueDt","ETD","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.WB003.etdDueDt","Due Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.WB002.etdDueDt","Date","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.WB001.etdDueDt","Start Date Release","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.WB001.customerPoNo","Cust. P/O No. Init. Value","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.W2019.reviseFlg","Change Trans. To Air","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.W2012.pltzItemNo","Mix Tag No. / Item No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.update","Update","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.transPKGRevise","Trans./PKG Revise","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.setup","Setup","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.select","Select","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.search","Search","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.saveAndMoveToTransPkgRevise","Save & Move to Trans./PKG Revise","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.saveAndMoveToRegister","Save & Move to Register","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.save","Save","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.register","Register","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.printTag","Print Tag","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.printInstr","Print Instr.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.printCmlForInstr","Print CML For Instr.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.printCml","Print CML","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.print","Print","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.pkgMaterials","PKG Materials","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.personalSetup","Personal Setup","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.multiPo","Multi P/O","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.moveToRegister","Move to Register","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.moveToDetail","Move to Detail","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.moveToCreate","Move to Create","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.menu","MENU","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.logout","Logout","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.login","Login","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.info","Info","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.ignoreWarnings","Ignore Warnings","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.display","Display","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.delete","Delete","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.createNew","Create New","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.confirmDetail","Confirm Detail","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.clear","Clear","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.cancel","Cancel","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.backToRegister","Back to Register","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.backToMainScreen","Back to Main Screen","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.backToHeader","Back to Header","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.backToCreate","Back to Create","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","button.addNewLine10","Add New Line(10)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W0002","Menu","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W0001","Login","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.WC001","Empty RT materials　[Contens of a box]","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.WB007","Last Digit Change Register","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.WB006","Last Digit Change Main Screen","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.WB005","Order Inquiry Detail","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.WB004","Order Inquiry Main Screen","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.WB003","Order Entry Multi P/O Register","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.WB002","Order Entry Register","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.WB001","Order Entry Header","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2019","CML Trans Revise","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2018","Multiple Item No. in 1Box PKG Detail","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2017","X-Tag Register","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2016","X-Tag Create","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2015","X-Tag Header","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2014","X-Tag Main Screen","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2013","CML PKG Info Detail","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2012","CML Register","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2011","CML Create","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2010","CML Header","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2009","CML Main Screen","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2008","Multiple Item No. in 1Box PKG Register","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2007","Multiple Item No. in 1Box PKG Create","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2006","Multiple Item No. in 1Box PKG Header","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2005","Multiple Item No. in 1Box PKG Main Screen","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2004","Palletize Instruction Register","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2003","Palletize Instruction Create","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2002","Palletize Instruction Header","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","screenName.W2001","Palletize Instruction Main","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","screenName.BusinessError","業務エラー画面","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","screenName.BusinessError","Error","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","split.colon","：","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","split.colon",":","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","label.userName","氏名","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","label.userName","User name.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.testDeploy","<font color=""#ffd700""><bold>[ TEST ] </bold></font>","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.results","Results","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.previous","Previous","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.pages","Pages","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.of","of","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.next","Next","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","label.menuTitle","MENU","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","label.menuTitle","MENU","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","label.menuGo","Go","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","label.menuGo","Go","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.last","Last","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.jumpTo","Jump To","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"default","label.first","First","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","label.companyName","会社名","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","label.companyName","Company name.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","button.windowClose","閉じる","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","button.windowClose","Close","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","button.return","戻る","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","button.return","Back","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-W1-0006","新しいリビジョンは連番性を保っていません。（問題がなければIgnoreにチェック)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-W1-0006","Revision No. is not in consecutive numbers. Check Ignore warning if no problem.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-W1-0005","行数が2000件を超えたため、追加処理を打ち切りました。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-W1-0005","Row has been over than 2000. Add row process will be closed.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-W1-0004","対象の品目番号に端数があります。({0}) （問題がなければIgnoreにチェック)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-W1-0004","Item No. is in partial Lot. ({0}) Check Ignore warning if no problem.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-W1-0003","製品・A部品ではありません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-W1-0003","is not Parts or A-Parts. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-W1-0002","入力された情報がSales Price Masterに存在しません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-W1-0002","Input Item No. does not exist in Sales Price Master. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-W1-0001","数量がロットの倍数になっていません。({0}) （問題がなければIgnoreにチェック)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-W1-0001","QTY is not in Multiple Lot. ({0}) Check Ignore warning if no problem.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-I1-0015","仮インボイスNo.しか取得していない場合、そのインボイスは破棄されますが、よろしいですか？","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-I1-0015","Are you sure? Temporary Invoice No. will be erased.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-I1-0014","削除が完了していないデータがありますがよろしいですか？(削除を完了するにはRegisterボタンをクリックしてください)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-I1-0014","Are you sure? Delete is not yet completed. Please push register to complete delete.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-I1-0013","PDFファイルを指定せずキャンセルインボイスを登録してよろしいですか?","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-I1-0013","Are you sure to register Cancel Invoice without specifying PDF File?","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-I1-0012","実績登録してもよろしいですか？","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-I1-0012","Are you sure to update and change status?","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-I1-0011","登録が完了していないデータが破棄されますがよろしいですか？","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-I1-0011","Are you sure to erase data not yet registered?","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-I1-0009","キャンセルしてもよろしいですか？","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-I1-0009","Are you sure to Cancel?","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-I1-0004","登録が完了しました。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-I1-0004","Register Completed.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0157","{0}の桁数が上限を超えています。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0157","{0}'s digit is over than limit.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0156","包装組合せ原単位の外装記号に容積情報が登録されていません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0156","Volume value is not registered for input Outer CD in Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0155","包装仕様原単位に容積情報が登録されていません。。({0})  ","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0155","Volume value is not registered for Item No. {0} in PKG Spec. Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0154","包装仕様原単位に実測重量が登録されていません。({0})  ","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0154","Actual Weight is not registered for Item No. {0} in PKG Spec. Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0153","工場コードがCIGMA Shipping Plant Master存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0153","Plant CD does not exist in CIGMA's Shipping Plant Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0152","倉庫コードがCIGMA SYSTEM CONTROL に存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0152","W/H does not exist in CIGMA's SYSTEM CONTROL.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0151","得意先がCIGMA Customer Masterに存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0151","Customer No. does not exist in CIGMA's Customer Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0149","包装材品目番号が包装材原単位に存在しません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0149","PKG Item No. does not exist in PKG Material Master. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0148","得意先品目番号がPart No. Cross Reference Masterに存在しません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0148","Customer Item No. does not exist in Part No. Cross Reference Master. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0147","入力された外装コードは包装組合せ原単位(ヘッダ)に存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0147","Input Outer CD does not exist in Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0143","包装コードにはブランクは入力できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0143","PKG CD cannot input blank.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0142","包装コードにはブランクを入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0142","PKG CD should be blank.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0141","{0}は >= 1となるように入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0141","{0} should be ""1"" or more than ""1"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0140","{0}は{1}の前日より後の日付を入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0140","{0} should be Later than 1 Day Before {1}.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0139","既に荷揃え指示No.の異なるデータが登録されているため処理できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0139","Different Staging Instruction No, is already updated. Able to update only 1 Staging Instruction.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0136","対象のリビジョンは包装仕様原単位に存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0136","Revision No. does not exist in PKG Spec Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0135","Fromを入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0135","Input ""From"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0133","ETAはATDの前日より後の日付を入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0133","ETA should be later than 1 Day Before ATD.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0132","包装材品番を入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0132","Input PKG Item No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0131","CML No：{0}はパレタイズの進度ではありません。進度を戻してからキャンセルしてください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0131","CML No. {0} can not be cancelled. Please check CML Status.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0130","CML No：{0}はE-RTではありません。E-RTのCML Noを指定ください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0130","CML No. {0} is not ERT. Please Specify ERT CML.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0129","CML No：{0}は既に削除されているため処理できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0129","Unable to execute process. CML No. {0} is already deleted.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0128","入力されたShipper・送荷先は輸出送荷先出荷原単位に存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0128","Combination of input Shipper & Ship To does not exist in Export Ship To Shipping MA.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0126","対象の品目番号が包装仕様原単位に存在しません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0126","Item No does not exist in PKG Spec. Master. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0123","全てのCMLを移動させることはできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0123","Unable to remove All CML.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0122","入力された港コードは港原単位に存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0122","Input Port CD does not exist in Port Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0121","リインボイス採番用の原単位に不備があります。システム管理者へ連絡して下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0121","Deficiencies in Re-Invoice Numbering Master. Please contact system administrator.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0120","インボイス採番用の原単位に不備があります。システム管理者へ連絡して下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0120","Deficiencies in Invoice Numbering Master. Please contact system administrator.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0119","{0}、{1}の両方入力して下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0119","Both {0} and {1} need to input.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0118","{0}は = 0 を入力して下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0118","{0} needs to be  ""0"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0117","{0}、{1}は = 0 を入力して下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0117","{0},{1} needs to be  ""0"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0116","{0}、{1}は > 0 を入力して下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0116","Input {0},{1} more than ""0"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0115","{0}が最大値({1})を超えています。CMLをRemoveして、インボイスを分割して下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0115","{0} has reached Maximum. (Maximum ({1})) Please remove CML and split Invoice.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0114","入力された国コードは国原単位に存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0114","Input Country CD does not exist in Country Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0113","入力された運送会社コードはNEXUS会社原単位に存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0113","Input Carrier Company CD does not exist in NEXUS Company Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0112","入力された通関代理店会社コードはNEXUS会社原単位に存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0112","Input Custom Agency Company CD does not exist in NEXUS Company Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0111","入力された荷主会社コードはNEXUS会社原単位に存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0111","Input Shipper Company CD does not exist in NEXUS Company Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0110","合計数量が最大(9999999)を超えています。数量を減らしてください。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0110","Total QTY has reached Maximum. (Maximum 9999999) Please decrease. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0109","入力された荷受人会社コードはNEXUS会社原単位に存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0109","Input Consignee Company CD does not exist in NEXUS Company Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0108","既に通貨コードの異なるデータが登録されています。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0108","Different Currency is already updated/registered.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0107","既に梱包形態の異なるデータが登録されています。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0107","Different Packaging Form is already updated/registered.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0106","既にコンテナルーズ区分の異なるデータが登録されています。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0106","Different Container Loose Type is already updated/registered.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0105","既に通関タイミング区分の異なるデータが登録されています。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0105","Different Custom Clearance Type is already updated/registered.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0104","既に荷揃え指示フラグの異なるデータが登録されています。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0104","Different Staging Instruction Flag is already updated/registered.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0103","既にインボイスキーの異なるデータが登録されています。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0103","Different Invoice Key is already updated/registered.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0102","既に荷積み位置コードの異なるデータが登録されています。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0102","Different Loading CD is already updated/registered.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0101","既にコンテナ層別キーの異なるデータが登録されています。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0101","Different Container Sorting Key is already updated/registered.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0100","通貨コードが異なるデータの登録はできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0100","Unable to update/register Different Currency.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0099","梱包形態が異なるデータの登録はできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0099","Unable to update/register Different Packaging Form.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0098","コンテナルーズ区分が異なるデータの登録はできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0098","Unable to update/register Different Container Loose Type.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0097","通関タイミング区分が異なるデータの登録はできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0097","Unable to update/register Different Custom Clearance Type.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0096","荷揃え指示フラグが異なるデータの登録はできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0096","Unable to update/register Different Staging Instruction Flag.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0095","インボイスキーが異なるデータの登録はできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0095","Unable to update/register Different Invoice Key.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0094","荷積み位置コードが異なるデータの登録はできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0094","Unable to update/register Different Loading CD.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0093","コンテナ層別キーが異なるデータの登録はできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0093","Unable to update/register Different Container Sorting Key.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0092","対象の品目番号がCIGMAに存在しません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0092","Item No. does not exist in CIGMA. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0091","出荷ロットを超える登録はできません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0091","Unable to update/register QTY more than Shipping Lot. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0090","指示数を超える登録はできません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0090","Unable to update/register QTY more than Instruction QTY. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0089","オーダー数を超える登録はできません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0089","Input QTY for not more than Order QTY. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0088","タグ数は > 0となるように入力してください。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0088","Actual Tag QTY should Be more than ""0"". ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0087","梱包数量は > 0となるように入力してください。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0087","Actual PKG QTY should Be more than ""0"". ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0086","入力された梱包指示NOは梱包指示書が印刷されていないため処理できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0086","Input Palletize Instruction No. has not been printed.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0082","N/WはG/W以下の値を入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0082","N/W should be less than G/W.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0081","複数通貨コードでの登録はできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0081","Input PKG Item No. is in Multiple Currency. Please confirm Currecy","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0080","RT材以外の包装材品目番号は登録できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0080","Input PKG Item No. is not Returnable Materials.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0077","キャンセルできないステータスのCMLが含まれているため処理できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0077","Specified Invoice includes CML that's status is unable to cancel. Please confirm CML status.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0076","入力されたItem No.は包装材原単位に存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0076","Input Item No does not exist in PKG Material Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0074","入力された送荷先コードはNEXUS送荷先原単位に存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0074","Input NEXUS Ship To CD does not exist in ""NEXUS Ship To Master"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0073","対象の品目番号が輸出手続き品番原単位に存在しません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0073","Item No. does not exist in NEXUS's ""Export Formalities by Item Master"". ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0034","入力された情報が輸出手続品番原単位に存在しません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0034","Input Information does not exist in NEXUS's ""Export Formalities by Item Master"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0033","入力された情報が輸出出荷原単位に存在しません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0033","Input Information does not exist in NEXUS's ""Export Shipping Item Special information Master"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0032","入力された情報がNEXUS送荷先クロスリファレンス原単位に存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0032","Input information does not exist in NEXUS's ""CIGMA Ship To X-Reference Master"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0031","会社コードがNEXUS会社原単位に存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0031","Company CD does not exist in NEXUS's ""Company Master"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0030","品目番号がItem Masterに存在しません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0030","Item No. does not exist in CIGMA's ""Item Master"". ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0029","得意先がSubstitution Shipping Document Masterに存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0029","Customer No does not exist in CIGMA's ""Substitution Shipping Document Master"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0028","得意先がShipping Document Masterに存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0028","Customer No does not exist in CIGMA's ""Shipping Document Master"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0027","送荷先がShip-To Masterに存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0027","Ship To does not exist in CIGMA's Ship To Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0026","受注数合計が振替前の受注数と一致してしないと登録できません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0026","Order QTY should be same between Before and After. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0025","既に同一内容の受注が登録されているため処理できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0025","Unable to execute process. Same Order data is already registered. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0024","既に同一内容の確定受注が存在するため内示受注の登録はできません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0024","Unable to register Forecast Order. Same data of Firm Order exists. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0023","既に同一内容の内示受注が存在するため確定受注の登録はできません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0023","Unable to register Firm Order. Same data of Forecast Order exists. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0022","{0}と{1}はどちらか一方を入力してください。({2})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0022","Input either {0} or {1}. ({2})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0021","既に引当がある受注の{0}は変更できません。({1})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0021","Unable to change {0} for orders already allocated. ({1})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0020","納期はETDから半年以内で指定してください。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0020","Due Date should be within half year of ETD. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0019","過去ETDへの受注登録はできません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0019","Unable to input past day for order ETD. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0018","引当数を下回る受注数の登録はできません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0018","Unable to input QTY for less than Allocated QTY. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0017","{0の{1}は{2}桁以下で入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0017","Input in {2} Digit or less for{1} of {0} .","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0016","既に{0}が異なるデータが登録されているため処理できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0016","Unable to execute process. Different data of {0} is already updated/registered.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0015","{0}が異なるデータの登録はできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0015","Unable to update/register Different data of {0}.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0013","同一の包装材品番が複数行に存在します。単一行にしてください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0013","Unable to update/register QTY more than Instruction QTY{0}.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0011","アップロードするファイルを入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0011","Input File Name to upload.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0010","登録済みのデータを全てDeleteする場合はCancelボタンを押してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0010","Push cancel button to delete all registered data.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0007","オーダー合計数以下で入力してください。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0007","QTY should be not more than order QTY. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0006","{0}は > 0となるように入力してください。({1})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0006","{0} should be more than ""0"". ({1})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0005","他のユーザと処理が競合しました。再度同じボタンを押してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0005","Race Condition was found. Re-push the same button.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0004","対象を選択してから処理を行ってください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0004","Select to execute process.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0002","{0}と{1}の組み合わせが正しくないため処理できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0002","Combination of {0}, {1}, is incorrect. ","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0072","対象の品目番号が輸出出荷品目番号原単位に存在しません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0072","Item No. does not exist in NEXUS's ""Export Shipping Item Special information Master"". ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0071","入力された会社コードはNEXUS会社原単位に存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0071","Input Company CD does not exist in ""NEXUS Company Master"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0070","{0}には本日以降の日付を入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0070","{0} Date should be present day or future day.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0069","Cont Looseが'L'の場合はCustom Timing Typeは'Z'にしてください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0069","C/C Type should be ""Z"" When C/L type ""L"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0068","品目番号と数量の両方を入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0068","Input both Item No. and QTY.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0066","輸送手段種別容積原単位にユーザの容積単位が設定されていません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0066","User Unit of Measure is not set in Transport Type Master. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0065","輸送手段種別原単位に存在しません。({0}、{1})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0065","Transport Type information does not exist in Master. ({0},{1})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0064","当該インボイスにはPDFファイルが添付されていません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0064","Specified Invoice does not have any PDF File stored.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0063","船積実績計上済のため、処理できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0063","Unable to execute process. Shipping Actuality is completed.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0062","指定したインボイスは、既にキャンセルインボイスが作成されているため、処理できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0062","Unable to execute process for Invoice. Cancel Invoice is already created.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0061","Invoice Classに""F""(FullRT)は選択できません","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0061","Unable to select Invoice Class ""F"" (FRT).","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0058","既にキャンセルインボイスが作成されているため処理できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0058","Unable to execute process. Cancel Invoice is already created.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0057","アップロードファイルが大きすぎるため処理できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0057","Unable to execute process. Upload File Size is larger than Maximum.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0055","Invoice NoとRe-Invoice Noを同じにすることはできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0055","Invoice No and Re-Invoice No. cannot be same.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0054","Invoice NoとCancel Invoice Noを同じにすることはできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0054","Invoice No and Cancel Invoice No. cannot be Same.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0051","単品品番は多品パレタイズできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0051","Unable to Mix Palletize for Packaging Form ""S"" Item No.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0050","品目番号数が最大(999品目番号)を超えています。対象を減らしてください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0050","Number of Item No. has reached Maximum (Maximum 999) Please decrease.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0049","外装記号を入力して下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0049","Input Outer CD.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0048","入力された梱包指示NOは既にパレタイズが完了しているため処理できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0048","Unable to execute process. Input Palletize Instruction is completed.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0047","入力された梱包指示NOは登録されていません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0047","Input Palletize Instruction does not exist.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0045","Invoice CategoryとClass of Invoiceが一致しないためこのテンプレートは選択できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0045","Unable to select this template. Invoice category and class of invoice does not match.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0043","梱包指示数を超えています。梱包数量を減らしてください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0043","QTY is over than Instruction Qty. Please decrease QTY.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0042","まとめCMLは2つ以上で登録してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0042","X-Tag needs 2 or more CML to register.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0041","梱包数が不足しています。2品目番号 or 1品目番号で複数タグで登録してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0041","Tag QTY needs to be more than ""1"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0040","Ignore Warnigsがチェックされていません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0040","Ignore Warnings is not checked.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0039","先に包装材の登録をしてください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0039","Register PKG material first.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0037","得意先がEDI非対応のため変更できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0037","Unable to Change For Non-EDI Customers.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0036","得意先がEDI対応のため登録できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0036","Unable to register For EDI Customers.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E7-0035","入力された情報がCustomer/Supplier Cross Ref. Masterに存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E7-0035","Input Information does not exist in CIGMA's ""Customer/Supplier Cross Ref. Master"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-5065","QRコードの定義情報の取得に失敗しました。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-5065","Error: Failed to Obtain QR Code Definition Information","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0066","包装組合せ原単位が存在しません。システム管理者へ連絡してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0066","Outer CD does not exist in Master. ","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0065","インボイス作成済みです。進度を戻してから対応ください。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0065","Invoice is already created. Please cancel first. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0064","船積実績計上済みです。進度を戻してから対応ください。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0064","Shipping Actuallity is already registered. Please cancel first. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0063","最終搬出入ステータスが正しくありません。進度を戻してから対応ください。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0063","Carry out/in status is incorrect. Please confirm status. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0062","パレタイズステータスが正しくありません。進度を戻してから対応ください。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0062","Palletize Status is incorrect. Please confirm status. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0061","CIGMAが利用不可状態です。しばらくしてから再度アクセスするか、システム管理者へ連絡してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0061","CIGMA is in unavailable condition.  Access after a while or contact system administrator.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0060","現在CIGMA夜間処理中のため利用を制限しています。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0060","Function will be limited during CIGMA Night Batch.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0059","得意先QRパターン原単位が登録されていません。システム管理者へ連絡してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0059","Customer Card QR Pattern is not registered.  Contact system administrator.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0058","CIGMAへの更新処理にてエラーが発生しました。システム管理者へ連絡して下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0058","Error has occurred in Updating to CIGMA.  Contact system administrator.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0057","輸出受注情報の更新にてエラーが発生しました(出荷指示回数エラー)。システム管理者へ連絡して下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0057","Error has occurred in Updating Order Information. (Shipping Instruction Error)  Contact system administrator.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0055","輸出受注情報の更新にてエラーが発生しました(数量エラー)。システム管理者へ連絡して下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0055","Error has occurred in Updating Order Information. (QTY Error)  Contact system administrator.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0054","輸出受注情報の更新にてエラーが発生しました(ステータスエラー)。システム管理者へ連絡して下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0054","Error has occurred in Updating Order Information. (Status Error)  Contact system administrator.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0053","メインのインボイスが作成されていません。作成後、登録を行って下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0053","Main Invoice is not yet registered.  Register main Invoice first.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0052","関税評価額の登録されていない包装材があります。登録内容の確認をして下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0052","Unit Price is missing for PKG Item No.  Confirm Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0051","{0}が解消されていません。リンクを押下し、{1}画面で{2}、{3}の確認をして下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0051","{0} is not solved.  Push link and confirm {2},{3} on the screen{1}.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0050","{0}が変更されています。再度、{0}ボタンを押下し、情報を更新して下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0050","{0} has been Changed.  Push {1} and Refresh data.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0049","LEGACY工場コードを取得できませんでした。システム管理者へ連絡して下さい。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0049","Failed to obtain Legacy Plant CD.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0048","輸出依頼NO:{0}はパレタイズ途中のため処理できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0048","Unable to execute process. Export Request No. {0} is in Palletize Status.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0047","搬出、搬入中はキャンセルできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0047","Unable to cancel During Carry Out/In Process.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0046","指示書の全品目番号の登録が完了していないため処理できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0046","Palletize Instruction Status is incorrect.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0044","すでに{0}が登録されているインボイスが含まれているため登録できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0044","Unable to register. update data includes Invoice(s) that is already registered.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0041","在庫更新ジョブ(B329)の呼び出しに失敗しました。システム管理者へ連絡してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0041","Failed to Call Job ""Inventory update (B329)"". Contact system administrator","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0040","品目番号が包装仕様有効リビジョン原単位に登録されていません。({0})リビジョンの登録をしてください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0040","Item No. does not exist in Packaging Spec. effective revision Master. Please register the Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0038","対象のConsigneeはIntermediate CompanyではないためReinvoiceFlagをYにできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0038","Consignee Company is not Intermediate Company. Unable to set ""Y"" for Reinvoice flag.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0037","対象のインボイスに対して、当該処理は実行できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0037","Unable to Execute Process for Invoice.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0035","こちらの{0}はすでに他の{1}と紐付けて登録されているため、この組合せでは登録できません","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0035","Unable to register by this combination. {0} is already linked to {1} and registered.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0034","Item MasterのLot Sizeが不正な値です。({0})システム管理者へ連絡してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0034","Input in order from {0} without blank.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0033","{0}, {1} の日付の関係が正しくありません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0033","Date relation are incorrect between {0} and {1}.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0032","他のユーザと処理が競合したため処理を中断します。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0032","Race Condition was found. It will cancel process.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0031","{0}に情報が存在しません。({1})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0031","Information does not exist in {0}. ({1})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0030","搬出、搬入中は輸送手段を変更できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0030","Unable to change Trans. CD during Carry Out/In process.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0029","対象のMIX現品票は既にパレタイズが完了しているため処理できません。({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0029","Unable to execute process. Mix Tag is already in Different CML. ({0})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0027","対象の梱包指示は既にパレタイズが完了しているため処理できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0027","Unable to execute process. Palletize Instruction is already completed. ","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0025","移行CMLは輸送手段を変更できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0025","Unable to change Trans. CD for Migration CML.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0024","対象の品目番号が存在しませんでした。。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0024","Item No. does not exist.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0023","稼働日が取得できませんでした。梱包指示日を変更してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0023","Failed to obtain Working Day. Change Palletize Instruction Date.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0022","同一の荷揃え指示NOは全て選択してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0022","Select All CML of Staging Instruction.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0021","輸出依頼NO:{0}のCMLは全て選択してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0021","Select all CML of Export Request No. {0}.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0019","受信したLINCデータの形式が正しくありません。システム管理者へ連絡してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0019","Received LINC data form is incorrect. Contact system administrator.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0017","登録できるOthersの最大ファイル数を超えているインボイスが選択されているため、アップロードできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0017","Unable to upload ""Others"" for Invoice that has reached maximum.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0016","対象の船積実績データが輸入者へ連絡処理済みのため、更新できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0016","Unable to revise Shipping Actuality data already sent to Importer.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0015","Ship to Masterに対象データが存在しません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0015","Data does not exist in CIGMA Ship To Master. ","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0014","他のユーザと処理が競合しました。再度、検索から行ってください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0014","Race Condition was found. Inquiry again.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0013","梱包指示した品目番号が全てパレタイズされないと印刷はできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0013","Palletize Instruction is incomplete. Unable to print.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0012","先にMix Tagをキャンセルしないと削除できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0012","Cancel Mix-Tag first.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0011","先にCMLのキャンセルをしないと削除できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0011","Cancel CML first.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0010","他のユーザによって情報が削除されています。再度、検索から行ってください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0010","Data has been cancelled by other User.  Inquiry again.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0008","引当てる受注が存在しません。受注数を確認ください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0008","Order does not exist.  Confirm order QTY.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0007","Updateボタンにて対象を登録しないと画面遷移できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0007","Update data to move to next screen.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0006","対象のステータスが正しくありません。進度を戻してから対応ください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0006","Status is incorrect. Revise status first.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0005","これ以上番号を取得できません。システム管理者に連絡してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0005","Numbering has reached maximum.  Contact system administrator.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0003","遷移元画面IDを取得できませんでした。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0003","Failed to obtain previous screen ID.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-E1-0002","{0}を取得できませんでした。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-E1-0002","Failed to obtain {0}.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","NXS-91-0001","[NXS-91-0001]システム側の不具合です。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","NXS-91-0001","[NXS-91-0001]システム側の不具合です。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-I0-0009","権限がないため、実行できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-I0-0009","No authority to execute. Confirm User Master.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-I0-0008","{0}件登録が完了しました。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-I0-0008","Registration complete.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-I0-0007","{0}件削除が完了しました。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-I0-0007","Deletion complete.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-I0-0006","{0}件更新が完了しました。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-I0-0006","Update complete.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-I0-0005","削除してもよろしいですか？","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-I0-0005","Are you sure you want to delete this data?","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-I0-0004","更新してもよろしいですか？","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-I0-0004","Are you sure you want to update this data?","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-I0-0003","登録してもよろしいですか？","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-I0-0003","Are you sure you want to submit your registration?","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-I0-0002","変更した内容を保存していません。変更内容を破棄しますか。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-I0-0002","The entered data is not saved. Do you discard the data?","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-I0-0001","遷移先の画面に対する権限がないため遷移できません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-I0-0001","You do not have the access authority for this screen.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0042","{0}対象は1件のみ選択してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0042","Select 1 record for {0}.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0040","入力されたファイルの拡張子が不正です。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0040","Input File Extension is invalid.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0039","{0}は{1}文字以内で改行し、{2}行以内で入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0039","Input {0} within {2} Row and Each Row within {1} Character.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0038","{0}が最大数({1})を超えています。対象を減らしてください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0038","{0} QTY is over than maximum QTY({1}). Please decrease.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0036","入力されたファイルが見つかりません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0036","File not Found.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0035","{0}件を超えるデータの登録はできません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0035","Unable to register more than {0} record.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0034","{0}は > 0となるように入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0034","{0} should be more than ""0"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0031","{0}はFrom <= To となるように入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0031","{0} ""To"" should be more than or equal to {0} ""From"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0030","{0}, {1}, {2} の組み合わせが正しくありません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0030","Combination of {0}, {1}, {2} is incorrect.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0029","{0}, {1} の組み合わせが正しくありません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0029","Combination of {0}, {1}, is incorrect.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0026","{0}は{1}から{2}の範囲で入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0026","Please input ""{0}"" within a range of {2} from {1}.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0020","他のユーザによって登録済みです。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0020","It is already registered.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0019","{0}には正しい日付を入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0019","Please input the right date in ""{0}"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0018","{0}の入力形式が間違っています。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0018","The input format of {0} is wrong.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0017","{0}は半角数字で入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0017","Please input ""{0}"" in one-byte integer number.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0016","{0}は半角英字で入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0016","Please input ""{0}"" in single-byte alphabetic characters.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0015","{0}は半角英数で入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0015","Please input ""{0}"" in single-byte alphanumeric characters.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0013","{0}は{1}文字以下で入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0013","Please make the {0} lower than {1} characters.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0011","{0}を入力してください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0011","Please input ""{0}"".","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0010","他のユーザによって情報が変更されています。再度、検索から行ってください。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0010","Information has been changed by other users. Please return to the search view.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0003","検索結果が最大件数を超えています。検索条件を絞り込んでください。(結果:{0} 最大：{1} 件)","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0003","Search results have exceeded the maximum number. Please refine your search criteria. (result:{0} maximun:{1})","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"ja","GSCM-E0-0001","検索条件に合致するデータがありません。","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00
+"en","GSCM-E0-0001","There is no data matching the search criteria.","admin","admin",2013/07/31 10:04:00,"admin","admin",2013/07/31 10:04:00

@@ -1,0 +1,71 @@
+@CHARSET "utf-8";
+/*
+ * W6009.css
+ * 
+ * Documentation [Invoice Register]画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/* --- ボタンエリアテーブル ------------------------------------------------- */
+table.gscm_search_button {
+    width: 960px;
+}
+
+/* --- 検索条件エリア --------------------------------------------------------*/
+table.grid {
+    width: 960px;
+}
+
+.grid .grid_header {
+    width: 190px;
+}
+
+.grid .grid_contents {
+    width: 220px;
+}
+
+/* --- 検索条件エリア（Export Basic Information）---------------------------- */
+.grid .grid_contents_cd {
+    width: 100px;
+}
+
+.grid .grid_contents_nm {
+    width: 340px;
+}
+
+/* --- 検索条件エリア（Data Informaion）------------------------------------- */
+.grid .grid_header_half {
+    width: 95px;
+}
+
+.grid .grid_contents_trade_terms {
+    width: 360px;
+}
+
+/* --- 検索条件エリア（PKG Informaion）-------------------------------------- */
+.grid .grid_header_total {
+    width: 150px;
+}
+
+.grid .grid_contents_total {
+    width: 120px;
+}
+
+/* --- 画面表示項目 --------------------------------------------------------- */
+.w6009_trns_cd {
+    width: 70px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 非表示 */
+.w6009_hidden {
+    visibility: hidden;
+    width: 0px;
+}
+#gscm_wrapper {
+    overflow-y: auto;
+}
+.w6009_break_all {
+    word-break: break-all;
+}

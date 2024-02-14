@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!-- 
+ * SqlMap-Wt018ContainerInfo.xml
+ *
+ * SqlMap file of Wt018ContainerInfoDao.
+ * Wt018ContainerInfoDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd"> 
+
+<sqlMap namespace="Wt018ContainerInfo">
+
+    <!-- Domain -->
+    <typeAlias alias="Wt018ContainerInfoDomain"
+        type="com.globaldenso.eca0027.core.business.domain.Wt018ContainerInfoDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="Wt018ContainerInfoCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.Wt018ContainerInfoCriteriaDomain" />
+
+    <resultMap id="Wt018ContainerInfoResultTtShippingFirm" class="Wt018ContainerInfoDomain">
+        <result property="containerNo" column="CONTAINER_NO" />
+    </resultMap>
+    
+    <!-- FROM句   -->
+    <sql id="From">
+        from
+            TT_INVOICE T1
+            , TT_PLTZ T2
+            , TT_SHIPPING_FIRM T3
+    </sql>
+
+    <!-- 汎用 Where句（基本項目） -->
+    <sql id="WhereCondition">
+        where
+            T1.SHIPPING_ACT_NO = #shippingActNo#
+            and T1.SHIPPER_CD = T2.SHIPPER_CD
+            and T1.INVOICE_NO = T2.INVOICE_NO
+            and T1.INVOICE_ISSUE_DT = T2.INVOICE_ISSUE_DT
+            and T2.SHIPPING_FIRM_NO = T3.SHIPPING_FIRM_NO
+    </sql>
+    
+    
+    <!-- 検索 SQL文（任意条件） -->
+    <select id="SearchByConditionTtShippingFirm" resultMap="Wt018ContainerInfoResultTtShippingFirm"
+        parameterClass="Wt018ContainerInfoCriteriaDomain">
+        select 
+            T3.CONTAINER_NO as CONTAINER_NO
+        /* SqlMap-Wt018ContainerInfo.SearchByConditionTtShippingFirm */
+        <include refid="From" />
+        <include refid="WhereCondition" />
+        group by
+            T3.CONTAINER_NO
+        order by
+            CONTAINER_NO asc 
+    </select>
+    
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCountTtShippingFirm" resultClass="java.lang.Integer"
+        parameterClass="Wt018ContainerInfoCriteriaDomain">
+        select count(ROWNUM)
+        from
+            (select distinct
+                T3.SHIPPING_FIRM_NO
+                ,T3.CONTAINER_NO as CONTAINER_NO
+            /* SqlMap-Wt018ContainerInfo.SearchCountTtShippingFirm */
+            <include refid="From" />
+            <include refid="WhereCondition" />
+            )
+    </select>
+
+</sqlMap>

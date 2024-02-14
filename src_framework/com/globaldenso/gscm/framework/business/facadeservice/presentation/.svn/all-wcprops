@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/facadeservice/presentation
+END
+ProcessFacadeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/facadeservice/presentation/ProcessFacadeService.java
+END
+TransactFacadeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/facadeservice/presentation/TransactFacadeService.java
+END
+AbstractProcessFacadeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 189
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/facadeservice/presentation/AbstractProcessFacadeService.java
+END
+DeleteFacadeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/facadeservice/presentation/DeleteFacadeService.java
+END
+UpdateFacadeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/facadeservice/presentation/UpdateFacadeService.java
+END
+AbstractFacadeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/facadeservice/presentation/AbstractFacadeService.java
+END
+AbstractTransactFacadeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 190
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/facadeservice/presentation/AbstractTransactFacadeService.java
+END
+CreateFacadeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/facadeservice/presentation/CreateFacadeService.java
+END
+SearchFacadeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/facadeservice/presentation/SearchFacadeService.java
+END
+AbstractDeleteFacadeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 188
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/facadeservice/presentation/AbstractDeleteFacadeService.java
+END
+AbstractUpdateFacadeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 188
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/facadeservice/presentation/AbstractUpdateFacadeService.java
+END
+AbstractCreateFacadeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 188
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/facadeservice/presentation/AbstractCreateFacadeService.java
+END
+AbstractSearchFacadeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 188
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/facadeservice/presentation/AbstractSearchFacadeService.java
+END

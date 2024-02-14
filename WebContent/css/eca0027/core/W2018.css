@@ -1,0 +1,118 @@
+@charset "utf-8";
+/*
+ * W2005.css
+ * 
+ * 小箱内多品番梱包PKG Info Detail画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/
+
+.gscm_search .search_shipper_cd {
+    width: 78px;
+}
+
+.gscm_search .search_customer_cd {
+    width: 98px;
+}
+
+.gscm_search .search_lgcy_ship_to {
+    width: 59px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 59px;
+}
+
+.gscm_search .search_plnt_cd {
+    width: 78px;
+}
+
+.gscm_search .search_lgcy_wh_cd {
+    width: 49px;
+}
+
+.gscm_search .search_pltz_instr_no {
+    width: 147px;
+}
+
+.gscm_search .search_wh_comp_cd {
+    width: 88px;
+}
+
+.gscm_search .search_wh_cd {
+    width: 98px;
+}
+
+.gscm_search .search_mix_tag_status {
+    width: 225px;
+}
+
+.gscm_search .search_invoice_key {
+    width: 98px;
+}
+
+.gscm_search .search_container_sorting_key {
+    width: 118px;
+}
+
+.gscm_search .search_loading_cd {
+    width: 59px;
+}
+
+.gscm_search .search_net_weight {
+    width: 147px;
+}
+
+.gscm_search .search_gross_weight {
+    width: 147px;
+}
+
+.gscm_search .search_pkg_ip {
+    width: 69px;
+}
+
+.gscm_search .search_box_no {
+    width: 69px;
+}
+
+.gscm_search .search_mix_tag_no {
+    width: 274px;
+}
+
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width:600px;
+}
+
+.gscm_resultlist .resultlist_delete {
+    width: 50px;
+}
+
+.gscm_resultlist .resultlist_pkg_item_no {
+    width: 270px;
+}
+
+.gscm_resultlist .resultlist_model_cd {
+    width: 182px;
+}
+
+.gscm_resultlist .resultlist_qty {
+    width: 50px;
+}
+
+/*------------ 表示幅 ------------*/ 
+
+.w2018_model_cd_disptext {
+    width: 178px;
+}
+
+.w2018_pkg_item_no_disptext {
+    width: 200px;
+}
+
+.w2018_qty_disptext {
+    width: 30px;
+}

@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * struts-config_eca0027_action_w7.xml
+ * 
+ * AI-J2(Struts) の action設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <!-- Application Action Mapping Definitions ============================ -->
+    <action-mappings>
+        <!-- =============================================================== -->
+        <!-- W7001: 船積実績Main画面                                         -->
+        <!-- =============================================================== -->
+        <!-- W7001: 船積実績Main画面 初期表示アクション -->
+        <action path="/W7001Init"
+            type="com.globaldenso.eca0027.core.presentation.W7001InitAction"
+            name="W7001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7001" />
+        </action>
+        
+        <!-- W7001: 船積実績Main画面 Create Newアクション -->
+        <action path="/W7001CreateNew"
+            type="com.globaldenso.eca0027.core.presentation.W7001CreateNewAction"
+            name="W7001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W7002Init.do" />
+        </action>
+
+        <!-- W7001: 船積実績Main画面 Searchアクション -->
+        <action path="/W7001Search"
+            type="com.globaldenso.eca0027.core.presentation.W7001SearchAction"
+            name="W7001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7001" />
+            <forward name="error" path="W7001" />
+        </action>
+        
+        <!-- W7001: 船積実績Main画面 ConfirmDetailアクション -->
+        <action path="/W7001ConfirmDetail"
+            type="com.globaldenso.eca0027.core.presentation.W7001ConfirmDetailAction"
+            name="W7001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W7004Init.do" />
+            <forward name="error" path="W7001" />
+        </action>
+        
+        <!-- W7001: 船積実績Main画面 ClpCancelアクション -->
+        <action path="/W7001ClpCancel"
+            type="com.globaldenso.eca0027.core.presentation.W7001ClpCancelAction"
+            name="W7001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W7001Search.do" />
+            <forward name="error" path="W7001" />
+        </action>
+        
+        <!-- W7001: 船積実績Main画面 ClpRegisterアクション  -->
+        <action path="/W7001ClpRegister"
+            type="com.globaldenso.eca0027.core.presentation.W7001ClpRegisterAction"
+            name="W7001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W7001Search.do" />
+            <forward name="error" path="W7001" />
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- W7002: 船積実績Header画面                                       -->
+        <!-- =============================================================== -->
+        <!-- W7002: 船積実績Header画面 初期表示アクション -->
+        <action path="/W7002Init"
+            type="com.globaldenso.eca0027.core.presentation.W7002InitAction"
+            name="W7002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7002" />
+        </action>
+        
+        <!-- W7002: 船積実績Header画面 Move to Createアクション -->
+        <action path="/W7002MoveToCreate"
+            type="com.globaldenso.eca0027.core.presentation.W7002MoveToCreateAction"
+            name="W7002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W7003Init.do" />
+            <forward name="error" path="W7002" />
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- W7003: 船積実績Create画面                                       -->
+        <!-- =============================================================== -->
+        <!-- W7003: 船積実績Create画面 初期表示アクション -->
+        <action path="/W7003Init"
+            type="com.globaldenso.eca0027.core.presentation.W7003InitAction"
+            name="W7003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7003" />
+        </action>
+
+        <!-- W7003: 船積実績Create画面 MoveToRegisterアクション -->
+        <action path="/W7003MoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.W7003MoveToRegisterAction"
+            name="W7003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W7004Init.do" />
+            <forward name="error" path="W7003" />
+        </action>
+        
+        <!-- W7003: 船積実績Create画面 Searchアクション -->
+        <action path="/W7003Search"
+            type="com.globaldenso.eca0027.core.presentation.W7003SearchAction"
+            name="W7003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7003" />
+            <forward name="error" path="W7003" />
+        </action>
+        
+        <!-- W7003: 船積実績Create画面 Updateアクション -->
+        <action path="/W7003Update"
+            type="com.globaldenso.eca0027.core.presentation.W7003UpdateAction"
+            name="W7003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7003" />
+            <forward name="error" path="W7003" />
+        </action>
+        
+        <!-- =============================================================== -->
+        <!-- W7004: 船積実績Register画面                                     -->
+        <!-- =============================================================== -->
+        <!-- W7004: 船積実績Register画面 初期表示アクション -->
+        <action path="/W7004Init"
+            type="com.globaldenso.eca0027.core.presentation.W7004InitAction"
+            name="W7004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7004" />
+            <forward name="error" path="W7004" />
+            <forward name="W7001" path="/W7001Init.do?back=true" />
+            <forward name="W7003" path="/W7003Init.do?back=true" />
+        </action>
+
+        <!-- W7004: 船積実績Register画面 BackToMainScreenアクション -->
+        <action path="/W7004BackToMainScreen"
+            type="com.globaldenso.eca0027.core.presentation.W7004BackToMainScreenAction"
+            name="W7004Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="W7004" />
+            <forward name="W7001" path="/W7001Init.do?back=true" />
+        </action>
+                
+        <!-- W7004: 船積実績Register画面 Deleteアクション -->
+        <action path="/W7004Delete"
+            type="com.globaldenso.eca0027.core.presentation.W7004DeleteAction"
+            name="W7004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7004" />
+            <forward name="error" path="W7004" />
+            <forward name="W7003" path="/W7003Init.do?back=true" />
+        </action>
+
+        <!-- W7004: 船積実績Register画面 Registerアクション -->
+        <action path="/W7004Register"
+            type="com.globaldenso.eca0027.core.presentation.W7004RegisterAction"
+            name="W7004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7004" />
+            <forward name="error" path="W7004" />
+            <forward name="W7001" path="/W7001Init.do?back=true" />
+            <forward name="W7003" path="/W7003Init.do?back=true" />
+        </action>
+
+        <!-- W7004: 船積実績Register画面 Print CLPアクション -->
+        <action path="/W7004PrintClp"
+            type="com.globaldenso.eca0027.core.presentation.W7004PrintClpAction"
+            name="W7004Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="W7004" />
+        </action>
+        
+        <!-- W7004: 船積実績Register画面 Move to B/L Uploadアクション -->
+        <action path="/W7004MoveToBlUpload"
+            type="com.globaldenso.eca0027.core.presentation.W7004MoveToBlUploadAction"
+            name="W7004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W7005Init.do" />
+        </action>
+        
+        <!-- W7004: 船積実績Register画面 Move to Other Doc. Uploadアクション -->
+        <action path="/W7004MoveToOtherDocUpload"
+            type="com.globaldenso.eca0027.core.presentation.W7004MoveToOtherDocUploadAction"
+            name="W7004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W7007Init.do" />
+        </action>
+        
+        <!-- W7004: 船積実績Register画面 Cancelアクション -->
+        <action path="/W7004Cancel"
+            type="com.globaldenso.eca0027.core.presentation.W7004CancelAction"
+            name="W7004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W7001Init.do?back=true" />
+            <forward name="error" path="W7004" />
+        </action>
+        
+        <!-- W7004: 船積実績Register画面 Moveアクション -->
+        <action path="/W7004Move"
+            type="com.globaldenso.eca0027.core.presentation.W7004MoveAction"
+            name="W7004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W7006Init.do" />
+        </action>
+        
+        <!-- W7004: 船積実績Register画面 Change Statusアクション -->
+        <action path="/W7004ChangeStatus"
+            type="com.globaldenso.eca0027.core.presentation.W7004ChangeStatusAction"
+            name="W7004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7004" />
+            <forward name="error" path="W7004" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W7005: 船荷証券更新画面                                         -->
+        <!-- =============================================================== -->
+        <!-- W7005: 船荷証券更新画面 初期表示アクション -->
+        <action path="/W7005Init"
+            type="com.globaldenso.eca0027.core.presentation.W7005InitAction"
+            name="W7005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7005" />
+        </action>
+
+        <!-- W7005: 船荷証券更新画面 Uploadアクション -->
+        <action path="/W7005Upload"
+            type="com.globaldenso.eca0027.core.presentation.W7005UploadAction"
+            name="W7005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7005" />
+            <forward name="error" path="W7005" />
+        </action>
+        
+        <!-- W7005: 船荷証券更新画面 Cancelアクション -->
+        <action path="/W7005Cancel"
+            type="com.globaldenso.eca0027.core.presentation.W7005CancelAction"
+            name="W7005Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7005" />
+            <forward name="error" path="W7005" />
+        </action>
+
+        <!-- W7005: 船荷証券更新画面 Viewアクション -->
+        <action path="/W7005View"
+            type="com.globaldenso.eca0027.core.presentation.W7005ViewAction"
+            name="W7005Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="W7005" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W7006: 船積書類アップロード画面                                 -->
+        <!-- =============================================================== -->
+        <!-- W7006: 船積書類アップロード画面 初期表示アクション -->
+        <action path="/W7006Init"
+            type="com.globaldenso.eca0027.core.presentation.W7006InitAction"
+            name="W7006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7006" />
+            <forward name="error" path="W7006" />
+        </action>
+        
+        <!-- W7006: 船積書類アップロード画面 Change Statusアクション -->
+        <action path="/W7006ChangeStatus"
+            type="com.globaldenso.eca0027.core.presentation.W7006ChangeStatusAction"
+            name="W7006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7006" />
+            <forward name="error" path="W7006" />
+        </action>
+
+        <!-- W7006: 船積書類アップロード画面 C/O Uploadアクション -->
+        <action path="/W7006CoUpload"
+            type="com.globaldenso.eca0027.core.presentation.W7006CoUploadAction"
+            name="W7006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7006" />
+            <forward name="error" path="W7006" />
+        </action>
+
+        <!-- W7006: 船積書類アップロード画面 C/O Cancelアクション -->
+        <action path="/W7006CoCancel"
+            type="com.globaldenso.eca0027.core.presentation.W7006CoCancelAction"
+            name="W7006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7006" />
+            <forward name="error" path="W7006" />
+        </action>
+
+        <!-- W7006: 船積書類アップロード画面 C/O Viewアクション -->
+        <action path="/W7006CoView"
+            type="com.globaldenso.eca0027.core.presentation.W7006CoViewAction"
+            name="W7006Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="W7006" />
+        </action>
+        
+        <!-- W7006: 船積書類アップロード画面 Non Wooden Uploadアクション -->
+        <action path="/W7006NonWoodenUpload"
+            type="com.globaldenso.eca0027.core.presentation.W7006NonWoodenUploadAction"
+            name="W7006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7006" />
+            <forward name="error" path="W7006" />
+        </action>
+
+        <!-- W7006: 船積書類アップロード画面 Non Wooden Cancelアクション -->
+        <action path="/W7006NonWoodenCancel"
+            type="com.globaldenso.eca0027.core.presentation.W7006NonWoodenCancelAction"
+            name="W7006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7006" />
+            <forward name="error" path="W7006" />
+        </action>
+
+        <!-- W7006: 船積書類アップロード画面 Non Wooden Viewアクション -->
+        <action path="/W7006NonWoodenView"
+            type="com.globaldenso.eca0027.core.presentation.W7006NonWoodenViewAction"
+            name="W7006Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="W7006" />
+        </action>
+        
+        <!-- W7006: 船積書類アップロード画面 Others Uploadアクション -->
+        <action path="/W7006OthersUpload"
+            type="com.globaldenso.eca0027.core.presentation.W7006OthersUploadAction"
+            name="W7006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7006" />
+            <forward name="error" path="W7006" />
+        </action>
+
+        <!-- W7006: 船積書類アップロード画面 Others Cancelアクション -->
+        <action path="/W7006OthersCancel"
+            type="com.globaldenso.eca0027.core.presentation.W7006OthersCancelAction"
+            name="W7006Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7006" />
+            <forward name="error" path="W7006" />
+        </action>
+
+        <!-- W7006: 船積書類アップロード画面 Others Viewアクション -->
+        <action path="/W7006OthersView"
+            type="com.globaldenso.eca0027.core.presentation.W7006OthersViewAction"
+            name="W7006Form"
+            scope="request"
+            validate="false">
+            <forward name="error" path="W7006" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W7007: B/Lアップロード画面                                      -->
+        <!-- =============================================================== -->
+        <!-- W7007: B/Lアップロード画面 初期表示アクション -->
+        <action path="/W7007Init"
+            type="com.globaldenso.eca0027.core.presentation.W7007InitAction"
+            name="W7007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7007" />
+        </action>
+
+        <!-- W7007: B/Lアップロード画面 C/O Uploadアクション -->
+        <action path="/W7007CoUpload"
+            type="com.globaldenso.eca0027.core.presentation.W7007CoUploadAction"
+            name="W7007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7007" />
+            <forward name="error" path="W7007" />
+        </action>
+        
+        <!-- W7007: B/Lアップロード画面 Non Wooden Uploadアクション -->
+        <action path="/W7007NonWoodenUpload"
+            type="com.globaldenso.eca0027.core.presentation.W7007NonWoodenUploadAction"
+            name="W7007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7007" />
+            <forward name="error" path="W7007" />
+        </action>
+        
+        <!-- W7007: B/Lアップロード画面 Others Uploadアクション -->
+        <action path="/W7007OthersUpload"
+            type="com.globaldenso.eca0027.core.presentation.W7007OthersUploadAction"
+            name="W7007Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W7007" />
+            <forward name="error" path="W7007" />
+        </action>
+        
+    </action-mappings>
+</struts-config>
+        

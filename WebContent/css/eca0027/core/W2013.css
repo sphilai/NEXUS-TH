@@ -1,0 +1,124 @@
+@charset "utf-8";
+/*
+ * W2013.css
+ * 
+ * CML PKG info Detail 画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+.gscm_search .search_pallet_no {
+    width: 78px;
+}
+
+.gscm_search .search_shipper_cd {
+    width: 69px;
+}
+
+.gscm_search .search_customer_cd {
+    width: 98px;
+}
+
+.gscm_search .search_lgcy_ship_to {
+    width: 59px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 59px;
+}
+
+.gscm_search .search_plnt_cd {
+    width: 78px;
+}
+
+.gscm_search .search_lgcy_wh_cd {
+    width: 49px;
+}
+
+.gscm_search .search_pltz_instr_no {
+    width: 490px;
+}
+
+/*----- 2段目 -----*/
+.gscm_search .search_pkg_form_typ {
+    width: 115px;
+}
+
+.gscm_search .search_invoice_key {
+    width: 100px;
+}
+
+.gscm_search .search_container_sorting_key {
+    width: 110px;
+}
+
+.gscm_search .search_exp_packing_dt {
+    width: 88px;
+}
+
+.gscm_search .search_exp_packing_issuer_nm {
+    width: 78px;
+}
+
+.gscm_search .search_main_mark {
+    width: 489px;
+}
+
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 960px;
+}
+
+.gscm_resultlist .resultlist_checked_key {
+    width: 38px;
+}
+
+.gscm_resultlist .resultlist_input_method {
+    width: 58px;
+}
+
+.gscm_resultlist .resultlist_rt_flg {
+    width: 38px;
+}
+
+.gscm_resultlist .resultlist_pkg_typ {
+    width: 58px;
+}
+
+.gscm_resultlist .resultlist_pkg_item_no {
+    width: 259px;
+}
+
+.gscm_resultlist .resultlist_model_cd {
+    width: 173px;
+}
+
+.gscm_resultlist .resultlist_mix_tag_no {
+    width: 192px;
+}
+
+.gscm_resultlist .resultlist_qty {
+    width: 86px;
+}
+
+.gscm_resultlist .resultlist_total_qty {
+    width: 58px;
+}
+
+/*------------ 検索結果エリア 表示用テキスト ------------*/ 
+
+.w2013_model_cd_disptext{
+    width: 163px;
+}
+
+.w2013_rt_flg_disptext {
+    width: 30px;
+}
+
+/*------------ 表示幅 ------------*/ 
+
+.w2013_exp_packing_issuer_nm {
+    width: 78px;
+}

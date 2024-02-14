@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * struts-config_eca0027_form_w9.xml
+ * 
+ * AI-J2(Struts) の form設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <display-name></display-name>
+    <description></description>
+
+    <!-- Application Form Bean Definitions ================================= -->
+    <form-beans>
+        <!-- W9002: Agent MA Inquiry画面 -->
+        <form-bean name="W9002Form"
+            type="com.globaldenso.eca0027.core.presentation.W9002ActionForm">
+        </form-bean>
+
+        <!-- W9003: Agent MA Edit画面 -->
+        <form-bean name="W9003Form"
+            type="com.globaldenso.eca0027.core.presentation.W9003ActionForm">
+        </form-bean>
+
+        <!-- W9004: User ID MA Inquiry画面 -->
+        <form-bean name="W9004Form"
+            type="com.globaldenso.eca0027.core.presentation.W9004ActionForm">
+        </form-bean>
+
+        <!-- W9005: User ID MA Edit画面 -->
+        <form-bean name="W9005Form"
+            type="com.globaldenso.eca0027.core.presentation.W9005ActionForm">
+        </form-bean>
+
+        <!-- W9006: NEXUS Ship to MA Inquiry画面 -->
+        <form-bean name="W9006Form"
+            type="com.globaldenso.eca0027.core.presentation.W9006ActionForm">
+        </form-bean>
+
+        <!-- W9007: NEXUS Ship to MA Inquiry画面 -->
+        <form-bean name="W9007Form"
+            type="com.globaldenso.eca0027.core.presentation.W9007ActionForm">
+        </form-bean>
+
+        <!-- W9008: NEXUS Ship to MA Edit画面 -->
+        <form-bean name="W9008Form"
+            type="com.globaldenso.eca0027.core.presentation.W9008ActionForm">
+        </form-bean>
+
+        <!-- W9009: CIGMA Ship to X-Reference MA Inquiry画面 -->
+        <form-bean name="W9009Form"
+            type="com.globaldenso.eca0027.core.presentation.W9009ActionForm">
+        </form-bean>
+
+        <!-- W9010: CIGMA Ship to X-Reference MA Edit画面 -->
+        <form-bean name="W9010Form"
+            type="com.globaldenso.eca0027.core.presentation.W9010ActionForm">
+        </form-bean>
+
+        <!-- W9011: CIGMA Customer No. X-Reference MA Inquiry画面 -->
+        <form-bean name="W9011Form"
+            type="com.globaldenso.eca0027.core.presentation.W9011ActionForm">
+        </form-bean>
+
+        <!-- W9012: CIGMA Customer No. X-Reference MA Edit画面 -->
+        <form-bean name="W9012Form"
+            type="com.globaldenso.eca0027.core.presentation.W9012ActionForm">
+        </form-bean>
+        
+        <!-- W9013: NEXUS Ship To MA Inquiry画面 -->
+        <form-bean name="W9013Form"
+            type="com.globaldenso.eca0027.core.presentation.W9013ActionForm">
+        </form-bean>
+        
+        <!-- W9014: CIGMA W/H X-Reference MA Inquiry画面 -->
+        <form-bean name="W9014Form"
+            type="com.globaldenso.eca0027.core.presentation.W9014ActionForm">
+        </form-bean>
+        
+        <!-- W9015: CIGMA W/H X-Reference MA Edit画面 -->
+        <form-bean name="W9015Form"
+            type="com.globaldenso.eca0027.core.presentation.W9015ActionForm">
+        </form-bean>
+        
+
+        <!-- W9016: Export Shipping Item Special Information MA Inquiry画面 -->
+        <form-bean name="W9016Form"
+            type="com.globaldenso.eca0027.core.presentation.W9016ActionForm">
+        </form-bean>
+
+        <!-- W9017: Export Shipping Item Special Information MA Edit画面 -->
+        <form-bean name="W9017Form"
+            type="com.globaldenso.eca0027.core.presentation.W9017ActionForm">
+        </form-bean>
+
+        <!-- W9016: Export Shipping Item Special Information MA Inquiry画面 -->
+        <form-bean name="W9016Form"
+            type="com.globaldenso.eca0027.core.presentation.W9016ActionForm">
+        </form-bean>
+
+        <!-- W9017: Export Shipping Item Special Information MA Edit画面 -->
+        <form-bean name="W9017Form"
+            type="com.globaldenso.eca0027.core.presentation.W9017ActionForm">
+        </form-bean>
+        
+        <!-- W9018: Export Formalities by Item MA Inquiry画面 -->
+        <form-bean name="W9018Form"
+            type="com.globaldenso.eca0027.core.presentation.W9018ActionForm">
+        </form-bean>
+
+        <!-- W9019: Export Formalities by Item MA Edit画面 -->
+        <form-bean name="W9019Form"
+            type="com.globaldenso.eca0027.core.presentation.W9019ActionForm">
+        </form-bean>
+        
+        <!-- W9022: Template MA Inquiry画面 -->
+        <form-bean name="W9022Form"
+            type="com.globaldenso.eca0027.core.presentation.W9022ActionForm">
+        </form-bean>
+
+        <!-- W9023: Template MA Edit画面 -->
+        <form-bean name="W9023Form"
+            type="com.globaldenso.eca0027.core.presentation.W9023ActionForm">
+        </form-bean>
+        
+        <!-- W9024: Item No. Apply Start Date Refer & Register画面 -->
+        <form-bean name="W9024Form"
+            type="com.globaldenso.eca0027.core.presentation.W9024ActionForm">
+        </form-bean>
+        
+        <!-- W9025: Actual Item Weight MA 画面 -->
+        <form-bean name="W9025Form"
+            type="com.globaldenso.eca0027.core.presentation.W9025ActionForm">
+        </form-bean>
+        
+    </form-beans>
+</struts-config>

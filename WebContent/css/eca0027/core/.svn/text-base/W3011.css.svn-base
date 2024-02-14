@@ -1,0 +1,83 @@
+@charset "utf-8";
+/*
+ * W3011.css
+ * 
+ * Receive Parts Transfer Report画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+/*------------ Search condition area 1 ------------*/ 
+.gscm_search .search_wh_comp_cd {
+    width: 130px;
+}
+.gscm_search .search_wh_cd {
+    width: 100px;
+}
+.gscm_search .search_shipper_cd {
+    width: 90px;
+}
+.gscm_search .search_total_tag {
+    width: 70px;
+}
+.gscm_search .search_issuer {
+    width: 160px;
+}
+.gscm_search .search_issue_dt {
+    width: 180px;
+}
+/*------------ Search condition area 2 ------------*/ 
+.gscm_search .search_transfer_no {
+    width: 170px;
+}
+.gscm_search .search_editflg {
+    width: 65px;
+}
+.gscm_search .search_trnsfer_status {
+    width: 65px;
+}
+.gscm_search .search_tr_kind {
+    width: 70px;
+}
+.gscm_search .search_act_method {
+    width: 150px;
+}
+.gscm_search .search_act_dt {
+    width: 120px;
+}
+.gscm_search .search_carry_method {
+    width: 150px;
+}
+.gscm_search .search_carry_dt {
+    width: 180px;
+}
+
+/*------------ Result search ------------*/ 
+/*------------ Search result area ------------*/ 
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 370px;
+}
+
+.gscm_resultlist .resultlist_pno {
+    width: 180px;
+}
+.gscm_resultlist .resultlist_pkg_cd {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_act_qty {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_act_tag_no {
+    width: 60px;
+}
+.receive {
+    width: 92px;
+}
+.back_to_carry_main {
+    width: 210px;
+}
+.total_tag {
+    width: 67px;
+}
+

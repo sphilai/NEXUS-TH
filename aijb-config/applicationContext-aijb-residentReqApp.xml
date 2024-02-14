@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * applicationContext-aijb-residentReqApp.xml
+ * 
+ * [JP] 常駐リクエストジョブから起動するリクエストジョブ(常駐版)のサービス定義用の Spring 設定ファイルです。
+ * [JP] 各システムごとに設定してください。
+ * 
+ * [EN] This is the Spring configuration file for the service definition of request job(version resident)
+ * [EN] that is started from the resident request job.
+ * [EN] Please set for each system.
+ * 
+ * $ applicationContext-aijb-residentReqApp.xml 4391 2013-05-22 07:00:46Z hiroko_nagata@dnitsol.com $
+ *
+ * Copyright (c) 2012 DENSO IT SOLUTIONS. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!-- ECA0027 -->
+    <import resource="applicationContext-aijb-residentReqApp_eca0027.xml" />
+
+</beans>

@@ -1,0 +1,108 @@
+@charset "utf-8";
+/*
+ * W2017.css
+ * 
+ * X-Tag Register画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+#gscm_wrapper {
+    overflow-y: auto;
+}
+
+/*------------ 検索条件エリア ------------*/ 
+
+.gscm_search .search_cur_wh_comp_cd {
+    width: 88px;
+}
+
+.gscm_search .search_cur_wh_cd {
+    width: 105px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 59px;
+}
+
+.gscm_search .search_container_sorting_key {
+    width: 118px;
+}
+
+.gscm_search .search_loading_cd {
+    width: 59px;
+}
+
+.gscm_search .search_ship_to_comp_cd {
+    width: 165px;
+}
+
+.gscm_search .search_xtag_packing_dt {
+    width: 100px;
+}
+
+.gscm_search .search_xtag_packing_issuer_nm {
+    width: 286px;
+}
+
+.gscm_search .search_total_shipper {
+    width: 150px;
+}
+
+.gscm_search .search_volume {
+    width: 137px;
+}
+
+.gscm_search .search_gross_weight {
+    width: 137px;
+}
+
+.gscm_search .search_outer_pkg_cd {
+    width: 200px;
+}
+
+.gscm_search .search_pallet_no {
+    width: 78px;
+}
+
+.gscm_search .search_xmain_mark {
+    width: 383px;
+}
+
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 450px;
+}
+
+.gscm_resultlist .resultlist_delete {
+    width: 50px;
+}
+
+.gscm_resultlist .resultlist_shipper_cd {
+    width: 72px;
+}
+
+.gscm_resultlist .resultlist_main_mark {
+    width: 216px;
+}
+
+.gscm_resultlist .resultlist_gross_weight {
+    width: 112px;
+}
+
+/*------------ 検索結果エリア 表示用テキスト ------------*/ 
+
+.w2017_main_mark_disptext {
+    width: 206px;
+}
+
+/*------------ 表示幅 ------------*/ 
+
+.w2017_trns_cd {
+    width: 26px;
+}
+
+.w2017_volume {
+    width: 120px;
+}

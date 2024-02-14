@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * SqlMapConfig.xml
+ * 
+ * [JP] AI-J2(iBatis) の SQL Map 設定ファイルです。
+ * [EN] This is the configuration file of the SQL Map AI-J2(iBatis).
+ * 
+ * $ SqlMapConfig-aij2.xml 4294 2013-05-15 12:30:57Z HIDETOSHI_NAKATANI@denso.co.jp $
+ *
+ * Copyright (c) 2011 DENSO IT SOLUTIONS. All rights reserved.
+-->
+<!DOCTYPE sqlMapConfig PUBLIC
+  "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+    <!-- [JP] 名前空間の利用宣言 =============================================== --> 
+    <!-- [EN] Declaration of use the namespace =============================================== --> 
+    <settings useStatementNamespaces="true" />
+    
+    <sqlMap resource="com/globaldenso/gscm/framework/business/facadeservice/presentation/SqlMap-TestFacadeTable.xml" />
+    
+    
+</sqlMapConfig>

@@ -1,0 +1,25 @@
+@charset "utf-8";
+/*
+ * W4002.css
+ * 
+ * Style sheet used in staging instruction header screen.
+ * 荷揃え指示Header画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ Search condition area ------------*/ 
+/*------------ 検索条件エリア ------------*/ 
+
+table.grid {
+    width: 400px;
+}
+.grid .grid_header {
+    width: 150px;
+}
+.grid .grid_contents {
+}
+
+.custom_timing_typ {
+    width: 40px;
+}

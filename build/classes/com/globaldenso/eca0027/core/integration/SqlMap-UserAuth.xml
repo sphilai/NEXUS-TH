@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-UserAuth.xml
+ *
+ * UserAuthDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="UserAuth">
+
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="UserAuthDomain"
+        type="com.globaldenso.eca0027.core.common.business.domain.UserAuthDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="UserAuthCriteriaDomain"
+        type="com.globaldenso.eca0027.core.common.business.domain.criteria.UserAuthCriteriaDomain" />
+
+
+    <!-- 検索結果をMapで受け取る -->
+    <resultMap id="UserAuthDomain_SearchByCondition" class="UserAuthDomain">
+        <result property="dscId" column="DSC_ID" />
+        <result property="role" column="ROLE" />
+        <result property="authMgtComp" column="AUTH_MGT_COMP" />
+        <result property="procMfgDivCd" column="AUTH_DATA_FROM" />
+        <result property="screenId" column="SCREEN_ID" />
+        <result property="permitFuncId" column="PERMIT_FUNC_ID" />
+        <result property="authority" column="AUTHORITY" />
+    </resultMap>
+
+
+    <!-- 検索 SQL文（任意条件） -->
+    <select id="SearchByCondition" resultMap="UserAuthDomain_SearchByCondition"
+        parameterClass="UserAuthCriteriaDomain">
+
+        select /* SqlMap-UserAuth.SearchByCondition */
+             USR.DSC_ID
+            ,USR.ROLE
+            ,USR.AUTH_MGT_COMP
+            ,USR.AUTH_DATA_FROM
+            ,FNC.SCREEN_ID
+            ,FNC.PERMIT_FUNC_ID
+            ,decode(substr(FNC.PERMIT_FUNC_ID, -1), 'R', 2, 1) AUTHORITY
+        from TT_USER_AUTH_MGT USR, TM_FNC_USE_AUTH_CNF FNC
+        where USR.ROLE = FNC.ROLE
+          and USR.AUTH_DATA_TYP = '01'
+          and FNC.COMP_CD = ' '
+        <dynamic>
+            <isNotEmpty prepend="and" property="dscId">
+                USR.DSC_ID = #dscId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="serverId">
+                (USR.AUTH_MGT_COMP = ' ' or USR.AUTH_MGT_COMP in (select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#))
+            </isNotEmpty>
+        </dynamic>
+        order by 
+         USR.ROLE
+        ,USR.AUTH_MGT_COMP
+        ,USR.AUTH_DATA_FROM
+        ,FNC.SCREEN_ID
+        ,FNC.PERMIT_FUNC_ID
+    </select>
+</sqlMap>

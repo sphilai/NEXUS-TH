@@ -1,0 +1,70 @@
+@CHARSET "windows-31j";
+/*
+ * WT004.css
+ * 
+ * PKG Select子画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+/*------------ Search button position ------------*/ 
+/*------------ searchボタン位置 ------------*/ 
+table.gscm_search_button {
+    width:718px;
+}
+
+/*------------ Select button position ------------*/ 
+/*------------ selectボタン位置 ------------*/ 
+table.gscm_select_button {
+    width:10px;
+}
+
+/*------------ Page control position ------------*/ 
+/*------------ ページコントロール位置 ------------*/ 
+table.gscm_page_control {
+    width:750px;
+}
+
+/*------------ Search result total area------------*/ 
+/*------------ 検索結果エリア(全体) ------------*/ 
+table.gscm_resultlist {
+    width:698px;
+}
+
+/*------------ Search condition individual area ------------*/ 
+/*------------ 検索条件エリア(個別) ------------*/ 
+.gscm_search .search_rt_typ {
+    width: 80px;
+}
+.gscm_search .search_pkg_item_no {
+    width: 170px;
+}
+.gscm_search .search_model_cd {
+    width: 730px;
+}
+
+/*------------ Search result individual area ------------*/ 
+/*------------ 検索結果エリア(個別) ------------*/ 
+.gscm_resultlist .resultlist_ck {
+    width: 40px;
+}
+.gscm_resultlist .resultlist_rt_typ {
+    width: 55px;
+}
+.gscm_resultlist .resultlist_pkg_item_no {
+    width: 180px;
+}
+.gscm_resultlist .resultlist_model_cd {
+    width: 180px;
+}
+.gscm_resultlist .resultlist_pkg_mtrl_nm {
+    width: 243px;
+}
+.pkg_item_no {
+    width: 175px;
+}
+.model_cd {
+    width: 175px;
+}
+.pkg_mtrl_nm {
+    width: 238px;
+}

@@ -1,0 +1,193 @@
+@CHARSET "utf-8";
+/*
+ * W9002.css
+ * 
+ * User ID MA Edit画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+/*------------ 入力エリア ------------*/ 
+.grid .grid1_title {
+    width:150px;
+}
+
+.grid .grid1_data {
+    width:575px;
+}
+.w9005_comp_cd {
+    width:60px;
+}
+.w9005_plant_cd {
+    width:45px;
+}
+
+.w9005_mail_add {
+    width: 555px;
+}
+/*------------ 入力（地域権限）エリア ------------*/ 
+.grid .grid2_header {
+    width:60px;
+}
+
+.grid .grid2_reg_adm_role {
+    width:60px;
+}
+
+.grid .grid2_browse_all {
+    width:100px;
+}
+
+.grid .grid2_register_all {
+    width:100px;
+}
+
+/*------------ 入力（会社権限）エリア ------------*/ 
+.gscm_resultlist .resultlist1_company {
+    width:80px;
+}
+
+.gscm_resultlist .resultlist1_adm {
+    width:50px;
+}
+
+.gscm_resultlist .resultlist1_bht_lock {
+    width:60px;
+}
+
+.gscm_resultlist .resultlist1_ma_agent_b {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist1_ma_agent_r {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist1_ma_other_b {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist1_ma_other_r {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist1_doc {
+    width:60px;
+}
+
+.gscm_resultlist .resultlist1_ship_act {
+    width:60px;
+}
+
+/*------------ 入力（工場権限）エリア ------------*/ 
+.gscm_resultlist .resultlist2_company {
+    width:80px;
+}
+
+.gscm_resultlist .resultlist2_plant_cd {
+    width:50px;
+}
+
+.gscm_resultlist .resultlist2_adm {
+    width:50px;
+}
+
+.gscm_resultlist .resultlist2_exp_req_b {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_exp_req_r {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_req_pkg_b {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_req_pkg_r {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_ert_b {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_ert_r {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_order_b {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_order_r {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_plt_instr_b {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_plt_instr_r {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_mTag_b {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_mTag_r {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_cml_b {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_cml_r {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_x_tag_b {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_x_tag_r {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_carry_out_in_b {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_carry_out_in_r {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_stg_instr_b {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_stg_instr_r {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_stg_act_b {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_stg_act_r {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_ship_cfrm_b {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_ship_cfrm_r {
+    width:30px;
+}
+
+.gscm_resultlist .resultlist2_prgs_ctrl_b {
+    width:60px;
+}

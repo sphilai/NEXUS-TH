@@ -1,0 +1,54 @@
+@CHARSET "UTF-8";
+/*
+ * W7006.css
+ * 
+ * Other Doc. Upload Individual画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+/*------------ 検索条件エリア ------------*/
+.search_condition {
+    width: 700px;
+}
+
+.search_button {
+/*    width: 480px;*/
+}
+
+.search_shipper_cd {
+    width: 70px;
+}
+
+.search_consignee_cd {
+    width: 90px;
+}
+
+.search_ship_to_comp_cd {
+    width: 150px;
+}
+
+.search_trns_cd {
+    width: 70px;
+}
+
+.search_invoice_no {
+    width: 210px;
+}
+
+.search_shipping_act_status {
+/*    width: 75px;*/
+}
+
+.w7006_invoice_no {
+    width: 200px;
+}
+
+#gscm_wrapper {
+    overflow-y: auto;
+}
+
+.w7006_label_area {
+    width: 980px;
+    text-align: right; !important
+}

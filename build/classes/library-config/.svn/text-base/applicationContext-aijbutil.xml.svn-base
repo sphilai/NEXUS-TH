@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * [JP] applicationContext-aijbutil.xml (編集不可)
+ * [JP]
+ * [JP] AI-JB の共通部品用 Spring 設定ファイルです。
+ * [JP]
+ * [JP] AI-J2 で共通部品を利用する場合は、アプリ側の web.xml にこの設定ファイルを
+ * [JP] 追加してください。
+ * [JP]
+ * [JP] AI-JB で共通部品を利用する場合は、アプリ側の applicationContext にこの設定ファイルを
+ * [JP] import してください。
+ * 
+ * [EN] applicationContext-aijbutil.xml (Not editable)
+ * [EN]
+ * [EN] This is the Spring configuration file for the Common Library of the AI-JB.
+ * [EN]
+ * [EN] If you use Common Library in AI-J2, 
+ * [EN] please add this to the web.xml of the application configuration file.
+ * [EN]
+ * [EN] If you use Common Library in the AI-JB, 
+ * [EN] please import this configuration file applicationContext-side to the app.
+ * 
+ * $ applicationContext-aijbutil.xml 6997 2014-02-21 05:58:59Z HIDETOSHI_NAKATANI@denso.co.jp $
+ *
+ * Copyright (c) 2011 DENSO IT SOLUTIONS. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!-- [JP] FacadeService実装 -->
+    <!-- [EN] FacadeService implementation -->
+    <!-- [JP] キュー登録部品に関するサービスクラス DI用の設定です -->
+    <!-- [EN] This setting is for the service class DI for parts queue registration -->
+    <bean id="requestjobFacadeService"
+        class="com.globaldenso.ai.aijb.library.business.service.RequestjobFacadeServiceImpl">
+        <property name="queueService" ref="queueService" />
+        <property name="jobManageService" ref="jobManageService" />
+    </bean>
+
+    <!-- [JP] 常駐リクエスト登録部品に関するサービスクラス DI用の設定です -->
+    <!-- [EN] This setting is for the service class DI for parts resident request registration -->
+    <bean id="residentRequestjobFacadeService"
+        class="com.globaldenso.ai.aijb.library.business.service.ResidentRequestjobFacadeServiceImpl">
+        <property name="aijbResidentReqManageService" ref="aijbResidentReqManageService" />
+        <property name="residentRequestService" ref="residentRequestService" />
+        <property name="jobManageService" ref="jobManageService" />
+        <property name="vwAijbReqManageUnionAllService" ref="vwAijbReqManageUnionAllService" />
+    </bean>
+
+    <!-- [JP] メッセージログ登録部品に関するサービスクラス DI用の設定です -->
+    <!-- [EN] This setting is for the service class DI for parts message log registration -->
+    <bean id="messageLogFacadeService"
+        class="com.globaldenso.ai.aijb.library.business.service.MessageLogFacadeServiceImpl">
+        <property name="aijbMessageLogManageService" ref="aijbMessageLogManageService" />
+        <property name="messageLogManageService" ref="messageLogManageService" />
+    </bean>
+
+    <!-- [JP] 常駐リクエスト管理に関するサービスクラス DI用の設定です -->
+    <!-- [EN] This setting is for the service class DI for resident request management -->
+    <bean id="residentRequestService"
+        class="com.globaldenso.ai.aijb.job.residentrequest.business.service.ResidentRequestServiceImpl">
+        <property name="residentRequestDao" ref="residentRequestDao" />
+    </bean>
+
+    <!-- [JP] 常駐リクエスト管理   常駐リクエスト情報を管理するテーブル Service -->
+    <!-- [EN] Resident Request Management   Table for managing the information resident request Service -->
+    <bean id="aijbResidentReqManageService" class="com.globaldenso.ai.aijb.auto.business.service.AijbResidentReqManageServiceImpl">
+        <property name="aijbResidentReqManageDao" ref="aijbResidentReqManageDao" />
+    </bean>
+
+    <!-- [JP] 常駐リクエスト管理統合ビュー   常駐リクエスト管理と常駐リクエスト履歴を横断的に検索するためのビュー Service -->
+    <!-- [EN] Resident Request Management Union View   View for managing the information resident request management and resident request management history Service -->
+    <bean id="vwAijbReqManageUnionAllService" class="com.globaldenso.ai.aijb.auto.business.service.VwAijbReqManageUnionAllServiceImpl">
+        <property name="vwAijbReqManageUnionAllDao" ref="vwAijbReqManageUnionAllDao" />
+    </bean>
+
+    <!-- [JP] メッセージログ管理に関するサービスクラス DI用の設定です -->
+    <!-- [EN] This setting is for the service class DI for message log management -->
+    <bean id="messageLogManageService"
+        class="com.globaldenso.ai.aijb.core.business.service.MessageLogManageServiceImpl">
+        <property name="messageLogManageDao" ref="messageLogManageDao" />
+    </bean>
+
+    <!-- [JP] メッセージログ管理 Service -->
+    <!-- [EN] Message Log Management Service -->
+    <bean id="aijbMessageLogManageService" class="com.globaldenso.ai.aijb.auto.business.service.AijbMessageLogManageServiceImpl">
+        <property name="aijbMessageLogManageDao" ref="aijbMessageLogManageDao" />
+    </bean>
+
+    <!-- [JP] aijbutil共通Service実装 -->
+    <!-- [EN] Common Service implementation aijbutil -->
+    <!-- [JP] キューに関するサービスクラス DI用の設定です -->
+    <!-- [EN] This setting is for the service class DI for the queue -->
+    <bean id="queueService"
+        class="com.globaldenso.ai.aijb.core.business.service.QueueServiceImpl">
+        <property name="queueInfDao" ref="queueInfDao" />
+        <property name="jobManageDao" ref="jobManageDao" />
+        <property name="queueExecuteHistoryService" ref="queueExecuteHistoryService" />
+    </bean>
+
+    <!-- [JP] ジョブに関するサービスクラス DI用の設定です -->
+    <!-- [EN] This setting is for the service class DI for the job -->
+    <bean id="jobManageService"
+        class="com.globaldenso.ai.aijb.core.business.service.JobManageServiceImpl">
+        <property name="jobManageDao" ref="jobManageDao" />
+    </bean>
+
+    <!-- [JP] キュー実行履歴に関するサービスクラス DI用の設定です -->
+    <!-- [EN] This setting is for the service class DI for the execute history of queue -->
+    <bean id="queueExecuteHistoryService"
+        class="com.globaldenso.ai.aijb.core.business.service.QueueExecuteHistoryServiceImpl">
+        <property name="queueExecuteHistoryInfDao"
+            ref="queueExecuteHistoryInfDao" />
+        <property name="queueService" ref="queueService" />
+    </bean>
+
+    <!-- [JP] 常駐リクエスト管理DAO -->
+    <!-- [EN] Resident Request Management DAO -->
+    <bean id="residentRequestDao"
+        class="com.globaldenso.ai.aijb.job.residentrequest.integration.dao.ResidentRequestDaoImpl">
+        <property name="sqlMapClient">
+            <ref bean="sqlMapClient" />
+        </property>
+    </bean>
+
+    <!-- [JP] 常駐リクエスト管理   常駐リクエスト情報を管理するテーブル DAO -->
+    <!-- [EN] Resident Request Management   Table for managing the information resident request DAO -->
+    <bean id="aijbResidentReqManageDao" class="com.globaldenso.ai.aijb.auto.integration.AijbResidentReqManageDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- [JP] 常駐リクエスト管理統合ビュー   常駐リクエスト管理と常駐リクエスト履歴を横断的に検索するためのビュー DAO -->
+    <!-- [EN] Resident Request Management View   View in order to search across Resident Request History and Resident Request Management DAO -->
+    <bean id="vwAijbReqManageUnionAllDao" class="com.globaldenso.ai.aijb.auto.integration.VwAijbReqManageUnionAllDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- [JP] メッセージログ管理DAO -->
+    <!-- [EN] Message Log Management DAO -->
+    <bean id="messageLogManageDao"
+        class="com.globaldenso.ai.aijb.core.integration.dao.MessageLogManageDaoImpl">
+        <property name="sqlMapClient">
+            <ref bean="sqlMapClient" />
+        </property>
+    </bean>
+
+    <!-- [JP] メッセージログ管理 DAO -->
+    <!-- [EN] Message Log Management DAO -->
+    <bean id="aijbMessageLogManageDao" class="com.globaldenso.ai.aijb.auto.integration.AijbMessageLogManageDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- [JP] キュー実行履歴 DAO -->
+    <!-- [EN] Queue Execute History DAO -->
+    <bean id="queueExecuteHistoryInfDao"
+        class="com.globaldenso.ai.aijb.core.integration.dao.QueueExecuteHistoryInfDaoImpl">
+        <property name="sqlMapClient">
+            <ref bean="sqlMapClient" />
+        </property>
+    </bean>
+
+    <!-- [JP] aijbutil共通DAO実装 -->
+    <!-- [EN] aijbutil Common DAO implementation -->
+    <bean id="queueInfDao"
+        class="com.globaldenso.ai.aijb.core.integration.dao.QueueInfDaoImpl">
+        <property name="sqlMapClient">
+            <ref bean="sqlMapClient" />
+        </property>
+    </bean>
+    <bean id="jobManageDao"
+        class="com.globaldenso.ai.aijb.core.integration.dao.JobManageDaoImpl">
+        <property name="sqlMapClient">
+            <ref bean="sqlMapClient" />
+        </property>
+    </bean>
+
+</beans>

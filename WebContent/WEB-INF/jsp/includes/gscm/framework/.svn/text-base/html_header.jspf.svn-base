@@ -1,0 +1,17 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<link rel="stylesheet" type="text/css" media="screen, print"
+    href="<%= request.getContextPath() %>/css/gscm/framework/common_${sessionScope[locale_key]}.css" />
+<script type="text/javascript" src="js/lib/jquery.js"></script>
+<script type="text/javascript"
+    src="<%= request.getContextPath() %>/js/gscm/framework/common.js"></script>
+<script type="text/javascript"
+    src="<%= request.getContextPath() %>/js/gscm/library/calendar.js"></script>
+<script type="text/javascript"
+    src="<%= request.getContextPath() %>/js/gscm/library/ai-contactinfodisplay.js"></script>
+<script type="text/javascript"
+    src="<%= request.getContextPath() %>/js/gscm/library/ai-contactinfodisplay_option.js"></script>
+<%-- 各システムにて、追加する内容は、この行以下に記載すること --%>
+<%-- Describe under this line when add contents by each system --%>

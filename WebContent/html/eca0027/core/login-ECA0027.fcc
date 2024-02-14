@@ -1,0 +1,175 @@
+@username=%USER%
+@smretries=0
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="X-UA-Compatible" content="IE=8" />
+        <title>
+            NEXUS
+        </title>
+        <style type="text/css">
+            *{
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 10pt;
+                font-family: "Verdana",sans-serif;
+            }
+            .system {
+                font-size: 28pt;
+                text-align: center;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                letter-spacing: 1px;
+            }
+            div.input {
+                width: 350px;
+                height: 50px;
+                background-color: #336699;
+                padding: 30px;
+                color: #FFFFFF;
+                border: ridge 3px;
+            }
+            div.section {
+                width: 650px;
+            }
+            div.section h4 {
+                margin: 0px;
+            }
+            div.error {
+                color: #FF0000;
+                width: 370px;
+                text-align: left;
+            }
+        </style>
+        <script type="text/javascript">
+            function handleError() {
+                var count = getCookie('SMTRYNO', '0');
+                if (0 < count) {
+                    document.getElementById('error').innerHTML = "Log in error. Your DSC-ID or password is wrong."
+                } else {
+                    document.getElementById('error').innerHTML = "&nbsp"
+                }
+                document.getElementById('USER').focus();
+            }
+        
+            function getCookie(name, alternative) {
+                var match = document.cookie.match(new RegExp('(^|; )' + name + '=(' + String.fromCharCode(0x5c) + 'w+)'));
+                return match ? match[2] : alternative;
+            }
+
+            function addFavorite() {
+                var url = location.href.split('/').slice(0, 3).join('/') + '/NEXUS_EXPORT/';
+                window.external.AddFavorite(url, 'NEXUS EXPORT');
+            }
+        </script>
+    </head>
+    <body style="background-color: #E8E8E0;" onload="handleError();">
+        <table>
+            <tr>
+                <td style="width:250px;">
+                </td>
+                <td style="width:500px;text-align:center;">
+                    <h1 class="system">
+                        NEXUS
+                    </h1>
+                </td>
+                <td style="width:250px;text-align:right;">
+                    <input id="bookmark" type="button" onClick="addFavorite()" value="Bookmark" class="buttonfixwide">
+                </td>
+            </tr>
+        </table>
+        <hr/>
+        <form method="POST">
+            <div class="input">
+                <table>
+                    <tr>
+                        <td>
+                            DSC-ID
+                        </td>
+                        <td>
+                            <input type="text" id="USER" name="USER" maxlength="20" size="15" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            PASSWORD
+                        </td>
+                        <td>
+                            <input type="password" name="PASSWORD" maxlength="20" size="15" autocomplete="off"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="text-align:center;">
+                <input type="submit" value="Login" style="margin-top: 10px; width: 80px;" />
+            </div>
+            <div id="error" class="error">
+            </div>
+
+            <!-- for SiteMinder -->
+            <input type="hidden" name="SMENC" value="UTF-8" />
+            <input type="hidden" name="SMLOCALE" value="JP-jp" />
+            <input type="hidden" name="target" value="$$target$$" />
+            <input type="hidden" name="smauthreason" value="$$smauthreason$$" />
+            <input type="hidden" name="postpreservationdata" value="$$postpreservationdata$$" />
+            <input type="hidden" name="smagentname" value="$$smagentname$$" />
+        </form>
+        <hr/>
+        <div class="section">
+            <h4>
+                [About using system]
+            </h4>
+            <ul style="margin: 0; padding-left: 20px;">
+                <li>
+                    You need DSC-ID and NEXUS authority for using this system.
+                </li>
+                <li>
+                    About DSC-ID, please check with your company's HR Dept.<br />
+                    or contact the following email address / E-mail : <a href="mailto:dir-asksprt@jp.denso.com">dir-asksprt@jp.denso.com</a>
+                </li>
+                <li>
+                    About NEXUS authority, please contact administrator of affiliation.
+                </li>
+            </ul>
+            <h4>
+                [How to login]
+            </h4>
+            <ul style="margin: 0; padding-left: 20px;">
+                <li>
+                    Please input DSC-ID & Password issued by DSC.
+                </li>
+                <li>
+                    Change password Click 
+                    <a href="http://dscpwch.dir.globaldenso.com/chngpwd-en.htm" target="_blank">here</a>.
+                </li>
+                <li>
+                    Lost password, Locked ID Click 
+                    <a href="https://pwdreset.dir.globaldenso.com/pwdreset_dscid/requestTop.do" target="_blank">here</a>.
+                </li>
+            </ul>
+            <h4>
+                [Help Desk]
+            </h4>
+            <ul style="margin: 0; padding-left: 20px;">
+                <li>
+                    About NEXUS : DENSO INTERNATIONAL ASIA CO., LTD. Information System Department<br />
+                    Tel: +66(0)-2315-9500 / Ext: 2518 / Nice Net: 5078-2518 / E-mail: <a href="mailto:ehelpdesk@denso.co.th">ehelpdesk@denso.co.th</a>
+                </li>
+                <li>
+                    About DSC-ID : DSC-ID Inquiry Support.<br />
+                    E-mail : <a href="mailto:dir-asksprt@jp.denso.com">dir-asksprt@jp.denso.com</a>
+                </li>
+            </ul>
+            <h4>
+                [Software recommended]
+            </h4>
+            <ul style="margin: 0; padding-left: 20px;">
+                <li>
+                    Windows10 + IE11
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

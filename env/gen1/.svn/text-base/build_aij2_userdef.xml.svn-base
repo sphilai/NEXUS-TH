@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ===========================================================================
+
+ [JP] build_aij2_userdef.xml (AI-J2(war)作成時に含めるユーザ定義のターゲット)
+ [EN] build_aij2_userdef.xml (User-defined target to be included when creating AI-J2(war))
+    
+    $ build_aij2_userdef.xml 2066 2012-06-04 02:43:52Z HIDETOSHI_NAKATANI@denso.co.jp $
+    
+============================================================================ -->
+<project>
+
+    <!-- [JP] ユーザ定義のターゲット(ダミー) -->
+    <!-- [EN] User-defined target (dummy) -->
+    <target name="dummy_aij2_target">
+        
+    </target>
+
+</project>

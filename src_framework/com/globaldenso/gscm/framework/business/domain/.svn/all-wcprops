@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/domain
+END
+TtWorkDateDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/domain/TtWorkDateDomain.java
+END
+TmColumnSizeDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/domain/TmColumnSizeDomain.java
+END
+TmResourcesDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/domain/TmResourcesDomain.java
+END
+UserDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/domain/UserDomain.java
+END
+TmUserDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/domain/TmUserDomain.java
+END
+AbstractDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/domain/AbstractDomain.java
+END
+MenuDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/domain/MenuDomain.java
+END
+MessageDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/domain/MessageDomain.java
+END
+TmUserConfDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/domain/TmUserConfDomain.java
+END

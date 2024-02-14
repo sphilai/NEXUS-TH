@@ -1,0 +1,3 @@
+"ID","SCREEN_ID","SCREEN_NM","PAR_SCREEN_ID","ACTION_PATH","PERMITTED"
+101,"W1001","Miscellaneous (outclude E-RT)","W1000","","false"
+102,"WC001","Empty returnable","W1000","/WC001Init.do","true"

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * JbEdiRcvOdrServiceTest-applicationContext.xml
+ * 
+ * EDI受注登録の単体テスト用Spring設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:aop="http://www.springframework.org/schema/aop"
+ xmlns:tx="http://www.springframework.org/schema/tx"
+ xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+    <import resource="classpath:applicationContext-aijb-residentJob.xml" />
+    <import resource="classpath:applicationContext-aijb-residentReqApp.xml" />
+
+    <!-- Webサービスクライアント (Mock) -->
+    <bean id="wsB006RestServiceMock" class="com.globaldenso.eca0027.core.business.ws.WsB006RestServiceMockImpl" />
+<!--    <bean id="wsB007RestServiceMock" class="com.globaldenso.eca0027.core.business.ws.WsB007RestServiceMockImpl" />-->
+<!--    <bean id="wsB008RestServiceMock" class="com.globaldenso.eca0027.core.business.ws.WsB008RestServiceMockImpl" />-->
+<!--    <bean id="wsB020RestServiceMock" class="com.globaldenso.eca0027.core.business.ws.WsB020RestServiceMockImpl" />-->
+
+    <!-- エイリアス定義 -->
+    <alias name="wsB006RestServiceMock" alias="wsB006RestService" />
+<!--    <alias name="wsB007RestServiceMock" alias="wsB007RestService" />-->
+<!--    <alias name="wsB008RestServiceMock" alias="wsB008RestService" />-->
+<!--    <alias name="wsB020RestServiceMock" alias="wsB020RestService" />-->
+    
+</beans>

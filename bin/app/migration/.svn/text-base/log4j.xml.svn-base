@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ *  log4j.xml
+ *
+ * [JP] reruncml.shで使用するlog4設定ファイルです。
+ * [EN] It is log4 configuration file to be used in reruncml.sh.
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!-- Appender ========================================================== -->
+    <!-- [JP] 標準出力 -->
+    <!-- [EN] standard output -->
+    <appender name="all_stdout"
+        class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[APP] [%d{yyyy-MM-dd HH:mm:ss.SSS}] DSC-ID[%X{DSC_ID}] SID[%X{SID}] RID[%X{RID}] [%-5p] %m%n" />
+        </layout>
+    </appender>
+
+    <!-- Logger ============================================================ -->
+    <root>
+        <level value="DEBUG" />
+        <appender-ref ref="all_stdout" />
+    </root>
+</log4j:configuration>

@@ -1,0 +1,189 @@
+@charset "utf-8";
+/*
+ * WB006.css
+ * 
+ * 受注登録画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/
+
+.gscm_search .search_rcv_odr_comp_cd {
+    width: 60px;
+}
+
+.gscm_search .search_comp_nm {
+    width: 920px;
+}
+
+.gscm_search .search_customer_cd {
+    width: 137px;
+}
+
+.gscm_search .search_ship_to_nm {
+    width: 334px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 529px;
+}
+
+.gscm_search .search_item_no {
+    width: 150px;
+}
+
+.gscm_search .search_pkg_cd {
+    width: 69px;
+}
+
+.gscm_search .search_item_description {
+    width: 745px;
+}
+
+/*------------ Used Boxエリア ------------*/ 
+
+table.grid {
+    width: 835px;
+}
+
+.grid .grid_header {
+    width: 335px;
+}
+
+.grid .grid_month1 {
+    width: 30px;
+}
+
+.grid .grid_total_qty1 {
+    width: 70px;
+}
+
+.grid .grid_month2 {
+    width: 30px;
+}
+
+.grid .grid_total_qty2 {
+    width: 70px;
+}
+
+.grid .grid_month3 {
+    width: 30px;
+}
+
+.grid .grid_total_qty3 {
+    width: 70px;
+}
+
+.grid .grid_month4 {
+    width: 30px;
+}
+
+.grid .grid_total_qty4 {
+    width: 70px;
+}
+
+.grid .grid_month5 {
+    width: 30px;
+}
+
+.grid .grid_total_qty5 {
+    width: 70px;
+}
+
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 960px;
+}
+
+.gscm_resultlist .resultlist_checked_key {
+    width: 29px;
+}
+
+.gscm_resultlist .resultlist_etd_due_dt {
+    width: 148px;
+}
+
+.gscm_resultlist .resultlist_firm_qty {
+    /*width: 72px;*/
+    width: 75px;
+}
+
+.gscm_resultlist .resultlist_forecast_qty {
+    width: 75px;
+}
+
+.gscm_resultlist .resultlist_customer_due_dt {
+    width: 102px;
+}
+
+.gscm_resultlist .resultlist_pltz_alloc_qty {
+    width: 75px;
+}
+
+.gscm_resultlist .resultlist_customer_item_no {
+    width: 166px;
+}
+
+.gscm_resultlist .resultlist_customer_po_no {
+    width: 166px;
+}
+
+.gscm_resultlist .resultlist_sales_comp_po_no {
+    width: 117px;
+}
+
+.gscm_resultlist .resultlist_exp_rcv_odr_num {
+    width: 35px;
+}
+
+/*------------ 表示幅 ------------*/ 
+
+.wb002_rcv_odr_comp_cd {
+	width: 60px;
+}
+
+.wb002_ship_to_nm {
+    width: 300px;
+}
+
+.wb002_item_no {
+    width: 150px;
+}
+
+.wb002_alloc_qty {
+    width: 66px;
+    border:none;
+    opacity:0.0;
+    background-color: transparent;
+}
+
+.wb002_customer_item_no {
+    width: 157px;
+}
+
+.wb002_customer_po_no {
+    width: 157px;
+}
+
+.wb002_sales_comp_po_no {
+    width: 108px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+/*------------ ヘッダ固定スクロール ------------*/ 
+
+.fix_content {
+    position:relative;
+    /* z-index:1 */
+}
+.scroll_content {
+    position:relative;
+    top:-1px;
+    height:325px;
+    width:1006px;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    /* z-index:0 */
+}

@@ -1,0 +1,28 @@
+@charset "utf-8";
+/*
+ * W1010.css
+ * 
+ * CML Main画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+
+.upload_select_file{
+	width: 100px;
+}
+.upload_borwd_file{
+	width: 120px;
+}
+.upload_file{
+	width: 80px;
+}
+.download_file{
+	width: 490px;
+}
+
+.right {
+    text-align: right !important;
+}
+

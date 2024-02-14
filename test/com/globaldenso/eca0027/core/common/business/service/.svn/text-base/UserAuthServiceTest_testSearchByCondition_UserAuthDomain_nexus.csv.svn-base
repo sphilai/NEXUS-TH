@@ -1,0 +1,50 @@
+"DSC_ID","ROLE","AUTH_MGT_COMP","PROC_MFG_DIV_CD","SCREEN_ID","PERMIT_FUNC_ID","AUTHORITY"
+"nexus","3B","DNJ"," ","W9002","W9002B",1
+"nexus","3B","DNJ"," ","W9006","W9006B",1
+"nexus","3B","DNJ"," ","W9007","W9007B",1
+"nexus","3B","DNJ"," ","W9009","W9009B",1
+"nexus","3B","DNJ"," ","W9011","W9011B",1
+"nexus","3B","DNJ"," ","W9013","W9013B",1
+"nexus","3B","DNJ"," ","W9014","W9014B",1
+"nexus","3B","DNJ"," ","W9016","W9016B",1
+"nexus","3B","DNJ"," ","W9018","W9018B",1
+"nexus","3B","DNJ"," ","W9022","W9022B",1
+"nexus","3B","DNJ"," ","W9024","W9024B",1
+"nexus","3R","DNJ"," ","W9002","W9002R",2
+"nexus","3R","DNJ"," ","W9006","W9006R",2
+"nexus","3R","DNJ"," ","W9007","W9007R",2
+"nexus","3R","DNJ"," ","W9009","W9009R",2
+"nexus","3R","DNJ"," ","W9011","W9011R",2
+"nexus","3R","DNJ"," ","W9013","W9013R",2
+"nexus","3R","DNJ"," ","W9014","W9014R",2
+"nexus","3R","DNJ"," ","W9016","W9016R",2
+"nexus","3R","DNJ"," ","W9018","W9018R",2
+"nexus","3R","DNJ"," ","W9022","W9022R",2
+"nexus","3R","DNJ"," ","W9024","W9024R",2
+"nexus","4R","DNJ"," ","W6001","W6001R",2
+"nexus","5R","DNJ"," ","W7001","W7001R",2
+"nexus","9B","DNJ"," ","WB001","WB001B",1
+"nexus","9B","DNJ"," ","WB004","WB004B",1
+"nexus","9B","DNJ"," ","WB006","WB006B",1
+"nexus","9R","DNJ"," ","WB001","WB001R",2
+"nexus","9R","DNJ"," ","WB004","WB004R",2
+"nexus","9R","DNJ"," ","WB006","WB006R",2
+"nexus","AB","DNJ"," ","W2001","W2001B",1
+"nexus","AB","DNJ","M1","W2001","W2001B",1
+"nexus","AR","DNJ"," ","W2001","W2001R",2
+"nexus","AR","DNJ","M1","W2001","W2001R",2
+"nexus","AR","TG0","5","W2001","W2001R",2
+"nexus","AR","TG0","6","W2001","W2001R",2
+"nexus","BB","DNJ"," ","W2005","W2005B",1
+"nexus","BR","DNJ"," ","W2005","W2005R",2
+"nexus","CB","DNJ"," ","W2009","W2009B",1
+"nexus","CR","DNJ"," ","W2009","W2009R",2
+"nexus","DB","DNJ"," ","W2014","W2014B",1
+"nexus","DR","DNJ"," ","W2014","W2014R",2
+"nexus","FB","DNJ"," ","W4001","W4001B",1
+"nexus","FR","DNJ"," ","W4001","W4001R",2
+"nexus","GB","DNJ"," ","W4005","W4005B",1
+"nexus","GR","DNJ"," ","W4005","W4005R",2
+"nexus","HB","DNJ"," ","W5001","W5001B",1
+"nexus","HR","DNJ"," ","W5001","W5001R",2
+"nexus","IB","DNJ"," ","W8001","W8001B",1

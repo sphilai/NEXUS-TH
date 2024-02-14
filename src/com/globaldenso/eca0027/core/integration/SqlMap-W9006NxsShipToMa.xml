@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-W9006NxsShipToMa.xml
+ *
+ * SqlMap file of W9006NxsShipToMaDao.
+ * W9006NxsShipToMaDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="W9006NxsShipToMa">
+
+    <!-- Domain -->
+    <typeAlias alias="W9006NxsShipToMaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W9006NxsShipToMaDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W9006NxsShipToMaCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W9006NxsShipToMaCriteriaDomain" />
+
+    <resultMap id="W9006NxsShipToMaResult" class="W9006NxsShipToMaDomain">
+        <result property="shipToCd" column="SHIP_TO_CD" />
+        <result property="shipToNm" column="SHIP_TO_NM" />
+        <result property="shipToNmAbb" column="SHIP_TO_NM_ABB" />
+        <result property="shipToAddr" column="SHIP_TO_ADDR" />
+        <result property="shipToTel" column="SHIP_TO_TEL" />
+        <result property="nxsShipToCompany" column="COMP_CD" />        
+        <result property="compNm" column="COMP_NM" />
+    </resultMap>
+
+    <!-- 汎用 項目 -->
+    <sql id="TableCols">
+        T1.SHIP_TO_CD
+        , T1.SHIP_TO_NM
+        , T1.SHIP_TO_NM_ABB
+        , T1.SHIP_TO_ADDR
+        , T1.SHIP_TO_TEL
+        , T1.COMP_CD
+        , T2.COMP_NM
+    </sql>
+
+    <!-- 汎用 項目 -->
+    <sql id="Cols">
+       TEMP.SHIP_TO_CD
+        , TEMP.SHIP_TO_NM
+        , TEMP.SHIP_TO_NM_ABB
+        , TEMP.SHIP_TO_ADDR
+        , TEMP.SHIP_TO_TEL
+        , TEMP.COMP_CD
+        , TEMP.COMP_NM
+    </sql>
+
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeys">
+        order by
+            T1.SHIP_TO_CD asc
+    </sql>
+
+    <!-- FROM句   -->
+    <sql id="From">
+        from
+           TM_NXS_SHIP_TO T1
+            , TM_NXS_COMP T2
+    </sql>
+
+    <!-- 汎用 Where句（基本項目） -->
+    <!-- NL040 MOD -->
+    <sql id="WhereCondition">
+        where
+            T1.COMP_CD = T2.COMP_CD (+)
+            <isNotEmpty property="shipToCd"> 
+                and T1.SHIP_TO_CD like #shipToCd# || '%'
+            </isNotEmpty> 
+            <isNotEmpty property="shipToNm"> 
+                and upper(T1.SHIP_TO_NM) like upper(#shipToNm#) || '%' 
+            </isNotEmpty> 
+            <isNotEmpty property="shipToNmAbb"> 
+                and T1.SHIP_TO_NM_ABB like #shipToNmAbb# || '%' 
+            </isNotEmpty> 
+            <isNotEmpty property="nxsShipToCompany"> 
+                and T1.COMP_CD like #nxsShipToCompany# || '%' 
+            </isNotEmpty> 
+            <isNotEmpty property="compNm"> 
+                and upper(T2.COMP_NM) like upper(#compNm#) || '%' 
+            </isNotEmpty> 
+    </sql>
+
+    <!-- 検索 SQL文（任意条件、ページング用） -->
+    <select id="SearchByConditionForPaging" resultMap="W9006NxsShipToMaResult"
+        parameterClass="W9006NxsShipToMaCriteriaDomain">
+        select
+        /* SqlMap-W9006NxsShipToMa.SearchByConditionForPaging */
+        <include refid="Cols" />
+        from (
+            select 
+            <include refid="TableCols" />
+            ,row_number() over (<include refid="SortKeys" />) ROW_NUM
+            <include refid="From" />
+            <include refid="WhereCondition" />
+            <include refid="SortKeys" />
+        ) TEMP
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCount" resultClass="java.lang.Integer"
+        parameterClass="W9006NxsShipToMaCriteriaDomain">
+        select count(rownum)
+        /* SqlMap-W9006NxsShipToMa.SearchCount */
+        <include refid="From" />
+        <include refid="WhereCondition" />
+    </select>
+
+</sqlMap>

@@ -1,0 +1,10 @@
+﻿"ORG_COMP_CD","AGENT_COMP_CD","BHT_UNLOCK_AUTH_FLG","MA_OTHER_AUTH_FLG","DOC_AUTH_FLG","SHIPPING_ACT_AUTH_FLG","EXP_REQUEST_AUTH_FLG","EXP_REQUEST_PKG_AUTH_FLG","ERT_AUTH_FLG","RCV_ODR_AUTH_FLG","PLTZ_INSTR_AUTH_FLG","MIX_TAG_AUTH_FLG","CML_AUTH_FLG","XTAG_AUTH_FLG","TR_AUTH_FLG","STG_INSTR_AUTH_FLG","STG_ACT_AUTH_FLG","SHIPPING_FIRM_AUTH_FLG","PROG_CONTROL_AUTH_FLG","COM_UPDATE_FUNC_ID","COM_UPDATE_USER_ID","COM_UPDATE_TIMESTAMP","COM_CREATE_FUNC_ID","COM_CREATE_USER_ID","COM_CREATE_TIMESTAMP"
+"orgCompCd1","agentCompCd1","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","W9003","0",2014/03/05 16:55:21,"1","1",1899/12/30 1:00:00
+"orgCompCd1","updAgentCompCd1","N","N","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","W9003","0",2014/03/05 17:57:47,"1","1",1899/12/30 1:00:00
+"pagingOrgCompCd1","paginAgentCompCd1","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","W9003","0",2014/03/05 16:55:21,"1","1",1899/12/30 1:00:00
+"pagingOrgCompCd2","paginAgentCompCd2","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","W9003","0",2014/03/05 16:55:21,"1","1",1899/12/30 1:00:00
+"pagingOrgCompCd3","paginAgentCompCd3","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","W9003","0",2014/03/05 16:55:21,"1","1",1899/12/30 1:00:00
+"pagingOrgCompCd4","paginAgentCompCd4","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","W9003","0",2014/03/05 16:55:21,"1","1",1899/12/30 1:00:00
+"pagingOrgCompCd5","paginAgentCompCd5","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","W9003","0",2014/03/05 16:55:21,"1","1",1899/12/30 1:00:00
+"pagingOrgCompCd6","paginAgentCompCd6","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","W9003","0",2014/03/05 16:55:21,"1","1",1899/12/30 1:00:00
+"pagingOrgCompCd7","paginAgentCompCd7","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","Y","W9003","0",2014/03/05 16:55:21,"1","1",1899/12/30 1:00:00

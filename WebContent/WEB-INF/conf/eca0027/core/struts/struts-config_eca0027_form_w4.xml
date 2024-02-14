@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config_eca0027_form_w2.xml
+ * 
+ * Form configuration file of AI-J2(Struts)
+ * AI-J2(Struts) の form設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <display-name></display-name>
+    <description></description>
+
+    <!-- Application Form Bean Definitions ================================= -->
+    <form-beans>
+        <!-- W4001: Staging instruction main screen -->
+    	<!-- W4001: 荷揃え指示Main画面 -->
+        <form-bean name="W4001Form"
+            type="com.globaldenso.eca0027.core.presentation.W4001ActionForm">
+        </form-bean>
+
+        <!-- W4002: Staging instruction header screen -->
+        <!-- W4002: 荷揃え指示Header画面 -->
+        <form-bean name="W4002Form"
+            type="com.globaldenso.eca0027.core.presentation.W4002ActionForm">
+        </form-bean>
+
+        <!-- W4003: Staging instruction create screen -->
+        <!-- W4003: 荷揃え指示Create画面 -->
+        <form-bean name="W4003Form"
+            type="com.globaldenso.eca0027.core.presentation.W4003ActionForm">
+        </form-bean>
+
+        <!-- W4004: Staging instruction register screen -->
+        <!-- W4004: 荷揃え指示Register画面 -->
+        <form-bean name="W4004Form"
+            type="com.globaldenso.eca0027.core.presentation.W4004ActionForm">
+        </form-bean>
+
+        <!-- W4005: Staging actuality main screen -->
+    	<!-- W4005: 山作り実績Main画面 -->
+        <form-bean name="W4005Form"
+            type="com.globaldenso.eca0027.core.presentation.W4005ActionForm">
+        </form-bean>
+
+        <!-- W4006: Staging actuality header screen -->
+        <!-- W4006: 山作り実績Header画面 -->
+        <form-bean name="W4006Form"
+            type="com.globaldenso.eca0027.core.presentation.W4006ActionForm">
+        </form-bean>
+
+        <!-- W4007: Staging actuality create screen -->
+        <!-- W4007: 山作り実績Create画面 -->
+        <form-bean name="W4007Form"
+            type="com.globaldenso.eca0027.core.presentation.W4007ActionForm">
+        </form-bean>
+
+        <!-- W4008: Staging actuality register screen -->
+        <!-- W4008: 山作り実績Register画面 -->
+        <form-bean name="W4008Form"
+            type="com.globaldenso.eca0027.core.presentation.W4008ActionForm">
+        </form-bean>
+
+    </form-beans>
+</struts-config>

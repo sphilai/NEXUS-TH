@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config_eca0027_form_w8.xml
+ * 
+ * AI-J2(Struts) の form設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <display-name></display-name>
+    <description></description>
+
+    <!-- Application Form Bean Definitions ================================= -->
+    <form-beans>
+        <!-- W8001: 進度管理Main画面 -->
+        <form-bean name="W8001Form"
+            type="com.globaldenso.eca0027.core.presentation.W8001ActionForm">
+        </form-bean>
+        <!-- W8002: 進度管理詳細画面 -->
+        <form-bean name="W8002Form"
+            type="com.globaldenso.eca0027.core.presentation.W8002ActionForm">
+        </form-bean>
+        <!-- W8003: 進度管理 ケースマーク一覧画面 -->
+        <form-bean name="W8003Form"
+            type="com.globaldenso.eca0027.core.presentation.W8003ActionForm">
+        </form-bean>
+        <!-- W8004: 進度管理 RT材情報画面 -->
+        <form-bean name="W8004Form"
+            type="com.globaldenso.eca0027.core.presentation.W8004ActionForm">
+        </form-bean>
+    
+    </form-beans>
+</struts-config>

@@ -1,0 +1,1049 @@
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/E008_ECA0027/!svn/ver/15255/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria
+END
+W9013NxsWhMaCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W9013NxsWhMaCriteriaDomain.java
+END
+Ws2501NxsPkgSpecificationCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501NxsPkgSpecificationCriteriaDomain.java
+END
+Ws2501UnpackagedItemNoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501UnpackagedItemNoCriteriaDomain.java
+END
+Ws2510CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2510CriteriaDomain.java
+END
+Ws2501MixedTagItemCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501MixedTagItemCriteriaDomain.java
+END
+W1006ExpRequestCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W1006ExpRequestCriteriaDomain.java
+END
+Ws2504CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2504CriteriaDomain.java
+END
+Ws2501MixedTagItemNoNwCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501MixedTagItemNoNwCriteriaDomain.java
+END
+Ws2501ItemNoNxsCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501ItemNoNxsCriteriaDomain.java
+END
+Wt014ShipToSelectCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Wt014ShipToSelectCriteriaDomain.java
+END
+Ws2501PltzInstrInfoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501PltzInstrInfoCriteriaDomain.java
+END
+W9025ActualItemWeightCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W9025ActualItemWeightCriteriaDomain.java
+END
+W9009CgmShipToXRefMaCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W9009CgmShipToXRefMaCriteriaDomain.java
+END
+W9007ExpShipToShippingMaCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/E008_ECA0027/!svn/ver/15255/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W9007ExpShipToShippingMaCriteriaDomain.java
+END
+Wt010WhSelectCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Wt010WhSelectCriteriaDomain.java
+END
+W1007ExpRequestDtlKitCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W1007ExpRequestDtlKitCriteriaDomain.java
+END
+Ws0501LoginInfoItemCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws0501LoginInfoItemCriteriaDomain.java
+END
+W3TransferCarryOutListCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W3TransferCarryOutListCriteriaDomain.java
+END
+W9011CgmCusNoXRefMaCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W9011CgmCusNoXRefMaCriteriaDomain.java
+END
+Ws2501PkgSetMaterialsNxsCompNmCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501PkgSetMaterialsNxsCompNmCriteriaDomain.java
+END
+Ws2508MixTagRootCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2508MixTagRootCriteriaDomain.java
+END
+Ws2502XmlRootCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2502XmlRootCriteriaDomain.java
+END
+Ws0502PassCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws0502PassCriteriaDomain.java
+END
+Wt008PortSelectCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Wt008PortSelectCriteriaDomain.java
+END
+W9024ItemNoAplyStrtDtCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W9024ItemNoAplyStrtDtCriteriaDomain.java
+END
+W8001ProgCtrlCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W8001ProgCtrlCriteriaDomain.java
+END
+Ws3504ItemListDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws3504ItemListDomain.java
+END
+Ws2501PkgSpecMaterialsNameRevCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501PkgSpecMaterialsNameRevCriteriaDomain.java
+END
+Ws2503ProductivityDataInfoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2503ProductivityDataInfoCriteriaDomain.java
+END
+Wt017ShippingActWarnListCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Wt017ShippingActWarnListCriteriaDomain.java
+END
+Ws0503CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws0503CriteriaDomain.java
+END
+Ws5501CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws5501CriteriaDomain.java
+END
+L6003TtInvoiceAttachedBySumQtyCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L6003TtInvoiceAttachedBySumQtyCriteriaDomain.java
+END
+Ws3505CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws3505CriteriaDomain.java
+END
+Ws2507CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2507CriteriaDomain.java
+END
+L2003TtPltzItemByItemNoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L2003TtPltzItemByItemNoCriteriaDomain.java
+END
+Ws4502UpdateFacadeServiceInputDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws4502UpdateFacadeServiceInputDomain.java
+END
+Ws2501ItemNoNxsPltzInstNoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501ItemNoNxsPltzInstNoCriteriaDomain.java
+END
+Ws2501TmExpShipToShippingByKeyCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501TmExpShipToShippingByKeyCriteriaDomain.java
+END
+W0002CigmaStatusCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W0002CigmaStatusCriteriaDomain.java
+END
+W9002AgentMaCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W9002AgentMaCriteriaDomain.java
+END
+L2003TtPltzBySingleCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L2003TtPltzBySingleCriteriaDomain.java
+END
+L2003TtPltzItemByDetailCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L2003TtPltzItemByDetailCriteriaDomain.java
+END
+Wt004PkgSelectCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Wt004PkgSelectCriteriaDomain.java
+END
+Ws2503PkgItemNoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2503PkgItemNoCriteriaDomain.java
+END
+W4001PltzCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W4001PltzCriteriaDomain.java
+END
+Ws2501ItemNoNxsNonPltzInstNoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501ItemNoNxsNonPltzInstNoCriteriaDomain.java
+END
+Ws3504TransferDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws3504TransferDomain.java
+END
+Ws5502TtPltzCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws5502TtPltzCriteriaDomain.java
+END
+L2002ReportCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L2002ReportCriteriaDomain.java
+END
+Ws4503CreateFacadeServiceInputDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws4503CreateFacadeServiceInputDomain.java
+END
+Ws2502ProductivityDataInfoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2502ProductivityDataInfoCriteriaDomain.java
+END
+WS4501TtStgInstrByStgInstrNoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WS4501TtStgInstrByStgInstrNoCriteriaDomain.java
+END
+WS4501TtPltzByMainMarkCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WS4501TtPltzByMainMarkCriteriaDomain.java
+END
+Ws2502CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2502CriteriaDomain.java
+END
+L7001TtPltzByImporterCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L7001TtPltzByImporterCriteriaDomain.java
+END
+Wt018ContainerInfoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Wt018ContainerInfoCriteriaDomain.java
+END
+W2001PltzInstrCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W2001PltzInstrCriteriaDomain.java
+END
+W6001DocCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W6001DocCriteriaDomain.java
+END
+Wt007ItemNoInfoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Wt007ItemNoInfoCriteriaDomain.java
+END
+Wt002CigmaCusNoShipToCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Wt002CigmaCusNoShipToCriteriaDomain.java
+END
+Ws2501PkgSpecCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501PkgSpecCriteriaDomain.java
+END
+L7001TtPltzByNoOfInvoiceCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L7001TtPltzByNoOfInvoiceCriteriaDomain.java
+END
+L1008TtPltzItemByDetailCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L1008TtPltzItemByDetailCriteriaDomain.java
+END
+W9006NxsShipToMaCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W9006NxsShipToMaCriteriaDomain.java
+END
+W2014PltzCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W2014PltzCriteriaDomain.java
+END
+Ws2503XmlRootCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2503XmlRootCriteriaDomain.java
+END
+T0100BatchDeleteCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/T0100BatchDeleteCriteriaDomain.java
+END
+W1007PltzWkCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W1007PltzWkCriteriaDomain.java
+END
+Wt001CompSelectCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Wt001CompSelectCriteriaDomain.java
+END
+W9022InvTplMaCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W9022InvTplMaCriteriaDomain.java
+END
+WsT001CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WsT001CriteriaDomain.java
+END
+Ws2501PkgSpecRevHisCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501PkgSpecRevHisCriteriaDomain.java
+END
+Ws0501CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws0501CriteriaDomain.java
+END
+Ws2501TtPltzItemGwCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501TtPltzItemGwCriteriaDomain.java
+END
+Wt006OuterPkgSelectCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Wt006OuterPkgSelectCriteriaDomain.java
+END
+Ws2511CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2511CriteriaDomain.java
+END
+L2001TtPltzInstrItemNoBySumBoxQtyCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 185
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L2001TtPltzInstrItemNoBySumBoxQtyCriteriaDomain.java
+END
+Ws3503CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws3503CriteriaDomain.java
+END
+Ws2505CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2505CriteriaDomain.java
+END
+LC001TtPltzItemByDetailErtCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/LC001TtPltzItemByDetailErtCriteriaDomain.java
+END
+Ws3503CmlListDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws3503CmlListDomain.java
+END
+WsCigmaOdrRcvCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WsCigmaOdrRcvCriteriaDomain.java
+END
+Ws2501ItemNoNxsNonInstCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501ItemNoNxsNonInstCriteriaDomain.java
+END
+W2001PltzInstrItemCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W2001PltzInstrItemCriteriaDomain.java
+END
+W0002SysInfoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W0002SysInfoCriteriaDomain.java
+END
+Ws5501ShippingFirmCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws5501ShippingFirmCriteriaDomain.java
+END
+W4005StgActCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W4005StgActCriteriaDomain.java
+END
+Ws2501MixedTagRtGwCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501MixedTagRtGwCriteriaDomain.java
+END
+Ws2501CmlPrintNumCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501CmlPrintNumCriteriaDomain.java
+END
+WsR001migrationCaseMarkItemCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WsR001migrationCaseMarkItemCriteriaDomain.java
+END
+W0002MenuCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W0002MenuCriteriaDomain.java
+END
+W0002OtherMenuCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W0002OtherMenuCriteriaDomain.java
+END
+L7001TtShippingFirmByHeaderCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L7001TtShippingFirmByHeaderCriteriaDomain.java
+END
+WsT501CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WsT501CriteriaDomain.java
+END
+Ws2508ProductivityDataInfoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2508ProductivityDataInfoCriteriaDomain.java
+END
+WC001ErtCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WC001ErtCriteriaDomain.java
+END
+Ws5502CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws5502CriteriaDomain.java
+END
+Ws2501TtExpRcvOdrCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501TtExpRcvOdrCriteriaDomain.java
+END
+Ws3506CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13688/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws3506CriteriaDomain.java
+END
+Ws2508CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2508CriteriaDomain.java
+END
+Wt015UnitPriceErrListCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Wt015UnitPriceErrListCriteriaDomain.java
+END
+Ws2501OuterSumWeightCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501OuterSumWeightCriteriaDomain.java
+END
+W2009CmlCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W2009CmlCriteriaDomain.java
+END
+W9016ExpShippingItemSpInfoMaCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W9016ExpShippingItemSpInfoMaCriteriaDomain.java
+END
+Ws2508ItemNoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2508ItemNoCriteriaDomain.java
+END
+Ws2501TtPltzItemDeliveryTimeCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501TtPltzItemDeliveryTimeCriteriaDomain.java
+END
+WsCigmaComnAuxCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WsCigmaComnAuxCriteriaDomain.java
+END
+L6008TtPackingAttachedByHeaderAndDetailCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 191
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L6008TtPackingAttachedByHeaderAndDetailCriteriaDomain.java
+END
+W2005MixTagCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W2005MixTagCriteriaDomain.java
+END
+L7001TtPltzByHeaderCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L7001TtPltzByHeaderCriteriaDomain.java
+END
+W1008PltzCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W1008PltzCriteriaDomain.java
+END
+WsBhtEisProductCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WsBhtEisProductCriteriaDomain.java
+END
+W2014XtagCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W2014XtagCriteriaDomain.java
+END
+Ws3501CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws3501CriteriaDomain.java
+END
+Ws2503CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2503CriteriaDomain.java
+END
+W1007ExpRequestCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W1007ExpRequestCriteriaDomain.java
+END
+LC001TtPltzByHeaderCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/LC001TtPltzByHeaderCriteriaDomain.java
+END
+W1006ExpRequestDtlCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W1006ExpRequestDtlCriteriaDomain.java
+END
+W1007ExpRequestDtlCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W1007ExpRequestDtlCriteriaDomain.java
+END
+WB001OdrRcvCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WB001OdrRcvCriteriaDomain.java
+END
+W9004UserIdMaCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W9004UserIdMaCriteriaDomain.java
+END
+W9014CgmWhXRefMaCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W9014CgmWhXRefMaCriteriaDomain.java
+END
+Ws3503CmlDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws3503CmlDomain.java
+END
+W1006ExpRequestDtlKitCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W1006ExpRequestDtlKitCriteriaDomain.java
+END
+Ws2502PkgItemNoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2502PkgItemNoCriteriaDomain.java
+END
+WS4501TtXpltzByXMainMarkCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WS4501TtXpltzByXMainMarkCriteriaDomain.java
+END
+WsR001MigrationCaseMarkRootCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WsR001MigrationCaseMarkRootCriteriaDomain.java
+END
+Ws2504PkgItemNoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2504PkgItemNoCriteriaDomain.java
+END
+Ws2508PkgItemNoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2508PkgItemNoCriteriaDomain.java
+END
+WS4501TtPltzByConditionCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WS4501TtPltzByConditionCriteriaDomain.java
+END
+Wt005CmlInfoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Wt005CmlInfoCriteriaDomain.java
+END
+W4005PltzCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W4005PltzCriteriaDomain.java
+END
+WsBhtTransferCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WsBhtTransferCriteriaDomain.java
+END
+W0002ServerCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W0002ServerCriteriaDomain.java
+END
+Ws0502CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws0502CriteriaDomain.java
+END
+Ws2501SumCmlWeightForUnitCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501SumCmlWeightForUnitCriteriaDomain.java
+END
+Ws2512CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2512CriteriaDomain.java
+END
+Ws3504CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws3504CriteriaDomain.java
+END
+W2005MixTagItemCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W2005MixTagItemCriteriaDomain.java
+END
+Ws2501TtPltzItemByKanbanCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501TtPltzItemByKanbanCriteriaDomain.java
+END
+Ws2501CntShipperCdCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501CntShipperCdCriteriaDomain.java
+END
+LB001VtRpOdrRcvErrReportByHdrCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/LB001VtRpOdrRcvErrReportByHdrCriteriaDomain.java
+END
+W1008PltzItemCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W1008PltzItemCriteriaDomain.java
+END
+W4001StgInstrCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W4001StgInstrCriteriaDomain.java
+END
+L7002TtShippingFirmByDetailCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L7002TtShippingFirmByDetailCriteriaDomain.java
+END
+Ws2502ItemNoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2502ItemNoCriteriaDomain.java
+END
+WsR001migrationCaseMarkDetailItemCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 185
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WsR001migrationCaseMarkDetailItemCriteriaDomain.java
+END
+Ws2501TmCustomerQrPatternHdrByDtlCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 185
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501TmCustomerQrPatternHdrByDtlCriteriaDomain.java
+END
+L4002TtPltzByPalletCartonTypCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 180
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L4002TtPltzByPalletCartonTypCriteriaDomain.java
+END
+WsB009CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WsB009CriteriaDomain.java
+END
+Ws2501PltzNxsShipToCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501PltzNxsShipToCriteriaDomain.java
+END
+Ws4501SearchFacadeServiceInputDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws4501SearchFacadeServiceInputDomain.java
+END
+W9018ExpFmlByItemMaCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W9018ExpFmlByItemMaCriteriaDomain.java
+END
+WsR001CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/WsR001CriteriaDomain.java
+END
+Wt011CntrySelectCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Wt011CntrySelectCriteriaDomain.java
+END
+W2005MixTagRtCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W2005MixTagRtCriteriaDomain.java
+END
+W1001ExpRequestCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W1001ExpRequestCriteriaDomain.java
+END
+W3TransferCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W3TransferCriteriaDomain.java
+END
+Ws2501CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501CriteriaDomain.java
+END
+LB001TtEdiRcvOdrReportByDetailCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/LB001TtEdiRcvOdrReportByDetailCriteriaDomain.java
+END
+Ws2501PkgMaterialsCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501PkgMaterialsCriteriaDomain.java
+END
+Ws2501TtPltzItemNwCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501TtPltzItemNwCriteriaDomain.java
+END
+Ws4504ProcessFacadeServiceInputDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws4504ProcessFacadeServiceInputDomain.java
+END
+MigCmlCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/MigCmlCriteriaDomain.java
+END
+W7001ShippingActCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/W7001ShippingActCriteriaDomain.java
+END
+Ws3507CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13688/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws3507CriteriaDomain.java
+END
+Ws2509CriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2509CriteriaDomain.java
+END
+L7001TtShippingActByHeaderCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L7001TtShippingActByHeaderCriteriaDomain.java
+END
+Ws2501TmNxsWhByXrefCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501TmNxsWhByXrefCriteriaDomain.java
+END
+L6003TtScAttachedBySumQtyCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/L6003TtScAttachedBySumQtyCriteriaDomain.java
+END
+Ws2503ItemNoCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2503ItemNoCriteriaDomain.java
+END
+Wt016UnregHsCdListCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Wt016UnregHsCdListCriteriaDomain.java
+END
+Ws2501TtMixTagCriteriaDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/domain/criteria/Ws2501TtMixTagCriteriaDomain.java
+END

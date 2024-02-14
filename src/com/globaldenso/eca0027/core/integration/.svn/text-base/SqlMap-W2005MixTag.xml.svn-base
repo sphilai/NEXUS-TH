@@ -1,0 +1,1229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-W2005MixTag.xml
+ *
+ * W2005MixTagDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="W2005MixTag">
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="W2005MixTagDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W2005MixTagDomain" />
+    <typeAlias alias="W2005MixTagItemDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W2005MixTagItemDomain" />
+    <typeAlias alias="W2005MixTagRtDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W2005MixTagRtDomain" />
+    <typeAlias alias="TtExpRcvOdrDomain"
+        type="com.globaldenso.eca0027.core.auto.business.domain.TtExpRcvOdrDomain" />
+
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W2005MixTagCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W2005MixTagCriteriaDomain" />
+    <typeAlias alias="W2005MixTagItemCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W2005MixTagItemCriteriaDomain" />
+    <typeAlias alias="W2005MixTagRtCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W2005MixTagRtCriteriaDomain" />
+    <typeAlias alias="TtExpRcvOdrCriteriaDomain"
+        type="com.globaldenso.eca0027.core.auto.business.domain.criteria.TtExpRcvOdrCriteriaDomain" />
+
+    <!-- 検索結果をMapで受け取る -->
+    <!-- 小箱内多品番梱包 (Main画面) -->
+    <resultMap id="W2005MixTagDomain_SearchForPagingTtMixtag" class="W2005MixTagDomain">
+        <result property="mixTagNo" column="MIX_TAG_NO" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />
+        <result property="mixTagStatus" column="MIX_TAG_STATUS" />
+        <result property="mixTagIssuer" column="MIX_TAG_ISSUER" />
+        <result property="mixTagIssueDt" column="MIX_TAG_ISSUE_DT" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+    </resultMap>
+    <!-- 小箱内多品番梱包 (Create画面 / Search) -->
+    <resultMap id="W2005MixTagItemDomain_SearchTtPltzInstr" class="W2005MixTagItemDomain">
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="packedQty" column="PACKED_QTY" />
+        <result property="instrQty" column="INSTR_QTY" />
+        <result property="odr" column="ODR" />
+        <result property="bo" column="BO" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="expLimitTyp" column="EXP_LIMIT_TYP" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="stockQty" column="STOCK_QTY" />
+        <result property="sumQty" column="SUM_QTY" />
+        <result property="qty" column="QTY" />
+        <result property="tagQty" column="TAG_QTY" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="netWeightA" column="NET_WEIGHT_A" />
+        <result property="lotSize" column="SHIP_LOT" />
+        <result property="rev" column="REV" />
+        <result property="maxRev" column="MAX_REV" />       
+    </resultMap>
+    <!-- 小箱内多品番梱包 (Create画面 / Search) -->
+    <resultMap id="W2005MixTagItemDomain_SearchTtExpRcvOdr" class="W2005MixTagItemDomain">
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="odr" column="ODR" />
+        <result property="bo" column="BO" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="expLimitTyp" column="EXP_LIMIT_TYP" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="qty" column="QTY" />
+        <result property="tagQty" column="TAG_QTY" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="netWeightA" column="NET_WEIGHT_A" />
+        <result property="lotSize" column="SHIP_LOT" />
+        <result property="rev" column="REV" />
+        <result property="maxRev" column="MAX_REV" />
+        <result property="stockQty" column="STOCK_QTY" />
+    </resultMap> 
+    <!-- 小箱内多品番梱包 (Register画面 / Init) -->
+    <resultMap id="W2005MixTagDomain_SearchTtMixtagItemNo" class="W2005MixTagDomain" groupBy="mixTagNo">
+        <result property="mixTagNo" column="MIX_TAG_NO" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />
+        <result property="whCompCd" column="WH_COMP_CD" />
+        <result property="whCd" column="WH_CD" />
+        <result property="mixTagStatus" column="MIX_TAG_STATUS" />
+        <result property="pltzInstrNo" column="PLTZ_INSTR_NO" />
+        <result property="netWeight" column="NET_WEIGHT" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="boxNo" column="BOX_NO" />
+        <result property="mixTagItemDomainList" resultMap="W2005MixTag.W2005MixTagItemDomain_SearchTtMixtagItemNo" />
+    </resultMap>
+    <resultMap id="W2005MixTagItemDomain_SearchTtMixtagItemNo" class="W2005MixTagItemDomain">
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="shippingLot" column="SHIPPING_LOT" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="tagQty" column="TAG_QTY" />
+        <result property="instrQty" column="INSTR_QTY" />
+        <result property="qty" column="QTY" />
+        <result property="auth" column="AUTH" />
+    </resultMap>
+    <!-- 小箱内多品番梱包 (Register画面 / Register) -->
+    <resultMap id="W2005MixTagRtDomain_SearchTwMixtagRt" class="W2005MixTagRtDomain">
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="volume" column="VOLUME" />
+    </resultMap>
+    <!-- 小箱内多品番梱包 (Header画面 / MoveToCreate) -->
+    <resultMap id="W2005MixTagDomain_SearchTtPltzInstrOnHeaderMoveToCreate" class="W2005MixTagDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />
+        <result property="pltzInstrStatus" column="PLTZ_INSTR_STATUS" />
+        <result property="compCd" column="COMP_CD" />
+        <result property="whCd" column="WH_CD" />
+    </resultMap>
+    <!-- 小箱内多品番梱包 (Register画面 / Register) -->
+    <resultMap id="W2005MixTagItemDomain_SearchTtMixtagItemNoByActualQtyOver" class="W2005MixTagItemDomain">
+        <result property="instrPkgedQty" column="PACKED_QTY" />
+        <result property="qty" column="QTY" />
+    </resultMap>
+    <!-- 小箱内多品番梱包 (Header画面 / MoveToCreate) -->
+    <resultMap id="W2005MixTagDomain_SearchTmCigmaWhXrefByAuth" class="W2005MixTagDomain">
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+    </resultMap>
+    <!-- 小箱内多品番梱包 (Register画面 / Register) -->
+    <resultMap id="TtExpRcvOdrDomain_LockTtExpRcvOdr" class="TtExpRcvOdrDomain">
+        <result property="rcvOdrCompCd" column="RCV_ODR_COMP_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="etdDueDt" column="ETD_DUE_DT" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="customerItemNoOrg" column="CUSTOMER_ITEM_NO_ORG" />
+        <result property="odrCtrlNo" column="ODR_CTRL_NO" />
+        <result property="odrQty" column="ODR_QTY" />
+        <result property="pltzAllocQty" column="PLTZ_ALLOC_QTY" />
+    </resultMap>
+    <resultMap id="TmPkgMtrlDomain_SearchPkgMaterials" class="TmPkgMtrlDomain">
+        <result property="ownerComp" column="OWNER_COMP" />
+        <result property="pkgItemNo" column="PKG_ITEM_NO" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="pkgWeight" column="PKG_WEIGHT" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="currCd" column="CURR_CD" />
+        <result property="rtTyp" column="RT_TYP" />
+        <result property="pkgMtrlNm" column="PKG_MTRL_NM" />
+    </resultMap>
+
+    <!-- =================================================================================================== -->
+    <!-- 小箱内多品番梱包(MixTag) Main / 検索                                                                -->
+    <!-- =================================================================================================== -->
+
+
+    <!-- サブ検索 (Main / 件数取得 & 検索) -->
+    <sql id="SubSearchTtMixtagByMain">
+        select distinct
+          A.MIX_TAG_NO
+        , A.CUSTOMER_CD
+        , A.LGCY_SHIP_TO
+        , A.TRNS_CD
+        , A.PLNT_CD
+        , A.LGCY_WH_CD
+        , A.MIX_TAG_STATUS
+        , A.MIX_TAG_ISSUER
+        , A.MIX_TAG_ISSUE_DT
+        , A.SHIPPER_CD
+      from
+          TT_MIXTAG A
+        , TT_MIXTAG_ITEM_NO B
+      where
+        A.MIX_TAG_NO = B.MIX_TAG_NO
+        <dynamic>
+            <isNotEmpty prepend="and" property="shipperCd">
+                A.SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCd">
+                A.CUSTOMER_CD = #customerCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipTo">
+                A.LGCY_SHIP_TO = #lgcyShipTo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCd">
+                A.TRNS_CD = #trnsCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="plntCd">
+                A.PLNT_CD = #plntCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyWhCd">
+                A.LGCY_WH_CD = #lgcyWhCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="mixTagStatus">
+                A.MIX_TAG_STATUS = #mixTagStatus#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="mixTagNo">
+                A.MIX_TAG_NO like concat(#mixTagNo#, '%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="mixTagIssueDtFrom">
+                #mixTagIssueDtFrom# <![CDATA[<]]> = A.MIX_TAG_ISSUE_DT
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="mixTagIssueDtTo">
+                A.MIX_TAG_ISSUE_DT <![CDATA[<]]>= #mixTagIssueDtTo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="mixTagIssuerId">
+                A.MIX_TAG_ISSUER_ID = #mixTagIssuerId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNo">
+                B.ITEM_NO like concat(#itemNo#, '%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCd">
+                B.PKG_CD like concat(#pkgCd#, '%')
+            </isNotEmpty>
+        </dynamic>
+        <!-- 権限チェック -->
+        and A.SHIPPER_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+        <isNotEmpty prepend="and" property="userAuthList">
+            (A.SHIPPER_CD, B.PLNT_CD) in (
+            <iterate property="userAuthList" conjunction=",">
+                (#userAuthList[].authMgtComp#, #userAuthList[].procMfgDivCd#)
+            </iterate>
+            )
+        </isNotEmpty>
+    </sql>
+
+    <!-- 検索 SQL文 (Main / 件数取得) -->
+    <select id="SearchCountTtMixtag" resultClass="java.lang.Integer"
+        parameterClass="W2005MixTagCriteriaDomain">
+        select /* SqlMap-W2005MixTag.SearchCountTtMixtag */
+               count(rownum)
+        from   (
+        <include refid="SubSearchTtMixtagByMain" />
+               )
+    </select>
+
+    <!-- 検索 SQL文 (Main / 検索) -->
+    <select id="SearchForPagingTtMixtag" resultMap="W2005MixTagDomain_SearchForPagingTtMixtag"
+        parameterClass="W2005MixTagCriteriaDomain">
+        select /* SqlMap-W2005MixTag.SearchForPagingTtMixtag */
+          MIX_TAG_NO
+          , CUSTOMER_CD
+          , LGCY_SHIP_TO
+          , TRNS_CD
+          , PLNT_CD
+          , LGCY_WH_CD
+          , MIX_TAG_STATUS
+          , MIX_TAG_ISSUER
+          , MIX_TAG_ISSUE_DT
+          , SHIPPER_CD
+        from
+        (
+          select
+            rownum ROW_NUM
+            , X.*
+          from
+            (
+             <include refid="SubSearchTtMixtagByMain" />
+              order by
+                A.CUSTOMER_CD
+                , A.LGCY_SHIP_TO
+                , A.TRNS_CD
+                , A.PLNT_CD
+                , A.LGCY_WH_CD
+                , A.MIX_TAG_STATUS
+                , A.MIX_TAG_NO desc
+            ) X
+        )
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+
+    <!-- =================================================================================================== -->
+    <!-- 小箱内多品番梱包(MixTag) Header / 検索                                                              -->
+    <!-- =================================================================================================== -->
+
+    <!-- 検索 SQL文 (Header画面 / MoveToCreate) -->
+    <select id="SearchTtPltzInstrOnHeaderMoveToCreate" resultMap="W2005MixTagDomain_SearchTtPltzInstrOnHeaderMoveToCreate"
+        parameterClass="W2005MixTagCriteriaDomain">
+
+        select /* SqlMap-W2005MixTag.SearchTtPltzInstrOnHeaderMoveToCreate */
+          A.SHIPPER_CD SHIPPER_CD
+          , A.PLTZ_INSTR_NO
+          , A.CUSTOMER_CD CUSTOMER_CD
+          , A.LGCY_SHIP_TO LGCY_SHIP_TO
+          , A.TRNS_CD TRNS_CD
+          , A.PLNT_CD PLNT_CD
+          , A.LGCY_WH_CD LGCY_WH_CD
+          , A.PLTZ_INSTR_STATUS PLTZ_INSTR_STATUS
+          , B.COMP_CD COMP_CD
+          , B.WH_CD WH_CD
+        from
+          TT_PLTZ_INSTR A
+          , TM_CIGMA_WH_XREF B
+        where
+          A.PLTZ_INSTR_NO = #pltzInstrNo#
+          and A.SHIPPER_CD = B.LGCY_LIB_COMP_CD(+)
+          and A.PLNT_CD = B.PLNT_CD(+)
+          and A.LGCY_WH_CD = B.LGCY_WH_CD(+)
+          <!-- 権限チェック -->
+          and A.SHIPPER_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+          <isNotEmpty prepend="and" property="userAuthList">
+              (A.SHIPPER_CD, A.PLNT_CD) in (
+              <iterate property="userAuthList" conjunction=",">
+                  (#userAuthList[].authMgtComp#, #userAuthList[].procMfgDivCd#)
+              </iterate>
+              )
+          </isNotEmpty>
+    </select>
+
+    <!-- 検索 SQL文 (Header画面 / MoveToCreate) -->
+    <select id="SearchTmCigmaWhXrefByAuth" resultMap="W2005MixTagDomain_SearchTmCigmaWhXrefByAuth"
+        parameterClass="W2005MixTagCriteriaDomain">
+
+        select /* SqlMap-W2005MixTag.SearchTmCigmaWhXrefByAuth */
+            LGCY_WH_CD
+            , PLNT_CD
+        from TM_CIGMA_WH_XREF
+        where
+            COMP_CD = #compCd#
+            and WH_CD = #whCd#
+            and LGCY_LIB_COMP_CD = #shipperCd#
+            <!-- 権限チェック -->
+            and LGCY_LIB_COMP_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+            <isNotEmpty prepend="and" property="userAuthList">
+                (LGCY_LIB_COMP_CD, PLNT_CD) in (
+                <iterate property="userAuthList" conjunction=",">
+                    (#userAuthList[].authMgtComp#, #userAuthList[].procMfgDivCd#)
+                </iterate>
+                )
+            </isNotEmpty>
+    </select>
+
+    <!-- =================================================================================================== -->
+    <!-- 小箱内多品番梱包(MixTag) Create / 検索                                                              -->
+    <!-- =================================================================================================== -->
+
+    <!-- サブ検索 -->
+    <sql id="SubSearchTtPltzInstr">
+
+        select
+          T1.ITEM_NO
+          , T1.PKG_CD
+          , T1.PACKED_QTY
+          , T1.INSTR_QTY
+          , T5.ODR
+          , T5.BO
+          , T3.CONTAINER_SORTING_KEY
+          , T3.LOADING_CD
+          , T3.INVOICE_KEY
+          , case when T1.TRNS_CD = 'A' then 'Z'
+              else T3.CUSTOM_TIMING_TYP
+              end "CUSTOM_TIMING_TYP"
+          , case when T1.TRNS_CD = 'A' then 'L'
+              else T3.CONTAINER_LOOSE_TYP
+              end "CONTAINER_LOOSE_TYP"
+          , T3.ITEM_DESCRIPTION
+          , T2.EXP_LIMIT_TYP
+          , T2.DNGR_ITEM_FLG
+          , T2.ORIGIN_CNTRY_CD
+          , T7.QTY STOCK_QTY
+          , nvl(T4.SUM_QTY, 0) SUM_QTY
+          , T8.QTY
+          , T8.TAG_QTY
+          , T6.WEIGHT_UNIT
+          , T6.NET_WEIGHT_A
+          , nvl(T6.SHIP_LOT, 0) SHIP_LOT
+          , T6.REV
+          , T6.MAX_REV
+        from
+          (
+            select
+              A.PLTZ_INSTR_NO
+              , A.SHIPPER_CD
+              , A.CUSTOMER_CD
+              , A.LGCY_SHIP_TO
+              , A.TRNS_CD
+              , A.LGCY_WH_CD
+              , B.ITEM_NO
+              , B.PKG_CD
+              , B.PACKED_QTY
+              , B.INSTR_QTY
+            from
+              TT_PLTZ_INSTR A
+              , TT_PLTZ_INSTR_ITEM_NO B
+            where
+              A.PLTZ_INSTR_NO = B.PLTZ_INSTR_NO
+              and A.PLTZ_INSTR_NO = #pltzInstrNo#
+              <dynamic>
+                  <isNotEmpty prepend="and" property="itemNo">
+                      B.ITEM_NO like concat(#itemNo#, '%')
+                  </isNotEmpty>
+                  <isNotEmpty prepend="and" property="pkgCd">
+                      B.PKG_CD like concat(#pkgCd#, '%')
+                  </isNotEmpty>
+              </dynamic>
+              <!-- 権限チェック -->
+              and A.SHIPPER_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId# )
+              <isNotEmpty prepend="and" property="userAuthList">
+                  (A.SHIPPER_CD, A.PLNT_CD) in (
+                  <iterate property="userAuthList" conjunction=",">
+                      (#userAuthList[].authMgtComp#, #userAuthList[].procMfgDivCd#)
+                  </iterate>
+                  )
+              </isNotEmpty>
+          ) T1
+          , (
+            select
+              C.COMP_CD
+              , C.ITEM_NO
+              , C.EXP_LIMIT_TYP
+              , C.DNGR_ITEM_FLG
+              , C.ORIGIN_CNTRY_CD
+            from
+              TM_EXP_FORMALITI_ITEM_NO C
+              , (
+                select
+                  COMP_CD
+                  , ITEM_NO
+                  , max(APLY_STRT_DT) MAX_APLY_STRT_DT
+                from
+                  TM_EXP_FORMALITI_ITEM_NO
+                where
+                  APLY_STRT_DT <![CDATA[<=]]> #aplyStrtDt# <!-- タイムゾーン変換日付 -->
+                group by
+                  COMP_CD
+                  , ITEM_NO
+              ) D
+            where
+              C.COMP_CD = D.COMP_CD
+              and C.ITEM_NO = D.ITEM_NO
+              and C.APLY_STRT_DT = D.MAX_APLY_STRT_DT
+          ) T2
+          , (
+            select
+              E.COMP_CD
+              , E.CUSTOMER_CD
+              , E.LGCY_SHIP_TO
+              , E.ITEM_NO
+              , E.PKG_CD
+              , E.CONTAINER_SORTING_KEY
+              , E.LOADING_CD
+              , E.INVOICE_KEY
+              , E.STG_INSTR_ITEM_FLG
+              , E.CUSTOM_TIMING_TYP
+              , E.CONTAINER_LOOSE_TYP
+              , E.ITEM_DESCRIPTION
+            from
+              TM_EXP_ITEM_NO_SP_INFO E
+              , (
+                select
+                  COMP_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , ITEM_NO
+                  , PKG_CD
+                  , max(APLY_STRT_DT) MAX_APLY_STRT_DT
+                from
+                  TM_EXP_ITEM_NO_SP_INFO
+                where APLY_STRT_DT <![CDATA[<=]]> #aplyStrtDt# <!-- タイムゾーン変換日付 -->
+                group by
+                  COMP_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , ITEM_NO
+                  , PKG_CD
+              ) F
+            where
+              E.COMP_CD = F.COMP_CD
+              and E.CUSTOMER_CD = F.CUSTOMER_CD
+              and E.LGCY_SHIP_TO = F.LGCY_SHIP_TO
+              and E.ITEM_NO = F.ITEM_NO
+              and E.PKG_CD = F.PKG_CD
+              and E.APLY_STRT_DT = F.MAX_APLY_STRT_DT
+              and E.STG_INSTR_ITEM_FLG = 'N'
+          ) T3
+          , (
+            select
+              G.PLTZ_INSTR_NO
+              , H.ITEM_NO
+              , H.PKG_CD
+              , sum(H.QTY) SUM_QTY
+            from
+              TT_MIXTAG G
+              , TT_MIXTAG_ITEM_NO H
+            where
+              G.MIX_TAG_STATUS = '10'
+              and G.MIX_TAG_NO = H.MIX_TAG_NO
+            group by
+              G.PLTZ_INSTR_NO
+              , H.ITEM_NO
+              , H.PKG_CD
+          ) T4
+          , (
+            select
+              I.RCV_ODR_COMP_CD
+              , I.ITEM_NO
+              , I.PKG_CD
+              , I.CUSTOMER_CD
+              , I.LGCY_SHIP_TO
+              , I.TRNS_CD
+              , I.ODR
+              , nvl(J.BO, 0) BO
+            from
+              (
+                select
+                  RCV_ODR_COMP_CD
+                  , ITEM_NO
+                  , PKG_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , TRNS_CD
+                  , sum(ODR_QTY - PLTZ_ALLOC_QTY) ODR
+                from
+                  TT_EXP_RCV_ODR
+                where
+                  ODR_FIRM_FLG = 'Y'
+                  and SHIPPED_TYP = '1'
+                group by
+                  RCV_ODR_COMP_CD
+                  , ITEM_NO
+                  , PKG_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , TRNS_CD
+              ) I
+              , (
+                select
+                  RCV_ODR_COMP_CD
+                  , ITEM_NO
+                  , PKG_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , TRNS_CD
+                  , sum(ODR_QTY - PLTZ_ALLOC_QTY) BO
+                from
+                  TT_EXP_RCV_ODR
+                where
+                  ODR_FIRM_FLG = 'Y'
+                  and SHIPPED_TYP = '1'
+                  and SHIPPING_DT <![CDATA[<=]]> #shippingDt# <!-- タイムゾーン変換日付（荷主基準） -->
+                group by
+                  RCV_ODR_COMP_CD
+                  , ITEM_NO
+                  , PKG_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , TRNS_CD
+              ) J
+            where
+              I.RCV_ODR_COMP_CD = J.RCV_ODR_COMP_CD(+)
+              and I.ITEM_NO = J.ITEM_NO(+)
+              and I.PKG_CD = J.PKG_CD(+)
+              and I.CUSTOMER_CD = J.CUSTOMER_CD(+)
+              and I.LGCY_SHIP_TO = J.LGCY_SHIP_TO(+)
+              and I.TRNS_CD = J.TRNS_CD(+)
+          ) T5
+          , (
+            select
+              N.COMP_CD
+              , K.ITEM_NO
+              , K.PKG_CD
+              , O.WEIGHT_UNIT
+              , O.NET_WEIGHT_A
+              , K.TRNS_CD
+              , K.REV
+              , K.SHIP_LOT
+              , M.MAX_REV
+            from
+              TM_PKG_SPEC_HDR K
+              , (
+                select
+                  L.OWNER_COMP
+                  , L.ITEM_NO
+                  , L.PKG_CD
+                  , L.TRNS_CD
+                  , L.N_PROC
+                  , max(L.REV) MAX_REV
+                from
+                  TM_PKG_SPEC_HDR L
+                group by
+                  L.OWNER_COMP
+                  , L.ITEM_NO
+                  , L.PKG_CD
+                  , L.TRNS_CD
+                  , L.N_PROC
+              ) M
+              , TM_PKG_SPEC_REV N
+              , TM_ACTUAL_ITEM_WEIGHT O
+            where
+              K.PKG_FORM_TYP = 'M'
+              and K.MLT_IN_BOX_ALLOW_FLG = '1'
+              and K.N_PROC = ' '
+              and K.OWNER_COMP = M.OWNER_COMP
+              and K.ITEM_NO = M.ITEM_NO 
+              and K.PKG_CD = M.PKG_CD
+              and K.TRNS_CD = M.TRNS_CD
+              and K.N_PROC = M.N_PROC
+              and K.OWNER_COMP = N.COMP_CD
+              and K.ITEM_NO = N.ITEM_NO
+              and K.PKG_CD = N.PKG_CD
+              and K.TRNS_CD = N.TRNS_CD
+              and K.N_PROC = N.N_PROC
+              and K.REV = N.REV
+              and K.OWNER_COMP = O.OWNER_COMP
+              and K.ITEM_NO = O.ITEM_NO
+          ) T6
+          , TT_TMP_STOCK T7
+          , (select
+               ITEM_NO
+               , PKG_CD
+               , QTY
+               , TAG_QTY
+             from
+               TW_MIXTAG
+             where
+               DSC_ID = #loginUserDscId# <!-- ログインDSC-ID -->
+             ) T8
+        where
+          T1.SHIPPER_CD = T5.RCV_ODR_COMP_CD(+)
+          <dynamic>
+              <isNotEmpty prepend="and" property="containerSortingKey">
+                  T3.CONTAINER_SORTING_KEY like concat(#containerSortingKey#, '%')
+              </isNotEmpty>
+              <isNotEmpty prepend="and" property="loadingCd">
+                  T3.LOADING_CD = #loadingCd#
+              </isNotEmpty>
+          </dynamic>
+          and T1.CUSTOMER_CD = T5.CUSTOMER_CD(+)
+          and T1.LGCY_SHIP_TO = T5.LGCY_SHIP_TO(+)
+          and T1.TRNS_CD = T5.TRNS_CD(+)
+          and T1.ITEM_NO = T5.ITEM_NO(+)
+          and T1.PKG_CD = T5.PKG_CD(+)
+          and T1.SHIPPER_CD = T3.COMP_CD
+          and T1.CUSTOMER_CD = T3.CUSTOMER_CD
+          and T1.LGCY_SHIP_TO = T3.LGCY_SHIP_TO
+          and T1.ITEM_NO = T3.ITEM_NO
+          and T1.PKG_CD = T3.PKG_CD
+          and T1.SHIPPER_CD = T2.COMP_CD
+          and T1.ITEM_NO = T2.ITEM_NO
+          and T1.SHIPPER_CD = T7.SHIPPER_CD(+)
+          and T1.LGCY_WH_CD = T7.LGCY_WH_CD(+)
+          and T1.ITEM_NO = T7.ITEM_NO(+)
+          and T1.PKG_CD = T7.PKG_CD(+)
+          and T1.PLTZ_INSTR_NO = T4.PLTZ_INSTR_NO(+)
+          and T1.ITEM_NO = T4.ITEM_NO(+)
+          and T1.PKG_CD = T4.PKG_CD(+)
+          and T1.ITEM_NO = T8.ITEM_NO(+)
+          and T1.PKG_CD = T8.PKG_CD(+)
+          and T1.SHIPPER_CD = T6.COMP_CD
+          and T1.ITEM_NO = T6.ITEM_NO
+          and T1.TRNS_CD = T6.TRNS_CD
+          and T1.PKG_CD = T6.PKG_CD
+          and T1.INSTR_QTY <![CDATA[>]]> (T1.PACKED_QTY + nvl(T4.SUM_QTY, 0))
+    </sql>
+    
+    <!-- サブ検索 -->
+    <sql id="SubSearchTtExpRcvOdr">
+
+        select
+          T5.ITEM_NO
+          , T5.PKG_CD
+          , T5.ODR
+          , T5.BO
+          , T3.CONTAINER_SORTING_KEY
+          , T3.LOADING_CD
+          , T3.INVOICE_KEY
+          , case when T5.TRNS_CD = 'A' then 'Z'
+              else T3.CUSTOM_TIMING_TYP
+              end "CUSTOM_TIMING_TYP"
+          , case when T5.TRNS_CD = 'A' then 'L'
+              else T3.CONTAINER_LOOSE_TYP
+              end "CONTAINER_LOOSE_TYP"
+          , T3.ITEM_DESCRIPTION
+          , T2.EXP_LIMIT_TYP
+          , T2.DNGR_ITEM_FLG
+          , T2.ORIGIN_CNTRY_CD
+          , T8.QTY
+          , T8.TAG_QTY
+          , T6.WEIGHT_UNIT
+          , T6.NET_WEIGHT_A
+          , nvl(T6.SHIP_LOT, 0) SHIP_LOT
+          , T6.REV
+          , T6.MAX_REV
+          , T7.QTY STOCK_QTY
+        from
+          (
+            select
+              C.COMP_CD
+              , C.ITEM_NO
+              , C.EXP_LIMIT_TYP
+              , C.DNGR_ITEM_FLG
+              , C.ORIGIN_CNTRY_CD
+            from
+              TM_EXP_FORMALITI_ITEM_NO C
+              , (
+                select
+                  COMP_CD
+                  , ITEM_NO
+                  , max(APLY_STRT_DT) MAX_APLY_STRT_DT
+                from
+                  TM_EXP_FORMALITI_ITEM_NO
+                where
+                  APLY_STRT_DT <![CDATA[<=]]> #aplyStrtDt# <!-- タイムゾーン変換日付 -->
+                group by
+                  COMP_CD
+                  , ITEM_NO
+              ) D
+            where
+              C.COMP_CD = D.COMP_CD
+              and C.ITEM_NO = D.ITEM_NO
+              and C.APLY_STRT_DT = D.MAX_APLY_STRT_DT
+          ) T2
+          , (
+            select
+              E.COMP_CD
+              , E.CUSTOMER_CD
+              , E.LGCY_SHIP_TO
+              , E.ITEM_NO
+              , E.PKG_CD
+              , E.CONTAINER_SORTING_KEY
+              , E.LOADING_CD
+              , E.INVOICE_KEY
+              , E.STG_INSTR_ITEM_FLG
+              , E.CUSTOM_TIMING_TYP
+              , E.CONTAINER_LOOSE_TYP
+              , E.ITEM_DESCRIPTION
+            from
+              TM_EXP_ITEM_NO_SP_INFO E
+              , (
+                select
+                  COMP_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , ITEM_NO
+                  , PKG_CD
+                  , max(APLY_STRT_DT) MAX_APLY_STRT_DT
+                from
+                  TM_EXP_ITEM_NO_SP_INFO
+                where
+                  APLY_STRT_DT <![CDATA[<=]]> #aplyStrtDt# <!-- タイムゾーン変換日付 -->
+                group by
+                  COMP_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , ITEM_NO
+                  , PKG_CD
+              ) F
+            where
+              E.COMP_CD = F.COMP_CD
+              and E.CUSTOMER_CD = F.CUSTOMER_CD
+              and E.LGCY_SHIP_TO = F.LGCY_SHIP_TO
+              and E.ITEM_NO = F.ITEM_NO
+              and E.PKG_CD = F.PKG_CD
+              and E.APLY_STRT_DT = F.MAX_APLY_STRT_DT
+              and E.STG_INSTR_ITEM_FLG = 'N'
+          ) T3
+          , (
+            select
+              I.RCV_ODR_COMP_CD
+              , I.ITEM_NO
+              , I.PKG_CD
+              , I.CUSTOMER_CD
+              , I.LGCY_SHIP_TO
+              , I.TRNS_CD
+              , I.ODR
+              , nvl(J.BO, 0) BO
+            from
+              (
+                select
+                  RCV_ODR_COMP_CD
+                  , ITEM_NO
+                  , PKG_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , TRNS_CD
+                  , nvl(sum(ODR_QTY - PLTZ_ALLOC_QTY), 0) ODR
+                from
+                  TT_EXP_RCV_ODR
+                where
+                  RCV_ODR_COMP_CD = #rcvOdrCompCd# <!-- sessionから -->
+                  and CUSTOMER_CD = #customerCd# <!-- sessionから -->
+                  and LGCY_SHIP_TO = #lgcyShipTo# <!-- sessionから -->
+                  and TRNS_CD = #trnsCd# <!-- sessionから -->
+                  <dynamic>
+                      <isNotEmpty prepend="and" property="itemNo">
+                          ITEM_NO like concat(#itemNo#, '%')
+                      </isNotEmpty>
+                      <isNotEmpty prepend="and" property="pkgCd">
+                          PKG_CD like concat(#pkgCd#, '%')
+                      </isNotEmpty>
+                  </dynamic>
+                  and ODR_FIRM_FLG = 'Y'
+                  and SHIPPED_TYP = '1'
+                group by
+                  RCV_ODR_COMP_CD
+                  , ITEM_NO
+                  , PKG_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , TRNS_CD
+              ) I
+              , (
+                select
+                  RCV_ODR_COMP_CD
+                  , ITEM_NO
+                  , PKG_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , TRNS_CD
+                  , nvl(sum(ODR_QTY - PLTZ_ALLOC_QTY), 0) BO
+                from
+                  TT_EXP_RCV_ODR
+                where
+                  ODR_FIRM_FLG = 'Y'
+                  and SHIPPED_TYP = '1'
+                  and SHIPPING_DT <![CDATA[<=]]> #shippingDt# <!-- タイムゾーン変換日付 -->
+                group by
+                  RCV_ODR_COMP_CD
+                  , ITEM_NO
+                  , PKG_CD
+                  , CUSTOMER_CD
+                  , LGCY_SHIP_TO
+                  , TRNS_CD
+              ) J
+            where
+              I.RCV_ODR_COMP_CD = J.RCV_ODR_COMP_CD(+)
+              and I.ITEM_NO = J.ITEM_NO(+)
+              and I.PKG_CD = J.PKG_CD(+)
+              and I.CUSTOMER_CD = J.CUSTOMER_CD(+)
+              and I.LGCY_SHIP_TO = J.LGCY_SHIP_TO(+)
+              and I.TRNS_CD = J.TRNS_CD(+)
+          ) T5
+          , (
+            select
+              N.COMP_CD
+              , K.ITEM_NO
+              , K.PKG_CD
+              , O.WEIGHT_UNIT
+              , O.NET_WEIGHT_A
+              , K.TRNS_CD
+              , K.REV
+              , K.SHIP_LOT
+              , M.MAX_REV
+            from
+              TM_PKG_SPEC_HDR K
+              , (
+                select
+                  L.OWNER_COMP
+                  , L.ITEM_NO
+                  , L.PKG_CD
+                  , L.TRNS_CD
+                  , L.N_PROC
+                  , max(L.REV) MAX_REV
+                from
+                  TM_PKG_SPEC_HDR L
+                group by
+                  L.OWNER_COMP
+                  , L.ITEM_NO
+                  , L.PKG_CD
+                  , L.TRNS_CD
+                  , L.N_PROC
+              ) M
+              , TM_PKG_SPEC_REV N
+              , TM_ACTUAL_ITEM_WEIGHT O
+            where
+              K.PKG_FORM_TYP = 'M'
+              and K.MLT_IN_BOX_ALLOW_FLG = '1'
+              and K.OWNER_COMP = M.OWNER_COMP
+              and K.ITEM_NO = M.ITEM_NO 
+              and K.PKG_CD = M.PKG_CD
+              and K.TRNS_CD = M.TRNS_CD
+              and K.N_PROC = M.N_PROC
+              and K.OWNER_COMP = N.COMP_CD
+              and K.ITEM_NO = N.ITEM_NO
+              and K.PKG_CD = N.PKG_CD
+              and K.TRNS_CD = N.TRNS_CD
+              and K.N_PROC = N.N_PROC
+              and K.REV = N.REV
+              and K.OWNER_COMP = O.OWNER_COMP
+              and K.ITEM_NO = O.ITEM_NO
+          ) T6
+          , (select
+               SHIPPER_CD
+               , ITEM_NO
+               , PKG_CD
+               , QTY 
+             from
+               TT_TMP_STOCK
+             where
+               LGCY_WH_CD = #lgcyWhCd# <!-- session -->
+             ) T7
+          , (select
+               ITEM_NO
+               , PKG_CD
+               , QTY
+               , TAG_QTY
+             from
+               TW_MIXTAG
+             where
+               DSC_ID = #loginUserDscId# <!-- ログインDSC-ID -->
+             ) T8
+        where
+          T5.RCV_ODR_COMP_CD = T3.COMP_CD(+)
+        <dynamic>
+            <isNotEmpty prepend="and" property="containerSortingKey">
+                T3.CONTAINER_SORTING_KEY like concat(#containerSortingKey#, '%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="loadingCd">
+                T3.LOADING_CD = #loadingCd#
+            </isNotEmpty>
+        </dynamic>
+          and T5.CUSTOMER_CD = T3.CUSTOMER_CD
+          and T5.LGCY_SHIP_TO = T3.LGCY_SHIP_TO
+          and T5.ITEM_NO = T3.ITEM_NO
+          and T5.PKG_CD = T3.PKG_CD
+          and T5.RCV_ODR_COMP_CD = T2.COMP_CD
+          and T5.ITEM_NO = T2.ITEM_NO
+          and T5.ITEM_NO = T8.ITEM_NO(+)
+          and T5.PKG_CD = T8.PKG_CD(+)
+          and T5.RCV_ODR_COMP_CD = T6.COMP_CD
+          and T5.ITEM_NO = T6.ITEM_NO
+          and T5.PKG_CD = T6.PKG_CD
+          and T5.TRNS_CD = T6.TRNS_CD
+          and T5.RCV_ODR_COMP_CD = T7.SHIPPER_CD(+)
+          and T5.ITEM_NO = T7.ITEM_NO(+)
+          and T5.PKG_CD = T7.PKG_CD(+)
+    </sql>
+
+    <!-- 検索 SQL文 (Create / 検索 / 梱包指示の場合) -->
+    <select id="SearchTtPltzInstr" resultMap="W2005MixTagItemDomain_SearchTtPltzInstr"
+        parameterClass="W2005MixTagItemCriteriaDomain">
+
+        select /* SqlMap-W2005MixTag.SearchTtPltzInstr */
+          ITEM_NO
+          , PKG_CD
+          , PACKED_QTY
+          , INSTR_QTY
+          , ODR
+          , BO
+          , CONTAINER_SORTING_KEY
+          , LOADING_CD
+          , INVOICE_KEY
+          , CUSTOM_TIMING_TYP
+          , CONTAINER_LOOSE_TYP
+          , ITEM_DESCRIPTION
+          , EXP_LIMIT_TYP
+          , DNGR_ITEM_FLG
+          , ORIGIN_CNTRY_CD
+          , STOCK_QTY
+          , SUM_QTY
+          , QTY
+          , TAG_QTY
+          , WEIGHT_UNIT
+          , NET_WEIGHT_A
+          , SHIP_LOT
+          , REV
+          , MAX_REV
+        from
+        (
+          select
+            X.*
+          from
+            (
+            <include refid="SubSearchTtPltzInstr" />
+            )  X
+        order by
+              nvl(X.CONTAINER_SORTING_KEY, 'zzzzzzzz')
+              , nvl(X.LOADING_CD, 'z')
+              , X.ITEM_NO
+              , X.PKG_CD
+        )
+
+    </select>
+
+    <!-- 検索 SQL文 (Create / 検索 / 成行の場合) -->
+    <select id="SearchTtExpRcvOdr" resultMap="W2005MixTagItemDomain_SearchTtExpRcvOdr"
+        parameterClass="W2005MixTagItemCriteriaDomain">
+
+        select /* SqlMap-W2005MixTag.SearchTtExpRcvOdr */
+          ITEM_NO
+          , PKG_CD
+          , ODR
+          , BO
+          , CONTAINER_SORTING_KEY
+          , LOADING_CD
+          , INVOICE_KEY
+          , CUSTOM_TIMING_TYP
+          , CONTAINER_LOOSE_TYP
+          , ITEM_DESCRIPTION
+          , EXP_LIMIT_TYP
+          , DNGR_ITEM_FLG
+          , ORIGIN_CNTRY_CD
+          , QTY
+          , TAG_QTY
+          , WEIGHT_UNIT
+          , NET_WEIGHT_A
+          , SHIP_LOT
+          , REV
+          , MAX_REV
+          , STOCK_QTY
+        from          
+        (select
+           X.*
+        from
+          (
+            <include refid="SubSearchTtExpRcvOdr" />
+          ) X
+        order by
+              nvl(X.CONTAINER_SORTING_KEY, 'zzzzzzzz')
+              , nvl(X.LOADING_CD, 'z')
+              , X.ITEM_NO
+              , X.PKG_CD
+        )
+
+    </select>
+
+    <!-- =================================================================================================== -->
+    <!-- 小箱内多品番梱包(MixTag) Register / 検索                                                            -->
+    <!-- =================================================================================================== -->
+
+    <!-- 検索 SQL文 (Register画面 / Init) -->
+    <select id="SearchTtMixtagItemNo" resultMap="W2005MixTagDomain_SearchTtMixtagItemNo"
+        parameterClass="W2005MixTagCriteriaDomain">
+
+        select /* SqlMap-W2005MixTag.SearchTtMixtagItemNo */
+          A.MIX_TAG_NO MIX_TAG_NO
+          , A.CUSTOMER_CD CUSTOMER_CD
+          , A.LGCY_SHIP_TO LGCY_SHIP_TO
+          , A.TRNS_CD TRNS_CD
+          , A.PLNT_CD PLNT_CD
+          , A.LGCY_WH_CD LGCY_WH_CD
+          , A.WH_COMP_CD WH_COMP_CD
+          , A.WH_CD WH_CD
+          , A.MIX_TAG_STATUS MIX_TAG_STATUS
+          , A.PLTZ_INSTR_NO PLTZ_INSTR_NO
+          , A.NET_WEIGHT NET_WEIGHT
+          , A.GROSS_WEIGHT GROSS_WEIGHT
+          , A.WEIGHT_UNIT WEIGHT_UNIT
+          , A.CONTAINER_SORTING_KEY CONTAINER_SORTING_KEY
+          , A.LOADING_CD LOADING_CD
+          , A.INVOICE_KEY INVOICE_KEY
+          , A.SHIPPER_CD SHIPPER_CD
+          , A.BOX_NO BOX_NO
+          , B.ITEM_NO ITEM_NO
+          , B.PKG_CD PKG_CD
+          , B.SHIPPING_LOT SHIPPING_LOT
+          , B.ITEM_DESCRIPTION ITEM_DESCRIPTION
+          , B.TAG_QTY TAG_QTY
+          , B.INSTR_QTY INSTR_QTY
+          , B.QTY  QTY
+          <isEmpty property="userAuthList">
+          , null AUTH
+          </isEmpty>
+          <isNotEmpty property="userAuthList">
+          , ( select    
+                min(   
+                    case  
+                        <iterate property="userAuthList"> 
+                              when A.SHIPPER_CD = #userAuthList[].authMgtComp# and B.PLNT_CD = #userAuthList[].procMfgDivCd# then #userAuthList[].authority#
+                        </iterate> 
+                        else '0'
+                    end  
+                )
+            from    
+                TT_MIXTAG_ITEM_NO BB
+            where    
+                BB.MIX_TAG_NO = A.MIX_TAG_NO 
+            and BB.MIX_TAG_NO = B.MIX_TAG_NO
+          ) AUTH
+          </isNotEmpty>
+        from
+          TT_MIXTAG A
+          , TT_MIXTAG_ITEM_NO B
+        where
+          A.MIX_TAG_NO = B.MIX_TAG_NO
+        and A.MIX_TAG_NO = #mixTagNo#      <!-- 画面遷移元によって決まる -->
+        <!-- 権限チェック -->
+        and A.SHIPPER_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId# )
+        order by B.ITEM_NO, B.PKG_CD
+    </select>
+
+    <!-- 検索 SQL文 (Register画面 / Register) -->
+    <select id="SearchTwMixtagRt" resultMap="W2005MixTagRtDomain_SearchTwMixtagRt"
+        parameterClass="W2005MixTagRtCriteriaDomain">
+        
+        select /* SqlMap-W2005MixTag.SearchTwMixtagRt */
+          WEIGHT_UNIT
+          ,SUM(QTY * PKG_WEIGHT) VOLUME
+        from
+          TW_MIXTAG_RT
+        where
+          DSC_ID = #dscId#
+        group by
+          WEIGHT_UNIT
+
+    </select>
+
+    <!-- 検索 SQL文 (Register画面 / Register) -->
+    <select id="SearchTtMixtagItemNoByActualQtyOver" resultMap="W2005MixTagItemDomain_SearchTtMixtagItemNoByActualQtyOver"
+        parameterClass="W2005MixTagCriteriaDomain">
+        select /* SqlMap-W2005MixTag.SearchTtMixtagItemNoByActualQtyOver */
+             A.PACKED_QTY  
+            ,nvl(B.QTY, 0) QTY
+        from
+            TT_PLTZ_INSTR_ITEM_NO A
+           ,( select
+                   BA.MIX_TAG_NO
+                  ,BA.PLTZ_INSTR_NO
+                  ,BA.MIX_TAG_STATUS
+                  ,BB.ITEM_NO
+                  ,BB.PKG_CD
+                  ,sum(BB.QTY) QTY
+              from
+                  TT_MIXTAG BA
+                 ,TT_MIXTAG_ITEM_NO BB
+              where
+                    BA.MIX_TAG_NO = BB.MIX_TAG_NO
+                and BA.MIX_TAG_STATUS = '10'
+                and BB.ITEM_NO = #itemNo#
+                and BB.PKG_CD = #pkgCd#
+              group by
+                    BA.MIX_TAG_NO
+                   ,BA.PLTZ_INSTR_NO
+                   ,BA.MIX_TAG_STATUS
+                   ,BB.ITEM_NO
+                   ,BB.PKG_CD ) B
+        where
+              A.PLTZ_INSTR_NO = B.PLTZ_INSTR_NO (+)
+          and A.ITEM_NO = B.ITEM_NO (+)
+          and A.PKG_CD = B.PKG_CD (+)
+          and A.PLTZ_INSTR_NO = #pltzInstrNo#
+          and A.ITEM_NO = #itemNo#
+          and A.PKG_CD = #pkgCd#
+
+    </select>
+
+    <!-- =================================================================================================== -->
+    <!-- 小箱内多品番梱包(MixTag) Register / 輸出受注 (ロック)                                               -->
+    <!-- =================================================================================================== -->
+
+    <!-- ロック検索 SQL文 -->
+    <select id="LockTtExpRcvOdr" resultMap="TtExpRcvOdrDomain_LockTtExpRcvOdr"
+        parameterClass="TtExpRcvOdrCriteriaDomain">
+        select /* SqlMap-W2005MixTag.LockTtExpRcvOdr */
+          RCV_ODR_COMP_CD
+          , CUSTOMER_CD
+          , LGCY_SHIP_TO
+          , ITEM_NO
+          , PKG_CD
+          , TRNS_CD
+          , ETD_DUE_DT
+          , CUSTOMER_PO_NO
+          , CUSTOMER_ITEM_NO
+          , CUSTOMER_ITEM_NO_ORG
+          , ODR_CTRL_NO
+          , ODR_QTY
+          , PLTZ_ALLOC_QTY
+        from 
+          TT_EXP_RCV_ODR
+        where
+          RCV_ODR_COMP_CD = #rcvOdrCompCd#
+          and CUSTOMER_CD = #customerCd#
+          and LGCY_SHIP_TO = #lgcyShipTo#
+          and TRNS_CD = #trnsCd#
+          and ITEM_NO = #itemNo#
+          and PKG_CD = #pkgCd#
+          and ODR_FIRM_FLG = 'Y'
+          and SHIPPED_TYP = '1'
+        order by
+          ETD_DUE_DT
+          , CUSTOMER_PO_NO
+          , ODR_CTRL_NO
+        for update nowait
+    </select>
+    
+    <select id="SearchPkgMaterials" resultMap="TmPkgMtrlDomain_SearchPkgMaterials"
+     parameterClass="TmPkgMtrlCriteriaDomain">
+        select /* SqlMap-W2005MixTag.SearchPkgMaterials */
+          A.OWNER_COMP
+          , A.PKG_ITEM_NO
+          , A.MODEL_CD
+          , A.WEIGHT_UNIT
+          , A.PKG_WEIGHT
+          , A.ORIGIN_CNTRY_CD
+          , A.CURR_CD
+          , A.RT_TYP
+          , A.PKG_MTRL_NM
+        from
+          TM_PKG_MTRL A
+        where
+          A.OWNER_COMP = #ownerComp#
+          and A.PKG_ITEM_NO = #pkgItemNo#
+          and A.PKG_EXP_DT is null
+    </select>
+
+</sqlMap>

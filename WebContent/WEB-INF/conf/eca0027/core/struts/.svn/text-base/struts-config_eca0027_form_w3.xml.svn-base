@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config_eca0027_form_w2.xml
+ * 
+ * AI-J2(Struts) の form設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <display-name></display-name>
+    <description></description>
+    <!-- Application Form Bean Definitions ================================= -->
+    <form-beans>
+        <!-- W3001: Action Domain -->
+        <form-bean name="W3001Form"
+            type="com.globaldenso.eca0027.core.presentation.W3001ActionForm">
+        </form-bean>
+
+        <!-- W3002: Action Domain -->
+        <form-bean name="W3002Form"
+            type="com.globaldenso.eca0027.core.presentation.W3002ActionForm">
+        </form-bean>
+
+        <!-- W3003: Action Domain -->
+        <form-bean name="W3003Form"
+            type="com.globaldenso.eca0027.core.presentation.W3003ActionForm">
+        </form-bean>
+<!-- TIS Tanaka Start -->
+        <!-- W3004: Action Domain -->
+        <form-bean name="W3004Form"
+            type="com.globaldenso.eca0027.core.presentation.W3004ActionForm">
+        </form-bean>
+<!-- TIS Tanaka End -->
+<!-- SNT 追加　Start -->
+        <!-- W3005: Action Domain -->
+        <form-bean name="W3005Form"
+            type="com.globaldenso.eca0027.core.presentation.W3005ActionForm">
+        </form-bean>
+
+        <!-- W3006: Action Domain -->
+        <form-bean name="W3006Form"
+            type="com.globaldenso.eca0027.core.presentation.W3006ActionForm">
+        </form-bean>
+
+        <!-- W3007: Action Domain -->
+        <form-bean name="W3007Form"
+            type="com.globaldenso.eca0027.core.presentation.W3007ActionForm">
+        </form-bean>
+
+        <!-- W3008: Action Domain -->
+        <form-bean name="W3008Form"
+            type="com.globaldenso.eca0027.core.presentation.W3008ActionForm">
+        </form-bean>
+
+        <!-- W3009: Action Domain -->
+        <form-bean name="W3009Form"
+            type="com.globaldenso.eca0027.core.presentation.W3009ActionForm">
+        </form-bean>
+
+        <!-- W3010: Action Domain -->
+        <form-bean name="W3010Form"
+            type="com.globaldenso.eca0027.core.presentation.W3010ActionForm">
+        </form-bean>
+
+        <!-- W3011: Action Domain -->
+        <form-bean name="W3011Form"
+            type="com.globaldenso.eca0027.core.presentation.W3011ActionForm">
+        </form-bean>
+<!-- SNT 追加　End -->
+    </form-beans>
+</struts-config>

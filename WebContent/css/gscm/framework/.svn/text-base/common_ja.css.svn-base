@@ -1,0 +1,471 @@
+@charset "utf-8";
+/*
+ * Project : GSCM 共通機能群
+ * common_ja.css
+ * 共通で用いるcssです。
+ * Project : GSCM Common Functions
+ * common_ja.css
+ * For common css
+ *
+ * Version.
+ * 1.1.0
+ *
+ * Copyright (c) 2013 DENSO IT SOLUTIONS,INC. All rights reserved.
+ */
+/* フォント：桁位置に意味の無い項目（標準） */
+/* Font：Character which has no connection with digit position(standart) */
+* {
+    font-family: "ＭＳ Ｐゴシック",sans-serif;
+}
+
+/* フォント：桁位置に意味のある項目 */
+/* Font：Character which has connection with digit position */
+.gscm_monospace {
+    font-family: "ＭＳ ゴシック",monospace
+}
+
+/*========================= 画面全体 =========================*/
+/*========================= All parts of window =========================*/
+html {
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0px;
+    padding: 0px;
+    background-color: #f2f7fe;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+/*========================= フレーム =========================*/
+/*========================= Frame =========================*/
+#gscm_header {
+    width: 100%;
+    height: 30px;
+    padding: 0px; 
+    margin: 0px;
+    border:0px;
+    background-color: #D7E4FF;
+    color: #15428b;
+    font-size: 10px;
+    font-weight: bold;
+    vertical-align: middle;
+    overflow-x:hidden;
+}
+
+#gscm_title {
+    width: 100%;
+    height: 20px;
+    background-color: #3a67a0;
+    white-space: nowrap;
+}
+
+#gscm_message {
+    width: 100%;
+    height: 50px;
+    border: 1px #808080 solid;
+    overflow-y:auto;
+    background-color:#ffffff;
+}
+
+#gscm_wrapper {
+    position: absolute;
+    top: 102px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#gscm_main {
+    width: 100%;
+    margin: 0px;
+    padding-left: 5px;
+    padding-top: 5px;
+    overflow: hidden;
+}
+/*========================= ヘッダ =========================*/
+/*========================= Header =========================*/
+div.gscm_top_left {
+    float: left;
+    width: 600px;
+    margin-right: -600px;
+}
+
+div.gscm_top_right {
+    float: right;
+    width: 100%;
+}
+
+.gscm_top_right table {
+    margin-left:auto;
+    margin-right: 0px;
+    padding-left: 600px;
+}
+
+/*========================= メニュー =========================*/
+/*========================= MENU =========================*/
+div.gscm_sidetreecontrol {
+    width: 100%;
+    margin: 0px; 
+    padding: 0px;
+    word-break: break-all;
+    background-color: #a8b4ff;
+    vertical-align: middle;
+}
+
+div.gscm_treemain {
+    margin:0px; 
+    padding:0px;
+    width:280px;
+    word-break: break-all;
+}
+
+/*========================= ジャンプ=========================*/
+/*========================= Jump=========================*/
+#gscm_goText {
+    width: 50px;
+}
+
+.gscm_goButton {
+    font-size: 10;
+    width:30px;
+    padding: 0px;
+}
+
+/*========================= 見出し =========================*/
+/*========================= Headline =========================*/
+h1 {
+    font-size: 16px;
+    font-style: normal;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+h3 {
+    font-size: 16px;
+    color : #ffffff;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: transparent;
+}
+
+h5 {
+    font-size: 12px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/*========================= リスト =========================*/
+/*========================= List =========================*/
+ul,li {
+    font-size: 12px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+
+/*========================= 入力項目 =========================*/
+/*========================= Input field =========================*/
+/* ime:禁止 */
+/* ime:Disuse */
+* {
+    ime-mode:disabled;
+}
+
+/* ime:自動有効 */
+/* ime:Active automatically */
+input.gscm_ime-active {
+    ime-mode:active;
+}
+
+/* ime:自動有効(textarea) */
+/* ime:Active automatically(textarea) */
+textarea.gscm_ime-active {
+    ime-mode:active;
+}
+
+/* 表示用テキスト */
+/* Text for display */
+input.gscm_disptext{
+    font-size: 12px;
+    border:none;
+    background-color:transparent;
+    padding:1px;
+}
+
+/* 右寄せテキスト */
+/* Text rigth-aligned */
+input.gscm_right {
+    text-align:right;
+}
+
+/* 必須項目 */
+/* Required item */
+.gscm_required {
+    background-color:#ffffbb
+}
+
+/* 無効色 */
+/* Inactive color */
+.gscm_disabledColor{
+    background-color:#cccccc;
+}
+
+/*========================= テーブル =========================*/
+/*========================= Table =========================*/
+th, td {
+    font-size: 12px;
+}
+
+tr {
+    height:26px;
+}
+
+table.gscm_search {
+    border :solid 0px;
+    border-collapse:collapse;
+}
+
+table.gscm_search td {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding-top: 1px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align:left;
+    border: none;
+    height: 25px; 
+    background-color: transparent;
+    border-spacing:0;
+}
+
+table.gscm_search th {
+    text-align: left;
+    padding-left: 5px;
+    color: #000000;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    border-spacing:0;
+}
+/*========================= DIV =========================*/
+div.gscm_center {
+    text-align:center;
+    margin-top: 10px;
+}
+
+div.gscm_left {
+    text-align:left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+div.gscm_right {
+    text-align:right;
+    margin-top: 20px;
+}
+
+/* --- ページング処理用リンクの設定 --- */
+/* --- Link setting for paging function  --- */
+div.gscm_paging{
+     text-align:right;
+}
+
+div.gscm_paging a{
+    padding: 3px;
+    color: #0000FF;
+}
+/*========================= 検索画面 =========================*/
+/*========================= Search window =========================*/
+tr.gscm_odd {
+    background-color: #ffffff; /* 奇数行の背景色 Back color of odd row*/
+}
+tr.gscm_even {
+    background-color: #eff7fd; /* 偶数行の背景色 Back color of even row*/
+}
+
+/* -----------------------------
+ * 検索結果(スクロールなし)
+ * Search result list(without scroll)
+ * -------------------------- */
+/*--- 検索結果一覧 ---*/
+/*--- Search result list ---*/
+table.gscm_resultlist {
+    margin:0px; 
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+/* --- ヘッダ部 ---*/
+/* --- Header part ---*/
+table.gscm_resultlist th{
+    align: center;
+    valign: middle;
+    font-weight: normal;
+    background-color: #b2d3f2;
+    color : #000000;
+    border: 1px #808080 solid;
+    height: 22px; 
+    margin: 0px;
+    padding: 0px 2px;
+}
+
+/* --- 一覧部 ---*/
+/* --- List part ---*/
+table.gscm_resultlist td{
+    margin: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border:1px #808080 solid;
+}
+
+/* -----------------------------
+ * 検索結果(縦スクロール)
+ * Search result list(lengthwise scroll)
+ * -------------------------- */
+table.gscm_inputlist {
+    margin:0px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+/* --- ヘッダ部 ---*/
+/* --- Header part ---*/
+table.gscm_inputlist th{
+    align: center;
+    valign: middle;
+    font-weight: normal;
+    background-color: #b2d3f2;
+    color : #000000;
+    border: 1px #808080 solid;
+    height: 22px; 
+    margin: 0px;
+    padding: 0px 2px;
+}
+
+/*--- 表示用 ---*/
+/*--- For display ---*/
+table.gscm_viewlistdata {
+    margin:0px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+table.gscm_viewlistdata td {
+    margin: 0px;
+    padding: 0px 2px;
+    border-top:0px;
+    border-bottom:1px #808080 solid;
+    border-left:1px #808080 solid;
+    border-right:1px #808080 solid;
+}
+
+/* -----------------------------
+ * 検索結果(縦横スクロール)
+ * Search result list(lengthwise-crosswise scroll)
+ * -------------------------- */
+/*--- 検索結果一覧(左側ヘッダ部) ---*/
+/*--- Search result list(Left header part) ---*/
+table.gscm_list_lefthead {
+    margin:0px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+table.gscm_list_lefthead th{
+    align: center;
+    valign: middle;
+    font-weight: normal;
+    background-color: #b2d3f2;
+    color : #000000;
+    border: 1px #808080 solid;
+    height: 22px; 
+    margin: 0px;
+    padding: 0px 2px;
+}
+/*--- 検索結果一覧(右側ヘッダ部) ---*/
+/*--- Search result list(Right header part) ---*/
+table.gscm_list_righthead {
+    margin:0px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+table.gscm_list_righthead th{
+    align: center;
+    valign: middle;
+    font-weight: normal;
+    background-color: #b2d3f2;
+    color : #000000;
+    border: 1px #808080 solid;
+    height: 22px; 
+    margin: 0px;
+    padding: 0px 2px;
+}
+/*--- 検索結果一覧(左側一覧部) ---*/
+/*--- Search result list(Left list part) ---*/
+table.gscm_list_leftbody {
+    margin:0px; 
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+table.gscm_list_leftbody td{
+    margin: 0px;
+    padding: 0px 2px;
+    border:1px #808080 solid;
+}
+
+/*--- 検索結果一覧(右側一覧部) ---*/
+/*--- Search result list(Right list part) ---*/
+table.gscm_list_rightbody {
+    margin:0px; 
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+table.gscm_list_rightbody td{
+    margin: 0px;
+    padding: 0px 2px;
+    border:1px #808080 solid;
+}
+/*========================= カレンダー =========================*/
+/*========================= Calender =========================*/
+img {
+    cursor: pointer;
+}
+
+/*========================= エラー時の背景色 =========================*/
+/*========================= Back color of error =========================*/
+.gscm_error_class{background-color: #FF6666 !important;}
+
+/*=================== 画面サイズ拡大時の表示範囲拡大機能 ===================*/
+/*=================== Expand function of display field in case of window size expands ===================*/
+div.gscm_scrollStyle{overflow-y:hidden;overflow-x:auto}
+
+/* 登録・編集(入力) */
+/* Create・Edit(input) */
+table.single td {
+    border: 1px #808080 solid;
+    height: 25px;
+    background-color: #ffffff;
+}
+
+/* 登録・編集(ラベル) */
+/* Create・Edit(label) */
+table.single .label,
+table.split .left_label {
+    color: #000000;
+    background-color: #b2d3f2;
+    font-weight: bold;
+    width: 140px;
+}

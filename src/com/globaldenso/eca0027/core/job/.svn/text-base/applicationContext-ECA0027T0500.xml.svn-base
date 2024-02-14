@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <import resource="classpath:applicationContext-aijb-residentJob.xml" />
+
+    <!-- アプリ基盤 共通部品 -->
+    <import resource="classpath:applicationContext-library.xml" />
+
+    <!-- AIJB メッセージログ登録部品  -->
+    <import resource="classpath:/library-config/applicationContext-aijbutil.xml" />
+
+    <!-- JOB -->
+
+    <bean id="residentBizProcExecute" class="com.globaldenso.eca0027.core.job.ECA0027T0500ResidentJob">
+        <property name="queueService" ref="queueService" />
+        <property name="queueCoreFacadeService" ref="queueFacadeService" />
+        <property name="jobManageService" ref="jobManageService" />
+        <property name="jbTransferToGinvService" ref="jbTransferToGinvService" />
+        <property name="messageLogFacadeService" ref="messageLogFacadeService" />
+    </bean>
+
+    <!-- Service -->
+
+    <!-- SACT -->
+    <import resource="classpath:applicationContext-service_auto.xml" />
+
+    <!-- リソースマスタ Service -->
+    <bean id="tmResourcesService" class="com.globaldenso.gscm.framework.business.service.TmResourcesServiceImpl">
+        <property name="tmResourcesDao" ref="tmResourcesDao" />
+    </bean>
+
+    <!-- 共通サービス -->
+    <bean id="commonService" class="com.globaldenso.eca0027.core.common.business.service.CommonServiceImpl">
+        <property name="tmCdService" ref="tmCdService" />
+        <property name="timezoneManageService" ref="timezoneManageService" />
+        <property name="tmCurrencyService" ref="tmCurrencyService" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="tmExpRegulateTypService" ref="tmExpRegulateTypService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="tmMeasureUnitService" ref="tmMeasureUnitService" />
+        <property name="tmTrnsTypService" ref="tmTrnsTypService" />
+        <property name="tmSeqService" ref="tmSeqService" />
+        <property name="tmCigmaShipToXrefService" ref="tmCigmaShipToXrefService" />
+        <property name="tmCigmaWhXrefService" ref="tmCigmaWhXrefService" />
+        <property name="tmNxsWhService" ref="tmNxsWhService" />
+        <property name="tmNxsShipToService" ref="tmNxsShipToService" />
+        <property name="tmPkgSetHdrService" ref="tmPkgSetHdrService" />
+        <property name="tmCntryService" ref="tmCntryService" />
+        <property name="tmPortService" ref="tmPortService" />
+        <property name="tmCigmaEnvService" ref="tmCigmaEnvService" />
+        <property name="tmUomCnvDecService" ref="tmUomCnvDecService" />
+        <property name="vtCompMeasureUnitService" ref="vtCompMeasureUnitService" />
+    </bean>
+
+    <!-- Transfer to GINV -->
+    <bean id="jbTransferToGinvService" class="com.globaldenso.eca0027.core.business.service.JbTransferToGinvServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="jbTransferToGinvDao" ref="jbTransferToGinvDao" />
+        <property name="tmResourcesService" ref="tmResourcesService" />
+        <property name="ttOnlineReqJobParamService" ref="ttOnlineReqJobParamService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+        <property name="messageLogFacadeService" ref="messageLogFacadeService" />
+    </bean>
+
+    <!-- DAO -->
+
+    <!-- SACT -->
+    <import resource="classpath:applicationContext-dao_auto.xml" />
+
+    <!-- リソースマスタ DAO -->
+    <bean id="tmResourcesDao" class="com.globaldenso.gscm.framework.integration.TmResourcesDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- Transfer to GINV -->
+    <bean id="jbTransferToGinvDao" class="com.globaldenso.eca0027.core.integration.JbTransferToGinvDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+</beans>

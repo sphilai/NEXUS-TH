@@ -1,0 +1,21 @@
+@charset "utf-8"; 
+/*
+ * WT005.css 
+ * 
+ * Style sheet used in CML Info Sub Screen. 
+ * メインマーク表示子画面で用いるスタイルシートです。 
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved. 
+ */
+/*------------ Search result total area------------*/ 
+/*------------ 検索結果エリア(全体) ------------*/ 
+table.gscm_resultlist {
+    width:250px; 
+}
+
+/*------------ Search result individual area ------------*/ 
+/*------------ 検索結果エリア(個別) ------------*/ 
+.gscm_resultlist .resultlist_mainMark { 
+    width: 250px; 
+} 
+

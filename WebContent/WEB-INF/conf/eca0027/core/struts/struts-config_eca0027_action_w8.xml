@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * struts-config_eca0027_action_w8.xml
+ * 
+ * AI-J2(Struts) の action設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <!-- Application Action Mapping Definitions ============================ -->
+    <action-mappings>
+        <!-- =============================================================== -->
+        <!-- W8001: 進度管理Main画面                                         -->
+        <!-- =============================================================== -->
+        <!-- W8001: 進度管理Main画面 Initアクション -->
+        <action path="/W8001Init"
+            type="com.globaldenso.eca0027.core.presentation.W8001InitAction"
+            name="W8001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W8001" />
+        </action>
+
+        <!-- W8001: 進度管理Main画面 Searchアクション -->
+        <action path="/W8001Search"
+            type="com.globaldenso.eca0027.core.presentation.W8001SearchAction"
+            name="W8001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W8001" />
+            <forward name="error" path="W8001" />
+        </action>
+        
+        <!-- W8001: 進度管理Main画面 Confirm Detailアクション -->
+        <action path="/W8001ConfirmDetail"
+            type="com.globaldenso.eca0027.core.presentation.W8001ConfirmDetailAction"
+            name="W8001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W8002Init.do" />
+            <forward name="error" path="W8001" />
+        </action>
+        <!-- =============================================================== -->
+        <!-- W8002: 進度管理詳細画面                                         -->
+        <!-- =============================================================== -->
+        <!-- W8002: 進度管理詳細画面 Initアクション -->
+        <action path="/W8002Init"
+            type="com.globaldenso.eca0027.core.presentation.W8002InitAction"
+            name="W8002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W8002" />
+            <forward name="error" path="/W8001Init.do?back=true" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W8003: 進度管理 ケースマーク一覧画面                            -->
+        <!-- =============================================================== -->
+        <!-- W8003: 進度管理 ケースマーク一覧画面 Initアクション -->
+        <action path="/W8003Init"
+            type="com.globaldenso.eca0027.core.presentation.W8003InitAction"
+            name="W8003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W8003" />
+            <forward name="error" path="W8003" />
+        </action>
+        <!-- W8003: 進度管理 ケースマーク一覧画面 Sortアクション -->
+        <action path="/W8003Sort"
+            type="com.globaldenso.eca0027.core.presentation.W8003SortAction"
+            name="W8003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W8003" />
+            <forward name="error" path="W8003" />
+        </action>
+        <!-- =============================================================== -->
+        <!-- W8004: 進度管理 RT材情報画面                                    -->
+        <!-- =============================================================== -->
+        <!-- W8004: 進度管理 RT材情報画面 Initアクション -->
+        <action path="/W8004Init"
+            type="com.globaldenso.eca0027.core.presentation.W8004InitAction"
+            name="W8004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W8004" />
+            <forward name="error" path="W8004" />
+        </action>
+        
+    </action-mappings>
+</struts-config>

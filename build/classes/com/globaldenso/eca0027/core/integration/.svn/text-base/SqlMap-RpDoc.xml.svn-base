@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-RpDoc.xml
+ *
+ * RpDocのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="RpDoc">
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="L6003TtInvoiceAttachedBySumQtyDomain"
+        type="com.globaldenso.eca0027.core.business.domain.L6003TtInvoiceAttachedBySumQtyDomain" />
+    <typeAlias alias="L6008TtPackingAttachedByHeaderAndDetailDomain"
+        type="com.globaldenso.eca0027.core.business.domain.L6008TtPackingAttachedByHeaderAndDetailDomain" />
+    <typeAlias alias="L6003TtScAttachedBySumQtyDomain"
+        type="com.globaldenso.eca0027.core.business.domain.L6003TtScAttachedBySumQtyDomain" />
+        
+    <!-- CriteriaDomain -->
+    <typeAlias alias="L6003TtInvoiceAttachedBySumQtyCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.L6003TtInvoiceAttachedBySumQtyCriteriaDomain" />
+    <typeAlias alias="L6008TtPackingAttachedByHeaderAndDetailCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.L6008TtPackingAttachedByHeaderAndDetailCriteriaDomain" />
+    <typeAlias alias="L6003TtScAttachedBySumQtyCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.L6003TtScAttachedBySumQtyCriteriaDomain" />
+
+    <!-- 検索結果をMapで受け取る -->
+    <resultMap id="L6003Domain_SearchTtInvoiceAttachedBySumQty" class="L6003TtInvoiceAttachedBySumQtyDomain">
+        <result property="qtyUnit" column="QTY_UNIT" />
+        <result property="sumQty" column="SUM_QTY" />
+    </resultMap>
+    <resultMap id="L6008Domain_SearchTtPackingAttachedByHeaderAndDetail" class="L6008TtPackingAttachedByHeaderAndDetailDomain">
+        <result property="invoiceNo" column="INVOICE_NO" />
+        <result property="invoiceCtgry" column="INVOICE_CTGRY" />
+        <result property="mainMark" column="MAIN_MARK" />
+        <!-- // 2015/3/31 DNJP.Kawamura UT206対応 START >>>>> -->
+        <result property="returnStyleCd" column="RETURN_STYLE_CD" />
+        <!-- // 2015/3/31 DNJP.Kawamura UT206対応 END <<<<< -->
+        <result property="volume" column="VOLUME" /> 
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="netWeight" column="NET_WEIGHT" />
+        <result property="netWeightUnit" column="NET_WEIGHT_UNIT" /> 
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+        <result property="grossWeightUnit" column="GROSS_WEIGHT_UNIT" /> 
+        <result property="recordTyp" column="RECORD_TYP" />
+        <result property="recordNo" column="RECORD_NO" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" /> 
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" /> 
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="kitFlg" column="KIT_FLG" />
+        <result property="parFlg" column="PAR_FLG" />
+        <result property="qty" column="QTY" /> 
+        <result property="qtyUnit" column="QTY_UNIT" />
+        <result property="totalNetWeight" column="TOTAL_NET_WEIGHT_ATCH" /> 
+        <result property="totalNwUnit" column="TOTAL_NET_WEIGHT_UNIT" />
+        <result property="totalVolume" column="TOTAL_VOLUME" />
+        <result property="totalPackage" column="PLTZ_ITEM_QTY" />
+        <result property="totalGrossWeight" column="TOTAL_GROSS_WEIGHT" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="netWeightItem" column="NET_WEIGHT_ITEM" />
+        <result property="netWeightUnitItem" column="NET_WEIGHT_UNIT_ITEM" />
+        <result property="totalNetWeightHead" column="TOTAL_NET_WEIGHT_HEAD" />
+        
+    </resultMap>
+    <resultMap id="L6003Domain_SearchTtScAttachedBySumQty" class="L6003TtScAttachedBySumQtyDomain">
+        <result property="qtyUnit" column="QTY_UNIT" />
+        <result property="sumQty" column="SUM_QTY" />
+    </resultMap>
+
+
+    <!-- =================================================================================================== -->
+    <!-- インボイス品目番号 / 検索                                                                                 -->
+    <!-- =================================================================================================== -->
+    
+    <!-- 検索 SQL文 (インボイスアタッチ / 数量単位と数量を取得) -->
+    <select id="SearchTtInvoiceAttachedBySumQty" resultMap="L6003Domain_SearchTtInvoiceAttachedBySumQty"
+        parameterClass="L6003TtInvoiceAttachedBySumQtyCriteriaDomain">
+        select /* SqlMap-RpDoc.SearchTtInvoiceAttachedBySumQty */
+             T2.UNIT_DISP QTY_UNIT
+            ,sum(T1.QTY) SUM_QTY
+        from
+            TT_INVOICE_ATTACHED T1,
+            TM_MEASURE_UNIT T2
+        where
+            1 = 1
+            <isNotEmpty property="shipperCd">
+                and T1.SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty property="invoiceNo">
+                and T1.INVOICE_NO = #invoiceNo#
+            </isNotEmpty>
+            <isNotEmpty property="invoiceIssueDt">
+                and T1.INVOICE_ISSUE_DT = #invoiceIssueDt#
+            </isNotEmpty>
+            <!-- 2015/3/11 DNJP.Kawamura KIT品対応 START >>>>> -->
+            and T1.PAR_FLG = 'Y'
+            <!-- 2015/3/11 DNJP.Kawamura KIT品対応 END <<<<< -->
+            and T1.QTY_UNIT = T2.UNIT_CD(+)
+        group by
+             T1.SHIPPER_CD
+            ,T1.INVOICE_NO
+            ,T1.INVOICE_ISSUE_DT
+            ,T2.UNIT_DISP
+        order by
+             SUM_QTY DESC
+    </select>
+    
+    <!-- 検索 SQL文 (インボイス / 印刷対象のインボイスアタッチデータの取得) -->
+    <!-- 項目 -->
+    <sql id="Cols_TtInvoice">
+        t1.INVOICE_NO
+        , t1.INVOICE_CTGRY
+        , t1.MAIN_MARK
+        <!-- // 2015/3/31 DNJP.Kawamura UT206対応 START >>>>> -->
+        , t1.RETURN_STYLE_CD
+        <!-- // 2015/3/31 DNJP.Kawamura UT206対応 END <<<<< -->
+        , t1.VOLUME
+        , t1.VOLUME_UNIT
+        , t1.NET_WEIGHT
+        , t1.NET_WEIGHT_UNIT
+        , t1.GROSS_WEIGHT
+        , t1.GROSS_WEIGHT_UNIT
+        , t1.RECORD_TYP
+        , t1.RECORD_NO
+        , t1.CUSTOMER_PO_NO
+        , t1.CUSTOMER_ITEM_NO
+        , t1.ITEM_NO
+        , t1.ITEM_DESCRIPTION
+        , t1.PKG_CD
+        , t1.KIT_FLG
+        , t1.PAR_FLG
+        , t1.QTY
+        , t1.QTY_UNIT
+        , t1.TOTAL_NET_WEIGHT_UNIT
+        , t1.TOTAL_NET_WEIGHT_HEAD
+        , t1.TOTAL_NET_WEIGHT_ATCH
+        , t1.PLTZ_ITEM_QTY
+        , t1.TOTAL_VOLUME
+        , t1.TOTAL_GROSS_WEIGHT
+        , t1.MODEL_CD
+        , t1.NET_WEIGHT_ITEM
+        , t1.NET_WEIGHT_UNIT_ITEM
+    </sql>
+    
+    <sql id="Cols_TtInvoiceCML">
+        A.SHIPPER_CD              SHIPPER_CD
+        , A.INVOICE_NO            INVOICE_NO
+        , A.INVOICE_ISSUE_DT      INVOICE_ISSUE_DT
+        , A.INVOICE_CTGRY         INVOICE_CTGRY
+        , B.PLTZ_ITEM_QTY         PLTZ_ITEM_QTY
+        , B.TOTAL_NET_WEIGHT      TOTAL_NET_WEIGHT_HEAD
+        , B.TOTAL_GROSS_WEIGHT    TOTAL_GROSS_WEIGHT
+        , B.TOTAL_VOLUME          TOTAL_VOLUME
+        , C.MAIN_MARK             MAIN_MARK
+        <!-- // 2015/3/31 DNJP.Kawamura UT206対応 START >>>>> -->
+        , C.RETURN_STYLE_CD       RETURN_STYLE_CD
+        <!-- // 2015/3/31 DNJP.Kawamura UT206対応 END <<<<< -->
+        , C.NET_WEIGHT            NET_WEIGHT
+        , D.UNIT_DISP             NET_WEIGHT_UNIT
+        , C.GROSS_WEIGHT          GROSS_WEIGHT
+        , I.UNIT_DISP             GROSS_WEIGHT_UNIT
+        , C.VOLUME                VOLUME
+        , J.UNIT_DISP             VOLUME_UNIT
+        , 0                       RECORD_TYP
+        , 0                       RECORD_NO
+        , NULL                    CUSTOMER_PO_NO
+        , NULL                    CUSTOMER_ITEM_NO
+        , NULL                    ITEM_NO
+        , NULL                    PKG_CD
+        , NULL                    ITEM_DESCRIPTION
+        , NULL                    KIT_FLG
+        , NULL                    PAR_FLG
+        , 0                       QTY
+        , NULL                    QTY_UNIT
+        , 0                       TOTAL_NET_WEIGHT_ATCH
+        , NULL                    TOTAL_NET_WEIGHT_UNIT
+        , NULL                    MODEL_CD
+        , 0                       NET_WEIGHT_ITEM
+        , NULL                    NET_WEIGHT_UNIT_ITEM
+    </sql>
+
+    <sql id="Cols_TtInvoiceItemNo">
+        E.SHIPPER_CD
+        , E.INVOICE_NO
+        , E.INVOICE_ISSUE_DT
+        , E.INVOICE_CTGRY
+        , F.PLTZ_ITEM_QTY
+        , F.TOTAL_NET_WEIGHT          TOTAL_NET_WEIGHT_HEAD
+        , F.TOTAL_GROSS_WEIGHT
+        , F.TOTAL_VOLUME
+        , G.MAIN_MARK
+        <!-- // 2015/3/31 DNJP.Kawamura UT206対応 START >>>>> -->
+        , G.RETURN_STYLE_CD
+        <!-- // 2015/3/31 DNJP.Kawamura UT206対応 END <<<<< -->
+        , G.NET_WEIGHT
+        , K.UNIT_DISP                 NET_WEIGHT_UNIT
+        , G.GROSS_WEIGHT
+        , L.UNIT_DISP                 GROSS_WEIGHT_UNIT
+        , G.VOLUME
+        , M.UNIT_DISP                 VOLUME_UNIT
+        , 1 RECORD_TYP
+        , H.RECORD_NO
+        , H.CUSTOMER_PO_NO
+        , H.CUSTOMER_ITEM_NO
+        , H.ITEM_NO
+        , H.PKG_CD
+        , H.ITEM_DESCRIPTION
+        , H.KIT_FLG
+        , H.PAR_FLG
+        , H.QTY
+        , N.UNIT_DISP                 QTY_UNIT
+        , H.TOTAL_NET_WEIGHT          TOTAL_NET_WEIGHT_ATCH
+        , O.UNIT_DISP                 TOTAL_NET_WEIGHT_UNIT
+        , H.MODEL_CD
+        , H.NET_WEIGHT                NET_WEIGHT_ITEM
+        , P.UNIT_DISP                 NET_WEIGHT_UNIT_ITEM
+              
+    </sql>
+    
+    <!-- Where句（検索条件） -->
+    <sql id="WhereCondition_TtInvoiceCML">
+        <dynamic>
+            <isNotEmpty prepend="and" property="shipperCd">
+                A.SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceNo">
+                A.INVOICE_NO = #invoiceNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceIssueDt">
+                A.INVOICE_ISSUE_DT = #invoiceIssueDt#
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+    
+    <sql id="WhereCondition_TtInvoiceItemNo">
+        <dynamic>
+            <isNotEmpty prepend="and" property="shipperCd">
+                E.SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceNo">
+                E.INVOICE_NO = #invoiceNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceIssueDt">
+                E.INVOICE_ISSUE_DT = #invoiceIssueDt#
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+    
+    <!-- OrderBy句 -->
+    <sql id="SortKeys_TtInvoice">
+        order by
+            t1.SHIPPER_CD
+          , t1.INVOICE_NO
+          , t1.INVOICE_ISSUE_DT
+          , t1.MAIN_MARK
+          , t1.RECORD_TYP
+          , t1.RECORD_NO
+    </sql>
+    
+    <!-- 検索 SQL文（Main / 検索） -->
+    <select id="SearchTtPackingAttachedByHeaderAndDetail" resultMap="L6008Domain_SearchTtPackingAttachedByHeaderAndDetail"
+        parameterClass="L6008TtPackingAttachedByHeaderAndDetailCriteriaDomain">
+        select /* SqlMap-RpDoc.SearchTtPackingAttachedByHeaderAndDetail */
+            <include refid="Cols_TtInvoice" />
+        from    (
+                    select
+                        <include refid="Cols_TtInvoiceCML" />
+                    from
+                          TT_INVOICE A
+                        , TT_PACKING_HEAD B
+                        , TT_PACKING_ATTACHED_CML C
+                        , TM_MEASURE_UNIT D
+                        , TM_MEASURE_UNIT I
+                        , TM_MEASURE_UNIT J
+                    where
+                        A.SHIPPER_CD = B.SHIPPER_CD 
+                    and A.INVOICE_NO = B.INVOICE_NO 
+                    and A.INVOICE_ISSUE_DT = B.INVOICE_ISSUE_DT 
+                    and B.SHIPPER_CD = C.SHIPPER_CD 
+                    and B.INVOICE_NO = C.INVOICE_NO 
+                    and B.INVOICE_ISSUE_DT = C.INVOICE_ISSUE_DT
+                    and C.NET_WEIGHT_UNIT = D.UNIT_CD(+)
+                    and C.GROSS_WEIGHT_UNIT = I.UNIT_CD(+)
+                    and C.VOLUME_UNIT = J.UNIT_CD(+)
+                        <include refid="WhereCondition_TtInvoiceCML" />
+                    union
+                    select
+                        <include refid="Cols_TtInvoiceItemNo" />
+                    from
+                          TT_INVOICE E
+                        , TT_PACKING_HEAD F
+                        , TT_PACKING_ATTACHED_CML G
+                        , TT_PACK_ATCH_ITEM_NO H
+                        , TM_MEASURE_UNIT K
+                        , TM_MEASURE_UNIT L
+                        , TM_MEASURE_UNIT M
+                        , TM_MEASURE_UNIT N
+                        , TM_MEASURE_UNIT O
+                        , TM_MEASURE_UNIT P
+                    where
+                          E.SHIPPER_CD = F.SHIPPER_CD 
+                      and E.INVOICE_NO = F.INVOICE_NO 
+                      and E.INVOICE_ISSUE_DT = F.INVOICE_ISSUE_DT 
+                      and F.SHIPPER_CD = G.SHIPPER_CD 
+                      and F.INVOICE_NO = G.INVOICE_NO 
+                      and F.INVOICE_ISSUE_DT = G.INVOICE_ISSUE_DT 
+                      and G.SHIPPER_CD = H.SHIPPER_CD 
+                      and G.INVOICE_NO = H.INVOICE_NO 
+                      and G.INVOICE_ISSUE_DT = H.INVOICE_ISSUE_DT 
+                      and G.MAIN_MARK = H.MAIN_MARK
+                      and G.NET_WEIGHT_UNIT = K.UNIT_CD(+)
+                      and G.GROSS_WEIGHT_UNIT = L.UNIT_CD(+)
+                      and G.VOLUME_UNIT = M.UNIT_CD(+)
+                      and H.QTY_UNIT = N.UNIT_CD(+)
+                      and H.TOTAL_NET_WEIGHT_UNIT = O.UNIT_CD(+)
+                      and H.NET_WEIGHT_UNIT = P.UNIT_CD(+)
+                      <include refid="WhereCondition_TtInvoiceItemNo" />
+                ) t1
+          <include refid="SortKeys_TtInvoice" />
+    </select>
+    
+    <!-- 検索 SQL文 (セールスコントラクトアタッチ / 数量単位と数量を取得) -->
+    <select id="SearchTtScAttachedBySumQty" resultMap="L6003Domain_SearchTtScAttachedBySumQty"
+        parameterClass="L6003TtScAttachedBySumQtyCriteriaDomain">
+        select /* SqlMap-RpDoc.SearchTtScAttachedBySumQty */
+             T2.UNIT_DISP QTY_UNIT
+            ,sum(T1.QTY) SUM_QTY
+        from
+            TT_SC_ATTACHED T1,
+            TM_MEASURE_UNIT T2
+        where
+            1 = 1
+            <isNotEmpty property="shipperCd">
+                and T1.SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty property="invoiceNo">
+                and T1.INVOICE_NO = #invoiceNo#
+            </isNotEmpty>
+            <isNotEmpty property="invoiceIssueDt">
+                and T1.INVOICE_ISSUE_DT = #invoiceIssueDt#
+            </isNotEmpty>
+            <!-- 2015/3/11 DNJP.Kawamura KIT品対応 START >>>>> -->
+            and T1.PAR_FLG = 'Y'
+            <!-- 2015/3/11 DNJP.Kawamura KIT品対応 END <<<<< -->
+            and T1.QTY_UNIT = T2.UNIT_CD(+)
+        group by
+             T1.SHIPPER_CD
+            ,T1.INVOICE_NO
+            ,T1.INVOICE_ISSUE_DT
+            ,T2.UNIT_DISP
+        order by
+             SUM_QTY DESC
+    </select>
+    
+    <!-- // 2015/3/11 DNJP.Kawamura UT202対応 START >>>>> -->
+    <!-- 検索 SQL文 (パッキングアタッチ品番 / 数量単位と数量を取得) -->
+    <select id="SearchTtPackingAttachedItemBySumQty" resultMap="L6003Domain_SearchTtInvoiceAttachedBySumQty"
+        parameterClass="L6003TtInvoiceAttachedBySumQtyCriteriaDomain">
+        select /* SqlMap-RpDoc.SearchTtPackingAttachedItemBySumQty */
+             T2.UNIT_DISP QTY_UNIT
+            ,sum(T1.QTY) SUM_QTY
+        from
+            TT_PACK_ATCH_ITEM_NO T1,
+            TM_MEASURE_UNIT T2
+        where
+            1 = 1
+            <isNotEmpty property="shipperCd">
+                and T1.SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty property="invoiceNo">
+                and T1.INVOICE_NO = #invoiceNo#
+            </isNotEmpty>
+            <isNotEmpty property="invoiceIssueDt">
+                and T1.INVOICE_ISSUE_DT = #invoiceIssueDt#
+            </isNotEmpty>
+            <!-- 2015/3/11 DNJP.Kawamura KIT品対応 START >>>>> -->
+            and T1.PAR_FLG = 'Y'
+            <!-- 2015/3/11 DNJP.Kawamura KIT品対応 END <<<<< -->
+            and T1.QTY_UNIT = T2.UNIT_CD(+)
+        group by
+             T1.SHIPPER_CD
+            ,T1.INVOICE_NO
+            ,T1.INVOICE_ISSUE_DT
+            ,T2.UNIT_DISP
+        order by
+             SUM_QTY DESC
+    </select>
+    <!-- // 2015/3/11 DNJP.Kawamura UT202対応 END <<<<< -->
+    
+</sqlMap>

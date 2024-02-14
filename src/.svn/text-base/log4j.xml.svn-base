@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ *  log4j.xml
+ * 
+ * [JP] Log4j 設定ファイルです。(Eclipse ローカル開発用)
+ * [JP]
+ * [JP] DEBUG,INFO レベルのログはアプリログ(logs/ai_App.log)、WARN レベル以上の
+ * [JP] ログはシステムログ(logs/ai_Sys.log)に出力されます。
+ * [JP]
+ * [JP] また、全レベルのログが標準出力として出力されます。
+ * [JP]
+ * [JP] ログファイルのサイズを制限するためにサイズローテーションを行う設定にして
+ * [JP] います。固定出力にしたい場合は個別で Appender の設定を変更して下さい。
+ * [JP]
+ * [JP] 本番/準本環境にデプロイする場合は、それぞれの環境用の設定ファイル
+ * [JP] に差し替えてください。(build.xml を利用すれば自動で差し替えられます)
+ * 
+ * [EN] This is a configuration file Log4j. (Eclipse local development)
+ * [EN]
+ * [EN] Log DEBUG, INFO-level application of log (logs / ai_App.log), 
+ * [EN] more than WARN log level is output to the (logs / ai_Sys.log) system log.
+ * [EN]
+ * [EN] In addition, a log of all levels are output as standard output.
+ * [EN]
+ * [EN] The settings made in the size of rotation in order to limit the size of the log file.
+ * [EN] If you want to output a fixed Appender Please change the settings of the individual.
+ * [EN]
+ * [EN] If you are deploying production environment / semi-production environment, 
+ * [EN] please replace the configuration file for each environment.
+ * [EN] (replaced automatically if using the build.xml)
+ *  
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE log4j:configuration SYSTEM "./log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!-- Appender ========================================================== -->
+    <!-- [JP] アプリケーションログ (ファイル固定出力：未使用) -->
+    <!-- [EN] Application Log (fixed output file: not used) -->
+    <appender name="app_file_fix" class="org.apache.log4j.FileAppender">
+    <param name="File" value="logs/ai_App.log" />
+    <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[APP] [%d{yyyy-MM-dd HH:mm:ss.SSS}] DSC-ID[%X{DSC_ID}] SID[%X{SID}] RID[%X{RID}] [%-5p] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="DEBUG" />
+            <param name="LevelMax" value="INFO" />
+        </filter>
+    </appender>
+
+    <!-- [JP] システムログ (ファイル固定出力：未使用) -->
+    <!-- [EN] System Log (fixed output file: not used) -->
+    <appender name="sys_file_fix" class="org.apache.log4j.FileAppender">
+    <param name="File" value="logs/ai_Sys.log" />
+    <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[SYS] [%d{yyyy-MM-dd HH:mm:ss.SSS}] DSC-ID[%X{DSC_ID}] SID[%X{SID}] RID[%X{RID}] [%-5p] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="WARN" />
+            <param name="LevelMax" value="FATAL" />
+        </filter>
+    </appender>
+
+    <!-- [JP] アプリケーションログ (サイズローテーション) -->
+    <!-- [EN] Application Log (size rotation) -->
+    <appender name="app_file_roll"
+        class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="logs/ai_App.log" />
+        <param name="MaxFileSize" value="5MB" />
+        <param name="MaxBackupIndex" value="10" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[APP] [%d{yyyy-MM-dd HH:mm:ss.SSS}] DSC-ID[%X{DSC_ID}] SID[%X{SID}] RID[%X{RID}] [%-5p] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="DEBUG" />
+            <param name="LevelMax" value="INFO" />
+        </filter>
+    </appender>
+
+    <!-- [JP] システムログ (サイズローテーション) -->
+    <!-- [EN] System Log (size rotation) -->
+    <appender name="sys_file_roll"
+        class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="logs/ai_Sys.log" />
+        <param name="MaxFileSize" value="5MB" />
+        <param name="MaxBackupIndex" value="10" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[SYS] [%d{yyyy-MM-dd HH:mm:ss.SSS}] DSC-ID[%X{DSC_ID}] SID[%X{SID}] RID[%X{RID}] [%-5p] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="WARN" />
+            <param name="LevelMax" value="FATAL" />
+        </filter>
+    </appender>
+
+    <!-- [JP] アプリケーションログ (標準出力) -->
+    <!-- [EN] Application Log (standard output) -->
+    <appender name="app_stdout"
+        class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[APP] [%d{yyyy-MM-dd HH:mm:ss.SSS}] DSC-ID[%X{DSC_ID}] SID[%X{SID}] RID[%X{RID}] [%-5p] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="DEBUG" />
+            <param name="LevelMax" value="INFO" />
+        </filter>
+    </appender>
+
+    <!-- [JP] システムログ (標準出力) -->
+    <!-- [EN] System Log (standard output) -->
+    <appender name="sys_stdout"
+        class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[SYS] [%d{yyyy-MM-dd HH:mm:ss.SSS}] DSC-ID[%X{DSC_ID}] SID[%X{SID}] RID[%X{RID}] [%-5p] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="WARN" />
+            <param name="LevelMax" value="FATAL" />
+        </filter>
+    </appender>
+
+    <!-- Logger ============================================================ -->
+    <!-- [JP] アプリ基盤 -->
+    <!-- [EN] Application Development Infrastructure -->
+    <logger name="com.globaldenso.ai" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_roll" />
+        <appender-ref ref="app_stdout" />
+        <appender-ref ref="sys_stdout" />
+    </logger>
+
+    <!-- [JP] 共通部品(旧) -->
+    <!-- [EN] Common Library (old) -->
+    <logger name="com.globaldenso.aij2" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_roll" />
+        <appender-ref ref="app_stdout" />
+        <appender-ref ref="sys_stdout" />
+    </logger>
+
+    <!-- [JP] Spring Framework トランザクション情報出力 -->
+    <!-- [EN] Spring Framework transaction information output -->
+    <logger name="org.springframework.transaction" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_roll" />
+        <appender-ref ref="app_stdout" />
+        <appender-ref ref="sys_stdout" />
+    </logger>
+
+    <!-- [JP] iBATIS SQL情報出力  -->
+    <!-- [EN] information output iBATIS SQL  -->
+    <logger name="java.sql.Connection" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_roll" />
+        <appender-ref ref="app_stdout" />
+        <appender-ref ref="sys_stdout" />
+    </logger>
+
+    <logger name="java.sql.PreparedStatement" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_roll" />
+        <appender-ref ref="app_stdout" />
+        <appender-ref ref="sys_stdout" />
+    </logger>
+
+    <logger name="java.sql.Statement" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_roll" />
+        <appender-ref ref="app_stdout" />
+        <appender-ref ref="sys_stdout" />
+    </logger>
+
+    <logger name="java.sql.ResultSet" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="app_stdout" />
+        <appender-ref ref="sys_stdout" />
+    </logger>
+
+    <!-- [JP] 共通サービス (印刷基盤ログ) -->
+    <!-- [EN] Common Service (Printing Infrastructure Log) -->
+    <logger name="com.globaldenso.eca0027.core.common.business.service.CommonService" additivity="true">
+        <level value="DEBUG" />
+        <appender-ref ref="app_file_roll" />
+        <appender-ref ref="sys_file_roll" />
+        <appender-ref ref="app_stdout" />
+        <appender-ref ref="sys_stdout" />
+    </logger>
+    
+    <!-- Root ============================================================== -->
+    <root>
+        <level value="ERROR" />
+        <appender-ref ref="sys_file_roll" />
+        <appender-ref ref="sys_stdout" />
+    </root>
+</log4j:configuration>

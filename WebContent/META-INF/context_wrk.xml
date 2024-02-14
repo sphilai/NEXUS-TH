@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ===========================================================================
+ *
+ * [JP] context_wrk.xml (本番/開発環境用 コンテキスト情報設定ファイル)
+ * [JP]
+ * [JP] 本番/開発環境へ WAR ファイルでデプロイする際に使用するコンテキスト情報の設定
+ * [JP] ファイルです。
+ * [JP] ローカル環境(Eclipse)上ではローカルサーバーの server.xml の情報を有効にする
+ * [JP] ため、異なる名前にしています。
+ * [JP] build.xml で WAR ファイルを作成する際に、自動でリネームされます。
+ *
+ * [EN] context_wrk.xml (Context information configuration file for the production / development environment)
+ * [EN]
+ * [EN] This is the configuration file of the context information 
+ * [EN] that is used to deploy the WAR file to a production / development environment.
+ * [EN] This file name is set to be a different name in order to enable the configuration of the local server server.xml
+ * [EN] on the local environment (Eclipse).
+ * [EN] When you create a WAR file, it is automatically renamed in build.xml.
+ *  
+ *  $ context_wrk.xml 4294 2013-05-15 12:30:57Z HIDETOSHI_NAKATANI@denso.co.jp $
+ *
+ *  Copyright (c) 2011 DENSO IT SOLUTIONS. All rights reserved.
+============================================================================ -->
+<Context antiResourceLocking="true"></Context>

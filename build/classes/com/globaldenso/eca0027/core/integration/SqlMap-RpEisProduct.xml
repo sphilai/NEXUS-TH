@@ -1,0 +1,992 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * SqlMap-RpEisProduct.xml
+ * 
+ * ElsProduct機能用の SQL 設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="RpEisProduct">
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <!-- L2001 -->
+    <typeAlias alias="L2001TtPltzInstrItemNoBySumBoxQtyDomain"
+        type="com.globaldenso.eca0027.core.business.domain.L2001TtPltzInstrItemNoBySumBoxQtyDomain" />
+    <typeAlias alias="L2001TtPltzInstrItemNoBySumBoxQtyCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.L2001TtPltzInstrItemNoBySumBoxQtyCriteriaDomain" />
+        
+    <!-- L2003 -->
+    <typeAlias alias="L2003TtPltzItemByItemNoDomain"
+        type="com.globaldenso.eca0027.core.business.domain.L2003TtPltzItemByItemNoDomain" />
+    <typeAlias alias="L2003TtPltzItemByItemNoCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.L2003TtPltzItemByItemNoCriteriaDomain" />
+    <typeAlias alias="L2003TtPltzBySingleDomain"
+        type="com.globaldenso.eca0027.core.business.domain.L2003TtPltzBySingleDomain" />
+    <typeAlias alias="L2003TtPltzBySingleCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.L2003TtPltzBySingleCriteriaDomain" />
+    <typeAlias alias="L2003TtPltzItemByDetailDomain"
+        type="com.globaldenso.eca0027.core.business.domain.L2003TtPltzItemByDetailDomain" />
+    <typeAlias alias="L2003TtPltzItemByDetailCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.L2003TtPltzItemByDetailCriteriaDomain" />
+    <typeAlias alias="L1008TtPltzItemByDetailCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.L1008TtPltzItemByDetailCriteriaDomain" />
+    <typeAlias alias="L1008TtPltzItemByDetailDomain"
+        type="com.globaldenso.eca0027.core.business.domain.L1008TtPltzItemByDetailDomain" />
+	<!-- NL047 ADD START -->
+    <typeAlias alias="TmExpShipToShippingCriteriaDomain"
+        type="com.globaldenso.eca0027.core.auto.business.domain.criteria.TmExpShipToShippingCriteriaDomain" />
+    <typeAlias alias="TmExpShipToShippingDomain"
+        type="com.globaldenso.eca0027.core.auto.business.domain.TmExpShipToShippingDomain" />
+    <!-- NL047 ADD END -->
+
+    <!-- 検索結果をMapで受け取る -->
+    <!-- 梱包指示品目番号 -->
+    <!-- L2001 -->
+    <resultMap id="L2001Domain_SearchTtPltzInstrItemNoBySumBoxQty" class="L2001TtPltzInstrItemNoBySumBoxQtyDomain">
+        <result property="sumBoxQty" column="SUM_BOX_QTY" />
+        <result property="sumTotalNetWeight" column="SUM_TOTAL_NET_WEIGHT" />
+    </resultMap>
+    <!-- パレタイズ -->
+    <!-- L2003 -->
+    <resultMap id="L2003Domain_SearchTtPltzItemByItemNo" class="L2003TtPltzItemByItemNoDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="countPltzItemNo" column="COUNT_PLTZ_ITEM_NO" />
+    </resultMap>
+    <resultMap id="L2003Domain_SearchTtPltzBySingle" class="L2003TtPltzBySingleDomain">
+        <result property="mainMark"  column="MAIN_MARK" />
+        <result property="containerSortingKey"  column="CONTAINER_SORTING_KEY" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="dueDt"  column="DUE_DT" />
+        <result property="palletNo" column="PALLET_NO" />
+        <result property="expPackingIssuerNm" column="EXP_PACKING_ISSUER_NM" />
+        <result property="grossWeight"  column="GROSS_WEIGHT" />
+        <result property="netWeight"  column="NET_WEIGHT" />
+        <result property="cmlTyp" column="CML_TYP" />
+        <result property="loadingCd"  column="LOADING_CD" />
+        <result property="dngrItemFlg"  column="DNGR_ITEM_FLG" />
+        <result property="volume" column="VOLUME" />
+        <result property="stgInstrItemFlg"  column="STG_INSTR_ITEM_FLG" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+        <result property="compCd" column="COMP_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="customTimingTyp"  column="CUSTOM_TIMING_TYP" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="containerLooseTyp"  column="CONTAINER_LOOSE_TYP" />
+        <result property="migrationFlg" column="MIGRATION_FLG" />
+        <result property="oldQrMixTyp"  column="OLD_QR_MIX_TYP" />
+        <result property="oldQrContainerGrpCd"  column="OLD_QR_CONTAINER_GRP_CD" />
+        <result property="shipperCd"  column="SHIPPER_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />
+        <result property="shipToCd" column="SHIP_TO_CD" /> <!-- NL047 ADD -->
+        <result property="pltzItemNo" column="PLTZ_ITEM_NO" />
+        <result property="itemDescription"  column="ITEM_DESCRIPTION" />
+        <result property="shippingLot"  column="SHIPPING_LOT" />
+        <result property="tagQty" column="TAG_QTY" />
+        <result property="sumQty" column="SUM_QTY" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="pltzItemUnitDisp" column="PLTZ_ITEM_UNIT_DISP" />
+        <result property="casemarkNotation" column="CASEMARK_NOTATION" />
+        <result property="shipToNmAbb"  column="SHIP_TO_NM_ABB" />
+        <result property="shipCompNm"  column="NXS_SHIP_TO_COMP_NM" />
+        <result property="pltzUnitDisp" column="PLTZ_UNIT_DISP" />
+        <result property="pltzCompNm" column="PLTZ_COMP_NM" />
+    </resultMap>
+    <resultMap id="L2003Domain_SearchTtPltzItemByDetail" class="L2003TtPltzItemByDetailDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="pltzItemNo" column="PLTZ_ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="rtFlg" column="RT_FLG" />
+        <result property="sumQty" column="SUM_QTY" />
+        <result property="mixFlg" column="MIX_TAG_ITEM_ONLY_LAST6" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="casemarkNotation" column="CASEMARK_NOTATION" />
+        <result property="shippingLot" column="SHIPPING_LOT" />
+        <result property="tagQty" column="TAG_QTY" />
+    </resultMap>
+	<resultMap id="L1008Domain_SearchTtPltzItemByDetail" class="L1008TtPltzItemByDetailDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="pltzItemNo" column="PLTZ_ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="rtFlg" column="RT_FLG" />
+        <result property="sumQty" column="SUM_QTY" />
+        <result property="mixFlg" column="MIX_TAG_ITEM_ONLY_LAST6" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="casemarkNotation" column="CASEMARK_NOTATION" />
+        <result property="shippingLot" column="SHIPPING_LOT" />
+        <result property="tagQty" column="TAG_QTY" />
+        <result property="packageType" column="PKG_TYP" />
+        <result property="netWeight" column="NET_WEIGHT" />
+        <result property="itemWeight" column="ITEM_WEIGHT" />
+        <result property="kitBrch" column="KIT_BRCH" />
+        <result property="parFlag" column="PAR_FLAG" />
+    </resultMap>
+    <!-- NL047 ADD -->
+    <resultMap id="TmExpShipToShippingDomain_searchExpShipToShippingMa" class="TmExpShipToShippingDomain">
+        <result property="singlePltzQrFlg" column="SINGLE_PLTZ_QR_FLG" />
+    </resultMap>
+
+    <!-- =================================================================================================== -->
+    <!-- 梱包指示品目番号 / 検索                                                                                 -->
+    <!-- =================================================================================================== -->
+    
+    <!-- L2001 -->
+    <!-- 検索 SQL文 (梱包指示品目番号 / 数量と重量のサマリ取得) -->
+    <select id="SearchTtPltzInstrItemNoBySumBoxQty" resultMap="L2001Domain_SearchTtPltzInstrItemNoBySumBoxQty"
+        parameterClass="L2001TtPltzInstrItemNoBySumBoxQtyCriteriaDomain">
+        select /* SqlMap-RpEisProduct.SearchTtPltzInstrItemNoBySumBoxQty */
+             sum(BOX_QTY) SUM_BOX_QTY
+            ,nvl(sum(TOTAL_NET_WEIGHT), 0) SUM_TOTAL_NET_WEIGHT
+        from
+            TT_PLTZ_INSTR_ITEM_NO
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="palletizeInstrNo">
+                PLTZ_INSTR_NO = #palletizeInstrNo#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+    
+    <!-- L2003 -->
+    <!-- 検索 SQL文 (パレタイズ対象品 / メインマークに含まれる品目番号の種類のカウント取得（引継値.梱包指示NO）) -->
+    <select id="SearchTtPltzItemByPltzInstrNo" resultMap="L2003Domain_SearchTtPltzItemByItemNo"
+        parameterClass="L2003TtPltzItemByItemNoCriteriaDomain">
+        select /* SqlMap-RpEisProduct.SearchTtPltzItemByPltzInstrNo */
+          MAIN_MARK
+          , count(PLTZ_ITEM_NO) COUNT_PLTZ_ITEM_NO
+        from
+          ( 
+            select distinct
+              MAIN_MARK
+              , PLTZ_ITEM_NO
+              , PKG_CD 
+              , EXP_REQUEST_NO
+            from
+              TT_PLTZ_ITEM 
+            where
+                PKG_TYP IS NULL
+              <isNotEmpty prepend="and" property="palletizeInstrNo">
+                  PLTZ_INSTR_NO = #palletizeInstrNo#
+              </isNotEmpty>
+              <isNotEmpty prepend="and" property="cmlNo">
+                  MAIN_MARK = #cmlNo#
+              </isNotEmpty>
+              <isNotEmpty prepend="and" property="expRequestNo">
+                  EXP_REQUEST_NO = #expRequestNo#
+              </isNotEmpty>
+          ) 
+        group by
+          MAIN_MARK
+    </select>
+    <!-- L1008 -->
+    <!-- 検索 SQL文 (パレタイズ対象品 / メインマークに含まれる品目番号の種類のカウント取得（引継値.梱包指示NO）) -->
+    <select id="SearchTtPltzItemW1008ByPltzInstrNo" resultMap="L2003Domain_SearchTtPltzItemByItemNo"
+        parameterClass="L2003TtPltzItemByItemNoCriteriaDomain">
+        select /* SqlMap-RpEisProduct.SearchTtPltzItemByPltzInstrNo */
+          MAIN_MARK
+          , count(PLTZ_ITEM_NO) COUNT_PLTZ_ITEM_NO
+        from
+          ( 
+            select distinct
+              MAIN_MARK
+              , PLTZ_ITEM_NO
+              , PKG_CD 
+              , EXP_REQUEST_NO
+              , NET_WEIGHT
+              , ITEM_WEIGHT
+              , KIT_BRCH
+              , PAR_FLG
+              ,case 
+              when NET_WEIGHT = '0' and ITEM_WEIGHT ='0' and KIT_BRCH='0' and PAR_FLG ='Y' then 'P'
+              else 'K'
+              end as status
+            from
+              TT_PLTZ_ITEM 
+            where
+                PKG_TYP IS NULL
+              <isNotEmpty prepend="and" property="palletizeInstrNo">
+                  PLTZ_INSTR_NO = #palletizeInstrNo#
+              </isNotEmpty>
+              <isNotEmpty prepend="and" property="cmlNo">
+                  MAIN_MARK = #cmlNo#
+              </isNotEmpty>
+              <isNotEmpty prepend="and" property="expRequestNo">
+                  EXP_REQUEST_NO = #expRequestNo#
+              </isNotEmpty>
+          ) 
+        where status ='K'
+        group by
+          MAIN_MARK
+    </select>
+    <!-- 検索 SQL文 (パレタイズ / ヘッダー情報の取得（単品）（引継値.メインマーク）) -->
+    <sql id="Select_SearchTtPltzBySingle">
+        select
+            A.MAIN_MARK 
+            , A.CONTAINER_SORTING_KEY 
+            , A.TRNS_CD 
+            , A.DUE_DT 
+            , A.PALLET_NO 
+            , A.EXP_PACKING_ISSUER_NM 
+            , A.GROSS_WEIGHT 
+            , A.NET_WEIGHT 
+            , A.CML_TYP 
+            , A.LOADING_CD 
+            , A.DNGR_ITEM_FLG 
+            , A.VOLUME 
+            , A.STG_INSTR_ITEM_FLG 
+            , A.PKG_FORM_TYP 
+            , F.COMP_CD
+            , A.WEIGHT_UNIT 
+            , A.CUSTOM_TIMING_TYP 
+            , A.VOLUME_UNIT 
+            , A.CONTAINER_LOOSE_TYP 
+            , A.MIGRATION_FLG 
+            , A.OLD_QR_MIX_TYP 
+            , A.OLD_QR_CONTAINER_GRP_CD 
+            , A.SHIPPER_CD 
+            , A.CUSTOMER_CD 
+            , A.LGCY_SHIP_TO 
+            , A.PLNT_CD 
+            , A.LGCY_WH_CD
+            , A.SHIP_TO_CD 
+            , B.BRCH
+            , B.PLTZ_ITEM_NO 
+            , B.ITEM_DESCRIPTION 
+            , B.SHIPPING_LOT 
+            , B.TAG_QTY
+            , B.QTY
+            , B.PKG_CD
+            , D.UNIT_DISP PLTZ_ITEM_UNIT_DISP
+            , F.SHIP_TO_NM_ABB SHIP_TO_NM_ABB
+            , G.COMP_NM NXS_SHIP_TO_COMP_NM
+            , H.UNIT_DISP PLTZ_UNIT_DISP
+            , I.COMP_NM PLTZ_COMP_NM
+            , B.CUSTOMER_ITEM_NO 
+        from
+            TT_PLTZ A
+            , TT_PLTZ_ITEM B
+            , TM_MEASURE_UNIT D
+            , TM_NXS_SHIP_TO F
+            , TM_NXS_COMP G
+            , TM_MEASURE_UNIT H
+            , TM_NXS_COMP I
+        where
+            A.MAIN_MARK = B.MAIN_MARK
+        and B.QTY_UNIT = D.UNIT_CD
+        and A.SHIP_TO_CD = F.SHIP_TO_CD
+        and F.COMP_CD = G.COMP_CD
+        and A.WEIGHT_UNIT = H.UNIT_CD
+        and A.SHIPPER_CD = I.COMP_CD
+        <isNotEmpty property="mainMark" prepend="and">
+            A.MAIN_MARK = #mainMark#
+        </isNotEmpty>
+        and B.PKG_TYP is null 
+    </sql>
+    <!-- 検索 SQL文 (パレタイズ / ヘッダー情報の取得（単品）（引継値.メインマーク）) -->
+    <sql id="Select_SearchTtPltzL1008BySingle">
+      select d.* from( 
+        select
+            A.MAIN_MARK 
+            , A.CONTAINER_SORTING_KEY 
+            , A.TRNS_CD 
+            , A.DUE_DT 
+            , A.PALLET_NO 
+            , A.EXP_PACKING_ISSUER_ID  as EXP_PACKING_ISSUER_NM
+            , A.GROSS_WEIGHT 
+            , A.NET_WEIGHT 
+            , A.CML_TYP 
+            , A.LOADING_CD 
+            , A.DNGR_ITEM_FLG 
+            , A.VOLUME 
+            , A.STG_INSTR_ITEM_FLG 
+            , A.PKG_FORM_TYP 
+            , F.COMP_CD
+            , A.WEIGHT_UNIT 
+            , A.CUSTOM_TIMING_TYP 
+            , A.VOLUME_UNIT 
+            , A.CONTAINER_LOOSE_TYP 
+            , A.MIGRATION_FLG 
+            , A.OLD_QR_MIX_TYP 
+            , A.OLD_QR_CONTAINER_GRP_CD 
+            , A.SHIPPER_CD 
+            , A.CUSTOMER_CD 
+            , A.LGCY_SHIP_TO 
+            , A.PLNT_CD 
+            , A.LGCY_WH_CD 
+            , B.BRCH
+            , B.PLTZ_ITEM_NO 
+            , B.ITEM_DESCRIPTION 
+            , B.SHIPPING_LOT 
+            , B.TAG_QTY
+            , B.QTY
+            , B.PKG_CD
+            , D.UNIT_DISP PLTZ_ITEM_UNIT_DISP
+            , F.SHIP_TO_NM_ABB SHIP_TO_NM_ABB
+            , G.COMP_NM NXS_SHIP_TO_COMP_NM
+            , H.UNIT_DISP PLTZ_UNIT_DISP
+            , I.COMP_NM PLTZ_COMP_NM 
+            , B.CUSTOMER_ITEM_NO
+            , case 
+              when B.NET_WEIGHT = '0' and B.ITEM_WEIGHT ='0' and B.KIT_BRCH='0' and B.PAR_FLG ='Y' then 'P'
+              else 'K'
+              end as status
+            , A.SHIP_TO_CD
+        from
+            TT_PLTZ A
+            , TT_PLTZ_ITEM B
+            , TM_MEASURE_UNIT D
+            , TM_NXS_SHIP_TO F
+            , TM_NXS_COMP G
+            , TM_MEASURE_UNIT H
+            , TM_NXS_COMP I
+        where
+            A.MAIN_MARK = B.MAIN_MARK
+        and B.QTY_UNIT = D.UNIT_CD
+        and A.SHIP_TO_CD = F.SHIP_TO_CD
+        and F.COMP_CD = G.COMP_CD
+        and A.WEIGHT_UNIT = H.UNIT_CD
+        and A.SHIPPER_CD = I.COMP_CD
+        <isNotEmpty property="mainMark" prepend="and">
+            A.MAIN_MARK = #mainMark#
+        </isNotEmpty>
+        and B.PKG_TYP is null 
+        )d
+        where d.status='K'
+    </sql>
+    <sql id="Select_SearchTtPltzBySingle_TmExpItemNoSpInfo">
+        select 
+            E1.COMP_CD
+            , E1.CUSTOMER_CD
+            , E1.LGCY_SHIP_TO
+            , E1.ITEM_NO
+            , E1.PKG_CD
+            , E1.CASEMARK_NOTATION
+        from TM_EXP_ITEM_NO_SP_INFO E1 
+        where APLY_STRT_DT = (
+            select max(APLY_STRT_DT) 
+            from TM_EXP_ITEM_NO_SP_INFO E2 
+            where 
+                E1.COMP_CD = E2.COMP_CD 
+            and E1.CUSTOMER_CD = E2.CUSTOMER_CD 
+            and E1.LGCY_SHIP_TO = E2.LGCY_SHIP_TO 
+            and E1.ITEM_NO = E2.ITEM_NO 
+            and E1.PKG_CD = E2.PKG_CD 
+            <isNotEmpty prepend="and" property="aplyStrtDt">
+                to_char(E2.APLY_STRT_DT, 'YYYY/MM/DD') <![CDATA[<=]]> #aplyStrtDt#
+            </isNotEmpty>
+            group by
+                E2.COMP_CD
+                , E2.CUSTOMER_CD
+                , E2.LGCY_SHIP_TO
+                , E2.ITEM_NO
+                , E2.PKG_CD
+        )
+    </sql>
+
+    <select id="SearchTtPltzBySingle" resultMap="L2003Domain_SearchTtPltzBySingle"
+        parameterClass="L2003TtPltzBySingleCriteriaDomain">
+        select
+            /* SqlMap-RpEisProduct.SearchTtPltzBySingle */
+            T1.MAIN_MARK 
+            , T1.CONTAINER_SORTING_KEY 
+            , T1.TRNS_CD 
+            , T1.DUE_DT 
+            , T1.PALLET_NO 
+            , T1.EXP_PACKING_ISSUER_NM 
+            , T1.GROSS_WEIGHT 
+            , T1.NET_WEIGHT 
+            , T1.CML_TYP 
+            , T1.LOADING_CD 
+            , T1.DNGR_ITEM_FLG 
+            , T1.VOLUME 
+            , T1.STG_INSTR_ITEM_FLG 
+            , T1.PKG_FORM_TYP 
+            , T1.COMP_CD 
+            , T1.WEIGHT_UNIT 
+            , T1.CUSTOM_TIMING_TYP 
+            , T1.VOLUME_UNIT 
+            , T1.CONTAINER_LOOSE_TYP 
+            , T1.MIGRATION_FLG 
+            , T1.OLD_QR_MIX_TYP 
+            , T1.OLD_QR_CONTAINER_GRP_CD 
+            , T1.SHIPPER_CD 
+            , T1.CUSTOMER_CD 
+            , T1.LGCY_SHIP_TO 
+            , T1.PLNT_CD 
+            , T1.LGCY_WH_CD
+            , T1.SHIP_TO_CD
+            , T1.PLTZ_ITEM_NO 
+            , T1.ITEM_DESCRIPTION 
+            , T1.SHIPPING_LOT 
+            , T1.TAG_QTY
+            , sum(T2.ALLOC_QTY) SUM_QTY
+            , T1.PLTZ_ITEM_UNIT_DISP
+            , T1.SHIP_TO_NM_ABB
+            , T1.NXS_SHIP_TO_COMP_NM
+            , T1.PLTZ_UNIT_DISP
+            , T1.PLTZ_COMP_NM 
+            , T2.CUSTOMER_ITEM_NO
+            , T3.CASEMARK_NOTATION
+        from
+            (<include refid="Select_SearchTtPltzBySingle"/>) T1
+            , TT_PLTZ_ITEM_ODR T2
+            , (<include refid="Select_SearchTtPltzBySingle_TmExpItemNoSpInfo"/>) T3
+        where
+            T1.MAIN_MARK = T2.MAIN_MARK(+)
+        and T1.BRCH = T2.BRCH(+)
+        and T1.SHIPPER_CD = T3.COMP_CD(+)
+        and T1.CUSTOMER_CD = T3.CUSTOMER_CD(+)
+        and T1.LGCY_SHIP_TO = T3.LGCY_SHIP_TO(+)
+        and T1.PLTZ_ITEM_NO = T3.ITEM_NO(+)
+        and T1.PKG_CD = T3.PKG_CD(+)
+        group by
+            T1.MAIN_MARK 
+            , T1.CONTAINER_SORTING_KEY 
+            , T1.TRNS_CD 
+            , T1.DUE_DT 
+            , T1.PALLET_NO 
+            , T1.EXP_PACKING_ISSUER_NM 
+            , T1.GROSS_WEIGHT 
+            , T1.NET_WEIGHT 
+            , T1.CML_TYP 
+            , T1.LOADING_CD 
+            , T1.DNGR_ITEM_FLG 
+            , T1.VOLUME 
+            , T1.STG_INSTR_ITEM_FLG 
+            , T1.PKG_FORM_TYP 
+            , T1.COMP_CD 
+            , T1.WEIGHT_UNIT 
+            , T1.CUSTOM_TIMING_TYP 
+            , T1.VOLUME_UNIT 
+            , T1.CONTAINER_LOOSE_TYP 
+            , T1.MIGRATION_FLG 
+            , T1.OLD_QR_MIX_TYP 
+            , T1.OLD_QR_CONTAINER_GRP_CD 
+            , T1.SHIPPER_CD 
+            , T1.CUSTOMER_CD 
+            , T1.LGCY_SHIP_TO 
+            , T1.PLNT_CD 
+            , T1.LGCY_WH_CD
+            , T1.SHIP_TO_CD
+            , T1.PLTZ_ITEM_NO 
+            , T1.ITEM_DESCRIPTION 
+            , T1.SHIPPING_LOT 
+            , T1.TAG_QTY
+            , T1.PLTZ_ITEM_UNIT_DISP
+            , T1.SHIP_TO_NM_ABB
+            , T1.NXS_SHIP_TO_COMP_NM
+            , T1.PLTZ_UNIT_DISP
+            , T1.PLTZ_COMP_NM 
+            , T2.CUSTOMER_ITEM_NO
+            , T3.CASEMARK_NOTATION
+    </select>
+    
+    <sql id="SearchTtPltzItemByDetail_TtPltz">
+        select
+            A.MAIN_MARK
+            , A.SHIPPER_CD
+            , A.CUSTOMER_CD
+            , A.LGCY_SHIP_TO
+            , A.PKG_FORM_TYP <!-- NL012 ADD -->
+            , B.BRCH
+            , B.PLTZ_ITEM_NO
+            , B.PKG_CD
+            , B.ITEM_DESCRIPTION
+            , B.MODEL_CD
+            , B.RT_FLG
+            , B.QTY
+            , B.SHIPPING_LOT
+            , B.TAG_QTY
+            , case
+               when B.RT_FLG = 'Y' then ''
+               else B.MIX_TAG_NO
+              end MIX_TAG_ITEM_ONLY
+        from 
+            TT_PLTZ A
+            , TT_PLTZ_ITEM B
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="mainMark">
+                A.MAIN_MARK = #mainMark#
+            </isNotEmpty>
+            <isParameterPresent prepend="and">
+                (B.PKG_TYP is null or B.RT_FLG = 'Y')
+            </isParameterPresent>
+            <isParameterPresent prepend="and">
+                A.MAIN_MARK = B.MAIN_MARK
+            </isParameterPresent>
+        </dynamic>
+    </sql>
+    <select id="SearchTtPltzL1008BySingle" resultMap="L2003Domain_SearchTtPltzBySingle"
+        parameterClass="L2003TtPltzBySingleCriteriaDomain">
+        select
+            /* SqlMap-RpEisProduct.SearchTtPltzBySingle */
+            T1.MAIN_MARK 
+            , T1.CONTAINER_SORTING_KEY 
+            , T1.TRNS_CD 
+            , T1.DUE_DT 
+            , T1.PALLET_NO 
+            , s.USR_NM_EN as EXP_PACKING_ISSUER_NM 
+            , T1.GROSS_WEIGHT 
+            , T1.NET_WEIGHT 
+            , T1.CML_TYP 
+            , T1.LOADING_CD 
+            , T1.DNGR_ITEM_FLG 
+            , T1.VOLUME 
+            , T1.STG_INSTR_ITEM_FLG 
+            , T1.PKG_FORM_TYP 
+            , T1.COMP_CD 
+            , T1.WEIGHT_UNIT 
+            , T1.CUSTOM_TIMING_TYP 
+            , T1.VOLUME_UNIT 
+            , T1.CONTAINER_LOOSE_TYP 
+            , T1.MIGRATION_FLG 
+            , T1.OLD_QR_MIX_TYP 
+            , T1.OLD_QR_CONTAINER_GRP_CD 
+            , T1.SHIPPER_CD 
+            , T1.CUSTOMER_CD 
+            , T1.LGCY_SHIP_TO 
+            , T1.PLNT_CD 
+            , T1.LGCY_WH_CD 
+            , T1.PLTZ_ITEM_NO 
+            , T1.ITEM_DESCRIPTION 
+            , T1.SHIPPING_LOT 
+            , T1.TAG_QTY
+            , sum(T1.QTY) SUM_QTY
+            , T1.PLTZ_ITEM_UNIT_DISP
+            , T1.SHIP_TO_NM_ABB
+            , T1.NXS_SHIP_TO_COMP_NM
+            , T1.PLTZ_UNIT_DISP
+            , T1.PLTZ_COMP_NM 
+            , T1.CUSTOMER_ITEM_NO
+            , T3.CASEMARK_NOTATION
+            , T1.SHIP_TO_CD
+        from
+            (<include refid="Select_SearchTtPltzL1008BySingle"/>) T1
+            , (<include refid="Select_SearchTtPltzBySingle_TmExpItemNoSpInfo"/>) T3
+            , TM_USER s
+        where
+     	T1.SHIPPER_CD = T3.COMP_CD(+)
+        and T1.CUSTOMER_CD = T3.CUSTOMER_CD(+)
+        and T1.LGCY_SHIP_TO = T3.LGCY_SHIP_TO(+)
+        and T1.PLTZ_ITEM_NO = T3.ITEM_NO(+)
+        and T1.PKG_CD = T3.PKG_CD(+)
+        and s.DSC_ID = T1.EXP_PACKING_ISSUER_NM
+        group by
+            T1.MAIN_MARK 
+            , T1.CONTAINER_SORTING_KEY 
+            , T1.TRNS_CD 
+            , T1.DUE_DT 
+            , T1.PALLET_NO 
+            , s.USR_NM_EN 
+            , T1.GROSS_WEIGHT 
+            , T1.NET_WEIGHT 
+            , T1.CML_TYP 
+            , T1.LOADING_CD 
+            , T1.DNGR_ITEM_FLG 
+            , T1.VOLUME 
+            , T1.STG_INSTR_ITEM_FLG 
+            , T1.PKG_FORM_TYP 
+            , T1.COMP_CD 
+            , T1.WEIGHT_UNIT 
+            , T1.CUSTOM_TIMING_TYP 
+            , T1.VOLUME_UNIT 
+            , T1.CONTAINER_LOOSE_TYP 
+            , T1.MIGRATION_FLG 
+            , T1.OLD_QR_MIX_TYP 
+            , T1.OLD_QR_CONTAINER_GRP_CD 
+            , T1.SHIPPER_CD 
+            , T1.CUSTOMER_CD 
+            , T1.LGCY_SHIP_TO 
+            , T1.PLNT_CD 
+            , T1.LGCY_WH_CD 
+            , T1.PLTZ_ITEM_NO 
+            , T1.ITEM_DESCRIPTION 
+            , T1.SHIPPING_LOT 
+            , T1.TAG_QTY
+            , T1.PLTZ_ITEM_UNIT_DISP
+            , T1.SHIP_TO_NM_ABB
+            , T1.NXS_SHIP_TO_COMP_NM
+            , T1.PLTZ_UNIT_DISP
+            , T1.PLTZ_COMP_NM 
+            , T1.CUSTOMER_ITEM_NO
+            , T3.CASEMARK_NOTATION
+            , T1.SHIP_TO_CD
+            , s.USR_NM_EN
+    </select>
+    
+    <sql id="SearchTtPltzItemByDetail_TtPltzItemOdr">
+        select
+            MAIN_MARK
+            , BRCH
+            , CUSTOMER_ITEM_NO
+            , ALLOC_QTY 
+        from
+            TT_PLTZ_ITEM_ODR
+    </sql>
+
+	<sql id="SearchTtPltzItemByDetail_TtPltz_L1008">
+        select
+            A.MAIN_MARK
+            , A.SHIPPER_CD
+            , A.CUSTOMER_CD
+            , A.LGCY_SHIP_TO
+            <!-- UT458 2016/05/18 -->
+            <!-- , B.BRCH  -->
+            <!-- UT458 2016/05/18 -->
+            , B.PLTZ_ITEM_NO
+            , B.PKG_CD
+            , B.ITEM_DESCRIPTION
+            , B.MODEL_CD
+            , B.RT_FLG
+            <!-- UT458 2016/05/18 -->
+            <!-- , B.QTY -->
+            , sum(B.QTY) as QTY
+            <!-- UT458 2016/05/18 -->
+            , B.SHIPPING_LOT
+            , B.TAG_QTY
+            , B.PKG_TYP
+            , A.SUPPLIER_MAIN_MARK
+            , case
+               when B.RT_FLG = 'Y' then ''
+               else B.MIX_TAG_NO
+              end MIX_TAG_ITEM_ONLY
+            , B.CUSTOMER_ITEM_NO
+            , B.NET_WEIGHT
+            , B.ITEM_WEIGHT
+            , B.KIT_BRCH
+            , B.PAR_FLG as PAR_FLAG
+            
+        from 
+            TT_PLTZ A
+            , TT_PLTZ_ITEM B
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="mainMark">
+                A.MAIN_MARK = #mainMark#
+            </isNotEmpty>
+            <isParameterPresent prepend="and">
+                (B.PKG_TYP is null or B.RT_FLG = 'Y')
+            </isParameterPresent>
+            <isParameterPresent prepend="and">
+                A.MAIN_MARK = B.MAIN_MARK
+            </isParameterPresent>
+        </dynamic>
+        <!-- UT458 2016/05/18 -->
+        group by   
+               A.MAIN_MARK,
+               A.SHIPPER_CD,
+               A.CUSTOMER_CD,
+               A.LGCY_SHIP_TO,
+               B.PLTZ_ITEM_NO,
+               B.PKG_CD,
+               B.ITEM_DESCRIPTION,
+               B.MODEL_CD,
+               B.RT_FLG,
+               B.SHIPPING_LOT,
+               B.TAG_QTY,
+               B.PKG_TYP,
+               A.SUPPLIER_MAIN_MARK,
+               B.MIX_TAG_NO,
+               B.CUSTOMER_ITEM_NO,
+               B.NET_WEIGHT,
+               B.ITEM_WEIGHT,
+               B.KIT_BRCH,
+               B.PAR_FLG
+        <!-- UT458 2016/05/18 -->
+    </sql>
+
+    <select id="SearchTtPltzItemByDetail" resultMap="L2003Domain_SearchTtPltzItemByDetail"
+        parameterClass="L2003TtPltzItemByDetailCriteriaDomain">
+
+        <!--
+        == NL012 MOD
+        == Add more 1 layer to print number of small box for details.
+        == 明細の小箱数を印字するためもう1階層を追加。
+        -->
+        <!-- NL012 ADD START -->
+        select
+            /* SqlMap-RpEisProduct.SearchTtPltzItemByDetail */
+            TA.MAIN_MARK
+            , TA.SHIPPER_CD
+            , TA.PLTZ_ITEM_NO
+            , TA.PKG_CD
+            , TA.ITEM_DESCRIPTION
+            , TA.MODEL_CD
+            , TA.RT_FLG
+            , TA.SUM_QTY
+            , TA.MIX_TAG_ITEM_ONLY
+            , TA.MIX_TAG_ITEM_ONLY_LAST6
+            , TA.SHIPPING_LOT
+            , TA.CUSTOMER_ITEM_NO
+            , TA.CASEMARK_NOTATION
+            ,
+            case
+                <!-- for not Mix Tag/Mixタグ以外 -->
+                when TA.MIX_TAG_ITEM_ONLY is NULL then
+                    case TA.ROW_NUMBER_IN_SAME_ITEM_NO
+                        when 1 then <!-- print only first while item no. is same/品番が同じ場合先頭レコードの箱数のみ印字 -->
+                            decode(TA.PKG_FORM_TYP,
+                                'S', NULL,                  <!--  single -->
+                                'M', to_char(TA.TAG_QTY),   <!--  multi -->
+                                'H', NULL,                  <!--  manual -->
+                                NULL                        <!-- PKG Material -->
+                            )
+                        else NULL 
+                    end
+                <!-- for Mix Tag/Mixタグ -->
+                else
+                    case TA.ROW_NUMBER_IN_SAME_MIX_TAG
+                        when 1 then '1' <!-- print only first while Mix Tag no. is same/Mix Tag No.が同じ場合先頭レコードの箱数のみ印字 -->
+                        else NULL
+                    end
+            end TAG_QTY
+        <!-- NL012 ADD END -->
+        from (
+            select
+                T1.MAIN_MARK
+                , T1.SHIPPER_CD
+                , T1.PLTZ_ITEM_NO
+                , T1.PKG_CD
+                , T1.ITEM_DESCRIPTION
+                , T1.MODEL_CD
+                , T1.RT_FLG
+                , case T1.RT_FLG 
+                    when 'Y' then sum(nvl(T1.QTY, 0)) 
+                    else sum(nvl(T2.ALLOC_QTY, 0)) 
+                  end SUM_QTY
+                , T1.MIX_TAG_ITEM_ONLY
+                , substr(T1.MIX_TAG_ITEM_ONLY,12) MIX_TAG_ITEM_ONLY_LAST6
+                , T1.SHIPPING_LOT
+                , T1.TAG_QTY
+                , T1.PKG_FORM_TYP <!-- NL012 ADD -->
+                , T2.CUSTOMER_ITEM_NO
+                , T3.CASEMARK_NOTATION
+                <!-- NL012 ADD START -->
+                ,
+                row_number() over (
+                    partition by T1.PLTZ_ITEM_NO
+                    order by
+                        T1.RT_FLG
+                    ,   T1.MIX_TAG_ITEM_ONLY nulls first
+                    ,   T1.ITEM_DESCRIPTION
+                    ,   T1.PLTZ_ITEM_NO
+                    ,   T1.PKG_CD
+                    ,   T2.CUSTOMER_ITEM_NO
+                ) ROW_NUMBER_IN_SAME_ITEM_NO
+                ,
+                row_number() over (
+                    partition by T1.MIX_TAG_ITEM_ONLY
+                    order by
+                        T1.RT_FLG
+                    ,   T1.MIX_TAG_ITEM_ONLY nulls first
+                    ,   T1.ITEM_DESCRIPTION
+                    ,   T1.PLTZ_ITEM_NO
+                    ,   T1.PKG_CD
+                    ,   T2.CUSTOMER_ITEM_NO
+                ) ROW_NUMBER_IN_SAME_MIX_TAG
+                <!-- NL012 ADD END -->
+            from
+                (<include refid="SearchTtPltzItemByDetail_TtPltz"/>) T1
+                , (<include refid="SearchTtPltzItemByDetail_TtPltzItemOdr"/>) T2
+                , (<include refid="Select_SearchTtPltzBySingle_TmExpItemNoSpInfo"/>) T3
+            where
+                T1.MAIN_MARK = T2.MAIN_MARK(+)
+            and T1.BRCH = T2.BRCH(+)
+            and T1.SHIPPER_CD = T3.COMP_CD(+)
+            and T1.CUSTOMER_CD = T3.CUSTOMER_CD(+)
+            and T1.LGCY_SHIP_TO = T3.LGCY_SHIP_TO(+)
+            and T1.PLTZ_ITEM_NO = T3.ITEM_NO(+)
+            and T1.PKG_CD = T3.PKG_CD(+)
+            group by
+                T1.MAIN_MARK
+                , T1.SHIPPER_CD
+                , T1.PLTZ_ITEM_NO
+                , T1.PKG_CD
+                , T1.ITEM_DESCRIPTION
+                , T1.MODEL_CD
+                , T1.RT_FLG
+                , T1.MIX_TAG_ITEM_ONLY
+                , T1.SHIPPING_LOT
+                , T1.TAG_QTY
+                , T1.PKG_FORM_TYP <!-- NL012 ADD -->
+                , T2.CUSTOMER_ITEM_NO
+                , T3.CASEMARK_NOTATION
+        ) TA
+        order by 
+            TA.RT_FLG
+            , TA.MIX_TAG_ITEM_ONLY_LAST6 nulls first
+            , TA.ITEM_DESCRIPTION
+            , TA.PLTZ_ITEM_NO
+            , TA.PKG_CD
+            , TA.CUSTOMER_ITEM_NO <!-- NL012 ADD -->
+    </select>
+
+    <!--
+    == NL012 DEL START
+    ==<!== NL009 MERGE START ==>
+    ==<!== A.Chonthicha: Total number of box ==>
+    ==<select id="SearchTtPltzItemForTotalNoOfBox" resultClass="java.lang.Integer"
+    ==    parameterClass="L2003TtPltzItemByDetailCriteriaDomain">
+    ==    select 
+    ==        /* SqlMap-RpEisProduct.SearchTtPltzItemForTotalNoOfBox */
+    ==        <!== START: 2017/06/01 A.Chonthicha: Mix tag issue
+    ==        nvl(SUM(B.TAG_QTY), 0) as SUM_NO_OF_BOX ==>
+    ==        nvl(max(T1.SUM_BOX), 0) + COUNT(distinct T3.MIX_TAG_NO) as SUM_NO_OF_BOX
+    ==    from 
+    ==      (
+    ==        select 
+    ==          A.MAIN_MARK
+    ==          , SUM(B.TAG_QTY) as SUM_BOX
+    ==        from
+    ==          TT_PLTZ A
+    ==          , TT_PLTZ_ITEM B
+    ==        where
+    ==             B.ITEM_TYP is null
+    ==             <isParameterPresent prepend="and">
+    ==                 A.MAIN_MARK = B.MAIN_MARK
+    ==             </isParameterPresent>
+    ==        group by A.MAIN_MARK
+    ==      ) T1,
+    ==      TT_PLTZ_ITEM T2
+    ==      left join TT_MIXTAG T3
+    ==        on T2.MIX_TAG_NO = T3.MIX_TAG_NO
+    ==      <!== END: 2017/06/01 A.Chonthicha: Mix tag issue ==>
+    ==    <dynamic prepend="where">
+    ==        <isNotEmpty prepend="and" property="mainMark">
+    ==            T1.MAIN_MARK = #mainMark#
+    ==        </isNotEmpty>
+    ==        <isParameterPresent prepend="and">
+    ==            T1.MAIN_MARK = T2.MAIN_MARK
+    ==        </isParameterPresent>
+    ==    </dynamic>
+    ==</select>
+    ==
+    ==<!== A.Chonthicha: Total number of box for manual registration==>
+    ==<select id="SearchTtPltzItemForTotalNoOfBoxOfManualRegist" resultClass="java.lang.Integer"
+    ==    parameterClass="L2003TtPltzItemByDetailCriteriaDomain">
+    ==    select
+    ==        /* SqlMap-RpEisProduct.SearchTtPltzItemForTotalNoOfBoxOfManualRegist */
+    ==        (TAGQTY + REMAIN) as SUM_NO_OF_BOX 
+    ==    from 
+    ==        (select 
+    ==            sum(floor(B.QTY/B.SHIPPING_LOT)) as TAGQTY , 
+    ==            sum(case 
+    ==                    when mod(B.QTY, B.SHIPPING_LOT) > 0 then 1
+    ==                    else 0
+    ==                end) as REMAIN 
+    ==        from 
+    ==            TT_PLTZ A
+    ==            , TT_PLTZ_ITEM B
+    ==        <dynamic prepend="where">
+    ==            <isNotEmpty prepend="and" property="mainMark">
+    ==            A.MAIN_MARK = #mainMark#
+    ==            </isNotEmpty>
+    ==            <isParameterPresent prepend="and">
+    ==                B.ITEM_TYP is null
+    ==            </isParameterPresent>
+    ==            <isParameterPresent prepend="and">
+    ==                A.MAIN_MARK = B.MAIN_MARK
+    ==            </isParameterPresent>
+    ==        </dynamic>
+    ==        )
+    ==</select>
+    ==<!== NL009 MERGE END ==>
+    == NL012 DEL END
+    -->
+    
+    <select id="SearchTtPltzItemL1008ByDetail" resultMap="L1008Domain_SearchTtPltzItemByDetail"
+        parameterClass="L1008TtPltzItemByDetailCriteriaDomain">
+        select
+            /* SqlMap-RpEisProduct.SearchTtPltzItemByDetail */
+            T1.MAIN_MARK
+            , T1.SHIPPER_CD
+            , T1.PLTZ_ITEM_NO
+            , T1.PKG_CD
+            , T1.ITEM_DESCRIPTION
+            , T1.MODEL_CD
+            , T1.RT_FLG
+            , nvl(T1.QTY, 0) as SUM_QTY
+            , substr(T1.MIX_TAG_ITEM_ONLY,12) MIX_TAG_ITEM_ONLY_LAST6
+            , T1.SHIPPING_LOT
+            , T1.TAG_QTY
+            , T1.CUSTOMER_ITEM_NO
+            , T1.SUPPLIER_MAIN_MARK as CASEMARK_NOTATION
+            , T1.PKG_TYP
+            , T1.NET_WEIGHT
+            , T1.ITEM_WEIGHT
+            , T1.KIT_BRCH
+            , T1.PAR_FLAG
+        from
+            (<include refid="SearchTtPltzItemByDetail_TtPltz_L1008"/>) T1
+            , (<include refid="Select_SearchTtPltzBySingle_TmExpItemNoSpInfo"/>) T3
+        where
+        T1.SHIPPER_CD = T3.COMP_CD(+)
+        and T1.CUSTOMER_CD = T3.CUSTOMER_CD(+)
+        and T1.LGCY_SHIP_TO = T3.LGCY_SHIP_TO(+)
+        and T1.PLTZ_ITEM_NO = T3.ITEM_NO(+)
+        and T1.PKG_CD = T3.PKG_CD(+)
+        group by
+            T1.MAIN_MARK
+            , T1.SHIPPER_CD
+            , T1.PLTZ_ITEM_NO
+            , T1.PKG_CD
+            , T1.ITEM_DESCRIPTION
+            , T1.MODEL_CD
+            , T1.RT_FLG
+            , T1.MIX_TAG_ITEM_ONLY
+            , T1.SHIPPING_LOT
+            , T1.TAG_QTY
+            , T1.CUSTOMER_ITEM_NO
+            , T1.SUPPLIER_MAIN_MARK
+            , T1.PKG_TYP
+            , T1.QTY
+            , T1.NET_WEIGHT
+            , T1.ITEM_WEIGHT
+            , T1.KIT_BRCH
+            , T1.PAR_FLAG
+        order by 
+            T1.RT_FLG
+            , MIX_TAG_ITEM_ONLY_LAST6 nulls first
+            , T1.ITEM_DESCRIPTION
+            , T1.PLTZ_ITEM_NO
+            , T1.PKG_CD
+    </select>
+    
+    <!-- NL047 ADD START -->
+    <select id="SearchExpShipToShippingMa" resultMap="TmExpShipToShippingDomain_searchExpShipToShippingMa"
+        parameterClass="TmExpShipToShippingCriteriaDomain">
+        SELECT
+            /* SqlMap-RpEisProduct.SearchExpShipToShippingMa */
+            A.SINGLE_PLTZ_QR_FLG
+        FROM
+            TM_EXP_SHIP_TO_SHIPPING A
+            , (
+                SELECT
+                    COMP_CD
+                    ,SHIP_TO_CD
+                    ,max(APLY_STRT_DT) APLY_STRT_DT
+                FROM
+                    TM_EXP_SHIP_TO_SHIPPING
+                WHERE
+                    COMP_CD = #compCd#
+                    AND SHIP_TO_CD = #shipToCd#
+                    AND APLY_STRT_DT <![CDATA[<]]>= #aplyStrtDt#
+                GROUP BY
+                    COMP_CD
+                    ,SHIP_TO_CD
+            ) B
+        WHERE
+            A.COMP_CD = B.COMP_CD
+            AND A.SHIP_TO_CD = B.SHIP_TO_CD
+            AND A.APLY_STRT_DT = B.APLY_STRT_DT
+    </select>
+    <!-- NL047 ADD END -->
+</sqlMap>

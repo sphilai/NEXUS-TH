@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * web.xml
+ * 
+ * $ web.xml 4294 2013-05-15 12:30:57Z HIDETOSHI_NAKATANI@denso.co.jp $
+ *
+ * Copyright (c) 2011 DENSO IT SOLUTIONS. All rights reserved.
+-->
+<web-app id="WebApp_ID" version="2.4"
+    xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+    <!-- [JP] コンテキスト名称 ================================================== -->
+    <!-- [EN] Context name ================================================== -->
+    <display-name>NEXUS_EXPORT</display-name>
+    
+    <!-- [JP] コンテキストパラメータ ============================================ -->
+    <!-- [EN] Context Parameters ============================================ -->
+    <!-- Spring Configuration -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /WEB-INF/applicationContext-aij2.xml,
+            /WEB-INF/applicationContext-aij2-jdbc.xml,
+            /WEB-INF/applicationContext-aij2-aop.xml,
+            /WEB-INF/applicationContext-library.xml,
+            /WEB-INF/applicationContext-aijbutil.xml
+        </param-value>
+    </context-param>
+    
+    <!-- System version -->
+    <context-param>
+        <param-name>version</param-name>
+        <param-value>2</param-value>
+    </context-param>
+    
+    <!-- [JP] サーブレットフィルタ ============================================== -->
+    <!-- [EN] Servlet filter ============================================== -->
+    <!-- [JP] 日本語文字対応フィルタ -->
+    <!-- [EN] Japanese character corresponding filter -->
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>
+            com.globaldenso.ai.aij2.core.filter.CharacterEncodingFilter
+        </filter-class>
+        <!-- [JP] パラメータ値にエンコード方式を指定します。 -->
+        <!-- [EN] I want to specify the encoding for the parameter value. -->
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+    <!-- [JP] 不正なリクエストをチェックするためのフィルタ -->
+    <!-- [EN] Filter for checking invalid request -->
+    <filter>
+        <filter-name>CheckFilter</filter-name>
+        <filter-class>
+            <!-- com.globaldenso.ai.aij2.core.filter.CheckFilter -->
+            com.globaldenso.ai.aiws.filter.CheckFilter
+        </filter-class>
+    </filter>
+
+    <!-- [JP] セッションタイムアウトをチェックするフィルタ -->
+    <!-- [EN] Filter for check session timeout -->
+    <filter>
+        <filter-name>CheckSessionTimeoutFilter</filter-name>
+        <filter-class>
+            com.globaldenso.gscm.framework.filter.CheckSessionTimeoutFilter
+        </filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>PseudoAuthenticationFilter</filter-name>
+        <filter-class>com.globaldenso.eca0027.core.common.filter.PseudoAuthenticationFilter</filter-class>
+        <init-param>
+            <param-name>passwordFile</param-name>
+            <param-value>/WEB-INF/password-dev.txt</param-value>
+        </init-param>
+        <init-param>
+            <param-name>loginPage</param-name>
+            <param-value>/html/eca0027/core/login-ECA0027.fcc</param-value>
+        </init-param>
+        <init-param>
+            <param-name>localhost</param-name>
+            <param-value>localhost</param-value>
+        </init-param>
+    </filter>
+    
+    <!-- [JP] DENSOコンテキストの構築フィルタ -->
+    <!-- [EN] Building context DENSO filters -->
+    <filter>
+        <filter-name>DensoContextFilter</filter-name>
+        <filter-class>
+            com.globaldenso.ai.aij2.core.filter.DensoContextFilter
+        </filter-class>
+    </filter>
+
+    <!-- [JP] ログコンテキストの構築フィルタ -->
+    <!-- [EN] Building a log filter context -->
+    <filter>
+        <filter-name>LogContextFilter</filter-name>
+        <filter-class>
+            com.globaldenso.ai.aij2.core.filter.LogContextFilter
+        </filter-class>
+    </filter>
+
+    <!-- [JP] AI-WS(REST)ログコンテキストの構築フィルタ -->
+    <!-- [EN] Building a log filter context -->
+    <filter>
+        <filter-name>AiwsLogContextFilter</filter-name>
+        <filter-class>
+             com.globaldenso.ai.aiws.filter.AIWSLogContextFilter
+        </filter-class>
+    </filter>
+
+    <!-- AI-WS セッション破棄フィルタ -->
+    <filter>
+        <filter-name>WebServiceSessionInvalidationFilter</filter-name>
+        <filter-class>
+            com.globaldenso.ai.aiws.filter.WebServiceSessionInvalidationFilter
+        </filter-class>
+    </filter>
+    
+    <!-- [JP] プレゼンテーション層ロギングフィルタ -->
+    <!-- [EN] Logging filter presentation layer -->
+    <filter>
+        <filter-name>RequestLoggingFilter</filter-name>
+        <filter-class>
+            com.globaldenso.ai.aiws.filter.RequestLoggingFilter
+        </filter-class>
+    </filter>
+
+    <!-- [JP] 画面共通情報設定フィルタ -->
+    <filter>
+        <filter-name>CreateCommonInfoFilter</filter-name>
+        <filter-class>com.globaldenso.gscm.framework.filter.CreateCommonInfoFilter</filter-class>
+        <init-param>
+            <param-name>CommonInfoClassName</param-name>
+            <param-value>com.globaldenso.eca0027.core.common.business.domain.Eca0027CommonInfoDomain</param-value>
+        </init-param>
+        <init-param>
+            <param-name>CreateCommonInfoClassName</param-name>
+            <param-value>com.globaldenso.eca0027.core.common.filter.Eca0027CreateCommonInfoImpl</param-value>
+        </init-param>
+    </filter>
+
+    <!-- [JP] 画面情報削除フィルタ -->
+    <filter>
+        <filter-name>RemoveScreenInfoFilter</filter-name>
+        <filter-class>com.globaldenso.gscm.framework.filter.RemoveScreenInfoFilter</filter-class>
+    </filter>
+
+    <!-- [JP] サーブレットフィルタ マッピング =================================== -->
+    <!-- [EN] Servlet filter mapping =================================== -->
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>CheckFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>CheckSessionTimeoutFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>PseudoAuthenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>DensoContextFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>LogContextFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>AiwsLogContextFilter</filter-name>
+        <url-pattern>/rest/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>WebServiceSessionInvalidationFilter</filter-name>
+        <url-pattern>/rest/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>RequestLoggingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>CreateCommonInfoFilter</filter-name>
+        <url-pattern>/WindowOpenTopToAplAction.do</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>CreateCommonInfoFilter</filter-name>
+        <url-pattern>/TopPage.do</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>RemoveScreenInfoFilter</filter-name>
+        <url-pattern>/ScreenJumpAction.do</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>CreateCommonInfoFilter</filter-name>
+        <url-pattern>/W0002Init.do</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+    <!-- [JP] サーブレットリスナ ================================================ -->
+    <!-- [EN] Servlet listener ================================================ -->
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
+    <!-- [JP] サーブレット ====================================================== -->
+    <!-- [EN] Servlet ====================================================== -->
+    <servlet>
+        <servlet-name>action</servlet-name>
+        <servlet-class>
+            org.apache.struts.action.ActionServlet
+        </servlet-class>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/struts-config.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_action_w0.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_action_w1.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_action_w2.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_action_w3.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_action_w4.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_action_w5.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_action_w6.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_action_w7.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_action_w8.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_action_w9.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_action_wb.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_action_wc.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_action_wt.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_action_x9.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_form_w0.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_form_w1.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_form_w2.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_form_w3.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_form_w4.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_form_w5.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_form_w6.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_form_w7.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_form_w8.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_form_w9.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_form_wb.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_form_wc.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_form_wt.xml,
+                /WEB-INF/conf/eca0027/core/struts/struts-config_eca0027_form_x9.xml
+            </param-value>
+        </init-param>
+
+        <!-- Spring Configuration -->
+        <init-param>
+            <param-name>spring.autowire</param-name>
+            <param-value>byName</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>JAX-RS Servlet</servlet-name>
+        <servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>com.globaldenso.ai.aiws.core.AiRestApplication</param-value>
+        </init-param>
+        <init-param>
+            <param-name>com.sun.jersey.spi.container.ContainerRequestFilters</param-name>
+            <param-value>
+                com.globaldenso.ai.aiws.filter.WebServiceLoggingFilter;com.globaldenso.ai.aiws.filter.DensoContextFilter
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
+            <param-value>com.globaldenso.ai.aiws.filter.WebServiceLoggingFilter</param-value>
+        </init-param>
+        <init-param>
+            <param-name>spring.autowire</param-name>
+            <param-value>byName</param-value>
+        </init-param>
+        <load-on-startup>3</load-on-startup>
+    </servlet>
+
+    <!-- [JP] サーブレットマッピング ============================================ -->
+    <!-- [EN] Servlet mapping ============================================ -->
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>JAX-RS Servlet</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+ 
+    <!-- [JP] エラーページ ====================================================== -->
+    <!-- [EN] Error Page ====================================================== -->
+    <!-- [JP] Java例外 -->
+    <!-- [EN] Java exception -->
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/WEB-INF/jsp/eca0027/core/error.jsp</location>
+    </error-page>
+
+    <!-- welcome file ====================================================== -->
+    <welcome-file-list>
+        <welcome-file>html/eca0027/core/GSCMRedirect.html</welcome-file>
+    </welcome-file-list>
+
+    <!-- [JP] JSP 設定 ========================================================== -->
+    <!-- [EN] JSP configuration ========================================================== -->
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+            <scripting-invalid>false</scripting-invalid>
+            <trim-directive-whitespace>true</trim-directive-whitespace>
+            <include-prelude>/WEB-INF/jsp/gscm/framework/prelude.jsp</include-prelude>
+            <include-coda>/WEB-INF/jsp/gscm/framework/coda.jsp</include-coda>
+        </jsp-property-group>
+
+        <!-- [JP] aij2カスタムタグ ========================================== -->
+        <!-- [EN] aij2CustomTag ========================================== -->
+        <taglib>
+            <taglib-uri>http://aij2_core.globaldenso.com/customTag</taglib-uri>
+            <taglib-location>/tld/aij2.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>http://ai.globaldenso.com/library/presentation</taglib-uri>
+            <taglib-location>/tld/ai.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+</web-app>

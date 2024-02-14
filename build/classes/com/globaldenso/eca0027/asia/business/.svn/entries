@@ -1,0 +1,40 @@
+9
+
+dir
+16434
+http://sora.ai.globaldenso.com/svn/E008_ECA0027/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/asia/business
+http://sora.ai.globaldenso.com/svn/E008_ECA0027
+
+
+
+2018-01-23T12:02:04.422825Z
+15255
+400616000304
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+471f3e64-5240-0c48-9da8-c5b15f955084
+
+service
+dir
+
+dao
+dir
+
+domain
+dir
+
+ws
+dir
+

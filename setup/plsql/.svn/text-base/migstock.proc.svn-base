@@ -1,0 +1,103 @@
+create or replace PROCEDURE migstock(
+    ot_retcode     OUT VARCHAR2
+  , it_shipper_cd  IN  VARCHAR2
+  , it_log_count   IN  NUMBER
+)
+--
+IS
+  ln_count        NUMBER := 0;      -- processing count/処理件数
+  --
+  cv_func_id      TT_TMP_STOCK.COM_UPDATE_FUNC_ID%TYPE := 'MIGRATION';
+  cv_user_id      TT_TMP_STOCK.COM_UPDATE_USER_ID%TYPE := 'MIGRATION';
+--
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('**********************************');
+  DBMS_OUTPUT.PUT_LINE('Process start');
+  DBMS_OUTPUT.PUT_LINE('処理開始');
+  DBMS_OUTPUT.PUT_LINE('**********************************');
+  --
+  --
+  DBMS_OUTPUT.PUT_LINE('--- Registration of TT_TMP_STOCK -start- ---');
+  DBMS_OUTPUT.PUT_LINE('--- 仮在庫情報の登録 -開始- ---');
+  <<stock_loop>>
+  FOR stock_rec IN (
+    select    B.SHIPPER_CD      SHIPPER_CD
+            , B.CUR_LGCY_WH_CD  CUR_LGCY_WH_CD
+            , A.PLTZ_ITEM_NO    PLTZ_ITEM_NO
+            , A.PKG_CD          PKG_CD
+            , sum(A.QTY)        SUM_QTY
+   from       TT_PLTZ_ITEM A
+            , TT_PLTZ      B
+   where      A.MAIN_MARK = B.MAIN_MARK
+              and B.SHIPPER_CD = it_shipper_cd
+   group by   A.PLTZ_ITEM_NO
+            , A.PKG_CD
+            , B.SHIPPER_CD
+            , B.CUR_LGCY_WH_CD
+  ) LOOP
+    DBMS_OUTPUT.PUT_LINE('--------------');
+    --
+    insert into TT_TMP_STOCK (
+        SHIPPER_CD
+      , LGCY_WH_CD
+      , ITEM_NO
+      , PKG_CD
+      , QTY
+      , COM_UPDATE_FUNC_ID
+      , COM_UPDATE_USER_ID
+      , COM_UPDATE_TIMESTAMP
+      , COM_CREATE_FUNC_ID
+      , COM_CREATE_USER_ID
+      , COM_CREATE_TIMESTAMP)
+    values (
+        stock_rec.SHIPPER_CD
+      , stock_rec.CUR_LGCY_WH_CD
+      , stock_rec.PLTZ_ITEM_NO
+      , stock_rec.PKG_CD
+      , stock_rec.SUM_QTY
+      , cv_func_id
+      , cv_user_id
+      , sysdate
+      , cv_func_id
+      , cv_user_id
+      , sysdate);
+    --
+    -- Increment of processing number
+    -- 処理件数のインクリメント
+    ln_count := ln_count + 1;
+--    DBMS_OUTPUT.PUT_LINE('    ln_count    :[ ' || ln_count || ' ]');
+--    DBMS_OUTPUT.PUT_LINE('    it_log_count:[ ' || it_log_count || ' ]');
+    --
+    -- ログ出力
+    IF ( MOD(ln_count, it_log_count) = 0 ) THEN
+      DBMS_OUTPUT.PUT_LINE('    Processing count:[ ' || ln_count || ' ]');
+    END IF;
+  END LOOP stock_loop;
+  DBMS_OUTPUT.PUT_LINE('--- Registration of TT_TMP_STOCK -end- ---');
+  DBMS_OUTPUT.PUT_LINE('--- 仮在庫情報の登録 -終了- ---');
+  DBMS_OUTPUT.PUT_LINE('---');
+  --
+  -- Processing completion
+  -- 処理完了
+  ot_retcode := '0';
+  DBMS_OUTPUT.PUT_LINE('**********************************');
+  DBMS_OUTPUT.PUT_LINE('Successful completion [ retcode : ' || ot_retcode || ' ]');
+  DBMS_OUTPUT.PUT_LINE('正常終了 [ retcode : ' || ot_retcode || ' ]');
+  DBMS_OUTPUT.PUT_LINE('**********************************');
+  commit;
+--
+EXCEPTION
+  --======================================
+  -- Exception abend end
+  --======================================
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('SQLCODE:' || sqlcode || ', SQLERRM:' || sqlerrm(sqlcode) );
+    ot_retcode := '2';
+    rollback;
+    DBMS_OUTPUT.PUT_LINE('Processing aborted because an unexpected error has occurred.');
+    DBMS_OUTPUT.PUT_LINE('予期しないエラーが発生したため処理中止');
+    DBMS_OUTPUT.PUT_LINE('**********************************');
+    DBMS_OUTPUT.PUT_LINE('異常終了 [ retcode : ' || ot_retcode || ' ]');
+    DBMS_OUTPUT.PUT_LINE('**********************************');
+--
+END migstock;

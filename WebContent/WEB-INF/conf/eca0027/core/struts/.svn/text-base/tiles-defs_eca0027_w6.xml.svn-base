@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * tiles-defs_eca0027_w6.xml
+ *
+ * AI-J2(Struts) の Tiles 設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE tiles-definitions PUBLIC
+            "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+            
+<tiles-definitions>
+
+    <!-- 個別画面 -->
+    <!-- ====================================================================-->
+    <!--
+        この個別画面の定義名はaction-mappingsのforwardタグと紐付き、
+        header.jspにて画面IDとして共通的に埋め込まれます。
+        このため、この個別画面の定義名には、画面IDそのものを使用してください。
+    -->
+    
+    <!-- Documentation Invoice Main画面 -->
+    <definition name="W6001" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W6001"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W6001.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W6001"/>
+        <put name="js_filepath" value="js/eca0027/core/W6001.js"/>
+    </definition>
+    
+    <!-- Documentation Manual Invoice Upload画面 -->
+    <definition name="W6002" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W6002"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W6002.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W6002"/>
+        <put name="js_filepath" value="js/eca0027/core/W6002.js"/>
+    </definition>
+    
+    <!-- Documentation [Invoice Header]画面 -->
+    <definition name="W6003" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W6003"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W6003.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W6003"/>
+        <put name="js_filepath" value="js/eca0027/core/W6003.js"/>
+    </definition>
+    
+    <!-- Documentation [Invoice Data Create]画面 -->
+    <definition name="W6004" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W6004"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W6004.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W6004"/>
+        <put name="js_filepath" value="js/eca0027/core/W6004.js"/>
+    </definition>
+    
+    <!-- Documentation [Shipping Information Input]画面 -->
+    <definition name="W6005" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W6005"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W6005.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W6005"/>
+        <put name="js_filepath" value="js/eca0027/core/W6005.js"/>
+    </definition>
+    
+    <!-- Documentation [Invoice Grouping]画面 -->
+    <definition name="W6006" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W6006"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W6006.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W6006"/>
+        <put name="js_filepath" value="js/eca0027/core/W6006.js"/>
+    </definition>
+    
+    <!-- Documentation [Invoice Detail]画面 -->
+    <definition name="W6007" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W6007"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W6007.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W6007"/>
+        <put name="js_filepath" value="js/eca0027/core/W6007.js"/>
+    </definition>
+
+    <!-- Documentation [Invoice Detail(Full Returnable)]画面 -->
+    <definition name="W6008" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W6008"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W6008.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W6008"/>
+        <put name="js_filepath" value="js/eca0027/core/W6008.js"/>
+    </definition>
+    
+    <!-- Documentation [Invoice Detail(Full Returnable)]画面 -->
+    <definition name="W6009" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W6009"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W6009.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W6009"/>
+        <put name="js_filepath" value="js/eca0027/core/W6009.js"/>
+    </definition>
+</tiles-definitions>

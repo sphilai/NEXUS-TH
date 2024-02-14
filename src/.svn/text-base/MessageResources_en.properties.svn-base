@@ -1,0 +1,102 @@
+################################################################################
+#
+#   MessageResources_en.properties
+#
+# [JP] \u30e1\u30c3\u30bb\u30fc\u30b8\u3092\u6271\u3046\u30d7\u30ed\u30d1\u30c6\u30a3\u3067\u3059\u3002(\u82f1\u8a9e\u7248)
+# [JP] \u30e1\u30c3\u30bb\u30fc\u30b8\u30a8\u30ea\u30a2\u304a\u3088\u3073\u30ed\u30b0\u306b\u51fa\u529b\u3059\u308b\u30e1\u30c3\u30bb\u30fc\u30b8\u3092\u5b9a\u7fa9\u3057\u3066\u3044\u307e\u3059\u3002
+#
+# [EN] It is a property that handles the message. (English)
+# [EN] I have to define the message to be output to the log and the message area.
+#
+#   $ MessageResources_en.properties 6984 2014-02-20 05:14:32Z HIDETOSHI_NAKATANI@denso.co.jp $
+#
+################################################################################
+
+# [JP] \u30a8\u30e9\u30fc\u30e1\u30c3\u30bb\u30fc\u30b8\u51fa\u529b\u5f62\u5f0f
+# [EN] Output format error message
+errors.header=<font color="#FF0000"><ul>
+errors.footer=</ul></font>
+errors.prefix=<li>
+errors.suffix=</li>
+
+# [JP] AI-J2\u62e1\u5f35 Validator\u30c1\u30a7\u30c3\u30af\u30eb\u30fc\u30eb\u7528\u30e1\u30c3\u30bb\u30fc\u30b8
+# [EN] Check messages for Validator extension rule AI-J2
+errors.alphaNumerics=Please input "{0}" in single-byte alphanumeric characters.
+errors.prohibited="{0}" contains the entry-suppression character.
+errors.zenkakuKatakana=Please input "{0}" in double-byte katakana.
+errors.zenkaku=Please input "{0}" in double-byte characters.
+errors.hankakuKatakana=Please input "{0}" in single-byte katakana.
+errors.hankaku=Please input "{0}" in single-byte characters.
+errors.includedHankakuKatakana="{0}" contains the single-byte katakana character.
+errors.byteLength=Please input "{0}" in {1} bytes.
+errors.byteRange=Please input "{0}" within a range(byte count) of {2} from {1}.
+errors.byteMaxLimit="{0}" exceeds the capacity for input value.
+errors.surrogatePair="{0}" contains the surrogate pair character.
+
+# [JP] Struts\u63d0\u4f9b Validator\u30c1\u30a7\u30c3\u30af\u30eb\u30fc\u30eb\u7528\u30c7\u30d5\u30a9\u30eb\u30c8\u30e1\u30c3\u30bb\u30fc\u30b8
+# [EN] The default message for the Struts Validator provides validation rules
+errors.invalid=The input format of {0} is wrong. 
+errors.maxlength=Please make the {0} lower than {1} characters.
+errors.minlength=Please make the {0} more than {1} characters.
+errors.range=Please input "{0}" within a range of {2} from {1}.
+errors.required=Please input "{0}".
+errors.byte=Please input "{0}" in byte type.
+errors.date=Please input the right date in "{0}".
+errors.double=Please input "{0}" in decimal fraction(double type).
+errors.float=Please input "{0}" in decimal fraction(float type).
+errors.integer=Please input "{0}" in one-byte integer number.
+errors.long=Please input "{0}" in integer number(long type).
+errors.short=Please input "{0}" in integer number(short type).
+errors.creditcard=Please input the right credit card number in "{0}" .
+errors.email=Please input email address format in "{0}".
+errors.url=Please input appropriate URL format in "{0}".
+errors.validwhen=The input of {0} is wrong.
+
+# [JP] \u30a2\u30d7\u30ea\u57fa\u76e4\u5171\u901a(\u6c4e\u7528)
+# [EN] Common Application Development Infrastructure (generic)
+com.globaldenso.ai.common.LOG_MESSAGE_TEMPLATE=ID:{0} CODE:{1} MESSAGE:{2} DATE & TIME:{3}
+com.globaldenso.ai.common.UNDEFINED_ERROR_CODE=The error-code is undefined. Please define a new error-code. Type:{0} ErrorMessage:{1}
+com.globaldenso.ai.common.UNKNOWN_ERROR_CODE=The exception occurs out of a framework. 
+
+# [JP] \u30a2\u30d7\u30ea\u57fa\u76e4\u5171\u901a(\u30b7\u30b9\u30c6\u30e0\u30a8\u30e9\u30fc)
+# [EN] Common Application Development Infrastructure (system error)
+AI-90-0000=[AI-90-0000]Unexpected exception occurred. Exception Type: {0}, Message: {1}
+AI-90-0001=[AI-90-0001]Unexpected exception occurred in the presentation layer. Exception Type: {0}, Message: {1}
+AI-90-0002=[AI-90-0002]Unexpected exception occurred in the business layer. Exception Type: {0}, Message: {1}
+AI-90-0003=[AI-90-0003]Unexpected exception occurred in the integration layer. Exception Type: {0}, Message: {1}
+AI-90-0004=[AI-90-0004]Unexpected exception occurred in the DB connection. Exception Type: {0}, Message: {1}
+AI-90-0005=[AI-90-0005]When viewing the error.jsp, exceptions unexpected occurred.
+AI-90-0006=[AI-90-0006]Request is invalid.
+AI-80-0000=[AI-80-0000]Unexpected exception occurred in JDBC operation.
+AI-80-0001=[AI-80-0001]Invalid SQL issued. Please check the issued SQL statement.
+AI-80-0002=[AI-80-0002]Invalid operation manipulated. Please check the operation.
+AI-80-0003=[AI-80-0003]Failed in establishment of the database connection. Please check the database connection. 
+AI-80-0004=[AI-80-0004]There is not data access authority. Please check your data-access authority.
+AI-80-0005=[AI-80-0005]There is a data mismatch. Please check the data.
+AI-80-0006=[AI-80-0006]Cannot get lock. Please execute again.
+AI-80-0007=[AI-80-0007]The transaction cannot be serialized. Please check the transaction.
+AI-80-0008=[AI-80-0008]The deadlock was detected.
+AI-80-0009=[AI-80-0009]There is a unique constraint violation. Please check the data.
+AIJ2-E0-0000=[AIJ2-E0-0000]Common application exception message
+AIJ2-90-0000=[AIJ2-90-0000]Common system exception message
+
+# [JP] \u30e1\u30fc\u30eb\u9001\u4fe1\u6a5f\u80fd(mailsend)
+# [EN] Mail sending function (mailsend)
+AI-E0-ML00=[AI-E0-ML00]Properties file for mail transmission cannot be found. File Name:{0}
+AI-E0-ML01=[AI-E0-ML01]The value is not set up to properties file for mail transmission.File Name:{0} Key{1}
+AI-E0-ML02=[AI-E0-ML02]The mail address is not set.
+AI-E0-ML03=[AI-E0-ML03]Host name of SMTP server is not set.
+AI-E0-ML04=[AI-E0-ML04]Delivery address is not set.
+AI-E0-ML05=[AI-E0-ML05]Mail text is not set.
+
+# [JP] OS\u30b3\u30de\u30f3\u30c9\u5b9f\u884c(executecommand)
+# [EN] OS command execution (executecommand)
+AI-E0-EC00=[AI-E0-EC00]Executable file is not specified.
+AI-E0-EC01=[AI-E0-EC01]Specified executable file cannot be found.
+AI-E0-EC02=[AI-E0-EC02]Null was specified as parameter of executable file.
+
+# ------------------------------------------------------------------------------
+# [JP] \u30a2\u30d7\u30ea\u3067\u30e1\u30c3\u30bb\u30fc\u30b8\u3092\u8ffd\u52a0\u3059\u308b\u5834\u5408\u306f\u4ee5\u4e0b\u306b\u8ffd\u52a0\u3057\u3066\u304f\u3060\u3055\u3044
+# [EN] Please add the following if you want to add a message in the application
+# ------------------------------------------------------------------------------
+

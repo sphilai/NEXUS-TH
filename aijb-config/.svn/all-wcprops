@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/E008_ECA0027/!svn/ver/15254/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config
+END
+applicationContext-aijb-residentReqApp_eca0027.xml
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/E008_ECA0027/!svn/ver/14178/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/applicationContext-aijb-residentReqApp_eca0027.xml
+END
+applicationContext-aijb-residentJob.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/applicationContext-aijb-residentJob.xml
+END
+applicationContext-aijb-job.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/applicationContext-aijb-job.xml
+END
+SqlMapConfig-aijb-AMC.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/SqlMapConfig-aijb-AMC.xml
+END
+SqlMapConfig-aijb.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/E008_ECA0027/!svn/ver/14178/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/SqlMapConfig-aijb.xml
+END
+applicationContext-aijb-aop.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/applicationContext-aijb-aop.xml
+END
+AijbLogMessages.properties
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/AijbLogMessages.properties
+END
+AijbConstants-pro.properties
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/E008_ECA0027/!svn/ver/14178/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/AijbConstants-pro.properties
+END
+AijbConstants.properties
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/E008_ECA0027/!svn/ver/14178/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/AijbConstants.properties
+END
+applicationContext-service_auto.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/E008_ECA0027/!svn/ver/14178/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/applicationContext-service_auto.xml
+END
+applicationContext-aijb-residentReqApp.xml
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/applicationContext-aijb-residentReqApp.xml
+END
+jdbc-aijb-pro.properties
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/E008_ECA0027/!svn/ver/15254/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/jdbc-aijb-pro.properties
+END
+applicationContext-aijb-service_auto.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/applicationContext-aijb-service_auto.xml
+END
+applicationContext-dao_auto.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/E008_ECA0027/!svn/ver/14178/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/applicationContext-dao_auto.xml
+END
+jdbc-aijb.properties
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/jdbc-aijb.properties
+END
+applicationContext-aijb-dao_auto.xml
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/applicationContext-aijb-dao_auto.xml
+END
+AijbLogMessages_ja.properties
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/AijbLogMessages_ja.properties
+END
+log4jServer.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/E008_ECA0027/!svn/ver/14178/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/log4jServer.xml
+END
+log4jTrs.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/log4jTrs.xml
+END
+applicationContext-aijb-AMC.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/applicationContext-aijb-AMC.xml
+END
+applicationContext-aijb-tools.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/applicationContext-aijb-tools.xml
+END
+AijbConstants-dev.properties
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/E008_ECA0027/!svn/ver/14178/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/AijbConstants-dev.properties
+END
+applicationContext-library.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/applicationContext-library.xml
+END
+log4jJob.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/E008_ECA0027/!svn/ver/14178/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/log4jJob.xml
+END
+applicationContext-aijb-jdbc.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/applicationContext-aijb-jdbc.xml
+END
+AijbLogMessages_en.properties
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/AijbLogMessages_en.properties
+END
+jdbc-aijb-dev.properties
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/aijb-config/jdbc-aijb-dev.properties
+END

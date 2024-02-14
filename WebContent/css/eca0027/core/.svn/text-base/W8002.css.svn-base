@@ -1,0 +1,251 @@
+@CHARSET "UTF-8";
+/*
+ * W8002.css
+ * 
+ * 進度管理Detail画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+/*------------ 検索条件エリア ------------*/
+.grid.table_header1 {
+    width: 1000px;
+}
+
+.table_header1 .grid_header1 {
+    width: 135px;
+}
+
+.table_header1 .grid_contents1 {
+    width: 190px;
+}
+
+.table_header1 .grid_header2 {
+    width: 135px;
+}
+
+.table_header1 .grid_contents2 {
+    width: 85px;
+}
+
+.table_header1 .grid_header3 {
+    width: 110px;
+}
+
+.table_header1 .grid_contents3 {
+    width: 125px;
+}
+
+.table_header1 .grid_header4 {
+    width: 95px;
+}
+
+.table_header1 .grid_contents4 {
+    width: 125px;
+}
+
+.w8002_cml_no {
+    width: 170px;
+}
+
+/*------------- Basic Information ------------*/
+.grid.table_header2 {
+    width: 556px;
+}
+
+.table_header2 .grid_header1 {
+    width: 135px;
+}
+
+.table_header2 .grid_contents1 {
+    width: 130px;
+}
+
+.table_header2 .grid_contents2 {
+    width: 61px;
+}
+
+.table_header2 .grid_contents3 {
+    width: 230px;
+}
+
+/*------------- Packaging Information ------------*/
+.grid.table_header3 {
+    width: 1000px;
+}
+
+.table_header3 .grid_header1 {
+
+    width: 135px;
+}
+
+.table_header3 .grid_contents1 {
+    width: 190px;
+}
+
+.table_header3 .grid_header2 {
+    width: 80px;
+}
+
+.table_header3 .grid_contents2 {
+    width: 165px;
+}
+
+.table_header3 .grid_header3 {
+    width: 85px;
+}
+
+.table_header3 .grid_contents3 {
+    width: 125px;
+}
+
+.table_header3 .grid_header4 {
+    width: 95px;
+}
+
+.table_header3 .grid_contents4 {
+    width: 125px;
+}
+
+.w8002_main_mark {
+    width: 170px;
+}
+
+.w8002_volume {
+    width: 147px;
+    text-align: right;
+}
+
+.w8002_net_weight {
+    width: 107px;
+    text-align: right;
+}
+
+.w8002_gross_weight {
+    width: 107px;
+    text-align: right;
+}
+
+/*------------- Staging Information ------------*/
+.grid.table_header4 {
+    width: 1000px;
+}
+
+.table_header4 .grid_header1 {
+    width: 135px;
+}
+
+.table_header4 .grid_contents1 {
+    width: 190px;
+}
+
+.table_header4 .grid_header2 {
+    width: 134px;
+}
+
+.table_header4 .grid_contents2 {
+    width: 196px;
+}
+
+.table_header4 .grid_header3 {
+    width: 125px;
+}
+.table_header4 .grid_contents3 {
+    width: 220px;
+}
+
+/*------------- Invoice Information header ------------*/
+.grid.table_header5 {
+    width: 400px;
+}
+
+.table_header5 .grid_header1 {
+    width: 136px;
+}
+
+.table_header5 .grid_contents1 {
+    width: 264px;
+}
+
+/*------------- Invoice Information detail ------------*/
+
+.grid.table_header6 {
+    width: 1000px;
+}
+
+.table_header6 .grid_header1 {
+    width: 135px;
+}
+
+.table_header6 .grid_contents1 {
+    width: 190px;
+}
+
+.table_header6 .grid_header2 {
+    width: 135px;
+}
+
+.table_header6 .grid_contents2 {
+    width: 195px;
+}
+
+.table_header6 .grid_header3 {
+    width: 125px;
+}
+
+.table_header6 .grid_contents3 {
+    width: 220px;
+}
+
+.w8002_trade_terms{
+    width: 170px;
+}
+
+.w8002_pay_terms{
+    width: 200px;
+}
+
+.w8002_lc_no{
+    width: 200px;
+}
+
+/*------------- Shipping Information ------------*/
+.grid.table_header7 {
+    width: 1000px;
+}
+
+.table_header7 .grid_header1 {
+    width: 135px;
+}
+
+.table_header7 .grid_contents1 {
+    width: 190px;
+}
+
+.table_header7 .grid_header2 {
+    width: 134px;
+}
+
+.table_header7 .grid_contents2 {
+    width: 196px;
+}
+
+.table_header7 .grid_header3 {
+    width: 125px;
+}
+
+.table_header7 .grid_contents3 {
+    width: 220px;
+}
+
+.w8002_billd_no {
+    width: 200px;
+}
+
+.w8002_vessel {
+    width: 200px;
+}
+
+#gscm_wrapper {
+    overflow-y: auto;
+}

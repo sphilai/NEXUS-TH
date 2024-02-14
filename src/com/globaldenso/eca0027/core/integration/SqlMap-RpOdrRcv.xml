@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-RpOdrRcv.xml
+ *
+ * RpOdrRcvDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="RpOdrRcv">
+
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="LB001TtEdiRcvOdrReportByDetailDomain"
+        type="com.globaldenso.eca0027.core.business.domain.LB001TtEdiRcvOdrReportByDetailDomain" /> 
+    <typeAlias alias="LB001VtRpOdrRcvErrReportByHdrDomain"
+        type="com.globaldenso.eca0027.core.business.domain.LB001VtRpOdrRcvErrReportByHdrDomain" /> 
+        
+    <!-- CriteriaDomain -->
+    <typeAlias alias="LB001TtEdiRcvOdrReportByDetailCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.LB001TtEdiRcvOdrReportByDetailCriteriaDomain" />
+    <typeAlias alias="LB001VtRpOdrRcvErrReportByHdrCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.LB001VtRpOdrRcvErrReportByHdrCriteriaDomain" />
+
+    <!-- 検索結果をMapで受け取る -->
+    <resultMap id="VtRpOdrRcvErrReportHdr" class="LB001VtRpOdrRcvErrReportByHdrDomain">
+        <result property="rcvOdrCompCd" column="RCV_ODR_COMP_CD" />
+        <result property="customerSubsidiaryCd" column="CUSTOMER_SUBSIDIARY_CD" />
+        <result property="transmissionDt" column="TRANSMISSION_DT" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="count" column="COUNT" />
+        <result property="shipToNm" column="SHIP_TO_NM" />
+    </resultMap>
+
+    <resultMap id="TtEdiRcvOdrReport" class="LB001TtEdiRcvOdrReportByDetailDomain">
+        <result property="rcvOdrCompCd" column="RCV_ODR_COMP_CD" />
+        <result property="customerSubsidiaryCd" column="CUSTOMER_SUBSIDIARY_CD" />
+        <result property="transmissionDt" column="TRANSMISSION_DT" />
+        <result property="odrTyp" column="ODR_TYP" />
+        <result property="serialNo" column="SERIAL_NO" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="customerItemNoOrg" column="CUSTOMER_ITEM_NO_ORG" />
+        <result property="odrCtrlNo" column="ODR_CTRL_NO" />
+        <result property="revisionNo" column="REVISION_NO" />
+        <result property="revisionNoEis" column="REVISION_NO_EIS" />
+        <result property="odrChgTyp" column="ODR_CHG_TYP" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="oldCustomerDueDt" column="OLD_CUSTOMER_DUE_DT" />
+        <result property="oldEtdDueDt" column="OLD_ETD_DUE_DT" />
+        <result property="oldOdrQty" column="OLD_ODR_QTY" />
+        <result property="oldTrnsCd" column="OLD_TRNS_CD" />
+        <result property="oldCustomerPoNo" column="OLD_CUSTOMER_PO_NO" />
+        <result property="oldOdrFirmFlg" column="OLD_ODR_FIRM_FLG" />
+        <result property="newCustomerDueDt" column="NEW_CUSTOMER_DUE_DT" />
+        <result property="newEtdDueDt" column="NEW_ETD_DUE_DT" />
+        <result property="newOdrQty" column="NEW_ODR_QTY" />
+        <result property="newTrnsCd" column="NEW_TRNS_CD" />
+        <result property="newCustomerPoNo" column="NEW_CUSTOMER_PO_NO" />
+        <result property="newOdrFirmFlg" column="NEW_ODR_FIRM_FLG" />
+        <result property="errCdList" column="ERR_CD_LIST" />
+        <result property="comUpdateFuncId" column="COM_UPDATE_FUNC_ID" />
+        <result property="comUpdateUserId" column="COM_UPDATE_USER_ID" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+        <result property="comCreateFuncId" column="COM_CREATE_FUNC_ID" />
+        <result property="comCreateUserId" column="COM_CREATE_USER_ID" />
+        <result property="comCreateTimestamp" column="COM_CREATE_TIMESTAMP" />
+    </resultMap>
+    
+    <!-- 汎用 項目 -->
+    <sql id="Cols">
+             RCV_ODR_COMP_CD
+            ,CUSTOMER_SUBSIDIARY_CD
+            ,TRANSMISSION_DT
+            ,ODR_TYP
+            ,SERIAL_NO
+            ,CUSTOMER_CD
+            ,LGCY_SHIP_TO
+            ,CUSTOMER_ITEM_NO_ORG
+            ,ODR_CTRL_NO
+            ,REVISION_NO
+            ,REVISION_NO_EIS
+            ,ODR_CHG_TYP
+            ,ITEM_NO
+            ,PKG_CD
+            ,PLNT_CD
+            ,OLD_CUSTOMER_DUE_DT
+            ,OLD_ETD_DUE_DT
+            ,OLD_ODR_QTY
+            ,OLD_TRNS_CD
+            ,OLD_CUSTOMER_PO_NO
+            ,OLD_ODR_FIRM_FLG
+            ,NEW_CUSTOMER_DUE_DT
+            ,NEW_ETD_DUE_DT
+            ,NEW_ODR_QTY
+            ,NEW_TRNS_CD
+            ,NEW_CUSTOMER_PO_NO
+            ,NEW_ODR_FIRM_FLG
+            ,ERR_CD_LIST
+            ,COM_UPDATE_FUNC_ID
+            ,COM_UPDATE_USER_ID
+            ,COM_UPDATE_TIMESTAMP
+            ,COM_CREATE_FUNC_ID
+            ,COM_CREATE_USER_ID
+            ,COM_CREATE_TIMESTAMP
+    </sql>
+    
+        <!-- 汎用 SELECT句 -->
+    <sql id="Select">
+        select
+        <include refid="Cols" />
+        from TT_EDI_RCV_ODR_REPORT
+    </sql>
+
+    <!-- 汎用 Where句（全項目） -->
+    <sql id="WhereCondition">
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="rcvOdrCompCd">
+                RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerSubsidiaryCd">
+                CUSTOMER_SUBSIDIARY_CD = #customerSubsidiaryCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="transmissionDt">
+                TRANSMISSION_DT = #transmissionDt#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCd">
+                CUSTOMER_CD = #customerCd#
+            </isNotEmpty>
+            <isEmpty prepend="and" property="customerCd">
+                CUSTOMER_CD is null
+            </isEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipTo">
+                LGCY_SHIP_TO = #lgcyShipTo#
+            </isNotEmpty>
+            <isEmpty prepend="and" property="lgcyShipTo">
+                LGCY_SHIP_TO is null
+            </isEmpty>
+            <isNotEmpty prepend="and" property="plntCd">
+                PLNT_CD = #plntCd#
+            </isNotEmpty>
+            <isEmpty prepend="and" property="plntCd">
+                PLNT_CD is null
+            </isEmpty>
+        </dynamic>
+    </sql>
+    
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeys">
+        order by
+            CUSTOMER_ITEM_NO_ORG asc
+            ,ODR_CTRL_NO asc
+    </sql>
+    
+    <!-- 検索 SQL文（任意条件） -->
+    <select id="SearchVtRpOdrRcvErrReportHdr" resultMap="VtRpOdrRcvErrReportHdr"
+        parameterClass="LB001VtRpOdrRcvErrReportByHdrCriteriaDomain">
+        select /* SqlMap-RpOdrRcv.SearchVtRpOdrRcvErrReportHdr */
+             RCV_ODR_COMP_CD
+            ,CUSTOMER_SUBSIDIARY_CD
+            ,TRANSMISSION_DT
+            ,CUSTOMER_CD
+            ,LGCY_SHIP_TO
+            ,PLNT_CD
+            ,COUNT
+            ,SHIP_TO_NM
+        from VT_RP_ODR_RCV_ERR_REPORT_HDR
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="rcvOdrCompCd">
+                RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerSubsidiaryCd">
+                CUSTOMER_SUBSIDIARY_CD = #customerSubsidiaryCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="transmissionDt">
+                TRANSMISSION_DT = #transmissionDt#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCd">
+                CUSTOMER_CD = #customerCd#
+            </isNotEmpty>
+            <isEmpty prepend="and" property="customerCd">
+                CUSTOMER_CD is null
+            </isEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipTo">
+                LGCY_SHIP_TO = #lgcyShipTo#
+            </isNotEmpty>
+            <isEmpty prepend="and" property="lgcyShipTo">
+                LGCY_SHIP_TO is null
+            </isEmpty>
+            <isNotEmpty prepend="and" property="plntCd">
+                PLNT_CD = #plntCd#
+            </isNotEmpty>
+            <isEmpty prepend="and" property="plntCd">
+                PLNT_CD is null
+            </isEmpty>
+        </dynamic>
+        <isNotEmpty property="preferredOrder">
+            order by $preferredOrder$
+        </isNotEmpty>
+    </select>
+
+    
+    <!-- 検索 SQL文（任意条件） -->
+    <select id="SearchTtEdiRcvOdrReportByDetail" resultMap="TtEdiRcvOdrReport"
+        parameterClass="LB001TtEdiRcvOdrReportByDetailCriteriaDomain">
+        <include refid="Select" />
+        /* SqlMap-RpOdrRcv.SearchTtEdiRcvOdrReportByDetail */
+        <include refid="WhereCondition" />
+        <include refid="SortKeys" />
+    </select>
+    
+</sqlMap>

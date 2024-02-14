@@ -1,0 +1,54 @@
+@CHARSET "UTF-8";
+/*
+ * W7007.css
+ * 
+ * Other Doc. Upload(Summary)画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+/*------------ 検索条件エリア ------------*/
+.gscm_search .search_shipper_cd {
+    width: 69px;
+}
+
+.gscm_search .search_consignee_cd {
+    width: 88px;
+}
+
+.gscm_search .search_ship_to_comp_cd {
+    width: 147px;
+}
+
+.gscm_search .search_trns_cd {
+    width: 676px;
+}
+
+.gscm_search .search_label {
+    width: 100px;
+}
+
+.gscm_search .search_file_data {
+    width: 880px;
+}
+
+/*------------ 検索結果エリア ------------*/
+ table.gscm_resultlist {
+    width:320px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 35px;
+}
+
+.gscm_resultlist .resultlist_shipping_act_status {
+    width: 54px;
+}
+
+.gscm_resultlist .resultlist_invoice_no {
+    width: 200px;
+}
+.gscm_resultlist .invoice_no {
+    width: 200px;
+}
+

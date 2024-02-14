@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * struts-config_eca0027_action_w0.xml
+ * 
+ * AI-J2(Struts) の action設定ファイルです。
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE struts-config PUBLIC
+            "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+
+    <!-- Application Action Mapping Definitions ============================ -->
+    <action-mappings>
+        <!-- =============================================================== -->
+        <!-- W5001: Shipping Confirmation Main Screen -->
+        <!-- W5001: 出荷確認Main画面                                         -->
+        <!-- =============================================================== -->
+        
+        <!-- W5001: Shipping Confirmation Main Screen Init action -->
+        <!-- W5001: 出荷確認Main画面 Initアクション -->
+        <action path="/W5001Init"
+            type="com.globaldenso.eca0027.core.presentation.W5001InitAction"
+            name="W5001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W5001" />
+        </action>
+
+        <!-- W5001: Shipping Confirmation Main Screen Search action -->
+        <!-- W5001: 出荷確認Main画面 Searchアクション -->
+        <action path="/W5001Search"
+            type="com.globaldenso.eca0027.core.presentation.W5001SearchAction"
+            name="W5001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W5001" />
+            <forward name="error" path="W5001" />
+        </action>
+
+        <!-- W5001: Shipping Confirmation Main Screen CreateNew action -->
+        <!-- W5001: 出荷確認Main画面 CreateNewアクション -->
+        <action path="/W5001CreateNew"
+            type="com.globaldenso.eca0027.core.presentation.W5001CreateNewAction"
+            name="W5001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W5002Init.do" />
+            <forward name="error" path="W5001" />
+        </action>
+
+        <!-- W5001: Shipping Confirmation Main Screen ConfirmDetail action -->
+        <!-- W5001: 出荷確認Main画面 ConfirmDetailアクション -->
+        <action path="/W5001ConfirmDetail"
+            type="com.globaldenso.eca0027.core.presentation.W5001ConfirmDetailAction"
+            name="W5001Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W5004Init.do" />
+            <forward name="error" path="W5001" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W5002: 出荷確認Header画面                                       -->
+        <!-- W5002: Shipping Confirmation Header       -->
+        <!-- =============================================================== -->
+        
+        <!-- W5002: Shipping Confirmation Header Init action -->
+        <!-- W5002: 出荷確認Header画面 Initアクション -->
+        <action path="/W5002Init"
+            type="com.globaldenso.eca0027.core.presentation.W5002InitAction"
+            name="W5002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W5002" />
+            <forward name="error" path="W5002" />
+        </action>
+
+        <!-- W5002: Shipping Confirmation Header MoveToCreate action -->
+        <!-- W5002: 出荷確認Header画面 MoveToCreateアクション -->
+        <action path="/W5002MoveToCreate"
+            type="com.globaldenso.eca0027.core.presentation.W5002MoveToCreateAction"
+            name="W5002Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W5003Init.do" />
+            <forward name="error" path="W5002" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W5003: Shipping Confirmation Create       -->
+        <!-- W5003: 出荷確認Create画面                                       -->
+        <!-- =============================================================== -->
+
+        <!-- W5003: Shipping Confirmation Create Init action -->
+        <!-- W5003: 出荷確認Create画面 Initアクション -->
+        <action path="/W5003Init"
+            type="com.globaldenso.eca0027.core.presentation.W5003InitAction"
+            name="W5003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W5003" />
+            <forward name="error" path="W5003" />
+        </action>
+
+        <!-- W5003: Shipping Confirmation Create Move to Register action -->
+        <!-- W5003: 出荷確認Create画面 Move to Registerアクション -->
+        <action path="/W5003MoveToRegister"
+            type="com.globaldenso.eca0027.core.presentation.W5003MoveToRegisterAction"
+            name="W5003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W5004Init.do" />
+            <forward name="error" path="W5003" />
+        </action>
+
+        <!-- W5003: Shipping Confirmation Create Search action -->
+        <!-- W5003: 出荷確認Create画面 Searchアクション -->
+        <action path="/W5003Search"
+            type="com.globaldenso.eca0027.core.presentation.W5003SearchAction"
+            name="W5003Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W5003" />
+            <forward name="error" path="W5003" />
+        </action>
+
+        <!-- =============================================================== -->
+        <!-- W5004: Shipping Confirmation Register      -->
+        <!-- W5004: 出荷確認Register画面                                     -->
+        <!-- =============================================================== -->
+
+        <!-- W5004: Shipping Confirmation Register Initアクション -->
+        <!-- W5004: 出荷確認Register画面 Init action -->
+        <action path="/W5004Init"
+            type="com.globaldenso.eca0027.core.presentation.W5004InitAction"
+            name="W5004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W5004" />
+            <forward name="error" path="W5004" />
+            <forward name="W5001" path="/W5001Search.do" />
+            <forward name="W5003" path="/W5003Search.do" />
+        </action>
+        
+        <!-- W5004: Shipping Confirmation Register Registerアクション -->
+        <!-- W5004: 出荷確認Register画面 Register action -->
+        <action path="/W5004Register"
+            type="com.globaldenso.eca0027.core.presentation.W5004RegisterAction"
+            name="W5004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W5004" />
+            <forward name="error" path="W5004" />
+        </action>
+
+        <!-- W5004: Shipping Confirmation Register PrintConfirmationアクション -->
+        <!-- W5004: 出荷確認Register画面 PrintConfirmation action -->
+        <action path="/W5004PrintConfirmation"
+            type="com.globaldenso.eca0027.core.presentation.W5004PrintConfirmationAction"
+            name="W5004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W5004" />
+            <forward name="error" path="W5004" />
+        </action>
+
+        <!-- W5004: Shipping Confirmation Register ReUpdateContainerNoアクション -->
+        <!-- W5004: 出荷確認Register画面 ReUpdateContainerNo action -->
+        <action path="/W5004ReUpdateContainerNo"
+            type="com.globaldenso.eca0027.core.presentation.W5004ReUpdateContainerNoAction"
+            name="W5004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W5004" />
+            <forward name="error" path="W5004" />
+        </action>
+        
+        <!-- W5004: Shipping Confirmation Register RegisterWorkingアクション -->
+        <!-- W5004: 出荷確認Register画面 RegisterWorking action -->
+        <action path="/W5004RegisterWorking"
+            type="com.globaldenso.eca0027.core.presentation.W5004RegisterWorkingAction"
+            name="W5004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="W5004" />
+            <forward name="error" path="W5004" />
+        </action>
+        
+        <!-- W5004: Shipping Confirmation Register Cancelアクション -->
+        <!-- W5004: 出荷確認Register画面 Cancel action -->
+        <action path="/W5004Cancel"
+            type="com.globaldenso.eca0027.core.presentation.W5004CancelAction"
+            name="W5004Form"
+            scope="request"
+            validate="false">
+            <forward name="success" path="/W5001Init.do?back=true" />
+            <forward name="error" path="W5004" />
+        </action>
+        
+    </action-mappings>
+</struts-config>

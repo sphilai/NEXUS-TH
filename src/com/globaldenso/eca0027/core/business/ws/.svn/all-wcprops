@@ -1,0 +1,653 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/E008_ECA0027/!svn/ver/15152/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws
+END
+WsB005RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB005RestService.java
+END
+WsB006RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB006RestService.java
+END
+WsB007RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB007RestService.java
+END
+Ws6011RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6011RestServiceImpl.java
+END
+WsB008RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB008RestService.java
+END
+Ws9001RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws9001RestServiceImpl.java
+END
+Ws9002RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws9002RestServiceImpl.java
+END
+Ws9003RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws9003RestServiceImpl.java
+END
+Ws9004RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws9004RestServiceImpl.java
+END
+Ws9005RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws9005RestServiceImpl.java
+END
+Ws3001RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws3001RestServiceMockImpl.java
+END
+Ws3003RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws3003RestServiceMockImpl.java
+END
+WsBhtShippingFirmServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsBhtShippingFirmServiceImpl.java
+END
+Ws7001RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws7001RestServiceMockImpl.java
+END
+WsBhtPortalServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsBhtPortalServiceImpl.java
+END
+Ws7002RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws7002RestServiceMockImpl.java
+END
+WsB010RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB010RestServiceImpl.java
+END
+Ws7003RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws7003RestServiceMockImpl.java
+END
+WsB011RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB011RestServiceImpl.java
+END
+Ws7004RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws7004RestServiceMockImpl.java
+END
+WsB012RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB012RestServiceImpl.java
+END
+Ws6011RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6011RestService.java
+END
+Ws9001RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws9001RestService.java
+END
+Ws9002RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws9002RestService.java
+END
+Ws9003RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws9003RestService.java
+END
+Ws9004RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws9004RestService.java
+END
+Ws9005RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws9005RestService.java
+END
+WsBhtShippingFirmService.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsBhtShippingFirmService.java
+END
+WsBhtPortalService.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsBhtPortalService.java
+END
+WsB010RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB010RestService.java
+END
+WsB011RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB011RestService.java
+END
+WsB012RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/14181/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB012RestService.java
+END
+Ws2001RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws2001RestServiceMockImpl.java
+END
+Ws2002RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws2002RestServiceMockImpl.java
+END
+WsBhtStgServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/E008_ECA0027/!svn/ver/15152/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsBhtStgServiceImpl.java
+END
+Ws2004RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws2004RestServiceMockImpl.java
+END
+Ws2005RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws2005RestServiceMockImpl.java
+END
+Ws6001RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6001RestServiceMockImpl.java
+END
+Ws6002RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6002RestServiceMockImpl.java
+END
+Ws6003RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6003RestServiceMockImpl.java
+END
+Ws6004RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6004RestServiceMockImpl.java
+END
+WsB020RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB020RestServiceImpl.java
+END
+WsBhtComnAuxServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsBhtComnAuxServiceImpl.java
+END
+WsBhtStgService.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsBhtStgService.java
+END
+WsB001RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB001RestServiceMockImpl.java
+END
+WsB002RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB002RestServiceMockImpl.java
+END
+WsB003RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB003RestServiceMockImpl.java
+END
+WsB004RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB004RestServiceMockImpl.java
+END
+WsB005RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB005RestServiceMockImpl.java
+END
+WsB006RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB006RestServiceMockImpl.java
+END
+WsB020RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB020RestService.java
+END
+WsB007RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB007RestServiceMockImpl.java
+END
+Ws3001RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws3001RestServiceImpl.java
+END
+WsB008RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB008RestServiceMockImpl.java
+END
+Ws3002RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws3002RestServiceImpl.java
+END
+Ws3003RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws3003RestServiceImpl.java
+END
+Ws7001RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws7001RestServiceImpl.java
+END
+Ws7002RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/14376/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws7002RestServiceImpl.java
+END
+WsBhtComnAuxService.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsBhtComnAuxService.java
+END
+Ws7003RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws7003RestServiceImpl.java
+END
+Ws7004RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws7004RestServiceImpl.java
+END
+Ws3001RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws3001RestService.java
+END
+Ws3002RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws3002RestService.java
+END
+Ws9001RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws9001RestServiceMockImpl.java
+END
+Ws3003RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws3003RestService.java
+END
+Ws9002RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws9002RestServiceMockImpl.java
+END
+Ws9003RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws9003RestServiceMockImpl.java
+END
+Ws7001RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws7001RestService.java
+END
+Ws7002RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws7002RestService.java
+END
+Ws7003RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws7003RestService.java
+END
+Ws7004RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws7004RestService.java
+END
+WsB010RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB010RestServiceMockImpl.java
+END
+WsB011RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB011RestServiceMockImpl.java
+END
+Ws2001RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws2001RestServiceImpl.java
+END
+Ws2002RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws2002RestServiceImpl.java
+END
+WsBhtTransferServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/E008_ECA0027/!svn/ver/13688/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsBhtTransferServiceImpl.java
+END
+Ws2004RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws2004RestServiceImpl.java
+END
+Ws2005RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws2005RestServiceImpl.java
+END
+Ws6001RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6001RestServiceImpl.java
+END
+Ws6002RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6002RestServiceImpl.java
+END
+Ws6003RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6003RestServiceImpl.java
+END
+Ws6004RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6004RestServiceImpl.java
+END
+Ws6005RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6005RestServiceImpl.java
+END
+Ws6006RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6006RestServiceImpl.java
+END
+Ws2001RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws2001RestService.java
+END
+Ws2002RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws2002RestService.java
+END
+WsB001RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB001RestServiceImpl.java
+END
+WsBhtTransferService.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/E008_ECA0027/!svn/ver/13688/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsBhtTransferService.java
+END
+Ws2004RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws2004RestService.java
+END
+WsB002RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB002RestServiceImpl.java
+END
+Ws2005RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws2005RestService.java
+END
+Ws6001RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6001RestService.java
+END
+WsB003RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB003RestServiceImpl.java
+END
+Ws6002RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6002RestService.java
+END
+WsB004RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB004RestServiceImpl.java
+END
+Ws6003RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6003RestService.java
+END
+WsB005RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB005RestServiceImpl.java
+END
+Ws6004RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6004RestService.java
+END
+WsB006RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB006RestServiceImpl.java
+END
+Ws6005RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6005RestService.java
+END
+WsB007RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB007RestServiceImpl.java
+END
+Ws6006RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/Ws6006RestService.java
+END
+WsB008RestServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB008RestServiceImpl.java
+END
+WsB020RestServiceMockImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB020RestServiceMockImpl.java
+END
+WsB001RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB001RestService.java
+END
+WsB002RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB002RestService.java
+END
+WsB003RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB003RestService.java
+END
+WsB004RestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src/com/globaldenso/eca0027/core/business/ws/WsB004RestService.java
+END

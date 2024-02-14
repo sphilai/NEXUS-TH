@@ -1,0 +1,3049 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * applicationContext-service_eca0027.xml
+ * 
+ *
+ * サービスの Spring 設定ファイルです。
+ *
+ * 
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!-- Service実装 ======================================================= -->
+    <!--   利用する Service はここに定義してください。                       -->
+    <!--   外部ファイルに外出しすることも可能です。                          -->
+    <!-- =================================================================== -->
+
+    <!-- =================================================================== -->
+    <!-- システム共通 Syetem                                                        -->
+    <!-- =================================================================== -->
+    
+    <!-- 共通サービス -->
+    <bean id="commonService" class="com.globaldenso.eca0027.core.common.business.service.CommonServiceImpl">
+        <property name="tmCdService" ref="tmCdService" />
+        <property name="timezoneManageService" ref="timezoneManageService" />
+        <property name="tmCurrencyService" ref="tmCurrencyService" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="tmExpRegulateTypService" ref="tmExpRegulateTypService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="tmMeasureUnitService" ref="tmMeasureUnitService" />
+        <property name="tmTrnsTypService" ref="tmTrnsTypService" />
+        <property name="tmSeqService" ref="tmSeqService" />
+        <property name="tmCigmaShipToXrefService" ref="tmCigmaShipToXrefService" />
+        <property name="tmCigmaWhXrefService" ref="tmCigmaWhXrefService" />
+        <property name="tmNxsWhService" ref="tmNxsWhService" />
+        <property name="tmNxsShipToService" ref="tmNxsShipToService" />
+        <property name="tmPkgSetHdrService" ref="tmPkgSetHdrService" />
+        <property name="tmCntryService" ref="tmCntryService" />
+        <property name="tmPortService" ref="tmPortService" />
+        <property name="tmCigmaEnvService" ref="tmCigmaEnvService" />
+        <property name="tmUomCnvDecService" ref="tmUomCnvDecService" />
+        <property name="vtCompMeasureUnitService" ref="vtCompMeasureUnitService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" /><!-- UT186 ZIP DOWNLOAD ADD -->
+        <property name="residentRequestjobFacadeService" ref="residentRequestjobFacadeService" />
+        <property name="requestIdSeqService" ref="requestIdSeqService" />
+    </bean>
+    
+    <!-- ユーザ機能利用権限サービス -->
+    <bean id="userAuthService" class="com.globaldenso.eca0027.core.common.business.service.UserAuthServiceImpl">
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="tmCigmaWhXrefService" ref="tmCigmaWhXrefService" />
+        <property name="userAuthDao" ref="userAuthDao" />
+        <property name="tmSupplierWhXrefService" ref="tmSupplierWhXrefService" /> <!-- 2016//4/11 ADD -->
+    </bean>
+
+    <!-- =================================================================== -->
+    <!-- Facadeサービス                                                      -->
+    <!-- =================================================================== -->
+
+    <!-- メニュー / Init -->
+    <bean id="w0002InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W0002InitFacadeServiceImpl">
+        <property name="w0002MenuService" ref="w0002MenuService" />
+    </bean>
+    
+    <!-- メニュー / Setup -->
+    <bean id="w0002SetupFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W0002SetupFacadeServiceImpl">
+        <property name="w0002MenuService" ref="w0002MenuService" />
+    </bean>
+
+    <!-- 梱包指示Main / Search -->
+    <bean id="w2001SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2001SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2001PltzInstrService" ref="w2001PltzInstrService" />
+    </bean>
+
+    <!-- 梱包指示Main / ConfirmDetail -->
+    <bean id="w2001ConfirmDetailFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2001ConfirmDetailFacadeServiceImpl" />
+
+    <!-- 梱包指示Header / Init -->
+    <bean id="w2002InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2002InitFacadeServiceImpl">
+        <property name="w2001PltzInstrService" ref="w2001PltzInstrService" />
+    </bean>
+
+    <!-- 梱包指示Header / MoveToCreate -->
+    <bean id="w2002MoveToCreateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2002MoveToCreateFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2001PltzInstrService" ref="w2001PltzInstrService" />
+    </bean>
+
+    <!-- 梱包指示Create / Search -->
+    <bean id="w2003SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2003SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2001PltzInstrService" ref="w2001PltzInstrService" />
+    </bean>
+
+    <!-- 梱包指示Create / Update -->
+    <bean id="w2003UpdateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2003UpdateFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2001PltzInstrService" ref="w2001PltzInstrService" />
+    </bean>
+
+    <!-- 梱包指示Create / MoveToRegister -->
+    <bean id="w2003MoveToRegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2003MoveToRegisterFacadeServiceImpl">
+        <property name="w2001PltzInstrService" ref="w2001PltzInstrService" />
+    </bean>
+
+    <!-- 梱包指示Delete-->
+    <bean id="w2004DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2004DeleteFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2001PltzInstrService" ref="w2001PltzInstrService" />
+    </bean>
+    
+    <!-- 梱包指示Register / Init -->
+    <bean id="w2004InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2004InitFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2001PltzInstrService" ref="w2001PltzInstrService" />
+    </bean>
+    
+    <!-- 梱包指示Register / Register -->
+    <bean id="w2004RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2004RegisterFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2001PltzInstrService" ref="w2001PltzInstrService" />
+    </bean>
+
+    <!-- 梱包指示Register / Cancel -->
+    <bean id="w2004CancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2004CancelFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2001PltzInstrService" ref="w2001PltzInstrService" />
+    </bean>
+
+    <!-- 梱包指示Register / PrintInstr -->
+    <bean id="w2004PrintInstrFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2004PrintInstrFacadeServiceImpl">
+        <property name="w2001PltzInstrService" ref="w2001PltzInstrService" />
+    </bean>
+
+    <!-- 梱包指示Register / PrintCmlForInstr -->
+    <bean id="w2004PrintCmlForInstrFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2004PrintCmlForInstrFacadeServiceImpl">
+        <property name="w2001PltzInstrService" ref="w2001PltzInstrService" />
+    </bean>
+    
+    <!-- Multiple Item No. in 1Box PKG Main Screen / ConfirmDetail -->
+    <bean id="w2005ConfirmDetailFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2005ConfirmDetailFacadeServiceImpl" />
+    
+    <!-- Multiple Item No. in 1Box PKG Main Screen / Search -->
+    <bean id="w2005SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2005SearchFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2005MixTagService" ref="w2005MixTagService" />
+    </bean>
+    
+    <!-- Multiple Item No. in 1Box PKG Header / Init -->
+    <bean id="w2006InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2006InitFacadeServiceImpl" >
+        <property name="w2005MixTagService" ref="w2005MixTagService" />
+    </bean>
+    
+    <!-- Multiple Item No. in 1Box PKG Header / MoveToCreate -->
+    <bean id="w2006MoveToCreateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2006MoveToCreateFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2005MixTagService" ref="w2005MixTagService" />
+    </bean>
+    
+    <!-- Multiple Item No. in 1Box PKG Create / MoveToRegister -->
+    <bean id="w2007MoveToRegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2007MoveToRegisterFacadeServiceImpl" >
+        <property name="w2005MixTagService" ref="w2005MixTagService" />
+    </bean>
+    
+    <!-- Multiple Item No. in 1Box PKG Create / Search -->
+    <bean id="w2007SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2007SearchFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2005MixTagService" ref="w2005MixTagService" />
+    </bean>
+    
+    <!-- Multiple Item No. in 1Box PKG Create / Update -->
+    <bean id="w2007UpdateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2007UpdateFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2005MixTagService" ref="w2005MixTagService" />
+    </bean>
+    
+    <!-- Multiple Item No. in 1Box PKG Register / Cancel -->
+    <bean id="w2008CancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2008CancelFacadeServiceImpl" >
+        <property name="w2005MixTagService" ref="w2005MixTagService" />
+    </bean>
+    
+    <!-- Multiple Item No. in 1Box PKG Register / Delete -->
+    <bean id="w2008DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2008DeleteFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2005MixTagService" ref="w2005MixTagService" />
+    </bean>
+    
+    <!-- Multiple Item No. in 1Box PKG Register / Init -->
+    <bean id="w2008InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2008InitFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2005MixTagService" ref="w2005MixTagService" />
+    </bean>
+    
+    <!-- Multiple Item No. in 1Box PKG Register / PrintTag -->
+    <bean id="w2008PrintTagFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2008PrintTagFacadeServiceImpl" >
+        <property name="w2005MixTagService" ref="w2005MixTagService" />
+    </bean>
+    
+    <!-- Multiple Item No. in 1Box PKG Register / Register -->
+    <bean id="w2008RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2008RegisterFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2005MixTagService" ref="w2005MixTagService" />
+    </bean>
+    
+    <!-- Multiple Item No. in 1Box PKG Detail / Delete -->
+    <bean id="w2018DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2018DeleteFacadeServiceImpl" >
+        <property name="w2005MixTagService" ref="w2005MixTagService" />
+    </bean>
+    
+    <!-- Multiple Item No. in 1Box PKG Detail / Init -->
+    <bean id="w2018InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2018InitFacadeServiceImpl" >
+        <property name="w2005MixTagService" ref="w2005MixTagService" />
+    </bean>
+    
+    <!-- Multiple Item No. in 1Box PKG Detail / Save -->
+    <bean id="w2018SaveFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2018SaveFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2005MixTagService" ref="w2005MixTagService" />
+    </bean>
+    
+    <!-- CML Main / ConfirmDetail -->
+    <bean id="w2009ConfirmDetailFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2009ConfirmDetailFacadeServiceImpl"/>
+    
+    <!-- CML Main / Init -->
+    <bean id="w2009InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2009InitFacadeServiceImpl">
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+        <!-- CML Main / Search -->
+    <bean id="w2009SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2009SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Main / TransPkgRevise -->
+    <bean id="w2009TransPkgReviseFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2009TransPkgReviseFacadeServiceImpl">
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Main / PrintMultiCml UT414 ADD -->
+    <bean id="w2009PrintMultiCmlFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2009PrintMultiCmlFacadeServiceImpl">
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Header / Init -->
+    <bean id="w2010InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2010InitFacadeServiceImpl">
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Header / MoveToCreate -->
+    <bean id="w2010MoveToCreateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2010MoveToCreateFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2009CmlService" ref="w2009CmlService" />
+        <property name="tmCigmaWhXrefService" ref="tmCigmaWhXrefService" />
+    </bean>
+    
+    <!-- CML Create / Init -->
+    <bean id="w2011InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2011InitFacadeServiceImpl">
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Create / MoveToRegister -->
+    <bean id="w2011MoveToRegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2011MoveToRegisterFacadeServiceImpl" >
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Create / Search -->
+    <bean id="w2011SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2011SearchFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Create / Update -->
+    <bean id="w2011UpdateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2011UpdateFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Register / Cancel -->
+    <bean id="w2012CancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2012CancelFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Register / Delete -->
+    <bean id="w2012DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2012DeleteFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Register / Init -->
+    <bean id="w2012InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2012InitFacadeServiceImpl" >
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Register / PkgMaterials -->
+    <bean id="w2012PkgMaterialsFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2012PkgMaterialsFacadeServiceImpl">
+            <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Register / PrintCml -->
+    <bean id="w2012PrintCmlFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2012PrintCmlFacadeServiceImpl">
+            <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Register / Register -->
+    <bean id="w2012RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2012RegisterFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2009CmlService" ref="w2009CmlService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" /> <!-- UT442 ADD -->
+    </bean>
+    
+    <!-- CML PKG Info Detail / Delete -->
+    <bean id="w2013DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2013DeleteFacadeServiceImpl">
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML PKG Info Detail / Init -->
+    <bean id="w2013InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2013InitFacadeServiceImpl">
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML PKG Info Detail / SaveAndMoveToRegister -->
+    <bean id="w2013SaveAndMoveToRegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2013SaveAndMoveToRegisterFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML PKG Info Detail / SaveAndMoveToTransPKGRevise -->
+    <bean id="w2013SaveAndMoveToTransPKGReviseFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2013SaveAndMoveToTransPKGReviseFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Trans Revise / Init -->
+    <bean id="w2019InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2019InitFacadeServiceImpl" >
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Trans Revise / PkgMaterials -->
+    <bean id="w2019PkgMaterialsFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2019PkgMaterialsFacadeServiceImpl" >
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- CML Trans Revise / Register -->
+    <bean id="w2019RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2019RegisterFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" /><!-- UT110 TRIAL SHIPMENT/号試品対応 ADD -->
+        <property name="w2009CmlService" ref="w2009CmlService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" /> <!-- UT442 ADD -->
+    </bean>
+    
+    <!-- CML Trans Revise / PrintCml -->
+    <bean id="w2019PrintCmlFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2019PrintCmlFacadeServiceImpl" >
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+    
+    <!-- UT304 MULTI LABEL ADD START -->
+    <!-- Multi Label Register Screen / Init -->
+    <bean id="w2020InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2020InitFacadeServiceImpl" >
+        <property name="w2009CmlService" ref="w2009CmlService" />
+    </bean>
+
+    <!-- Multi Label Register Screen / Search -->
+    <bean id="w2020SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2020SearchFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2009CmlService" ref="w2009CmlService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="tmExpItemNoSpInfoService" ref="tmExpItemNoSpInfoService" />
+        <property name="tmExpFormalitiItemNoService" ref="tmExpFormalitiItemNoService" />
+        <property name="tmActualItemWeightService" ref="tmActualItemWeightService" />
+        <property name="tmPkgSpecRevService" ref="tmPkgSpecRevService" />
+    </bean>
+    
+    <!-- Multi Label Register Screen / Register -->
+    <bean id="w2020RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2020RegisterFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2009CmlService" ref="w2009CmlService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="tmExpItemNoSpInfoService" ref="tmExpItemNoSpInfoService" />
+        <property name="tmExpFormalitiItemNoService" ref="tmExpFormalitiItemNoService" />
+        <property name="tmActualItemWeightService" ref="tmActualItemWeightService" />
+        <property name="tmPkgSpecRevService" ref="tmPkgSpecRevService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+    </bean>
+    
+    <!-- Multi Label Register Screen / PrintCml -->
+    <bean id="w2020PrintCmlFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2020PrintCmlFacadeServiceImpl" >
+        <property name="w2009CmlService" ref="w2009CmlService" />
+        <property name="ttPltzService" ref="ttPltzService" />
+    </bean>
+    <!-- UT304 MULTI LABEL ADD END -->
+    
+    <!-- X-Tag Main Screen / ConfirmDetail -->
+    <bean id="w2014ConfirmDetailFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2014ConfirmDetailFacadeServiceImpl" />
+    
+    <!-- X-Tag Main Screen / Search -->
+    <bean id="w2014SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2014SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w2014XtagService" ref="w2014XtagService" />
+    </bean>
+    
+    <!-- X-Tag Header / Init -->
+    <bean id="w2015InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2015InitFacadeServiceImpl" >
+        <property name="w2014XtagService" ref="w2014XtagService" />
+    </bean>
+    
+    <!-- X-Tag Header / MoveToCreate -->
+    <bean id="w2015MoveToCreateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2015MoveToCreateFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2014XtagService" ref="w2014XtagService" />
+    </bean>
+    
+    <!-- X-Tag Create / MoveToRegister -->
+    <bean id="w2016MoveToRegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2016MoveToRegisterFacadeServiceImpl" >
+        <property name="w2014XtagService" ref="w2014XtagService" />
+    </bean>
+    
+    <!-- X-Tag Create / Search -->
+    <bean id="w2016SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2016SearchFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2014XtagService" ref="w2014XtagService" />
+    </bean>
+    
+    <!-- X-Tag Create / Update -->
+    <bean id="w2016UpdateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2016UpdateFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2014XtagService" ref="w2014XtagService" />
+    </bean>
+    
+    <!-- X-Tag Register / Cancel -->
+    <bean id="w2017CancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2017CancelFacadeServiceImpl" >
+        <property name="w2014XtagService" ref="w2014XtagService" />
+    </bean>
+    
+    <!-- X-Tag Register / Delete -->
+    <bean id="w2017DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2017DeleteFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2014XtagService" ref="w2014XtagService" />
+    </bean>
+    
+    <!-- X-Tag Register / Init -->
+    <bean id="w2017InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2017InitFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2014XtagService" ref="w2014XtagService" />
+    </bean>
+    
+    <!-- X-Tag Register / PrintTag -->
+    <bean id="w2017PrintTagFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2017PrintTagFacadeServiceImpl" >
+        <property name="w2014XtagService" ref="w2014XtagService" />
+    </bean>
+    
+    <!-- X-Tag Register / Register -->
+    <bean id="w2017RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W2017RegisterFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="w2014XtagService" ref="w2014XtagService" />
+    </bean>
+
+    <!-- Carry out Main / Search -->
+    <bean id="w3001SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3001SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Carry in Main / Search -->
+    <bean id="w3009SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3009SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Carry out Main / Activate -->
+    <bean id="w3001ActivateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3001ActivateFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Carry out Main / Cancel -->
+    <bean id="w3001CancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3001CancelFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Carry out Main / Confirm Detail -->
+    <bean id="w3001ConfirmDetailFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3001ConfirmDetailFacadeServiceImpl">
+    </bean>
+    
+    <!-- Carry out Main / Edit TR -->
+    <bean id="w3001EditTrFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3001EditTrFacadeServiceImpl">
+    <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Carry out Header / List For CML-->
+    <bean id="w3002MoveToCreateListForCmlFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3002MoveToCreateListForCmlFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Carry out Header / Init-->
+    <bean id="w3002InitFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3002InitFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Carry out Header / List For Parts-->
+    <bean id="w3002MoveToCreateListForPartsFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3002MoveToCreateListForPartsFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Carry out Header / TR For CML-->
+    <bean id="w3002MoveToCreateTrForCmlFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3002MoveToCreateTrForCmlFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Carry out Header / TR For Parts-->
+    <bean id="w3002MoveToCreateTrForPartsFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3002MoveToCreateTrForPartsFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Carry out Main / Search -->
+    <bean id="w3003SearchFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3003SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Carry out Main / Update -->
+    <bean id="w3003UpdateFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3003UpdateFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Carry out Main / PrintForUpdate -->
+    <bean id="w3003PrintListForUpdateFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3003PrintListForUpdateFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Carry out Main / PrintForAll -->
+    <bean id="w3003PrintListForAllFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3003PrintListForAllFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- TIS Tanaka Start -->
+    <!-- Print Carry Out List by Parts / Search -->
+    <bean id="w3004SearchFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3004SearchFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Print Carry Out List by Parts / Update -->
+    <bean id="w3004UpdateFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3004UpdateFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Print Carry Out List by Parts / Print List All Data -->
+    <bean id="w3004PrintListForAllFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3004PrintListForAllFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Print Carry Out List by Parts / Print List Updated Data -->
+    <bean id="w3004PrintListForUpdateFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3004PrintListForUpdateFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Create CML Transfer Report -->
+    <bean id="w3005SearchFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3005SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Create CML Transfer Report -->
+    <bean id="w3005UpdateFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3005UpdateFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Create CML Transfer Report -->
+    <bean id="w3005MoveToRegisterFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3005MoveToRegisterFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Register CML Transfer Report / Init -->
+    <bean id="w3006InitFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3006InitFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Register CML Transfer Report / Delete -->
+    <bean id="w3006DeleteFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3006DeleteFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Register CML Transfer Report / Register -->
+    <bean id="w3006RegisterFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3006RegisterFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Register CML Transfer Report / EditRegister -->
+    <bean id="w3006EditRegisterFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3006EditRegisterFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Register CML Transfer Report / Print TR -->
+    <bean id="w3006PrintTrFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3006PrintTrFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Register CML Transfer Report / Cancel TR -->
+    <bean id="w3006CancelTrFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3006CancelTrFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Create CML Transfer Report -->
+    <bean id="w3007SearchFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3007SearchFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Create CML Transfer Report -->
+    <bean id="w3007UpdateFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3007UpdateFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+        <!-- Create CML Transfer Report -->
+    <bean id="w3007MoveToRegisterTrFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3007MoveToRegisterTrFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Register Parts Transfer Report -->
+    <bean id="w3008InitFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3008InitFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Register Parts Transfer Report -->
+    <bean id="w3008DeleteFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3008DeleteFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Register Parts Transfer Report -->
+    <bean id="w3008RegisterFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3008RegisterFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Register Parts Transfer Report -->
+    <bean id="w3008EditRegisterFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3008EditRegisterFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Register Parts Transfer Report -->
+    <bean id="w3008CancelTrFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3008CancelTrFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Register Parts Transfer Report -->
+    <bean id="w3008PrintTrFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3008PrintTrFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Receive CML Transfer Report / Init -->
+    <bean id="w3010InitFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3010InitFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Receive CML Transfer Report / Receive -->
+    <bean id="w3010ReceiveFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3010ReceiveFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Receive CML Transfer Report / PrintTr -->
+    <bean id="w3010PrintTrFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3010PrintTrFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Receive Parts Transfer Report / Init -->
+    <bean id="w3011InitFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3011InitFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Receive Parts Transfer Report / Receive -->
+    <bean id="w3011ReceiveFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3011ReceiveFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Receive Parts Transfer Report / PrintTr -->
+    <bean id="w3011PrintTrFacadeService"
+        class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3011PrintTrFacadeServiceImpl">
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+
+    <!-- Carry In Main / Receive -->
+    <bean id="w3009ReceiveFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W3009ReceiveFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w3TransferService" ref="w3TransferService" />
+    </bean>
+    
+    <!-- Staging instruction Main / Search -->
+    <!-- 荷揃え指示Main / Search -->
+    <bean id="w4001SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4001SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w4001StgInstrService" ref="w4001StgInstrService" />
+    </bean>
+
+    <!-- Staging instruction Main / ConfirmDetail -->
+    <!-- 荷揃え指示Main / ConfirmDetail -->
+    <bean id="w4001ConfirmDetailFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4001ConfirmDetailFacadeServiceImpl">
+    </bean>
+
+    <!-- Staging instruction Header / Init -->
+    <!-- 荷揃え指示Header / Init -->
+    <bean id="w4002InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4002InitFacadeServiceImpl">
+        <property name="w4001StgInstrService" ref="w4001StgInstrService" />
+    </bean>
+
+    <!-- Staging instruction Header / MoveToCreate -->
+    <!-- 荷揃え指示Header / MoveToCreate -->
+    <bean id="w4002MoveToCreateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4002MoveToCreateFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w4001StgInstrService" ref="w4001StgInstrService" />
+    </bean>
+
+    <!-- Staging instruction Create / Search -->
+    <!-- 荷揃え指示Create / Search -->
+    <bean id="w4003SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4003SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w4001StgInstrService" ref="w4001StgInstrService" />
+    </bean>
+
+    <!-- Staging instruction Create / Update -->
+    <!-- 荷揃え指示Create / Update -->
+    <bean id="w4003UpdateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4003UpdateFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w4001StgInstrService" ref="w4001StgInstrService" />
+    </bean>
+
+    <!-- Staging instruction Create / MoveToRegister -->
+    <!-- 荷揃え指示Create / MoveToRegister -->
+    <bean id="w4003MoveToRegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4003MoveToRegisterFacadeServiceImpl">
+        <property name="w4001StgInstrService" ref="w4001StgInstrService" />
+    </bean>
+
+    <!-- Staging instruction Register / Init -->
+    <!-- 荷揃え指示Register / Init -->
+    <bean id="w4004InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4004InitFacadeServiceImpl">
+        <property name="w4001StgInstrService" ref="w4001StgInstrService" />
+    </bean>
+
+    <!-- Staging instruction Register / Delete -->
+    <!-- 荷揃え指示Register / Delete -->
+    <bean id="w4004DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4004DeleteFacadeServiceImpl">
+        <property name="w4001StgInstrService" ref="w4001StgInstrService" />
+    </bean>
+
+    <!-- Staging instruction Register / Register -->
+    <!-- 荷揃え指示Register / Register -->
+    <bean id="w4004RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4004RegisterFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w4001StgInstrService" ref="w4001StgInstrService" />
+    </bean>
+
+    <!-- Staging instruction Register / RegisterWorking -->
+    <!-- 荷揃え指示Register / RegisterWorking -->
+    <bean id="w4004RegisterWorkingFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4004RegisterWorkingFacadeServiceImpl">
+        <property name="w4001StgInstrService" ref="w4001StgInstrService" />
+    </bean>
+
+    <!-- Staging instruction Register / Cancel -->
+    <!-- 荷揃え指示Register / Cancel -->
+    <bean id="w4004CancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4004CancelFacadeServiceImpl">
+        <property name="w4001StgInstrService" ref="w4001StgInstrService" />
+    </bean>
+
+    <!-- Staging instruction Register / PrintInstr -->
+    <!-- 荷揃え指示Register / PrintInstr -->
+    <bean id="w4004PrintInstrFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4004PrintInstrFacadeServiceImpl">
+        <property name="w4001StgInstrService" ref="w4001StgInstrService" />
+    </bean>
+
+    <!-- Staging actuality Main / Search -->
+    <!-- 山作り実績Main / Search -->
+    <bean id="w4005SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4005SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w4005StgActService" ref="w4005StgActService" />
+    </bean>
+
+    <!-- Staging actuality Main / ConfirmDetail -->
+    <!-- 山作り実績Main / ConfirmDetail -->
+    <bean id="w4005ConfirmDetailFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4005ConfirmDetailFacadeServiceImpl">
+    </bean>
+
+    <!-- Staging actuality Header / Init -->
+    <!-- 山作り実績Header / Init -->
+    <bean id="w4006InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4006InitFacadeServiceImpl">
+        <property name="w4005StgActService" ref="w4005StgActService" />
+    </bean>
+
+    <!-- Staging actuality Header / MoveToCreate -->
+    <!-- 山作り実績Header / MoveToCreate -->
+    <bean id="w4006MoveToCreateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4006MoveToCreateFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w4005StgActService" ref="w4005StgActService" />
+    </bean>
+
+    <!-- Staging actuality Create / Search -->
+    <!-- 山作り実績Create / Search -->
+    <bean id="w4007SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4007SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w4005StgActService" ref="w4005StgActService" />
+    </bean>
+
+    <!-- Staging actuality Create / Update -->
+    <!-- 山作り実績Create / Update -->
+    <bean id="w4007UpdateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4007UpdateFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w4005StgActService" ref="w4005StgActService" />
+    </bean>
+
+    <!-- Staging actuality Create / MoveToRegister -->
+    <!-- 山作り実績Create / MoveToRegister -->
+    <bean id="w4007MoveToRegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4007MoveToRegisterFacadeServiceImpl">
+        <property name="w4005StgActService" ref="w4005StgActService" />
+    </bean>
+
+    <!-- Staging actuality Register / Init -->
+    <!-- 山作り実績Register / Init -->
+    <bean id="w4008InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4008InitFacadeServiceImpl">
+        <property name="w4005StgActService" ref="w4005StgActService" />
+    </bean>
+
+    <!-- Staging actuality Register / Delete -->
+    <!-- 山作り実績Register / Delete -->
+    <bean id="w4008DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4008DeleteFacadeServiceImpl">
+        <property name="w4005StgActService" ref="w4005StgActService" />
+    </bean>
+
+    <!-- Staging actuality Register / Register -->
+    <!-- 山作り実績Register / Register -->
+    <bean id="w4008RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4008RegisterFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w4005StgActService" ref="w4005StgActService" />
+    </bean>
+
+    <!-- Staging actuality Register / UpdateEtdCarrier -->
+    <!-- 山作り実績Register / UpdateEtdCarrier -->
+    <bean id="w4008UpdateEtdCarrierFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4008UpdateEtdCarrierFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w4005StgActService" ref="w4005StgActService" />
+    </bean>
+
+    <!-- Staging actuality Register / Cancel -->
+    <!-- 山作り実績Register / Cancel -->
+    <bean id="w4008CancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4008CancelFacadeServiceImpl">
+        <property name="w4005StgActService" ref="w4005StgActService" />
+    </bean>
+
+    <!-- Staging actuality Register / PrintStgAct -->
+    <!-- 山作り実績Register / PrintStgAct -->
+    <bean id="w4008PrintStgActFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W4008PrintStgActFacadeServiceImpl">
+        <property name="w4005StgActService" ref="w4005StgActService" />
+    </bean>
+    
+    <!-- 出荷指示Main / Search -->
+    <bean id="w5001SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W5001SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w5001ShippingFirmService" ref="w5001ShippingFirmService" />
+    </bean>
+
+    <!-- 出荷指示Main / Search -->
+    <bean id="w5001ConfirmDetailFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W5001ConfirmDetailFacadeServiceImpl">
+    </bean>
+    
+    <!-- 出荷確認Header / MoveToCreate -->
+    <bean id="w5002MoveToCreateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W5002MoveToCreateFacadeServiceImpl">
+        <property name="w5001ShippingFirmService" ref="w5001ShippingFirmService" />
+    </bean>
+    
+    <!-- 出荷確認Create / Search -->
+    <bean id="w5003SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W5003SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w5001ShippingFirmService" ref="w5001ShippingFirmService" />
+    </bean>
+    
+    <!-- 出荷確認Create / Search -->
+    <bean id="w5003MoveToRegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W5003MoveToRegisterFacadeServiceImpl">
+    </bean>
+    
+    <!-- 出荷確認Register / Init -->
+    <bean id="w5004InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W5004InitFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w5001ShippingFirmService" ref="w5001ShippingFirmService" />
+    </bean>
+    
+    <!-- 出荷確認Register / Register -->
+    <bean id="w5004RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W5004RegisterFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w5001ShippingFirmService" ref="w5001ShippingFirmService" />
+    </bean>
+    
+    <!-- 出荷確認Register / PrintConfirmation -->
+    <bean id="w5004PrintConfirmationFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W5004PrintConfirmationFacadeServiceImpl">
+        <property name="w5001ShippingFirmService" ref="w5001ShippingFirmService" />
+    </bean>
+    
+    <!-- 出荷確認Register / ReUpdateContainerNo -->
+    <bean id="w5004ReUpdateContainerNoFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W5004ReUpdateContainerNoFacadeServiceImpl">
+        <property name="w5001ShippingFirmService" ref="w5001ShippingFirmService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- 出荷確認Register / RegisterWorking -->
+    <bean id="w5004RegisterWorkingFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W5004RegisterWorkingFacadeServiceImpl">
+        <property name="w5001ShippingFirmService" ref="w5001ShippingFirmService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- 出荷確認Register / Cancel -->
+    <bean id="w5004CancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W5004CancelFacadeServiceImpl">
+        <property name="w5001ShippingFirmService" ref="w5001ShippingFirmService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Invoice Main / Search -->
+    <bean id="w6001SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6001SearchFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Invoice Main / UploadFrtInv -->
+    <bean id="w6001UploadFrtInvFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6001UploadFrtInvFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+    
+    <!-- Invoice Main / UploadNonDnGInvOrReInv -->
+    <bean id="w6001UploadNonDnGInvOrReInvFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6001UploadNonDnGInvOrReInvFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+    
+    <!-- Invoice Main  / CancelInv -->
+    <bean id="w6001CancelInvFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6001CancelInvFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+    
+    <!-- Invoice Main  / PrintDocument -->
+    <bean id="w6001PrintDocumentFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6001PrintDocumentFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+    
+    <!-- Manual Invoice Upload  / Init -->
+    <bean id="w6002InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6002InitFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+    
+    <!-- Manual Invoice Upload  / Register -->
+    <bean id="w6002RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6002RegisterFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+        <property name="commonService" ref="commonService" />
+        <property name="tmExpShipToShippingService" ref="tmExpShipToShippingService" /><!-- NL004 ADD -->
+    </bean>
+    
+    <!-- Manual Invoice Upload  / Skip -->
+    <bean id="w6002SkipFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6002SkipFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Documentation [Invoice Header]  / Init -->
+    <bean id="w6003InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6003InitFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+    
+    <!-- Documentation [Invoice Header]  / MoveToCreate -->
+    <bean id="w6003MoveToCreateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6003MoveToCreateFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+
+    <!-- Documentation [Invoice Data Create]  / Init -->
+    <bean id="w6004InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6004InitFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+
+    <!-- Documentation [Invoice Data Create]  / Search -->
+    <bean id="w6004SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6004SearchFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- Documentation [Invoice Data Create]  / Update -->
+    <bean id="w6004UpdateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6004UpdateFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+
+    <!-- Documentation [Invoice Data Create]  / MoveToShippingInformationInput -->
+    <bean id="w6004MoveToShippingInformationInputFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6004MoveToShippingInformationInputFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+
+    <!-- Documentaition [Shipping Information Input]  / MoveToInvoiceGrouping -->
+    <bean id="w6005MoveToInvoiceGroupingFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6005MoveToInvoiceGroupingFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- Documentaition [Invoice Grouping]  / Search -->
+    <bean id="w6006SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6006SearchFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+
+    <!-- Documentation [Invoice Grouping]  / MoveToInvoiceDetail -->
+    <bean id="w6006MoveToInvoiceDetailFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6006MoveToInvoiceDetailFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- Documentation [Invoice Grouping]  / BackToMainScreen -->
+    <bean id="w6006BackToMainScreenFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6006BackToMainScreenFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+
+    <!-- Documentaition [Invoice Detail]  / Init -->
+    <bean id="w6007InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6007InitFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+
+    <!-- Documentaition [Invoice Detail]  / Search -->
+    <bean id="w6007RefreshFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6007RefreshFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- Documentaition [Invoice Detail]  / MoveToInvoiceDetail -->
+    <bean id="w6007RemoveFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6007RemoveFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+
+    <!-- Documentaition [Invoice Detail]  / BackToMainScreen -->
+    <bean id="w6007MoveToRegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6007MoveToRegisterFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- Documentaition [Invoice Detail(Full Returnable)]  / Init -->
+    <bean id="w6008InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6008InitFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- Documentaition [Invoice Detail(Full Returnable)]  / Remove -->
+    <bean id="w6008RemoveFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6008RemoveFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- Documentaition [Invoice Detail(Full Returnable)]  / MoveToRegister -->
+    <bean id="w6008MoveToRegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6008MoveToRegisterFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+
+    <!-- Documentaition [Invoice Register] / Init -->
+    <bean id="w6009InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6009InitFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- Documentaition [Invoice Register] / CalculateAmoun -->
+    <bean id="w6009CalculateAmountFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6009CalculateAmountFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- Documentaition [Invoice Register] / BackToInvoiceDetail -->
+    <bean id="w6009BackToInvoiceDetailFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6009BackToInvoiceDetailFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+
+    <!-- Documentaition [Invoice Register] / Register -->
+    <bean id="w6009RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6009RegisterFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- Documentaition [Invoice Register] / Cancel -->
+    <bean id="w6009CancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6009CancelFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+
+    <!-- Documentaition [Invoice Register] / PrintDocument -->
+    <bean id="w6009PrintDocumentFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6009PrintDocumentFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+    </bean>
+
+    <!-- Documentaition [Invoice Register] / ChangeFrtShipper -->
+    <bean id="w6009ChangeFrtShipperFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W6009ChangeFrtShipperFacadeServiceImpl">
+        <property name="w6001DocService" ref="w6001DocService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- 船積実績Main / Init -->
+    <bean id="w7001InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7001InitFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積実績Main / Search -->
+    <bean id="w7001SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7001SearchFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積実績Main / ConfirmDetail -->
+    <bean id="w7001ConfirmDetailFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7001ConfirmDetailFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- 船積実績Main / ClpCancel -->
+    <bean id="w7001ClpCancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7001ClpCancelFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- 船積実績Main / ClpRegister -->
+    <bean id="w7001ClpRegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7001ClpRegisterFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- 船積実績Header / Init -->
+    <bean id="w7002InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7002InitFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積実績Header / MoveToCreate -->
+    <bean id="w7002MoveToCreateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7002MoveToCreateFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積実績Create / Init -->
+    <bean id="w7003InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7003InitFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積実績Create / MoveToRegister -->
+    <bean id="w7003MoveToRegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7003MoveToRegisterFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+
+    <!-- 船積実績Create / Search -->
+    <bean id="w7003SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7003SearchFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+
+    <!-- 船積実績Create / Update -->
+    <bean id="w7003UpdateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7003UpdateFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積実績Register / Init -->
+    <bean id="w7004InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7004InitFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積実績Register / BackToMainScreen -->
+    <bean id="w7004BackToMainScreenFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7004BackToMainScreenFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- 船積実績Register / Delete -->
+    <bean id="w7004DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7004DeleteFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積実績Register / Register -->
+    <bean id="w7004RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7004RegisterFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積実績Register / PrintClp -->
+    <bean id="w7004PrintClpFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7004PrintClpFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+
+    <!-- 船積実績Register / Cancel -->
+    <bean id="w7004CancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7004CancelFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+
+    <!-- 船積実績Register / ChangeStatus -->
+    <bean id="w7004ChangeStatusFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7004ChangeStatusFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+
+    <!-- 船荷証券更新 / Init -->
+    <bean id="w7005InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7005InitFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船荷証券更新 / Upload -->
+    <bean id="w7005UploadFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7005UploadFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+
+    <!-- 船荷証券更新 / Cancel -->
+    <bean id="w7005CancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7005CancelFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船荷証券更新 / View -->
+    <bean id="w7005ViewFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7005ViewFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積書類アップロード / Init -->
+    <bean id="w7006InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7006InitFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積書類アップロード / ChangeStatus -->
+    <bean id="w7006ChangeStatusFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7006ChangeStatusFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積書類アップロード / CoUpload -->
+    <bean id="w7006CoUploadFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7006CoUploadFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積書類アップロード / CoCancel -->
+    <bean id="w7006CoCancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7006CoCancelFacadeServiceImpl">
+         <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+
+    <!-- 船積書類アップロード / CoView -->
+    <bean id="w7006CoViewFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7006CoViewFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+
+    <!-- 船積書類アップロード / NonWoodenUpload -->
+    <bean id="w7006NonWoodenUploadFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7006NonWoodenUploadFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+
+    <!-- 船積書類アップロード / NonWoodenCancel -->
+    <bean id="w7006NonWoodenCancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7006NonWoodenCancelFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+
+    <!-- 船積書類アップロード / NonWoodenView -->
+    <bean id="w7006NonWoodenViewFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7006NonWoodenViewFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積書類アップロード / OthersUpload -->
+    <bean id="w7006OthersUploadFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7006OthersUploadFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積書類アップロード / OthersCancel -->
+    <bean id="w7006OthersCancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7006OthersCancelFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- 船積書類アップロード / OthersView -->
+    <bean id="w7006OthersViewFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7006OthersViewFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- B/Lアップロード / OthersView -->
+    <bean id="w7007InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7007InitFacadeServiceImpl">
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- B/Lアップロード / CoUpload -->
+    <bean id="w7007CoUploadFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7007CoUploadFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+    
+    <!-- B/Lアップロード / NonWoodenUpload -->
+    <bean id="w7007NonWoodenUploadFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7007NonWoodenUploadFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+
+    <!-- B/Lアップロード / OthersUpload -->
+    <bean id="w7007OthersUploadFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W7007OthersUploadFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w7001ShippingActService" ref="w7001ShippingActService" />
+    </bean>
+
+    <!-- 進度管理Main / Search -->
+    <bean id="w8001SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W8001SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w8001ProgCtrlService" ref="w8001ProgCtrlService" />
+    </bean>
+
+    <!-- 進度管理Main / ConfirmDetail -->
+    <bean id="w8001ConfirmDetailFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W8001ConfirmDetailFacadeServiceImpl" />
+
+    <!-- 進度管理詳細 / Init -->
+    <bean id="w8002InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W8002InitFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w8001ProgCtrlService" ref="w8001ProgCtrlService" />
+    </bean>
+
+    <!-- 進度管理 ケースマーク一覧 / Init -->
+    <bean id="w8003InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W8003InitFacadeServiceImpl">
+        <property name="w8001ProgCtrlService" ref="w8001ProgCtrlService" />
+    </bean>
+
+    <!-- 進度管理 ケースマーク一覧 / Sort -->
+    <bean id="w8003SortFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W8003SortFacadeServiceImpl">
+        <property name="w8001ProgCtrlService" ref="w8001ProgCtrlService" />
+    </bean>
+
+    <!-- 進度管理 RTN材情報 / Init -->
+    <bean id="w8004InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W8004InitFacadeServiceImpl">
+        <property name="w8001ProgCtrlService" ref="w8001ProgCtrlService" />
+    </bean>
+    
+    <!-- Agent MA Edit / Search -->
+    <bean id="w9002SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9002SearchFacadeServiceImpl">
+        <property name="w9002AgentMaService" ref="w9002AgentMaService" />
+    </bean>
+    <!-- Agent MA Edit / EditOrRefer -->
+    <bean id="w9002EditOrReferFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9002EditOrReferFacadeServiceImpl" />
+    <!-- Agent MA Edit / Delete -->
+    <bean id="w9002DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9002DeleteFacadeServiceImpl">
+        <property name="w9002AgentMaService" ref="w9002AgentMaService" />
+    </bean>
+    
+    <!-- Agent MA Edit / Init -->
+    <bean id="w9003InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9003InitFacadeServiceImpl">
+        <property name="w9002AgentMaService" ref="w9002AgentMaService" />
+    </bean>
+
+    <!-- Agent MA Edit / Register -->
+    <bean id="w9003RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9003RegisterFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w9002AgentMaService" ref="w9002AgentMaService" />
+    </bean>
+    
+    <!-- User ID MA Inquiry / Init -->
+    <bean id="w9004InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9004InitFacadeServiceImpl">
+        <property name="w9004UserIdMaService" ref="w9004UserIdMaService" />
+    </bean>
+    <!-- User ID MA Inquiry / Search -->
+    <bean id="w9004SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9004SearchFacadeServiceImpl">
+        <property name="w9004UserIdMaService" ref="w9004UserIdMaService" />
+    </bean>
+    <!-- User ID MA Inquiry / EditOrRefer -->
+    <bean id="w9004EditOrReferFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9004EditOrReferFacadeServiceImpl" />
+    <!-- User ID MA Inquiry / Delete -->
+    <bean id="w9004DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9004DeleteFacadeServiceImpl">
+        <property name="w9004UserIdMaService" ref="w9004UserIdMaService" />
+    </bean>
+    
+    <!-- User ID MA Edit / Init -->
+    <bean id="w9005InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9005InitFacadeServiceImpl">
+        <property name="w9004UserIdMaService" ref="w9004UserIdMaService" />
+    </bean>
+    <!-- User ID MA Edit / Register -->
+    <bean id="w9005RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9005RegisterFacadeServiceImpl">
+        <property name="w9004UserIdMaService" ref="w9004UserIdMaService" />
+    </bean>
+    <!-- User ID MA Edit / Refer -->
+    <bean id="w9005ReferFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9005ReferFacadeServiceImpl">
+        <property name="w9004UserIdMaService" ref="w9004UserIdMaService" />
+    </bean>
+
+    <!-- NEXUS Ship to MA Inquiry -->
+    <bean id="w9006SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9006SearchFacadeServiceImpl">
+        <property name="w9006NxsShipToMaService" ref="w9006NxsShipToMaService" />
+    </bean>
+
+    <bean id="w9006NxsShipToMaService" class="com.globaldenso.eca0027.core.business.service.W9006NxsShipToMaServiceImpl">
+        <property name="w9006NxsShipToMaDao" ref="w9006NxsShipToMaDao" />
+    </bean>
+
+    <!-- Export Ship to Shipping MA Inquiry / Add -->
+    <bean id="w9007AddFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9007AddFacadeServiceImpl">
+        <property name="w9007ExpShipToShippingMaService" ref="w9007ExpShipToShippingMaService" />
+    </bean>
+    <!-- Export Ship to Shipping MA Inquiry / Search -->
+    <bean id="w9007SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9007SearchFacadeServiceImpl">
+        <property name="w9007ExpShipToShippingMaService" ref="w9007ExpShipToShippingMaService" />
+    </bean>
+    
+    <!-- Export Ship to Shipping MA Inquiry / EditOrRefer -->
+    <bean id="w9007EditOrReferFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9007EditOrReferFacadeServiceImpl" />
+    
+    <!-- Export Ship to Shipping MA Inquiry / Clone -->
+    <bean id="w9007CloneFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9007CloneFacadeServiceImpl">
+        <property name="w9007ExpShipToShippingMaService" ref="w9007ExpShipToShippingMaService" />
+    </bean>
+    
+    <!-- Export Ship to Shipping MA Inquiry / Delete -->
+    <bean id="w9007DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9007DeleteFacadeServiceImpl">
+        <property name="w9007ExpShipToShippingMaService" ref="w9007ExpShipToShippingMaService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Export Ship to Shipping MA Edit / Init -->
+    <bean id="w9008InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9008InitFacadeServiceImpl">
+        <property name="w9007ExpShipToShippingMaService" ref="w9007ExpShipToShippingMaService" />
+    </bean>
+    
+    <!-- Export Ship to Shipping MA Edit / Register -->
+    <bean id="w9008RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9008RegisterFacadeServiceImpl">
+        <property name="w9007ExpShipToShippingMaService" ref="w9007ExpShipToShippingMaService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- CIGMA Ship to X-Reference MA Inquiry -->
+    <bean id="w9009SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9009SearchFacadeServiceImpl">
+        <property name="w9009CgmShipToXRefMaService" ref="w9009CgmShipToXRefMaService" />
+    </bean>
+
+    <bean id="w9009CgmShipToXRefMaService" class="com.globaldenso.eca0027.core.business.service.W9009CgmShipToXRefMaServiceImpl">
+        <property name="w9009CgmShipToXRefMaDao" ref="w9009CgmShipToXRefMaDao" />
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="tmCigmaShipToXrefService" ref="tmCigmaShipToXrefService" />
+        <property name="ws9004RestService" ref="ws9004RestService" />
+    </bean>
+
+    <!-- CIGMA Ship to X-Reference MA Inquiry / Delete -->
+    <bean id="w9009DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9009DeleteFacadeServiceImpl">
+        <property name="w9009CgmShipToXRefMaService" ref="w9009CgmShipToXRefMaService" />
+    </bean>
+    
+    <!-- CIGMA Ship to X-Reference MA Inquiry / EditOrRefer -->
+    <bean id="w9009EditOrReferFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9009EditOrReferFacadeServiceImpl">
+    </bean>
+    
+    <!-- CIGMA Ship to X-Reference MA Edit / Init -->
+    <bean id="w9010InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9010InitFacadeServiceImpl">
+        <property name="w9009CgmShipToXRefMaService" ref="w9009CgmShipToXRefMaService" />
+    </bean>
+
+    <!-- CIGMA Customer No. X-Reference MA Edit / Register -->
+    <bean id="w9010RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9010RegisterFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w9009CgmShipToXRefMaService" ref="w9009CgmShipToXRefMaService" />
+    </bean>
+
+    <!-- CIGMA Customer No. X-Reference MA Inquiry / Search -->
+    <bean id="w9011SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9011SearchFacadeServiceImpl">
+        <property name="w9011CgmCusNoXRefMaService" ref="w9011CgmCusNoXRefMaService" />
+    </bean>
+
+    <!-- CIGMA Customer No. X-Reference MA Inquiry / EditOrRefer -->
+    <bean id="w9011EditOrReferFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9011EditOrReferFacadeServiceImpl">
+    </bean>
+
+    <!-- CIGMA Customer No. X-Reference MA Inquiry / Delete -->
+    <bean id="w9011DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9011DeleteFacadeServiceImpl">
+        <property name="w9011CgmCusNoXRefMaService" ref="w9011CgmCusNoXRefMaService" />
+    </bean>
+
+    <!-- CIGMA Customer No. X-Reference MA Edit / Init -->
+    <bean id="w9012InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9012InitFacadeServiceImpl">
+        <property name="w9011CgmCusNoXRefMaService" ref="w9011CgmCusNoXRefMaService" />
+    </bean>
+
+    <!-- CIGMA Customer No. X-Reference MA Edit / Register -->
+    <bean id="w9012RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9012RegisterFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w9011CgmCusNoXRefMaService" ref="w9011CgmCusNoXRefMaService" />
+    </bean>
+
+    <!-- 倉庫検索 画面 -->
+    <bean id="w9013SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9013SearchFacadeServiceImpl">
+        <property name="w9013NxsWhMaService" ref="w9013NxsWhMaService" />
+    </bean>
+    <bean id="w9013NxsWhMaService" class="com.globaldenso.eca0027.core.business.service.W9013NxsWhMaServiceImpl">
+        <property name="w9013NxsWhMaDao" ref="w9013NxsWhMaDao" /><!-- NL040 MOD -->
+    </bean>
+    
+    <!-- CIGMA W/H X-Reference MA Inquiry / Search -->
+    <bean id="w9014SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9014SearchFacadeServiceImpl">
+        <property name="w9014CgmWhXRefMaService" ref="w9014CgmWhXRefMaService" />
+    </bean>
+
+    <!-- CIGMA W/H X-Reference MA Inquiry / EditOrRefer -->
+    <bean id="w9014EditOrReferFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9014EditOrReferFacadeServiceImpl">
+    </bean>
+
+    <!-- CIGMA W/H X-Reference MA Inquiry / Delete -->
+    <bean id="w9014DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9014DeleteFacadeServiceImpl">
+        <property name="w9014CgmWhXRefMaService" ref="w9014CgmWhXRefMaService" />
+    </bean>
+
+    <!-- CIGMA W/H X-Reference MA Edit / Init -->
+    <bean id="w9015InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9015InitFacadeServiceImpl">
+        <property name="w9014CgmWhXRefMaService" ref="w9014CgmWhXRefMaService" />
+    </bean>
+
+    <!-- CIGMA W/H X-Reference MA Edit / Register -->
+    <bean id="w9015RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9015RegisterFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w9014CgmWhXRefMaService" ref="w9014CgmWhXRefMaService" />
+    </bean>
+    
+    <!-- Export Shipping Item Special Information MA Inquiry / Add -->
+    <bean id="w9016AddFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9016AddFacadeServiceImpl">
+        <property name="w9016ExpShippingItemSpInfoMaService" ref="w9016ExpShippingItemSpInfoMaService" />
+    </bean>
+    
+    <!-- Export Shipping Item Special Information MA Inquiry / Search -->
+    <bean id="w9016SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9016SearchFacadeServiceImpl">
+        <property name="w9016ExpShippingItemSpInfoMaService" ref="w9016ExpShippingItemSpInfoMaService" />
+    </bean>
+    
+    <!-- Export Shipping Item Special Information MA Inquiry / EditOrRefer -->
+    <bean id="w9016EditOrReferFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9016EditOrReferFacadeServiceImpl" />
+    <!-- Export Shipping Item Special Information MA Inquiry / Clone -->
+    <bean id="w9016CloneFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9016CloneFacadeServiceImpl">
+        <property name="w9016ExpShippingItemSpInfoMaService" ref="w9016ExpShippingItemSpInfoMaService" />
+    </bean>
+    
+    <!-- Export Shipping Item Special Information MA Inquiry / Delete -->
+    <bean id="w9016DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9016DeleteFacadeServiceImpl">
+        <property name="w9016ExpShippingItemSpInfoMaService" ref="w9016ExpShippingItemSpInfoMaService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Export Shipping Parts  Item  Information MA Edit / Init -->
+    <bean id="w9017InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9017InitFacadeServiceImpl">
+        <property name="w9016ExpShippingItemSpInfoMaService" ref="w9016ExpShippingItemSpInfoMaService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Export Shipping Parts  Item  Information MA Edit / Register -->
+    <bean id="w9017RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9017RegisterFacadeServiceImpl">
+        <property name="w9016ExpShippingItemSpInfoMaService" ref="w9016ExpShippingItemSpInfoMaService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Export Shipping Parts  Item  Information MA Edit / Refresh, UT305 ADD -->
+    <bean id="w9017RefreshFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9017RefreshFacadeServiceImpl">
+        <property name="w9016ExpShippingItemSpInfoMaService" ref="w9016ExpShippingItemSpInfoMaService" />
+    </bean>
+    
+    <!-- Export Formalities by Item MA Inquiry / Add -->
+    <bean id="w9018AddFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9018AddFacadeServiceImpl">
+        <property name="w9018ExpFmlByItemMaService" ref="w9018ExpFmlByItemMaService" />
+    </bean>
+    
+    <!-- Export Formalities by Item MA Inquiry / Search -->
+    <bean id="w9018SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9018SearchFacadeServiceImpl">
+        <property name="w9018ExpFmlByItemMaService" ref="w9018ExpFmlByItemMaService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Export Formalities by Item MA Inquiry / EditOrRefer -->
+    <bean id="w9018EditOrReferFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9018EditOrReferFacadeServiceImpl" />
+    <!-- Export Formalities by Item MA Inquiry / Clone -->
+    <bean id="w9018CloneFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9018CloneFacadeServiceImpl">
+        <property name="w9018ExpFmlByItemMaService" ref="w9018ExpFmlByItemMaService" />
+    </bean>
+    
+    <!-- Export Formalities by Item MA Inquiry / Delete -->
+    <bean id="w9018DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9018DeleteFacadeServiceImpl">
+        <property name="w9018ExpFmlByItemMaService" ref="w9018ExpFmlByItemMaService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Export Formalities by  Item MA Edit / Init -->
+    <bean id="w9019InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9019InitFacadeServiceImpl">
+        <property name="w9018ExpFmlByItemMaService" ref="w9018ExpFmlByItemMaService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    <!-- Export Formalities by  Item MA Edit / Register -->
+    <bean id="w9019RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9019RegisterFacadeServiceImpl">
+        <property name="w9018ExpFmlByItemMaService" ref="w9018ExpFmlByItemMaService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Invoice Templetate MA Inquiry / Search -->
+    <bean id="w9022SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9022SearchFacadeServiceImpl">
+        <property name="w9022InvTplMaService" ref="w9022InvTplMaService" />
+    </bean>
+    <!-- Invoice Templetate MA Inquiry / EditOrRefer -->
+    <bean id="w9022EditOrReferFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9022EditOrReferFacadeServiceImpl" />
+    
+    <!-- Invoice Templetate MA Inquiry / Delete -->
+    <bean id="w9022DeleteFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9022DeleteFacadeServiceImpl">
+        <property name="w9022InvTplMaService" ref="w9022InvTplMaService" />
+    </bean>
+    
+    <!-- Invoice Templetate MA Edit / Init -->
+    <bean id="w9023InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9023InitFacadeServiceImpl">
+        <property name="w9022InvTplMaService" ref="w9022InvTplMaService" />
+    </bean>
+    <!-- Invoice Templetate MA Edit / Register -->
+    <bean id="w9023RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9023RegisterFacadeServiceImpl">
+        <property name="w9022InvTplMaService" ref="w9022InvTplMaService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    <!-- Invoice Templetate MA Edit / Register -->
+    <bean id="w9023PrintSampleFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9023PrintSampleFacadeServiceImpl">
+        <property name="w9022InvTplMaService" ref="w9022InvTplMaService" />
+    </bean>
+    
+    <!-- Item No. Apply Start Date Refer & Register / AddOrRefer -->
+    <bean id="w9024AddOrReferFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9024AddOrReferFacadeServiceImpl">
+        <property name="w9024ItemNoAplyStrtDtService" ref="w9024ItemNoAplyStrtDtService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- Item No. Apply Start Date Refer & Register / Register -->
+    <bean id="w9024RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9024RegisterFacadeServiceImpl">
+        <property name="w9024ItemNoAplyStrtDtService" ref="w9024ItemNoAplyStrtDtService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Registration Screen of Actual Item Weight AddOrRefer -->
+    <bean id="w9025AddOrReferFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9025AddOrReferFacadeServiceImpl">
+        <property name="w9025ActualItemWeightService" ref="w9025ActualItemWeightService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Registration Screen of Actual Item Weight -->
+    <bean id="w9025RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.W9025RegisterFacadeServiceImpl">
+        <property name="w9025ActualItemWeightService" ref="w9025ActualItemWeightService" />
+        <property name="tmActualItemWeightService" ref="tmActualItemWeightService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Order Entry Header / Init -->
+    <bean id="wb001InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WB001InitFacadeServiceImpl">
+        <property name="wb001OdrRcvService" ref="wb001OdrRcvService" />
+    </bean>
+    
+    <!-- Order Entry Header / MoveToRegister -->
+    <bean id="wb001MoveToRegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WB001MoveToRegisterFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="wb001OdrRcvService" ref="wb001OdrRcvService" />
+    </bean>
+    
+    <!-- Order Entry Register / Init -->
+    <bean id="wb002InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WB002InitFacadeServiceImpl">
+        <property name="wb001OdrRcvService" ref="wb001OdrRcvService" />
+    </bean>
+    
+    <!-- Order Entry Register / Register -->
+    <bean id="wb002RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WB002RegisterFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="wb001OdrRcvService" ref="wb001OdrRcvService" />
+    </bean>
+    
+    <!-- Order Entry Multi PO Register / Init -->
+    <bean id="wb003InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WB003InitFacadeServiceImpl">
+        <property name="wb001OdrRcvService" ref="wb001OdrRcvService" />
+    </bean>
+    
+    <!-- Order Inquiry Main Screen / MoveToDetail -->
+    <bean id="wb004MoveToDetailFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WB004MoveToDetailFacadeServiceImpl">
+    </bean>
+    
+    <!-- Order Entry Multi PO Register / Register -->
+    <bean id="wb003RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WB003RegisterFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="wb001OdrRcvService" ref="wb001OdrRcvService" />
+    </bean>
+    
+    <!-- Order Inquiry Main Screen / Search -->
+    <bean id="wb004SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WB004SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="wb001OdrRcvService" ref="wb001OdrRcvService" />
+    </bean>
+    
+    <!-- Order Inquiry Detail / Init -->
+    <bean id="wb005InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WB005InitFacadeServiceImpl">
+        <property name="wb001OdrRcvService" ref="wb001OdrRcvService" />
+    </bean>
+    
+    <!-- Last Digit Change Main Screen / MoveToRegister -->
+    <bean id="wb006MoveToRegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WB006MoveToRegisterFacadeServiceImpl">
+    </bean>
+    
+    <!-- Last Digit Change Main Screen / Search -->
+    <bean id="wb006SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WB006SearchFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="wb001OdrRcvService" ref="wb001OdrRcvService" />
+    </bean>
+    
+    <!-- Last Digit Change Register / Init -->
+    <bean id="wb007InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WB007InitFacadeServiceImpl" >
+        <property name="wb001OdrRcvService" ref="wb001OdrRcvService" />
+    </bean>
+    
+    <!-- Last Digit Change Register / Init -->
+    <bean id="wb007RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WB007RegisterFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="wb001OdrRcvService" ref="wb001OdrRcvService" />
+    </bean>
+    
+    <!-- Order Upload / Init -->
+    <bean id="wb020InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WB020InitFacadeServiceImpl" >
+        <property name="wb020OdrUploadService" ref="wb020OdrUploadService" />
+    </bean>
+
+    <!-- Order Upload / Upload -->
+    <bean id="wb020UploadFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WB020UploadFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="wb020OdrUploadService" ref="wb020OdrUploadService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+    </bean>
+
+    <!-- Empty RT materials / Cancel -->
+    <bean id="wc001CancelFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WC001CancelFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="wc001ErtService" ref="wc001ErtService" />
+    </bean>
+    
+    <!-- Empty RT materials / Display -->
+    <bean id="wc001DisplayFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WC001DisplayFacadeServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="wc001ErtService" ref="wc001ErtService" />
+    </bean>
+    
+    <!-- Empty RT materials / PrintCml -->
+    <bean id="wc001PrintCmlFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WC001PrintCmlFacadeServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="wc001ErtService" ref="wc001ErtService" />
+    </bean>
+    
+    <!-- Empty RT materials / Register -->
+    <bean id="wc001RegisterFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.WC001RegisterFacadeServiceImpl">
+        <property name="wc001ErtService" ref="wc001ErtService" />
+        <property name="commonService" ref="commonService" />
+        <property name="tmCigmaWhXrefService" ref="tmCigmaWhXrefService" /> <!-- ST987 ADD -->
+    </bean>
+    
+    <!-- 会社選択 子画面 -->
+    <bean id="wt001SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.Wt001SearchFacadeServiceImpl">
+        <property name="wt001CompSelectService" ref="wt001CompSelectService" /> 
+    </bean>
+    <bean id="wt001CompSelectService" class="com.globaldenso.eca0027.core.business.service.Wt001CompSelectServiceImpl">
+        <property name="wt001CompSelectDao" ref="wt001CompSelectDao" />
+    </bean>
+    
+    <!--Wt002 Customer Select-->
+    <bean id="wt002SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.Wt002SearchFacadeServiceImpl">
+        <property name="wt002CigmaCusNoShipToSelectService" ref="wt002CigmaCusNoShipToSelectService" /> 
+    </bean>
+    <!-- Wt002 Customer Select -->
+    <bean id="wt002CigmaCusNoShipToSelectService" class="com.globaldenso.eca0027.core.business.service.Wt002CigmaCusNoShipToSelectServiceImpl">
+        <property name="wt002CigmaCusNoSelectDao" ref="wt002CigmaCusNoSelectDao" />
+    </bean>
+    <!--Wt003 Export Request Item No select-->
+    <bean id="wt003SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.Wt003SearchFacadeServiceImpl">
+        <property name="tmExpRequestItemNoService" ref="tmExpRequestItemNoService" /> 
+    </bean>
+    
+    <!-- Package Select -->
+    <bean id="wt004SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.Wt004SearchFacadeServiceImpl">
+        <property name="wt004PkgSelectService" ref="wt004PkgSelectService" />
+    </bean>
+    <bean id="wt004PkgSelectService" class="com.globaldenso.eca0027.core.business.service.Wt004PkgSelectServiceImpl">
+        <property name="wt004PkgSelectDao" ref="wt004PkgSelectDao" />
+    </bean>
+    
+    <!--   CML参照 子画面  -->
+    <bean id="wt005InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.Wt005InitFacadeServiceImpl">
+        <property name="wt005CmlInfoService" ref="wt005CmlInfoService" /> 
+    </bean>
+    <bean id="wt005CmlInfoService" class="com.globaldenso.eca0027.core.business.service.Wt005CmlInfoServiceImpl">
+        <property name="ttPltzService" ref="ttPltzService" /> 
+    </bean>
+    
+    <!-- Outer Package Select -->
+    <bean id="wt006SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.Wt006SearchFacadeServiceImpl">
+        <property name="wt006OuterPkgSelectService" ref="wt006OuterPkgSelectService" />
+    </bean>
+    <bean id="wt006OuterPkgSelectService" class="com.globaldenso.eca0027.core.business.service.Wt006OuterPkgSelectServiceImpl">
+        <property name="wt006OuterPkgSelectDao" ref="wt006OuterPkgSelectDao" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!--  品番参照 子画面  --> 
+    <bean id="wt007InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.Wt007InitFacadeServiceImpl">
+        <property name="wt007ItemNoInfoService" ref="wt007ItemNoInfoService" /> 
+    </bean>
+    <bean id="wt007ItemNoInfoService" class="com.globaldenso.eca0027.core.business.service.Wt007ItemNoInfoServiceImpl">
+        <property name="wt007ItemNoInfoDao" ref="wt007ItemNoInfoDao" /> 
+    </bean>
+    
+    <!-- 港選択 子画面 -->
+    <bean id="wt008SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.Wt008SearchFacadeServiceImpl">
+        <property name="wt008PortSelectService" ref="wt008PortSelectService" />
+    </bean>
+    <bean id="wt008PortSelectService" class="com.globaldenso.eca0027.core.business.service.Wt008PortSelectServiceImpl">
+        <property name="wt008PortSelectDao" ref="wt008PortSelectDao" /><!-- NL040 MOD -->
+    </bean>
+    
+    <!-- 倉庫選択 子画面 -->
+    <bean id="wt010SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.Wt010SearchFacadeServiceImpl">
+        <property name="wt010WhSelectService" ref="wt010WhSelectService" />
+    </bean>
+    <bean id="wt010WhSelectService" class="com.globaldenso.eca0027.core.business.service.Wt010WhSelectServiceImpl">
+        <property name="wt010WhSelectDao" ref="wt010WhSelectDao" /><!-- NL040 MOD -->
+    </bean>
+    
+    <!-- 国選択 子画面 -->
+    <bean id="wt011SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.Wt011SearchFacadeServiceImpl">
+        <property name="wt011CntrySelectService" ref="wt011CntrySelectService" />
+    </bean>
+    <bean id="wt011CntrySelectService" class="com.globaldenso.eca0027.core.business.service.Wt011CntrySelectServiceImpl">
+        <property name="tmCntryService" ref="tmCntryService" />
+    </bean>
+    
+    <!-- 送荷先選択 子画面 -->
+    <bean id="wt014SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.Wt014SearchFacadeServiceImpl">
+        <property name="wt014ShipToSelectService" ref="wt014ShipToSelectService" />
+    </bean>
+    <bean id="wt014ShipToSelectService" class="com.globaldenso.eca0027.core.business.service.Wt014ShipToSelectServiceImpl">
+        <property name="wt014ShipToSelectDao" ref="wt014ShipToSelectDao" /><!-- NL040 MOD -->
+    </bean>
+    
+    <!-- 売価登録なし品番表示 子画面 -->
+    <bean id="wt015InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.Wt015InitFacadeServiceImpl">
+        <property name="wt015UnitPriceErrListService" ref="wt015UnitPriceErrListService" />
+    </bean>
+    <bean id="wt015UnitPriceErrListService" class="com.globaldenso.eca0027.core.business.service.Wt015UnitPriceErrListServiceImpl">
+        <property name="wt015UnitPriceErrListDao" ref="wt015UnitPriceErrListDao" />
+    </bean>
+    
+    <!-- HS CODE登録なし品番表示 子画面 -->
+    <bean id="wt016InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.Wt016InitFacadeServiceImpl">
+        <property name="wt016UnregHsCdListService" ref="wt016UnregHsCdListService" />
+    </bean>
+    <bean id="wt016UnregHsCdListService" class="com.globaldenso.eca0027.core.business.service.Wt016UnregHsCdListServiceImpl">
+        <property name="wt016UnregHsCdListDao" ref="wt016UnregHsCdListDao" />
+    </bean>
+    
+    <!-- 船積実績ワーニングリスト表示 子画面 -->
+    <bean id="wt017InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.Wt017InitFacadeServiceImpl">
+        <property name="wt017ShippingActWarnListService" ref="wt017ShippingActWarnListService" />
+    </bean>
+    <bean id="wt017ShippingActWarnListService" class="com.globaldenso.eca0027.core.business.service.Wt017ShippingActWarnListServiceImpl">
+        <property name="wt017ShippingActWarnListDao" ref="wt017ShippingActWarnListDao" />
+    </bean>   
+    
+    <!-- コンテナNo参照 子画面  -->
+    <bean id="wt018InitFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.presentation.Wt018InitFacadeServiceImpl">
+        <property name="wt018ContainerInfoService" ref="wt018ContainerInfoService" /> 
+    </bean>
+    <bean id="wt018ContainerInfoService" class="com.globaldenso.eca0027.core.business.service.Wt018ContainerInfoServiceImpl">
+        <property name="wt018ContainerInfoDao" ref="wt018ContainerInfoDao" /> 
+    </bean> 
+    
+    <!-- ログイン / Search -->
+    <bean id="ws0501SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws0501SearchFacadeServiceImpl">
+        <property name="wsBhtPortalService" ref="wsBhtPortalService" />
+    </bean>
+
+    <!-- パスワード変更 / Update -->
+    <bean id="ws0502UpdateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws0502UpdateFacadeServiceImpl">
+        <property name="wsBhtPortalService" ref="wsBhtPortalService" />
+    </bean>
+
+    <!-- QRチェック情報取得 / Search -->
+    <bean id="ws0503SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws0503SearchFacadeServiceImpl">
+        <property name="wsBhtPortalService" ref="wsBhtPortalService" />
+    </bean>
+
+    <!-- 出荷確認情報検索 / Search -->
+    <bean id="ws5501SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws5501SearchFacadeServiceImpl">
+        <property name="wsBhtShippingFirmService" ref="wsBhtShippingFirmService" />
+    </bean>
+
+    <!-- 出荷確認情報更新 / Update -->
+    <bean id="ws5502UpdateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws5502UpdateFacadeServiceImpl">
+        <property name="wsBhtShippingFirmService" ref="wsBhtShippingFirmService" />
+    </bean>
+
+    <!-- Web(BHT) / Get Palletize Instruction -->
+    <bean id="ws2501SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws2501SearchFacadeServiceImpl">
+        <property name="wsBhtEisProductService" ref="wsBhtEisProductService" />
+    </bean>
+    <!-- Web(BHT) / Create Inst Palletize -->
+    <bean id="ws2502TransactFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws2502TransactFacadeServiceImpl">
+        <property name="wsBhtEisProductService" ref="wsBhtEisProductService" />
+    </bean>
+    <!-- Web(BHT) / Create Non Inst Palletize -->
+    <bean id="ws2503TransactFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws2503TransactFacadeServiceImpl">
+        <property name="wsBhtEisProductService" ref="wsBhtEisProductService" />
+    </bean>
+    <!-- Web(BHT) / Create E-RT -->
+    <bean id="ws2504CreateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws2504CreateFacadeServiceImpl">
+        <property name="wsBhtEisProductService" ref="wsBhtEisProductService" />
+        <property name="tmCigmaWhXrefService" ref="tmCigmaWhXrefService" /> <!-- ST987 ADD -->
+    </bean>
+    <!-- Web(BHT) / Create PKG Spec -->
+    <bean id="ws2505TransactFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws2505TransactFacadeServiceImpl">
+        <property name="wsBhtEisProductService" ref="wsBhtEisProductService" />
+    </bean>
+    <!-- Web(BHT) / PrintCml -->
+    <bean id="ws2507SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws2507SearchFacadeServiceImpl">
+        <property name="wsBhtEisProductService" ref="wsBhtEisProductService" />
+    </bean>
+    <!-- Web(BHT) / Create Mixed Label -->
+    <bean id="ws2508CreateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws2508CreateFacadeServiceImpl">
+        <property name="wsBhtEisProductService" ref="wsBhtEisProductService" />
+    </bean>
+    <!-- Web(BHT) / PrintMixTag -->
+    <bean id="ws2509SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws2509SearchFacadeServiceImpl">
+        <property name="wsBhtEisProductService" ref="wsBhtEisProductService" />
+    </bean>
+    <!-- Web(BHT) / Create X CML -->
+    <bean id="ws2510TransactFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws2510TransactFacadeServiceImpl">
+        <property name="wsBhtEisProductService" ref="wsBhtEisProductService" />
+    </bean>
+    <!-- Web(BHT) / PrintXtag -->
+    <bean id="ws2511SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws2511SearchFacadeServiceImpl">
+        <property name="wsBhtEisProductService" ref="wsBhtEisProductService" />
+    </bean>
+    <!-- Web(BHT) / PrintErt -->
+    <bean id="ws2512SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws2512SearchFacadeServiceImpl">
+        <property name="wsBhtEisProductService" ref="wsBhtEisProductService" />
+    </bean>
+    
+    <!-- Web(Cigma) / OdrRcvService -->
+    <bean id="wsB009FacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.WsB009FacadeServiceImpl">
+        <property name="wsCigmaOdrRcvService" ref="wsCigmaOdrRcvService" />
+    </bean>
+    
+    <!-- Migration Cml Print -->
+    <bean id="wsR001FacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.WsR001FacadeServiceImpl">
+        <property name="wsR001MigCmlService" ref="wsR001MigCmlService" />
+    </bean>
+    
+    <!-- Web(Cigma) / ComnAuxService -->
+    <bean id="wsT001FacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.WsT001FacadeServiceImpl">
+        <property name="wsCigmaComnAuxService" ref="wsCigmaComnAuxService" />
+    </bean>
+    
+    <!-- BHTロック解除権限確認 / Search -->
+    <bean id="wsT501SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.WsT501SearchFacadeServiceImpl">
+        <property name="wsBhtComnAuxService" ref="wsBhtComnAuxService" />
+    </bean>
+
+    <!-- SI追加分 -->
+    <!-- ws4501 Get Staging Instruction-->
+    <bean id="ws4501SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws4501SearchFacadeServiceImpl">
+        <property name="wsBhtStgService" ref="wsBhtStgService" />
+    </bean>
+    <!-- ws4502 Update Staging Instruction-->
+    <bean id="ws4502UpdateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws4502UpdateFacadeServiceImpl">
+        <property name="wsBhtStgService" ref="wsBhtStgService" />
+    </bean>
+    <!-- ws4503 Create Staging Actuality-->
+    <bean id="ws4503CreateFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws4503CreateFacadeServiceImpl">
+        <property name="wsBhtStgService" ref="wsBhtStgService" />
+    </bean>
+    <!-- ws4504 Print Staging Actuality-->
+    <bean id="ws4504ProcessFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws4504ProcessFacadeServiceImpl">
+        <property name="wsBhtStgService" ref="wsBhtStgService" />
+    </bean>
+    <!-- =================================================================== -->
+    <!-- 業務サービス                                                        -->
+    <!-- =================================================================== -->
+    
+    <!-- メニューサービス -->
+    <bean id="w0002MenuService" class="com.globaldenso.eca0027.core.business.service.W0002MenuServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="tmUserConfService" ref="gscmTmUserConfService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="vtSysInfoService" ref="vtSysInfoService" />
+        <property name="w0002MenuDao" ref="w0002MenuDao" />
+    </bean>
+    
+    <!-- 梱包指示サービス -->
+    <bean id="w2001PltzInstrService" class="com.globaldenso.eca0027.core.business.service.W2001PltzInstrServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="twPltzInstrItemNoService" ref="twPltzInstrItemNoService" />
+        <property name="tmCustomerQrPatternHdrService" ref="tmCustomerQrPatternHdrService" />
+        <property name="tmCustomerQrPatternDtlService" ref="tmCustomerQrPatternDtlService" />
+        <property name="ttExpRcvOdrService" ref="ttExpRcvOdrService" />
+        <property name="ttMixtagService" ref="ttMixtagService" />
+        <property name="ttPltzInstrService" ref="ttPltzInstrService" />
+        <property name="ttPltzInstrItemNoService" ref="ttPltzInstrItemNoService" />
+        <property name="ttPltzInstrOdrService" ref="ttPltzInstrOdrService" />
+        <property name="ttTmpStockService" ref="ttTmpStockService" />
+        <property name="ws2001RestService" ref="ws2001RestService" />
+        <property name="ws2002RestService" ref="ws2002RestService" />
+        <property name="ws2005RestService" ref="ws2005RestService" />
+        <property name="l2001ReportService" ref="l2001ReportService" />
+        <property name="l2003ReportService" ref="l2003ReportService" />
+        <property name="w2001PltzInstrDao" ref="w2001PltzInstrDao" />
+    </bean>
+    
+    <!-- MixTagサービス -->
+    <bean id="w2005MixTagService" class="com.globaldenso.eca0027.core.business.service.W2005MixTagServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="ttExpRcvOdrService" ref="ttExpRcvOdrService" />
+        <property name="ttPltzInstrService" ref="ttPltzInstrService" />
+        <property name="ttMixKanbanService" ref="ttMixKanbanService" />
+        <property name="ttMixtagService" ref="ttMixtagService" />
+        <property name="ttMixtagItemNoService" ref="ttMixtagItemNoService" />
+        <property name="ttMixtagRtService" ref="ttMixtagRtService" />
+        <property name="ttMixtagOdrService" ref="ttMixtagOdrService" />
+        <property name="twMixtagService" ref="twMixtagService" />
+        <property name="twMixtagRtService" ref="twMixtagRtService" />
+        <property name="ttTmpStockService" ref="ttTmpStockService" />
+        <property name="tmCigmaWhXrefService" ref="tmCigmaWhXrefService" />
+        <property name="tmMeasureUnitService" ref="tmMeasureUnitService" />
+        <property name="tmPkgMtrlService" ref="tmPkgMtrlService" />
+        <property name="w2005MixTagDao" ref="w2005MixTagDao" />
+        <property name="ws2004RestService" ref="ws2004RestService" />
+        <property name="ws2005RestService" ref="ws2005RestService" />
+        <property name="l2002ReportService" ref="l2002ReportService" />
+    </bean>
+    
+    <!-- CMLサービス -->
+    <bean id="w2009CmlService" class="com.globaldenso.eca0027.core.business.service.W2009CmlServiceImpl">
+         <property name="commonService" ref="commonService" />
+         <property name="tmMeasureUnitService" ref="tmMeasureUnitService" />
+         <property name="tmPkgMtrlService" ref="tmPkgMtrlService" />
+         <property name="tmPkgSetHdrService" ref="tmPkgSetHdrService" />
+         <property name="ttExpRcvOdrService" ref="ttExpRcvOdrService" />
+         <property name="ttMixKanbanService" ref="ttMixKanbanService" />
+         <property name="ttMixtagItemNoService" ref="ttMixtagItemNoService" />
+         <property name="ttMixtagOdrService" ref="ttMixtagOdrService" />
+         <property name="ttMixtagService" ref="ttMixtagService" />
+         <property name="ttPltzInstrItemNoService" ref="ttPltzInstrItemNoService" />
+         <property name="ttPltzInstrOdrService" ref="ttPltzInstrOdrService" />
+         <property name="ttPltzInstrService" ref="ttPltzInstrService" />
+         <property name="ttPltzItemOdrService" ref="ttPltzItemOdrService" />
+         <property name="ttPltzItemService" ref="ttPltzItemService" />
+         <property name="ttPltzKanbanService" ref="ttPltzKanbanService" />
+         <property name="ttPltzService" ref="ttPltzService" />
+         <property name="ttTmpStockService" ref="ttTmpStockService" />
+         <property name="twPltzItemItemNoService" ref="twPltzItemItemNoService" />
+         <property name="twPltzItemPkgService" ref="twPltzItemPkgService" />
+         <property name="userAuthService" ref="userAuthService" />
+         <property name="w2009CmlDao" ref="w2009CmlDao" />
+         <property name="ws2004RestService" ref="ws2004RestService" />
+         <property name="ws2005RestService" ref="ws2005RestService" />
+         <property name="l2003ReportService" ref="l2003ReportService" />
+         <property name="tmUomCnvDecService" ref="tmUomCnvDecService" /> <!-- UT304 MULTI LABEL ADD -->
+    </bean>
+
+    <!-- W3TransferService -->
+    <bean id="w3TransferService" class="com.globaldenso.eca0027.core.business.service.W3TransferServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="ttTransferService" ref="ttTransferService" />
+        <property name="ttTmpStockService" ref="ttTmpStockService"/>
+        <property name="twCarryOutListPltzService" ref="twCarryOutListPltzService" />
+        <property name="w3TransferDao" ref="w3TransferDao" />
+        <property name="ttPltzService" ref="ttPltzService" /> 
+        <property name="l3001ReportService" ref="l3001ReportService" />
+        <property name="l3003ReportService" ref="l3003ReportService" />
+        <property name="tmCigmaWhXrefService" ref="tmCigmaWhXrefService" />
+        <property name="tmNxsWhService" ref="tmNxsWhService" />
+        <property name="tmUserService" ref="gscmTmUserService" />
+        <property name="ttTransferItemPltzService" ref="ttTransferItemPltzService" />
+        <property name="l3004ReportService" ref="l3004ReportService" />
+        <property name="ttTransferItemItemNoService" ref="ttTransferItemItemNoService" />
+        <property name="twCarryOutListItemNoService" ref="twCarryOutListItemNoService" />
+        <property name="twTransferItemItemNoService" ref="twTransferItemItemNoService" />
+        <property name="twTransferItemPltzService" ref="twTransferItemPltzService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="ws3003RestService" ref="ws3003RestService" />
+        <property name="l3002ReportService" ref="l3002ReportService" />
+        <property name="ws3001RestService" ref="ws3001RestService" />
+        <!-- TIS Tanaka End -->
+    </bean>
+
+    <!-- W3TransferCarryOutListService -->
+    <bean id="w3TransferCarryOutListService" class="com.globaldenso.eca0027.core.business.service.W3TransferCarryOutListServiceImpl">
+        <property name="w3TransferCarryOutListDao" ref="w3TransferCarryOutListDao" />
+        <property name="tmNxsWhService" ref="tmNxsWhService" />
+        <property name="tmCigmaWhXrefService" ref="tmCigmaWhXrefService" />
+        <property name="ws3003RestService" ref="ws3003RestService" />
+    </bean>
+
+    <!-- WS3501 TransactFacadeService -->
+    <bean id="ws3501SearchFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws3501SearchFacadeServiceImpl">
+        <property name="wsBhtTransferService" ref="wsBhtTransferService" />
+    </bean>
+    
+    <!-- WS3503 TransactFacadeService -->
+    <bean id="ws3503TransactFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws3503TransactFacadeServiceImpl">
+        <property name="wsBhtTransferService" ref="wsBhtTransferService" />
+    </bean>
+
+    <!-- WS3504 TransactFacadeService -->
+    <bean id="ws3504TransactFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws3504TransactFacadeServiceImpl">
+        <property name="wsBhtTransferService" ref="wsBhtTransferService" />
+    </bean>
+
+    <!-- WS3506 TransactFacadeService -->
+    <bean id="ws3506TransactFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws3506TransactFacadeServiceImpl">
+        <property name="wsBhtTransferService" ref="wsBhtTransferService" />
+    </bean>
+
+    <!-- WS3507 TransactFacadeService -->
+    <bean id="ws3507TransactFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws3507TransactFacadeServiceImpl">
+        <property name="wsBhtTransferService" ref="wsBhtTransferService" />
+    </bean>
+    
+    <!-- TIS Tanaka Start -->
+    <!-- WS3505 TransactFacadeService -->
+    <bean id="ws3505TransactFacadeService" class="com.globaldenso.eca0027.core.business.facadeservice.ws.Ws3505TransactFacadeServiceImpl">
+        <property name="wsBhtTransferService" ref="wsBhtTransferService" />
+    </bean>
+    
+    <!-- WsBhtTransferService -->
+    <bean id="wsBhtTransferService" class="com.globaldenso.eca0027.core.business.ws.WsBhtTransferServiceImpl">
+        <property name="ttTransferService" ref="ttTransferService" />
+        <property name="tmUserService" ref="gscmTmUserService" />
+        <property name="wsBhtTransferDao" ref="wsBhtTransferDao" />
+        <property name="ws3001RestService" ref="ws3001RestService" />
+        <property name="commonService" ref="commonService" />
+        <property name="ttPltzService" ref="ttPltzService" />
+        <property name="ttTransferItemPltzService" ref="ttTransferItemPltzService" />
+        <property name="l3003ReportService" ref="l3003ReportService" />
+        <property name="l3004ReportService" ref="l3004ReportService" />
+        <property name="tmCigmaWhXrefService" ref="tmCigmaWhXrefService" />
+        <property name="ws3003RestService" ref="ws3003RestService" />
+        <property name="tmNxsWhService" ref="tmNxsWhService" />
+        <property name="ttTransferItemItemNoService" ref="ttTransferItemItemNoService" />
+        <property name="w3TransferService" ref="w3TransferService" />
+        <property name="tmPrinterService" ref="tmPrinterService" />
+        <property name="tmExpItemNoSpInfoService" ref="tmExpItemNoSpInfoService" />
+    </bean>
+
+    <!-- Xtagサービス -->
+    <bean id="w2014XtagService" class="com.globaldenso.eca0027.core.business.service.W2014XtagServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="l2004ReportService" ref="l2004ReportService" />
+        <property name="tmPkgSetHdrService" ref="tmPkgSetHdrService" />
+        <property name="ttXpltzService" ref="ttXpltzService" />
+        <property name="twXpltzService" ref="twXpltzService" />
+        <property name="w2014XtagDao" ref="w2014XtagDao" />
+        <property name="userAuthService" ref="userAuthService" />
+    </bean>
+
+    <!-- 荷揃え指示サービス -->
+    <bean id="w4001StgInstrService" class="com.globaldenso.eca0027.core.business.service.W4001StgInstrServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="w4001StgInstrDao" ref="w4001StgInstrDao" />
+        <property name="twStgInstrService" ref="twStgInstrService" />
+        <property name="ttStgInstrService" ref="ttStgInstrService" />
+        <property name="ttPltzService" ref="ttPltzService" />
+        <property name="l4001ReportService" ref="l4001ReportService" />
+    </bean>
+
+    <!-- 山作り実績サービス -->
+    <bean id="w4005StgActService" class="com.globaldenso.eca0027.core.business.service.W4005StgActServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="w4005StgActDao" ref="w4005StgActDao" />
+        <property name="twStgActService" ref="twStgActService" />
+        <property name="ttStgActService" ref="ttStgActService" />
+        <property name="ttPltzService" ref="ttPltzService" />
+        <property name="ttStgInstrService" ref="ttStgInstrService" />
+        <property name="tmTrnsTypService" ref="tmTrnsTypService" />
+        <property name="tmTrnsTypVolumeService" ref="tmTrnsTypVolumeService" />
+        <property name="l4002ReportService" ref="l4002ReportService" />
+    </bean>
+
+    <!-- 出荷確認サービス -->
+    <bean id="w5001ShippingFirmService" class="com.globaldenso.eca0027.core.business.service.W5001ShippingFirmServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="w5001ShippingFirmDao" ref="w5001ShippingFirmDao" />
+        <property name="ttShippingFirmService" ref="ttShippingFirmService" />
+        <property name="ttPltzService" ref="ttPltzService" />
+        <property name="l5001ReportService" ref="l5001ReportService" />
+        <property name="ttShippingFirmDao" ref="ttShippingFirmDao" />
+        <property name="ttPltzDao" ref="ttPltzDao" />
+    </bean>
+
+    <!-- WEB Documentation -->
+    <bean id="w6001DocService" class="com.globaldenso.eca0027.core.business.service.W6001DocServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+        <property name="tmCdService" ref="tmCdService" />
+        <property name="tmCigmaCustomerXrefService" ref="tmCigmaCustomerXrefService" />
+        <property name="tmInvAmountChkService" ref="tmInvAmountChkService" />
+        <property name="tmInvFreeItemService" ref="tmInvFreeItemService" />
+        <property name="tmInvSeqService" ref="tmInvSeqService" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="tmNxsShipToService" ref="tmNxsShipToService" />
+        <property name="tmPortService" ref="tmPortService" />
+        <property name="tmUserService" ref="gscmTmUserService" />
+        <property name="tmCancelInvSeqTypService" ref="tmCancelInvSeqTypService" />
+        <property name="ttExpRcvOdrService" ref="ttExpRcvOdrService" />
+        <property name="ttInvoiceAttachedService" ref="ttInvoiceAttachedService" />
+        <property name="ttInvoiceHeaderService" ref="ttInvoiceHeaderService" />
+        <property name="ttInvoiceService" ref="ttInvoiceService" />
+        <property name="ttPackAtchItemNoService" ref="ttPackAtchItemNoService" />
+        <property name="ttPackingAttachedCmlService" ref="ttPackingAttachedCmlService" />
+        <property name="ttPackingHeadService" ref="ttPackingHeadService" />
+        <property name="ttPltzService" ref="ttPltzService" />
+        <property name="ttTmpStockService" ref="ttTmpStockService" />
+        <property name="twInvItemService" ref="twInvItemService" />
+        <property name="twInvPltzService" ref="twInvPltzService" />
+        <property name="twInvService" ref="twInvService" />
+        <property name="twInvoiceService" ref="twInvoiceService" />
+        <property name="w6001DocDao" ref="w6001DocDao" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="tmCntryService" ref="tmCntryService" />
+        <property name="ttScAttachedService" ref="ttScAttachedService" />
+        <property name="ttScHeaderService" ref="ttScHeaderService" />
+        <property name="l6001ReportService" ref="l6001ReportService" />
+        <property name="l6002ReportService" ref="l6002ReportService" />
+        <property name="l6003ReportService" ref="l6003ReportService" />
+        <property name="l6004ReportService" ref="l6004ReportService" />
+        <property name="l6005ReportService" ref="l6005ReportService" />
+        <property name="l6006ReportService" ref="l6006ReportService" />
+        <property name="l6007ReportService" ref="l6007ReportService" />
+        <property name="l6008ReportService" ref="l6008ReportService" />
+        <property name="l6009ReportService" ref="l6009ReportService" />
+        <property name="l6010ReportService" ref="l6010ReportService" />
+        <property name="l6011ReportService" ref="l6011ReportService" />
+        <property name="l6012ReportService" ref="l6012ReportService" />
+        <property name="l6013ReportService" ref="l6013ReportService" />
+        <property name="l6014ReportService" ref="l6014ReportService" />
+        <property name="l6015ReportService" ref="l6015ReportService" />
+        <property name="l6016ReportService" ref="l6016ReportService" />
+        <property name="ws6001RestService" ref="ws6001RestService" />
+        <property name="ws6002RestService" ref="ws6002RestService" />
+        <property name="ws6003RestService" ref="ws6003RestService" />
+        <property name="ws6004RestService" ref="ws6004RestService" />
+        <!-- // 2014/09/01 DNJP.Kawamura (DIAT)InvoiceDB対応 START >>>>> -->
+        <property name="tmCigmaEnvService" ref="tmCigmaEnvService" />
+        <property name="ws6005RestService" ref="ws6005RestService" />
+        <property name="ws6006RestService" ref="ws6006RestService" />
+        <!-- // 2014/09/01 DNJP.Kawamura (DIAT)InvoiceDB対応 END <<<<< -->
+        <property name="ttShippingDocumentService" ref="ttShippingDocumentService" /> <!-- UT205 CML ATTACH CSV ADD -->
+        <property name="ws6011RestService" ref="ws6011RestService" /> <!-- UT436 ADD -->
+        <property name="ttOnlineReqJobParamService" ref="ttOnlineReqJobParamService" />
+    </bean>
+
+    <!-- 船積実績サービス -->
+    <bean id="w7001ShippingActService" class="com.globaldenso.eca0027.core.business.service.W7001ShippingActServiceImpl">
+        <property name="w7001ShippingActDao" ref="w7001ShippingActDao" />
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="ttShippingActService" ref="ttShippingActService" />
+        <property name="ttInvoiceService" ref="ttInvoiceService" />
+        <property name="twShippingActInvoiceService" ref="twShippingActInvoiceService" />
+        <property name="ttShippingDocumentService" ref="ttShippingDocumentService" />
+        <property name="ttShippingActOdrService" ref="ttShippingActOdrService" />
+        <property name="l7001ReportService" ref="l7001ReportService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+        <property name="ws7001RestService" ref="ws7001RestService" />
+        <property name="ws7002RestService" ref="ws7002RestService" />
+        <property name="ws7003RestService" ref="ws7003RestService" />
+        <property name="ws7004RestService" ref="ws7004RestService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="ttPltzService" ref="ttPltzService" />
+        <property name="ttOnlineReqJobParamService" ref="ttOnlineReqJobParamService" />
+    </bean>
+
+    <!-- 進度管理サービス -->
+    <bean id="w8001ProgCtrlService" class="com.globaldenso.eca0027.core.business.service.W8001ProgCtrlServiceImpl">
+        <property name="w8001ProgCtrlDao" ref="w8001ProgCtrlDao" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- WEB AgentMa -->
+    <bean id="w9002AgentMaService" class="com.globaldenso.eca0027.core.business.service.W9002AgentMaServiceImpl">
+        <property name="tmAgentService" ref="tmAgentService" />
+        <property name="tmUserConfService" ref="gscmTmUserConfService" />
+        <property name="ttUserAuthMgtService" ref="ttUserAuthMgtService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="commonService" ref="commonService" />
+        <property name="w9002AgentMaDao" ref="w9002AgentMaDao" />
+    </bean>
+    
+    <!-- WEB User ID MA -->
+    <bean id="w9004UserIdMaService" class="com.globaldenso.eca0027.core.business.service.W9004UserIdMaServiceImpl">
+        <property name="tmUserService" ref="gscmTmUserService" />
+        <property name="tmAgentService" ref="tmAgentService" />
+        <property name="commonService" ref="commonService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="ttUserAuthMgtService" ref="ttUserAuthMgtService" />
+        <property name="tmUserConfService" ref="gscmTmUserConfService" />
+        <property name="w9004UserIdMaDao" ref="w9004UserIdMaDao" />
+    </bean>
+    
+    <!-- WEB Export Ship to Shipping MA -->
+    <bean id="w9007ExpShipToShippingMaService" class="com.globaldenso.eca0027.core.business.service.W9007ExpShipToShippingMaServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="tmExpShipToShippingService" ref="tmExpShipToShippingService" />
+        <property name="tmInvTplShipToService" ref="tmInvTplShipToService" />
+        <property name="tmInvFreeItemService" ref="tmInvFreeItemService" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="w9007ExpShipToShippingMaDao" ref="w9007ExpShipToShippingMaDao" />
+    </bean>
+    
+    <!-- cgmCusNoXRefMaサービス -->
+    <bean id="w9011CgmCusNoXRefMaService" class="com.globaldenso.eca0027.core.business.service.W9011CgmCusNoXRefMaServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="w9011CgmCusNoXRefMaDao" ref="w9011CgmCusNoXRefMaDao" />
+        <property name="tmCigmaCustomerXrefService" ref="tmCigmaCustomerXrefService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="ws9003RestService" ref="ws9003RestService" />
+    </bean>
+
+    <!-- W9014CgmWhXRefMaサービス -->
+    <bean id="w9014CgmWhXRefMaService" class="com.globaldenso.eca0027.core.business.service.W9014CgmWhXRefMaServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="tmCigmaWhXrefService" ref="tmCigmaWhXrefService" />
+        <property name="w9014CgmWhXRefMaDao" ref="w9014CgmWhXRefMaDao" />
+        <property name="ws9002RestService" ref="ws9002RestService" />
+        <property name="ws9005RestService" ref="ws9005RestService" />
+    </bean>
+    
+    <!-- WEB Export Shipping Item Special Information MA -->
+    <bean id="w9016ExpShippingItemSpInfoMaService" class="com.globaldenso.eca0027.core.business.service.W9016ExpShippingItemSpInfoMaServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="tmExpItemNoSpInfoService" ref="tmExpItemNoSpInfoService" />
+        <property name="tmExpShipToShippingService" ref="tmExpShipToShippingService" />
+        <property name="tmCigmaShipToXrefService" ref="tmCigmaShipToXrefService" />
+        <property name="w9016ExpShippingItemSpInfoMaDao" ref="w9016ExpShippingItemSpInfoMaDao" />
+        <property name="ws9001RestService" ref="ws9001RestService" />
+    </bean>
+    
+    <!-- WEB Export Formalities by Item MA -->
+    <bean id="w9018ExpFmlByItemMaService" class="com.globaldenso.eca0027.core.business.service.W9018ExpFmlByItemMaServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="tmExpFormalitiItemNoService" ref="tmExpFormalitiItemNoService" />
+        <property name="tmInvFreeItemService" ref="tmInvFreeItemService" />
+        <property name="w9018ExpFmlByItemMaDao" ref="w9018ExpFmlByItemMaDao" />
+        <property name="ws9001RestService" ref="ws9001RestService" />
+    </bean>
+    
+    <!-- インボイステンプレートマスタ -->
+    <bean id="w9022InvTplMaService" class="com.globaldenso.eca0027.core.business.service.W9022InvTplMaServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="tmInvFreeItemService" ref="tmInvFreeItemService" />
+        <property name="l9001ReportService" ref="l9001ReportService" />
+        <property name="l9002ReportService" ref="l9002ReportService" />
+        <property name="l9003ReportService" ref="l9003ReportService" />
+        <property name="l9004ReportService" ref="l9004ReportService" />
+        <property name="l9005ReportService" ref="l9005ReportService" />
+        <property name="l9006ReportService" ref="l9006ReportService" />
+        <property name="l9007ReportService" ref="l9007ReportService" />
+        <property name="l9008ReportService" ref="l9008ReportService" />
+        <property name="l9009ReportService" ref="l9009ReportService" />
+        <property name="w9022InvTplMaDao" ref="w9022InvTplMaDao" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- WEB Item No. Apply Start Date Refer & Register -->
+    <bean id="w9024ItemNoAplyStrtDtService" class="com.globaldenso.eca0027.core.business.service.W9024ItemNoAplyStrtDtServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="tmPkgSpecRevService" ref="tmPkgSpecRevService" />
+        <property name="tmPkgSpecRevHisService" ref="tmPkgSpecRevHisService" />
+        <property name="tmPkgSpecHdrService" ref="tmPkgSpecHdrService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="w9024ItemNoAplyStrtDtDao" ref="w9024ItemNoAplyStrtDtDao" />
+    </bean>
+
+    <!-- Registration Screen of Actual Item Weight -->
+    <bean id="w9025ActualItemWeightService" class="com.globaldenso.eca0027.core.business.service.W9025ActualItemWeightServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="ws9001RestService" ref="ws9001RestService" />
+        <property name="tmActualItemWeightService" ref="tmActualItemWeightService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="tmCdService" ref="tmCdService" />
+        <property name="userAuthService" ref="userAuthService" />
+    </bean>
+    
+    <!-- 受注業務サービス -->
+    <bean id="wb001OdrRcvService" class="com.globaldenso.eca0027.core.business.service.WB001OdrRcvServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="wb001OdrRcvDao" ref="wb001OdrRcvDao" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="tmExpFormalitiItemNoService" ref="tmExpFormalitiItemNoService" />
+        <property name="tmCigmaShipToXrefService" ref="tmCigmaShipToXrefService" />
+        <property name="tmNxsShipToService" ref="tmNxsShipToService" />
+        <property name="ttExpRcvOdrService" ref="ttExpRcvOdrService" />
+        <property name="wsB001RestService" ref="wsB001RestService" />
+        <property name="wsB002RestService" ref="wsB002RestService" />
+        <property name="wsB003RestService" ref="wsB003RestService" />
+        <property name="wsB004RestService" ref="wsB004RestService" />
+        <property name="wsB005RestService" ref="wsB005RestService" />
+        <property name="wsB006RestService" ref="wsB006RestService" />
+        <property name="wsB007RestService" ref="wsB007RestService" />
+        <property name="wsB008RestService" ref="wsB008RestService" />
+        <property name="wsB010RestService" ref="wsB010RestService" />
+        <property name="wsB011RestService" ref="wsB011RestService" />
+        <property name="tmExpItemNoSpInfoService" ref="tmExpItemNoSpInfoService"></property>
+    </bean>
+    <bean id="wb020OdrUploadService" class="com.globaldenso.eca0027.core.business.service.WB020OdrUploadServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="wb020OdrUploadDao" ref="wb020OdrUploadDao" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+        <property name="residentRequestjobFacadeService" ref="residentRequestjobFacadeService" />
+        <property name="ttOdrUploadReqMgtService" ref="ttOdrUploadReqMgtService" />
+    </bean>
+    
+    <!-- WEB E-RT -->
+    <bean id="wc001ErtService" class="com.globaldenso.eca0027.core.business.service.WC001ErtServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="userAuthService" ref="userAuthService" />
+        <property name="tmExpShipToShippingService" ref="tmExpShipToShippingService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="tmPkgMtrlService" ref="tmPkgMtrlService" />
+        <property name="tmNxsShipToService" ref="tmNxsShipToService" />
+        <property name="ttPltzService" ref="ttPltzService" />
+        <property name="ttPltzItemService" ref="ttPltzItemService" />
+        <property name="lc001ReportService" ref="lc001ReportService" />
+        <property name="wc001ErtDao" ref="wc001ErtDao" />
+        <property name="ws9002RestService" ref="ws9002RestService" />
+    </bean>
+    
+    <!-- サービス (帳票) -->
+    <bean id="abstractReportService" abstract="true" class="com.globaldenso.eca0027.core.business.service.AbstractReportServiceImpl">
+        <property name="tmUserConfService" ref="gscmTmUserConfService" />
+    </bean>
+        
+    <!-- L2001サービス -->
+    <bean id="l2001ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L2001ReportServiceImpl" >
+        <property name="rpEisProductDao" ref="rpEisProductDao" />
+        <property name="vtRpPltzInstrService" ref="vtRpPltzInstrService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+        
+    <!-- L2002サービス -->
+    <bean id="l2002ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L2002ReportServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="vtRpMixtagService" ref="vtRpMixtagService" />
+    </bean>
+    
+    <!-- L2003サービス -->
+    <bean id="l2003ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L2003ReportServiceImpl" >
+        <property name="rpEisProductDao" ref="rpEisProductDao" />
+        <property name="ttPltzService" ref="ttPltzService" />
+        <property name="vtRpCmlHdrMixedPltzService" ref="vtRpCmlHdrMixedPltzService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- L2004サービス -->
+    <bean id="l2004ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L2004ReportServiceImpl" >
+        <property name="vtRpXtagService" ref="vtRpXtagService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- L2005サービス -->
+    <bean id="l2005ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L2005ReportServiceImpl" >
+        <property name="vtRpCmlMixtagErrRepService" ref="vtRpCmlMixtagErrRepService" />
+        <property name="vmUserInfoService" ref="vmUserInfoService" />
+    </bean>
+
+    <!-- L3001 service -->
+    <bean id="l3001ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L3001ReportServiceImpl" >
+        <property name="w3TransferCarryOutListService" ref="w3TransferCarryOutListService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    <!-- L3002 service -->
+    <bean id="l3002ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L3002ReportServiceImpl" >
+        <property name="w3TransferCarryOutListService" ref="w3TransferCarryOutListService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    <!-- L3003 service -->
+    <bean id="l3003ReportService"  parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L3003ReportServiceImpl">
+        <property name="vtRpTransferPltzService" ref="vtRpTransferPltzService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    <!-- L3004 service -->
+    <bean id="l3004ReportService"  parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L3004ReportServiceImpl">
+        <property name="vtRpTransferItemNoService" ref="vtRpTransferItemNoService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- L4001 searvice -->
+    <!-- L4001サービス -->
+    <bean id="l4001ReportService"  parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L4001ReportServiceImpl">
+        <property name="vtRpStgInstrService" ref="vtRpStgInstrService" />
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- L4002 searvice -->
+    <!-- L4002サービス -->
+    <bean id="l4002ReportService"  parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L4002ReportServiceImpl">
+        <property name="vtRpStgActService" ref="vtRpStgActService" />
+        <property name="commonService" ref="commonService" />
+        <property name="rpStgActDao" ref="rpStgActDao" /> <!-- UT429 ADD -->
+    </bean>
+
+    <!-- L5001サービス -->
+    <bean id="l5001ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L5001ReportServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="vtRpShippingFirmService" ref="vtRpShippingFirmService" />
+        <property name="rpShippingFirmDao" ref="rpShippingFirmDao" /> <!-- UT429 MOD -->
+        <property name="tmCdService" ref="tmCdService" /> <!-- UT429 MOD -->
+    </bean>
+    
+    <!-- L6001サービス -->
+    <bean id="l6001ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6001ReportServiceImpl" >
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="vtRpInvHdrForCmrclIntangService" ref="vtRpInvHdrForCmrclIntangService" />
+        <property name="commonService" ref="commonService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L6002サービス -->
+    <bean id="l6002ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6002ReportServiceImpl" >
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="vtRpInvHdrForNonCmrclService" ref="vtRpInvHdrForNonCmrclService" />
+        <property name="commonService" ref="commonService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L6003サービス -->
+    <bean id="l6003ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6003ReportServiceImpl" >
+        <property name="rpDocDao" ref="rpDocDao" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="vtRpInvHdrForFrtService" ref="vtRpInvHdrForFrtService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L6004サービス -->
+    <bean id="l6004ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6004ReportServiceImpl" >
+        <property name="rpDocDao" ref="rpDocDao" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="vtRpInvAtchedForMainService" ref="vtRpInvAtchedForMainService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L6005サービス -->
+    <bean id="l6005ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6005ReportServiceImpl" >
+        <property name="rpDocDao" ref="rpDocDao" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="vtRpInvAtchedForRtService" ref="vtRpInvAtchedForRtService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L6006サービス -->
+    <bean id="l6006ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6006ReportServiceImpl" >
+        <property name="rpDocDao" ref="rpDocDao" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="vtRpPackHdrForMainService" ref="vtRpPackHdrForMainService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L6007サービス -->
+    <bean id="l6007ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6007ReportServiceImpl" >
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="vtRpPackHdrForFrtService" ref="vtRpPackHdrForFrtService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L6008サービス -->
+    <bean id="l6008ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6008ReportServiceImpl" >
+        <property name="rpDocDao" ref="rpDocDao" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L6009サービス -->
+    <bean id="l6009ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6009ReportServiceImpl" >
+        <property name="rpDocDao" ref="rpDocDao" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="vtRpPackAtchedForFrtService" ref="vtRpPackAtchedForFrtService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L6010サービス -->
+    <bean id="l6010ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6010ReportServiceImpl" >
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="rpDocDao" ref="rpDocDao" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L6011サービス -->
+    <bean id="l6011ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6011ReportServiceImpl" >
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="vtRpSlsCntrctHdrCmrclService" ref="vtRpSlsCntrctHdrCmrclService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L6012サービス -->
+    <bean id="l6012ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6012ReportServiceImpl" >
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="vtRpSlsCntrctHdrNonCmrclService" ref="vtRpSlsCntrctHdrNonCmrclService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L6013サービス -->
+    <bean id="l6013ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6013ReportServiceImpl" >
+        <property name="rpDocDao" ref="rpDocDao" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="vtRpSalesCntrctHdrForFrtService" ref="vtRpSalesCntrctHdrForFrtService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L6014サービス -->
+    <bean id="l6014ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6014ReportServiceImpl" >
+        <property name="rpDocDao" ref="rpDocDao" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="vtRpSlsCntrctAtchedMainService" ref="vtRpSlsCntrctAtchedMainService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L6015サービス -->
+    <bean id="l6015ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6015ReportServiceImpl" >
+        <property name="rpDocDao" ref="rpDocDao" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="vtRpSlsCntrctAtchedRtService" ref="vtRpSlsCntrctAtchedRtService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L6016サービス -->
+    <bean id="l6016ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L6016ReportServiceImpl" >
+        <property name="rpDocDao" ref="rpDocDao" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="vtRpPackingSummaryService" ref="vtRpPackingSummaryService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L7001サービス -->
+    <bean id="l7001ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L7001ReportServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="rpShippingActDao" ref="rpShippingActDao" />
+        <property name="ttPltzService" ref="ttPltzService" />
+    </bean>
+    
+    <!-- L9001サービス -->
+    <bean id="l9001ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L9001ReportServiceImpl" >
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L9002サービス -->
+    <bean id="l9002ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L9002ReportServiceImpl" >
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L9003サービス -->
+    <bean id="l9003ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L9003ReportServiceImpl" >
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L9004サービス -->
+    <bean id="l9004ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L9004ReportServiceImpl" >
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L9005サービス -->
+    <bean id="l9005ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L9005ReportServiceImpl" >
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L9006サービス -->
+    <bean id="l9006ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L9006ReportServiceImpl" >
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L9007サービス -->
+    <bean id="l9007ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L9007ReportServiceImpl" >
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L9008サービス -->
+    <bean id="l9008ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L9008ReportServiceImpl" >
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- L9009サービス -->
+    <bean id="l9009ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.L9009ReportServiceImpl" >
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+    </bean>
+    
+    <!-- LB001サービス -->
+    <bean id="lB001ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.LB001ReportServiceImpl" >
+        <property name="rpOdrRcvDao" ref="rpOdrRcvDao" />
+        <property name="commonService" ref="commonService" />
+        <property name="vtRpOdrRcvErrReportHdrService" ref="vtRpOdrRcvErrReportHdrService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="ttEdiRcvOdrReportService" ref="ttEdiRcvOdrReportService" />
+        <property name="wsB010RestService" ref="wsB010RestService" />
+        <property name="ws9003RestService" ref="ws9003RestService" />
+    </bean>
+    
+    <!-- LC001サービス -->
+    <bean id="lc001ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.LC001ReportServiceImpl" >
+        <property name="rpErtDao" ref="rpErtDao" />
+        <property name="commonService" ref="commonService" />
+        <property name="ttPltzService" ref="ttPltzService" />
+    </bean>
+    
+    <!-- Web(BHT) / EisProductサービス -->
+    <bean id="wsBhtEisProductService" class="com.globaldenso.eca0027.core.business.service.WsBhtEisProductServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="l2002ReportService" ref="l2002ReportService" />
+        <property name="l2003ReportService" ref="l2003ReportService" />
+        <property name="l2004ReportService" ref="l2004ReportService" />
+        <property name="l2005ReportService" ref="l2005ReportService" />
+        <property name="lc001ReportService" ref="lc001ReportService" />
+        <property name="tmCigmaCustomerXrefService" ref="tmCigmaCustomerXrefService" />
+        <property name="tmCigmaShipToXrefService" ref="tmCigmaShipToXrefService" />
+        <property name="tmCigmaWhXrefService" ref="tmCigmaWhXrefService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="ttPltzService" ref="ttPltzService" />
+        <property name="ttPltzInstrService" ref="ttPltzInstrService" />
+        <property name="ttPltzInstrOdrService" ref="ttPltzInstrOdrService" />
+        <property name="ttPltzInstrItemNoService" ref="ttPltzInstrItemNoService" />
+        <property name="ttPltzItemService" ref="ttPltzItemService" />
+        <property name="ttPltzItemOdrService" ref="ttPltzItemOdrService" />
+        <property name="ttPltzKanbanService" ref="ttPltzKanbanService" />
+        <property name="tmPrinterService" ref="tmPrinterService" />
+        <property name="tmUserService" ref="gscmTmUserService" />
+        <property name="tmUserConfService" ref="gscmTmUserConfService" />
+        <property name="tmCdService" ref="tmCdService" />
+        <property name="vmUserInfoService" ref="vmUserInfoService" />
+        <property name="tmPkgSetHdrService" ref="tmPkgSetHdrService" />
+        <property name="tmPkgSpecHdrService" ref="tmPkgSpecHdrService" />
+        <property name="tmPkgSpecRevHisService" ref="tmPkgSpecRevHisService" />
+        <property name="tmPkgSpecRevService" ref="tmPkgSpecRevService" />
+        <property name="ttCmlErrorHeaderService" ref="ttCmlErrorHeaderService" />
+        <property name="ttCmlErrorDtlService" ref="ttCmlErrorDtlService" />
+        <property name="ttMixtagService" ref="ttMixtagService" />
+        <property name="ttMixtagItemNoService" ref="ttMixtagItemNoService" />
+        <property name="ttMixtagOdrService" ref="ttMixtagOdrService" />
+        <property name="ttMixtagRtService" ref="ttMixtagRtService" />
+        <property name="ttMixKanbanService" ref="ttMixKanbanService" />
+        <property name="ttXpltzService" ref="ttXpltzService" />
+        <property name="tmExpShipToShippingService" ref="tmExpShipToShippingService" />
+        <property name="tmNxsShipToService" ref="tmNxsShipToService" />
+        <property name="tmPkgMtrlService" ref="tmPkgMtrlService" />
+        <property name="wsBhtEisProductDao" ref="wsBhtEisProductDao" />
+        <property name="tmMeasureUnitService" ref="tmMeasureUnitService" />
+        <property name="ttBhtWorkTimeService" ref="ttBhtWorkTimeService" />
+        <property name="ttBhtWorkPltzService" ref="ttBhtWorkPltzService" />
+        <property name="ttBhtWorkMixTagService" ref="ttBhtWorkMixTagService" />
+        <property name="ttBhtWorkErrService" ref="ttBhtWorkErrService" />
+        <property name="ttExpRcvOdrService" ref="ttExpRcvOdrService" />
+        <property name="ttTmpStockService" ref="ttTmpStockService" />
+        <property name="ws2004RestService" ref="ws2004RestService" />
+        <property name="ws2005RestService" ref="ws2005RestService" />
+        <property name="ws9002RestService" ref="ws9002RestService" />
+    </bean>
+    
+    <!-- Web(Cigma) / ComnAuxServiceサービス -->
+    <bean id="wsCigmaComnAuxService" class="com.globaldenso.eca0027.core.business.service.WsCigmaComnAuxServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="wsCigmaComnAuxDao" ref="wsCigmaComnAuxDao" />
+    </bean>
+    
+    <!-- Web(Cigma) / OdrRcvServiceサービス -->
+    <bean id="wsCigmaOdrRcvService" class="com.globaldenso.eca0027.core.business.service.WsCigmaOdrRcvServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="residentRequestjobFacadeService" ref="residentRequestjobFacadeService" />
+        <property name="ttBatchReqParamService" ref="ttBatchReqParamService" />
+    </bean>
+    
+    <!-- MigCmlサービス -->
+    <bean id="wsR001MigCmlService" class="com.globaldenso.eca0027.core.business.service.WsR001MigCmlServiceImpl" >
+        <property name="commonService" ref="commonService" />
+        <property name="twCaseMarkHdrIfService" ref="twCaseMarkHdrIfService" />
+        <property name="twCaseMarkDtlIfService" ref="twCaseMarkDtlIfService" />
+        <property name="ttCmlErrorHeaderService" ref="ttCmlErrorHeaderService" />
+        <property name="ttCmlErrorDtlService" ref="ttCmlErrorDtlService" />
+        <property name="l2005ReportService" ref="l2005ReportService" />
+        <property name="l2003ReportService" ref="l2003ReportService" />
+        <property name="ttPltzService" ref="ttPltzService" />
+        <property name="ttPltzItemService" ref="ttPltzItemService" />
+        <property name="ttPltzItemOdrService" ref="ttPltzItemOdrService" />
+        <property name="migCmlDao" ref="migCmlDao" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="tmPrinterService" ref="tmPrinterService" /><!-- ST958 ADD -->
+    </bean>
+    <!-- =================================================================== -->
+    <!-- Webサービス呼出しサービス                                           -->
+    <!-- =================================================================== -->
+
+    <!-- WS2001 呼出しサービス -->
+    <bean id="ws2001RestService" class="com.globaldenso.eca0027.core.business.ws.Ws2001RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- WS2002 呼出しサービス -->
+    <bean id="ws2002RestService" class="com.globaldenso.eca0027.core.business.ws.Ws2002RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- WS2004 呼出しサービス -->
+    <bean id="ws2004RestService" class="com.globaldenso.eca0027.core.business.ws.Ws2004RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- WS2005 呼出しサービス -->
+    <bean id="ws2005RestService" class="com.globaldenso.eca0027.core.business.ws.Ws2005RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- Ws6001 呼出しサービス -->
+    <bean id="ws6001RestService" class="com.globaldenso.eca0027.core.business.ws.Ws6001RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Ws6002 呼出しサービス -->
+    <bean id="ws6002RestService" class="com.globaldenso.eca0027.core.business.ws.Ws6002RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- Ws6003 呼出しサービス -->
+    <bean id="ws6003RestService" class="com.globaldenso.eca0027.core.business.ws.Ws6003RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- WS6004 呼出しサービス -->
+    <bean id="ws6004RestService" class="com.globaldenso.eca0027.core.business.ws.Ws6004RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- // 2014/09/01 DNJP.Kawamura (DIAT)InvoiceDB対応 START >>>>> -->
+    <!-- WS6005 呼出しサービス -->
+    <bean id="ws6005RestService" class="com.globaldenso.eca0027.core.business.ws.Ws6005RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- WS6006 呼出しサービス -->
+    <bean id="ws6006RestService" class="com.globaldenso.eca0027.core.business.ws.Ws6006RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+    <!-- // 2014/09/01 DNJP.Kawamura (DIAT)InvoiceDB対応 END <<<<< -->
+
+    <!-- WS6011 呼出しサービス UT432 ADD -->
+    <bean id="ws6011RestService" class="com.globaldenso.eca0027.core.business.ws.Ws6011RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- WS7001 呼出しサービス -->
+    <bean id="ws7001RestService" class="com.globaldenso.eca0027.core.business.ws.Ws7001RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- WS7002 呼出しサービス -->
+    <bean id="ws7002RestService" class="com.globaldenso.eca0027.core.business.ws.Ws7002RestServiceImpl">
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- WS7003 呼出しサービス -->
+    <bean id="ws7003RestService" class="com.globaldenso.eca0027.core.business.ws.Ws7003RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- WS7004 呼出しサービス -->
+    <bean id="ws7004RestService" class="com.globaldenso.eca0027.core.business.ws.Ws7004RestServiceImpl">
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- WS9001 呼出しサービス -->
+    <bean id="ws9001RestService" class="com.globaldenso.eca0027.core.business.ws.Ws9001RestServiceImpl">
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- WS9002 呼出しサービス -->
+    <bean id="ws9002RestService" class="com.globaldenso.eca0027.core.business.ws.Ws9002RestServiceImpl">
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- WS9003 呼出しサービス -->
+    <bean id="ws9003RestService" class="com.globaldenso.eca0027.core.business.ws.Ws9003RestServiceImpl">
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- WS9004 呼出しサービス -->
+    <bean id="ws9004RestService" class="com.globaldenso.eca0027.core.business.ws.Ws9004RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- WS9005 呼出しサービス -->
+    <bean id="ws9005RestService" class="com.globaldenso.eca0027.core.business.ws.Ws9005RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- WSB001 呼出しサービス -->
+    <bean id="wsB001RestService" class="com.globaldenso.eca0027.core.business.ws.WsB001RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- WSB002 呼出しサービス -->
+    <bean id="wsB002RestService" class="com.globaldenso.eca0027.core.business.ws.WsB002RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- WSB003 呼出しサービス -->
+    <bean id="wsB003RestService" class="com.globaldenso.eca0027.core.business.ws.WsB003RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- WSB004 呼出しサービス -->
+    <bean id="wsB004RestService" class="com.globaldenso.eca0027.core.business.ws.WsB004RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- WSB005 呼出しサービス -->
+    <bean id="wsB005RestService" class="com.globaldenso.eca0027.core.business.ws.WsB005RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- WSB006 呼出しサービス -->
+    <bean id="wsB006RestService" class="com.globaldenso.eca0027.core.business.ws.WsB006RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- WSB007 呼出しサービス -->
+    <bean id="wsB007RestService" class="com.globaldenso.eca0027.core.business.ws.WsB007RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- WSB008 呼出しサービス -->
+    <bean id="wsB008RestService" class="com.globaldenso.eca0027.core.business.ws.WsB008RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- WSB010 呼出しサービス -->
+    <bean id="wsB010RestService" class="com.globaldenso.eca0027.core.business.ws.WsB010RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- WSB011 呼出しサービス -->
+    <bean id="wsB011RestService" class="com.globaldenso.eca0027.core.business.ws.WsB011RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- WSB020 呼出しサービス -->
+    <bean id="wsB020RestService" class="com.globaldenso.eca0027.core.business.ws.WsB020RestServiceImpl" >
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- SI追加分 -->
+    <!-- Ws0501 Ws0502 Ws0503 サービス -->
+    <bean id="wsBhtPortalService" class="com.globaldenso.eca0027.core.business.ws.WsBhtPortalServiceImpl">
+        <property name="tmBhtModuleService" ref="tmBhtModuleService" />
+        <property name="tmBhtResourceFileService" ref="tmBhtResourceFileService" />
+        <property name="tmBhtLockMsgMgtService" ref="tmBhtLockMsgMgtService" />
+        <property name="vmGetQrCheckService" ref="vmGetQrCheckService" />
+    </bean>
+
+    <!-- Ws5501 Ws5502 サービス -->
+    <bean id="wsBhtShippingFirmService" class="com.globaldenso.eca0027.core.business.ws.WsBhtShippingFirmServiceImpl">
+        <property name="vtShippingFirmService" ref="vtShippingFirmService" />
+        <property name="ttShippingFirmService" ref="ttShippingFirmService" />
+        <property name="ttPltzService" ref="ttPltzService" />
+        <property name="wsBhtShippingFirmDao" ref="wsBhtShippingFirmDao" />
+    </bean>
+
+    <!-- WsT501 サービス -->
+    <bean id="wsBhtComnAuxService" class="com.globaldenso.eca0027.core.business.ws.WsBhtComnAuxServiceImpl">
+        <property name="vtBhtLockuserService" ref="vtBhtLockuserService" />
+    </bean>
+    <!-- WS4サービス -->
+    <bean id="wsBhtStgService" class="com.globaldenso.eca0027.core.business.ws.WsBhtStgServiceImpl">
+        <property name="tmPrinterService" ref="tmPrinterService" />
+        <property name="ttPltzService" ref="ttPltzService" />
+        <property name="vtXpltzStgActService" ref="vtXpltzStgActService" />
+        <property name="commonService" ref="commonService" />
+        <property name="ttStgInstrService" ref="ttStgInstrService" />
+        <property name="vtTrnsTypStgActService" ref="vtTrnsTypStgActService" />
+        <property name="vmUserInfoService" ref="vmUserInfoService" />
+        <property name="vtPltzStgInstrService" ref="vtPltzStgInstrService" />
+        <property name="wsBhtStgDao" ref="wsBhtStgDao" />
+        <property name="l4002ReportService" ref="l4002ReportService" />
+        <property name="ttStgActService" ref="ttStgActService" />
+    </bean>
+
+    <!-- WS3001 呼出しサービス -->
+    <bean id="ws3001RestService" class="com.globaldenso.eca0027.core.business.ws.Ws3001RestServiceImpl" >
+     <property name="commonService" ref="commonService" />
+     <property name="tmCigmaEnvService" ref="tmCigmaEnvService" />
+    </bean>
+
+    <!-- WS3002 呼出しサービス -->
+    <bean id="ws3002RestService" class="com.globaldenso.eca0027.core.business.ws.Ws3002RestServiceImpl" >
+     <property name="commonService" ref="commonService" />
+     <property name="tmCigmaEnvService" ref="tmCigmaEnvService" />
+    </bean>
+
+    <!-- WS3003 呼出しサービス -->
+    <bean id="ws3003RestService" class="com.globaldenso.eca0027.core.business.ws.Ws3003RestServiceImpl" >
+    <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- REQUEST_ID_SEQ Service L005 Add -->
+    <bean id="requestIdSeqService" class="com.globaldenso.eca0027.core.business.service.RequestIdSeqServiceImpl">
+        <property name="requestIdSeqDao" ref="requestIdSeqDao" />
+    </bean>
+</beans>

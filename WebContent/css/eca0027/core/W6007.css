@@ -1,0 +1,177 @@
+@CHARSET "utf-8";
+/*
+ * W6007.css
+ * 
+ * Documentaition [Invoice Detail]画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+ /*------------ 検索条件エリアテーブル ------------*/ 
+table.gscm_search {
+    width: 980px;
+}
+
+ /*------------ 検索条件エリア１ ------------*/ 
+.gscm_search .search_shipper_cd { 
+    width: 69px; 
+}
+
+.gscm_search .search_consignee_cd { 
+    width: 88px; 
+}
+
+.gscm_search .search_ship_to_cd { 
+    width: 118px; 
+}
+
+.gscm_search .search_cml_typ { 
+    width: 78px; 
+}
+
+.gscm_search .search_invoice_key { 
+    width: 98px; 
+}
+
+.gscm_search .search_re_exp_goods_flg { 
+    width: 88px; 
+}
+
+.gscm_search .search_invoice_ctgry { 
+    width: 108px; 
+}
+
+.gscm_search .search_freight_responsible { 
+    width: 98px; 
+}
+
+.gscm_search .search_price_terms { 
+    width: 98px; 
+}
+
+.gscm_search .search_trade_terms { 
+    width: 137px; 
+}
+
+ /*------------ 検索条件エリア２ ------------*/ 
+.gscm_search .search_total_cml_qty { 
+    width: 117.6px; 
+}
+
+.gscm_search .search_total_gw { 
+    width: 147px; 
+}
+
+.gscm_search .search_total_vol { 
+    width: 176.4px; 
+}
+
+.gscm_search .search_curr_cd { 
+    width: 98px; 
+}
+
+.gscm_search .search_date_shipper { 
+    width: 441px; 
+}
+
+.w6007_total_cml_qty { 
+    width: 95px; 
+}
+.w6007_total_gw { 
+    width: 115px; 
+}
+.w6007_total_volume { 
+    width: 145px; 
+}
+
+ /*------------ 検索条件ボタンテーブル ------------*/ 
+table.gscm_search_button {
+    width: 980px;
+}
+
+ /*------------ 検索条件ボタン ------------*/ 
+.gscm_search_button .search_button_move_to_register { 
+    width: 490px; 
+}
+
+.gscm_search_button .search_button_refresh { 
+    width: 490px; 
+}
+
+
+ /*------------ 検索結果ボタンテーブル ------------*/ 
+table.gscm_resultlist_button {
+    width: 980px;
+}
+
+ /*------------ 検索結果ボタン ------------*/ 
+.gscm_resultlist_button .resultlist_button_remove { 
+    width: 98px; 
+}
+
+.gscm_resultlist_button .resultlist_button_link{ 
+    width: 330px; 
+}
+
+.gscm_resultlist_button .resultlist_button_ignore_warnings { 
+    width: 539px; 
+}
+
+.gscm_resultlist_button .resultlist_button_link_label1 { 
+    width: 130px; 
+}
+
+.gscm_resultlist_button .resultlist_button_unit_price_error { 
+    width: 34px; 
+}
+
+.gscm_resultlist_button .resultlist_button_link_label2 { 
+    width: 144px; 
+}
+
+.gscm_resultlist_button .resultlist_button_hs_code_warning { 
+    width: 34px; 
+}
+
+ /*------------ 検索結果リストテーブル ------------*/ 
+table.gscm_resultlist {
+    width: 850px; 
+}
+
+ /*------------ 検索結果リスト ------------*/ 
+.gscm_resultlist .resultlist_remove { 
+    width: 60px; 
+}
+
+.gscm_resultlist .resultlist_main_mark{ 
+    width: 187px; 
+}
+
+.gscm_resultlist .resultlist_gross_weight{ 
+    width: 112px; 
+}
+
+.gscm_resultlist .resultlist_volume{ 
+    width: 136px; 
+}
+
+.gscm_resultlist .resultlist_rt_use_flg{ 
+    width: 68px; 
+}
+
+.gscm_resultlist .resultlist_dngr_item_flg{ 
+    width: 43px; 
+}
+
+.gscm_resultlist .resultlist_exp_limt_flg{ 
+    width: 77px; 
+}
+
+.gscm_resultlist .resultlist_splt_shippng_ng_flg{ 
+    width: 93px; 
+}
+
+.gscm_resultlist .resultlist_multi_cur_flg{ 
+    width: 74px; 
+}
+

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-RpErt.xml
+ *
+ * RpOdrRcvDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="RpErt">
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="LC001TtPltzByHeaderDomain"
+        type="com.globaldenso.eca0027.core.business.domain.LC001TtPltzByHeaderDomain" />
+    <typeAlias alias="LC001TtPltzItemByDetailErtDomain"
+        type="com.globaldenso.eca0027.core.business.domain.LC001TtPltzItemByDetailErtDomain" /> 
+        
+    <!-- CriteriaDomain -->
+    <typeAlias alias="LC001TtPltzByHeaderCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.LC001TtPltzByHeaderCriteriaDomain" />
+    <typeAlias alias="LC001TtPltzItemByDetailErtCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.LC001TtPltzItemByDetailErtCriteriaDomain" />
+
+    <!-- 検索結果をMapで受け取る -->
+    <resultMap id="LC001Domain_SearchTtPltzByHeader" class="LC001TtPltzByHeaderDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="containersortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="trnsWayCd" column="TRNS_CD" />
+        <result property="dueDt" column="DUE_DT" />
+        <result property="expPackingIssuerNm" column="EXP_PACKING_ISSUER_NM" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+        <result property="netWeight" column="NET_WEIGHT" />
+        <result property="cmlTyp" column="CML_TYP" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="volume" column="VOLUME" />
+        <result property="instrFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="multiItemNoFlg" column="PKG_FORM_TYP" />
+        <result property="nxsCompCd" column="COMP_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="returnStyleCd" column="RETURN_STYLE_CD" />
+        <result property="shipToNmAbb" column="SHIP_TO_NM_ABB" />
+        <result property="unitDisp" column="UNIT_DISP" />
+        <result property="compNmNxs" column="COMP_NM_NXS" />
+        <result property="printCompNm1" column="PRINT_COMP_NM_1" />
+        <result property="printCompNm2" column="PRINT_COMP_NM_2" />
+    </resultMap>
+    <resultMap id="LC001Domain_SearchTtPltzItemByDetailErt" class="LC001TtPltzItemByDetailErtDomain">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="palletizeItemNo" column="PLTZ_ITEM_NO" />
+        <result property="itemNm" column="ITEM_DESCRIPTION" /> 
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="sumQty" column="SUM_QTY" />
+    </resultMap>
+
+
+    <!-- =================================================================================================== -->
+    <!-- 梱包指示品目番号 / 検索                                                                                 -->
+    <!-- =================================================================================================== -->
+    
+    <!-- 検索 SQL文 (パレタイズ / ヘッダー情報の取得) -->
+    <select id="SearchTtPltzByHeader" resultMap="LC001Domain_SearchTtPltzByHeader"
+        parameterClass="LC001TtPltzByHeaderCriteriaDomain">
+        select /* SqlMap-RpErt.SearchTtPltzByHeader */
+              A.MAIN_MARK
+            , A.CONTAINER_SORTING_KEY
+            , A.TRNS_CD
+            , A.DUE_DT
+            , A.EXP_PACKING_ISSUER_NM
+            , A.GROSS_WEIGHT
+            , A.NET_WEIGHT
+            , A.CML_TYP
+            , A.LOADING_CD
+            , A.DNGR_ITEM_FLG
+            , A.VOLUME
+            , A.STG_INSTR_ITEM_FLG
+            , A.PKG_FORM_TYP
+            , B.COMP_CD
+            , A.WEIGHT_UNIT
+            , A.CUSTOM_TIMING_TYP
+            , A.VOLUME_UNIT
+            , A.CONTAINER_LOOSE_TYP
+            , A.SHIPPER_CD
+            , A.RETURN_STYLE_CD
+            , B.SHIP_TO_NM_ABB
+            , C.UNIT_DISP
+            , D.COMP_NM COMP_NM_NXS
+            , E.PRINT_COMP_NM_1
+            , E.PRINT_COMP_NM_2
+        from
+              TT_PLTZ A
+            , TM_NXS_SHIP_TO B
+            , TM_MEASURE_UNIT C
+            , TM_NXS_COMP D
+            , TM_NXS_COMP E
+        where
+                A.SHIP_TO_CD = B.SHIP_TO_CD
+            and B.COMP_CD = D.COMP_CD
+            and A.WEIGHT_UNIT = C.UNIT_CD
+            and A.SHIPPER_CD = E.COMP_CD
+            <isNotEmpty property="cmlNo">
+                and A.MAIN_MARK = #cmlNo#
+            </isNotEmpty>
+    </select>
+    <select id="SearchTtPltzItemByDetailErt" resultMap="LC001Domain_SearchTtPltzItemByDetailErt"
+        parameterClass="LC001TtPltzItemByDetailErtCriteriaDomain">
+        select /* SqlMap-RpErt.SearchTtPltzItemByDetailErt */
+              B.MAIN_MARK
+            , B.PLTZ_ITEM_NO
+            , B.ITEM_DESCRIPTION
+            , B.MODEL_CD
+            , sum(B.QTY) SUM_QTY
+        from
+              TT_PLTZ A
+            , TT_PLTZ_ITEM B
+        where
+                A.MAIN_MARK = B.MAIN_MARK
+            <isNotEmpty property="cmlNo">
+                and A.MAIN_MARK = #cmlNo#
+            </isNotEmpty>
+        group by
+              B.MAIN_MARK
+            , B.PLTZ_ITEM_NO
+            , B.ITEM_DESCRIPTION
+            , B.MODEL_CD
+        order by
+              B.ITEM_DESCRIPTION
+            , B.PLTZ_ITEM_NO
+    </select>
+</sqlMap>

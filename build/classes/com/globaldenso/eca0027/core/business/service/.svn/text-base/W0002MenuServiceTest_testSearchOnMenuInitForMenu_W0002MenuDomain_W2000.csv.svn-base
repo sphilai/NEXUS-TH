@@ -1,0 +1,5 @@
+"ID","SCREEN_ID","SCREEN_NM","PAR_SCREEN_ID","ACTION_PATH","PERMITTED"
+201,"W2001","Palletize Instruction","W2000","/W2001Init.do","true"
+205,"W2005","Multiple Item No. in 1Box","W2000","/W2005Init.do","true"
+209,"W2009","CML","W2000","/W2009Init.do","true"
+214,"W2014","""X"" CML","W2000","/W2014Init.do","true"

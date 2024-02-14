@@ -1,0 +1,109 @@
+@charset "utf-8";
+/*
+ * W3005.css
+ * 
+ * Style sheet used in Create CML Transfer Report screen.
+ * CML単位の送荷書作成画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ Search condition area ------------*/ 
+/*------------ 検索条件エリア ------------*/ 
+
+.gscm_search .search_fr_wh_comp_cd {
+    width: 130px;
+}
+.gscm_search .search_fr_wh_cd {
+    width: 102px;
+}
+.gscm_search .search_to_wh_comp_cd {
+    width: 130px;
+}
+.gscm_search .search_to_wh_cd {
+    width: 102px;
+}
+.gscm_search .search_shipper_cd {
+    width: 95px;
+}
+.gscm_search .search_main_mark {
+    width: 125px;
+}
+.gscm_search .search_detail_status {
+    width: 51px;
+}
+.gscm_search .search_cml_type {
+    width: 80px;
+}
+.gscm_search .search_trans {
+    width: 152px;
+}
+.gscm_search .search_container_sorting_key {
+    width: 125px;
+}
+.gscm_search .search_fr_cml_issue_date {
+    width: 150px;
+}
+.gscm_search .search_to_cml_issue_date {
+    width: 150px;
+}
+.gscm_search .search_exp_request_no {
+    width: 148px;
+}
+
+.main_mark {
+    width: 160px;
+}
+
+/*------------ Search result area ------------*/ 
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 645px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 38px;
+}
+.gscm_resultlist .resultlist_main_mark {
+    width: 155px;
+}
+.gscm_resultlist .resultlist_d_s {
+    width: 40px;
+}
+.gscm_resultlist .resultlist_cml_type {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_trans {
+    width: 55px;
+}
+.gscm_resultlist .resultlist_container_sorting_key {
+    width: 82px;
+}
+.gscm_resultlist .resultlist_g_w {
+    width: 80px;
+}
+.gscm_resultlist .resultlist_cml_issue_date {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_export_request_no {
+    width: 100px;
+}
+
+.search_fm_cml_issue_dt{
+    width: 100px;
+}
+
+.search_to_cml_issue_dt{
+    width: 100px;
+}
+
+.scroll_content {
+    position:relative;
+    top:-1px;
+    height:361px;
+    width:977px;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+

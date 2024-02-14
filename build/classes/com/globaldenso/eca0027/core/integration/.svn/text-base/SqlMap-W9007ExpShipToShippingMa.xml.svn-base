@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * SqlMap-W9007ExpShipToShippingMa.xml
+ *
+ * W9007ExpShipToShippingMaDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ 
+<sqlMap namespace="W9007ExpShipToShippingMa">
+    <!-- ================================================== -->
+    <!-- Domainの別名定義 -->
+    <!-- ================================================== -->
+    
+    <!-- Domain -->
+    <typeAlias alias="W9007ExpShipToShippingMaItemDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W9007ExpShipToShippingMaItemDomain" />
+    
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W9007ExpShipToShippingMaCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W9007ExpShipToShippingMaCriteriaDomain" />
+     
+    <!-- ================================================== -->
+    <!-- 検索結果をMapで受け取る                            -->
+    <!-- ================================================== -->
+    
+    <resultMap id="W9007ExpShipToShippingMaDomain_SearchForPagingTmExpShipToShipping" class="W9007ExpShipToShippingMaItemDomain">
+        <result property="compCd" column="COMP_CD" />
+        <result property="shipToCd" column="SHIP_TO_CD" />
+        <result property="aplyStrtDt" column="APLY_STRT_DT" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="labelPrintNum" column="LABEL_PRINT_NUM" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="packingSummaryAtchFlg" column="PACKING_SUMMARY_ATCH_FLG" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+    </resultMap>
+    
+    <resultMap id="W9007ExpShipToShippingMaDomain_LockByNoWaitTmInvTplShipTo" class="W9007ExpShipToShippingMaItemDomain">
+        <result property="compCd" column="COMP_CD" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+    </resultMap>
+    
+    <!-- Cols -->
+    <sql id="Col_TmExpShipToShipping">
+        COMP_CD
+        , SHIP_TO_CD
+        , APLY_STRT_DT
+        , CONTAINER_SORTING_KEY
+        , LOADING_CD
+        , LABEL_PRINT_NUM
+        , CONTAINER_LOOSE_TYP
+        , PACKING_SUMMARY_ATCH_FLG
+        , COM_UPDATE_TIMESTAMP
+    </sql>
+    
+    <!-- ================================================== -->
+    <!-- 実行SQL                                            -->
+    <!-- ================================================== -->
+    <!-- WhereCondition -->
+    <sql id="WhereCondition_SearchForPagingTmExpShipToShipping">
+        COMP_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId# )
+        <isNotEmpty prepend="and" property="compCd">
+            COMP_CD like concat(#compCd#, '%')
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="shipToCd">
+            SHIP_TO_CD like concat(#shipToCd#, '%') 
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="containerSortingKey">
+            CONTAINER_SORTING_KEY like concat(#containerSortingKey#, '%') 
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="loadingCd">
+            LOADING_CD = #loadingCd# 
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="containerLooseTyp">
+            CONTAINER_LOOSE_TYP = #containerLooseTyp#
+        </isNotEmpty>
+        <isEqual prepend="and" property="display" compareValue="CAD">
+            APLY_STRT_DT <![CDATA[<=]]> #fmtAplyStrtDt#
+        </isEqual>
+        <isEqual prepend="and" property="display" compareValue="LA2">
+            APLY_STRT_DT <![CDATA[<=]]> #fmtAplyStrtDt#
+        </isEqual>
+        <isNotEmpty property="userAuthList">
+            <iterate prepend="and" property="userAuthList" conjunction="," open=" COMP_CD in (" close=")">
+                #userAuthList[].authMgtComp#
+            </iterate>
+        </isNotEmpty>
+    </sql>
+
+    <!-- Sort Keys -->
+    <sql id="SortKeys_SearchForPagingTmExpShipToShipping">
+        order by
+            COMP_CD
+            , SHIP_TO_CD
+            , APLY_STRT_DT desc
+    </sql>
+    
+    <select id="SearchCountTmExpShipToShipping"
+        resultClass="java.lang.Integer" parameterClass="W9007ExpShipToShippingMaCriteriaDomain">
+        select
+            /* SqlMap-W9007ExpShipToShippingMa.SearchCountTmExpShipToShipping */
+            count(COMP_CD) COUNT_COMP_CD
+        from
+            (select
+                COMP_CD
+                ,SHIP_TO_CD
+                ,row_number() over (partition by COMP_CD, SHIP_TO_CD order by APLY_STRT_DT desc) RNUM
+            from
+                TM_EXP_SHIP_TO_SHIPPING
+            where
+            <include refid="WhereCondition_SearchForPagingTmExpShipToShipping"/>
+            )
+        <dynamic prepend="where">
+            <isEqual prepend="and" property="display" compareValue="CAD">
+                RNUM = 1
+            </isEqual>
+            <isEqual prepend="and" property="display" compareValue="LA2">
+                RNUM BETWEEN 1 AND 2
+            </isEqual>
+        </dynamic>
+    </select>
+    
+    <select id="SearchForPagingTmExpShipToShipping"
+        resultMap="W9007ExpShipToShippingMaDomain_SearchForPagingTmExpShipToShipping" parameterClass="W9007ExpShipToShippingMaCriteriaDomain">
+        select
+            /* SqlMap-W9007ExpShipToShippingMa.SearchForPagingTmExpShipToShipping */
+            <include refid="Col_TmExpShipToShipping" />
+        from (
+            select
+                <include refid="Col_TmExpShipToShipping" />
+                , row_number() over (<include refid="SortKeys_SearchForPagingTmExpShipToShipping"/>) ROW_NUM 
+            from 
+                (select
+                    <include refid="Col_TmExpShipToShipping" />
+                    ,row_number() over (partition by COMP_CD, SHIP_TO_CD order by APLY_STRT_DT desc) RNUM
+                from
+                    TM_EXP_SHIP_TO_SHIPPING
+                where
+                    <include refid="WhereCondition_SearchForPagingTmExpShipToShipping"/>
+                )
+            <dynamic prepend="where">
+                <isEqual prepend="and" property="display" compareValue="CAD">
+                    RNUM = 1
+                </isEqual>
+                <isEqual prepend="and" property="display" compareValue="LA2">
+                    RNUM BETWEEN 1 AND 2
+                </isEqual>
+            </dynamic>
+            <include refid="SortKeys_SearchForPagingTmExpShipToShipping"/>
+        )
+        where
+            ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+    
+    <select id="LockByNoWaitTmInvTplShipTo"
+        resultMap="W9007ExpShipToShippingMaDomain_LockByNoWaitTmInvTplShipTo" parameterClass="W9007ExpShipToShippingMaCriteriaDomain">
+        select
+            /* SqlMap-W9007ExpShipToShippingMa.LockByNoWaitTmInvTplShipTo */
+            COMP_CD 
+            ,COM_UPDATE_TIMESTAMP
+        from
+            TM_INV_TPL_SHIP_TO 
+        where
+            COMP_CD = #compCd# 
+        and SHIP_TO_CD = #shipToCd# 
+        and APLY_STRT_DT = #aplyStrtDt# 
+        for update nowait
+    </select>
+    
+</sqlMap>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ *    log4jJob.xml
+ *   
+ * [JP]    各種ジョブの Log4j 設定ファイルです。(バッチ用 準本/本番環境向け)
+ * [JP]    AI-JB は複数のプロセスが同時に実行されるため、Socket Server を経由します。
+ * [JP]
+ * [JP]    また、同時にジョブ単位のログを出力するため、標準出力も行っています。
+ * [JP]
+ * [JP]    初期設定では、Socket Server は同一サーバ上(localhost) で起動していることを
+ * [JP]    想定した設定になっています。
+ * [JP]    必要に応じて設定を変更してください。
+ *    
+ * [EN]    It is Log4j configuration file of various jobs. 
+ * [EN]    (For semi-production environment / production environment for batch)
+ * [EN]    Because multiple processes are executed at the same time, AI-JB is through the Socket Server.
+ * [EN]
+ * [EN]    Moreover, in order to output a log of the job units at the same time, are also the standard output.
+ * [EN]
+ * [EN]    By default, Socket Server has been configured as the assumption 
+ * [EN]    that running on (localhost) on the same server.
+ * [EN]    Please change the settings as necessary.
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE log4j:configuration SYSTEM "./log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!-- ========================================================== Appender -->
+  
+    <!-- [JP] ソケットサーバ出力 -->
+    <!-- [EN] Output socket server -->
+    <!-- [JP] ※別途 Socket サーバーの起動が必要です -->
+    <!-- [EN] ※ Socket server you need to activate a separate -->
+    <appender name="socket" class="org.apache.log4j.net.SocketAppender">
+        <param name="RemoteHost" value="localhost" />
+        <param name="Port" value="5150" />
+        <param name="LocationInfo" value="true" />
+        <param name="ReconnectionDelay" value="30000" />
+    </appender>
+
+    <!-- [JP] アプリケーションログ (標準出力) -->
+    <!-- [EN] Application Log (standard output) -->
+    <appender name="app_stdout"
+        class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[APP] [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="INFO" />
+            <param name="LevelMax" value="INFO" />
+        </filter>
+    </appender>
+
+    <!-- [JP] システムログ (標準出力) -->
+    <!-- [EN] System log (standard output) -->
+    <appender name="sys_stdout"
+        class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[SYS] [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] [%C{1}.%M] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="WARN" />
+            <param name="LevelMax" value="FATAL" />
+        </filter>
+    </appender>
+
+    <!-- ============================================================ Logger -->
+    <!-- [JP] アプリ基盤 -->
+    <!-- [EN] Application Development Infrastructure -->
+    <logger name="com.globaldenso.ai" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="socket" />
+        <!-- <appender-ref ref="app_stdout" /> -->
+        <!-- <appender-ref ref="sys_stdout" /> -->
+    </logger>
+
+    <!-- [JP] Spring Framework トランザクション情報出力 -->
+    <!-- [EN] Spring Framework transaction information output -->
+    <logger name="org.springframework.transaction" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="socket" />
+        <!-- <appender-ref ref="app_stdout" /> -->
+        <!-- <appender-ref ref="sys_stdout" /> -->
+    </logger>
+
+    <!-- [JP] iBATIS SQL情報出力  -->
+    <!-- [EN] information output iBATIS SQL -->
+    <logger name="java.sql.Connection" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="socket" />
+        <!-- <appender-ref ref="app_stdout" /> -->
+        <!-- <appender-ref ref="sys_stdout" /> -->
+    </logger>
+
+    <logger name="java.sql.PreparedStatement" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="socket" />
+        <!-- <appender-ref ref="app_stdout" /> -->
+        <!-- <appender-ref ref="sys_stdout" /> -->
+    </logger>
+
+    <logger name="java.sql.Statement" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="socket" />
+        <!-- <appender-ref ref="app_stdout" /> -->
+        <!-- <appender-ref ref="sys_stdout" /> -->
+    </logger>
+
+    <!-- [JP] 経過情報出力 -->
+    <!-- [EN] Progress infomation log output -->
+    <logger name="com.globaldenso.eca0027.core.business.service.JbEdiRcvOdrServiceImpl" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="socket" />
+        <!-- <appender-ref ref="app_stdout" /> -->
+        <!-- <appender-ref ref="sys_stdout" /> -->
+    </logger>
+    <logger name="com.globaldenso.eca0027.core.business.service.JbOdrUploadServiceImpl" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="socket" />
+        <!-- <appender-ref ref="app_stdout" /> -->
+        <!-- <appender-ref ref="sys_stdout" /> -->
+    </logger>
+
+    <!-- ============================================================== Root -->
+    <root>
+        <level value="ERROR" />
+        <appender-ref ref="socket" />
+        <appender-ref ref="sys_stdout" />
+    </root>
+
+</log4j:configuration>

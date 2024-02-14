@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-Wt015UnitPriceErrList.xml
+ *
+ * SqlMap file of Wt015UnitPriceErrListDao.
+ * Wt015UnitPriceErrListDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Wt015UnitPriceErrList">
+
+    <!-- Domain -->
+    <typeAlias alias="Wt015UnitPriceErrListDomain"
+        type="com.globaldenso.eca0027.core.business.domain.Wt015UnitPriceErrListDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="Wt015UnitPriceErrListCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.Wt015UnitPriceErrListCriteriaDomain" />
+
+    <resultMap id="Wt015UnitPriceErrListResult" class="Wt015UnitPriceErrListDomain">
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="currCd" column="CURR_CD" />
+        <result property="unitPrice" column="UNIT_PRICE" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+    </resultMap>
+
+    <!-- 汎用 項目 -->
+    <sql id="Cols">
+        T2.CUSTOMER_CD
+        , T1.CURR_CD
+        , case 
+            when T1.UNIT_PRICE is null then 'N'
+            else 'Y'
+            end "UNIT_PRICE"
+        , T1.ITEM_NO
+        , T1.CUSTOMER_PO_NO
+    </sql>
+
+    <!-- 汎用 OrderBy句 -->
+    <sql id="SortKeys">
+        order by
+            T2.CUSTOMER_CD asc nulls first
+            , T1.CURR_CD asc nulls first
+            , T1.UNIT_PRICE asc nulls first
+            , T1.ITEM_NO asc nulls first
+            , T1.CUSTOMER_PO_NO asc nulls first
+    </sql>
+
+    <!-- FROM句   -->
+    <sql id="From">
+        from
+            TW_INV_ITEM T1
+            , TW_INV T2
+    </sql>
+
+    <!-- 汎用 Where句（基本項目） -->
+    <sql id="WhereCondition">
+        where
+            T1.DSC_ID = T2.DSC_ID (+)
+            and T1.GRP_NO_1 = T2.GRP_NO_1 (+)
+            and T1.GRP_NO_2 = T2.GRP_NO_2 (+)
+            and T1.REMOVE_FLG = 'N'
+            and T1.GRP_NO_1 = #grpNo1#
+            and T1.GRP_NO_2 = #grpNo2#
+            and T1.DSC_ID = #loginUserDscId#
+            and T2.SHIPPER_CD = #shipperCd#
+    </sql>
+
+    <!-- 検索 SQL文（任意条件、ページング用） -->
+    <select id="SearchByCondition" resultMap="Wt015UnitPriceErrListResult"
+        parameterClass="Wt015UnitPriceErrListCriteriaDomain">
+        select
+        /* SqlMap-Wt015UnitPriceErrList.SearchByCondition */
+        <include refid="Cols" />
+        <include refid="From" />
+        <include refid="WhereCondition" />
+        <include refid="SortKeys" />
+    </select>
+
+    <!-- 検索 SQL文（任意条件 件数取得） -->
+    <select id="SearchCount" resultClass="java.lang.Integer"
+        parameterClass="Wt015UnitPriceErrListCriteriaDomain">
+        select count(ROWNUM)
+        /* SqlMap-Wt015UnitPriceErrList.SearchCount */
+        <include refid="From" />
+        <include refid="WhereCondition" />
+    </select>
+
+</sqlMap>

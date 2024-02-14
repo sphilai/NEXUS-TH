@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * tiles-defs_eca0027_wt.xml
+ *
+ * AI-J2(Struts) の Tiles 設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE tiles-definitions PUBLIC
+            "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+
+    <!-- 個別画面 -->
+    <!-- ====================================================================-->
+
+    <!--
+        この個別画面の定義名はaction-mappingsのforwardタグと紐付き、
+        header.jspにて画面IDとして共通的に埋め込まれます。
+        このため、この個別画面の定義名には、画面IDそのものを使用してください。
+    -->
+
+    <!-- WT001:会社選択子画面 -->
+    <definition name="WT001" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WT001"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WT001.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WT001"/>
+        <put name="js_filepath" value="js/eca0027/core/WT001.js"/>
+    </definition>
+    
+    <!-- WT002:会社選択子画面 -->
+    <definition name="WT002" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WT002"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WT002.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WT002"/>
+        <put name="js_filepath" value="js/eca0027/core/WT002.js"/>
+    </definition>
+    
+    <!-- WT004:包装材選択子画面 -->
+    <definition name="WT004" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WT004"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WT004.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WT004"/>
+        <put name="js_filepath" value="js/eca0027/core/WT004.js"/>
+    </definition>
+    
+    <!--  WT005:メインマーク表示子画面 --> 
+    <definition name="WT005" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50" />
+        <put name="screenId" value="WT005" />
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WT005.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WT005" />
+        <put name="js_filepath" value="js/eca0027/core/WT005.js" />
+    </definition>
+    
+    <!-- WT006:外装選択子画面 -->
+    <definition name="WT006" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WT006"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WT006.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WT006"/>
+        <put name="js_filepath" value="js/eca0027/core/WT006.js"/>
+    </definition>
+    
+    <!--  WT007:品番表示子画面 -->
+    <definition name="WT007" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50" /> 
+        <put name="screenId" value="WT007" /> 
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WT007.jsp" /> 
+        <put name="css_prefix" value="css/eca0027/core/WT007" /> 
+        <put name="js_filepath" value="js/eca0027/core/WT007.js" /> 
+    </definition>
+
+    <!-- WT008:港選択子画面 -->
+    <definition name="WT008" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WT008"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WT008.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WT008"/>
+        <put name="js_filepath" value="js/eca0027/core/WT008.js"/>
+    </definition>
+    
+    <!-- WT010:倉庫選択子画面 -->
+    <definition name="WT010" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WT010"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WT010.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WT010"/>
+        <put name="js_filepath" value="js/eca0027/core/WT010.js"/>
+    </definition>
+    
+    <!-- WT011:国選択子画面 -->
+    <definition name="WT011" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WT011"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WT011.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WT011"/>
+        <put name="js_filepath" value="js/eca0027/core/WT011.js"/>
+    </definition>
+    
+    <!-- WT014:送荷先選択子画面 -->
+    <definition name="WT014" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WT014"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WT014.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WT014"/>
+        <put name="js_filepath" value="js/eca0027/core/WT014.js"/>
+    </definition>
+    
+    <!-- WT015:売価登録なし品番表示子画面 -->
+    <definition name="WT015" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WT015"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WT015.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WT015"/>
+        <put name="js_filepath" value="js/eca0027/core/WT015.js"/>
+    </definition>
+    
+    <!-- WT016:HSCODE登録なし品番表示子画面 -->
+    <definition name="WT016" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WT016"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WT016.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WT016"/>
+        <put name="js_filepath" value="js/eca0027/core/WT016.js"/>
+    </definition>
+    
+    <!-- WT017:船積実績ワーニングリスト子画面 -->
+    <definition name="WT017" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="WT017"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WT017.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WT017"/>
+        <put name="js_filepath" value="js/eca0027/core/WT017.js"/>
+    </definition>
+    
+    <!--  WT018:コンテナNo表示子画面 --> 
+    <definition name="WT018" extends=".tiles.layout.popup">
+        <put name="message_area_height" value="50" />
+        <put name="screenId" value="WT018" />
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/WT018.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/WT018" />
+        <put name="js_filepath" value="js/eca0027/core/WT018.js" />
+    </definition>
+
+</tiles-definitions>

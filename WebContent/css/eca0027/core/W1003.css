@@ -1,0 +1,223 @@
+@charset "utf-8";
+/*
+ * W1003.css
+ * 
+ * 梱包指示Main画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+/* --- 検索条件部の表示枠 --------------------- */
+/* 左上 */
+.table_border_top_left {
+    border-top:1px solid #828282 !important;
+    border-left:1px solid #828282 !important;
+}
+
+/* 真ん中上 */
+.table_border_top {
+    border-top:1px solid #828282 !important;
+}
+
+/* 右上 */
+.table_border_top_right {
+    border-top:1px solid #828282 !important;
+    border-right:1px solid #828282 !important;
+}
+
+/* 左下 */
+.table_border_left {
+    border-left:1px solid #828282 !important;
+}
+
+/* 右下 */
+.table_border_right {
+    border-right:1px solid #828282 !important;
+}
+
+/* 左下 */
+.table_border_bottom_left {
+    border-bottom:1px solid #828282 !important;
+    border-left:1px solid #828282 !important;
+}
+
+/* 真ん中下 */
+.table_border_bottom {
+    border-bottom:1px solid #828282 !important;
+}
+
+/* 右下 */
+.table_border_bottom_right {
+    border-bottom:1px solid #828282 !important;
+    border-right:1px solid #828282 !important;
+}
+
+/*------------ Search condition area 1 ------------*/ 
+table.header_1 {
+    width: 600px;
+}
+.header_1 .search_request_no {
+    width: 100px;
+}
+.header_1 .search_shipper {
+    width: 100px;
+}
+.header_1 .search_consignee {
+    width: 100px;
+}
+.header_1 .search_ship_to {
+    width: 130px;
+}
+.header_1 .search_trans {
+    width: 70px;
+}
+.header_1 .search_weight_unit {
+    width: 100px;
+}
+/*------------ Search condition area 2 ------------*/ 
+table.header_qty {
+    width: 400px;
+}
+.header_qty .search_total_qty {
+    width: 180px;
+}
+.header_qty .search_unit {
+    width: 60px;
+}
+.header_qty .search_qty {
+    width: 50px;
+}
+.header_qty .search_blank {
+    width: 30px;
+}
+
+table.header_amount {
+    width: 580px;
+}
+.header_amount .search_total_amount {
+    width: 130px;
+}
+.header_amount .search_curr {
+    width: 60px;
+}
+.header_amount .search_amount {
+    width: 90px;
+}
+.header_amount .search_blank {
+    width: 20px;
+}
+/*------------ Result search ------------*/ 
+table.gscm_resultlist {
+    width: 980px;
+}
+.gscm_resultlist .resultlist_ck {
+    width: 35px;
+}
+.gscm_resultlist .resultlist_select {
+    width: 65px;
+}
+.gscm_resultlist .resultlist_kit {
+    width: 55px;
+}
+.gscm_resultlist .resultlist_customer_no {
+    width: 125px;
+}
+.gscm_resultlist .resultlist_item_no {
+    width: 120px;
+}
+.gscm_resultlist .resultlist_pkg_cd {
+    width: 35px;
+}
+.gscm_resultlist .resultlist_co {
+    width: 60px;
+}
+.gscm_resultlist .resultlist_qty_unit {
+    width: 50px;
+}
+.gscm_resultlist .resultlist_qty {
+    width: 35px;
+}
+.gscm_resultlist .resultlist_unit_price {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_nw {
+    width: 45px;
+}
+.gscm_resultlist .resultlist_totalnw {
+    width: 55px;
+}
+.gscm_resultlist .resultlist_comm {
+    width: 45px;
+}
+.gscm_resultlist .resultlist_re {
+    width: 45px;
+}
+.gscm_resultlist .resultlist_location {
+    width: 65px;
+}
+.gscm_resultlist .resultlist_constrution {
+    width: 80px;
+}
+
+/*------------ Result data------------*/ 
+.kit_par_flg{
+	width: 99%;
+}
+.customer_po_no{
+	width: 97%;
+}
+.description{
+	width: 99%;
+}
+.dngr_goods_imp_exp{
+	width: 98%;
+}
+.customer_item_no{
+	width: 97%;
+}
+.item_no{
+	width: 97%;
+}
+.pkg_cd{
+	width: 89%;
+}
+.origin_cntry_cd{
+	width: 99%;
+}
+.qty_unit{
+	width: 99%;
+}
+.qty{
+	text-align: right;
+	width: 90%;
+}
+.unit_price{
+	width: 58%;
+}
+.net_weight{
+	width: 88%;
+}
+.commercial_flg{
+	width: 99%;
+}
+.re_exp_goods_flg{
+	width: 99%;
+}
+.location_no{
+	width: 94%;
+}
+.construction_work_no{
+	width: 95%;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right !important;
+}
+
+#gscm_wrapper {
+    overflow-y: auto;
+}

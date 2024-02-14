@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ * SqlMap-W3TransferCarryOutList.xml
+ *
+ * W3TransferCarryOutList Sql-map
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ *
+ * @author DIAT Chonthicha.A
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.or g//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="W3TransferCarryOutList">
+    <!-- Domain -->
+    <typeAlias alias="W3TransferDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W3TransferDomain" />
+
+    <typeAlias alias="W3TransferCarryOutListCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W3TransferCarryOutListCriteriaDomain" />
+
+    <!-- Map Search Result -->
+    <resultMap id="W3TransferDomain_searchPrintCarryOutListByCml" class="W3TransferDomain">
+        <result property="compNm" column="COMP_NM" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="pltzItemNo" column="PLTZ_ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD"/>
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="expRequestNo" column="EXP_REQUEST_NO" />
+        <result property="cmlTyp" column="CML_TYP" />
+        <result property="expPackingDt" column="EXP_PACKING_DT" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+        <result property="carryOutCompCd" column="CUR_WH_COMP_CD" />
+        <result property="carryOutWhCd" column="CUR_WH_CD" />
+    </resultMap>
+
+    <resultMap id="W3TransferDomain_searchPrintCarryOutListByItemNo" class="W3TransferDomain">
+        <result property="selected" column="DISABLED_FLG" />
+        <result property="compNm" column="COMP_NM" />
+        <result property="carryOutCompCd" column="CUR_WH_COMP_CD" />
+        <result property="carryOutWhCd" column="CUR_WH_CD" />
+        <result property="plantCd" column="PLNT_CD" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="shipLot" column="SHIPPING_LOT" />
+        <result property="sumCarryOutQty" column="SUM_CARRY_OUT_QTY" />
+        <result property="sumQty" column="SUM_QTY" />
+        <result property="sumExpQty" column="SUM_EXP_QTY" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+    </resultMap>
+
+
+    <!-- =================================================================================================== -->
+    <!-- Carry out / Main Search                                                                             -->
+    <!-- =================================================================================================== -->
+
+    <!-- Column -->
+    <sql id="Cols_searchPrintCarryOutListByCml">
+        T1.CML_TYP ,
+        T1.MAIN_MARK ,
+        T1.CONTAINER_SORTING_KEY,
+        T1.EXP_PACKING_DT ,
+        T1.CUR_WH_COMP_CD,
+        T1.CUR_WH_CD,
+        T1.EXP_REQUEST_NO,
+        T1.TRNS_CD,
+        T1.PKG_FORM_TYP,
+        T1.SHIPPER_CD,
+        T1.PLTZ_ITEM_NO,
+        T1.PKG_CD,
+        T8.COMP_NM
+    </sql>
+    <sql id="Cols_SearchPrintCarryOutListByItemNo"> 
+        DISABLED_FLG
+        ,COMP_NM
+        ,CUR_WH_COMP_CD
+        ,CUR_WH_CD
+        ,PLNT_CD
+        ,ITEM_NO
+        ,PKG_CD
+        ,SHIPPING_LOT
+        ,SUM_CARRY_OUT_QTY
+        ,SUM_QTY
+        ,SUM_EXP_QTY
+        ,CUSTOMER_CD
+        ,SHIPPER_CD
+        ,LGCY_SHIP_TO
+    </sql>
+
+    <sql id="Cols_searchDetailForPrintCarryOutListByCml">
+         B.CML_TYP,
+         B.MAIN_MARK,
+         B.CONTAINER_SORTING_KEY,
+         B.EXP_PACKING_DT,
+         B.CUR_WH_COMP_CD,
+         B.CUR_WH_CD,
+         B.TRNS_CD,
+         B.PKG_FORM_TYP,
+         B.SHIPPER_CD,
+         B.PLTZ_STATUS
+    </sql>
+
+    <sql id="Cols_SearchPrintCarryOutListByItemNoSubquerySearch">
+        decode(T3.ITEM_NO, null, 'Y', 'on') as DISABLED_FLG
+        ,T1.ITEM_NO
+        ,T1.PKG_CD
+        ,T8.COMP_NM
+        ,T4.CUR_WH_COMP_CD
+        ,T4.CUR_WH_CD
+        ,T1.RCV_ODR_COMP_CD as SHIPPER_CD
+        ,max(T1.PLNT_CD) as PLNT_CD
+        ,T5.SHIPPING_LOT
+        ,nvl(T2.SUM_CARRY_OUT_QTY,0) as SUM_CARRY_OUT_QTY
+        ,nvl(T4.SUM_QTY,0) as SUM_QTY
+        ,case when T6.SUM_EXP_QTY is null
+            then 0
+            else T6.SUM_EXP_QTY
+         end as SUM_EXP_QTY
+        ,T1.CUSTOMER_CD
+        ,T1.LGCY_SHIP_TO
+    </sql>
+
+
+    <!-- Where Main Search -->
+    <sql id="Where_searchPrintCarryOutListByCml">
+       <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="mainMark">
+                T1.MAIN_MARK Like CONCAT(#mainMark#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shipperCd">
+                T1.SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="carryOutCompCd">
+                T1.CUR_WH_COMP_CD = #carryOutCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="carryOutWhCd">
+                T1.CUR_WH_CD = #carryOutWhCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="cmlTyp">
+                T1.CML_TYP = #cmlTyp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="fmCmlIssueDate">
+                T1.EXP_PACKING_DT <![CDATA[>=]]> #fmCmlIssueDate#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="toCmlIssueDate">
+                T1.EXP_PACKING_DT <![CDATA[<=]]> #toCmlIssueDate#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="expRequestNo">
+                T3.EXP_REQUEST_NO Like CONCAT(#expRequestNo#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="loginUserDscId">
+                T2.DSC_ID = #loginUserDscId#
+            </isNotEmpty>
+                and T1.PLTZ_STATUS = '10'
+                <!-- server id check Start -->
+                and T1.SHIPPER_CD
+                    in (
+                        select COMP_CD
+                        from TM_NXS_COMP
+                        where SERVER_ID = #serverId#
+                    )
+                <!-- server id check End -->
+            <!-- userAuthList check Start -->
+            <isNotEmpty property="userAuthList" prepend="and">
+                exists (
+                    select 'x'
+                    from
+                        TT_PLTZ_ITEM A1
+                    where 
+                            T1.MAIN_MARK = A1.MAIN_MARK
+                        and A1.PLNT_CD is not NULL
+                    having
+                        min(
+                            case
+                                <iterate property="userAuthList">
+                                    when T1.SHIPPER_CD = #userAuthList[].authMgtComp# and A1.PLNT_CD = #userAuthList[].procMfgDivCd#
+                                        then #userAuthList[].authority#
+                                </iterate>
+                                else '0'
+                            end
+                        ) <![CDATA[ >= ]]> '1'
+                )
+            </isNotEmpty>
+            <!-- userAuthList check End -->
+        </dynamic>
+    </sql>
+
+    <sql id="Where_SearchPrintCarryOutListByItemNo">
+       <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="shipperCd">
+                T1.RCV_ODR_COMP_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNo">
+                T1.ITEM_NO like CONCAT(#itemNo#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCd">
+                T1.PKG_CD = #pkgCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="loginUserDscId">
+                T3.DSC_ID = #loginUserDscId#
+            </isNotEmpty>
+                and T5.APLY_STRT_DT <![CDATA[<]]> sysdate
+            <!-- server id check Start -->
+                and T1.RCV_ODR_COMP_CD
+                    in (
+                        select COMP_CD
+                        from TM_NXS_COMP
+                        where SERVER_ID = #serverId#
+                    )
+            <!-- server id check End -->
+            <!-- userAuthList check Start -->
+            <isNotEmpty property="userAuthList" prepend="and">
+                exists (
+                    select 'x'
+                    from
+                        TT_EXP_RCV_ODR A1
+                    where 
+                        T1.RCV_ODR_COMP_CD = A1.RCV_ODR_COMP_CD
+                        and T1.CUSTOMER_CD = A1.CUSTOMER_CD
+                        and T1.LGCY_SHIP_TO = A1.LGCY_SHIP_TO
+                        and T1.ITEM_NO = A1.ITEM_NO
+                        and T1.PKG_CD = A1.PKG_CD
+                        and T1.TRNS_CD = A1.TRNS_CD
+                        and T1.ETD_DUE_DT = A1.ETD_DUE_DT
+                        and T1.CUSTOMER_PO_NO = A1.CUSTOMER_PO_NO
+                        and T1.CUSTOMER_ITEM_NO = A1.CUSTOMER_ITEM_NO
+                        and T1.CUSTOMER_ITEM_NO_ORG = A1.CUSTOMER_ITEM_NO_ORG
+                        and T1.ODR_CTRL_NO = A1.ODR_CTRL_NO
+                        and A1.PLNT_CD is not NULL
+                    having
+                        min(
+                            case
+                                <iterate property="userAuthList">
+                                    when T1.RCV_ODR_COMP_CD = #userAuthList[].authMgtComp# and A1.PLNT_CD = #userAuthList[].procMfgDivCd#
+                                        then #userAuthList[].authority#
+                                </iterate>
+                                else '0'
+                            end
+                        ) <![CDATA[ >= ]]> '1'
+                )
+            </isNotEmpty>
+            <!-- userAuthList check End -->
+            <!-- S:Chaiporn IN256 20160224 -->
+                     and T1.CUSTOMER_CD = (select MAX(TBL1.customer_cd)
+                                from TT_EXP_RCV_ODR TBL1
+                                where TBL1.item_no = T1.ITEM_NO
+                                        and T1.PKG_CD = ' '
+                                        <!-- S: Chaiporn UT459 20160706 -->
+                                        <isNotEmpty prepend="and" property="shipperCd">
+                                        TBL1.RCV_ODR_COMP_CD = #shipperCd#
+                                        </isNotEmpty>
+                                        <!-- E: Chaiporn UT459 20160706 -->
+                                        )
+                     and T1.lgcy_ship_to = (select MAX(TBL2.lgcy_ship_to)
+                                  from TT_EXP_RCV_ODR TBL2   
+                                 where TBL2.item_no = T1.ITEM_NO
+                                  and T1.PKG_CD = ' '
+                                  <!-- S: Chaiporn IN256 20160419 -->
+                                  and TBL2.CUSTOMER_CD = (select MAX(TBL1.customer_cd)
+                                                          from TT_EXP_RCV_ODR TBL1
+                                                          where TBL1.item_no = T1.ITEM_NO
+                                                          and T1.PKG_CD = ' '
+                                                          <!-- S: Chaiporn UT459 20160706 -->
+                                                          <isNotEmpty prepend="and" property="shipperCd">
+                                                          TBL1.RCV_ODR_COMP_CD = #shipperCd#
+                                                          </isNotEmpty>
+                                                          <!-- E: Chaiporn UT459 20160706 -->
+                                                          )
+                                  <!-- E: Chaiporn IN256 20160419 -->
+                                  )             
+            <!-- E:Chaiporn IN256 20160224 -->
+        </dynamic>
+    </sql>
+
+    <!-- Sort key -->
+    <sql id="SortKeys_searchPrintCarryOutListByCml">
+        order by 
+         T1.TRNS_CD desc ,
+         T1.MAIN_MARK asc
+    </sql>
+
+    <sql id="SortKeys_SearchPrintCarryOutListByItemNo">
+        order by 
+         ITEM_NO asc
+    </sql>
+
+
+    <!-- SQL Logic -->
+    <!-- Search Count-->
+    <select id="SearchCountCarryOutListByCml" resultClass="java.lang.Integer"
+        parameterClass="W3TransferCarryOutListCriteriaDomain">
+        select /* SqlMap-W3TransferCarryOutList.SearchCountCarryOutListByCml */
+               count(rownum)
+        from   TT_PLTZ T1
+        Left Join 
+               TW_CARRY_OUT_LIST_PLTZ T2 on T1.MAIN_MARK = T2.MAIN_MARK
+        Inner Join (
+                    select
+                        T7.MAIN_MARK ,
+                        MAX(T7.EXP_REQUEST_NO) AS EXP_REQUEST_NO
+                    from
+                        TT_PLTZ_ITEM T7
+                    group by
+                        T7.MAIN_MARK
+                  ) T3 on T1.MAIN_MARK = T3.MAIN_MARK
+        Left Join (
+                    select
+                        T5.MAIN_MARK
+                    from
+                        TT_TRANSFER_ITEM_PLTZ T5
+                    Inner Join
+                        TT_TRANSFER T6 on T5.TR_NO = T6.TR_NO
+                    group by
+                        T5.MAIN_MARK
+                  ) T4 on T1.MAIN_MARK = T4.MAIN_MARK
+        <include refid="Where_searchPrintCarryOutListByCml" />
+    </select>
+
+    <!-- Search List by CML -->
+    <select id="SearchPrintCarryOutListByCml" resultMap="W3TransferDomain_searchPrintCarryOutListByCml"
+        parameterClass="W3TransferCarryOutListCriteriaDomain">
+        select /* SqlMap-W3TransferCarryOutList.SearchPrintCarryOutListByCml */
+            <include refid="Cols_searchPrintCarryOutListByCml" />
+        from (
+        select
+            <include refid="Cols_searchDetailForPrintCarryOutListByCml" />
+            , MAX(B.EXP_REQUEST_NO) AS EXP_REQUEST_NO
+            , MAX(B.PLTZ_ITEM_NO) AS PLTZ_ITEM_NO
+            , MAX(B.PKG_CD) AS PKG_CD
+        from (
+            select
+                <include refid="Cols_searchDetailForPrintCarryOutListByCml" />
+                , case 
+                      when B.CML_TYP IN ('1', '3') and A.ITEM_TYP is null
+                          then A.PLTZ_ITEM_NO
+                      when B.CML_TYP = '2'
+                          then B.RETURN_STYLE_CD
+                      else ' '
+                  end as PLTZ_ITEM_NO
+                , case
+                      when B.PKG_FORM_TYP = 'S' and A.ITEM_TYP is null
+                          then A.PKG_CD
+                      else ' '
+                  end as PKG_CD
+                , case
+                      when A.EXP_REQUEST_NO is null
+                          then ' '
+                      else A.EXP_REQUEST_NO
+                  end as EXP_REQUEST_NO
+            from TT_PLTZ_ITEM A
+                inner join TT_PLTZ B on A.MAIN_MARK = B.MAIN_MARK
+            where B.XMAIN_MARK is null) B
+            group by <include refid="Cols_searchDetailForPrintCarryOutListByCml" />
+            ) T1
+        Left Join 
+               TW_CARRY_OUT_LIST_PLTZ T2 on T1.MAIN_MARK = T2.MAIN_MARK
+        Left Join (
+                    select
+                        T5.MAIN_MARK
+                    from
+                        TT_TRANSFER_ITEM_PLTZ T5
+                    Inner Join
+                        TT_TRANSFER T6 on T5.TR_NO = T6.TR_NO
+                    group by
+                        T5.MAIN_MARK
+                  ) T4 on T1.MAIN_MARK = T4.MAIN_MARK
+        Left Join 
+               TM_NXS_COMP T8 on T1.SHIPPER_CD = T8.COMP_CD
+        <include refid="Where_searchPrintCarryOutListByCml" />
+        <include refid="SortKeys_searchPrintCarryOutListByCml" />
+    </select>
+
+    <!-- Search List by Item No. -->
+    <select id="SearchPrintCarryOutListByItemNo" resultMap="W3TransferDomain_searchPrintCarryOutListByItemNo"
+        parameterClass="W3TransferCarryOutListCriteriaDomain">
+          select /* SqlMap-W3TransferCarryOutList.SearchPrintCarryOutListByItemNo */
+              <include refid="Cols_SearchPrintCarryOutListByItemNo" />
+          from (
+                select
+                    distinct
+                    <include refid="Cols_SearchPrintCarryOutListByItemNoSubquerySearch" />
+                from  TT_EXP_RCV_ODR T1
+                       left join (select  T1.ITEM_NO
+                                         ,T1.PKG_CD
+                                         ,sum(T1.CARRY_OUT_QTY) as SUM_CARRY_OUT_QTY
+                                         ,T2.CARRY_OUT_COMP_CD
+                                         ,T2.CARRY_OUT_WH_CD
+                                         ,T2.SHIPPER_CD
+                                         ,T2.TR_STATUS
+                                         ,T2.TR_ITEM_TYP
+                                  from TT_TRANSFER_ITEM_ITEM_NO T1
+                                        inner join TT_TRANSFER T2
+                                         on T1.TR_NO = T2.TR_NO
+                                         where T2.TR_STATUS = '20'
+                                         and T2.TR_ITEM_TYP = '2'
+                                         <dynamic>
+                                            <isNotEmpty prepend="and" property="carryOutCompCd">
+                                                T2.CARRY_OUT_COMP_CD = #carryOutCompCd#
+                                            </isNotEmpty>
+                                            <isNotEmpty prepend="and" property="carryOutWhCd">
+                                                T2.CARRY_OUT_WH_CD = #carryOutWhCd#
+                                            </isNotEmpty>
+                                            <isNotEmpty prepend="and" property="shipperCd">
+                                                T2.SHIPPER_CD = #shipperCd#
+                                            </isNotEmpty>
+                                          </dynamic>
+                                  group by T1.ITEM_NO, T1.PKG_CD, T2.CARRY_OUT_COMP_CD, T2.CARRY_OUT_WH_CD, T2.SHIPPER_CD, T2.TR_STATUS, T2.TR_ITEM_TYP
+                                  ) T2
+                        on T1.ITEM_NO = T2.ITEM_NO
+                         and T1.PKG_CD = T2.PKG_CD
+                       left join TW_CARRY_OUT_LIST_ITEM_NO T3
+                        on T1.ITEM_NO = T3.ITEM_NO
+                         and T1.PKG_CD = T3.PKG_CD
+                         and T1.CUSTOMER_CD = T3.CUSTOMER_CD
+                         and T1.LGCY_SHIP_TO = T3.LGCY_SHIP_TO
+                         and T3.DSC_ID = #loginUserDscId#
+                            left join (select  T1.PLTZ_ITEM_NO
+                                          ,T1.PKG_CD
+                                          ,sum(QTY) as SUM_QTY
+                                          ,T2.CUR_WH_COMP_CD
+                                          ,T2.CUR_WH_CD
+                                          ,T2.PLTZ_STATUS
+                                          <!-- S:Chaiporn IN256 -->
+                                          <!-- T2.LAST_TR_STATUS, -->
+                                          <!-- E:Chaiporn IN256 -->
+                                          ,T2.SHIPPER_CD
+                                   from TT_PLTZ_ITEM T1
+                                         inner join TT_PLTZ T2 
+                                          on T1.MAIN_MARK = T2.MAIN_MARK
+                                        where T2.PLTZ_STATUS = '10'
+                                        <!-- S:Chaiporn IN256 -->
+                                        <!-- and T2.LAST_TR_STATUS = '20'  -->
+                                        and T2.LAST_TR_STATUS <![CDATA[<=]]> '20'
+                                        <!-- E:Chaiporn IN256 --> 
+                                         <dynamic>
+                                            <isNotEmpty prepend="and" property="carryInCompCd">
+                                                T2.CUR_WH_COMP_CD = #carryOutCompCd#
+                                            </isNotEmpty>
+                                            <isNotEmpty prepend="and" property="carryInWhCd">
+                                                T2.CUR_WH_CD = #carryOutWhCd#
+                                            </isNotEmpty>
+                                          </dynamic>
+                                   group by T1.PLTZ_ITEM_NO, T1.PKG_CD, T2.CUR_WH_COMP_CD, T2.CUR_WH_CD
+                                   , T2.PLTZ_STATUS
+                                   <!-- S:Chaiporn IN256 -->
+                                   <!-- , T2.LAST_TR_STATUS -->
+                                   <!-- E:Chaiporn IN256 -->
+                                   , T2.SHIPPER_CD) T4
+                        on T1.ITEM_NO = T4.PLTZ_ITEM_NO
+                         and T1.PKG_CD = T4.PKG_CD
+                       inner join TM_EXP_ITEM_NO_SP_INFO T5
+                        on T1.RCV_ODR_COMP_CD = T5.COMP_CD
+                         and T1.CUSTOMER_CD = T5.CUSTOMER_CD
+                         and T1.LGCY_SHIP_TO = T5.LGCY_SHIP_TO
+                         and T1.ITEM_NO = T5.ITEM_NO
+                         and T1.PKG_CD = T5.PKG_CD
+                         <!-- 1 Dec 15 Thalerngsak add for criteria APLY_STRT_DT : Start-->
+                         and T5.APLY_STRT_DT = (SELECT MAX(TSP.APLY_STRT_DT) 
+                                    FROM TM_EXP_ITEM_NO_SP_INFO TSP 
+                                    WHERE TSP.ITEM_NO = T1.ITEM_NO
+                                    <!--S: Chaiporn IN256 20160224-->
+                                    and TSP.CUSTOMER_CD = T1.CUSTOMER_CD
+                                    and TSP.LGCY_SHIP_TO = T1.LGCY_SHIP_TO
+                                    <!--E: Chaiporn IN256 20160224-->
+                                    )
+                        <!-- 1 Dec 15 Thalerngsak add for criteria APLY_STRT_DT : End-->
+                       left join (select  T1.ITEM_NO
+                                         ,T1.PKG_CD
+                                         ,sum(T1.ODR_QTY - T1.SHIPPED_QTY) as SUM_EXP_QTY
+                                  from TT_EXP_RCV_ODR T1
+                                  <!-- 2015/12/25 Chaiporn IN256 start -->
+                                  <!--  where T1.SHIPPED_TYP = '1'-->
+                                        where T1.SHIPPED_TYP in ('1', '2')
+                                        and T1.ODR_FIRM_FLG = 'Y'
+                                  <!-- 2015/12/25 Chaiporn IN256 end -->
+                                  group by T1.ITEM_NO, T1.PKG_CD) T6
+                           on T1.ITEM_NO = T6.ITEM_NO
+                               and T1.PKG_CD = T6.PKG_CD
+                       inner join (select T1.plnt_cd
+                               from TM_CIGMA_WH_XREF T1
+                               where T1.comp_cd = #carryInCompCd# and T1.wh_cd = #carryInWhCd#
+                               intersect
+                                   select T2.plnt_cd
+                                       from TM_CIGMA_WH_XREF T2
+                                       where T2.comp_cd = #carryOutCompCd# and T2.wh_cd = #carryOutWhCd#) T7
+                           on T7.plnt_cd = T1.PLNT_CD
+                       left join 
+                           TM_NXS_COMP T8 
+                           on T1.RCV_ODR_COMP_CD = T8.COMP_CD
+                <include refid="Where_SearchPrintCarryOutListByItemNo" />
+                group by decode(T3.ITEM_NO, null, 'Y', 'on'), T1.ITEM_NO, T1.PKG_CD, T5.SHIPPING_LOT, T2.SUM_CARRY_OUT_QTY, T1.RCV_ODR_COMP_CD,
+                         T4.SUM_QTY, T6.SUM_EXP_QTY, T1.CUSTOMER_CD, T1.LGCY_SHIP_TO, T8.COMP_NM, T4.CUR_WH_COMP_CD, T4.CUR_WH_CD
+                )
+        <include refid="SortKeys_SearchPrintCarryOutListByItemNo" />
+    </select>
+</sqlMap>

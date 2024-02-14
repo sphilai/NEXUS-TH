@@ -1,0 +1,102 @@
+@CHARSET "utf-8";
+/*
+ * W9002.css
+ * 
+ * Export Ship to Shipping MA edit画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+table.grid {
+    width: 860px;
+}
+
+.grid .grid_title {
+    width:150px;
+}
+
+.grid .grid_primary_key {
+    width:35px;
+}
+
+.grid .grid_data {
+    width:670px;
+}
+
+.w9008_cml_typ {
+    width:30px;
+}
+.w9008_invoice_ctgry {
+    width:30px;
+}
+.w9008_invoice_ctgry {
+    width:60px;
+}
+.w9008_invoice_class_nm {
+    width: 55px;
+}
+
+.w9008_ship_to_comp_cd {
+    width: 80px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.w9008_aply_strt_dt {
+    width: 90px;
+}
+
+.w9008_nowrap {
+    white-space: nowrap;
+}
+
+/*------------ Invoice Template一覧エリア ------------*/ 
+table.w9008_gscm_resultlist {
+    width:650px;
+}
+
+table.w9008_gscm_resultlist .gscm_resultlist_cml_type {
+    width:70px;
+}
+
+table.w9008_gscm_resultlist .gscm_resultlist_inv_category {
+    width:70px;
+}
+
+table.w9008_gscm_resultlist .gscm_resultlist_invoice_class {
+    width:70px;
+}
+
+table.w9008_gscm_resultlist .gscm_resultlist_inv_template {
+    width:100px;
+}
+
+table.w9008_gscm_resultlist .gscm_resultlist_free1 {
+    width:85px;
+}
+
+table.w9008_gscm_resultlist .gscm_resultlist_free2 {
+    width:85px;
+}
+
+table.w9008_gscm_resultlist .gscm_resultlist_free3 {
+    width:85px;
+}
+
+table.w9008_gscm_resultlist .gscm_resultlist_hs_code {
+    width:85px;
+}
+
+table.w9008_gscm_resultlist .w9008_doc_no {
+    width:60px;
+}
+
+.w9008_head th {
+    padding: 0px !important;
+}
+
+.w9008_top {
+    vertical-align: top;
+}
+.left {
+    text-align: left;
+}

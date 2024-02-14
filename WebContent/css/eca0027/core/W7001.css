@@ -1,0 +1,190 @@
+@CHARSET "utf-8";
+/*
+ * W7001.css
+ * 
+ * 船積み実績Main画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+/*------------ 検索条件エリア ------------*/ 
+/* search condition 1 */
+.gscm_search .search_fm_register_dt {
+    width:116px;
+}
+
+.gscm_search .search_to_register_dt {
+    width:116px;
+}
+
+.gscm_search .search_shipper_cd {
+    width:80px;
+}
+
+.gscm_search .search_consignee_cd {
+    width:80px;
+}
+
+.gscm_search .search_ship_to_comp_cd {
+    width:90px;
+}
+
+.gscm_search .search_trns_cd {
+    width:120px;
+}
+
+.gscm_search .search_container_loose_typ {
+    width:60px;
+}
+
+.gscm_search .search_carrier_comp_cd {
+    width:140px;
+}
+
+.gscm_search .search_vessel {
+    width:100px;
+}
+
+/* search condition 2*/
+.gscm_search .search_freight_responsible_cd {
+    width:105px;
+}
+
+.gscm_search .search_billd_no {
+    width:153px;
+}
+
+.gscm_search .search_shipping_act_status {
+    width:105px;
+}
+
+.gscm_search .search_bl_update {
+    width:59px;
+}
+
+.gscm_search .search_need_other_doc_flg {
+    width:85px;
+}
+
+.gscm_search .search_fm_atd {
+    width:110px;
+}
+
+.gscm_search .search_to_atd {
+    width:110px;
+}
+
+.gscm_search .search_invoice_no {
+    width:182px;
+}
+
+.gscm_search .search_container_no {
+    width:657px;
+}
+
+.gscm_search .w7001_trns_cd {
+    width:100px;
+}
+
+.gscm_search .w7001_freight_responsible_cd {
+    width:90px;
+}
+.gscm_search .shipper_cd, .gscm_search .consignee_cd, .gscm_search .ship_to_comp_cd {
+    width: 56px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+.gscm_search .w7001_carrier_comp_cd {
+    width: 40px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+.gscm_search .vessel, .gscm_search .billd_no {
+    width:180px;
+}
+.gscm_search .invoice_no {
+    width:180px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gscm_search .search_clp_group {
+    width: 85px;
+}
+
+/*------------ 検索結果エリア ------------*/
+table.gscm_resultlist {
+    width:960px;
+}
+
+table.gscm_resultlist tr {
+    height: 21px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 29px;
+}
+
+.gscm_resultlist .resultlist_register_dt {
+    width: 67px;
+}
+
+.gscm_resultlist .resultlist_shipper_cd {
+    width: 74px;
+}
+.gscm_resultlist .resultlist_ship_to_comp_cd {
+    width: 57px;
+}
+
+.gscm_resultlist .resultlist_trns_cd {
+    width: 48px;
+}
+
+.gscm_resultlist .resultlist_container_loose_typ {
+    width: 29px;
+}
+
+.gscm_resultlist .resultlist_carrier_comp_cd {
+    width: 55px;
+}
+
+.gscm_resultlist .resultlist_vessel {
+    width: 155px;
+}
+
+.gscm_resultlist .resultlist_freight_responsible_cd {
+    width: 29px;
+}
+
+.gscm_resultlist .resultlist_billd_no {
+    width: 163px;
+}
+
+.gscm_resultlist .resultlist_shipping_act_status {
+    width: 48px;
+}
+
+.gscm_resultlist .resultlist_billd_file_id {
+    width: 55px;
+}
+
+.gscm_resultlist .resultlist_clp_group {
+    width: 75px;
+}
+
+.gscm_resultlist .resultlist_atd {
+    width: 67px;
+}
+
+.gscm_resultlist .resultlist_no_of_container {
+    width: 37px;
+}
+
+.gscm_resultlist .resultlist_no_of_invoice {
+    width: 37px;
+}
+
+.gscm_resultlist .resultlist_need_other_doc {
+    width: 39px;
+}
+
+.gscm_resultlist .vessel, .gscm_resultlist .billd_no {
+    width: 158px;
+}

@@ -1,0 +1,102 @@
+@CHARSET "utf-8";
+/*
+ * W9002.css
+ * 
+ * Export Ship to Shipping MA inquiry画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+/*------------ 検索条件エリア ------------*/ 
+.gscm_search .search_shipper_cd {
+    width: 100px;
+}
+
+.gscm_search .search_ship_to {
+    width: 120px;
+}
+
+.gscm_search .search_container_sorting_key {
+    width: 140px;
+}
+
+.gscm_search .search_loading_cd {
+    width: 65px;
+}
+
+.gscm_search .search_container_loose_typ {
+    width: 60px;
+}
+
+.gscm_resultlist_button .button_btn_add {
+    width:490px;
+}
+
+.gscm_resultlist_button .btn_search {
+    width:490px;
+}
+
+.w9007_comp_cd {
+    width: 65px;
+}
+
+.w9007_ship_to_cd {
+    width: 95px;
+}
+
+.w9007_ship_to_comp_cd {
+    width: 95px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.w9007_container_sorting_key {
+    width: 115px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+/*------------ 検索結果エリア ------------*/ 
+table.gscm_resultlist {
+    width: 805px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 35px;
+}
+
+.gscm_resultlist .resultlist_shipper {
+    width: 70px;
+}
+
+.gscm_resultlist .resultlist_ship_to {
+    width: 112px;
+}
+
+.gscm_resultlist .resultlist_aply_strt_dt {
+    width: 119px;
+}
+
+.gscm_resultlist .resultlist_cont_sort_key {
+    width: 112px;
+}
+
+.gscm_resultlist .resultlist_loading_cd {
+    width: 70px;
+}
+
+.gscm_resultlist .resultlist_label_print_num {
+    width: 126px;
+}
+
+.gscm_resultlist .resultlist_container_loose_typ {
+    width: 56px;
+}
+
+/* NL023 ADD */
+.gscm_resultlist .resultlist_packing_summary_atch_flg {
+    width: 105px;
+}
+
+/* NL047 ADD */
+.gscm_resultist .resultlist_single_pltz_qr_flg {
+	width: 110px;
+}

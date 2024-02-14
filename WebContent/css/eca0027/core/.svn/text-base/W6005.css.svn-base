@@ -1,0 +1,40 @@
+@CHARSET "utf-8";
+/*
+ * W6005.css
+ * 
+ * Documentaition [Shipping Information Input]画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+ /*------------ 入力不可エリア ------------*/ 
+.gscm_search .search_stg_com { 
+    width: 88px; 
+}
+
+.gscm_search .search_stg_wh{ 
+    width: 88px; 
+}
+
+.gscm_search .search_trns_cd{ 
+    width: 60px; 
+}
+
+.gscm_search .search_container_loose_typ{ 
+    width: 49px; 
+}
+
+.gscm_search .search_custom_timing_typ { 
+    width: 100px; 
+}
+
+
+ /*------------ 入力エリア２ ------------*/ 
+.grid .search_label {
+    width: 200px; 
+}
+
+.grid .search_carrier_comp_cd { 
+    width: 260px; 
+}
+

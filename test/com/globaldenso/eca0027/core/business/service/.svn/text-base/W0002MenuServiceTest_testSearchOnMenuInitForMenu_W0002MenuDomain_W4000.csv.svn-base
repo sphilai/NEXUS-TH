@@ -1,0 +1,3 @@
+"ID","SCREEN_ID","SCREEN_NM","PAR_SCREEN_ID","ACTION_PATH","PERMITTED"
+401,"W4001","Staging Instruction","W4000","/W4001Init.do","true"
+405,"W4005","Staging Actuality","W4000","/W4005Init.do","true"

@@ -1,0 +1,98 @@
+@charset "utf-8";
+/*
+ * W4008.css
+ *
+ * Style sheet used in staging actuality register screen.
+ * 山作り実績Register画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ Search condition area ------------*/ 
+/*------------ 検索条件エリア ------------*/ 
+
+.gscm_search .search_wh_comp_cd {
+    width: 90px;
+}
+.gscm_search .search_wh_cd {
+    width: 100px;
+}
+.gscm_search .search_trns_cd {
+    width: 60px;
+}
+.gscm_search .search_container_sorting_key {
+    width: 110px; /* UT446 MOD */
+}
+.gscm_search .search_trns_typ_cd {
+    width: 90px;
+}
+.gscm_search .search_pkg_qty {
+    width: 75px; /* UT446 MOD */
+}
+.gscm_search .search_total_gross_weight {
+    width: 140px; /* UT446 MOD */
+}
+.gscm_search .search_total_volume {
+    width: 180px; /* UT446 MOD */
+}
+.gscm_search .search_loading_ratio {
+}
+
+.gscm_search .search_etd {
+    width: 135px;
+}
+.gscm_search .search_carrier_comp_cd {
+    width: 145px;
+}
+.gscm_search .search_stg_act_dt {
+    width: 110px;
+}
+.gscm_search .search_stg_act_issuer_nm {
+    width: 220px;
+}
+.gscm_search .search_stg_act_no {
+}
+
+.gscm_search .stg_act_issuer_nm {
+    width: 205px;
+}
+
+/*------------ Search result area ------------*/ 
+/*------------ 検索結果エリア ------------*/ 
+
+table.gscm_resultlist {
+    width: 960px;
+}
+
+.gscm_resultlist .resultlist_delete {
+    width: 48px;
+}
+.gscm_resultlist .resultlist_shipper_cd {
+    width: 67px;
+}
+.gscm_resultlist .resultlist_nexus_ship_to_cd {
+    width: 77px;
+}
+.gscm_resultlist .resultlist_stg_instr_no {
+    width: 133px;
+}
+.gscm_resultlist .resultlist_main_mark_or_xmain_mark {
+    width: 170px;
+}
+.gscm_resultlist .resultlist_loading_cd {
+    width: 30px;
+}
+.gscm_resultlist .resultlist_etd {
+    width: 67px;
+}
+.gscm_resultlist .resultlist_carrier_comp_cd {
+    width: 55px;
+}
+.gscm_resultlist .resultlist_gross_weight {
+    width: 100px;
+}
+.gscm_resultlist .resultlist_volume {
+    width: 140px;
+}
+.gscm_resultlist .resultlist_last_tr_rcv_dt {
+}

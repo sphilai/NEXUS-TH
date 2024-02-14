@@ -1,0 +1,150 @@
+@CHARSET "utf-8";
+/*
+ * W1002.css
+ * 
+ * Export Invoice Template MA Edit画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+table.grid {
+    width: 900px;
+}
+
+table.gridInner {
+    width:600px;
+}
+
+.grid .grid_title {
+    width:200px;
+}
+
+.grid .grid_title2 {
+    width:150px;
+}
+
+.grid .grid_titleInner {
+    width:150px;
+}
+
+.grid .grid_data1Inner {
+    width:100px;
+}
+
+.grid .grid_data1 {
+    width:700px;
+}
+
+.grid .grid_data2 {
+    width:200px;
+}
+
+.grid .grid_data3 {
+    width:350px;
+}
+
+.grid .grid_data4 {
+    width:150px;
+}
+
+
+table.button {
+    width:800px;
+}
+
+.shipper_name{
+	width:200px;
+}
+
+.department{
+	width:260px;
+}
+
+.cigma_customer{
+	width:80px;
+}
+
+.company_name{
+	width:400px;
+}
+
+.cntry_cd{
+	width:50px;
+}
+
+.nexus_ship_to_cd{
+	width:50px;
+}
+
+.company_name_nexus{
+	width:400px;
+}
+.tel_nexus{
+	width:260px;
+}
+.attn_depart{
+	width:260px;
+}
+
+.attn_name{
+	width:400px;
+}
+
+.payment_terms{
+	width:260px;
+}
+
+.contain_sort_cd{
+	width:80px;
+}
+	
+.requested_ship_dt{
+	width:90px;
+}
+
+.add_not_to_cask_mark{
+	width:400px;
+}
+
+.packing_comp_cd{
+	width:200px;
+}
+
+.category_cd{
+	width:70px;
+}
+
+.budget_no{
+	width:50px;
+}
+.job_no{
+	width:50px;
+}
+.percentage_cat{
+	width:40px;
+}
+.price_terms{
+	width:150px;
+}
+.other_price{
+	width:90px;
+}
+.trade_terms{
+	width:150px;
+}
+#gscm_wrapper {
+    overflow-y: auto;
+}
+
+}
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right !important;
+}
+
+.gscm_search_button .gscm_search_register{
+	width:770px;
+}

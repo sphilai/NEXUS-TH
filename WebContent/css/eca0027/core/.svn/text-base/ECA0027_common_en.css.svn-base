@@ -1,0 +1,1590 @@
+﻿﻿﻿@charset "utf-8";
+/*
+ * ECA0027_common_en.css
+ * 
+ * NEXUSの共通で用いるスタイルシートです。
+ * GSCMスタイルの変更およびNEXUSスタイルの追加を行います。
+ * 先にGSCM共通スタイルシートをlinkしていることが前提です。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*============================================================
+ * GSCMスタイル変更
+ *============================================================*/
+
+/*========================= フレーム =========================*/
+/*========================= Frame =========================*/
+#nexus_wrapper_popup {
+    position: absolute;
+    top: 72px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/*========================= ナビゲーション部 =========================*/
+div.gscm_top_left {
+    width: 700px;
+}
+#gscm_header span {
+    margin-right: 20px;
+}
+
+#gscm_wrapper {
+    overflow-y: hidden;
+}
+
+/*========================= 検索条件 =========================*/
+table.gscm_search {
+    width:980px;
+}
+
+table.gscm_search th {
+    padding-bottom: 0px;
+    vertical-align: bottom;
+}
+table.gscm_search td {
+    padding-top: 0px;
+}
+
+table.gscm_search_button {
+    width:980px;
+}
+/*========================= 一覧 =========================*/
+
+table.gscm_resultlist_button {
+    width:980px;
+}
+
+table.gscm_resultlist tr {
+    height: 36px;
+}
+table.gscm_resultlist th {
+    font-weight: bold;
+}
+table.gscm_resultlist td {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+table[id^="tablefix"] {
+    filter: alpha(opacity=0);
+}
+
+/*============================================================
+ * NEXUSスタイル追加
+ *============================================================*/
+/*========================= ヘッダ部 =========================*/
+div.gscm_top_left {
+    width: 839px;
+}
+
+table.header_left {
+    width: 839px;
+}
+
+table.header_left td {
+    vertical-align: middle;
+}
+
+div.gscm_top_right {
+    width: 185px;
+    position: absolute;
+    left: 839px;
+}
+
+.gscm_top_right table {
+    padding-left: 0px;
+}
+
+table.header_right {
+    width: 185px;
+}
+
+.header_disptext {
+    border: none;
+    background-color: transparent;
+    padding: 1px;
+    font-style: normal;
+    color: #15428b;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline;
+    vertical-align: middle;
+}
+
+.header_system {
+    width: 140px;
+}
+
+.header_server {
+    width: 135px;
+}
+
+.header_time_zone {
+    width: 170px;
+}
+
+.header_user_name {
+    width: 394px;
+}
+
+.server {
+    width: 75px;
+    vertical-align: 0.5px;
+}
+
+.time_zone {
+    width: 80px;
+    vertical-align: 0.5px;
+}
+
+.user_name {
+    width: 307px;
+    vertical-align: 0.5px;
+}
+
+.time_zone2 {
+    width: 80px;
+}
+
+.header_personal_setup {
+    width: 120px;
+}
+
+.header_menu {
+    width: 60px;
+}
+
+.header_info {
+    width: 50px;
+}
+
+/*========================= 汎用セレクタ =========================*/
+/* 右寄せ */
+.right {
+    text-align: right !important;
+}
+/* 中央寄せ */
+.center {
+    text-align: center !important;
+}
+/* 警告色 */
+.warn {
+    background-color: #FFC080 !important;
+}
+/* 非表示 */
+.disp_none{
+    display: none;
+}
+
+/* 等幅フォント */
+.monospace {
+    font-family: "Courier New", monospace;
+}
+/*========================= レイアウト用ブロック =========================*/
+div.block {
+    margin: 0px;
+    padding: 0px;
+}
+/*
+ * 回り込み
+ * 回り込み解除には次を使用。
+ * <br clear="all" />
+ */
+div.float {
+    margin: 0px;
+    padding: 0px;
+    float: left;
+}
+
+/*========================= ボックス =========================*/
+/* タイトル */
+div.box_title {
+    margin: 5px 5px 0px 5px;
+    padding: 0px;
+    font-weight: bold;
+}
+
+/*========================= テーブル =========================*/
+/*---- 汎用 ----*/
+table.grid {
+    margin: 5px 0px 5px 0px;
+    border-collapse: collapse;
+}
+table.grid th {
+    padding: 1px 5px 1px 5px;
+    background-color: #b2d3f2;
+    border: 1px solid #828282;
+}
+table.grid td {
+    padding: 1px 5px 1px 5px;
+    background-color: #ffffff;
+    border: 1px solid #828282;
+}
+/* ブランクセル（枠線なし） */
+table.grid td.blank {
+    border: none;
+    background-color: #ffffff;
+}
+/*---- 2行単位行 ----*/
+table.double tr {
+    height: 20px;
+}
+
+/*========================= ツールチップ =========================*/
+.tooltip-balloon {
+    display: none;
+    position: absolute;
+    top: 1.8em;
+    left: 0.3em;
+    z-index: 9999;
+    padding: 0.3em 0.5em;
+    color: #FFFFFF;
+    background: #3a67a0;
+    border-radius: 0.5em;
+}
+.tooltip-balloon:after {
+    width: 100%;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0.5em;
+    top: -8px;
+    border-top: 8px solid transparent;
+    border-left: 8px solid #3a67a0;
+}
+#tooltip div.select {
+    position: relative;
+}
+#tooltip div.select:hover {
+    background: #D7E4FF
+}
+#tooltip div.select:hover .tooltip-balloon {
+    display: block;
+}
+
+/*========================= プルダウン横幅変更プラグイン =========================*/
+.select-overlay {
+    background: #fff
+}
+.select-overlay span {
+    display: block;
+    float: left;
+    clear: both;
+    background: transparent url(../../../images/eca0027/bg-ie-select-width.png) no-repeat 0 0
+}
+.select-overlay span {
+    width: 18px;
+    height: 20px;
+    background-position: 0 0
+}
+.select-overlay-hover span {
+    background-position: -18px 0
+}
+.select-overlay-active span {
+    background-position: -18px 0
+}
+
+/*========================= 各画面項目定義 =========================*/
+/*------------------------- ボ タ ン -------------------------*/
+
+.add {
+    width: 52px;
+}
+
+.add_new_line10 {
+    width: 147px;
+}
+
+.add_refer {
+    width: 90px;
+}
+
+.back_to_create {
+    width: 124px;
+}
+
+.back_to_header {
+    width: 124px;
+}
+
+.back_to_inquiry {
+    width: 130px;
+}
+
+.back_to_invoice_detail {
+    width: 180px;
+}
+
+.back_to_invoice_grouping {
+    width: 190px;
+}
+
+.back_to_shipping_information_input {
+    width: 280px;
+}
+
+.back_to_main_screen {
+    width: 156px;
+}
+
+.back_to_register {
+    width: 130px;
+}
+
+.calculate {
+    width: 100px;
+}
+
+.cancel {
+    width: 75px;
+}
+
+.cancel_inv {
+    width: 100px;
+}
+
+.change_status {
+    width: 115px;
+}
+
+.clear {
+    width: 60px;
+}
+
+.confirm_detail {
+    width: 120px;
+}
+
+.create_new {
+    width: 100px;
+}
+
+.delete {
+    width: 75px;
+}
+
+.display {
+    width: 75px;
+}
+
+/* UT304 MULTI LABEL ADD */
+.edit_header {
+    width: 100px;
+}
+
+.editRefer {
+    width: 100px;
+}
+
+.move {
+    width: 55px;
+}
+
+.move_to_create {
+    width: 124px;
+}
+
+.move_to_detail {
+    width: 120px;
+}
+
+.move_to_bl_upload {
+    width: 150px;
+}
+
+.move_to_invoice_detail {
+    width: 180px;
+}
+
+.move_to_invoice_grouping {
+    width: 190px; 
+}
+
+.move_to_other_doc_upload {
+    width: 200px;
+}
+
+.move_to_register {
+    width: 134px;
+}
+
+.move_to_shipping_information_input {
+    width: 280px;
+}
+
+.multi_po {
+    width: 80px;
+}
+
+/* UT420 ADD */
+.pallet_carton_typ {
+    width: 80px;
+}
+
+.pkg_materials {
+    width: 117px;
+}
+
+.print_cml {
+    width: 82px;
+}
+
+.print_cml_for_instr {
+    width: 148px;
+}
+
+.print_clp {
+    width: 82px;
+}
+
+.print_document {
+    width: 130px;
+}
+
+.print_instr {
+    width: 92px;
+}
+
+.print_sample {
+    width: 110px;
+}
+
+.print_tag {
+    width: 80px;
+}
+
+.register {
+    width: 75px;
+}
+
+.relate_invoice_no {
+    width: 70px;
+}
+
+.save {
+    width: 52px;
+}
+
+.save_and_move_to_register {
+    width: 196px;
+}
+
+.save_and_move_to_trans_pkg_revise {
+    width: 267px;
+}
+
+.search {
+    width: 75px;
+}
+
+.select {
+    width: 61px;
+}
+
+.setup {
+    width: 60px;
+}
+
+.trans_pkg_revise {
+    width: 152px;
+}
+
+/* UT414 ADD */
+.print_multi_cml {
+    width: 152px;
+}
+
+.update {
+    width: 75px;
+}
+
+.upload {
+    width: 75px;
+}
+
+.upload_frt_inv {
+    width: 128px;
+}
+
+.upload_main_inv {
+    width: 140px;
+}
+
+.upload_non_dng_inv_or_re_inv {
+    width: 170px;
+}
+
+.view {
+    width: 50px;
+}
+
+.warning_list {
+    width: 101px;
+}
+
+/*------------------------- 入力項目 -------------------------*/
+
+.additional_charge {
+    width: 170px;
+}
+
+.additional_charge_nm {
+    width: 170px;
+}
+
+.aply_strt_dt {
+    width: 70px;
+}
+
+.arrival_time {
+    width: 55px;
+}
+
+.atd {
+    width: 69px;
+}
+
+.auto_invoice_register_flg {
+    width: 36px;
+}
+
+.auto_invoice_resister {
+    width: 36px;
+}
+
+.billd_file_id {
+    width: 37px;
+}
+
+.billd_no {
+    width: 158px;
+}
+
+.bl_upload {
+    width: 37px;
+}
+
+.need_other_doc_flg {
+    width: 37px;
+}
+
+.booking_no {
+    width: 170px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.box_no {
+    width: 44px;
+}
+
+/* delete because duplicated
+.carrier_comp_cd {
+    width: 41px;
+}
+*/
+
+.cigma_prdct_flg {
+    width: 36px;
+}
+
+.class_of_inv {
+    width: 200px;
+}
+
+.cml_print_out_dt {
+    width: 90px;
+}
+
+.cml_typ {
+    width: 88px;
+}
+
+.comp_cd {
+    width: 80px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.comp_nm {
+    width: 310px;
+}
+
+.comp_nm_abb {
+    width: 110px;
+}
+
+.consignee_cd {
+    width: 61px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.consignee_comp_nm {
+    width: 280px;
+}
+
+.container_loose_typ {
+    width: 37px;
+}
+
+.cur_wh_comp_cd {
+    width: 72px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.cur_wh_cd {
+    width: 59px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.curr_cd {
+    width: 75px;
+}
+.customer_cd {
+    width: 74px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.customer_due_dt {
+    width: 72px;
+}
+
+.customer_item_no {
+    width: 225px;
+}
+
+.customer_po_no {
+    width: 270px;
+}
+
+.custom_timing_typ {
+    width: 36px;
+}
+
+.date {
+    width: 67px;
+}
+
+.discharge_port_cd {
+    width: 35px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.dliv_point {
+    width: 170px;
+}
+
+.dngr_item_flg {
+    width: 36px;
+}
+
+.document_type {
+    width: 200px;
+}
+
+.doc_no {
+    width: 40px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.dsc_id {
+    width: 220px;
+}
+
+.due_dt {
+    width: 72px;
+}
+
+.displayDiv {
+    width: 150px;
+}
+
+.eta {
+    width: 69px;
+}
+
+.etd {
+    width: 72px;
+}
+
+.etd_due_dt {
+    width: 72px;
+}
+
+.exp_limit_typ {
+    width: 125px;
+}
+
+.exp_packing_dt {
+    width: 72px;
+}
+
+.exp_packing_issuer_id {
+    width: 82px;
+}
+
+.exp_packing_issuer_nm {
+    width: 125px;
+}
+
+.file_data {
+    width: 270px;
+}
+
+.file_name {
+    width: 220px;
+}
+
+.firm_qty {
+    width: 66px;
+}
+
+.flag {
+    width: 37px;
+}
+
+.fm_apply_start_date {
+    width: 70px;
+}
+
+.forecast_qty {
+    width: 66px;
+}
+
+.forwarder_comp_cd {
+    width: 41px;
+}
+
+.freight {
+    width: 170px;
+}
+
+.freight_responsible_cd {
+    width: 135px;
+}
+
+.from_main_mark {
+    width: 194px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.gross_weight {
+    width: 84px;
+}
+
+.grp_no_2 {
+    width: 50px;
+}
+
+.free_dtl {
+    width: 230px;
+}
+
+.free_reg_flg {
+    width: 36px;
+}
+
+.frt_consignee_cd {
+    width: 80px;
+}
+
+.frt_shipper_cd {
+    width: 80px;
+}
+
+.handling_charge {
+    width: 170px;
+}
+
+.height {
+    width: 65px;
+}
+
+.hs_cd {
+    width: 140px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.imp_invoice_no {
+    width: 130px;
+}
+
+.instr_qty {
+    width: 65px;
+}
+
+.insurance {
+    width: 170px;
+}
+
+.inv_tpl_no {
+    width: 80px;
+}
+
+.invoice_class {
+    width: 90px;
+}
+
+
+.invoice_ctgry {
+    width: 36px;
+}
+
+.invoice_ctgry_nm {
+    width: 200px;
+}
+
+.invoice_issuer_nm {
+    width: 110px;
+}
+
+.invoice_key {
+    width: 48px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.invoice_no {
+    width: 130px;
+}
+
+.issue_from_date {
+    width: 72px;
+}
+
+.issue_to_date {
+    width: 72px;
+}
+
+.issuer {
+    width: 88px;
+}
+
+.item_description {
+    width: 310px;
+}
+
+.item_no {
+    width: 361px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.item_no_org {
+    width: 172px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.label_print_num {
+    width: 25px;
+}
+
+.lc_bank {
+    width: 280px;
+}
+
+.lc_dt {
+    width: 72px;
+}
+
+.lc_no {
+    width: 340px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.length {
+    width: 65px;
+}
+
+.length_unit_length {
+    width: 65px;
+}
+
+.length_unit_height {
+    width: 65px;
+}
+
+.length_unit_width {
+    width: 65px;
+}
+
+.lgcy_lib_comp_cd {
+    width: 33px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.lgcy_ship_to {
+    width: 26px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.lgcy_wh_cd {
+    width: 23px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.loading_cd {
+    width: 35px;
+}
+
+.loading_port_cd {
+    width: 35px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.mail_add {
+    width: 300px;
+}
+
+.main_mark {
+    width: 235px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.master_file_data {
+    width: 360px;
+}
+
+.mix_tag_issue_dt_from {
+    width: 72px;
+}
+
+.mix_tag_issue_dt_to {
+    width: 72px;
+}
+
+.mix_tag_issuer_id {
+    width: 76px;
+}
+
+.mix_tag_no {
+    width: 212px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.mix_tag_status {
+    width: 150px;
+}
+
+.net_amount {
+    width: 170px;
+}
+
+.net_weight {
+    width: 84px;
+}
+
+.no_charge {
+    width: 170px;
+}
+
+.no_of_invoice {
+    width: 40px;
+}
+
+.no_of_container {
+    width: 35px;
+}
+
+.notify_party_nm {
+    width: 660px;
+}
+
+.notify_party_addr {
+    width: 660px;
+}
+
+.odr_qty {
+    width: 88px;
+}
+
+.origin_cntry_cd {
+    width: 40px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.original_outer_pkg_cd {
+    width: 72px;
+}
+
+.outer_pkg_cd {
+    width: 52px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.packaging_confirmed_flg {
+    width: 23px;
+}
+
+.packing_wh_cd {
+    width: 54px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.packing_wh_comp_cd {
+    width: 70px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.pallet_no {
+    width: 59px;
+}
+
+.pallet_qty {
+    width: 38px;
+}
+
+.pay_meth_nm {
+    width: 200px;
+}
+
+.pay_terms {
+    width: 340px;
+}
+
+.pkg_cd {
+    width: 49px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.pkg_form_typ {
+    width: 36px;
+}
+
+.pkg_item_no {
+    width: 180px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.pkg_ip {
+    width: 14px;
+}
+
+.pkg_qty {
+    width: 50px;
+}
+
+.plnt_cd {
+    width: 36px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.plnt_and_wh_declaration {
+    width: 75px;
+}
+
+.pltz_alloc_qty {
+    width: 88px;
+}
+
+.pltz_instr_dt {
+    width: 90px;
+}
+
+.pltz_instr_issuer_id {
+    width: 90px;
+}
+
+.pltz_instr_no {
+    width: 140px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.pltz_instr_required {
+    width: 35px;
+}
+
+.pltz_instr_status {
+    width: 200px;
+}
+
+.pltz_instr_dt {
+    width: 90px;
+}
+
+.pltz_item_no {
+    width: 173px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.pltz_item_qty {
+    width: 100px;
+}
+
+.price_terms {
+    width: 265px;
+}
+
+.po_due_dt {
+    width: 90px;
+}
+
+.qty {
+    width: 70px;
+}
+
+.rcv_odr_comp_cd {
+    width: 72px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.register_dt {
+    width: 67px;
+}
+
+.remarks {
+    width: 250px;
+}
+
+.rem_bank_account_no {
+    width: 180px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.rem_bank_addr {
+    width: 280px;
+}
+
+.rem_bank_nm {
+    width: 280px;
+}
+
+.relate_invoice_no {
+    width: 130px;
+}
+
+.return_style_cd {
+    /*width: 416px;*/
+    width: 300px; /* UT420 MOD */
+}
+
+.rev {
+    width: 40px;
+}
+
+.revise_flg {
+    width: 36px;
+}
+
+.rt_use_flg {
+    width: 23px;
+}
+
+.sales_comp_po_no {
+    width: 114px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.shipped_qty {
+    width: 88px;
+}
+
+.shipper_cd {
+    width: 75px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.shipped_dt {
+    width: 75px;
+}
+
+.shipper_comp_nm {
+    width: 280px;
+}
+
+.shipper_nm {
+    width: 280px;
+}
+
+.shipping_act_status {
+    width: 83px;
+}
+
+.shipping_dt {
+    width: 72px;
+}
+
+/* delete because duplicate
+.shipping_firm_no {
+    width: 160px;
+}
+*/
+
+/* delete because duplicated
+.ship_to_cd {
+    width: 88px;
+}
+*/
+
+.ship_to_comp_cd {
+    width: 68px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.ship_to_nm {
+    width: 280px;
+}
+
+.stg_act_no {
+    width: 200px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.stg_com {
+    width: 70px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.stg_instr_item_flg {
+    width: 36px;
+}
+
+/* delete because duplicated
+.stg_instr_no {
+    width: 120px;
+}
+*/
+
+.stg_wh {
+    width: 60px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.sub_total {
+    width: 170px;
+}
+
+.supplier_invoice_no {
+    width: 130px;
+}
+
+.sp_info {
+    width: 580px;
+}
+
+.tag_qty {
+    width: 40px;
+}
+
+.temp_invoice_no{
+    width: 130px;
+}
+
+.total_gross_weight {
+    width: 170px;
+}
+
+.total_invoice_amount {
+    width: 170px;
+}
+
+.total_net_weight {
+    width: 170px;
+}
+
+.total_shipper {
+    width: 20px;
+}
+
+.total_volume {
+    width: 170px;
+}
+
+.to_main_mark {
+    width: 194px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.to_apply_start_date {
+    width: 70px;
+}
+
+.trade_terms {
+    width: 340px;
+}
+
+.trns_cd {
+    width: 200px;
+}
+
+.trns_nm {
+    width: 200px;
+}
+
+.usr_nm_en {
+    width: 230px;
+}
+
+.vat {
+    width: 170px;
+}
+
+.vat_ratio {
+    width: 75px;
+}
+
+.vessel {
+    width: 148px;
+    text-transform: uppercase; /* UT261 ADD */
+}
+
+.volume {
+    width: 125px;
+}
+
+.volume_unit {
+    width: 45px;
+}
+
+.weight_unit {
+    width: 45px;
+}
+
+.weight_unit_gw {
+    width: 65px;
+}
+
+.weight_unit_nw {
+    width: 65px;
+}
+
+.width {
+    width: 65px;
+}
+
+.xmain_mark {
+    width: 235px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.xtag_packing_dt {
+    width: 72px;
+}
+
+.xtag_packing_issuer_id {
+    width: 79px;
+}
+
+.xtag_packing_issuer_nm {
+    width: 235px;
+}
+.wh_addr {
+    width: 300px;
+}
+
+.wh_comp_cd {
+    width: 70px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.wh_cd {
+    width: 56px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.wh_nm {
+    width: 220px;
+}
+
+.container_sorting_key {
+    width: 90px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.shipping_firm_status {
+    width: 130px;
+}
+
+.shipping_firm_no {
+    width: 150px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.container_loose_typ {
+    width: 40px;
+}
+
+.fm_etd {
+    width: 80px;
+}
+
+.to_etd {
+    width: 80px;
+}
+
+.carrier_comp_cd {
+    width: 40px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.container_no {
+    width: 130px;
+    text-transform: uppercase; /* UT261 ADD */
+}
+
+.clp_group {
+    width: 72px;
+}
+
+.issuer {
+    width: 80px;
+}
+
+.worker {
+    width: 80px;
+}
+
+.stg_instr_no {
+    width: 160px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.confirmationNo {
+    width: 100px;
+}
+
+.workedIssuerNm {
+    width: 65px;
+}
+
+.shippingFirmIssuerNm {
+    width: 65px;
+}
+
+.register_working {
+    width: 130px;
+}
+
+.stg_instr_status {
+    width: 130px;
+}
+
+.stg_instr_dt {
+    width: 80px;
+}
+
+.stg_instr_issuer_id {
+    width: 80px;
+}
+
+.stg_instr_worked_id {
+    width: 80px;
+}
+
+.exp_request_no {
+    width: 130px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.dngr_item_flg {
+    width: 36px;
+}
+
+.last_tr_rcv_dt {
+    width: 72px;
+}
+
+.ship_to_cd {
+    width: 90px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.stg_act_dt {
+    width: 80px;
+}
+
+.stg_act_issuer_id {
+    width: 80px;
+}
+
+.nxs_ship_to_comp {
+    width: 55px;
+}
+
+.model_cd {
+    width: 168px;
+}
+
+.pkg_mtrl_nm {
+    width: 168px;
+}
+
+.outer_cd {
+    width: 50px;
+}
+
+.port_nm {
+    width: 500px;
+}
+
+.cntry_cd {
+    width: 28px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.cntry_nm{
+    width: 300px;
+}
+
+.port_cd {
+    width: 44px;
+}
+
+.re_invoice_flg{
+    width: 37px;
+}
+
+.ship_to_nm_abb{
+    width: 115px;
+}
+
+.ship_to_tel{
+    width: 198px;
+}
+
+.tr_Status {
+    width: 200px;
+}
+
+.tr_no {
+    width: 100px;
+}
+.cml {
+    width: 100px;
+}
+
+.tr_issue_dt {
+    width: 60px;
+}
+
+.tr_activ_dt {
+    width: 60px;
+}
+
+.carry_out_item_no {
+    width: 100px;
+}
+.tr_kind_list {
+    width: 100px;
+}
+.tr_status_list {
+    width: 120px;
+}
+.tr_edit_flg_list {
+    width: 55px;
+}
+.tr_issuer_list {
+    width: 100px;
+}
+
+tr.gscm_disabled {
+    background-color: #717174;
+}
+td.gscm_disabled {
+    background-color: #717174;
+}
+.gscm_text_disabled {
+    background-color: #717174;
+}

@@ -1,0 +1,4312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * SqlMap-W2009Cml.xml
+ *
+ * W2009CmlDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="W2009Cml">
+    <!-- Domainの別名定義 -->
+    <!-- Domain -->
+    <typeAlias alias="W2009CmlDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W2009CmlDomain" />
+    <typeAlias alias="W2009CmlItemDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W2009CmlItemDomain" />
+    <typeAlias alias="W2009CmlPltzItemOdrDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W2009CmlPltzItemOdrDomain" />
+    <typeAlias alias="TtExpRcvOdrDomain"
+        type="com.globaldenso.eca0027.core.auto.business.domain.TtExpRcvOdrDomain" />
+    <typeAlias alias="TtPltzInstrOdrDomain"
+        type="com.globaldenso.eca0027.core.auto.business.domain.TtPltzInstrOdrDomain" />
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W2009CmlCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W2009CmlCriteriaDomain" />
+    <typeAlias alias="TtExpRcvOdrCriteriaDomain"
+        type="com.globaldenso.eca0027.core.auto.business.domain.criteria.TtExpRcvOdrCriteriaDomain" />
+    <typeAlias alias="TtPltzInstrOdrCriteriaDomain"
+        type="com.globaldenso.eca0027.core.auto.business.domain.criteria.TtPltzInstrOdrCriteriaDomain" />
+
+    <!-- 検索結果をMapで受け取る -->
+    <!-- CML Main Screen 画面 -->
+    <resultMap id="W2009CmlDomain_SearchForPagingTtPltzByCml" class="W2009CmlDomain" groupBy="mainMark">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />
+        <result property="packingWhCompCd" column="PACKING_WH_COMP_CD" />
+        <result property="packingWhCd" column="PACKING_WH_CD" />
+        <result property="pltzInstrNo" column="PLTZ_INSTR_NO" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="expPackingDt" column="EXP_PACKING_DT" />
+        <result property="expPackingIssuerNm" column="EXP_PACKING_ISSUER_NM" />
+        <result property="reviseFlg" column="REVISE_FLG" />
+        <result property="authFlg" column="REGISTER_AUTH_FLG" />
+    </resultMap>
+    
+    <!-- CML Create 画面 -->
+    <resultMap id="W2009CmlItemDomain_SearchMixTagItemNoOnCreate" class="W2009CmlItemDomain">
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="pltzItemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="shippingLot" column="SHIP_LOT" />
+        <result property="coFlg" column="CO_FLG" />
+        <result property="qty" column="ACTUAL_PKG_QTY" />
+        <result property="tagQty" column="ACTUAL_TAG_QTY" />
+        <result property="instrPkgedQty" column="INSTR_PKGED_QTY" />
+        <result property="instrQty" column="INSTR_QTY" />
+        <result property="orderQty" column="ORD_QTY" />
+        <result property="boQty" column="BO_QTY" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="stgInstrItemFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+        <result property="mixTagFlg" column="MIX_TAG_FLG" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="tmpQty" column="TMP_QTY" />
+        <result property="disableFlg" column="DISABLE_FLG" />
+        <result property="itemWeight" column="ITEM_WEIGHT" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="mixTagNo" column="MIX_TAG_NO" />
+        <result property="expLimitTyp" column="EXP_LIMIT_TYP" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="qtyUnit" column="QTY_UNIT" />
+        <result property="onHandQty" column="ON_HAND_QTY" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="currCd" column="CURR_CD" />
+    </resultMap>
+    
+    <!-- CML Create 画面 -->
+    <resultMap id="W2009CmlItemDomain_SearchNonInstructionItemNoOnCreate" class="W2009CmlItemDomain">
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="pltzItemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="shippingLot" column="SHIP_LOT" />
+        <result property="coFlg" column="CO_FLG" />
+        <result property="qty" column="ACTUAL_PKG_QTY" />
+        <result property="tagQty" column="ACTUAL_TAG_QTY" />
+        <result property="instrPkgedQty" column="INSTR_PKGED_QTY" />
+        <result property="instrQty" column="INSTR_QTY" />
+        <result property="orderQty" column="ORD_QTY" />
+        <result property="boQty" column="BO_QTY" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="stgInstrItemFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+        <result property="mixTagFlg" column="MIX_TAG_FLG" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="tmpQty" column="TMP_QTY" />
+        <result property="disableFlg" column="DISABLE_FLG" />
+        <result property="itemWeight" column="ITEM_WEIGHT" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="mixTagNo" column="MIX_TAG_NO" />
+        <result property="expLimitTyp" column="EXP_LIMIT_TYP" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="qtyUnit" column="QTY_UNIT" />
+        <result property="onHandQty" column="ON_HAND_QTY" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="currCd" column="CURR_CD" />
+    </resultMap>
+    
+    <!-- CML Register 画面  -->
+    <resultMap id="W2009CmlDomain_SearchTmPkgSpecificationDtl" class="W2009CmlDomain">
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="volume" column="VOLUME_PALLETIZE" />
+        <result property="lengthUnit" column="LENGTH_UNIT" />
+        <result property="length" column="LENGTH_PALLETIZE" />
+        <result property="width" column="WIDTH_PALLETIZE" />
+        <result property="height" column="HEIGHT_PALLETIZE" />
+    </resultMap>
+    
+    <!-- CML Register 画面  -->
+    <resultMap id="W2009CmlDomain_SearchTwPltzItemItemNoByDscId" class="W2009CmlDomain">
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="netWeight" column="NET_WEIGHT" />
+    </resultMap>
+    
+    <!-- CML Register 画面  -->
+    <resultMap id="W2009CmlDomain_SearchTwPltzItemPkgByDscId" class="W2009CmlDomain">
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="netWeight" column="NET_WEIGHT" />
+    </resultMap>
+    
+    <!-- CML Register 画面  -->
+    <resultMap id="W2009CmlDomain_SearchTtPltzByMainMarkMixTagNo" class="W2009CmlDomain" groupBy="mainMark">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />
+        <result property="pltzInstrNo" column="PLTZ_INSTR_NO" />
+        <result property="packingWhCompCd" column="PACKING_WH_COMP_CD" />
+        <result property="packingWhCd" column="PACKING_WH_CD" />
+        <result property="expPackingDt" column="EXP_PACKING_DT" />
+        <result property="expPackingIssuerNm" column="EXP_PACKING_ISSUER_NM" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="stgInstrItemFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="rtUseFlg" column="RT_USE_FLG" />
+        <result property="palletNo" column="PALLET_NO" />
+        <result property="outerPkgCd" column="OUTER_PKG_CD" />
+        <result property="volume" column="VOLUME" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="netWeight" column="NET_WEIGHT" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+        <!-- UT110 TRIAL SHIPMENT/号試品対応 ADD START -->
+        <result property="length" column="LENGTH" />
+        <result property="width" column="WIDTH" />
+        <result property="height" column="HEIGHT" />
+        <result property="lengthUnit" column="LENGTH_UNIT" />
+        <!-- UT110 TRIAL SHIPMENT/号試品対応 ADD END -->
+        <result property="palletCartonTyp" column="PALLET_CARTON_TYP" /> <!-- UT420 ADD -->
+        <result property="palletCartonTypName" column="PALLET_CARTON_TYP_NAME" /> <!-- UT420 ADD -->
+        <result property="cmlItemDomainList" resultMap="W2009Cml.W2009CmlItemDomain_SearchTtPltzByMainMarkMixTagNo" />
+    </resultMap>
+    <resultMap id="W2009CmlItemDomain_SearchTtPltzByMainMarkMixTagNo" class="W2009CmlItemDomain">
+        <result property="mixTagFlg" column="MIX_TAG_FLG" />
+        <result property="pltzItemNo" column="PLTZ_ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="shippingLot" column="SHIPPING_LOT" />
+        <result property="instrQty" column="INSTR_QTY" />
+        <result property="qty" column="QTY" />
+        <result property="tagQty" column="TAG_QTY" />
+        <result property="authFlg" column="AUTH_FLG" />
+    </resultMap>
+
+    <!-- CML Register 画面 -->
+    <resultMap id="W2009CmlItemDomain_SearchTmPkgSpecificationDtlByAuto" class="W2009CmlItemDomain">
+        <result property="pltzItemNo" column="PLTZ_ITEM_NO" />
+        <result property="qty" column="QTY" />
+        <result property="pkgItemNo" column="PKG_ITEM_NO" />
+        <result property="lotSize" column="LOT_SIZE" /> <!-- UT310 MOD -->
+        <result property="useQty" column="USE_QTY" />
+        <result property="rtTyp" column="RT_TYP" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="pkgWeight" column="PKG_WEIGHT" />
+        <result property="pkgNm" column="PKG_MTRL_NM" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="currCd" column="CURR_CD" />
+        <result property="innerOuterTyp" column="INNER_OUTER_TYP" />
+    </resultMap>
+
+    <!-- CML Register 画面 -->
+    <resultMap id="W2009CmlItemDomain_SearchTmPkgSpecificationDtlByInner" class="W2009CmlItemDomain">
+        <result property="pltzItemNo" column="PLTZ_ITEM_NO" />
+        <result property="qty" column="QTY" />
+        <result property="pkgItemNo" column="PKG_ITEM_NO" />
+        <result property="lotSize" column="LOT_SIZE" /> <!-- UT310 MOD -->
+        <result property="useQty" column="USE_QTY" />
+        <result property="rtTyp" column="RT_TYP" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="pkgWeight" column="PKG_WEIGHT" />
+        <result property="pkgNm" column="PKG_MTRL_NM" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="currCd" column="CURR_CD" />
+    </resultMap>
+    
+    <!-- CML Register 画面 -->
+    <resultMap id="W2009CmlItemDomain_SearchTtMixtagRt" class="W2009CmlItemDomain">
+        <result property="mixTagNo" column="MIX_TAG_NO" />
+        <result property="pkgItemNo" column="PKG_ITEM_NO" />
+        <result property="rtFlg" column="RT_FLG" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="qty" column="QTY" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="pkgWeight" column="PKG_WEIGHT" />
+        <result property="pkgNm" column="PKG_NM" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="currCd" column="CURR_CD" />
+    </resultMap>
+    
+    <!-- CML Register 画面 -->
+    <resultMap id="W2009CmlItemDomain_SearchTmPkgSetDtl" class="W2009CmlItemDomain">
+        <result property="useQty" column="USE_QTY" />
+        <result property="pkgItemNo" column="PKG_ITEM_NO" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="pkgWeight" column="PKG_WEIGHT" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="currCd" column="CURR_CD" />
+        <result property="rtTyp" column="RT_TYP" />
+        <result property="pkgNm" column="PKG_MTRL_NM" />
+    </resultMap>
+    
+    <!-- CML Register 画面 -->
+    <resultMap id="W2009CmlItemDomain_SearchTtPltzInstrItemNo" class="W2009CmlItemDomain">
+        <result property="instrPkgedQty" column="PACKED_QTY" />
+        <result property="qty" column="QTY" />
+    </resultMap>
+    
+    <!-- CML Register 画面 -->
+    <resultMap id="W2009CmlPltzItemOdrDomain_SearchTtPltzItemOdr" class="W2009CmlPltzItemOdrDomain">
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="rcvOdrCompCd" column="RCV_ODR_COMP_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="etdDueDt" column="ETD_DUE_DT" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="customerItemNoOrg" column="CUSTOMER_ITEM_NO_ORG" />
+        <result property="odrCtrlNo" column="ODR_CTRL_NO" />
+        <result property="allocQty" column="ALLOC_QTY" />
+    </resultMap>
+    
+    <!-- CML Trans. PKG Revise 画面 -->
+    <resultMap id="W2009CmlDomain_SearchTmMeasureUnit" class="W2009CmlDomain">
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+        <result property="outerPkgCd" column="OUTER_PKG_CD" />
+        <result property="volume" column="VOLUME" />
+        <result property="netWeight" column="NET_WEIGHT" />
+        <result property="grossWeight" column="GROSS_WEIGHT" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="reviseFlg" column="REVISE_FLG" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+    </resultMap>
+    
+    <!-- CML Trans. PKG Revise 画面 -->
+    <resultMap id="W2009CmlItemDomain_SearchTtPltzInstrItemNoTransPkg" class="W2009CmlItemDomain">
+        <result property="pltzItemNo" column="PLTZ_ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="shippingLot" column="SHIPPING_LOT" />
+        <result property="qty" column="QTY" />
+        <result property="tagQty" column="TAG_QTY" />
+        <result property="instrQty" column="INSTR_QTY" />
+        <result property="mixTagFlg" column="MIX_TAG_FLG" />
+    </resultMap>
+    
+    <!-- CML PKG Info Detail 画面 -->
+    <resultMap id="W2009CmlItemDomain_SearchForPagingTwPltzItemPkg" class="W2009CmlItemDomain">
+        <result property="brch" column="BRCH" />
+        <result property="pltzItemNo" column="PLTZ_ITEM_NO" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="qty" column="QTY" />
+        <result property="pkgTypHidden" column="PKG_TYP" />
+        <result property="rtFlg" column="RT_FLG" />
+        <result property="pkgWeight" column="PKG_WEIGHT" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="currCd" column="CURR_CD" />
+        <result property="mixTagNo" column="MIX_TAG_NO" />
+        <result property="pkgTyp" column="PKG_TYP_VALUE" />
+        <result property="inputMethod" column="INPUT_METH_TYP_VALUE" />
+        <result property="totalQty" column="SUM_QTY" />
+        <result property="inputMethTyp" column="INPUT_METH_TYP" />
+    </resultMap>
+    
+    <!-- CML PKG Info Detail 画面 -->
+    <resultMap id="W2009CmlDomain_SearchForPagingTtPltz" class="W2009CmlDomain" groupBy="mainMark">
+        <result property="mainMark" column="MAIN_MARK" />
+        <result property="palletNo" column="PALLET_NO" />
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />
+        <result property="pltzInstrNo" column="PLTZ_INSTR_NO" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="expPackingDt" column="EXP_PACKING_DT" />
+        <result property="expPackingIssuerNm" column="EXP_PACKING_ISSUER_NM" />
+        <result property="cmlItemDomainList" resultMap="W2009Cml.W2009CmlItemDomain_SearchForPagingTtPltz" />
+    </resultMap>
+    <resultMap id="W2009CmlItemDomain_SearchForPagingTtPltz" class="W2009CmlItemDomain">
+        <result property="brch" column="BRCH" />
+        <result property="pltzItemNo" column="PLTZ_ITEM_NO" />
+        <result property="modelCd" column="MODEL_CD" />
+        <result property="qty" column="QTY" />
+        <result property="rtFlg" column="RT_FLG" />
+        <result property="mixTagNo" column="MIX_TAG_NO" />
+        <result property="pkgTyp" column="PKG_TYP_VALUE" />
+        <result property="inputMethod" column="INPUT_METH_TYP_VALUE" />
+        <result property="totalQty" column="SUM_QTY" />
+    </resultMap>
+    
+    <!-- CML Create 画面 -->
+    <resultMap id="W2009CmlItemDomain_SearchTtMixtagItemNo" class="W2009CmlItemDomain">
+        <result property="mixTagNo" column="MIX_TAG_NO" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="qty" column="QTY" />
+        <result property="shippingLot" column="SHIPPING_LOT" />
+        <result property="itemWeight" column="ITEM_WEIGHT" />
+        <result property="weightUnit" column="WEIGHT_UNIT" />
+        <result property="qtyUnit" column="QTY_UNIT" />
+        <result property="expLimitTyp" column="EXP_LIMIT_TYP" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+    </resultMap>
+    
+    <!-- CML Header 画面 -->
+    <resultMap id="W2009CmlDomain_SearchTtPltzInstr" class="W2009CmlDomain">
+        <result property="shipperCd" column="SHIPPER_CD" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="pltzInstrStatus" column="PLTZ_INSTR_STATUS" />
+        <result property="compCd" column="COMP_CD" />
+        <result property="whCd" column="WH_CD" />
+    </resultMap>
+    
+    <!-- CML Header 画面 -->
+    <resultMap id="W2009CmlDomain_SearchTmCigmaWhXrefByAuthList" class="W2009CmlDomain">
+        <result property="lgcyWhCd" column="LGCY_WH_CD" />    
+    </resultMap>
+    
+    <!-- CML Register 画面 -->
+    <resultMap id="W2009CmlItmlDomain_SearchTwPltzItemItemNo" class="W2009CmlItemDomain">
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="stgInstrItemFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="pltzItemNo" column="PLTZ_ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="shippingLot" column="SHIP_LOT" />
+        <result property="instrQty" column="INSTR_QTY" />
+        <result property="qty" column="ACTUAL_PKG_QTY" />
+        <result property="tagQty" column="ACTUAL_TAG_QTY" />
+        <result property="mixTagFlg" column="MIX_TAG_FLG" />
+        <result property="warningFlg" column="WARNING_FLG" />
+    </resultMap>
+    
+    <!-- CML Register 画面 -->
+    <resultMap id="W2009CmlItmlDomain_SearchTtPltzItemByMainMark" class="W2009CmlItemDomain">
+        <result property="pltzItemNo" column="PLTZ_ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="mixTagNo" column="MIX_TAG_NO" />
+        <result property="qty" column="QTY" />
+    </resultMap>
+    
+    <!-- CML Trans Revise 画面 -->
+    <resultMap id="W2009CmlItemDomain_SearchTtPltzItemOnTransRevise" class="W2009CmlItemDomain">
+        <result property="brch" column="BRCH"/>
+        <result property="pltzItemNo" column="PLTZ_ITEM_NO"/>
+        <result property="itemDescription" column="ITEM_DESCRIPTION"/>
+        <result property="qty" column="QTY"/>
+        <result property="pkgTyp" column="PKG_TYP"/>
+        <result property="modelCd" column="MODEL_CD"/>
+        <result property="itemWeight" column="ITEM_WEIGHT"/>
+        <result property="weightUnit" column="WEIGHT_UNIT"/>
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD"/>
+        <result property="currCd" column="CURR_CD"/>
+        <result property="rtFlg" column="RT_FLG"/>
+        <result property="mixTagNo" column="MIX_TAG_NO"/>
+        <result property="inputMethTyp" column="INPUT_METH_TYP"/>
+    </resultMap>
+    
+    <!-- 輸出受注 (Register画面 / Register) -->
+    <resultMap id="TtExpRcvOdrDomain_LockTtExpRcvOdr" class="TtExpRcvOdrDomain">
+        <result property="rcvOdrCompCd" column="RCV_ODR_COMP_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="etdDueDt" column="ETD_DUE_DT" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="customerItemNoOrg" column="CUSTOMER_ITEM_NO_ORG" />
+        <result property="odrCtrlNo" column="ODR_CTRL_NO" />
+        <result property="revisionNo" column="REVISION_NO" />
+        <result property="revisionNoEis" column="REVISION_NO_EIS" />
+        <result property="plntCd" column="PLNT_CD" />
+        <result property="customerDueDt" column="CUSTOMER_DUE_DT" />
+        <result property="itemNoOrg" column="ITEM_NO_ORG" />
+        <result property="odrQtyOrg" column="ODR_QTY_ORG" />
+        <result property="odrQty" column="ODR_QTY" />
+        <result property="pltzAllocQty" column="PLTZ_ALLOC_QTY" />
+        <result property="shippedQty" column="SHIPPED_QTY" />
+        <result property="shippingDt" column="SHIPPING_DT" />
+        <result property="partialDelivCnt" column="PARTIAL_DELIV_CNT" />
+        <result property="odrFirmFlg" column="ODR_FIRM_FLG" />
+        <result property="salesCompPoNo" column="SALES_COMP_PO_NO" />
+        <result property="lastFigureChgFlg" column="LAST_FIGURE_CHG_FLG" />
+        <result property="supplierCd" column="SUPPLIER_CD" />
+        <result property="shippedTyp" column="SHIPPED_TYP" />
+        <result property="comUpdateFuncId" column="COM_UPDATE_FUNC_ID" />
+        <result property="comUpdateUserId" column="COM_UPDATE_USER_ID" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+        <result property="comCreateFuncId" column="COM_CREATE_FUNC_ID" />
+        <result property="comCreateUserId" column="COM_CREATE_USER_ID" />
+        <result property="comCreateTimestamp" column="COM_CREATE_TIMESTAMP" />
+    </resultMap>
+    
+    <!-- 梱包指示品目番号受注情報 (Register画面 / Register) -->
+    <resultMap id="TtPltzInstrOrdDomain_LockTtPltzInstrOdr" class="TtPltzInstrOdrDomain">
+        <result property="pltzInstrNo" column="PLTZ_INSTR_NO" />
+        <result property="itemNo" column="ITEM_NO" />
+        <result property="pkgCd" column="PKG_CD" />
+        <result property="rcvOdrCompCd" column="RCV_ODR_COMP_CD" />
+        <result property="customerCd" column="CUSTOMER_CD" />
+        <result property="lgcyShipTo" column="LGCY_SHIP_TO" />
+        <result property="trnsCd" column="TRNS_CD" />
+        <result property="etdDueDt" column="ETD_DUE_DT" />
+        <result property="customerPoNo" column="CUSTOMER_PO_NO" />
+        <result property="customerItemNo" column="CUSTOMER_ITEM_NO" />
+        <result property="customerItemNoOrg" column="CUSTOMER_ITEM_NO_ORG" />
+        <result property="odrCtrlNo" column="ODR_CTRL_NO" />
+        <result property="allocQty" column="ALLOC_QTY" />
+        <result property="packedQty" column="PACKED_QTY" />
+        <result property="packedFlg" column="PACKED_FLG" />
+        <result property="comUpdateFuncId" column="COM_UPDATE_FUNC_ID" />
+        <result property="comUpdateUserId" column="COM_UPDATE_USER_ID" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+        <result property="comCreateFuncId" column="COM_CREATE_FUNC_ID" />
+        <result property="comCreateUserId" column="COM_CREATE_USER_ID" />
+        <result property="comCreateTimestamp" column="COM_CREATE_TIMESTAMP" />
+    </resultMap>
+
+    <!-- UT304 MULTI LABEL ADD START -->
+    <!-- Multi Label Register Screen 画面 / Search -->
+    <resultMap id="W2009CmlDomain_SearchOnMultiLabelRegister" class="W2009CmlDomain">
+        <result property="length" column="LENGTH_PALLETIZE" />
+        <result property="width" column="WIDTH_PALLETIZE" />
+        <result property="height" column="HEIGHT_PALLETIZE" />
+        <result property="volume" column="VOLUME_PALLETIZE" />
+        <result property="lengthUnit" column="LENGTH_UNIT" />
+        <result property="volumeUnit" column="VOLUME_UNIT" />
+        <result property="pkgFormTyp" column="PKG_FORM_TYP" />
+        <result property="expLimitFlg" column="EXP_LIMIT_FLG" />
+        <result property="packingWhCompCd" column="WH_COMP_CD" />
+        <result property="packingWhCd" column="WH_CD" />
+        <result property="shipToCd" column="SHIP_TO_CD" />
+        <result property="consigneeCd" column="CONSIGNEE_CD" />
+        <result property="cmlItemDomainList" resultMap="W2009Cml.W2009CmlItemDomain_SearchOnMultiLabelRegister" />
+    </resultMap>
+    <resultMap id="W2009CmlItemDomain_SearchOnMultiLabelRegister" class="W2009CmlItemDomain">
+        <result property="orderQty" column="ODR_QTY" />
+        <result property="boQty" column="BO_QTY" />
+        <result property="tmpQty" column="TMP_QTY" />
+        <result property="expLimitTyp" column="EXP_LIMIT_TYP" />
+        <result property="dngrItemFlg" column="DNGR_ITEM_FLG" />
+        <result property="originCntryCd" column="ORIGIN_CNTRY_CD" />
+        <result property="itemDescription" column="ITEM_DESCRIPTION" />
+        <result property="containerSortingKey" column="CONTAINER_SORTING_KEY" />
+        <result property="loadingCd" column="LOADING_CD" />
+        <result property="invoiceKey" column="INVOICE_KEY" />
+        <result property="stgInstrItemFlg" column="STG_INSTR_ITEM_FLG" />
+        <result property="customTimingTyp" column="CUSTOM_TIMING_TYP" />
+        <result property="containerLooseTyp" column="CONTAINER_LOOSE_TYP" />
+        <result property="shippingLot" column="SHIPING_LOT" />
+        <result property="coFlg" column="CO_FLG" />
+        <result property="originalItemWeight" column="ITEM_WEIGHT" />
+        <result property="originalItemWeightUnit" column="WEIGHT_UNIT" />
+    </resultMap>
+    <!-- UT304 MULTI LABEL ADD END -->
+
+    <!-- ============================================================================================== -->
+    <!-- CML Main Screan / Search                                                                       -->
+    <!-- ============================================================================================== -->
+    <!-- 一覧検索結果の件数取得 -->
+    <select id="SearchCountTtPltzByCml" resultClass="java.lang.Integer" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchCountTtPltzByCml */
+            count(rownum)
+        from TT_PLTZ A
+        where
+            exists ( select B.MAIN_MARK
+                     from TT_PLTZ_ITEM B
+                     where B.MAIN_MARK = A.MAIN_MARK
+                     <dynamic>
+                       <isNotEmpty property="plntCd">
+                         and B.PLNT_CD = #plntCd#
+                       </isNotEmpty>
+                       <isNotEmpty property="mixTagNo">
+                         and B.MIX_TAG_NO LIKE CONCAT(#mixTagNo#,'%')
+                       </isNotEmpty>
+                       <isNotEmpty property="pltzItemNo">
+                         and B.PLTZ_ITEM_NO LIKE CONCAT(#pltzItemNo#,'%')
+                       </isNotEmpty>
+                       <isNotEmpty property="pkgCd">
+                         and B.PKG_CD LIKE CONCAT(#pkgCd#,'%')
+                       </isNotEmpty>
+                     </dynamic>
+                   )
+          <dynamic>
+            <isNotEmpty property="shipperCd">
+                and SHIPPER_CD = #shipperCd#
+            </isNotEmpty>
+            <isNotEmpty property="customerCd">
+                and CUSTOMER_CD LIKE CONCAT(#customerCd#,'%')
+            </isNotEmpty>
+            <isNotEmpty property="lgcyShipTo">
+                and LGCY_SHIP_TO = #lgcyShipTo#
+            </isNotEmpty>
+            <isNotEmpty property="trnsCd">
+                and TRNS_CD = #trnsCd#
+            </isNotEmpty>
+            <isNotEmpty property="mainMark">
+                and MAIN_MARK LIKE CONCAT(#mainMark#,'%')
+            </isNotEmpty>
+            <isNotEmpty property="lgcyWhCd">
+                and LGCY_WH_CD = #lgcyWhCd#
+            </isNotEmpty>
+            <isNotEmpty property="packingWhCompCd">
+                and PACKING_WH_COMP_CD = #packingWhCompCd#
+            </isNotEmpty>
+            <isNotEmpty property="packingWhCd">
+                and PACKING_WH_CD = #packingWhCd#
+            </isNotEmpty>
+            <isNotEmpty property="pltzInstrNo">
+                and PLTZ_INSTR_NO LIKE CONCAT(#pltzInstrNo#,'%')
+            </isNotEmpty>
+            <isNotEmpty property="containerSortingKey">
+                and CONTAINER_SORTING_KEY LIKE CONCAT(#containerSortingKey#,'%')
+            </isNotEmpty>
+            <isNotEmpty property="reviseFlg">
+                and REVISE_FLG = #reviseFlg#
+            </isNotEmpty>
+            <isNotEmpty property="issueFromDate">
+                and EXP_PACKING_DT <![CDATA[>]]>= #issueFromDate#
+            </isNotEmpty>
+            <isNotEmpty property="issueToDate">
+                and EXP_PACKING_DT <![CDATA[<]]>= #issueToDate#
+            </isNotEmpty>                
+            <isNotEmpty property="expPackingIssuerId">
+                and EXP_PACKING_ISSUER_ID = #expPackingIssuerId#
+            </isNotEmpty>
+            <!-- UT414 ADD START -->
+            <isNotEmpty property="fromMainMark">
+                and MAIN_MARK <![CDATA[>]]>= #fromMainMark#
+            </isNotEmpty>
+            <isNotEmpty property="toMainMark">
+                and MAIN_MARK <![CDATA[<]]>= #toMainMark#
+            </isNotEmpty>
+            <!-- UT414 ADD END -->
+          </dynamic>
+                and CML_TYP = '1'
+            <!-- Where句（権限チェック） -->
+                and SHIPPER_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#) 
+                <isEqual property="baseAuthFlg" compareValue="0">
+                <isEmpty property="userAuthList">
+                and 1 = 0
+                </isEmpty>
+                <isNotEmpty property="userAuthList">
+                and exists (      
+                   select 'x'     
+                   from
+                       TT_PLTZ_ITEM B
+                   where 
+                       B.MAIN_MARK = A.MAIN_MARK  
+                   having 
+                       max(
+                           case   
+                                <iterate property="userAuthList">  
+                                    when A.SHIPPER_CD = #userAuthList[].authMgtComp# and B.PLNT_CD = #userAuthList[].procMfgDivCd# then #userAuthList[].authority#
+                                </iterate>
+                           else '0'  
+                           end   
+                   ) <![CDATA[>]]>= '1'
+                )
+                </isNotEmpty>
+                </isEqual>
+    </select>
+    
+    <!-- ============================================================================================== -->
+    <!-- CML Main Screan / Search                                                                       -->
+    <!-- ============================================================================================== -->
+    <!-- 一覧検索結果の取得 -->
+    <select id="SearchForPagingTtPltzByCml" resultMap="W2009CmlDomain_SearchForPagingTtPltzByCml" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchForPagingTtPltzByCml */
+            MAIN_MARK
+          , SHIPPER_CD
+          , CUSTOMER_CD
+          , LGCY_SHIP_TO
+          , TRNS_CD
+          , PLNT_CD
+          , LGCY_WH_CD
+          , PACKING_WH_COMP_CD
+          , PACKING_WH_CD
+          , PLTZ_INSTR_NO
+          , CONTAINER_SORTING_KEY
+          , LOADING_CD
+          , EXP_PACKING_DT
+          , EXP_PACKING_ISSUER_NM
+          , REVISE_FLG
+          , REGISTER_AUTH_FLG
+        from (
+            select ROWNUM ROW_NUM, X.* 
+                from (
+                   select
+                       MAIN_MARK
+                     , SHIPPER_CD
+                     , CUSTOMER_CD
+                     , LGCY_SHIP_TO
+                     , TRNS_CD
+                     , PLNT_CD
+                     , LGCY_WH_CD
+                     , PACKING_WH_COMP_CD
+                     , PACKING_WH_CD
+                     , PLTZ_INSTR_NO
+                     , CONTAINER_SORTING_KEY
+                     , LOADING_CD
+                     , EXP_PACKING_DT
+                     , EXP_PACKING_ISSUER_NM
+                     , REVISE_FLG
+                     <isEmpty property="userAuthList">
+                     , null REGISTER_AUTH_FLG
+                     </isEmpty>
+                     <isNotEmpty property="userAuthList">
+                     , ( select    
+                             MIN(   
+                                 case  
+                                    <iterate property="userAuthList">  
+                                        when A.SHIPPER_CD = #userAuthList[].authMgtComp# and B.PLNT_CD = #userAuthList[].procMfgDivCd# then #userAuthList[].authority#
+                                    </iterate>
+                                 else '0' 
+                                 end  
+                             )   
+                         from    
+                             TT_PLTZ_ITEM B
+                         where    
+                             B.MAIN_MARK = A.MAIN_MARK
+                         and B.PKG_TYP is null  <!-- No.463 -->
+                       ) REGISTER_AUTH_FLG
+                     </isNotEmpty>
+                   from TT_PLTZ A
+                   where
+                       exists (      
+                              select 'x'     
+                              from
+                                  TT_PLTZ_ITEM B
+                              where      
+                                  B.MAIN_MARK = A.MAIN_MARK
+                                  <dynamic>
+                                   <isNotEmpty property="plntCd">
+                                     and B.PLNT_CD = #plntCd#
+                                   </isNotEmpty>
+                                   <isNotEmpty property="mixTagNo">
+                                     and B.MIX_TAG_NO LIKE CONCAT(#mixTagNo#,'%')
+                                   </isNotEmpty>
+                                   <isNotEmpty property="pltzItemNo">
+                                     and B.PLTZ_ITEM_NO LIKE CONCAT(#pltzItemNo#,'%')
+                                   </isNotEmpty>
+                                   <isNotEmpty property="pkgCd">
+                                     and B.PKG_CD LIKE CONCAT(#pkgCd#,'%')
+                                   </isNotEmpty>
+                                  </dynamic>
+                              <isEqual property="baseAuthFlg" compareValue="0">
+                              <isEmpty property="userAuthList">
+                              and 1 = 0
+                              </isEmpty>
+                              <isNotEmpty property="userAuthList">
+                              having     
+                                   max(    
+                                       case   
+                                        <iterate property="userAuthList">  
+                                           when A.SHIPPER_CD = #userAuthList[].authMgtComp# and B.PLNT_CD = #userAuthList[].procMfgDivCd# then #userAuthList[].authority#
+                                        </iterate>  
+                                       else '0'  
+                                       end   
+                                  ) <![CDATA[>]]>= '1'
+                              </isNotEmpty>
+                              </isEqual>
+                             )
+           <dynamic>
+              <isNotEmpty property="shipperCd">
+                  and SHIPPER_CD = #shipperCd#
+              </isNotEmpty>
+              <isNotEmpty property="customerCd">
+                  and CUSTOMER_CD LIKE CONCAT(#customerCd#,'%')
+              </isNotEmpty>
+              <isNotEmpty property="lgcyShipTo">
+                  and LGCY_SHIP_TO = #lgcyShipTo#
+              </isNotEmpty>
+              <isNotEmpty property="trnsCd">
+                  and TRNS_CD = #trnsCd#
+              </isNotEmpty>
+              <isNotEmpty property="mainMark">
+                  and MAIN_MARK LIKE CONCAT(#mainMark#,'%')
+              </isNotEmpty>
+              <isNotEmpty property="lgcyWhCd">
+                  and LGCY_WH_CD = #lgcyWhCd#
+              </isNotEmpty>
+              <isNotEmpty property="packingWhCompCd">
+                  and PACKING_WH_COMP_CD = #packingWhCompCd#
+              </isNotEmpty>
+              <isNotEmpty property="packingWhCd">
+                  and PACKING_WH_CD = #packingWhCd#
+              </isNotEmpty>
+              <isNotEmpty property="pltzInstrNo">
+                  and PLTZ_INSTR_NO LIKE CONCAT(#pltzInstrNo#,'%')
+              </isNotEmpty>
+              <isNotEmpty property="containerSortingKey">
+                  and CONTAINER_SORTING_KEY LIKE CONCAT(#containerSortingKey#,'%')
+              </isNotEmpty>
+              <isNotEmpty property="reviseFlg">
+                  and REVISE_FLG = #reviseFlg#
+              </isNotEmpty>
+              <isNotEmpty property="issueFromDate">
+                  and EXP_PACKING_DT <![CDATA[>]]>= #issueFromDate#
+              </isNotEmpty>
+              <isNotEmpty property="issueToDate">
+                  and EXP_PACKING_DT <![CDATA[<]]>= #issueToDate#
+              </isNotEmpty>
+              <isNotEmpty property="expPackingIssuerId">
+                  and EXP_PACKING_ISSUER_ID = #expPackingIssuerId#
+              </isNotEmpty>
+              <!-- UT414 ADD START -->
+              <isNotEmpty property="fromMainMark">
+                  and MAIN_MARK <![CDATA[>]]>= #fromMainMark#
+              </isNotEmpty>
+              <isNotEmpty property="toMainMark">
+                  and MAIN_MARK <![CDATA[<]]>= #toMainMark#
+              </isNotEmpty>
+              <!-- UT414 ADD END -->
+          </dynamic>
+                  and CML_TYP = '1'
+            <!-- 権限 -->
+                  and SHIPPER_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+              order by
+                  CUSTOMER_CD
+                , LGCY_SHIP_TO
+                , TRNS_CD
+                , MAIN_MARK
+             ) X
+       )
+      where 
+           <!-- ページング -->
+          ROW_NUM between #rowNumFrom# and #rowNumTo#
+                                        
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- CML Create / Search                                                                            -->
+    <!-- ============================================================================================== -->
+    <!-- 梱包指示品目番号の取得  -->
+    <!-- 3.2.1.MIXタグ単位での取得 -->
+    <sql id="SubSearchMixTagItemNoOnCreateByMixtag">
+          select distinct
+          AA.CONTAINER_SORTING_KEY
+        , AA.LOADING_CD
+        , AA.MIX_TAG_NO ITEM_NO
+        , null PKG_CD
+        , null SHIP_LOT
+        , null CO_FLG
+        , null ACTUAL_PKG_QTY
+        , null ACTUAL_TAG_QTY
+        , null INSTR_PKGED_QTY
+        , null INSTR_QTY
+        , null ORD_QTY
+        , null BO_QTY
+        , AA.INVOICE_KEY
+        , 'N' STG_INSTR_ITEM_FLG
+        , AA.CUSTOM_TIMING_TYP
+        , AA.CONTAINER_LOOSE_TYP
+        , 'M' PKG_FORM_TYP
+        , 'Y' MIX_TAG_FLG
+        , null ITEM_DESCRIPTION
+        , null TMP_QTY
+        , nvl2(AC.MIX_TAG_NO, 'Y', 'N') DISABLE_FLG
+        , null ITEM_WEIGHT
+        , null WEIGHT_UNIT
+        , AA.MIX_TAG_NO
+        , null EXP_LIMIT_TYP
+        , null DNGR_ITEM_FLG
+        , null ORIGIN_CNTRY_CD
+        , null QTY_UNIT
+        , null ON_HAND_QTY
+        , null PLNT_CD
+        , AA.CURR_CD
+      from
+          TT_MIXTAG AA
+        , TT_MIXTAG_ITEM_NO AB
+        , (select MIX_TAG_NO 
+             from TW_PLTZ_ITEM_ITEM_NO
+            where MIX_TAG_FLG  = 'Y'
+            <isNotEmpty property="loginUserDscId">
+              and DSC_ID = #loginUserDscId#
+            </isNotEmpty>) AC
+      where
+            AA.MIX_TAG_NO = AB.MIX_TAG_NO
+        and AA.MIX_TAG_NO = AC.MIX_TAG_NO (+)
+        and AA.MIX_TAG_STATUS = '10'
+        and AA.PLTZ_INSTR_NO = #pltzInstrNo#
+        <isNotEmpty property="containerSortingKey">
+            and AA.CONTAINER_SORTING_KEY LIKE CONCAT(#containerSortingKey#,'%')
+        </isNotEmpty>
+        <isNotEmpty property="loadingCd">
+            and AA.LOADING_CD = #loadingCd#
+        </isNotEmpty>
+        <isNotEmpty property="mixTagNo">
+            and AA.MIX_TAG_NO LIKE CONCAT(#mixTagNo#,'%')
+        </isNotEmpty>
+        <isNotEmpty property="pltzItemNo">
+            and AB.ITEM_NO LIKE CONCAT(#pltzItemNo#,'%')
+        </isNotEmpty>
+        <isNotEmpty property="pkgCd">
+            and AB.PKG_CD LIKE CONCAT(#pkgCd#,'%')
+        </isNotEmpty>
+        <isNotEmpty property="invoiceKey">
+            and AA.INVOICE_KEY = #invoiceKey#
+        </isNotEmpty>
+        <isNotEmpty property="customTimingTyp">
+            and AA.CUSTOM_TIMING_TYP = #customTimingTyp#
+        </isNotEmpty>
+    </sql>
+    
+    <!-- 3.2.2.品目番号データの取得 -->
+    <sql id="SubSearchMixTagItemNoOnCreateByItemNo">
+      select * from (
+          select
+              BE.CONTAINER_SORTING_KEY
+            , BE.LOADING_CD
+            , BA.ITEM_NO
+            , BA.PKG_CD
+            , NVL(BG.SHIP_LOT, 0) SHIP_LOT
+            , case when BG.REV <![CDATA[<]]> BG.MAX_REV then '*' else null end CO_FLG
+            , BD.QTY ACTUAL_PKG_QTY
+            , BD.TAG_QTY ACTUAL_TAG_QTY
+            , (BA.PACKED_QTY + NVL(BB.QTY, 0)) INSTR_PKGED_QTY
+            , BA.INSTR_QTY
+            , NVL(BF.ODR_QTY, 0) ORD_QTY
+            , NVL(BF.BO_QTY, 0) BO_QTY
+            , BE.INVOICE_KEY
+            , case when BA.TRNS_CD = 'A' then 'Y'
+                else BE.STG_INSTR_ITEM_FLG
+                end "STG_INSTR_ITEM_FLG"
+            , case when BA.TRNS_CD = 'A' then 'Z'
+                else BE.CUSTOM_TIMING_TYP
+                end "CUSTOM_TIMING_TYP"
+            , case when BA.TRNS_CD = 'A' then 'L'
+                else BE.CONTAINER_LOOSE_TYP
+                end "CONTAINER_LOOSE_TYP"
+            , BG.PKG_FORM_TYP
+            , 'N' MIX_TAG_FLG
+            , BE.ITEM_DESCRIPTION
+            , NVL(BH.QTY, 0) TMP_QTY
+            , nvl2(BD.PLTZ_ITEM_NO, 'Y', 'N') DISABLE_FLG
+            , BG.NET_WEIGHT_A ITEM_WEIGHT
+            , BG.WEIGHT_UNIT
+            , null MIX_TAG_NO
+            , BC.EXP_LIMIT_TYP
+            , BC.DNGR_ITEM_FLG
+            , BC.ORIGIN_CNTRY_CD
+            , null QTY_UNIT
+            , null ON_HAND_QTY
+            , null PLNT_CD
+            , null CURR_CD
+          from
+              ( <!-- 結合梱包指示 -->
+                select
+                    BAA.PLTZ_INSTR_NO
+                  , BAA.SHIPPER_CD
+                  , BAA.CUSTOMER_CD
+                  , BAA.LGCY_SHIP_TO
+                  , BAA.LGCY_WH_CD
+                  , BAA.TRNS_CD
+                  , BAB.ITEM_NO
+                  , BAB.PKG_CD
+                  , BAB.PACKED_QTY
+                  , BAB.INSTR_QTY
+                from
+                    TT_PLTZ_INSTR BAA
+                  , TT_PLTZ_INSTR_ITEM_NO BAB
+                where
+                        BAA.PLTZ_INSTR_NO = BAB.PLTZ_INSTR_NO
+                    and BAA.PLTZ_INSTR_NO = #pltzInstrNo#
+                 <dynamic>
+                  <isNotEmpty property="pltzItemNo">
+                    and BAB.ITEM_NO LIKE CONCAT(#pltzItemNo#,'%')
+                  </isNotEmpty>
+                  <isNotEmpty property="pkgCd">
+                    and BAB.PKG_CD LIKE CONCAT(#pkgCd#,'%') 
+                  </isNotEmpty>
+                 </dynamic>
+                  ) BA
+                , ( <!-- 結合MIXED現品票 -->
+                select
+                    PLTZ_INSTR_NO
+                  , ITEM_NO
+                  , PKG_CD
+                  , sum(QTY) QTY
+                from
+                    TT_MIXTAG BBA
+                  , TT_MIXTAG_ITEM_NO BBB
+                where
+                      BBA.MIX_TAG_NO = BBB.MIX_TAG_NO
+                  and BBA.MIX_TAG_STATUS = '10'
+                group by
+                    PLTZ_INSTR_NO
+                  , ITEM_NO
+                  , PKG_CD ) BB
+            , ( <!-- 輸出手続品目番号原単位（対象適用開始日で抽出）-->
+                select
+                    BCA.COMP_CD
+                  , BCA.ITEM_NO
+                  , BCA.EXP_LIMIT_TYP
+                  , BCA.DNGR_ITEM_FLG
+                  , BCA.ORIGIN_CNTRY_CD
+                from
+                    TM_EXP_FORMALITI_ITEM_NO BCA
+                  , ( select
+                          COMP_CD
+                        , ITEM_NO
+                        , max(APLY_STRT_DT) APLY_STRT_DT
+                      from TM_EXP_FORMALITI_ITEM_NO
+                      <dynamic>
+                       <isNotEmpty property="shipperTimezoneDt">
+                          where APLY_STRT_DT <![CDATA[<]]>= #shipperTimezoneDt#
+                       </isNotEmpty>
+                      </dynamic>
+                      group by
+                          COMP_CD
+                        , ITEM_NO ) BCB
+                where
+                      BCA.COMP_CD = BCB.COMP_CD
+                  and BCA.ITEM_NO = BCB.ITEM_NO
+                  and BCA.APLY_STRT_DT = BCB.APLY_STRT_DT ) BC
+            , ( <!-- パレタイズ対象品ワーク（品目番号抽出）-->
+                select
+                    PLTZ_ITEM_NO
+                  , PKG_CD
+                  , QTY
+                  , TAG_QTY
+                from TW_PLTZ_ITEM_ITEM_NO
+                where
+                         MIX_TAG_FLG = 'N'
+                <dynamic>
+                 <isNotEmpty property="loginUserDscId">
+                    and  DSC_ID = #loginUserDscId#
+                 </isNotEmpty>
+                </dynamic>
+              ) BD
+            , ( <!-- 輸出出荷品目番号原単位（対象適用開始日で抽出）-->
+                select
+                    BEA.COMP_CD
+                  , BEA.CUSTOMER_CD
+                  , BEA.LGCY_SHIP_TO
+                  , BEA.ITEM_NO
+                  , BEA.PKG_CD
+                  , BEA.CONTAINER_SORTING_KEY
+                  , BEA.LOADING_CD
+                  , BEA.INVOICE_KEY
+                  , BEA.STG_INSTR_ITEM_FLG
+                  , BEA.CUSTOM_TIMING_TYP
+                  , BEA.CONTAINER_LOOSE_TYP
+                  , BEA.ITEM_DESCRIPTION
+                from
+                    TM_EXP_ITEM_NO_SP_INFO BEA
+                  , ( select
+                          COMP_CD
+                        , CUSTOMER_CD
+                        , LGCY_SHIP_TO
+                        , ITEM_NO
+                        , PKG_CD
+                        , max(APLY_STRT_DT) APLY_STRT_DT
+                      from TM_EXP_ITEM_NO_SP_INFO
+                <dynamic>
+                 <isNotEmpty property="shipperTimezoneDt">
+                      where APLY_STRT_DT <![CDATA[<]]>= #shipperTimezoneDt#
+                 </isNotEmpty>
+                </dynamic>
+                      group by
+                          COMP_CD
+                        , CUSTOMER_CD
+                        , LGCY_SHIP_TO
+                        , ITEM_NO
+                        , PKG_CD
+                    ) BEB
+                where
+                      BEA.COMP_CD = BEB.COMP_CD
+                  and BEA.CUSTOMER_CD = BEB.CUSTOMER_CD
+                  and BEA.LGCY_SHIP_TO = BEB.LGCY_SHIP_TO
+                  and BEA.ITEM_NO = BEB.ITEM_NO
+                  and BEA.PKG_CD = BEB.PKG_CD
+                  and BEA.APLY_STRT_DT = BEB.APLY_STRT_DT ) BE
+            , ( <!-- 結合輸出受注 -->
+                select
+                    BFA.RCV_ODR_COMP_CD
+                  , BFA.ITEM_NO
+                  , BFA.PKG_CD
+                  , BFA.CUSTOMER_CD
+                  , BFA.LGCY_SHIP_TO
+                  , BFA.TRNS_CD
+                  , BFA.ODR_QTY
+                  , BFB.BO_QTY
+                from
+                    ( select
+                          RCV_ODR_COMP_CD
+                        , ITEM_NO
+                        , PKG_CD
+                        , CUSTOMER_CD
+                        , LGCY_SHIP_TO
+                        , TRNS_CD
+                        , sum(ODR_QTY - PLTZ_ALLOC_QTY) ODR_QTY
+                      from TT_EXP_RCV_ODR
+                      where
+                            ODR_FIRM_FLG = 'Y'
+                        and SHIPPED_TYP = '1'
+                      group by
+                          RCV_ODR_COMP_CD
+                        , ITEM_NO
+                        , PKG_CD
+                        , CUSTOMER_CD
+                        , LGCY_SHIP_TO
+                        , TRNS_CD ) BFA
+                  , ( select
+                          RCV_ODR_COMP_CD
+                        , ITEM_NO
+                        , PKG_CD
+                        , CUSTOMER_CD
+                        , LGCY_SHIP_TO
+                        , TRNS_CD
+                        , sum(ODR_QTY - PLTZ_ALLOC_QTY) BO_QTY
+                      from TT_EXP_RCV_ODR
+                      where
+                            ODR_FIRM_FLG = 'Y'
+                        and SHIPPED_TYP = '1'
+                <dynamic>
+                 <isNotEmpty property="shipperTimezoneDt">
+                        and SHIPPING_DT <![CDATA[<]]>= #shipperTimezoneDt#
+                 </isNotEmpty>
+                </dynamic>
+                      group by
+                          RCV_ODR_COMP_CD
+                        , ITEM_NO
+                        , PKG_CD
+                        , CUSTOMER_CD
+                        , LGCY_SHIP_TO
+                        , TRNS_CD ) BFB
+                where
+                      BFA.RCV_ODR_COMP_CD = BFB.RCV_ODR_COMP_CD (+)
+                  and BFA.ITEM_NO = BFB.ITEM_NO (+)
+                  and BFA.PKG_CD = BFB.PKG_CD (+)
+                  and BFA.CUSTOMER_CD = BFB.CUSTOMER_CD (+)
+                  and BFA.LGCY_SHIP_TO = BFB.LGCY_SHIP_TO (+)
+                  and BFA.TRNS_CD = BFB.TRNS_CD (+) ) BF
+            , ( <!-- 結合包装仕様 -->
+                select
+                    BGD.COMP_CD
+                  , BGA.ITEM_NO
+                  , BGA.PKG_CD
+                  , BGE.WEIGHT_UNIT
+                  , BGE.NET_WEIGHT_A
+                  , BGA.TRNS_CD
+                  , BGA.REV
+                  , BGA.SHIP_LOT
+                  , BGA.PKG_FORM_TYP
+                  , BGC.MAX_REV
+                from
+                    TM_PKG_SPEC_HDR BGA
+                  , ( select
+                          BGB.OWNER_COMP
+                        , BGB.ITEM_NO
+                        , BGB.PKG_CD
+                        , BGB.TRNS_CD
+                        , BGB.N_PROC
+                        , max(BGB.REV) MAX_REV
+                      from TM_PKG_SPEC_HDR BGB
+                      group by
+                          BGB.OWNER_COMP
+                        , BGB.ITEM_NO
+                        , BGB.PKG_CD
+                        , BGB.TRNS_CD
+                        , BGB.N_PROC
+                    ) BGC
+                  , TM_PKG_SPEC_REV BGD
+                  , TM_ACTUAL_ITEM_WEIGHT BGE
+                where
+                      BGA.N_PROC = ' '
+                      <dynamic>
+                          <isNotEmpty property="pkgFormTyp">
+                              and BGA.PKG_FORM_TYP = #pkgFormTyp#
+                          </isNotEmpty>
+                      </dynamic>
+                  and BGA.OWNER_COMP = BGC.OWNER_COMP
+                  and BGA.ITEM_NO = BGC.ITEM_NO
+                  and BGA.PKG_CD = BGC.PKG_CD
+                  and BGA.TRNS_CD = BGC.TRNS_CD
+                  and BGA.N_PROC = BGC.N_PROC
+                  and BGA.OWNER_COMP = BGD.COMP_CD
+                  and BGA.ITEM_NO = BGD.ITEM_NO
+                  and BGA.PKG_CD = BGD.PKG_CD
+                  and BGA.TRNS_CD = BGD.TRNS_CD
+                  and BGA.N_PROC = BGD.N_PROC
+                  and BGA.REV = BGD.REV
+                  and BGA.OWNER_COMP = BGE.OWNER_COMP
+                  and BGA.ITEM_NO = BGE.ITEM_NO) BG
+            , TT_TMP_STOCK BH
+          where
+                BA.PLTZ_INSTR_NO = BB.PLTZ_INSTR_NO (+)
+            and BA.ITEM_NO = BB.ITEM_NO (+)
+            and BA.PKG_CD = BB.PKG_CD (+)
+            and BA.SHIPPER_CD = BC.COMP_CD (+)
+            and BA.ITEM_NO = BC.ITEM_NO (+)
+            and BA.ITEM_NO = BD.PLTZ_ITEM_NO (+)
+            and BA.PKG_CD = BD.PKG_CD (+)
+            and BA.SHIPPER_CD = BE.COMP_CD (+)
+            and BA.CUSTOMER_CD = BE.CUSTOMER_CD (+)
+            and BA.LGCY_SHIP_TO = BE.LGCY_SHIP_TO (+)
+            and BA.ITEM_NO = BE.ITEM_NO (+)
+            and BA.PKG_CD = BE.PKG_CD (+)
+            and BA.SHIPPER_CD = BF.RCV_ODR_COMP_CD (+)
+            and BA.CUSTOMER_CD = BF.CUSTOMER_CD (+)
+            and BA.LGCY_SHIP_TO = BF.LGCY_SHIP_TO (+)
+            and BA.ITEM_NO = BF.ITEM_NO (+)
+            and BA.PKG_CD = BF.PKG_CD (+)
+            and BA.TRNS_CD = BF.TRNS_CD (+)
+            and BA.SHIPPER_CD = BG.COMP_CD (+)
+            and BA.ITEM_NO = BG.ITEM_NO (+)
+            and BA.PKG_CD = BG.PKG_CD (+)
+            and BA.TRNS_CD = BG.TRNS_CD (+)
+            and BA.SHIPPER_CD = BH.SHIPPER_CD (+)
+            and BA.LGCY_WH_CD = BH.LGCY_WH_CD (+)
+            and BA.ITEM_NO = BH.ITEM_NO (+)
+            and BA.PKG_CD = BH.PKG_CD (+)
+            and BA.INSTR_QTY > (BA.PACKED_QTY + NVL(BB.QTY, 0))
+            <dynamic>
+              <isNotEmpty property="containerSortingKey">
+                  and BE.CONTAINER_SORTING_KEY LIKE CONCAT(#containerSortingKey#,'%')
+              </isNotEmpty>
+              <isNotEmpty property="loadingCd">
+                  and BE.LOADING_CD = #loadingCd#
+              </isNotEmpty>
+              <isNotEmpty property="invoiceKey">
+                  and BE.INVOICE_KEY = #invoiceKey#
+              </isNotEmpty>
+              <isNotEmpty property="stgInstrItemFlg">
+                  and BE.STG_INSTR_ITEM_FLG = #stgInstrItemFlg#
+              </isNotEmpty>
+              <isNotEmpty property="customTimingTyp">
+                  and BE.CUSTOM_TIMING_TYP = #customTimingTyp#
+              </isNotEmpty>
+            </dynamic>
+       )
+       <!-- 画面からの絞り込み条件追加 -->
+       <dynamic prepend="where">
+          <isNotEmpty property="containerSortingKey" prepend="and">
+              CONTAINER_SORTING_KEY LIKE CONCAT(#containerSortingKey#,'%')
+          </isNotEmpty>
+          <isNotEmpty property="loadingCd" prepend="and">
+              LOADING_CD = #loadingCd#
+          </isNotEmpty>
+          <isNotEmpty property="invoiceKey" prepend="and">
+              INVOICE_KEY = #invoiceKey#
+          </isNotEmpty>
+          <isNotEmpty property="stgInstrItemFlg" prepend="and">
+              STG_INSTR_ITEM_FLG = #stgInstrItemFlg#
+          </isNotEmpty>
+          <isNotEmpty property="customTimingTyp" prepend="and">
+              CUSTOM_TIMING_TYP = #customTimingTyp#
+          </isNotEmpty>
+          <isNotEmpty property="pkgFormTyp" prepend="and">
+              PKG_FORM_TYP = #pkgFormTyp#
+          </isNotEmpty>
+       </dynamic>
+    </sql>
+    <select id="SearchMixTagItemNoOnCreate" resultMap="W2009CmlItemDomain_SearchMixTagItemNoOnCreate" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchMixTagItemNoOnCreate */
+            *
+        from (
+            <isNotEqual property="stgInstrItemFlg" compareValue="Y">
+              <isNotEqual property="pkgFormTyp" compareValue="S">
+                <!-- 3.2.1.MIXタグ単位での取得 -->
+                (<include refid="SubSearchMixTagItemNoOnCreateByMixtag" />)
+              </isNotEqual>
+            </isNotEqual>
+            <isNotEqual property="stgInstrItemFlg" compareValue="Y">
+                <isNotEqual property="pkgFormTyp" compareValue="S">
+                    <isEmpty property="mixTagNo">
+                        union all
+                    </isEmpty>
+                </isNotEqual>
+            </isNotEqual>
+            <isEmpty property="mixTagNo" >
+              <!-- 3.2.2.品目番号データの取得 -->
+              (<include refid="SubSearchMixTagItemNoOnCreateByItemNo"/>)
+            </isEmpty>
+        )
+        order by
+            MIX_TAG_NO DESC nulls last
+          , nvl(CONTAINER_SORTING_KEY, 'zzzzzzzz')
+          , nvl(LOADING_CD, 'z')
+          , ITEM_NO
+          , PKG_CD
+    </select>
+    
+    <!-- ============================================================================================== -->
+    <!-- CML Create / Search                                                                            -->
+    <!-- ============================================================================================== -->
+    <!-- 成行品目番号の取得 -->
+    <!-- 3.3.1.MIXタグデータの取得 -->
+    <sql id="SubSearchNonInstructionItemNoOnCreateByMixTag">
+      select distinct
+          AA.CONTAINER_SORTING_KEY
+        , AA.LOADING_CD
+        , AA.MIX_TAG_NO ITEM_NO
+        , null PKG_CD
+        , null SHIP_LOT
+        , null CO_FLG
+        , null ACTUAL_PKG_QTY
+        , null ACTUAL_TAG_QTY
+        , null INSTR_PKGED_QTY
+        , null INSTR_QTY
+        , null ORD_QTY
+        , null BO_QTY
+        , AA.INVOICE_KEY
+        , 'N' STG_INSTR_ITEM_FLG
+        , AA.CUSTOM_TIMING_TYP
+        , AA.CONTAINER_LOOSE_TYP
+        , 'M' PKG_FORM_TYP
+        , 'Y' MIX_TAG_FLG
+        , null ITEM_DESCRIPTION
+        , null TMP_QTY
+        , nvl2(AC.MIX_TAG_NO, 'Y', 'N') DISABLE_FLG
+        , null ITEM_WEIGHT
+        , null WEIGHT_UNIT
+        , AA.MIX_TAG_NO
+        , null EXP_LIMIT_TYP
+        , null DNGR_ITEM_FLG
+        , null ORIGIN_CNTRY_CD
+        , null QTY_UNIT
+        , null ON_HAND_QTY
+        , null PLNT_CD
+        , AA.CURR_CD
+      from
+          TT_MIXTAG AA
+        , TT_MIXTAG_ITEM_NO AB
+        , (select MIX_TAG_NO 
+             from TW_PLTZ_ITEM_ITEM_NO 
+            where MIX_TAG_FLG = 'Y'
+            <isNotEmpty property="loginUserDscId">
+              and DSC_ID = #loginUserDscId#
+            </isNotEmpty>) AC
+      where
+            AA.MIX_TAG_NO = AB.MIX_TAG_NO
+        and AA.MIX_TAG_NO = AC.MIX_TAG_NO (+)
+        and AA.MIX_TAG_STATUS = '10'
+        and AA.PLTZ_INSTR_NO is null
+        <!-- FIXME : 更新権限のあるMIX現品を含むものに絞って抽出しなくて良い？ -->
+        <isNotEmpty property="shipperCd">
+            and AA.SHIPPER_CD = #shipperCd#
+        </isNotEmpty>
+        <isNotEmpty property="customerCd">
+            and AA.CUSTOMER_CD = #customerCd#
+        </isNotEmpty>
+        <isNotEmpty property="lgcyShipTo">
+            and AA.LGCY_SHIP_TO = #lgcyShipTo#
+        </isNotEmpty>
+        <isNotEmpty property="trnsCd">
+            and AA.TRNS_CD = #trnsCd#
+        </isNotEmpty>
+        <isNotEmpty property="plntCd">
+            and AA.PLNT_CD = #plntCd#
+        </isNotEmpty>
+        <isNotEmpty property="lgcyWhCd">
+            and AA.LGCY_WH_CD = #lgcyWhCd#
+        </isNotEmpty>
+        <isNotEmpty property="containerSortingKey">
+            and AA.CONTAINER_SORTING_KEY LIKE CONCAT(#containerSortingKey#,'%')
+        </isNotEmpty>
+        <isNotEmpty property="loadingCd">
+            and AA.LOADING_CD = #loadingCd#
+        </isNotEmpty>
+        <isNotEmpty property="mixTagNo">
+            and AA.MIX_TAG_NO LIKE CONCAT(#mixTagNo#,'%')
+        </isNotEmpty>
+        <isNotEmpty property="invoiceKey">
+            and AA.INVOICE_KEY = #invoiceKey#
+        </isNotEmpty>
+        <isNotEmpty property="customTimingTyp">
+            and AA.CUSTOM_TIMING_TYP = #customTimingTyp#
+        </isNotEmpty>
+        <isNotEmpty property="pltzItemNo">
+            and AB.ITEM_NO LIKE CONCAT(#pltzItemNo#,'%')
+         </isNotEmpty>
+        <isNotEmpty property="pkgCd">
+            and AB.PKG_CD LIKE CONCAT(#pkgCd#,'%')
+        </isNotEmpty>
+    </sql>
+    <!-- 3.3.2.品目番号データの取得 -->
+    <sql id="SubSearchNonInstructionItemNoOnCreateByItemNo">
+      select * from (
+          select
+              BB.CONTAINER_SORTING_KEY
+            , BB.LOADING_CD
+            , BC.ITEM_NO
+            , BC.PKG_CD
+          <!-- UT110 TRIAL SHIPMENT/号試品対応 MOD START -->
+          <isNotEqual property="manualRegFlg" compareValue="Y">
+            , nvl(BF.SHIP_LOT, 0) SHIP_LOT
+          </isNotEqual>
+          <isEqual property="manualRegFlg" compareValue="Y">
+            , nvl(BB.SHIPPING_LOT, 0) SHIP_LOT
+          </isEqual>
+          <!-- UT110 TRIAL SHIPMENT/号試品対応 MOD END -->
+            , case when BF.REV <![CDATA[<]]> BF.MAX_REV then '*' else null end CO_FLG
+            , BD.QTY ACTUAL_PKG_QTY
+            , BD.TAG_QTY ACTUAL_TAG_QTY
+            , null INSTR_PKGED_QTY
+            , null INSTR_QTY
+            , BC.ODR_QTY ORD_QTY
+            , nvl(BC.BO_QTY, 0) BO_QTY
+            , BB.INVOICE_KEY
+            , case when BC.TRNS_CD = 'A' then 'Y'
+                else BB.STG_INSTR_ITEM_FLG
+                end "STG_INSTR_ITEM_FLG"
+            , case when BC.TRNS_CD = 'A' then 'Z'
+                else BB.CUSTOM_TIMING_TYP
+                end "CUSTOM_TIMING_TYP"
+            , case when BC.TRNS_CD = 'A' then 'L'
+                else BB.CONTAINER_LOOSE_TYP
+                end "CONTAINER_LOOSE_TYP"
+            , BF.PKG_FORM_TYP
+            , 'N' MIX_TAG_FLG
+            , BB.ITEM_DESCRIPTION
+            , nvl(BE.QTY, 0) TMP_QTY
+            , nvl2(BD.PLTZ_ITEM_NO, 'Y', 'N') DISABLE_FLG
+          <!--
+          UT110 TRIAL SHIPMENT/号試品対応 MOD START
+          In the case of TRYAL SHIPMENT, NET Weight to get from TM_ACTUAL_ITEM_WEIGHT because PKG Spec unregistered.
+            号試品の場合、包装仕様未登録のためNET Weightは実測重量から取得する。
+          -->
+          <isNotEqual property="manualRegFlg" compareValue="Y">
+            , BF.NET_WEIGHT_A ITEM_WEIGHT
+            , BF.WEIGHT_UNIT WEIGHT_UNIT
+          </isNotEqual>
+          <isEqual property="manualRegFlg" compareValue="Y">
+            , BG.NET_WEIGHT_A ITEM_WEIGHT
+            , BG.WEIGHT_UNIT WEIGHT_UNIT
+          </isEqual>
+          <!-- UT110 TRIAL SHIPMENT/号試品対応 MOD END -->
+            , null MIX_TAG_NO
+            , BA.EXP_LIMIT_TYP
+            , BA.DNGR_ITEM_FLG
+            , BA.ORIGIN_CNTRY_CD
+            , null QTY_UNIT
+            , null ON_HAND_QTY
+            , null PLNT_CD
+            , null CURR_CD
+          from
+              ( <!-- 輸出手続品目番号原単位（対象適用開始日で抽出）-->
+                select
+                    BAA.COMP_CD
+                  , BAA.ITEM_NO
+                  , BAA.EXP_LIMIT_TYP
+                  , BAA.DNGR_ITEM_FLG
+                  , BAA.ORIGIN_CNTRY_CD
+                from
+                    TM_EXP_FORMALITI_ITEM_NO BAA
+                  , ( select
+                          COMP_CD
+                        , ITEM_NO
+                        , max(APLY_STRT_DT) APLY_STRT_DT
+                      from TM_EXP_FORMALITI_ITEM_NO
+                      <dynamic>
+                       <isNotEmpty property="shipperTimezoneDt">
+                           where APLY_STRT_DT <![CDATA[<]]>= #shipperTimezoneDt#
+                       </isNotEmpty>
+                      </dynamic>
+                      group by
+                          COMP_CD
+                        , ITEM_NO ) BAB
+                where
+                      BAA.COMP_CD = BAB.COMP_CD
+                  and BAA.ITEM_NO = BAB.ITEM_NO
+                  and BAA.APLY_STRT_DT = BAB.APLY_STRT_DT ) BA
+            , ( <!-- 輸出出荷品目番号原単位（対象適用開始日で抽出）-->
+                select
+                    BBA.COMP_CD
+                  , BBA.CUSTOMER_CD
+                  , BBA.LGCY_SHIP_TO
+                  , BBA.ITEM_NO
+                  , BBA.PKG_CD
+                  , BBA.CONTAINER_SORTING_KEY
+                  , BBA.LOADING_CD
+                  , BBA.INVOICE_KEY
+                  , BBA.STG_INSTR_ITEM_FLG
+                  , BBA.CUSTOM_TIMING_TYP
+                  , BBA.CONTAINER_LOOSE_TYP
+                  , BBA.ITEM_DESCRIPTION
+                  , BBA.SHIPPING_LOT <!-- UT110 TRIAL SHIPMENT/号試品対応 ADD -->
+                from
+                    TM_EXP_ITEM_NO_SP_INFO BBA
+                  , ( select
+                          COMP_CD
+                        , CUSTOMER_CD
+                        , LGCY_SHIP_TO
+                        , ITEM_NO
+                        , PKG_CD
+                        , max(APLY_STRT_DT) APLY_STRT_DT
+                      from TM_EXP_ITEM_NO_SP_INFO
+                      <dynamic>
+                       <isNotEmpty property="shipperTimezoneDt">
+                           where APLY_STRT_DT <![CDATA[<]]>= #shipperTimezoneDt#
+                       </isNotEmpty>
+                      </dynamic>
+                      group by
+                          COMP_CD
+                        , CUSTOMER_CD
+                        , LGCY_SHIP_TO
+                        , ITEM_NO
+                        , PKG_CD
+                    ) BBB
+                where
+                      BBA.COMP_CD = BBB.COMP_CD
+                  and BBA.CUSTOMER_CD = BBB.CUSTOMER_CD
+                  and BBA.LGCY_SHIP_TO = BBB.LGCY_SHIP_TO
+                  and BBA.ITEM_NO = BBB.ITEM_NO
+                  and BBA.PKG_CD = BBB.PKG_CD
+                  and BBA.APLY_STRT_DT = BBB.APLY_STRT_DT ) BB
+            , ( <!-- 結合輸出受注 -->
+                select
+                    BCA.RCV_ODR_COMP_CD
+                  , BCA.ITEM_NO
+                  , BCA.PKG_CD
+                  , BCA.CUSTOMER_CD
+                  , BCA.LGCY_SHIP_TO
+                  , BCA.TRNS_CD
+                  , BCA.ODR_QTY
+                  , BCB.BO_QTY
+                from
+                    ( select
+                          RCV_ODR_COMP_CD
+                        , ITEM_NO
+                        , PKG_CD
+                        , CUSTOMER_CD
+                        , LGCY_SHIP_TO
+                        , TRNS_CD
+                        , sum(ODR_QTY - PLTZ_ALLOC_QTY) ODR_QTY
+                      from TT_EXP_RCV_ODR
+                      where
+                            ODR_FIRM_FLG = 'Y'
+                        and SHIPPED_TYP = '1'
+                        <dynamic>
+                           <isNotEmpty property="shipperCd">
+                                and RCV_ODR_COMP_CD = #shipperCd#
+                           </isNotEmpty>
+                           <isNotEmpty property="customerCd">
+                                and CUSTOMER_CD = #customerCd#
+                           </isNotEmpty>
+                           <isNotEmpty property="lgcyShipTo">
+                                and LGCY_SHIP_TO = #lgcyShipTo#
+                           </isNotEmpty>
+                           <isNotEmpty property="trnsCd">
+                               and TRNS_CD = #trnsCd#
+                           </isNotEmpty>
+                           <isNotEmpty property="pltzItemNo">
+                               and ITEM_NO LIKE CONCAT(#pltzItemNo#,'%')
+                           </isNotEmpty>
+                           <isNotEmpty property="pkgCd">
+                               and PKG_CD LIKE CONCAT(#pkgCd#,'%')
+                           </isNotEmpty>
+                        </dynamic>
+                      group by
+                          RCV_ODR_COMP_CD
+                        , ITEM_NO
+                        , PKG_CD
+                        , CUSTOMER_CD
+                        , LGCY_SHIP_TO
+                        , TRNS_CD ) BCA
+                  , ( select
+                          RCV_ODR_COMP_CD
+                        , ITEM_NO
+                        , PKG_CD
+                        , CUSTOMER_CD
+                        , LGCY_SHIP_TO
+                        , TRNS_CD
+                        , sum(ODR_QTY - PLTZ_ALLOC_QTY) BO_QTY
+                      from TT_EXP_RCV_ODR
+                      where
+                            ODR_FIRM_FLG = 'Y'
+                        and SHIPPED_TYP = '1'
+                        <dynamic>
+                             <isNotEmpty property="shipperTimezoneDt">
+                                 and SHIPPING_DT <![CDATA[<]]>= #shipperTimezoneDt#
+                             </isNotEmpty>
+                        </dynamic>
+                      group by
+                          RCV_ODR_COMP_CD
+                        , ITEM_NO
+                        , PKG_CD
+                        , CUSTOMER_CD
+                        , LGCY_SHIP_TO
+                        , TRNS_CD ) BCB
+                where
+                      BCA.RCV_ODR_COMP_CD = BCB.RCV_ODR_COMP_CD(+)
+                  and BCA.ITEM_NO = BCB.ITEM_NO(+)
+                  and BCA.PKG_CD = BCB.PKG_CD(+)
+                  and BCA.CUSTOMER_CD = BCB.CUSTOMER_CD(+)
+                  and BCA.LGCY_SHIP_TO = BCB.LGCY_SHIP_TO(+)
+                  and BCA.TRNS_CD = BCB.TRNS_CD(+)
+               ) BC
+            , ( <!-- パレタイズ対象品ワーク（品目番号抽出） -->
+                select
+                    PLTZ_ITEM_NO
+                  , PKG_CD
+                  , QTY
+                  , TAG_QTY
+                from TW_PLTZ_ITEM_ITEM_NO
+                where
+                      MIX_TAG_FLG = 'N' 
+                      <dynamic>
+                          <isNotEmpty property="loginUserDscId">
+                              and DSC_ID = #loginUserDscId#
+                          </isNotEmpty>
+                      </dynamic>
+              ) BD
+            , ( <!-- 仮在庫（品目番号抽出）-->
+                select
+                    SHIPPER_CD
+                  , ITEM_NO
+                  , PKG_CD
+                  , QTY
+                from TT_TMP_STOCK
+                      <dynamic>
+                          <isNotEmpty property="lgcyWhCd">
+                              where LGCY_WH_CD = #lgcyWhCd#
+                          </isNotEmpty>
+                      </dynamic>
+                ) BE
+            , ( <!-- 結合包装仕様 -->
+                select
+                    BFD.COMP_CD
+                  , BFA.ITEM_NO
+                  , BFA.PKG_CD
+                  , BFE.WEIGHT_UNIT
+                  , BFE.NET_WEIGHT_A
+                  , BFA.TRNS_CD
+                  , BFA.REV
+                  , BFA.SHIP_LOT
+                  , BFA.PKG_FORM_TYP
+                  , BFC.MAX_REV
+                from
+                    TM_PKG_SPEC_HDR BFA
+                  , ( select
+                          BFB.OWNER_COMP
+                        , BFB.ITEM_NO
+                        , BFB.PKG_CD
+                        , BFB.TRNS_CD
+                        , BFB.N_PROC
+                        , max(BFB.REV) MAX_REV
+                      from TM_PKG_SPEC_HDR BFB
+                      group by
+                          BFB.OWNER_COMP
+                        , BFB.ITEM_NO
+                        , BFB.PKG_CD
+                        , BFB.TRNS_CD
+                        , BFB.N_PROC
+                    ) BFC
+                  , TM_PKG_SPEC_REV BFD
+                  , TM_ACTUAL_ITEM_WEIGHT BFE
+                where
+                      BFA.N_PROC = ' '
+                      <dynamic>
+                          <isNotEmpty property="pkgFormTyp">
+                              and BFA.PKG_FORM_TYP = #pkgFormTyp#
+                          </isNotEmpty>
+                      </dynamic>
+                  and BFA.OWNER_COMP = BFC.OWNER_COMP
+                  and BFA.ITEM_NO = BFC.ITEM_NO
+                  and BFA.PKG_CD = BFC.PKG_CD
+                  and BFA.TRNS_CD = BFC.TRNS_CD
+                  and BFA.N_PROC = BFC.N_PROC
+                  and BFA.OWNER_COMP = BFD.COMP_CD
+                  and BFA.ITEM_NO = BFD.ITEM_NO
+                  and BFA.PKG_CD = BFD.PKG_CD
+                  and BFA.TRNS_CD = BFD.TRNS_CD
+                  and BFA.N_PROC = BFD.N_PROC
+                  and BFA.REV = BFD.REV
+                  and BFA.OWNER_COMP = BFE.OWNER_COMP
+                  and BFA.ITEM_NO = BFE.ITEM_NO) BF
+            <!-- UT110 TRIAL SHIPMENT/号試品対応 ADD -->
+            <isEqual property="manualRegFlg" compareValue="Y">
+              ,TM_ACTUAL_ITEM_WEIGHT BG
+            </isEqual>
+          where
+                BC.RCV_ODR_COMP_CD = BA.COMP_CD (+)
+            and BC.ITEM_NO = BA.ITEM_NO (+)
+            and BC.RCV_ODR_COMP_CD = BB.COMP_CD (+)
+            and BC.CUSTOMER_CD = BB.CUSTOMER_CD (+)
+            and BC.LGCY_SHIP_TO = BB.LGCY_SHIP_TO (+)
+            and BC.ITEM_NO = BB.ITEM_NO (+)
+            and BC.PKG_CD = BB.PKG_CD (+)
+            and BC.ITEM_NO = BD.PLTZ_ITEM_NO (+)
+            and BC.PKG_CD = BD.PKG_CD (+)
+            and BC.RCV_ODR_COMP_CD = BE.SHIPPER_CD (+)
+            and BC.ITEM_NO = BE.ITEM_NO (+)
+            and BC.PKG_CD = BE.PKG_CD (+)
+            and BC.RCV_ODR_COMP_CD = BF.COMP_CD (+)
+            and BC.ITEM_NO = BF.ITEM_NO (+)
+            and BC.PKG_CD = BF.PKG_CD (+)
+            and BC.TRNS_CD = BF.TRNS_CD (+)
+          <!--
+          UT110 TRIAL SHIPMENT/号試品対応 ADD
+          To join TM_ACTUAL_ITEM_WEIGHT does not bind the PKG Spec.
+            包装仕様は結合せず実測製品重量原単位のみ結合する。
+          -->
+          <isEqual property="manualRegFlg" compareValue="Y">
+            and BF.ITEM_NO(+) is NULL
+            and BC.RCV_ODR_COMP_CD = BG.OWNER_COMP (+)
+            and BC.ITEM_NO = BG.ITEM_NO (+)
+          </isEqual>
+            <dynamic>
+             <isNotEmpty property="containerSortingKey">
+                and BB.CONTAINER_SORTING_KEY LIKE CONCAT(#containerSortingKey#,'%')
+             </isNotEmpty>
+             <isNotEmpty property="loadingCd">
+                and BB.LOADING_CD = #loadingCd#
+             </isNotEmpty>
+             <isNotEmpty property="invoiceKey">
+                and BB.INVOICE_KEY = #invoiceKey#
+             </isNotEmpty>
+             <isNotEmpty property="stgInstrItemFlg">
+                and BB.STG_INSTR_ITEM_FLG = #stgInstrItemFlg#
+             </isNotEmpty>
+             <isNotEmpty property="customTimingTyp">
+                and BB.CUSTOM_TIMING_TYP =  #customTimingTyp#
+             </isNotEmpty>
+           </dynamic>
+      ) 
+      <!-- 画面からの絞り込み条件追加 -->
+      <dynamic prepend="where">
+          <isNotEmpty property="containerSortingKey" prepend="and">
+              CONTAINER_SORTING_KEY LIKE CONCAT(#containerSortingKey#,'%')
+          </isNotEmpty>
+          <isNotEmpty property="loadingCd" prepend="and">
+              LOADING_CD = #loadingCd#
+          </isNotEmpty>
+          <isNotEmpty property="invoiceKey" prepend="and">
+              INVOICE_KEY = #invoiceKey#
+          </isNotEmpty>
+          <isNotEmpty property="stgInstrItemFlg" prepend="and">
+              STG_INSTR_ITEM_FLG = #stgInstrItemFlg#
+          </isNotEmpty>
+          <isNotEmpty property="customTimingTyp" prepend="and">
+              CUSTOM_TIMING_TYP =  #customTimingTyp#
+          </isNotEmpty>
+          <isNotEmpty property="pkgFormTyp" prepend="and">
+              PKG_FORM_TYP = #pkgFormTyp#
+          </isNotEmpty>
+      </dynamic>
+    </sql>
+    <select id="SearchNonInstructionItemNoOnCreate" resultMap="W2009CmlItemDomain_SearchNonInstructionItemNoOnCreate" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchNonInstructionItemNoOnCreate */
+            *
+        from (
+          <!-- 3.3.1.MIXタグデータの取得 -->
+          <isNotEqual property="pkgFormTyp" compareValue="S">
+           <isNotEqual property="stgInstrItemFlg" compareValue="Y">
+             <!-- 3.3.1.MIXタグデータの取得 -->
+             (<include refid="SubSearchNonInstructionItemNoOnCreateByMixTag" />)
+           </isNotEqual>
+          </isNotEqual>
+          <isNotEqual property="pkgFormTyp" compareValue="S">
+              <isNotEqual property="stgInstrItemFlg" compareValue="Y">
+                  <isEmpty property="mixTagNo">
+                      union all
+                  </isEmpty>
+              </isNotEqual>
+          </isNotEqual>
+          <isEmpty property="mixTagNo">
+            <!-- 3.3.2.品目番号データの取得 -->
+            (<include refid="SubSearchNonInstructionItemNoOnCreateByItemNo"/>)
+          </isEmpty>
+        )
+        order by
+            MIX_TAG_NO desc nulls last
+          , nvl(CONTAINER_SORTING_KEY, 'zzzzzzzz')
+          , nvl(LOADING_CD, 'z')
+          , ITEM_NO
+          , PKG_CD
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTwPltzItemItemNoByBrch" resultClass="java.math.BigDecimal" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTwPltzItemItemNoByBrch */
+             max(BRCH) BRCH
+        from TW_PLTZ_ITEM_ITEM_NO
+        where DSC_ID = #loginUserDscId#
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+
+    <select id="SearchTmPkgSpecificationDtl" resultMap="W2009CmlDomain_SearchTmPkgSpecificationDtl" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTmPkgSpecificationDtl */
+             A.VOLUME_UNIT
+            ,A.VOLUME_PALLETIZE
+            ,A.LENGTH_UNIT
+            ,A.LENGTH_PALLETIZE
+            ,A.WIDTH_PALLETIZE
+            ,A.HEIGHT_PALLETIZE
+        from
+            TM_PKG_SPEC_HDR A
+           ,TM_PKG_SPEC_REV B
+        where
+              A.OWNER_COMP = B.COMP_CD
+          and A.ITEM_NO = B.ITEM_NO
+          and A.PKG_CD = B.PKG_CD
+          and A.TRNS_CD = B.TRNS_CD
+          and A.N_PROC = B.N_PROC
+          and A.REV = B.REV
+          and A.OWNER_COMP = #shipperCd#
+          and A.ITEM_NO = #pltzItemNo#
+          and A.PKG_CD = #pkgCd#
+          and A.TRNS_CD = #trnsCd#
+          and A.N_PROC = ' '
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTwPltzItemItemNoByDscId" resultMap="W2009CmlDomain_SearchTwPltzItemItemNoByDscId" parameterClass="W2009CmlCriteriaDomain">
+       select /* SqlMap-W2009Cml.SearchTwPltzItemItemNoByDscId */
+             WEIGHT_UNIT
+            ,sum(NET_WEIGHT) NET_WEIGHT
+        from TW_PLTZ_ITEM_ITEM_NO
+        where DSC_ID = #loginUserDscId#
+        group by WEIGHT_UNIT
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTwPltzItemPkgByDscId" resultMap="W2009CmlDomain_SearchTwPltzItemPkgByDscId" parameterClass="W2009CmlCriteriaDomain">    
+        select /* SqlMap-W2009Cml.SearchTwPltzItemPkgByDscId */
+             WEIGHT_UNIT
+            ,sum(NET_WEIGHT) NET_WEIGHT
+        from TW_PLTZ_ITEM_PKG
+        where DSC_ID = #loginUserDscId#
+        group by WEIGHT_UNIT
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <sql id="SubSearchTtPltzByMainMarkMixTagNo">
+      <!-- 6.1.1.MIXタグデータの取得 -->
+      select distinct
+        AA.MAIN_MARK
+        , AA.SHIPPER_CD
+        , AA.CUSTOMER_CD
+        , AA.LGCY_SHIP_TO
+        , AA.TRNS_CD
+        , AA.PLNT_CD
+        , AA.LGCY_WH_CD
+        , AA.PLTZ_INSTR_NO
+        , AA.PACKING_WH_COMP_CD
+        , AA.PACKING_WH_CD
+        , AA.EXP_PACKING_DT
+        , AA.EXP_PACKING_ISSUER_NM
+        , AA.CONTAINER_SORTING_KEY
+        , AA.LOADING_CD
+        , AA.PKG_FORM_TYP
+        , AA.INVOICE_KEY
+        , AA.STG_INSTR_ITEM_FLG
+        , AA.CUSTOM_TIMING_TYP
+        , AA.RT_USE_FLG
+        , AA.PALLET_NO
+        , AA.OUTER_PKG_CD
+        , AA.VOLUME
+        , AC.UNIT_DISP WEIGHT_UNIT
+        , AD.UNIT_DISP VOLUME_UNIT
+        , AA.NET_WEIGHT
+        , AA.GROSS_WEIGHT
+        <!-- UT110 TRIAL SHIPMENT/号試品対応 ADD START -->
+        , null LENGTH
+        , null WIDTH
+        , null HEIGHT
+        , null LENGTH_UNIT
+        <!-- UT110 TRIAL SHIPMENT/号試品対応 ADD END -->
+        , 'Y' MIX_TAG_FLG
+        , AB.MIX_TAG_NO PLTZ_ITEM_NO
+        , null PKG_CD
+        , null ITEM_DESCRIPTION
+        , null SHIPPING_LOT
+        , null INSTR_QTY
+        , null QTY
+        , null TAG_QTY
+        , AE.CD PALLET_CARTON_TYP <!-- UT420 ADD -->
+        , AE.VALUE PALLET_CARTON_TYP_NAME <!-- UT420 ADD -->
+        <isEmpty property="userAuthList">
+        , null AUTH_FLG
+        </isEmpty>
+        <isNotEmpty property="userAuthList">
+        , ( select    
+                min(   
+                    case  
+                        <iterate property="userAuthList"> 
+                              when AA.SHIPPER_CD = #userAuthList[].authMgtComp# and B.PLNT_CD = #userAuthList[].procMfgDivCd# then #userAuthList[].authority#
+                        </iterate> 
+                        else '0'
+                    end  
+                )   
+            from    
+                TT_PLTZ_ITEM B
+            where    
+                B.MAIN_MARK = AA.MAIN_MARK 
+            and B.BRCH = AB.BRCH
+          ) AUTH_FLG
+        </isNotEmpty>
+      from
+          TT_PLTZ AA
+        , TT_PLTZ_ITEM AB
+        , TM_MEASURE_UNIT AC
+        , TM_MEASURE_UNIT AD
+        , TM_CD AE <!-- UT420 ADD -->
+      where
+            AA.MAIN_MARK = AB.MAIN_MARK
+        and AA.WEIGHT_UNIT = AC.UNIT_CD
+        and AA.VOLUME_UNIT = AD.UNIT_CD
+        and AA.MAIN_MARK = #mainMark#
+        and AB.MIX_TAG_NO is not null
+        and AB.PKG_TYP is null <!-- QA:No.463 -->
+        and AA.PALLET_CARTON_TYP = AE.CD(+) <!-- UT420 ADD -->
+        and AE.CD_TYP(+) = '77' <!-- UT420 ADD -->
+        and AE.LNG_CD(+) = #languageCd# <!-- UT420 ADD -->
+        <!-- 権限 -->
+        and AA.SHIPPER_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+      union all
+      <!-- 6.1.2.品目番号データの取得 -->
+      select
+        BA.MAIN_MARK
+        , BA.SHIPPER_CD
+        , BA.CUSTOMER_CD
+        , BA.LGCY_SHIP_TO
+        , BA.TRNS_CD
+        , BA.PLNT_CD
+        , BA.LGCY_WH_CD
+        , BA.PLTZ_INSTR_NO
+        , BA.PACKING_WH_COMP_CD
+        , BA.PACKING_WH_CD
+        , BA.EXP_PACKING_DT
+        , BA.EXP_PACKING_ISSUER_NM
+        , BA.CONTAINER_SORTING_KEY
+        , BA.LOADING_CD
+        , BA.PKG_FORM_TYP
+        , BA.INVOICE_KEY
+        , BA.STG_INSTR_ITEM_FLG
+        , BA.CUSTOM_TIMING_TYP
+        , BA.RT_USE_FLG
+        , BA.PALLET_NO
+        , BA.OUTER_PKG_CD
+        , BA.VOLUME
+        , BC.UNIT_DISP WEIGHT_UNIT
+        , BD.UNIT_DISP VOLUME_UNIT
+        , BA.NET_WEIGHT
+        , BA.GROSS_WEIGHT
+        <!-- UT110 TRIAL SHIPMENT/号試品対応 ADD START -->
+        , BA.LENGTH
+        , BA.WIDTH
+        , BA.HEIGHT
+        , BF.UNIT_DISP LENGTH_UNIT
+        <!-- UT110 TRIAL SHIPMENT/号試品対応 ADD END -->
+        , 'N' MIX_TAG_FLG
+        , BB.PLTZ_ITEM_NO
+        , BB.PKG_CD
+        , BB.ITEM_DESCRIPTION
+        , BB.SHIPPING_LOT
+        , BE.INSTR_QTY
+        , BB.QTY
+        , BB.TAG_QTY
+        , BG.CD PALLET_CARTON_TYP <!-- UT420 ADD -->
+        , BG.VALUE PALLET_CARTON_TYP_NAME <!-- UT420 ADD -->
+        <isEmpty property="userAuthList">
+        , null AUTH_FLG
+        </isEmpty>
+        <isNotEmpty property="userAuthList">
+        , ( select    
+                min(   
+                    case  
+                        <iterate property="userAuthList"> 
+                              when BA.SHIPPER_CD = #userAuthList[].authMgtComp# and B.PLNT_CD = #userAuthList[].procMfgDivCd# then #userAuthList[].authority#
+                        </iterate> 
+                        else '0'
+                    end  
+                )   
+            from    
+                TT_PLTZ_ITEM B
+            where    
+                B.MAIN_MARK = BA.MAIN_MARK
+            and B.BRCH = BB.BRCH
+          ) AUTH_FLG
+         </isNotEmpty>
+      from
+          TT_PLTZ BA
+        , TT_PLTZ_ITEM BB
+        , TM_MEASURE_UNIT BC
+        , TM_MEASURE_UNIT BD
+        , TT_PLTZ_INSTR_ITEM_NO BE
+        , TM_MEASURE_UNIT BF <!-- UT110 TRIAL SHIPMENT/号試品対応 ADD -->
+        , TM_CD BG <!-- UT420 ADD -->
+      where
+            BA.MAIN_MARK = BB.MAIN_MARK
+        and BA.WEIGHT_UNIT = BC.UNIT_CD
+        and BA.VOLUME_UNIT = BD.UNIT_CD
+        and BB.PLTZ_INSTR_NO = BE.PLTZ_INSTR_NO (+)
+        and BB.PLTZ_ITEM_NO = BE.ITEM_NO (+)
+        and BB.PKG_CD = BE.PKG_CD (+)
+        and BA.MAIN_MARK = #mainMark#
+        and BB.MIX_TAG_NO is null
+        and BB.PKG_TYP is null <!-- QA:No.463 -->
+        and BA.LENGTH_UNIT = BF.UNIT_CD <!-- UT110 TRIAL SHIPMENT/号試品対応 ADD -->
+        and BA.PALLET_CARTON_TYP = BG.CD(+) <!-- UT420 ADD -->
+        and BG.CD_TYP(+) = '77' <!-- UT420 ADD -->
+        and BG.LNG_CD(+) = #languageCd# <!-- UT420 ADD -->
+        <!-- 権限 -->
+        and BA.SHIPPER_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+    </sql>
+    
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchCountTtPltzByMainMarkMixTagNo" resultClass="java.lang.Integer" parameterClass="W2009CmlCriteriaDomain">    
+        select /* SqlMap-W2009Cml.SearchCountTtPltzByMainMarkMixTagNo */
+            count(rownum)
+        from (
+            <include refid="SubSearchTtPltzByMainMarkMixTagNo" />
+        )
+    </select>
+    
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTtPltzByMainMarkMixTagNo" resultMap="W2009CmlDomain_SearchTtPltzByMainMarkMixTagNo" parameterClass="W2009CmlCriteriaDomain">    
+        select /* SqlMap-W2009Cml.SearchTtPltzByMainMarkMixTagNo */
+            *
+        from (
+            <include refid="SubSearchTtPltzByMainMarkMixTagNo" />
+        )
+        order by
+            MIX_TAG_FLG desc
+          , PLTZ_ITEM_NO
+          , PKG_CD
+    </select>
+
+    <!--
+    == Search package specification.
+    == Shingle palletizing - full of lot quantity.
+    == 包装仕様の検索。
+    == 単品（ロット割れなし）の場合
+    -->
+    <select id="SearchTmPkgSpecificationDtlByAuto" resultMap="W2009CmlItemDomain_SearchTmPkgSpecificationDtlByAuto" parameterClass="W2009CmlCriteriaDomain">    
+        select
+            A.PLTZ_ITEM_NO
+            ,A.QTY
+            ,B.PKG_ITEM_NO
+            ,B.LOT_SIZE <!-- UT310 MOD -->
+            ,B.QTY USE_QTY
+            ,B.RT_TYP
+            ,B.MODEL_CD
+            ,B.WEIGHT_UNIT
+            ,B.PKG_WEIGHT
+            ,B.PKG_MTRL_NM
+            ,B.ORIGIN_CNTRY_CD
+            ,B.CURR_CD
+            ,B.INNER_OUTER_TYP
+        from
+            TW_PLTZ_ITEM_ITEM_NO A
+           ,( select
+                   BA.ITEM_NO
+                  ,BA.PKG_CD
+                  ,BB.PKG_ITEM_NO
+                  ,BB.LOT_SIZE <!-- UT310 MOD -->
+                  ,BB.QTY
+                  ,BB.RT_TYP
+                  ,BB.INNER_OUTER_TYP
+                  ,BD.MODEL_CD
+                  ,BD.WEIGHT_UNIT
+                  ,BD.PKG_WEIGHT
+                  ,BD.ORIGIN_CNTRY_CD
+                  ,BD.CURR_CD
+                  ,BD.PKG_MTRL_NM
+              from
+                  TM_PKG_SPEC_HDR BA
+                 ,TM_PKG_SPEC_DTL BB
+                 ,TM_PKG_SPEC_REV BC
+                 ,TM_PKG_MTRL BD
+              where
+                    BA.OWNER_COMP = BB.OWNER_COMP
+                and BA.ITEM_NO = BB.ITEM_NO
+                and BA.PKG_CD = BB.PKG_CD
+                and BA.TRNS_CD = BB.TRNS_CD
+                and BA.N_PROC = BB.N_PROC
+                and BA.REV = BB.REV
+                and BA.OWNER_COMP = BC.COMP_CD
+                and BA.ITEM_NO = BC.ITEM_NO
+                and BA.PKG_CD = BC.PKG_CD
+                and BA.TRNS_CD = BC.TRNS_CD
+                and BA.N_PROC = BC.N_PROC
+                and BA.REV = BC.REV
+                and BB.OWNER_COMP = BD.OWNER_COMP
+                and BB.PKG_ITEM_NO = BD.PKG_ITEM_NO
+                and BA.OWNER_COMP = #shipperCd#
+                and BB.TRNS_CD = #trnsCd#
+                and BB.N_PROC = ' '
+                and BB.RT_TYP != '2'
+                and BD.PKG_EXP_DT is null) B
+        where
+              A.PLTZ_ITEM_NO = B.ITEM_NO
+          and A.PKG_CD = B.PKG_CD
+          and A.DSC_ID = #loginUserDscId#
+          and A.MIX_TAG_FLG = 'N'
+        order by PKG_ITEM_NO
+    </select>
+
+    <!--
+    == Search package specification.
+    == Multi item palletizing or shingle palletizing that short of lot quantity.
+    == 包装仕様の検索。
+    == 多品、またはロット割れ単品の場合
+    -->
+    <select id="SearchTmPkgSpecificationDtlByInner" resultMap="W2009CmlItemDomain_SearchTmPkgSpecificationDtlByInner" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTmPkgSpecificationDtlByInner */
+            A.PLTZ_ITEM_NO
+            ,A.QTY
+            ,B.PKG_ITEM_NO
+            ,B.LOT_SIZE <!-- UT310 MOD -->
+            ,B.QTY USE_QTY
+            ,B.RT_TYP
+            ,B.MODEL_CD
+            ,B.WEIGHT_UNIT
+            ,B.PKG_WEIGHT
+            ,B.PKG_MTRL_NM
+            ,B.ORIGIN_CNTRY_CD
+            ,B.CURR_CD
+        from
+            TW_PLTZ_ITEM_ITEM_NO A
+           ,( select
+                   BB.ITEM_NO
+                  ,BB.PKG_CD
+                  ,BB.PKG_ITEM_NO
+                  ,BB.LOT_SIZE <!-- UT310 MOD -->
+                  ,BB.QTY
+                  ,BB.RT_TYP
+                  ,BD.MODEL_CD
+                  ,BD.WEIGHT_UNIT
+                  ,BD.PKG_WEIGHT
+                  ,BD.ORIGIN_CNTRY_CD
+                  ,BD.CURR_CD
+                  ,BD.PKG_MTRL_NM
+              from
+                  TM_PKG_SPEC_HDR BA
+                 ,TM_PKG_SPEC_DTL BB
+                 ,TM_PKG_SPEC_REV BC
+                 ,TM_PKG_MTRL BD
+              where
+                    BA.OWNER_COMP = BB.OWNER_COMP
+                and BA.ITEM_NO = BB.ITEM_NO
+                and BA.PKG_CD = BB.PKG_CD
+                and BA.TRNS_CD = BB.TRNS_CD
+                and BA.N_PROC = BB.N_PROC
+                and BA.REV = BB.REV
+                and BA.OWNER_COMP = BC.COMP_CD
+                and BA.ITEM_NO = BC.ITEM_NO
+                and BA.PKG_CD = BC.PKG_CD
+                and BA.TRNS_CD = BC.TRNS_CD
+                and BA.N_PROC = BC.N_PROC
+                and BA.REV = BC.REV
+                and BB.OWNER_COMP = BD.OWNER_COMP
+                and BB.PKG_ITEM_NO = BD.PKG_ITEM_NO
+                and BA.OWNER_COMP = #shipperCd#
+                and BB.TRNS_CD = #trnsCd#
+                and BB.N_PROC = ' '
+                and BD.PKG_EXP_DT is null
+              <!-- UT310 ADD START -->
+              <isEqual property="pkgFormTyp" compareValue="S">
+                and BB.RT_TYP != '2'
+              </isEqual>
+              <!-- UT310 ADD END -->
+                and BB.INNER_OUTER_TYP = '1' ) B
+        where
+              A.PLTZ_ITEM_NO = B.ITEM_NO
+          and A.PKG_CD = B.PKG_CD
+          and A.DSC_ID = #loginUserDscId#
+          and A.MIX_TAG_FLG = 'N'
+        order by PKG_ITEM_NO
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+
+    <select id="SearchTtMixtagRt" resultMap="W2009CmlItemDomain_SearchTtMixtagRt" parameterClass="W2009CmlCriteriaDomain">    
+        select /* SqlMap-W2009Cml.SearchTtMixtagRt */
+             MIX_TAG_NO
+            ,PKG_ITEM_NO
+            ,RT_FLG
+            ,MODEL_CD
+            ,QTY
+            ,WEIGHT_UNIT
+            ,PKG_WEIGHT
+            ,PKG_NM
+            ,ORIGIN_CNTRY_CD
+            ,CURR_CD
+        from TT_MIXTAG_RT A
+        where
+             exists ( select MIX_TAG_NO
+                       from TW_PLTZ_ITEM_ITEM_NO B
+                       where B.MIX_TAG_NO = A.MIX_TAG_NO
+                         and B.DSC_ID = #loginUserDscId#
+                    )
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchCountTmPkgSetDtl" resultClass="java.lang.Integer" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchCountTmPkgSetDtl */
+             count(rownum)
+        from
+            TM_PKG_SET_DTL A
+           ,TM_PKG_MTRL B
+        where
+              A.OWNER_COMP = B.OWNER_COMP
+          and A.PKG_ITEM_NO = B.PKG_ITEM_NO
+          and A.OWNER_COMP = #shipperCd#
+          and A.OUTER_PKG_CD = #outerPkgCd#
+          and B.PKG_EXP_DT is null
+    </select>
+    
+    <select id="SearchTmPkgSetDtl" resultMap="W2009CmlItemDomain_SearchTmPkgSetDtl" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTmPkgSetDtl */
+             A.USE_QTY
+            ,B.PKG_ITEM_NO
+            ,B.MODEL_CD
+            ,B.WEIGHT_UNIT
+            ,B.PKG_WEIGHT
+            ,B.ORIGIN_CNTRY_CD
+            ,B.CURR_CD
+            ,B.RT_TYP
+            ,B.PKG_MTRL_NM
+        from
+            TM_PKG_SET_DTL A
+           ,TM_PKG_MTRL B
+        where
+              A.OWNER_COMP = B.OWNER_COMP
+          and A.PKG_ITEM_NO = B.PKG_ITEM_NO
+          and A.OWNER_COMP = #shipperCd#
+          and A.OUTER_PKG_CD = #outerPkgCd#
+          and B.PKG_EXP_DT is null
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    
+    <select id="SearchTtPltzInstrItemNo" resultMap="W2009CmlItemDomain_SearchTtPltzInstrItemNo" parameterClass="W2009CmlCriteriaDomain">    
+        select /* SqlMap-W2009Cml.SearchTtPltzInstrItemNo */
+             A.PACKED_QTY  
+            ,nvl(B.QTY, 0) QTY
+        from
+            TT_PLTZ_INSTR_ITEM_NO A
+           ,( select
+                   BA.MIX_TAG_NO
+                  ,BA.PLTZ_INSTR_NO
+                  ,BA.MIX_TAG_STATUS
+                  ,BB.ITEM_NO
+                  ,BB.PKG_CD
+                  ,sum(BB.QTY) QTY
+              from
+                  TT_MIXTAG BA
+                 ,TT_MIXTAG_ITEM_NO BB
+              where
+                    BA.MIX_TAG_NO = BB.MIX_TAG_NO
+                and BA.MIX_TAG_STATUS = '10'
+                and BB.ITEM_NO = #mixTagNo#
+                and BB.PKG_CD = #pkgCd#
+              group by
+                    BA.MIX_TAG_NO
+                   ,BA.PLTZ_INSTR_NO
+                   ,BA.MIX_TAG_STATUS
+                   ,BB.ITEM_NO
+                   ,BB.PKG_CD ) B
+        where
+              A.PLTZ_INSTR_NO = B.PLTZ_INSTR_NO (+)
+          and A.ITEM_NO = B.ITEM_NO (+)
+          and A.PKG_CD = B.PKG_CD (+)
+          and A.PLTZ_INSTR_NO = #pltzInstrNo#
+          and A.ITEM_NO = #mixTagNo#
+          and A.PKG_CD = #pkgCd#
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <!-- UT420 MOD START -->
+    <!--
+    ==<select id="SearchTtPltzByPalletNo" resultClass="java.lang.String" parameterClass="W2009CmlCriteriaDomain">
+    ==    select /* SqlMap-W2009Cml.SearchTtPltzByPalletNo */
+    ==      case 
+    ==        when max(PALLET_NO) is null then
+    ==          'S001' 
+    ==        when max(PALLET_NO) = '' then
+    ==          'S001' 
+    ==        when length(max(PALLET_NO)) > 3 then
+    ==          'S' || to_char( to_number(substr(max(PALLET_NO), - 3)) + 1, 'fm000')
+    ==        else
+    ==          'S' || to_char(to_number(max(PALLET_NO)) + 1, 'fm000')
+    ==      end PALLET_NO
+    ==    from
+    ==      TT_PLTZ
+    ==    where
+    ==      PALLET_NO like 'S%'
+    ==      <isNotEmpty prepend="and" property="pltzInstrNo">
+    ==          PLTZ_INSTR_NO = #pltzInstrNo#
+    ==      </isNotEmpty>
+    ==</select>
+    -->
+    <select id="SearchTtPltzByPalletNo" resultClass="java.lang.String" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTtPltzByPalletNo */
+            max(substr(PALLET_NO, 2, 3))
+        from
+            TT_PLTZ
+        where
+            PLTZ_INSTR_NO = #pltzInstrNo#
+        and PALLET_NO like '____'
+    </select>
+    <!-- UT420 MOD END -->
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTtPltzItemOdrByPalletNo" resultClass="java.util.Date" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTtPltzItemOdrByPalletNo */
+             min(ETD_DUE_DT) MIN_ETD_DUE_DT
+        from
+             TT_PLTZ_ITEM_ODR 
+        where
+             MAIN_MARK = #mainMark#
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTtPltzItemOdr" resultMap="W2009CmlPltzItemOdrDomain_SearchTtPltzItemOdr" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTtPltzItemOdr */
+             B.ITEM_NO
+            ,B.PKG_CD
+            ,B.RCV_ODR_COMP_CD
+            ,B.CUSTOMER_CD
+            ,B.LGCY_SHIP_TO
+            ,B.TRNS_CD
+            ,B.ETD_DUE_DT
+            ,B.CUSTOMER_PO_NO
+            ,B.CUSTOMER_ITEM_NO
+            ,B.CUSTOMER_ITEM_NO_ORG
+            ,B.ODR_CTRL_NO
+            ,B.ALLOC_QTY
+        from
+            TT_PLTZ_ITEM A
+           ,TT_PLTZ_ITEM_ODR B
+        where
+              A.MAIN_MARK = B.MAIN_MARK
+          and A.BRCH = B.BRCH
+         and A.MAIN_MARK = #mainMark#
+          and A.MIX_TAG_NO is null 
+        order by
+             B.RCV_ODR_COMP_CD
+            ,B.CUSTOMER_CD
+            ,B.LGCY_SHIP_TO
+            ,B.ITEM_NO
+            ,B.PKG_CD
+            ,B.TRNS_CD
+            ,B.ETD_DUE_DT
+            ,B.CUSTOMER_PO_NO
+            ,B.CUSTOMER_ITEM_NO
+            ,B.CUSTOMER_ITEM_NO_ORG
+            ,B.ODR_CTRL_NO
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTmMeasureUnit" resultMap="W2009CmlDomain_SearchTmMeasureUnit" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTmMeasureUnit */
+             A.SHIPPER_CD
+            ,A.CUSTOMER_CD
+            ,A.LGCY_SHIP_TO
+            ,A.TRNS_CD
+            ,A.PLNT_CD
+            ,A.LGCY_WH_CD
+            ,A.PKG_FORM_TYP
+            ,A.OUTER_PKG_CD
+            ,A.VOLUME
+            ,A.NET_WEIGHT
+            ,A.GROSS_WEIGHT
+            ,A.VOLUME_UNIT
+            ,B.UNIT_DISP VOLUME_UNIT_DISP
+            ,A.WEIGHT_UNIT
+            ,C.UNIT_DISP WEIGHT_UNIT_DISP
+            ,A.REVISE_FLG
+            ,A.COM_UPDATE_TIMESTAMP
+        from
+            TT_PLTZ A
+           ,TM_MEASURE_UNIT B
+           ,TM_MEASURE_UNIT C
+        where
+              A.MAIN_MARK = #mainMark#
+          and A.VOLUME_UNIT = B.UNIT_CD
+          and A.WEIGHT_UNIT = C.UNIT_CD
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTtPltzInstrItemNoTransPkg" resultMap="W2009CmlItemDomain_SearchTtPltzInstrItemNoTransPkg" parameterClass="W2009CmlCriteriaDomain">    
+        select /* SqlMap-W2009Cml.SearchTtPltzInstrItemNoTransPkg */
+             *
+        from
+           ( 
+               ( 
+                   select distinct
+                        MIX_TAG_NO PLTZ_ITEM_NO
+                       ,null PKG_CD
+                       ,null ITEM_DESCRIPTION
+                       ,null SHIPPING_LOT
+                       ,null QTY
+                       ,null TAG_QTY
+                       ,null INSTR_QTY
+                       ,'Y' MIX_TAG_FLG 
+                   from
+                      TT_PLTZ_ITEM 
+                   where
+                       MAIN_MARK = #mainMark#
+                   and MIX_TAG_NO is not null
+               )
+               union all ( 
+                             select
+                                  A.PLTZ_ITEM_NO PLTZ_ITEM_NO
+                                 ,A.PKG_CD PKG_CD
+                                 ,A.ITEM_DESCRIPTION ITEM_DESCRIPTION
+                                 ,A.SHIPPING_LOT SHIPPING_LOT
+                                 ,A.QTY QTY
+                                 ,A.TAG_QTY TAG_QTY
+                                 ,B.INSTR_QTY INSTR_QTY
+                                 ,'N' MIX_TAG_FLG 
+                             from
+                                TT_PLTZ_ITEM A
+                               ,TT_PLTZ_INSTR_ITEM_NO B 
+                             where
+                                   A.MAIN_MARK = #mainMark#
+                               and A.PKG_TYP is null 
+                               and A.MIX_TAG_NO is null 
+                               and A.PLTZ_INSTR_NO = B.PLTZ_INSTR_NO(+) 
+                               and A.PLTZ_ITEM_NO = B.ITEM_NO(+) 
+                               and A.PKG_CD = B.PKG_CD(+)
+                         )
+               )
+        order by
+              MIX_TAG_FLG desc
+             ,PLTZ_ITEM_NO
+             ,PKG_CD
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTtPltzItemByBrch" resultClass="java.math.BigDecimal" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTtPltzItemByBrch */
+             max(BRCH) MAX_BRCH 
+        from
+             TT_PLTZ_ITEM 
+        where
+             MAIN_MARK = #mainMark#
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchCountTwPltzItemPkg" resultClass="java.lang.Integer" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchCountTwPltzItemPkg */
+             count(rownum)
+        from TW_PLTZ_ITEM_PKG A
+             ,(select DSC_ID       DSC_ID
+                     ,PLTZ_ITEM_NO PLTZ_ITEM_NO
+                     ,sum(QTY)     SUM_QTY
+               from TW_PLTZ_ITEM_PKG
+               where DSC_ID = #loginUserDscId#
+               group by DSC_ID
+                       ,PLTZ_ITEM_NO
+              ) B
+             ,TM_CD C
+             ,TM_CD D
+        where A.DSC_ID = B.DSC_ID
+          and A.PLTZ_ITEM_NO = B.PLTZ_ITEM_NO
+          and A.PKG_TYP = C.CD
+          and A.INPUT_METH_TYP = D.CD
+          and C.CD_TYP = #cdTypePkgTyp#
+          and C.LNG_CD = #languageCd#
+          and D.CD_TYP = #cdTypeInputMethTyp#
+          and D.LNG_CD = #languageCd#
+    </select>
+
+    <select id="SearchForPagingTwPltzItemPkg" resultMap="W2009CmlItemDomain_SearchForPagingTwPltzItemPkg" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchForPagingTwPltzItemPkg */
+               A.BRCH             BRCH
+              ,A.PLTZ_ITEM_NO     PLTZ_ITEM_NO
+              ,A.ITEM_DESCRIPTION ITEM_DESCRIPTION
+              ,A.MODEL_CD         MODEL_CD
+              ,A.QTY              QTY
+              ,A.PKG_TYP          PKG_TYP
+              ,A.RT_FLG           RT_FLG
+              ,A.PKG_WEIGHT       PKG_WEIGHT
+              ,A.WEIGHT_UNIT      WEIGHT_UNIT
+              ,A.ORIGIN_CNTRY_CD  ORIGIN_CNTRY_CD
+              ,A.CURR_CD          CURR_CD
+              ,A.MIX_TAG_NO       MIX_TAG_NO
+              ,B.SUM_QTY          SUM_QTY
+              ,C.VALUE            PKG_TYP_VALUE
+              ,D.VALUE            INPUT_METH_TYP_VALUE
+              ,A.INPUT_METH_TYP   INPUT_METH_TYP
+          from TW_PLTZ_ITEM_PKG A
+              ,(select DSC_ID       DSC_ID
+                      ,PLTZ_ITEM_NO PLTZ_ITEM_NO
+                      ,sum(QTY)     SUM_QTY
+                from TW_PLTZ_ITEM_PKG
+                where DSC_ID = #loginUserDscId#
+                group by DSC_ID
+                        ,PLTZ_ITEM_NO
+               ) B 
+              ,TM_CD C
+              ,TM_CD D
+          where A.DSC_ID = B.DSC_ID
+            and A.PLTZ_ITEM_NO = B.PLTZ_ITEM_NO
+            and A.PKG_TYP = C.CD
+            and A.INPUT_METH_TYP = D.CD
+            and C.CD_TYP = #cdTypePkgTyp#
+            and C.LNG_CD = #languageCd#
+            and D.CD_TYP = #cdTypeInputMethTyp#
+            and D.LNG_CD = #languageCd#
+          order by
+               INPUT_METH_TYP_VALUE
+             , RT_FLG desc
+             , PKG_TYP
+             , PLTZ_ITEM_NO
+             , MIX_TAG_NO
+             , QTY
+             , BRCH
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL CML PKG Detail 画面 Init処理 (参照モードの場合)                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchCountTtPltz" resultClass="java.lang.Integer" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchCountTtPltz */
+             count(rownum)
+        from TT_PLTZ A
+            ,TT_PLTZ_ITEM B
+            ,TM_CD C
+            ,TM_CD D
+            ,(select MAIN_MARK    MAIN_MARK
+                    ,PLTZ_ITEM_NO PLTZ_ITEM_NO
+                    ,sum(QTY)     SUM_QTY
+              from TT_PLTZ_ITEM
+              group by MAIN_MARK
+                      ,PLTZ_ITEM_NO
+             ) E
+        where A.MAIN_MARK = B.MAIN_MARK
+          and B.PKG_TYP = C.CD
+          and B.INPUT_METH_TYP = D.CD
+          and B.MAIN_MARK = E.MAIN_MARK
+          and B.PLTZ_ITEM_NO = E.PLTZ_ITEM_NO
+          and A.MAIN_MARK = #mainMark#
+          and B.PKG_TYP is not null
+          and C.CD_TYP = #cdTypePkgTyp#
+          and C.LNG_CD = #languageCd#
+          and D.CD_TYP = #cdTypeInputMethTyp#
+          and D.LNG_CD = #languageCd#
+    </select>
+    
+    <select id="SearchForPagingTtPltz" resultMap="W2009CmlDomain_SearchForPagingTtPltz" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchForPagingTtPltz */
+               A.MAIN_MARK             MAIN_MARK
+              ,A.PALLET_NO             PALLET_NO
+              ,A.SHIPPER_CD            SHIPPER_CD
+              ,A.CUSTOMER_CD           CUSTOMER_CD
+              ,A.LGCY_SHIP_TO          LGCY_SHIP_TO
+              ,A.TRNS_CD               TRNS_CD
+              ,A.PLNT_CD               PLNT_CD
+              ,A.LGCY_WH_CD            LGCY_WH_CD
+              ,A.PLTZ_INSTR_NO         PLTZ_INSTR_NO
+              ,A.PKG_FORM_TYP          PKG_FORM_TYP
+              ,A.INVOICE_KEY           INVOICE_KEY
+              ,A.CONTAINER_SORTING_KEY CONTAINER_SORTING_KEY
+              ,A.EXP_PACKING_DT        EXP_PACKING_DT
+              ,A.EXP_PACKING_ISSUER_NM EXP_PACKING_ISSUER_NM
+              ,B.BRCH                  BRCH
+              ,B.PLTZ_ITEM_NO          PLTZ_ITEM_NO
+              ,B.MODEL_CD              MODEL_CD
+              ,B.QTY                   QTY
+              ,B.RT_FLG                RT_FLG
+              ,B.MIX_TAG_NO            MIX_TAG_NO
+              ,C.VALUE                 PKG_TYP_VALUE
+              ,D.VALUE                 INPUT_METH_TYP_VALUE
+              ,E.SUM_QTY               SUM_QTY
+        from TT_PLTZ A
+            ,TT_PLTZ_ITEM B
+            ,TM_CD C
+            ,TM_CD D
+            ,(select MAIN_MARK    MAIN_MARK
+                    ,PLTZ_ITEM_NO PLTZ_ITEM_NO
+                    ,sum(QTY)     SUM_QTY
+              from TT_PLTZ_ITEM
+              group by MAIN_MARK
+                      ,PLTZ_ITEM_NO
+             ) E
+        where A.MAIN_MARK = B.MAIN_MARK
+          and B.PKG_TYP        = C.CD
+          and B.INPUT_METH_TYP = D.CD
+          and B.MAIN_MARK      = E.MAIN_MARK
+          and B.PLTZ_ITEM_NO   = E.PLTZ_ITEM_NO
+          and A.MAIN_MARK = #mainMark#
+          and B.PKG_TYP is not null
+          and C.CD_TYP = #cdTypePkgTyp#
+          and C.LNG_CD = #languageCd#
+          and D.CD_TYP = #cdTypeInputMethTyp#
+          and D.LNG_CD = #languageCd#
+       order by
+             INPUT_METH_TYP_VALUE
+           , RT_FLG desc
+           , PKG_TYP_VALUE
+           , PLTZ_ITEM_NO
+           , MIX_TAG_NO
+           , QTY
+           , BRCH
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTtMixtagItemNo" resultMap="W2009CmlItemDomain_SearchTtMixtagItemNo" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTtMixtagItemNo */
+            A.MIX_TAG_NO MIX_TAG_NO,
+            A.ITEM_NO ITEM_NO,
+            A.PKG_CD PKG_CD,
+            A.ITEM_DESCRIPTION ITEM_DESCRIPTION,
+            A.QTY QTY,
+            A.SHIPPING_LOT SHIPPING_LOT,
+            A.ITEM_WEIGHT ITEM_WEIGHT,
+            A.WEIGHT_UNIT WEIGHT_UNIT,
+            A.QTY_UNIT QTY_UNIT,
+            A.EXP_LIMIT_TYP EXP_LIMIT_TYP,
+            A.DNGR_ITEM_FLG DNGR_ITEM_FLG,
+            A.ORIGIN_CNTRY_CD ORIGIN_CNTRY_CD,
+            A.PLNT_CD PLNT_CD
+        from
+            TT_MIXTAG_ITEM_NO A,
+            TT_MIXTAG B
+        where B.SHIPPER_CD in (select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+          and A.MIX_TAG_NO = #mixTagNo#
+          and A.MIX_TAG_NO = B.MIX_TAG_NO
+          <isNotEqual property="baseAuthFlg" compareValue="2">
+            <isEmpty property="userAuthList">
+                and 1 = 0
+            </isEmpty>
+            <isNotEmpty>
+                 and (B.SHIPPER_CD, A.PLNT_CD) in (
+                <iterate property="userAuthList" conjunction=",">
+                   (#userAuthList[].authMgtComp# , #userAuthList[].procMfgDivCd#)
+                </iterate>
+                )
+            </isNotEmpty>
+          </isNotEqual>
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTmCigmaWhXrefByAuth" resultClass="java.lang.String" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTmCigmaWhXrefByAuth */
+            PLNT_CD
+        from
+            TM_CIGMA_WH_XREF A
+        where
+            <!-- 権限チェック -->
+            LGCY_LIB_COMP_CD in (select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+            and COMP_CD = #packingWhCompCd#
+            and WH_CD = #packingWhCd#
+            <isNotEqual property="baseAuthFlg"  compareValue="2">
+              <isEmpty property="userAuthList">
+              and 1 = 0
+              </isEmpty>
+              <isNotEmpty property="userAuthList">
+              and (LGCY_LIB_COMP_CD, PLNT_CD) in 
+                  (
+                    <iterate property="userAuthList" conjunction=",">
+                    (#userAuthList[].authMgtComp# ,#userAuthList[].procMfgDivCd# )
+                    </iterate>
+                  )
+              </isNotEmpty>
+            </isNotEqual>
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTtPltzInstr" resultMap="W2009CmlDomain_SearchTtPltzInstr" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTtPltzInstr */
+            A.SHIPPER_CD
+          , A.PLNT_CD
+          , A.LGCY_WH_CD
+          , A.CUSTOMER_CD
+          , A.LGCY_SHIP_TO
+          , A.TRNS_CD
+          , A.PLTZ_INSTR_STATUS
+          , B.COMP_CD
+          , B.WH_CD
+        from
+              TT_PLTZ_INSTR A 
+            , TM_CIGMA_WH_XREF B
+        where
+              A.SHIPPER_CD = B.LGCY_LIB_COMP_CD(+)
+          and A.PLNT_CD = B.PLNT_CD(+)
+          and A.LGCY_WH_CD = B.LGCY_WH_CD(+)
+          and A.PLTZ_INSTR_NO = #pltzInstrNo#
+          <!-- 権限 -->
+          and A.SHIPPER_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+          
+          <isNotEqual property="baseAuthFlg"  compareValue="2">
+              <isEmpty property="userAuthList">
+              and 1 = 0
+              </isEmpty>
+              <isNotEmpty property="userAuthList">
+              and ( A.SHIPPER_CD, A.PLNT_CD ) in ( 
+                    <iterate property="userAuthList" conjunction=",">
+                    (#userAuthList[].authMgtComp# ,#userAuthList[].procMfgDivCd# )
+                    </iterate>
+                  )
+              </isNotEmpty>
+            </isNotEqual>
+    </select>
+
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTmCigmaWhXrefByAuthList" resultMap="W2009CmlDomain_SearchTmCigmaWhXrefByAuthList" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTmCigmaWhXrefByAuthList */
+            LGCY_LIB_COMP_CD
+            , LGCY_WH_CD
+        from TM_CIGMA_WH_XREF
+        where COMP_CD = #packingWhCompCd#
+            and WH_CD   = #packingWhCd#
+            and LGCY_LIB_COMP_CD = #shipperCd#
+            <isNotEmpty property="userAuthList">
+                and (LGCY_LIB_COMP_CD, PLNT_CD) in (
+                <iterate property="userAuthList" conjunction=","> 
+                    ( #userAuthList[].authMgtComp#, #userAuthList[].procMfgDivCd# )
+                </iterate> 
+                    )
+            </isNotEmpty>
+            and LGCY_LIB_COMP_CD in (select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId#)
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <sql id="SubSearchTwPltzItemItemNo">
+      <!-- 5.2.1.MIXタグデータの取得 -->
+      select distinct
+          CONTAINER_SORTING_KEY
+        , LOADING_CD
+        , PKG_FORM_TYP
+        , INVOICE_KEY
+        , STG_INSTR_ITEM_FLG
+        , CUSTOM_TIMING_TYP
+        , MIX_TAG_NO PLTZ_ITEM_NO
+        , null PKG_CD
+        , null ITEM_DESCRIPTION
+        , null SHIP_LOT
+        , null INSTR_QTY
+        , null ACTUAL_PKG_QTY
+        , null ACTUAL_TAG_QTY
+        , MIX_TAG_FLG
+        , 'N' WARNING_FLG
+      from TW_PLTZ_ITEM_ITEM_NO
+      where
+            MIX_TAG_FLG = 'Y'
+        and DSC_ID = #loginUserDscId#
+      union all
+      <!-- 5.2.2.検索結果項目データの取得（品目番号） -->
+      select
+          CONTAINER_SORTING_KEY
+        , LOADING_CD
+        , PKG_FORM_TYP
+        , INVOICE_KEY
+        , STG_INSTR_ITEM_FLG
+        , CUSTOM_TIMING_TYP
+        , PLTZ_ITEM_NO
+        , PKG_CD
+        , ITEM_DESCRIPTION
+        , SHIPPING_LOT SHIP_LOT
+        , INSTR_QTY
+        , QTY ACTUAL_PKG_QTY
+        , TAG_QTY ACTUAL_TAG_QTY
+        , MIX_TAG_FLG
+        , case PKG_FORM_TYP
+            when 'S' then case when QTY <![CDATA[<]]> SHIPPING_LOT then 'Y' else 'N' end
+            when 'M' then case when (QTY / TAG_QTY) <![CDATA[<]]> SHIPPING_LOT then 'Y' else 'N' end
+            else 'N'
+          end WARNING_FLG
+      from TW_PLTZ_ITEM_ITEM_NO
+      where
+            MIX_TAG_FLG = 'N'
+        and DSC_ID = #loginUserDscId#
+    </sql>
+    
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchCountTwPltzItemItemNo" resultClass="java.lang.Integer" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchCountTwPltzItemItemNo */
+            count(rownum)
+        from (
+            <include refid="SubSearchTwPltzItemItemNo" />
+        )
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTwPltzItemItemNo" resultMap="W2009CmlItmlDomain_SearchTwPltzItemItemNo" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTwPltzItemItemNo */
+            *
+        from (
+            <include refid="SubSearchTwPltzItemItemNo" />
+        ) X
+        order by
+            MIX_TAG_FLG desc
+          , PLTZ_ITEM_NO
+          , PKG_CD
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTmCigmaShipToXref" resultClass="java.lang.String" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTmCigmaShipToXref */
+             A.SHIP_TO_CD
+        from
+             TM_CIGMA_SHIP_TO_XREF A
+            ,TM_NXS_SHIP_TO B
+        where
+              A.SHIP_TO_CD = B.SHIP_TO_CD
+              <dynamic>
+                  <isNotEmpty property="shipperCd">
+                      and A.LGCY_LIB_COMP_CD = #shipperCd#
+                  </isNotEmpty>
+                  <isNotEmpty property="customerCd">
+                      and A.CUSTOMER_CD = #customerCd#
+                  </isNotEmpty>
+                  <isNotEmpty property="lgcyShipTo">
+                      and A.LGCY_SHIP_TO = #lgcyShipTo#
+                  </isNotEmpty>
+              </dynamic>
+    </select>
+    
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTmCigmaCustomerToXref" resultClass="java.lang.String" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTmCigmaCustomerToXref */
+             A.COMP_CD
+        from
+             TM_CIGMA_CUSTOMER_XREF A
+            ,TM_NXS_COMP B
+        where
+              A.COMP_CD = B.COMP_CD
+              <dynamic>
+                  <isNotEmpty property="shipperCd">
+                      and A.LGCY_LIB_COMP_CD = #shipperCd#
+                  </isNotEmpty>
+                  <isNotEmpty property="customerCd">
+                      and A.CUSTOMER_CD = #customerCd#
+                  </isNotEmpty>
+              </dynamic>
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <update id="UpdateTtPltzInstrStatusByPltzInstrNo" parameterClass="W2009CmlCriteriaDomain">
+        update /* SqlMap-W2009Cml.UpdateTtPltzInstrStatusByPltzInstrNo */
+          TT_PLTZ_INSTR 
+        set
+          PLTZ_INSTR_STATUS = ( 
+            select
+              case 
+                when sum(INSTR_QTY) - sum(PACKED_QTY) = 0 
+                then 40 
+                else 30 
+                end 
+            from
+              TT_PLTZ_INSTR_ITEM_NO 
+            where
+              PLTZ_INSTR_NO = #pltzInstrNo#
+          ) 
+          <isNotNull prepend="," property="comUpdateFuncId">
+              COM_UPDATE_FUNC_ID = #comUpdateFuncId#
+          </isNotNull>
+          <isNotNull prepend="," property="comUpdateUserId">
+              COM_UPDATE_USER_ID = #comUpdateUserId#
+          </isNotNull>
+          <isParameterPresent prepend=",">
+              COM_UPDATE_TIMESTAMP = SYSDATE
+          </isParameterPresent>
+        where
+          PLTZ_INSTR_NO = #pltzInstrNo#
+    </update>
+    
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTwPltzItemItemNoForChkOnCreate" resultClass="java.lang.Integer" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTwPltzItemItemNoForChkOnCreate */
+              count(DSC_ID) 
+        from
+              TW_PLTZ_ITEM_ITEM_NO 
+        where
+              LOADING_CD != 'F'
+          and LOADING_CD != #loadingCd#
+          and DSC_ID = #loginUserDscId#
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchCountTwPltzItemItemNoForSingleChkOnCreate" resultClass="java.lang.Integer" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchCountTwPltzItemItemNoForSingleChkOnCreate */
+             count(DSC_ID) 
+        from
+             TW_PLTZ_ITEM_ITEM_NO 
+        where DSC_ID = #loginUserDscId# 
+          and (PLTZ_ITEM_NO != #pltzItemNo# 
+               or PKG_CD != #pkgCd#)
+    </select>
+    
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchCountTwPltzItemItemNoForLimitNumChkOnCreate" resultClass="java.lang.Integer" parameterClass="W2009CmlCriteriaDomain">    
+        select /* SqlMap-W2009Cml.SearchCountTwPltzItemItemNoForLimitNumChkOnCreate */
+          sum(ITEM_COUNT) ITEM_COUNT 
+        from
+          ( 
+            ( 
+              select
+                count(distinct MIX_TAG_NO) ITEM_COUNT 
+              from
+                TW_PLTZ_ITEM_ITEM_NO 
+              where
+                    MIX_TAG_FLG = 'Y'
+                and DSC_ID = #loginUserDscId# 
+            ) 
+            union all ( 
+              select
+                count(ROWNUM) ITEM_COUNT 
+              from
+                TW_PLTZ_ITEM_ITEM_NO 
+              where
+                    MIX_TAG_FLG = 'N'
+                and DSC_ID = #loginUserDscId#
+            )
+          ) 
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTtPltzItemLockByMainMarkNowait" resultClass="java.lang.String" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTtPltzItemLockByMainMarkNowait */
+              MAIN_MARK 
+        from
+              TT_PLTZ_ITEM
+        where
+              MAIN_MARK = #mainMark#
+          for update nowait
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTtPltzItemOdrLockByMainMarkNowait" resultClass="java.lang.String" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTtPltzItemOdrLockByMainMarkNowait */
+              MAIN_MARK 
+        from
+              TT_PLTZ_ITEM_ODR
+        where
+              MAIN_MARK = #mainMark#
+          for update nowait
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTtPltzKanbanLockByMainMarkNowait" resultClass="java.lang.String" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTtPltzKanbanLockByMainMarkNowait */
+          MAIN_MARK 
+        from
+          TT_PLTZ_KANBAN 
+        where
+          MAIN_MARK = #mainMark#
+          for update nowait
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTtPltzInstrItemNoLockBypltzInstrNoNowait" resultClass="java.lang.String" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTtPltzInstrItemNoLockBypltzInstrNoNowait */
+           PLTZ_INSTR_NO
+        from
+          TT_PLTZ_INSTR_ITEM_NO
+        where
+          PLTZ_INSTR_NO = #pltzInstrNo#
+          for update nowait
+    </select>
+    
+    
+    
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTtPltzInstrItemNoByPltzInstrNo" resultClass="java.lang.Integer" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTtPltzInstrItemNoByPltzInstrNo */
+            sum(PACKED_QTY) SUM_PACKED_QTY
+        from
+            TT_PLTZ_INSTR_ITEM_NO
+        where
+            PLTZ_INSTR_NO = #pltzInstrNo#
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL                                                                                        -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTtPltzItemByMainMark" resultMap="W2009CmlItmlDomain_SearchTtPltzItemByMainMark" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTtPltzItemByMainMark */
+            PLTZ_ITEM_NO
+          , PKG_CD
+          , MIX_TAG_NO
+          , QTY 
+        from
+          TT_PLTZ_ITEM 
+        where
+            MAIN_MARK = #mainMark#
+        and PKG_TYP is null
+        order by
+            MIX_TAG_NO
+    </select>
+    
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL  CML Trans Revise 画面 PkgMaterials                                                    -->
+    <!-- ============================================================================================== -->
+    <select id="SearchTtPltzItemOnTransRevise" resultMap="W2009CmlItemDomain_SearchTtPltzItemOnTransRevise" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearchTtPltzItemOnTransRevise */
+            BRCH
+          , PLTZ_ITEM_NO
+          , ITEM_DESCRIPTION
+          , QTY
+          , PKG_TYP
+          , MODEL_CD
+          , ITEM_WEIGHT
+          , WEIGHT_UNIT
+          , ORIGIN_CNTRY_CD
+          , CURR_CD
+          , RT_FLG
+          , MIX_TAG_NO
+          , INPUT_METH_TYP
+        from
+          TT_PLTZ_ITEM 
+        where
+          MAIN_MARK = #mainMark# 
+          <!-- UT110 TRIAL SHIPMENT/号試品対応 MOD -->
+          <isNotEmpty property="outerPkgCd">
+              and PKG_TYP in ('1', '3')
+          </isNotEmpty>
+          <isEmpty property="outerPkgCd">
+              and PKG_TYP is not null
+          </isEmpty>
+    </select>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL  CML Trans Revise 画面 Register処理                                                    -->
+    <!-- ============================================================================================== -->
+    <delete id="DeleteTtPltzItemOnTransReviseRegister" parameterClass="W2009CmlCriteriaDomain">
+        delete from /* SqlMap-W2009Cml.DeleteTtPltzItemOnTransReviseRegister */
+          TT_PLTZ_ITEM 
+        where MAIN_MARK = #mainMark# 
+          and PKG_TYP is not null
+    </delete>
+
+    <!-- ============================================================================================== -->
+    <!-- 実行SQL  CML Trans Revise 画面 Register処理                                                    -->
+    <!-- ============================================================================================== -->
+    <select id="SearhcCountTtPltzItemOnTransReviseRegister" resultClass="java.lang.Integer" parameterClass="W2009CmlCriteriaDomain">
+        select /* SqlMap-W2009Cml.SearhcCountTtPltzItemOnTransReviseRegister */
+            count(MAIN_MARK) 
+          from TT_PLTZ_ITEM 
+         where MAIN_MARK = #mainMark# 
+           and PKG_TYP is not null
+    </select>
+
+    <!-- =================================================================================================== -->
+    <!-- CML Register / 輸出受注 (ロック)                                                                    -->
+    <!-- =================================================================================================== -->
+
+    <!-- 汎用 Where句（全項目） -->
+    <sql id="WhereCondition_TtExpRcvOdr">
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="rcvOdrCompCd">
+                RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCd">
+                CUSTOMER_CD = #customerCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipTo">
+                LGCY_SHIP_TO = #lgcyShipTo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNo">
+                ITEM_NO = #itemNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCd">
+                PKG_CD = #pkgCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCd">
+                TRNS_CD = #trnsCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="etdDueDt">
+                ETD_DUE_DT = #etdDueDt#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNo">
+                CUSTOMER_PO_NO = #customerPoNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNo">
+                CUSTOMER_ITEM_NO = #customerItemNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrg">
+                CUSTOMER_ITEM_NO_ORG = #customerItemNoOrg#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrCtrlNo">
+                ODR_CTRL_NO = #odrCtrlNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="revisionNo">
+                REVISION_NO = #revisionNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="revisionNoEis">
+                REVISION_NO_EIS = #revisionNoEis#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="plntCd">
+                PLNT_CD = #plntCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerDueDt">
+                CUSTOMER_DUE_DT = #customerDueDt#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoOrg">
+                ITEM_NO_ORG = #itemNoOrg#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrQtyOrg">
+                ODR_QTY_ORG = #odrQtyOrg#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrQty">
+                ODR_QTY = #odrQty#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pltzAllocQty">
+                PLTZ_ALLOC_QTY = #pltzAllocQty#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippedQty">
+                SHIPPED_QTY = #shippedQty#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippingDt">
+                SHIPPING_DT = #shippingDt#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="partialDelivCnt">
+                PARTIAL_DELIV_CNT = #partialDelivCnt#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrFirmFlg">
+                ODR_FIRM_FLG = #odrFirmFlg#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="salesCompPoNo">
+                SALES_COMP_PO_NO = #salesCompPoNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lastFigureChgFlg">
+                LAST_FIGURE_CHG_FLG = #lastFigureChgFlg#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="supplierCd">
+                SUPPLIER_CD = #supplierCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippedTyp">
+                SHIPPED_TYP = #shippedTyp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncId">
+                COM_UPDATE_FUNC_ID = #comUpdateFuncId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserId">
+                COM_UPDATE_USER_ID = #comUpdateUserId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateTimestamp">
+                COM_UPDATE_TIMESTAMP = #comUpdateTimestamp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncId">
+                COM_CREATE_FUNC_ID = #comCreateFuncId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserId">
+                COM_CREATE_USER_ID = #comCreateUserId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateTimestamp">
+                COM_CREATE_TIMESTAMP = #comCreateTimestamp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCdGreaterThan">
+                RCV_ODR_COMP_CD <![CDATA[>]]> #rcvOdrCompCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCdGreaterThanEqual">
+                RCV_ODR_COMP_CD <![CDATA[>=]]> #rcvOdrCompCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCdLessThan">
+                RCV_ODR_COMP_CD <![CDATA[<]]> #rcvOdrCompCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCdLessThanEqual">
+                RCV_ODR_COMP_CD <![CDATA[<=]]> #rcvOdrCompCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCdLikeFront">
+                RCV_ODR_COMP_CD LIKE CONCAT(#rcvOdrCompCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCdGreaterThan">
+                CUSTOMER_CD <![CDATA[>]]> #customerCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCdGreaterThanEqual">
+                CUSTOMER_CD <![CDATA[>=]]> #customerCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCdLessThan">
+                CUSTOMER_CD <![CDATA[<]]> #customerCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCdLessThanEqual">
+                CUSTOMER_CD <![CDATA[<=]]> #customerCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCdLikeFront">
+                CUSTOMER_CD LIKE CONCAT(#customerCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipToGreaterThan">
+                LGCY_SHIP_TO <![CDATA[>]]> #lgcyShipToGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipToGreaterThanEqual">
+                LGCY_SHIP_TO <![CDATA[>=]]> #lgcyShipToGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipToLessThan">
+                LGCY_SHIP_TO <![CDATA[<]]> #lgcyShipToLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipToLessThanEqual">
+                LGCY_SHIP_TO <![CDATA[<=]]> #lgcyShipToLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipToLikeFront">
+                LGCY_SHIP_TO LIKE CONCAT(#lgcyShipToLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoGreaterThan">
+                ITEM_NO <![CDATA[>]]> #itemNoGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoGreaterThanEqual">
+                ITEM_NO <![CDATA[>=]]> #itemNoGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoLessThan">
+                ITEM_NO <![CDATA[<]]> #itemNoLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoLessThanEqual">
+                ITEM_NO <![CDATA[<=]]> #itemNoLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoLikeFront">
+                ITEM_NO LIKE CONCAT(#itemNoLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCdGreaterThan">
+                PKG_CD <![CDATA[>]]> #pkgCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCdGreaterThanEqual">
+                PKG_CD <![CDATA[>=]]> #pkgCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCdLessThan">
+                PKG_CD <![CDATA[<]]> #pkgCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCdLessThanEqual">
+                PKG_CD <![CDATA[<=]]> #pkgCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCdLikeFront">
+                PKG_CD LIKE CONCAT(#pkgCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCdGreaterThan">
+                TRNS_CD <![CDATA[>]]> #trnsCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCdGreaterThanEqual">
+                TRNS_CD <![CDATA[>=]]> #trnsCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCdLessThan">
+                TRNS_CD <![CDATA[<]]> #trnsCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCdLessThanEqual">
+                TRNS_CD <![CDATA[<=]]> #trnsCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCdLikeFront">
+                TRNS_CD LIKE CONCAT(#trnsCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="etdDueDtGreaterThanEqual">
+                ETD_DUE_DT <![CDATA[>=]]> #etdDueDtGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="etdDueDtLessThanEqual">
+                ETD_DUE_DT <![CDATA[<=]]> #etdDueDtLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNoGreaterThan">
+                CUSTOMER_PO_NO <![CDATA[>]]> #customerPoNoGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNoGreaterThanEqual">
+                CUSTOMER_PO_NO <![CDATA[>=]]> #customerPoNoGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNoLessThan">
+                CUSTOMER_PO_NO <![CDATA[<]]> #customerPoNoLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNoLessThanEqual">
+                CUSTOMER_PO_NO <![CDATA[<=]]> #customerPoNoLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNoLikeFront">
+                CUSTOMER_PO_NO LIKE CONCAT(#customerPoNoLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoGreaterThan">
+                CUSTOMER_ITEM_NO <![CDATA[>]]> #customerItemNoGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoGreaterThanEqual">
+                CUSTOMER_ITEM_NO <![CDATA[>=]]> #customerItemNoGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoLessThan">
+                CUSTOMER_ITEM_NO <![CDATA[<]]> #customerItemNoLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoLessThanEqual">
+                CUSTOMER_ITEM_NO <![CDATA[<=]]> #customerItemNoLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoLikeFront">
+                CUSTOMER_ITEM_NO LIKE CONCAT(#customerItemNoLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrgGreaterThan">
+                CUSTOMER_ITEM_NO_ORG <![CDATA[>]]> #customerItemNoOrgGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrgGreaterThanEqual">
+                CUSTOMER_ITEM_NO_ORG <![CDATA[>=]]> #customerItemNoOrgGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrgLessThan">
+                CUSTOMER_ITEM_NO_ORG <![CDATA[<]]> #customerItemNoOrgLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrgLessThanEqual">
+                CUSTOMER_ITEM_NO_ORG <![CDATA[<=]]> #customerItemNoOrgLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrgLikeFront">
+                CUSTOMER_ITEM_NO_ORG LIKE CONCAT(#customerItemNoOrgLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="plntCdGreaterThan">
+                PLNT_CD <![CDATA[>]]> #plntCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="plntCdGreaterThanEqual">
+                PLNT_CD <![CDATA[>=]]> #plntCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="plntCdLessThan">
+                PLNT_CD <![CDATA[<]]> #plntCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="plntCdLessThanEqual">
+                PLNT_CD <![CDATA[<=]]> #plntCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="plntCdLikeFront">
+                PLNT_CD LIKE CONCAT(#plntCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerDueDtGreaterThanEqual">
+                CUSTOMER_DUE_DT <![CDATA[>=]]> #customerDueDtGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerDueDtLessThanEqual">
+                CUSTOMER_DUE_DT <![CDATA[<=]]> #customerDueDtLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoOrgGreaterThan">
+                ITEM_NO_ORG <![CDATA[>]]> #itemNoOrgGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoOrgGreaterThanEqual">
+                ITEM_NO_ORG <![CDATA[>=]]> #itemNoOrgGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoOrgLessThan">
+                ITEM_NO_ORG <![CDATA[<]]> #itemNoOrgLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoOrgLessThanEqual">
+                ITEM_NO_ORG <![CDATA[<=]]> #itemNoOrgLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoOrgLikeFront">
+                ITEM_NO_ORG LIKE CONCAT(#itemNoOrgLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippingDtGreaterThanEqual">
+                SHIPPING_DT <![CDATA[>=]]> #shippingDtGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippingDtLessThanEqual">
+                SHIPPING_DT <![CDATA[<=]]> #shippingDtLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrFirmFlgGreaterThan">
+                ODR_FIRM_FLG <![CDATA[>]]> #odrFirmFlgGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrFirmFlgGreaterThanEqual">
+                ODR_FIRM_FLG <![CDATA[>=]]> #odrFirmFlgGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrFirmFlgLessThan">
+                ODR_FIRM_FLG <![CDATA[<]]> #odrFirmFlgLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrFirmFlgLessThanEqual">
+                ODR_FIRM_FLG <![CDATA[<=]]> #odrFirmFlgLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrFirmFlgLikeFront">
+                ODR_FIRM_FLG LIKE CONCAT(#odrFirmFlgLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="salesCompPoNoGreaterThan">
+                SALES_COMP_PO_NO <![CDATA[>]]> #salesCompPoNoGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="salesCompPoNoGreaterThanEqual">
+                SALES_COMP_PO_NO <![CDATA[>=]]> #salesCompPoNoGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="salesCompPoNoLessThan">
+                SALES_COMP_PO_NO <![CDATA[<]]> #salesCompPoNoLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="salesCompPoNoLessThanEqual">
+                SALES_COMP_PO_NO <![CDATA[<=]]> #salesCompPoNoLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="salesCompPoNoLikeFront">
+                SALES_COMP_PO_NO LIKE CONCAT(#salesCompPoNoLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lastFigureChgFlgGreaterThan">
+                LAST_FIGURE_CHG_FLG <![CDATA[>]]> #lastFigureChgFlgGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lastFigureChgFlgGreaterThanEqual">
+                LAST_FIGURE_CHG_FLG <![CDATA[>=]]> #lastFigureChgFlgGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lastFigureChgFlgLessThan">
+                LAST_FIGURE_CHG_FLG <![CDATA[<]]> #lastFigureChgFlgLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lastFigureChgFlgLessThanEqual">
+                LAST_FIGURE_CHG_FLG <![CDATA[<=]]> #lastFigureChgFlgLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lastFigureChgFlgLikeFront">
+                LAST_FIGURE_CHG_FLG LIKE CONCAT(#lastFigureChgFlgLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="supplierCdGreaterThan">
+                SUPPLIER_CD <![CDATA[>]]> #supplierCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="supplierCdGreaterThanEqual">
+                SUPPLIER_CD <![CDATA[>=]]> #supplierCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="supplierCdLessThan">
+                SUPPLIER_CD <![CDATA[<]]> #supplierCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="supplierCdLessThanEqual">
+                SUPPLIER_CD <![CDATA[<=]]> #supplierCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="supplierCdLikeFront">
+                SUPPLIER_CD LIKE CONCAT(#supplierCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippedTypGreaterThan">
+                SHIPPED_TYP <![CDATA[>]]> #shippedTypGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippedTypGreaterThanEqual">
+                SHIPPED_TYP <![CDATA[>=]]> #shippedTypGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippedTypLessThan">
+                SHIPPED_TYP <![CDATA[<]]> #shippedTypLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippedTypLessThanEqual">
+                SHIPPED_TYP <![CDATA[<=]]> #shippedTypLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="shippedTypLikeFront">
+                SHIPPED_TYP LIKE CONCAT(#shippedTypLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncIdGreaterThan">
+                COM_UPDATE_FUNC_ID <![CDATA[>]]> #comUpdateFuncIdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncIdGreaterThanEqual">
+                COM_UPDATE_FUNC_ID <![CDATA[>=]]> #comUpdateFuncIdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncIdLessThan">
+                COM_UPDATE_FUNC_ID <![CDATA[<]]> #comUpdateFuncIdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncIdLessThanEqual">
+                COM_UPDATE_FUNC_ID <![CDATA[<=]]> #comUpdateFuncIdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncIdLikeFront">
+                COM_UPDATE_FUNC_ID LIKE CONCAT(#comUpdateFuncIdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserIdGreaterThan">
+                COM_UPDATE_USER_ID <![CDATA[>]]> #comUpdateUserIdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserIdGreaterThanEqual">
+                COM_UPDATE_USER_ID <![CDATA[>=]]> #comUpdateUserIdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserIdLessThan">
+                COM_UPDATE_USER_ID <![CDATA[<]]> #comUpdateUserIdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserIdLessThanEqual">
+                COM_UPDATE_USER_ID <![CDATA[<=]]> #comUpdateUserIdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserIdLikeFront">
+                COM_UPDATE_USER_ID LIKE CONCAT(#comUpdateUserIdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncIdGreaterThan">
+                COM_CREATE_FUNC_ID <![CDATA[>]]> #comCreateFuncIdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncIdGreaterThanEqual">
+                COM_CREATE_FUNC_ID <![CDATA[>=]]> #comCreateFuncIdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncIdLessThan">
+                COM_CREATE_FUNC_ID <![CDATA[<]]> #comCreateFuncIdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncIdLessThanEqual">
+                COM_CREATE_FUNC_ID <![CDATA[<=]]> #comCreateFuncIdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncIdLikeFront">
+                COM_CREATE_FUNC_ID LIKE CONCAT(#comCreateFuncIdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserIdGreaterThan">
+                COM_CREATE_USER_ID <![CDATA[>]]> #comCreateUserIdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserIdGreaterThanEqual">
+                COM_CREATE_USER_ID <![CDATA[>=]]> #comCreateUserIdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserIdLessThan">
+                COM_CREATE_USER_ID <![CDATA[<]]> #comCreateUserIdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserIdLessThanEqual">
+                COM_CREATE_USER_ID <![CDATA[<=]]> #comCreateUserIdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserIdLikeFront">
+                COM_CREATE_USER_ID LIKE CONCAT(#comCreateUserIdLikeFront#,'%')
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+
+    <!-- ロック検索 SQL文（任意）※ロック解除待機しない -->
+    <select id="LockTtExpRcvOdr" resultMap="TtExpRcvOdrDomain_LockTtExpRcvOdr"
+        parameterClass="TtExpRcvOdrCriteriaDomain">
+        select /* SqlMap-W2009Cml.LockTtExpRcvOdr */
+             RCV_ODR_COMP_CD
+            ,CUSTOMER_CD
+            ,LGCY_SHIP_TO
+            ,ITEM_NO
+            ,PKG_CD
+            ,TRNS_CD
+            ,ETD_DUE_DT
+            ,CUSTOMER_PO_NO
+            ,CUSTOMER_ITEM_NO
+            ,CUSTOMER_ITEM_NO_ORG
+            ,ODR_CTRL_NO
+            ,REVISION_NO
+            ,REVISION_NO_EIS
+            ,PLNT_CD
+            ,CUSTOMER_DUE_DT
+            ,ITEM_NO_ORG
+            ,ODR_QTY_ORG
+            ,ODR_QTY
+            ,PLTZ_ALLOC_QTY
+            ,SHIPPED_QTY
+            ,SHIPPING_DT
+            ,PARTIAL_DELIV_CNT
+            ,ODR_FIRM_FLG
+            ,SALES_COMP_PO_NO
+            ,LAST_FIGURE_CHG_FLG
+            ,SUPPLIER_CD
+            ,SHIPPED_TYP
+            ,COM_UPDATE_FUNC_ID
+            ,COM_UPDATE_USER_ID
+            ,COM_UPDATE_TIMESTAMP
+            ,COM_CREATE_FUNC_ID
+            ,COM_CREATE_USER_ID
+            ,COM_CREATE_TIMESTAMP
+        from TT_EXP_RCV_ODR
+        <include refid="WhereCondition_TtExpRcvOdr" />
+        <isNotEmpty property="preferredOrder">
+            order by $preferredOrder$
+        </isNotEmpty>
+        for update nowait
+    </select>
+    
+    <!-- =================================================================================================== -->
+    <!-- CML Register / 梱包指示品目受注情報 (ロック)                                                        -->
+    <!-- =================================================================================================== -->
+        <!-- 汎用 Where句（全項目） -->
+    <sql id="WhereCondition_TtPltzInstrOdr">
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="pltzInstrNo">
+                PLTZ_INSTR_NO = #pltzInstrNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNo">
+                ITEM_NO = #itemNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCd">
+                PKG_CD = #pkgCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCd">
+                RCV_ODR_COMP_CD = #rcvOdrCompCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCd">
+                CUSTOMER_CD = #customerCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipTo">
+                LGCY_SHIP_TO = #lgcyShipTo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCd">
+                TRNS_CD = #trnsCd#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="etdDueDt">
+                ETD_DUE_DT = #etdDueDt#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNo">
+                CUSTOMER_PO_NO = #customerPoNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNo">
+                CUSTOMER_ITEM_NO = #customerItemNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrg">
+                CUSTOMER_ITEM_NO_ORG = #customerItemNoOrg#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="odrCtrlNo">
+                ODR_CTRL_NO = #odrCtrlNo#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="allocQty">
+                ALLOC_QTY = #allocQty#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="packedQty">
+                PACKED_QTY = #packedQty#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="packedFlg">
+                PACKED_FLG = #packedFlg#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncId">
+                COM_UPDATE_FUNC_ID = #comUpdateFuncId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserId">
+                COM_UPDATE_USER_ID = #comUpdateUserId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateTimestamp">
+                COM_UPDATE_TIMESTAMP = #comUpdateTimestamp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncId">
+                COM_CREATE_FUNC_ID = #comCreateFuncId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserId">
+                COM_CREATE_USER_ID = #comCreateUserId#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateTimestamp">
+                COM_CREATE_TIMESTAMP = #comCreateTimestamp#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pltzInstrNoGreaterThan">
+                PLTZ_INSTR_NO <![CDATA[>]]> #pltzInstrNoGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pltzInstrNoGreaterThanEqual">
+                PLTZ_INSTR_NO <![CDATA[>=]]> #pltzInstrNoGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pltzInstrNoLessThan">
+                PLTZ_INSTR_NO <![CDATA[<]]> #pltzInstrNoLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pltzInstrNoLessThanEqual">
+                PLTZ_INSTR_NO <![CDATA[<=]]> #pltzInstrNoLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pltzInstrNoLikeFront">
+                PLTZ_INSTR_NO LIKE CONCAT(#pltzInstrNoLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoGreaterThan">
+                ITEM_NO <![CDATA[>]]> #itemNoGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoGreaterThanEqual">
+                ITEM_NO <![CDATA[>=]]> #itemNoGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoLessThan">
+                ITEM_NO <![CDATA[<]]> #itemNoLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoLessThanEqual">
+                ITEM_NO <![CDATA[<=]]> #itemNoLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="itemNoLikeFront">
+                ITEM_NO LIKE CONCAT(#itemNoLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCdGreaterThan">
+                PKG_CD <![CDATA[>]]> #pkgCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCdGreaterThanEqual">
+                PKG_CD <![CDATA[>=]]> #pkgCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCdLessThan">
+                PKG_CD <![CDATA[<]]> #pkgCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCdLessThanEqual">
+                PKG_CD <![CDATA[<=]]> #pkgCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="pkgCdLikeFront">
+                PKG_CD LIKE CONCAT(#pkgCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCdGreaterThan">
+                RCV_ODR_COMP_CD <![CDATA[>]]> #rcvOdrCompCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCdGreaterThanEqual">
+                RCV_ODR_COMP_CD <![CDATA[>=]]> #rcvOdrCompCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCdLessThan">
+                RCV_ODR_COMP_CD <![CDATA[<]]> #rcvOdrCompCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCdLessThanEqual">
+                RCV_ODR_COMP_CD <![CDATA[<=]]> #rcvOdrCompCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="rcvOdrCompCdLikeFront">
+                RCV_ODR_COMP_CD LIKE CONCAT(#rcvOdrCompCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCdGreaterThan">
+                CUSTOMER_CD <![CDATA[>]]> #customerCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCdGreaterThanEqual">
+                CUSTOMER_CD <![CDATA[>=]]> #customerCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCdLessThan">
+                CUSTOMER_CD <![CDATA[<]]> #customerCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCdLessThanEqual">
+                CUSTOMER_CD <![CDATA[<=]]> #customerCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerCdLikeFront">
+                CUSTOMER_CD LIKE CONCAT(#customerCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipToGreaterThan">
+                LGCY_SHIP_TO <![CDATA[>]]> #lgcyShipToGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipToGreaterThanEqual">
+                LGCY_SHIP_TO <![CDATA[>=]]> #lgcyShipToGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipToLessThan">
+                LGCY_SHIP_TO <![CDATA[<]]> #lgcyShipToLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipToLessThanEqual">
+                LGCY_SHIP_TO <![CDATA[<=]]> #lgcyShipToLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="lgcyShipToLikeFront">
+                LGCY_SHIP_TO LIKE CONCAT(#lgcyShipToLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCdGreaterThan">
+                TRNS_CD <![CDATA[>]]> #trnsCdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCdGreaterThanEqual">
+                TRNS_CD <![CDATA[>=]]> #trnsCdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCdLessThan">
+                TRNS_CD <![CDATA[<]]> #trnsCdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCdLessThanEqual">
+                TRNS_CD <![CDATA[<=]]> #trnsCdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="trnsCdLikeFront">
+                TRNS_CD LIKE CONCAT(#trnsCdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="etdDueDtGreaterThanEqual">
+                ETD_DUE_DT <![CDATA[>=]]> #etdDueDtGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="etdDueDtLessThanEqual">
+                ETD_DUE_DT <![CDATA[<=]]> #etdDueDtLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNoGreaterThan">
+                CUSTOMER_PO_NO <![CDATA[>]]> #customerPoNoGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNoGreaterThanEqual">
+                CUSTOMER_PO_NO <![CDATA[>=]]> #customerPoNoGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNoLessThan">
+                CUSTOMER_PO_NO <![CDATA[<]]> #customerPoNoLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNoLessThanEqual">
+                CUSTOMER_PO_NO <![CDATA[<=]]> #customerPoNoLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerPoNoLikeFront">
+                CUSTOMER_PO_NO LIKE CONCAT(#customerPoNoLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoGreaterThan">
+                CUSTOMER_ITEM_NO <![CDATA[>]]> #customerItemNoGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoGreaterThanEqual">
+                CUSTOMER_ITEM_NO <![CDATA[>=]]> #customerItemNoGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoLessThan">
+                CUSTOMER_ITEM_NO <![CDATA[<]]> #customerItemNoLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoLessThanEqual">
+                CUSTOMER_ITEM_NO <![CDATA[<=]]> #customerItemNoLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoLikeFront">
+                CUSTOMER_ITEM_NO LIKE CONCAT(#customerItemNoLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrgGreaterThan">
+                CUSTOMER_ITEM_NO_ORG <![CDATA[>]]> #customerItemNoOrgGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrgGreaterThanEqual">
+                CUSTOMER_ITEM_NO_ORG <![CDATA[>=]]> #customerItemNoOrgGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrgLessThan">
+                CUSTOMER_ITEM_NO_ORG <![CDATA[<]]> #customerItemNoOrgLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrgLessThanEqual">
+                CUSTOMER_ITEM_NO_ORG <![CDATA[<=]]> #customerItemNoOrgLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="customerItemNoOrgLikeFront">
+                CUSTOMER_ITEM_NO_ORG LIKE CONCAT(#customerItemNoOrgLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="packedFlgGreaterThan">
+                PACKED_FLG <![CDATA[>]]> #packedFlgGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="packedFlgGreaterThanEqual">
+                PACKED_FLG <![CDATA[>=]]> #packedFlgGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="packedFlgLessThan">
+                PACKED_FLG <![CDATA[<]]> #packedFlgLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="packedFlgLessThanEqual">
+                PACKED_FLG <![CDATA[<=]]> #packedFlgLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="packedFlgLikeFront">
+                PACKED_FLG LIKE CONCAT(#packedFlgLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncIdGreaterThan">
+                COM_UPDATE_FUNC_ID <![CDATA[>]]> #comUpdateFuncIdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncIdGreaterThanEqual">
+                COM_UPDATE_FUNC_ID <![CDATA[>=]]> #comUpdateFuncIdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncIdLessThan">
+                COM_UPDATE_FUNC_ID <![CDATA[<]]> #comUpdateFuncIdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncIdLessThanEqual">
+                COM_UPDATE_FUNC_ID <![CDATA[<=]]> #comUpdateFuncIdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateFuncIdLikeFront">
+                COM_UPDATE_FUNC_ID LIKE CONCAT(#comUpdateFuncIdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserIdGreaterThan">
+                COM_UPDATE_USER_ID <![CDATA[>]]> #comUpdateUserIdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserIdGreaterThanEqual">
+                COM_UPDATE_USER_ID <![CDATA[>=]]> #comUpdateUserIdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserIdLessThan">
+                COM_UPDATE_USER_ID <![CDATA[<]]> #comUpdateUserIdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserIdLessThanEqual">
+                COM_UPDATE_USER_ID <![CDATA[<=]]> #comUpdateUserIdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comUpdateUserIdLikeFront">
+                COM_UPDATE_USER_ID LIKE CONCAT(#comUpdateUserIdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncIdGreaterThan">
+                COM_CREATE_FUNC_ID <![CDATA[>]]> #comCreateFuncIdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncIdGreaterThanEqual">
+                COM_CREATE_FUNC_ID <![CDATA[>=]]> #comCreateFuncIdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncIdLessThan">
+                COM_CREATE_FUNC_ID <![CDATA[<]]> #comCreateFuncIdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncIdLessThanEqual">
+                COM_CREATE_FUNC_ID <![CDATA[<=]]> #comCreateFuncIdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateFuncIdLikeFront">
+                COM_CREATE_FUNC_ID LIKE CONCAT(#comCreateFuncIdLikeFront#,'%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserIdGreaterThan">
+                COM_CREATE_USER_ID <![CDATA[>]]> #comCreateUserIdGreaterThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserIdGreaterThanEqual">
+                COM_CREATE_USER_ID <![CDATA[>=]]> #comCreateUserIdGreaterThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserIdLessThan">
+                COM_CREATE_USER_ID <![CDATA[<]]> #comCreateUserIdLessThan#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserIdLessThanEqual">
+                COM_CREATE_USER_ID <![CDATA[<=]]> #comCreateUserIdLessThanEqual#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="comCreateUserIdLikeFront">
+                COM_CREATE_USER_ID LIKE CONCAT(#comCreateUserIdLikeFront#,'%')
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+    
+    <!-- ロック検索 SQL文（任意）※ロック解除待機しない -->
+    <select id="LockTtPltzInstrOdr" resultMap="TtPltzInstrOrdDomain_LockTtPltzInstrOdr"
+        parameterClass="TtPltzInstrOdrCriteriaDomain">
+        select /* SqlMap-W2009Cml.LockTtPltzInstrOdr */
+            PLTZ_INSTR_NO
+            ,ITEM_NO
+            ,PKG_CD
+            ,RCV_ODR_COMP_CD
+            ,CUSTOMER_CD
+            ,LGCY_SHIP_TO
+            ,TRNS_CD
+            ,ETD_DUE_DT
+            ,CUSTOMER_PO_NO
+            ,CUSTOMER_ITEM_NO
+            ,CUSTOMER_ITEM_NO_ORG
+            ,ODR_CTRL_NO
+            ,ALLOC_QTY
+            ,PACKED_QTY
+            ,PACKED_FLG
+            ,COM_UPDATE_FUNC_ID
+            ,COM_UPDATE_USER_ID
+            ,COM_UPDATE_TIMESTAMP
+            ,COM_CREATE_FUNC_ID
+            ,COM_CREATE_USER_ID
+            ,COM_CREATE_TIMESTAMP
+        from TT_PLTZ_INSTR_ODR
+        <include refid="WhereCondition_TtPltzInstrOdr" />
+        <isNotEmpty property="preferredOrder">
+            order by $preferredOrder$
+        </isNotEmpty>
+        for update nowait
+    </select>
+
+    <!--
+    ===============================================================
+    == UT304 MULTI LABEL ADD
+    == Search for Multi Label Register Screen.
+    == It is not that the search result is more than 1.
+    == Multi Label Register画面のSearch。
+    == 検索結果が1件を超えることはない。
+    == IV1:Allocatable Order QTY/未引当受注数
+    == IV2:Back Order QTY/出荷遅れ数
+    == IV3:Temp Stock QTY/仮在庫数
+    == IV4:Formalities/輸出手続品
+    == IV5:ESISIM/輸出出荷品
+    == IV6:Current PKG Speck/有効包装仕様
+    == IV7:Max Revision of PKG Spec(for CO Flag)/包装仕様MAXリビジョン（COフラグ判定用）
+    == IV8:Item Weight/製品重量
+    == IV9:CIGMA WH XREF/CIGMA倉庫クロスリファレンス
+    == IV10:CIGMA SHIP TO XREF/CIGMA送荷先クロスリファレンス
+    == IV11:Consignee/荷受人
+    ===============================================================
+    -->
+    <select id="SearchOnMultiLabelRegister"
+        resultMap="W2009CmlDomain_SearchOnMultiLabelRegister" parameterClass="W2009CmlCriteriaDomain">
+
+        select /* SqlMap-W2009Cml.SearchOnMultiLabelRegister */
+            nvl(IV1.ODR_QTY, 0) ODR_QTY
+        ,   nvl(IV2.BO_QTY, 0) BO_QTY
+        ,   nvl(IV3.TMP_QTY, 0) TMP_QTY
+        ,   IV4.EXP_LIMIT_TYP
+        ,   decode(IV4.EXP_LIMIT_TYP, NULL, 'N', 'Y') EXP_LIMIT_FLG
+        ,   IV4.DNGR_ITEM_FLG
+        ,   IV4.ORIGIN_CNTRY_CD
+        ,   IV5.ITEM_DESCRIPTION
+        ,   IV5.CONTAINER_SORTING_KEY
+        ,   IV5.LOADING_CD
+        ,   IV5.INVOICE_KEY
+        ,   case when IV1.TRNS_CD = 'A' then 'Y' else IV5.STG_INSTR_ITEM_FLG end STG_INSTR_ITEM_FLG
+        ,   case when IV1.TRNS_CD = 'A' then 'Z' else IV5.CUSTOM_TIMING_TYP end CUSTOM_TIMING_TYP
+        ,   case when IV1.TRNS_CD = 'A' then 'L' else IV5.CONTAINER_LOOSE_TYP end CONTAINER_LOOSE_TYP
+        ,   case when #manualRegFlg# = 'Y' then nvl(IV5.SHIPPING_LOT, 0) else nvl(IV6.SHIP_LOT, 0) end SHIPING_LOT
+        ,   IV6.PKG_FORM_TYP
+        ,   IV6.LENGTH_PALLETIZE
+        ,   IV6.WIDTH_PALLETIZE
+        ,   IV6.HEIGHT_PALLETIZE
+        ,   IV6.VOLUME_PALLETIZE
+        ,   IV6.LENGTH_UNIT
+        ,   IV6.VOLUME_UNIT
+        ,   case when IV6.REV <![CDATA[ < ]]> IV7.MAX_REV then '*' else NULL end CO_FLG
+        ,   IV8.WEIGHT_UNIT
+        ,   IV8.NET_WEIGHT_A ITEM_WEIGHT
+        ,   IV9.COMP_CD WH_COMP_CD
+        ,   IV9.WH_CD
+        ,   IV10.SHIP_TO_CD
+        ,   IV11.COMP_CD CONSIGNEE_CD
+        from
+            (
+                select
+                    T1.RCV_ODR_COMP_CD
+                ,   T1.CUSTOMER_CD
+                ,   T1.LGCY_SHIP_TO
+                ,   T1.TRNS_CD
+                ,   T1.ITEM_NO
+                ,   T1.PKG_CD
+                ,   sum(T1.ODR_QTY - T1.PLTZ_ALLOC_QTY) ODR_QTY
+                from
+                    TT_EXP_RCV_ODR T1
+                where
+                    T1.RCV_ODR_COMP_CD = #shipperCd#
+                and T1.CUSTOMER_CD = #customerCd#
+                and T1.LGCY_SHIP_TO = #lgcyShipTo#
+                and T1.TRNS_CD = #trnsCd#
+                and T1.ITEM_NO = #pltzItemNo#
+                and T1.PKG_CD = decode(#pkgCd#, NULL, ' ', #pkgCd#)
+                <isNotEmpty property="customerPoNo">
+                and T1.CUSTOMER_PO_NO = #customerPoNo#
+                </isNotEmpty>
+                and T1.ODR_FIRM_FLG = 'Y'
+                and T1.SHIPPED_TYP = '1'
+                group by
+                    T1.RCV_ODR_COMP_CD
+                ,   T1.CUSTOMER_CD
+                ,   T1.LGCY_SHIP_TO
+                ,   T1.TRNS_CD
+                ,   T1.ITEM_NO
+                ,   T1.PKG_CD
+            ) IV1,
+            (
+                select
+                    T1.RCV_ODR_COMP_CD
+                ,   T1.CUSTOMER_CD
+                ,   T1.LGCY_SHIP_TO
+                ,   T1.TRNS_CD
+                ,   T1.ITEM_NO
+                ,   T1.PKG_CD
+                ,   sum(T1.ODR_QTY - T1.PLTZ_ALLOC_QTY) BO_QTY
+                from
+                    TT_EXP_RCV_ODR T1
+                where
+                    T1.RCV_ODR_COMP_CD = #shipperCd#
+                and T1.CUSTOMER_CD = #customerCd#
+                and T1.LGCY_SHIP_TO = #lgcyShipTo#
+                and T1.TRNS_CD = #trnsCd#
+                and T1.ITEM_NO = #pltzItemNo#
+                and T1.PKG_CD = decode(#pkgCd#, NULL, ' ', #pkgCd#)
+                <isNotEmpty property="customerPoNo">
+                and T1.CUSTOMER_PO_NO = #customerPoNo#
+                </isNotEmpty>
+                and T1.ODR_FIRM_FLG = 'Y'
+                and T1.SHIPPED_TYP = '1'
+                and T1.SHIPPING_DT <![CDATA[ <= ]]> #shipperTimezoneDt#
+                group by
+                    T1.RCV_ODR_COMP_CD
+                ,   T1.CUSTOMER_CD
+                ,   T1.LGCY_SHIP_TO
+                ,   T1.TRNS_CD
+                ,   T1.ITEM_NO
+                ,   T1.PKG_CD
+            ) IV2,
+            (
+                select
+                    T1.SHIPPER_CD
+                ,   T1.LGCY_WH_CD
+                ,   T1.ITEM_NO
+                ,   T1.PKG_CD
+                ,   NVL(T1.QTY, 0) TMP_QTY
+                from
+                    TT_TMP_STOCK T1
+                where
+                    T1.SHIPPER_CD = #shipperCd#
+                and T1.LGCY_WH_CD = #lgcyWhCd#
+                and T1.ITEM_NO = #pltzItemNo#
+                and T1.PKG_CD = decode(#pkgCd#, NULL, ' ', #pkgCd#)
+            ) IV3,
+            (
+                select
+                    T1.COMP_CD
+                ,   T1.ITEM_NO
+                ,   T1.EXP_LIMIT_TYP
+                ,   T1.DNGR_ITEM_FLG
+                ,   T1.ORIGIN_CNTRY_CD
+                from
+                    TM_EXP_FORMALITI_ITEM_NO T1
+                where
+                    T1.COMP_CD = #shipperCd#
+                and T1.ITEM_NO = #pltzItemNo#
+                and T1.APLY_STRT_DT = (
+                    select
+                        max(T2.APLY_STRT_DT)
+                    from
+                        TM_EXP_FORMALITI_ITEM_NO T2
+                    where
+                        T2.COMP_CD = #shipperCd#
+                    and T2.ITEM_NO = #pltzItemNo#
+                    and T2.APLY_STRT_DT <![CDATA[ <= ]]> #shipperTimezoneDt#
+                )
+            ) IV4,
+            (
+                select
+                    T1.COMP_CD
+                ,   T1.ITEM_NO
+                ,   T1.PKG_CD
+                ,   T1.CUSTOMER_CD
+                ,   T1.LGCY_SHIP_TO
+                ,   T1.CONTAINER_SORTING_KEY
+                ,   T1.LOADING_CD
+                ,   T1.INVOICE_KEY
+                ,   T1.STG_INSTR_ITEM_FLG
+                ,   T1.CUSTOM_TIMING_TYP
+                ,   T1.CONTAINER_LOOSE_TYP
+                ,   T1.ITEM_DESCRIPTION
+                ,   T1.SHIPPING_LOT
+                from
+                    TM_EXP_ITEM_NO_SP_INFO T1
+                where
+                    T1.COMP_CD = #shipperCd#
+                and T1.ITEM_NO = #pltzItemNo#
+                and T1.PKG_CD = decode(#pkgCd#, NULL, ' ', #pkgCd#)
+                and T1.CUSTOMER_CD = #customerCd#
+                and T1.LGCY_SHIP_TO = #lgcyShipTo#
+                and T1.APLY_STRT_DT = (
+                    select
+                        max(APLY_STRT_DT) APLY_STRT_DT
+                    from
+                        TM_EXP_ITEM_NO_SP_INFO T2
+                    where
+                        T2.COMP_CD = #shipperCd#
+                    and T2.ITEM_NO = #pltzItemNo#
+                    and T2.PKG_CD = decode(#pkgCd#, NULL, ' ', #pkgCd#)
+                    and T2.CUSTOMER_CD = #customerCd#
+                    and T2.LGCY_SHIP_TO = #lgcyShipTo#
+                    and T2.APLY_STRT_DT <![CDATA[ <= ]]> #shipperTimezoneDt#
+                )
+            ) IV5,
+            ( 
+                select
+                    T1.OWNER_COMP
+                ,   T1.ITEM_NO
+                ,   T1.PKG_CD
+                ,   T1.TRNS_CD
+                ,   T1.SHIP_LOT
+                ,   T1.PKG_FORM_TYP
+                ,   T1.REV
+                ,   T1.VOLUME_UNIT
+                ,   T1.VOLUME_PALLETIZE
+                ,   T1.LENGTH_UNIT
+                ,   T1.LENGTH_PALLETIZE
+                ,   T1.WIDTH_PALLETIZE
+                ,   T1.HEIGHT_PALLETIZE
+                from
+                    TM_PKG_SPEC_HDR T1
+                ,   TM_PKG_SPEC_REV T2
+                where
+                    T2.COMP_CD = #shipperCd#
+                and T2.ITEM_NO = #pltzItemNo#
+                and T2.PKG_CD = decode(#pkgCd#, NULL, ' ', #pkgCd#)
+                and T2.TRNS_CD = #trnsCd#
+                and T2.N_PROC = ' '
+                and T1.OWNER_COMP = T2.COMP_CD
+                and T1.ITEM_NO = T2.ITEM_NO
+                and T1.PKG_CD = T2.PKG_CD
+                and T1.TRNS_CD = T2.TRNS_CD
+                and T1.N_PROC = T2.N_PROC
+                and T1.REV = T2.REV
+                <!-- and T1.PKG_FORM_TYP = 'S' -->
+            ) IV6,
+            (
+                select
+                    T1.OWNER_COMP
+                ,   T1.ITEM_NO
+                ,   T1.PKG_CD
+                ,   T1.TRNS_CD
+                ,   max(T1.REV) MAX_REV
+                from
+                    TM_PKG_SPEC_HDR T1
+                where
+                    T1.OWNER_COMP = #shipperCd#
+                and T1.ITEM_NO = #pltzItemNo#
+                and T1.PKG_CD = decode(#pkgCd#, NULL, ' ', #pkgCd#)
+                and T1.TRNS_CD = #trnsCd#
+                and T1.N_PROC = ' '
+                group by
+                    T1.OWNER_COMP
+                ,   T1.ITEM_NO
+                ,   T1.PKG_CD
+                ,   T1.TRNS_CD
+            ) IV7,
+            (
+                select
+                    T1.OWNER_COMP
+                ,   T1.ITEM_NO
+                ,   T1.WEIGHT_UNIT
+                ,   T1.NET_WEIGHT_A
+                from
+                    TM_ACTUAL_ITEM_WEIGHT T1
+                where
+                    T1.OWNER_COMP = #shipperCd#
+                and T1.ITEM_NO = #pltzItemNo#
+            ) IV8,
+            (
+                select
+                    T1.LGCY_LIB_COMP_CD
+                ,   T1.LGCY_WH_CD
+                ,   T1.PLNT_CD
+                ,   T1.COMP_CD
+                ,   T1.WH_CD
+                from
+                    TM_CIGMA_WH_XREF T1
+                where
+                    T1.LGCY_LIB_COMP_CD = #shipperCd#
+                and T1.LGCY_WH_CD = #lgcyWhCd#
+                and T1.PLNT_CD = #plntCd#
+            ) IV9,
+            (
+                select
+                    T1.LGCY_LIB_COMP_CD
+                ,   T1.CUSTOMER_CD
+                ,   T1.LGCY_SHIP_TO
+                ,   T1.SHIP_TO_CD
+                from
+                    TM_CIGMA_SHIP_TO_XREF T1
+                where
+                    T1.LGCY_LIB_COMP_CD = #shipperCd#
+                and T1.CUSTOMER_CD = #customerCd#
+                and T1.LGCY_SHIP_TO = #lgcyShipTo#
+            ) IV10,
+            (
+                select
+                    T1.LGCY_LIB_COMP_CD
+                ,   T1.CUSTOMER_CD
+                ,   T1.COMP_CD
+                from
+                    TM_CIGMA_CUSTOMER_XREF T1
+                where
+                    T1.LGCY_LIB_COMP_CD = #shipperCd#
+                and T1.CUSTOMER_CD = #customerCd#
+            ) IV11
+        where
+            IV1.RCV_ODR_COMP_CD = IV2.RCV_ODR_COMP_CD(+)
+        and IV1.CUSTOMER_CD     = IV2.CUSTOMER_CD(+)
+        and IV1.LGCY_SHIP_TO    = IV2.LGCY_SHIP_TO(+)
+        and IV1.TRNS_CD         = IV2.TRNS_CD(+)
+        and IV1.ITEM_NO         = IV2.ITEM_NO(+)
+        and IV1.PKG_CD          = IV2.PKG_CD(+)
+        and IV1.RCV_ODR_COMP_CD = IV3.SHIPPER_CD(+)
+        and IV3.LGCY_WH_CD(+)   = #lgcyWhCd#
+        and IV1.ITEM_NO         = IV3.ITEM_NO(+)
+        and IV1.PKG_CD          = IV3.PKG_CD(+)
+        and IV1.RCV_ODR_COMP_CD = IV4.COMP_CD(+)
+        and IV1.ITEM_NO         = IV4.ITEM_NO(+)
+        and IV1.RCV_ODR_COMP_CD = IV5.COMP_CD(+)
+        and IV1.ITEM_NO         = IV5.ITEM_NO(+)
+        and IV1.PKG_CD          = IV5.PKG_CD(+)
+        and IV1.CUSTOMER_CD     = IV5.CUSTOMER_CD(+)
+        and IV1.LGCY_SHIP_TO    = IV5.LGCY_SHIP_TO(+)
+        and IV1.RCV_ODR_COMP_CD = IV6.OWNER_COMP(+)
+        and IV1.ITEM_NO         = IV6.ITEM_NO(+)
+        and IV1.PKG_CD          = IV6.PKG_CD(+)
+        and IV1.TRNS_CD         = IV6.TRNS_CD(+)
+        and IV1.RCV_ODR_COMP_CD = IV7.OWNER_COMP(+)
+        and IV1.ITEM_NO         = IV7.ITEM_NO(+)
+        and IV1.PKG_CD          = IV7.PKG_CD(+)
+        and IV1.TRNS_CD         = IV7.TRNS_CD(+)
+        and IV1.RCV_ODR_COMP_CD = IV8.OWNER_COMP(+)
+        and IV1.ITEM_NO         = IV8.ITEM_NO(+)
+        and IV1.RCV_ODR_COMP_CD = IV9.LGCY_LIB_COMP_CD(+)
+        and IV9.LGCY_WH_CD(+)  = #lgcyWhCd#
+        and IV9.PLNT_CD(+)     = #plntCd#
+        and IV1.RCV_ODR_COMP_CD = IV10.LGCY_LIB_COMP_CD(+)
+        and IV1.CUSTOMER_CD     = IV10.CUSTOMER_CD(+)
+        and IV1.LGCY_SHIP_TO    = IV10.LGCY_SHIP_TO(+)
+        and IV1.RCV_ODR_COMP_CD = IV10.LGCY_LIB_COMP_CD(+)
+        and IV1.CUSTOMER_CD     = IV10.CUSTOMER_CD(+)
+    </select>
+
+    <!--
+    ===============================================================
+    == UT304 MULTI LABEL ADD
+    == PKG work registration process of the Multi Label Register Screen.
+    == For Export In the label is based on the assumption packing in single item,
+    == Of the packaging material per case mark registered in a batch from the packaging specifications.
+    == Not used in the trial item packaging.
+    == Multi Label Register画面のPKGワーク登録処理。
+    == Multi Labelでは単品梱包が前提であるため、1ケースマークあたりの包装材を包装仕様から一括で登録する。
+    == 号試品では使用しない。
+    ===============================================================
+    -->
+    <insert id="CreateTwPltzItemPkgOnMultiLabelRegister" parameterClass="W2009CmlCriteriaDomain">
+        insert /* SqlMap-W2009Cml.CreateTwPltzItemPkgOnMultiLabelRegister */
+        into TW_PLTZ_ITEM_PKG
+        (
+            DSC_ID
+        ,   BRCH
+        ,   PLTZ_ITEM_NO
+        ,   ITEM_DESCRIPTION
+        ,   MODEL_CD
+        ,   QTY
+        ,   PKG_TYP
+        ,   RT_FLG
+        ,   NET_WEIGHT
+        ,   PKG_WEIGHT
+        ,   WEIGHT_UNIT
+        ,   ORIGIN_CNTRY_CD
+        ,   CURR_CD
+        ,   MIX_TAG_NO
+        ,   INPUT_METH_TYP
+        ,   COM_UPDATE_FUNC_ID
+        ,   COM_UPDATE_USER_ID
+        ,   COM_UPDATE_TIMESTAMP
+        ,   COM_CREATE_FUNC_ID
+        ,   COM_CREATE_USER_ID
+        ,   COM_CREATE_TIMESTAMP
+        )
+        select
+            #loginUserDscId#
+        ,   row_number() over (order by T3.PKG_ITEM_NO)
+        ,   T3.PKG_ITEM_NO
+        ,   T4.PKG_MTRL_NM
+        ,   T4.MODEL_CD
+        ,   ceil(T1.SHIP_LOT / T3.LOT_SIZE) * T3.QTY
+        ,   T3.INNER_OUTER_TYP
+        ,   decode(T3.RT_TYP, '1', 'N','Y')
+        ,   T4.PKG_WEIGHT * (ceil(T1.SHIP_LOT / T3.LOT_SIZE) * T3.QTY)
+        ,   T4.PKG_WEIGHT
+        ,   T4.WEIGHT_UNIT
+        ,   T4.ORIGIN_CNTRY_CD
+        ,   T4.CURR_CD
+        ,   NULL
+        ,   '1'
+        ,   'W2020'
+        ,   #loginUserDscId#
+        ,   SYSDATE
+        ,   'W2020'
+        ,   #loginUserDscId#
+        ,   SYSDATE
+        from
+            TM_PKG_SPEC_HDR T1
+        ,   TM_PKG_SPEC_REV T2
+        ,   TM_PKG_SPEC_DTL T3
+        ,   TM_PKG_MTRL T4
+        where
+            T1.OWNER_COMP = T2.COMP_CD
+        and T1.ITEM_NO = T2.ITEM_NO
+        and T1.PKG_CD = T2.PKG_CD
+        and T1.TRNS_CD = T2.TRNS_CD
+        and T1.N_PROC = T2.N_PROC
+        and T1.REV = T2.REV
+        and T1.OWNER_COMP = T3.OWNER_COMP
+        and T1.ITEM_NO = T3.ITEM_NO
+        and T1.PKG_CD = T3.PKG_CD
+        and T1.TRNS_CD = T3.TRNS_CD
+        and T1.N_PROC = T3.N_PROC
+        and T1.REV = T3.REV
+        and T3.OWNER_COMP = T4.OWNER_COMP
+        and T3.PKG_ITEM_NO = T4.PKG_ITEM_NO
+        and T1.OWNER_COMP = #shipperCd#
+        and T1.ITEM_NO = #pltzItemNo#
+        and T1.PKG_CD = decode(#pkgCd#, NULL, ' ', #pkgCd#)
+        and T1.TRNS_CD = #trnsCd#
+        and T1.N_PROC = ' '
+        and T3.RT_TYP != '2'
+    </insert>
+</sqlMap>

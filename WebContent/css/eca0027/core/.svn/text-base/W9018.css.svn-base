@@ -1,0 +1,96 @@
+@CHARSET "utf-8";
+/*
+ * W9018.css
+ * 
+ * Export Formalities by Item MA Inquiry画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+
+/*------------ 検索条件エリア ------------*/ 
+.gscm_search .search_comp_cd {
+    width:78px;
+}
+
+.gscm_search .search_item_no {
+    width:165px;
+}
+
+.gscm_search .search_display {
+    width:155px;
+}
+
+.gscm_search .search_exp_limit_typ {
+    width:78px;
+}
+
+.gscm_search .search_dngr_item_flg {
+    width:59px;
+}
+
+.gscm_search .search_hs_cd {
+    width:140px;
+}
+
+.gscm_search .search_cigma_prdct_flg {
+    width:166px;
+}
+
+table.gscm_search_button .gscm_search_button_add {
+    width:490px;
+}
+
+table.gscm_search_button .gscm_search_button_search {
+    width:490px;
+}
+
+/*------------ 入力項目 ------------*/ 
+.w9018_item_no {
+    width: 172px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+/*------------ 検索結果エリア ------------*/ 
+table.gscm_resultlist {
+    width:800px;
+}
+
+.gscm_resultlist .resultlist_ck {
+    width: 32px;
+}
+
+.gscm_resultlist .resultlist_comp_cd {
+    width: 80px;
+}
+
+.gscm_resultlist .resultlist_item_no {
+    width: 160px;
+}
+
+.gscm_resultlist .resultlist_apply_strt_dt {
+    width: 120px;
+}
+
+.gscm_resultlist .resultlist_exp_limit_typ {
+    width: 80px;
+}
+
+.gscm_resultlist .resultlist_dngr_item_flg {
+    width: 80px;
+}
+
+.gscm_resultlist .resultlist_hs_cd {
+    width: 144px;
+}
+
+.gscm_resultlist .resultlist_cigma_prdct_flg {
+    width: 104px;
+}
+
+.w9018_resultlist_item_no {
+    width: 150px;
+}
+
+.w9018_comp_cd {
+    width: 75px;
+}

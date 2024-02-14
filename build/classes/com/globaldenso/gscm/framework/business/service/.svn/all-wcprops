@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/service
+END
+SearchMainMenuService.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/service/SearchMainMenuService.java
+END
+TmUserService.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/service/TmUserService.java
+END
+SearchMainMenuServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/service/SearchMainMenuServiceImpl.java
+END
+TmUserServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/service/TmUserServiceImpl.java
+END
+TmUserConfService.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/service/TmUserConfService.java
+END
+TmUserConfServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/service/TmUserConfServiceImpl.java
+END
+TtWorkDateService.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/service/TtWorkDateService.java
+END
+TmColumnSizeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/service/TmColumnSizeService.java
+END
+TtWorkDateServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/service/TtWorkDateServiceImpl.java
+END
+TmColumnSizeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/service/TmColumnSizeServiceImpl.java
+END
+TmResourcesService.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/service/TmResourcesService.java
+END
+TmResourcesServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/src_framework/com/globaldenso/gscm/framework/business/service/TmResourcesServiceImpl.java
+END

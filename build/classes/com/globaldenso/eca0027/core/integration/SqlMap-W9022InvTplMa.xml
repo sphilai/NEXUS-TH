@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ * SqlMap-W9022InvTplMa.xml
+ *
+ * W9022InvTplMaDaoのSqlMapファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="W9022InvTplMa">
+    <!-- ================================================== -->
+    <!-- Domainの別名定義 -->
+    <!-- ================================================== -->
+    <!-- Domain -->
+    <typeAlias alias="W9022InvTplMaItemDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W9022InvTplMaItemDomain" />
+    <typeAlias alias="W9022InvTplMaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.W9022InvTplMaDomain" />
+
+    <!-- CriteriaDomain -->
+    <typeAlias alias="W9022InvTplMaCriteriaDomain"
+        type="com.globaldenso.eca0027.core.business.domain.criteria.W9022InvTplMaCriteriaDomain" />
+
+    <!-- ================================================== -->
+    <!-- 検索結果をMapで受け取る                            -->
+    <!-- ================================================== -->
+    <resultMap id="W9022InvTplMaDomain_searchForPagingTmInvTpl" class="W9022InvTplMaItemDomain">
+        <result property="compCd" column="COMP_CD" />
+        <result property="docNo" column="DOC_NO" />
+        <result property="invoiceCtgry" column="INVOICE_CTGRY" />
+        <result property="invoiceClass" column="INVOICE_CLASS" />
+        <result property="comUpdateTimestamp" column="COM_UPDATE_TIMESTAMP" />
+    </resultMap>
+
+    <!-- ================================================== -->
+    <!-- 実行SQL                                            -->
+    <!-- ================================================== -->
+    <!-- 検索 SQL文 (Register / 件数取得) -->
+    <select id="SearchCountTmInvTpl"
+        resultClass="java.lang.Integer" parameterClass="W9022InvTplMaCriteriaDomain">
+        select
+            /* SqlMap-W9022InvTplMa.SearchCountTmInvTpl */
+            count(COMP_CD) COUNT_COMP_CD
+        from
+            TM_INV_TPL
+        <dynamic prepend="where">
+            <isNotEmpty prepend="and" property="compCd">
+                COMP_CD like concat(#compCd#, '%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="docNo">
+                DOC_NO like concat(#docNo#, '%')
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceCtgry">
+                INVOICE_CTGRY = #invoiceCtgry#
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="invoiceClass">
+                INVOICE_CLASS = #invoiceClass#
+            </isNotEmpty>
+            <isParameterPresent prepend="and">
+                COMP_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId# )
+            </isParameterPresent>
+            <isNotEmpty property = "userAuthList" >
+                <iterate prepend = "and" property = "userAuthList" conjunction = "," open=" COMP_CD in (" close=")">
+                    #userAuthList[].authMgtComp#  
+                </iterate >
+            </isNotEmpty >
+        </dynamic>
+    </select>
+
+    <!-- 検索 SQL文(Register / データ取得) -->
+    <select id="SearchForPagingTmInvTpl"
+        resultMap="W9022InvTplMaDomain_searchForPagingTmInvTpl" parameterClass="W9022InvTplMaCriteriaDomain">
+        select
+            /* SqlMap-W9022InvTplMa.SearchForPagingTmInvTpl */
+            COMP_CD
+            , DOC_NO
+            , INVOICE_CTGRY
+            , INVOICE_CLASS
+            , COM_UPDATE_TIMESTAMP
+        from
+            (
+            select
+                COMP_CD
+                , DOC_NO
+                , INVOICE_CTGRY
+                , INVOICE_CLASS
+                , COM_UPDATE_TIMESTAMP
+                , row_number() over (order by COMP_CD, DOC_NO) ROW_NUM
+            from
+                TM_INV_TPL
+            <dynamic prepend="where">
+                <isNotEmpty prepend="and" property="compCd">
+                    COMP_CD like concat(#compCd#, '%')
+                </isNotEmpty>
+                <isNotEmpty prepend="and" property="docNo">
+                    DOC_NO like concat(#docNo#, '%')
+                </isNotEmpty>
+                <isNotEmpty prepend="and" property="invoiceCtgry">
+                    INVOICE_CTGRY = #invoiceCtgry#
+                </isNotEmpty>
+                <isNotEmpty prepend="and" property="invoiceClass">
+                    INVOICE_CLASS = #invoiceClass#
+                </isNotEmpty>
+                <isParameterPresent prepend="and">
+                    COMP_CD in ( select COMP_CD from TM_NXS_COMP where SERVER_ID = #serverId# )
+                </isParameterPresent>
+                <isNotEmpty property = "userAuthList" >
+                    <iterate prepend = "and" property = "userAuthList" conjunction = "," open=" COMP_CD in (" close=")">
+                        #userAuthList[].authMgtComp#
+                    </iterate >
+                </isNotEmpty >
+            </dynamic>
+                order by
+                    COMP_CD
+                    , DOC_NO
+            )
+        where ROW_NUM between #rowNumFrom# and #rowNumTo#
+    </select>
+</sqlMap>

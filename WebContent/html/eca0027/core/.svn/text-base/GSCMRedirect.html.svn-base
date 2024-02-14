@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+ * Project : GSCM 共通機能群
+ * ログイン画面から呼び出され、トップ画面へリダイレクトする。
+ * リダイレクト後、ログイン画面は自動的にクローズする。
+ * Project : GSCM Common Functions
+ * Invoked from login window ,Redirect to top window
+ * After redirect,login window close automatically
+ * Copyright (c) 2013 DENSO IT SOLUTIONS,INC. All rights reserved.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="cache-control" content="no-cache"/>
+        <title>
+            Redirect Page
+        </title>
+        <script>
+            window.name="GSCM_RedirectPage";
+            window.onload = function() {
+                // トップ画面用のウィンドウID(固定)
+                // Window id for top window(fixed)
+                var systemId = "eca0027";
+                var topPageWindowId = systemId + "_gscmwin0";
+
+                // クッキーからトップ画面の値を取得する。
+                // Get information of top screen from Cookie.
+                var stat = "0";
+                if (document.cookie) {
+                    var cookies = document.cookie.split("; ");
+                    for (var i = 0; i < cookies.length; i++) {
+                        var str = cookies[i].split("=");
+                        if (topPageWindowId == str[0]) {
+                            stat = unescape(str[1]);
+                            break;
+                        }
+                    }
+                }
+
+                var contextName = location.href.match(/https?:\/\/[^\/]+\/([^\/]+)\//)[1]; 
+                var closeWindowPath = "/" + contextName + "/html/eca0027/core/GSCMWindowClose.html";
+
+                if (stat != "1") {
+                    // 新規ウィンドウでトップ画面を起動する。
+                    // Open new window as top window
+                    //var topPageWin = window.open("/NEXUS_EXPORT/W0002Init.do?windowId=" + topPageWindowId,
+                    //          topPageWindowId, "menubar=no, resizable=yes, width=1014, height=692");
+                    var topPageWin = window.open("/" + contextName + "/W0002Init.do?windowId=" + topPageWindowId,
+                              topPageWindowId, "menubar=no, resizable=yes, width=1024, height=768");
+                } else {
+                    // トップ画面が起動中の場合、エラーとする。
+                    // If top window is already started,return error.
+                    var errPageWin = window.open("/" + contextName + "/BusinessError.do?msgId=NXS-E1-0067",
+                            "_blank", "menubar=no resizable=yes, width=1024, height=768");
+                }
+
+                // ログイン画面のクローズ処理
+                // Close login window
+                window.open(closeWindowPath, "_self");
+                if (null != window.dialogArguments) {
+                    // ログイン画面がモーダル画面で起動している場合のクローズ処理
+                    // Close function in case of login window open as modal
+                    window.dialogArguments.open(closeWindowPath, "_self");
+                }
+            }
+        </script>
+    </head>
+</html>

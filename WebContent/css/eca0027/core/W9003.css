@@ -1,0 +1,54 @@
+@CHARSET "utf-8";
+/*
+ * W9003.css
+ * 
+ * Agent MA Edit画面で用いるスタイルシートです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+ */
+ 
+/*------------ 検索条件エリア ------------*/ 
+table.grid {
+    width: 560px;
+}
+
+.grid .grid_company_title1 {
+    width:180px;
+}
+
+.grid .grid_company_data1 {
+    width:100px;
+}
+
+.grid .grid_company_data2 {
+    width:280px;
+}
+
+.grid .grid_function_title1 {
+    width:180px;
+}
+
+.grid .grid_function_data1 {
+    width:100px;
+}
+
+.grid .grid_function_title2 {
+    width:180px;
+}
+
+.grid .grid_function_data2 {
+    width:100px;
+}
+/*------------ 画面固有サイズ指定 ------------*/
+.w9003_org_comp_cd {
+    width: 60px;
+}
+
+.w9003_agent_comp_cd {
+    width: 60px;
+    text-transform: uppercase; /* NL040 ADD */
+}
+
+.w9003_agent_comp_nm_abb {
+    width: 110px;
+}

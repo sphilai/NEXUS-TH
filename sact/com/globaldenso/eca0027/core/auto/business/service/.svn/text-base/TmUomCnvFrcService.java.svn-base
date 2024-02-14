@@ -1,0 +1,184 @@
+/*
+ * PROJECT：eca0027
+ * 
+ * TmUomCnvFrc のServiceインターフェース
+ * 
+ * Version.   更新日      更新者        更新内容
+ * 1.0.0      2014/02/18  DNITS  新規作成
+ * 
+ * Copyright (c) 2012 DENSO CORPORATION. All rights reserved.
+ */
+package com.globaldenso.eca0027.core.auto.business.service;
+
+import java.util.List;
+
+import com.globaldenso.ai.common.core.exception.ApplicationException;
+import com.globaldenso.eca0027.core.auto.business.domain.criteria.TmUomCnvFrcCriteriaDomain;
+import com.globaldenso.eca0027.core.auto.business.domain.TmUomCnvFrcDomain;
+
+
+/**
+ * TmUomCnvFrc のServiceインターフェースです。<BR>
+ * 
+ * <BR>
+ * SACT Version： 1.0.1<BR>
+ * 生成日      ： 2014/02/18 09:47:42<BR>
+ * 
+ * テーブル定義から2014/02/18に自動生成したモジュールです。
+ * 
+ * @author $Author: 10088DS01586 $
+ * @version $Revision: 5759 $
+ */
+public interface TmUomCnvFrcService {
+
+    /**
+     * 主キーを条件にデータを検索し、検索結果を返却します。
+     * 
+     * @param criteria tmUomCnvFrcの CriteriaDomain クラス
+     * @return tmUomCnvFrcのDomainクラス
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public TmUomCnvFrcDomain searchByKey(TmUomCnvFrcCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * 任意の条件を元にテーブルのデータを検索し、検索結果をリスト形式で返却します。
+     * 
+     * @param criteria tmUomCnvFrcの CriteriaDomain クラス
+     * @return tmUomCnvFrcのDomainクラスのList
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public List<TmUomCnvFrcDomain> searchByCondition(TmUomCnvFrcCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * <<ページング処理用>>
+     * 任意の条件を元にテーブルのデータを検索し、検索結果をリスト形式で返却します。
+     * 
+     * @param criteria tmUomCnvFrcの CriteriaDomain クラス
+     * @return tmUomCnvFrcのDomainクラスのList
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public List<TmUomCnvFrcDomain> searchByConditionForPaging(TmUomCnvFrcCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * 任意の条件を元にテーブルのデータを検索し、検索結果件数を返却します。
+     * 
+     * @param criteria tmUomCnvFrcの CriteriaDomain クラス
+     * @return int 検索結果件数
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public int searchCount(TmUomCnvFrcCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * 主キーを条件にデータを検索し、検索結果を返却します。
+     * 
+     * <pre>
+     * 更新前処理のレコード取得は当SQLを使用して下さい。
+     * 
+     * SearchByKeyと違い、検索条件に主キー以外の項目も含まれています。
+     * </pre>
+     * 
+     * @param criteria tmUomCnvFrcの CriteriaDomain クラス
+     * @return tmUomCnvFrcのDomainクラス
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public TmUomCnvFrcDomain searchByKeyForChange(TmUomCnvFrcCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * 主キーを条件にロックを取得し、検索結果を返却します。
+     * 
+     * <pre>
+     * 既にロックが取得されている場合、ロックが取得できるまで待機します。
+     * </pre>
+     * 
+     * @param criteria tmUomCnvFrcの CriteriaDomain クラス
+     * @return tmUomCnvFrcのDomainクラス
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public TmUomCnvFrcDomain lockByKey(TmUomCnvFrcCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * 主キーを条件にロックを取得し、検索結果を返却します。
+     * 
+     * <pre>
+     * 既にロックが取得されている場合、例外が発生します。
+     * </pre>
+     * 
+     * @param criteria tmUomCnvFrcの CriteriaDomain クラス
+     * @return tmUomCnvFrcのDomainクラス
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public TmUomCnvFrcDomain lockByKeyNoWait(TmUomCnvFrcCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * データを登録します。
+     * 
+     * @param domain tmUomCnvFrcのDomainクラス
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public void create(TmUomCnvFrcDomain domain) throws ApplicationException;
+
+    /**
+     * データを登録します。
+     * 
+     * @param domains tmUomCnvFrcのDomainクラスのList
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public void create(List<TmUomCnvFrcDomain> domains) throws ApplicationException;
+
+    /**
+     * 主キーを条件に、データを更新します。
+     * 
+     * @param domain tmUomCnvFrcのDomainクラス
+     * @return 更新件数
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public int update(TmUomCnvFrcDomain domain) throws ApplicationException;
+
+    /**
+     * 主キーを条件に、データを更新します。（複数件更新）
+     * 
+     * @param domains tmUomCnvFrcのDomainクラスのList
+     * @return 更新件数
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public int update(List<TmUomCnvFrcDomain> domains) throws ApplicationException;
+
+    /**
+     * 任意の条件を元に、データを更新します。
+     * 
+     * @param domain tmUomCnvFrcのDomainクラス
+     * @param criteria tmUomCnvFrcのCriteriaDomainクラス
+     * @return 更新件数
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public int updateByCondition(TmUomCnvFrcDomain domain, TmUomCnvFrcCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * 任意の条件を元に、データを更新します。（複数件更新）
+     * 
+     * @param domains tmUomCnvFrcのDomainクラスのList
+     * @param criteria tmUomCnvFrcのCriteriaDomainクラスのList
+     * @return 更新件数
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public int updateByCondition(List<TmUomCnvFrcDomain> domains, List<TmUomCnvFrcCriteriaDomain> criteria) throws ApplicationException;
+
+    /**
+     * 主キーを条件に、データを物理削除します。
+     * 
+     * @param criteria tmUomCnvFrcのCriteriaDomainクラス
+     * @return 削除件数
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public int delete(TmUomCnvFrcCriteriaDomain criteria) throws ApplicationException;
+
+    /**
+     * 任意の条件を元に、データを物理削除します。
+     * 
+     * @param criteria tmUomCnvFrcのCriteriaDomainクラス
+     * @return 削除件数
+     * @throws ApplicationException アプリ基盤のアプリケーション例外です。
+     */
+    public int deleteByCondition(TmUomCnvFrcCriteriaDomain criteria) throws ApplicationException;
+
+}

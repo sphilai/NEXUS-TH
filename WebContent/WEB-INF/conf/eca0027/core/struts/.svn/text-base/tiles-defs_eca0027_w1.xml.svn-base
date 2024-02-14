@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * tiles-defs_eca0027_w1.xml
+ *
+ * AI-J2(Struts) の Tiles 設定ファイルです。
+ *
+ * Copyright (c) 2014 DENSO CORPORATION. All rights reserved.
+-->
+<!DOCTYPE tiles-definitions PUBLIC
+            "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+            "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+
+    <!-- 個別画面 -->
+    <!-- ====================================================================-->
+
+    <!--
+        この個別画面の定義名はaction-mappingsのforwardタグと紐付き、
+        header.jspにて画面IDとして共通的に埋め込まれます。
+        このため、この個別画面の定義名には、画面IDそのものを使用してください。
+    -->
+
+    <!-- 梱包指示Main画面 -->
+    <definition name="W1001" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W1001"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W1001.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W1001"/>
+        <put name="js_filepath" value="js/eca0027/core/W1001.js"/>
+    </definition>
+    
+    <definition name="W1002" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W1002"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W1002.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W1002"/>
+    	<put name="js_filepath" value="js/eca0027/core/W1002.js"/>
+    </definition>
+    
+    <definition name="W1003" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W1003"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W1003.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W1003"/>
+        <put name="js_filepath" value="js/eca0027/core/W1003.js"/>
+    </definition>
+    
+    <definition name="W1004" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W1004"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W1004.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W1004"/>
+        <put name="js_filepath" value="js/eca0027/core/W1004.js"/>
+    </definition>
+    
+    <definition name="W1006" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W1006"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W1006.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W1006"/>
+        <put name="js_filepath" value="js/eca0027/core/W1006.js"/>
+    </definition>
+    <definition name="W1007" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W1007"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W1007.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W1007"/>
+        <put name="js_filepath" value="js/eca0027/core/W1007.js"/>
+    </definition>
+     <definition name="W1008" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W1008"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W1008.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W1008"/>
+        <put name="js_filepath" value="js/eca0027/core/W1008.js"/>
+    </definition>
+    <definition name="W1009" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W1009"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W1009.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W1009"/>
+        <put name="js_filepath" value="js/eca0027/core/W1009.js"/>
+    </definition>
+    <definition name="W1010" extends=".tiles.layout.main">
+        <put name="message_area_height" value="50"/>
+        <put name="screenId" value="W1010"/>
+        <put name="body" value="/WEB-INF/jsp/eca0027/core/W1010.jsp" />
+        <put name="css_prefix" value="css/eca0027/core/W1010"/>
+    </definition>
+</tiles-definitions>

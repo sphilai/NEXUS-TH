@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/E008_ECA0027/!svn/ver/15734/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF
+END
+applicationContext-aij2_ph.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/E008_ECA0027/!svn/ver/15254/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/applicationContext-aij2_ph.xml
+END
+applicationContext-aij2_th.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/E008_ECA0027/!svn/ver/14903/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/applicationContext-aij2_th.xml
+END
+applicationContext-aij2_asia.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/applicationContext-aij2_asia.xml
+END
+applicationContext-aij2-jdbc-pro.xml
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/applicationContext-aij2-jdbc-pro.xml
+END
+Export_Detail_template.csv
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/Export_Detail_template.csv
+END
+validation.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/validation.xml
+END
+applicationContext-aij2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/E008_ECA0027/!svn/ver/15255/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/applicationContext-aij2.xml
+END
+applicationContext-aij2-jdbc.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/applicationContext-aij2-jdbc.xml
+END
+password-dev.txt
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/E008_ECA0027/!svn/ver/13688/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/password-dev.txt
+END
+applicationContext-aij2-jdbc-prelive.xml
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/applicationContext-aij2-jdbc-prelive.xml
+END
+tiles-defs.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/tiles-defs.xml
+END
+validator-rules-aij2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/validator-rules-aij2.xml
+END
+SqlMapConfig-aij2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/E008_ECA0027/!svn/ver/15734/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/SqlMapConfig-aij2.xml
+END
+struts-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/struts-config.xml
+END
+applicationContext-aij2-jdbc-dev.xml
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/applicationContext-aij2-jdbc-dev.xml
+END
+applicationContext-aij2-aop.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/applicationContext-aij2-aop.xml
+END
+applicationContext-aijbutil.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/applicationContext-aijbutil.xml
+END
+applicationContext-library.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/applicationContext-library.xml
+END
+validator-rules.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/E008_ECA0027/!svn/ver/13681/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/validator-rules.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/E008_ECA0027/!svn/ver/15734/nexus_main/Branches/Asia/PGM/NEXUS_EXPORT/WebContent/WEB-INF/web.xml
+END

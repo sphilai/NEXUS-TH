@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * applicationContext-aijb-residentReqApp_eca0027.xml
+ *
+ * This is the Spring configuration file for the service definition of request job(version resident)
+ * that is started from the resident request job.
+ * 常駐リクエストジョブから起動するリクエストジョブ(常駐版)のサービス定義用の Spring 設定ファイルです。
+ *
+ * Copyright (c) 2015 DENSO CORPORATION. All rights reserved.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!-- AIJB メッセージログ登録部品  -->
+    <import resource="classpath:/library-config/applicationContext-aijbutil.xml" />
+    <!-- アプリ基盤 共通部品 -->
+    <import resource="classpath:applicationContext-library.xml" />
+
+    <bean id="springUtil" class="com.globaldenso.gscm.framework.util.SpringUtil" />
+
+    <!-- [JP] Service実装 ======================================================= -->
+    <!-- [EN] Service implementation ============================================ -->
+    <!-- [JP]   利用する Service はここに定義してください。                       -->
+    <!-- [EN]   Please define here is to use Service.                      -->
+    <!-- =================================================================== -->
+
+    <!-- リソースマスタ Service -->
+    <bean id="tmResourcesService" class="com.globaldenso.gscm.framework.business.service.TmResourcesServiceImpl">
+        <property name="tmResourcesDao" ref="tmResourcesDao" />
+    </bean>
+    <bean id="gscmTmResourcesService" class="com.globaldenso.gscm.framework.business.service.TmResourcesServiceImpl">
+        <property name="tmResourcesDao" ref="gscmTmResourcesDao" />
+    </bean>
+    
+    <!-- ユーザー設定原単位 Service -->
+    <bean id="gscmTmUserConfService" class="com.globaldenso.gscm.framework.business.service.TmUserConfServiceImpl">
+        <property name="tmUserConfDao" ref="gscmTmUserConfDao" />
+    </bean>
+
+    <!-- SACT -->
+    <import resource="classpath:applicationContext-service_auto.xml" />
+
+    <!-- 共通サービス -->
+    <bean id="commonService" class="com.globaldenso.eca0027.core.common.business.service.CommonServiceImpl">
+        <property name="tmCdService" ref="tmCdService" />
+        <property name="timezoneManageService" ref="timezoneManageService" />
+        <property name="tmCurrencyService" ref="tmCurrencyService" />
+        <property name="tmInvTplService" ref="tmInvTplService" />
+        <property name="tmExpRegulateTypService" ref="tmExpRegulateTypService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="tmMeasureUnitService" ref="tmMeasureUnitService" />
+        <property name="tmTrnsTypService" ref="tmTrnsTypService" />
+        <property name="tmSeqService" ref="tmSeqService" />
+        <property name="tmCigmaShipToXrefService" ref="tmCigmaShipToXrefService" />
+        <property name="tmCigmaWhXrefService" ref="tmCigmaWhXrefService" />
+        <property name="tmNxsWhService" ref="tmNxsWhService" />
+        <property name="tmNxsShipToService" ref="tmNxsShipToService" />
+        <property name="tmPkgSetHdrService" ref="tmPkgSetHdrService" />
+        <property name="tmCntryService" ref="tmCntryService" />
+        <property name="tmPortService" ref="tmPortService" />
+        <property name="tmCigmaEnvService" ref="tmCigmaEnvService" />
+        <property name="tmUomCnvDecService" ref="tmUomCnvDecService" />
+        <property name="vtCompMeasureUnitService" ref="vtCompMeasureUnitService" />
+    </bean>
+    
+    <!-- サービス (帳票) -->
+    <bean id="abstractReportService" abstract="true" class="com.globaldenso.eca0027.core.business.service.report.AbstractReportServiceImpl">
+        <property name="tmUserConfService" ref="gscmTmUserConfService" />
+    </bean>
+
+    <!-- LB001サービス -->
+    <bean id="lb001ReportService" parent="abstractReportService" class="com.globaldenso.eca0027.core.business.service.LB001ReportServiceImpl" >
+        <property name="rpOdrRcvDao" ref="rpOdrRcvDao" />
+        <property name="commonService" ref="commonService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="ttEdiRcvOdrReportService" ref="ttEdiRcvOdrReportService" />
+        <property name="vtRpOdrRcvErrReportHdrService" ref="vtRpOdrRcvErrReportHdrService" />
+        <property name="wsB010RestService" ref="wsB010RestService" />
+        <property name="ws9003RestService" ref="ws9003RestService" />
+        
+    </bean>
+
+    <!-- Webサービスクライアント (WS_B006) -->
+    <bean id="wsB006RestService" class="com.globaldenso.eca0027.core.business.ws.WsB006RestServiceImpl">
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Webサービスクライアント (WS_B007) -->
+    <bean id="wsB007RestService" class="com.globaldenso.eca0027.core.business.ws.WsB007RestServiceImpl">
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Webサービスクライアント (WS_B008) -->
+    <bean id="wsB008RestService" class="com.globaldenso.eca0027.core.business.ws.WsB008RestServiceImpl">
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- Webサービスクライアント (WS_B010) -->
+    <bean id="wsB010RestService" class="com.globaldenso.eca0027.core.business.ws.WsB010RestServiceImpl">
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- MGT575 ADD START -->
+    <!-- Webサービスクライアント (WS_B012) -->
+    <bean id="wsB012RestService" class="com.globaldenso.eca0027.core.business.ws.WsB012RestServiceImpl">
+        <property name="commonService" ref="commonService" />
+    </bean>
+    <!-- MGT575 ADD END -->
+
+    <!-- Webサービスクライアント (WS_B020) -->
+    <bean id="wsB020RestService" class="com.globaldenso.eca0027.core.business.ws.WsB020RestServiceImpl">
+        <property name="commonService" ref="commonService" />
+    </bean>
+
+    <!-- Webサービスクライアント (WS_9003) -->
+    <bean id="ws9003RestService" class="com.globaldenso.eca0027.core.business.ws.Ws9003RestServiceImpl">
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <!-- EDI受注登録バッチ -->
+    <bean id="jbEdiRcvOdrService" class="com.globaldenso.eca0027.core.business.service.JbEdiRcvOdrServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="ttBatchReqParamService" ref="ttBatchReqParamService" />
+        <property name="tmNxsCompService" ref="tmNxsCompService" />
+        <property name="tmResourcesService" ref="tmResourcesService" />
+        <property name="ttEdiRcvOdrService" ref="ttEdiRcvOdrService" />
+        <property name="ttEdiRcvOdrReportService" ref="ttEdiRcvOdrReportService" />
+        <property name="ttExpRcvOdrUpdService" ref="ttExpRcvOdrUpdService" />
+        <property name="lb001ReportService" ref="lb001ReportService" />
+        <property name="wsB006RestService" ref="wsB006RestService" />
+        <property name="wsB007RestService" ref="wsB007RestService" />
+        <property name="wsB008RestService" ref="wsB008RestService" />
+        <property name="wsB020RestService" ref="wsB020RestService" />
+        <property name="messageLogFacadeService" ref="messageLogFacadeService" />
+        <property name="jbEdiRcvOdrDao" ref="jbEdiRcvOdrDao" />
+    </bean>
+
+    <!-- MGT575 ADD START -->
+    <!-- Order Upload -->
+    <bean id="jbOdrUploadService" class="com.globaldenso.eca0027.core.business.service.JbOdrUploadServiceImpl">
+        <property name="commonService" ref="commonService" />
+        <property name="tmUserConfService" ref="gscmTmUserConfService" />
+        <property name="tmResourcesService" ref="tmResourcesService" />
+        <property name="fileManagerServiceForStream" ref="fileManagerServiceForStream" />
+        <property name="messageLogFacadeService" ref="messageLogFacadeService" />
+        <property name="ttOdrUploadReqMgtService" ref="ttOdrUploadReqMgtService" />
+        <property name="twOdrUploadService" ref="twOdrUploadService" />
+        <property name="twOdrUploadUpdService" ref="twOdrUploadUpdService" />
+        <property name="wsB012RestService" ref="wsB012RestService" />
+        <property name="wsB007RestService" ref="wsB007RestService" />
+        <property name="jbOdrUploadDao" ref="jbOdrUploadDao" />
+    </bean>
+    <!-- MGT575 ADD END -->
+
+    <!-- [JP] DAO実装 =========================================================== -->
+    <!-- [EN] DAO implementation ================================================ -->
+    <!-- [JP]   利用する DAO はここに定義してください。                           -->
+    <!-- [EN]   Please define here is to use DAO.                         -->
+    <!-- =================================================================== -->
+
+    <!-- リソースマスタ DAO -->
+    <bean id="tmResourcesDao" class="com.globaldenso.gscm.framework.integration.TmResourcesDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="gscmTmResourcesDao" class="com.globaldenso.gscm.framework.integration.TmResourcesDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- ユーザー設定原単位 DAO -->
+    <bean id="gscmTmUserConfDao" class="com.globaldenso.gscm.framework.integration.TmUserConfDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- SACT -->
+    <import resource="classpath:applicationContext-dao_auto.xml" />
+
+    <!-- EDI受注登録DAO -->
+    <bean id="jbEdiRcvOdrDao" class="com.globaldenso.eca0027.core.integration.JbEdiRcvOdrDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- LB001の帳票作成用DAO -->
+    <bean id="rpOdrRcvDao" class="com.globaldenso.eca0027.core.integration.RpOdrRcvDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <!-- MGT575 ADD START -->
+    <!-- Order Upload DAO -->
+    <bean id="jbOdrUploadDao" class="com.globaldenso.eca0027.core.integration.JbOdrUploadDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <!-- MGT575 ADD END -->
+
+</beans>

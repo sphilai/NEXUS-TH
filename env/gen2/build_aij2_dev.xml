@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ===========================================================================
+
+ [JP] build_aij2_dev.xml (AI-J2(war)作成:開発機用)
+ [EN] build_aij2_dev.xml (Create a AI-J2(war): for development machine)
+    
+    $ build_aij2_dev.xml 2158 2012-06-15 01:51:22Z koji_a_yamamoto@dnitsol.com $
+
+============================================================================ -->
+<project name="[NEXUS_EXPORT] AI-J2 Ant Build(Development)" default="makeWar" basedir=".">
+    <!-- [JP] * ビルドの初期設定ファイルをインポート * -->
+    <!-- [EN] * Import the initialization file of the build * -->
+    <import file="build_aij2_pro.xml" />
+
+    <!-- [JP] * 初期化 for 開発機 * -->
+    <!-- [EN] * Initialization for development machine * -->
+    <target name="config_aij2">
+        <echo message="Using a configuration file for the development machine." />
+        <property name="war.name.wrk"            value="${war.name}Dev_${timestamp}.war" />
+        <property name="jdbc-aij2.prop.wrk"      value="${jdbc-aij2.prop.dev}" />
+        <property name="log4j.prop.web.wrk"      value="${log4j.prop.web.dev}" />
+        <property name="appCtx.jdbc.web.wrk"     value="${appCtx.jdbc.web.dev}" />
+        <property name="env.wrk"                 value="${env.dev}" />
+    	<property name="ldapConnection.prop.wrk" value="${ldapConnection.prop.dev}" />
+    </target>
+
+</project>
